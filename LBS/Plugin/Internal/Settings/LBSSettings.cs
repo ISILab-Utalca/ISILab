@@ -83,26 +83,26 @@ namespace ISILab.LBS.Settings
         public class Paths
         {
             // Controller Paths
-            public string settingsPath = "Assets/ISI Lab/LBS/Plugin/Internal/Settings/Resources/LBS Settings.asset";
-            public string storagePath = "Assets/ISI Lab/LBS/Plugin/Internal/Editor/LBS Storage.asset";
-            public string pressetsPath = "Assets/ISI Lab/LBS/Presets/LBS Presets.asset";
-            public string backUpPath = "Assets/ISI Lab/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
-
-            // Folders data storages
-            public string bundleFolderPath = "Assets/ISI Lab/LBS/Data/Bundles";
-            public string tagFolderPath = "Assets/ISI Lab/LBS/Data/Tags";
-            public string meshFolderPath = "Assets/ISI Lab/LBS/Data/Meshes";
-
-            // Folders extra storages
-            public string iconPath = "Assets/ISI Lab/LBS/Plugin/Internal/Icons";
-
-            // Folders presets
-            public string layerPressetFolderPath = "Assets/ISI Lab/LBS/Presets/Layers";
-            public string assistantPresetFolderPath = "Assets/ISI Lab/LBS/Presets/Assistants";
-            public string assistantOptimizerPresetPath = "Assets/ISI Lab/LBS/Presets/Optimizers";
-            public string assistantEvaluatorPresetPath = "Assets/ISI Lab/LBS/Presets/Evaluators";
-            public string Generator3DPresetFolderPath = "Assets/ISI Lab/LBS/Presets/Generators3D";
-            public string bundlesPresetFolderPath = "Assets/ISI Lab/LBS/Presets/Bundles";
+            public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBS Settings.asset";
+            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Editor/LBS Storage.asset";
+            public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/LBS Presets.asset";
+            public string backUpPath                    = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
+                                                                  
+            // Folders data storages                              
+            public string bundleFolderPath              = "Assets/isi-lab-unity-module/LBS/Data/Bundles";
+            public string tagFolderPath                 = "Assets/isi-lab-unity-module/LBS/Data/Tags";
+            public string meshFolderPath                = "Assets/isi-lab-unity-module/LBS/Data/Meshes";
+                                                                  
+            // Folders extra storages                             
+            public string iconPath                      = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Icons";
+                                                                  
+            // Folders presets                                    
+            public string layerPressetFolderPath        = "Assets/isi-lab-unity-module/LBS/Presets/Layers";
+            public string assistantPresetFolderPath     = "Assets/isi-lab-unity-module/LBS/Presets/Assistants";
+            public string assistantOptimizerPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Optimizers";
+            public string assistantEvaluatorPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Evaluators";
+            public string Generator3DPresetFolderPath   = "Assets/isi-lab-unity-module/LBS/Presets/Generators3D";
+            public string bundlesPresetFolderPath       = "Assets/isi-lab-unity-module/LBS/Presets/Bundles";
 
             //public string savedMapsPresetPath = "Assets/ISI Lab/LBS/Presets/SavedMaps";
 
