@@ -55,7 +55,7 @@ namespace ISILab.LBS.Manipulators
              Selected = tileGroup;
              if(Selected!=null) _storedPosition = position;
              MainView.Instance.SetManipulatorZoom(Selected == null);
-             DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+             //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
