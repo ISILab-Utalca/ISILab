@@ -534,6 +534,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 sw.Stop();
                 LBSMainWindow.MessageNotifyDelayed($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)", LogType.Log, 5);
                 Debug.Log($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)");
+                OnAssistantTerminate();
             });
 
             //SetBackgroundTexture(square, assistant.RawToolRect);
@@ -567,10 +568,6 @@ namespace ISILab.LBS.VisualElements.Editor
             var token = _currentTaskCts.Token;
 
             var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-
-            taskbar.OnProgressCancelled -= CancelCurrentTask;
-            taskbar.OnProgressCancelled += CancelCurrentTask;
-
             void ReportProgress(float normalized)
             {
                 // Use update so progress applies immediately
@@ -588,13 +585,9 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 try
                 {
+                    assistant.OnTermination -= OnAssistantTerminate;
+                    assistant.OnTermination += OnAssistantTerminate;
                     assistant.Execute(false, ReportProgress, token);
-                    EditorApplication.delayCall += () =>
-                    {
-                        taskbar.EnableProcess(false);
-                        UpdateContent();
-                        Repaint();
-                    };
                 }
                 catch (Exception ex)
                 {
@@ -606,6 +599,17 @@ namespace ISILab.LBS.VisualElements.Editor
                     };
                 }
             }, token);
+        }
+
+        private void OnAssistantTerminate()
+        {
+            EditorApplication.delayCall += () =>
+            {
+                var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
+                taskbar.EnableProcess(false);
+                UpdateContent();
+                Repaint();
+            };
         }
 
         //Apply the suggestion in the world
