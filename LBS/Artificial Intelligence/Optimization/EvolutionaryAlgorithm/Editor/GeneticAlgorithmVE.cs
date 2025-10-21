@@ -61,6 +61,7 @@ namespace ISILab.LBS.VisualElements
             if (genetic.Termination != null)
             {
                 termination.SetInfo(genetic.Termination);
+                
             }
             if (genetic.Mutation != null)
             {

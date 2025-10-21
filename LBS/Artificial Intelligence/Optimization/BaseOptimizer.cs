@@ -257,6 +257,10 @@ namespace ISILab.AI.Optimization
 
         public void Run(Action<float> onProgress = null, CancellationToken token = default)
         {
+            // hardocoded to do 20 interations lets use that
+            int iterations = 0;
+            var gnt = Termination as  GenerationNumberTermination;
+            int maxIterations = gnt.ExpectedGenerationNumber;
             while(!TerminationReached() && !(State == Op_State.Paused || State == Op_State.Stopped))
             {
                 if (stopRequested || token.IsCancellationRequested)
@@ -271,10 +275,13 @@ namespace ISILab.AI.Optimization
                 }
 
                 clock.Restart();
-                RunOnce(onProgress, token);
+                RunOnce(null, token);
+                onProgress?.Invoke((float)iterations/maxIterations);
+                Thread.Sleep(1);
                 clock.Stop();
                 OnGenerationRan?.Invoke();
                 State = Op_State.Running;
+                iterations++;
             }
         }
 

@@ -183,16 +183,16 @@ namespace ISILab.AI.Optimization
         private bool EndCurrentGeneration()
         {
             Population.EndCurrentGeneration();
-
+            
             OnGenerationRan?.Invoke();
-
+            
             if (Termination.HasReached(this))
             {
                 State = Op_State.TerminationReached;
                 //OnTerminationReached?.Invoke(); This is currently called from base class.
                 return true;
             }
-
+            
             if (stopRequested)
             {
                 TaskExecutor.Stop();
@@ -249,8 +249,8 @@ namespace ISILab.AI.Optimization
                     {
                         RunEvaluateFitness(c);
                     });
-                    onProgress?.Invoke((float)index/optimizables.Count);
-                    Thread.Sleep(1);
+                   // onProgress?.Invoke((float)index/optimizables.Count);
+                   // Thread.Sleep(1);
                    
                 }
 
