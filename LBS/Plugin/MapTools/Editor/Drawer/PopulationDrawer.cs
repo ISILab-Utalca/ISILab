@@ -31,7 +31,6 @@ namespace ISILab.LBS.Drawers
             {
                 return;
             }
-
             
             PaintNewTiles(population, view);
             UpdateLoadedTiles(population, view);
