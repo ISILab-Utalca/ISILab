@@ -345,6 +345,8 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired] 
         string guid;
 
+        string locationKey = null;
+
         #region PROPERTIES
         [JsonIgnore]
         public List<LBSTile> TileGroup
@@ -386,6 +388,23 @@ namespace ISILab.LBS.Modules
             get => rotation;
             set => rotation = value;
         }
+
+        [JsonIgnore]
+        public string LocationKey
+        {
+            get
+            {
+                locationKey ??= TileGroup.SortedElementsToString((t1, t2) =>
+                {
+                    int compX = t1.x.CompareTo(t2.x);
+                    if (compX != 0) return compX;
+                    return t1.y.CompareTo(t2.y);
+                });
+                return locationKey;
+            }
+            set => locationKey = value;
+        }
+
         public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation)
         {
             tileGroup = tiles;
@@ -477,6 +496,15 @@ namespace ISILab.LBS.Modules
                 (bounds.x + bounds.width/2),
                 (bounds.y + bounds.height/2)
                 );
+        }
+
+        public void Translate(Vector2Int offset)
+        {
+            foreach (LBSTile tile in TileGroup)
+            {
+                tile.Position += offset;
+            }
+            LocationKey = null;
         }
 
         public object Clone()
