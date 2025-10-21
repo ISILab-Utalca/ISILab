@@ -47,10 +47,7 @@ namespace ISILab.LBS.VisualElements
             
             if (bundle.GetHasTagCharacteristic("NonRotate"))
             {
-                foreach (var arrow in arrows)
-                {
-                    arrow.style.display = DisplayStyle.None;
-                }
+                HideArrows();
             }
 
 
@@ -63,6 +60,14 @@ namespace ISILab.LBS.VisualElements
 
             arrows.ForEach(v => v.visible = false);
             arrows[dir].visible = true;
+        }
+
+        public void HideArrows()
+        {
+            foreach (var arrow in arrows)
+            {
+                arrow.style.display = DisplayStyle.None;
+            }
         }
 
         public void SetPivot(Vector2 pivot)

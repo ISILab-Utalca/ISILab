@@ -87,7 +87,7 @@ namespace ISILab.LBS.Characteristics
             }
             foreach(Asset asset in Assets)
             {
-                if (gridList[asset] == null)
+                if (gridList?[asset] == null)
                 {
                     warnings.Add("gridlist for " + asset + " is null.");
                 }
