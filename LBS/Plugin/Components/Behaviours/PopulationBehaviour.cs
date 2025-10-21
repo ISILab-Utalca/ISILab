@@ -222,6 +222,11 @@ namespace ISILab.LBS.Behaviours
             RequestTileRemove(tile);
             RequestTilePaint(tile);
         }
+
+        public override object[] RetrieveExpiredTiles()
+        {
+            return base.RetrieveExpiredTiles().Cast<TileBundleGroup>().Select(t => t.LocationKey).ToArray();
+        }
         
         public override object Clone()
         {

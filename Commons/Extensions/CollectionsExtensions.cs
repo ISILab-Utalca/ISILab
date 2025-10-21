@@ -142,6 +142,21 @@ namespace ISILab.Extensions
                 (list[k], list[n]) = (list[n], list[k]);
             }
         }
+
+        public static string ElementsToString<T>(this List<T> list)
+        {
+            return string.Join(";", list.ToArray());
+        }
+
+        public static string SortedElementsToString<T>(this List<T> list, Comparison<T> sorter)
+        {
+            if (list.Count == 0) return list.ToString();
+            if (list.Count == 1) return list[0].ToString();
+
+            var sortedList = new List<T>(list);
+            sortedList.Sort(sorter);
+            return sortedList.ElementsToString();
+        }
         
         #endregion
 
