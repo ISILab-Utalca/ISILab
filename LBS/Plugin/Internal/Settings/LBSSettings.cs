@@ -85,7 +85,7 @@ namespace ISILab.LBS.Settings
             // Controller Paths
             public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBS Settings.asset";
             public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Editor/LBS Storage.asset";
-            public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/LBS Presets.asset";
+            public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
             public string backUpPath                    = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
                                                                   
             // Folders data storages                              
