@@ -225,16 +225,14 @@ namespace ISILab.LBS.Assistants
                             }
                         }
                         Positions = positions;
-                        bool sectorSuccess = Execute();//ExecuteChance();
+                        bool sectorSuccess = Execute(onProgress, token);//ExecuteChance();
                         if (sectorSuccess)
                         {
                             sectorSuccessCount++;
                         }
                         else break;
                     }
-                    
-                               
-                    onProgress?.Invoke((float)i/limit);
+                
                     Thread.Sleep(1);
                     
                     if (sectorSuccessCount >= sectors.Count)
