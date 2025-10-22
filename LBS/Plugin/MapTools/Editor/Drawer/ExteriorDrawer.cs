@@ -73,6 +73,8 @@ namespace ISILab.LBS.Drawers
                 {
                     createCount++;
                     tView = GetTileView(newTile, connections, teselationSize, exterior.GridType);
+                    if(tView is null) return;
+                    
                     // Stores using LBSTile as key
                     view.AddElementToLayerContainer(exterior.OwnerLayer, newTile, tView);
                 } 
@@ -242,6 +244,8 @@ namespace ISILab.LBS.Drawers
 
         private ExteriorTileView GetTileView(LBSTile tile, List<string> connections, Vector2 teselationSize, ConnectedTileType gridType)
         {
+            if(!connections.Any()) return null;
+            
             ExteriorTileView tView = null;
             switch(gridType)
             {

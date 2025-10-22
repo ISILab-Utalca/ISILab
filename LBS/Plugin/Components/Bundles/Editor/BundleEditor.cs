@@ -42,7 +42,36 @@ namespace ISILab.LBS.Bundles.Editor
             {
                 bundle.RemoveNullChildren();
             }
-                    
+    
+            #region Icon
+            var iconProp = serializedObject.FindProperty("icon");
+
+            if (iconProp != null)
+            {
+                var iconField = new PropertyField(iconProp);
+                iconField.Bind(serializedObject);
+                root.Add(iconField);
+
+                iconField.TrackPropertyValue(iconProp, prop =>
+                {
+                    var bundle = target as Bundle;
+                    if (bundle == null) return;
+
+                    // Extract the new VectorImage reference from the serialized property
+                    var newIcon = prop.objectReferenceValue as VectorImage;
+
+                    // Use your custom setter instead of modifying the field directly
+                    bundle.Icon = newIcon;
+
+                    // Mark asset dirty to persist the change
+                    EditorUtility.SetDirty(bundle);
+                    root.MarkDirtyRepaint();
+
+                    Debug.Log($"[BundleEditor] Icon updated for '{bundle.name}' → {newIcon?.name ?? "null"}");
+                });
+            }
+            #endregion
+            
             // Element option
             if (bundle != null && bundle.Type == Bundle.TagType.Element)
             {

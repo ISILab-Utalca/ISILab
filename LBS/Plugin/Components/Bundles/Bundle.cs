@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Internal;
+using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Bundles.Tools;
 
@@ -105,6 +106,9 @@ namespace LBS.Bundles
         [SerializeField]
         private Color color;
 
+        [SerializeField, HideInInspector] 
+        private string iconGuid;
+        
         [SerializeField]
         private VectorImage icon;
         
@@ -150,9 +154,25 @@ namespace LBS.Bundles
 
         public VectorImage Icon
         {
-            get => !icon ? null : icon;
-            set => icon = value;
+            get
+            {
+                if (icon is not null)
+                {
+                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon); ;
+                }
+                else
+                {
+                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                }
+                return icon;
+            }
+            set
+            {
+                icon = value;
+                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+            }
         }
+
         public Color Color => color;
         public string Name => name;
         public List<Asset> Assets
