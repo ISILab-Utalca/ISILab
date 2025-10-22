@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <Style src="project://database/Assets/ISI%20Lab/LBS/Plugin/VisualElements/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
+    <Style src="project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <ui:VisualElement name="ExtraToolsBar" class="lbs-background-panel" style="overflow: visible; position: relative; height: auto; width: 32px; top: auto; left: auto; display: flex; visibility: visible; flex-shrink: 0; max-width: 48px; min-width: 48px; align-items: stretch; flex-direction: column; justify-content: flex-start; margin-left: 1px; margin-top: -1px; flex-grow: 1;">
         <ui:VisualElement name="Separator" style="flex-grow: 0; border-bottom-width: 1px; height: 8px; background-color: rgb(72, 72, 72); border-bottom-color: rgb(35, 35, 35);" />
         <ui:VisualElement name="FloatingPanelButtonContainer" style="flex-grow: 0; flex-direction: column-reverse; justify-content: flex-end;">
@@ -21,7 +21,7 @@
             <ui:Toggle value="false" focusable="true" name="AssistantButton" tooltip="AI Assistant" class="lbs-tool-button-toggle lbs-tab-button" style="flex-direction: row; height: 40px; display: flex; border-right-width: 0;">
                 <ui:VisualElement name="Icon" class="lbs-default-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; background-image: resource(&apos;Icons/Vectorial/Icon=AI_Assistant&apos;); -unity-background-image-tint-color: rgb(255, 255, 255);" />
             </ui:Toggle>
-            <ui:Toggle value="false" focusable="true" name="BehaviorButton" tooltip="Behaviours" class="lbs-tool-button-toggle lbs-tab-button" style="flex-direction: row; height: 40px; display: flex; border-right-width: 0;">
+            <ui:Toggle value="false" focusable="true" name="BehaviorButton" tooltip="Palette" class="lbs-tool-button-toggle lbs-tab-button" style="flex-direction: row; height: 40px; display: flex; border-right-width: 0;">
                 <ui:VisualElement name="Icon" class="lbs-default-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; background-image: resource(&apos;Icons/Vectorial/Icon=Palette&apos;); -unity-background-image-tint-color: rgb(255, 255, 255); height: 22px; -unity-text-align: middle-center;" />
             </ui:Toggle>
         </ui:VisualElement>
