@@ -55,7 +55,8 @@ namespace ISILab.LBS.VisualElements
             Color invalidColor = Color.white;
             Color color = invalidColor;
             Dictionary<Color, int> ConnectionColors = new Dictionary<Color, int>();
-            if (!string.IsNullOrEmpty(tags[0]))
+            
+            if (tags.Any() && !string.IsNullOrEmpty(tags[0]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[0])).Color;
                 SetBackgroundColor(rightConnection, color);
@@ -71,7 +72,7 @@ namespace ISILab.LBS.VisualElements
                 rightConnection.style.display = DisplayStyle.None;
             }
 
-            if (!string.IsNullOrEmpty(tags[1]))
+            if (tags.Any() && !string.IsNullOrEmpty(tags[1]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[1])).Color;
                 SetBackgroundColor(topConnection, color);
@@ -86,7 +87,7 @@ namespace ISILab.LBS.VisualElements
                 topConnection.style.display = DisplayStyle.None;
             }
 
-            if (!string.IsNullOrEmpty(tags[2]))
+            if (tags.Any() && !string.IsNullOrEmpty(tags[2]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[2])).Color;
                 SetBackgroundColor(leftConnection, color);
@@ -101,7 +102,7 @@ namespace ISILab.LBS.VisualElements
                 leftConnection.style.display = DisplayStyle.None;
             }
 
-            if (!string.IsNullOrEmpty(tags[3]))
+            if (tags.Any() && !string.IsNullOrEmpty(tags[3]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[3])).Color;
                 SetBackgroundColor(bottomConnection, color);

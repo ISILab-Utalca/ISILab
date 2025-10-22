@@ -17,14 +17,7 @@ using ISILab.LBS.Components;
 using static ISILab.LBS.Characteristics.LBSDirectionedChance;
 using static UnityEngine.GraphicsBuffer;
 using System.Data;
-
-
-
-
-
-
-
-
+using System.Threading;
 
 
 #if UNITY_EDITOR
@@ -53,6 +46,7 @@ namespace ISILab.LBS.Assistants
         private ConnectedTileMapModule.ConnectedTileType? gridType;
 
         private bool safeMode;
+        private List<Vector2Int> originalPositions = new();
 
         const int MAX_MEMORY = 3, MAX_RETRIES = 5;
         const int SAVE_STATE_INTERVAL = 10;
@@ -127,7 +121,7 @@ namespace ISILab.LBS.Assistants
             SafeMode = true;
             OnGUI(); 
         }
-        
+
         #endregion
 
         #region METHODS
@@ -135,6 +129,7 @@ namespace ISILab.LBS.Assistants
         public sealed override void OnGUI()
         {
             GetBundleRef();
+            OnTermination = RequestRepaint;
         }
 
         public override object Clone()
@@ -158,7 +153,7 @@ namespace ISILab.LBS.Assistants
             return TryExecute(out _, out _);
         }
 
-        public bool TryExecute(out string log, out LogType logType, int limit = 5)
+        public bool TryExecute(out string log, out LogType logType, int limit = 5, Action<float> onProgress = null, CancellationToken token = default)
         {
             log = "";
             logType = LogType.Log;
@@ -190,7 +185,7 @@ namespace ISILab.LBS.Assistants
                 return (double)ticks / System.Diagnostics.Stopwatch.Frequency;
             };
 
-            var originalPositions = new List<Vector2Int>(Positions);
+            originalPositions = new List<Vector2Int>(Positions);
 
             if (safeMode)
             {
@@ -236,13 +231,15 @@ namespace ISILab.LBS.Assistants
                             sectorSuccessCount++;
                         }
                         else break;
-                        
                     }
+                    
+                               
+                    onProgress?.Invoke((float)i/limit);
+                    Thread.Sleep(1);
+                    
                     if (sectorSuccessCount >= sectors.Count)
                     {
                         log = $"Safely generated after {i + 1} attempts. ({getSeconds()} s)";
-
-                        RequestRepaint();
                         return true;
                     }
                 }
@@ -255,44 +252,47 @@ namespace ISILab.LBS.Assistants
             }
             else
             {
-                Execute();//ExecuteChance();
+                Execute(onProgress, token);//ExecuteChance();
                 log = $"Generated. ({getSeconds()} s)";
-                RequestRepaint();
+             //   RequestRepaint();
                 return true;
             }
 
-            void RequestRepaint()
-            {
-                var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
-                ExteriorBehaviour exterior = OwnerLayer.GetBehaviour<ExteriorBehaviour>();
-                var ogPairs = originalPositions.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
-                exterior.RequestTilesRepaint(ogPairs.Select(p => p.Tile));
-                var others = new List<Vector2Int>();
-                int minX = originalPositions.Min(pos => pos.x) - 1;
-                int maxX = originalPositions.Max(pos => pos.x) + 1;
-                int minY = originalPositions.Min(pos => pos.y) - 1;
-                int maxY = originalPositions.Max(pos => pos.y) + 1;
-                for(int x = minX; x <= maxX; x++)
-                {
-                    for (int y = minY; y <= maxY; y++)
-                    {
-                        if(x == minX || x == maxX || y == minY || y == maxY)
-                        {
-                            others.Add(new Vector2Int(x, y));
-                        }
-                    }
-                }
-                ;
-                var pairs = others.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
-                exterior.RequestTilesRepaint(pairs.Select(p => p.Tile));
-                //originalPositions.ForEach(pos => RequestTilePaint(connected.GetPair(pos).Tile));
-            }
+           
         }
 
+        void RequestRepaint()
+        {
+            var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            ExteriorBehaviour exterior = OwnerLayer.GetBehaviour<ExteriorBehaviour>();
+
+            var ogPairs = originalPositions.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
+            exterior.RequestTilesRepaint(ogPairs.Select(p => p.Tile));
+            var others = new List<Vector2Int>();
+            int minX = originalPositions.Min(pos => pos.x) - 1;
+            int maxX = originalPositions.Max(pos => pos.x) + 1;
+            int minY = originalPositions.Min(pos => pos.y) - 1;
+            int maxY = originalPositions.Max(pos => pos.y) + 1;
+            for(int x = minX; x <= maxX; x++)
+            {
+                for (int y = minY; y <= maxY; y++)
+                {
+                    if(x == minX || x == maxX || y == minY || y == maxY)
+                    {
+                        others.Add(new Vector2Int(x, y));
+                    }
+                }
+            }
+            
+            var pairs = others.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
+            exterior.RequestTilesRepaint(pairs.Select(p => p.Tile));
+            //originalPositions.ForEach(pos => RequestTilePaint(connected.GetPair(pos).Tile));
+        }
+        
         /// <summary>
         /// This new version, is similar but it constraints where the wave function collapse is applied, to the selected tiles only
         /// </summary>
-        public bool Execute()
+        public bool Execute(Action<float> onProgress = null, CancellationToken token = default)
         {
             bool success = false;
 
@@ -307,6 +307,7 @@ namespace ISILab.LBS.Assistants
             var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
             var og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
             var originalTM = og.Clone()[0] as ConnectedTileMapModule;
+            
 
             // Paso 1
             // Get tiles to change
@@ -361,8 +362,8 @@ namespace ISILab.LBS.Assistants
             //Lista que guarda los tiles ya generados
             var closed = new List<LBSTile>();
 
-            //Tiles que tienen que recalcular los candidatos después de generar un tile
-            //generalmente van los tiles vecinos del que se generó
+            //Tiles que tienen que recalcular los candidatos despuï¿½s de generar un tile
+            //generalmente van los tiles vecinos del que se generï¿½
             var reCalc = new List<LBSTile>();
 
             //Diccionario que guarda los candidatos posibles para cada tile
@@ -382,10 +383,18 @@ namespace ISILab.LBS.Assistants
             }
             bool stepSuccess = true;
             int tryCount = 0;
-
+            int toCalcSize = toCalc.Count;
+            
             /// MAIN LOOP
             while (toCalc.Count > 0)
             {
+                if (token.IsCancellationRequested)
+                {
+                    connected.Rewrite(originalTM);
+                    originalPositions = Positions;
+                    return false;
+                }
+                
                 tryCount++;
 
                 //Paso 3
@@ -442,10 +451,16 @@ namespace ISILab.LBS.Assistants
                 reCalc.AddRange(neigthCalcs);
 
                 //bool noCandidatesFlag = false;
-
+                
                 //Paso 6
                 while (reCalc.Count > 0)
                 {
+                    if (token.IsCancellationRequested)
+                    {
+                        connected.Rewrite(originalTM);
+                        originalPositions = Positions;
+                        return false;
+                    }
                     LBSTile tile = reCalc.First();
 
                     if (!whitelist.Contains(tile.Position))
@@ -497,6 +512,16 @@ namespace ISILab.LBS.Assistants
                     retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
                 }
 
+                if (token.IsCancellationRequested)
+                {
+                    connected.Rewrite(originalTM);
+                    originalPositions = Positions;
+                    return false;
+                }
+                
+                onProgress?.Invoke(1f - (float)toCalc.Count / toCalcSize);
+                Thread.Sleep(1);
+                
                 if(safeMode)
                 {
                     //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
@@ -514,6 +539,9 @@ namespace ISILab.LBS.Assistants
 
             success = toCalc.Count == 0;
             if (safeMode && !success) connected.Rewrite(originalTM);
+            
+            onProgress?.Invoke(1f);
+            Thread.Sleep(1);
             return success;
         }
 
@@ -872,7 +900,7 @@ namespace ISILab.LBS.Assistants
                 List<LBSTile> closedList, TileMapModule map)
         {
             //TO DO
-            //Check que chucha está pasando
+            //Check que chucha estï¿½ pasando
 
             var candidates = new List<Candidate>();
             var connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
@@ -891,11 +919,11 @@ namespace ISILab.LBS.Assistants
                     if (neighbor == null || closedList.Contains(neighbor))
                         continue;
 
-                    // Busca el TileDirection del vecino en la dirección opuesta
+                    // Busca el TileDirection del vecino en la direcciï¿½n opuesta
                     var neighborDir = chanceGroup.tileDirections.FirstOrDefault(td =>
                         td != null &&
                         td.direction != null &&
-                        td.direction.Contains((dirIndex + 2) % 4) // dirección opuesta
+                        td.direction.Contains((dirIndex + 2) % 4) // direcciï¿½n opuesta
                     );
 
                     if (neighborDir == null || neighborDir.chances == null)

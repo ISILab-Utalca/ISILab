@@ -52,7 +52,7 @@ namespace ISILab.Extensions
             }
 
             var total = pairs.Sum(p => p.Item2);
-            var rand = uRandom.Range((float)0, total);
+            var rand = (float)(new Random().NextDouble() * total);
 
             var cur = 0f;
             for (int i = 0; i < pairs.Count; i++)
