@@ -3,7 +3,6 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Internal;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
 using LBS.Components;
@@ -15,10 +14,11 @@ using Random = System.Random;
 
 namespace ISILab.Macros
 {
-    public class LBSAssetMacro
+    public static class LBSAssetMacro
     {
         
         private const string PlaceholderTextureGuid = "edcbfe04a88995d49aabd5bf8ee28e79";
+        private const string PlaceholderUIVectorIconGUid = "5aa5737462342b24c866198641cdaf08";
         
         /// <summary>
         /// Loads an asset of type T from its GUID.
@@ -54,6 +54,7 @@ namespace ISILab.Macros
             var lbsTags = LBSAssetsStorage.Instance.Get<LBSTag>();
             return lbsTags.FirstOrDefault(lbsTag => lbsTag.Label == tag);
         }
+        
         
         public static Texture2D LoadPlaceholderTexture()
         {
@@ -158,7 +159,7 @@ namespace ISILab.Macros
 
     }
     
-    public class LBSVisualElementHelper
+    public static class LBSVisualElementHelper
     {
                 
         /// <summary>

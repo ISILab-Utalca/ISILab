@@ -1138,7 +1138,7 @@ Toggle > .lbs-default-icon {
 .lbs-list-item {
     border-left-width: 1px;
     border-left-color: var(--lbs-dark-overlay-color);
-    background-color: var(--lbs-selectable-gray-color);
+    background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
     flex-direction: row;
     height: 24px;
     border-top-left-radius: 0;

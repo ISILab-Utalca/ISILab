@@ -10,7 +10,7 @@ namespace ISILab.LBS.Settings
     [CreateAssetMenu(menuName = "ISILab/LBS/Internal/LBS Settings", fileName = "LBS Settings")]
     public class LBSSettings : ScriptableObject
     {
-        private const string MAIN_FOLDER_GUID = "ebbacd56ded38e643a6d797ba0627a04";
+        
         private const string USER_ASSET_FOLDER_NAME = "LBSUserContent";
         
         #region SINGLETON

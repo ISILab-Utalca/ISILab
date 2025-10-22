@@ -430,7 +430,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 
                 if (!container.IsCollection())
                 {
-                    element.SetRefs(container.GetMainBundle(), view, true);
+                    element.SetBundleReference(container.GetMainBundle(), view, true);
                 }
                 else
                 {

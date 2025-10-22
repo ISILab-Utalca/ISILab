@@ -10,16 +10,16 @@ namespace ISILab.Commons.Utility.Editor
 {
     public static class DirectoryTools
     {
-        public static string FullPathToProjectPath(string fullpath)
+        public static string FullPathToProjectPath(string _fullpath)
         {
-            var x = fullpath.Split("/Assets/");
-            var r = "Assets/" + x[x.Length - 1];
+            string[] x = _fullpath.Split("/Assets/");
+            string r = $"Assets/{x[^1]}";
             return r;
         }
 
         public static T GetAssetByName<T>(string name)
         {
-            var guids = AssetDatabase.FindAssets(name);
+            string[] guids = AssetDatabase.FindAssets(name);
             object obj = null;
             foreach (var guid in guids)
             {
@@ -29,7 +29,6 @@ namespace ISILab.Commons.Utility.Editor
                     break;
                 }
             }
-
             return (T)obj;
         }
 
