@@ -66,7 +66,7 @@ namespace ISILab.LBS.Internal
         {
 #if UNITY_EDITOR
             EditorUtility.SetDirty(this);
-            AssetDatabase.SaveAssets();
+            EditorApplication.delayCall += () => AssetDatabase.SaveAssets();
 #endif
         }
 
@@ -74,7 +74,7 @@ namespace ISILab.LBS.Internal
         {
 #if UNITY_EDITOR
             EditorUtility.SetDirty(this);
-            AssetDatabase.SaveAssets();
+            EditorApplication.delayCall += () => AssetDatabase.SaveAssets();
 #endif
         }
 

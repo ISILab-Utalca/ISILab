@@ -1,0 +1,138 @@
+using Commons.Optimization.Evaluator;
+using ISILab.AI.Categorization;
+using ISILab.AI.Optimization;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using ISILab.Macros;
+using LBS.Components;
+using LBS.Components.TileMap;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace ISILab.AI.Categorization
+{
+    public class #SCRIPTNAME# : IContextualEvaluator, IRangedEvaluator
+    {
+        // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
+
+        public float MaxValue => 1;
+        public float MinValue => 0;
+
+        public List<LBSLayer> ContextLayers { get; set; } = new List<LBSLayer>();
+        public LBSLayer CombinedLayer { get; set; } = null;
+        public LBSLayer CombinedInteriorLayer { get; set; } = null;
+        public LBSLayer CombinedExteriorLayer { get; set; } = null;
+
+        public string Tooltip => "DC Custom Evaluator\n\n" +
+            "Explain the purpose of your Custom Evaluator and how it works.\n\n" +
+            "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
+            "- Any type of Interior Layer.\n" +
+            "- Vertex-Based Exterior Layers.";
+
+        /* Place here any LBSCharacteristic type field required for your evaluator to work. */
+        #region CHARACTERISTIC FIELDS
+
+        [SerializeField, SerializeReference]
+        public LBSCharacteristic defaultCharacteristic;
+
+        #endregion
+
+        public float Evaluate(IOptimizable evaluable)
+        {
+            var chrom = evaluable as BundleTilemapChromosome;
+
+            if (chrom is null)
+            {
+                throw new System.Exception("Wrong Chromosome Type");
+            }
+            if (chrom.IsEmpty())
+            {
+                return 0.0f;
+            }
+
+            LBSLayer layer = CombinedLayer;
+
+            float fitness = 0;
+
+            var genes = chrom.GetGenes().Cast<BundleData>().ToList();
+
+            /* Search for your tagged elements. */
+            int defaultCharacteristicIndex = -1;
+            for (int i = 0; i < genes.Count; i++)
+            {
+                if (chrom.IsInvalid(i))
+                    continue;
+                if (genes[i] is not null)
+                {
+                    if (genes[i].Characteristics.Contains(defaultCharacteristic))
+                    {
+                        defaultCharacteristicIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            /* You can use the necessary modules for your evaluator to work. */
+            
+            /**
+            string connectedModuleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+            string sectorModuleID = "";
+            ConnectedTileMapModule connectedTM = layer.GetModule<ConnectedTileMapModule>(connectedModuleID);
+            SectorizedTileMapModule sectorTM = layer.GetModule<SectorizedTileMapModule>(sectorModuleID);
+            **/
+
+            if (layer is not null)
+            {
+                fitness = EvaluateWithContext(defaultCharacteristicIndex, chrom, null);
+            }
+            else
+            {
+                fitness = EvaluateWithoutContext(defaultCharacteristicIndex, chrom, null);
+            }
+
+            UnityEngine.Assertions.Assert.IsFalse(fitness == float.NaN);
+            return fitness;
+        }
+
+        float EvaluateWithContext(int index, BundleTilemapChromosome chrom, params LBSModule[] modules)
+        {
+            throw new System.NotImplementedException("Default evaluation method not overwritten.");
+        }
+
+        float EvaluateWithoutContext(int index, BundleTilemapChromosome chrom, params LBSModule[] modules)
+        {
+            throw new System.NotImplementedException("Default evaluation method not overwritten.");
+        }
+
+        public void InitializeDefaultWithContext(List<LBSLayer> contextLayers, Rect selection)
+        {
+            ContextLayers = new List<LBSLayer>(contextLayers);
+            var contextualEvaluator = this as IContextualEvaluator;
+            CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
+            CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
+            CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            InitializeDefault();
+        }
+
+        public void InitializeDefault()
+        {
+            /* Initialize here all your LBSCharacteristic fields. */
+            defaultCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("TAG NAME"));
+        }
+
+        public object Clone()
+        {
+            var clone = new #SCRIPTNAME#();
+
+            clone.ContextLayers = new List<LBSLayer>(ContextLayers);
+            clone.CombinedLayer = CombinedLayer;
+            clone.CombinedInteriorLayer = CombinedInteriorLayer;
+            clone.CombinedExteriorLayer = CombinedExteriorLayer;
+
+            clone.defaultCharacteristic = defaultCharacteristic;
+            return clone;
+        }
+    }
+}

@@ -8,12 +8,15 @@ using UnityEngine.UIElements;
 
 namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
-    public class BundleManagerElement : VisualElement
+    
+    [UxmlElement]
+    public partial class BundleManagerElement : VisualElement
     {
         // External references
         private Bundle _bundleRef;
         private BundleCollection _bundleCollectionRef;
         private ListView _listRef;
+        private Button _deleteButton;
         
         // Internal references
         private readonly Label _bundleName;
@@ -24,7 +27,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         // Properties
         private bool _isMasterBundle;
 
-        public BundleManagerElement(int size, int gapSize)
+        public BundleManagerElement() : base()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("BundleManagerElement");
             visualTree.CloneTree(this);
@@ -33,38 +36,22 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             _bundleIcon = this.Q<IMGUIContainer>("BundleIcon");
             _masterIcon = this.Q<IMGUIContainer>("MasterIcon");
             _warningIcon = this.Q<IMGUIContainer>("WarningIcon");
+            _deleteButton = this.Q<Button>("DeleteButton");
+            
+            this.AddToClassList("lbs-list-item");
             
             // Set DeleteBundle Button
-            Button deleteButton = this.Q<Button>("DeleteButton");
-            deleteButton.clickable.clicked += () =>
-            {
-                var answer = EditorUtility.DisplayDialogComplex(
-                    "The bundle will be deleted",
-                    "The bundle: " + _bundleName.text + " will be deleted, are you sure you want to continue?",
-                    "Delete",
-                    "Cancel",
-                    "");
-                switch (answer)
-                {
-                    case 0: //Delete
-                        string path = AssetDatabase.GetAssetPath(_bundleRef);
-                        RemoveFromList();
-                        Debug.Log(AssetDatabase.DeleteAsset(path)
-                            ? "File at " + path + " successfully deleted"
-                            : "File failed to delete");
-                        _listRef.RefreshItems();
-                        return;
-                    case 1: //Cancel
-                        return;
-                }
-            };
-            
+            _deleteButton.clickable.clicked += () => DisplayDeleteBundleDialog();
+        }
+        
+        public BundleManagerElement(int _size, int _gapSize): this()
+        {
             // Set size for visualElements
-            this.Q<VisualElement>("Background_1").style.height = size - gapSize;
-            this.Q<VisualElement>("DeleteButton").style.height = size - gapSize;
+            //this.style.height = size - gapSize;
+            //this.Q<VisualElement>("DeleteButton").style.height = size - gapSize;
         }
 
-        public void SetRefs(Bundle bundle, ListView list, bool masterBundle)
+        public void SetBundleReference(Bundle bundle, ListView list, bool masterBundle)
         {
             _bundleRef = bundle;
             _bundleCollectionRef = null;
@@ -141,9 +128,30 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             }
         }
 
-        public enum Icons
+        public int DisplayDeleteBundleDialog()
         {
-            Bundle, Master, Warning
+            int answer = EditorUtility.DisplayDialogComplex(
+                "The bundle will be deleted",
+                "The bundle: " + _bundleName.text + " will be deleted, are you sure you want to continue?",
+                "Delete",
+                "Cancel",
+                "");
+            switch (answer)
+            {
+                case 0: //Delete
+                    string path = AssetDatabase.GetAssetPath(_bundleRef);
+                    RemoveFromList();
+                    Debug.Log(AssetDatabase.DeleteAsset(path)
+                        ? "File at " + path + " successfully deleted"
+                        : "File failed to delete");
+                    _listRef.RefreshItems();
+                    return 1;
+                case 1: //Cancel
+                    return 0;
+            }
+            return 0; // Do nothing
         }
+
+        public enum Icons { Bundle, Master, Warning}
     }
 }
