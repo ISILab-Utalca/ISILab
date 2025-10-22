@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.Macros;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -22,8 +23,12 @@ namespace ISILab.LBS.Behaviours
         #region FIELDS
         [SerializeField, HideInInspector, JsonIgnore]
         private LBSLayer ownerLayerLayer;
+        
+        [SerializeField, HideInInspector] 
+        private string iconGuid;
         [SerializeField, JsonRequired] 
         private VectorImage icon;
+        
         [SerializeField, JsonRequired] 
         private Color colorTint;
         [SerializeField, JsonRequired]
@@ -51,7 +56,26 @@ namespace ISILab.LBS.Behaviours
         }
 
         [JsonIgnore]
-        public VectorImage Icon => icon;
+        public VectorImage Icon
+        {
+            get
+            {
+                if (icon is not null)
+                {
+                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon); ;
+                }
+                else
+                {
+                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                }
+                return icon;
+            }
+            set
+            {
+                icon = value;
+                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+            }
+        }
 
         [JsonIgnore]
         public string Name => name;
