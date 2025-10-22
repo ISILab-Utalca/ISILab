@@ -122,10 +122,14 @@ namespace ISILab.LBS.Assistants
             {
                 mapElites.Stop();
             }
-        
-            mapElites.Run(synchronous, onProgress, token);
-        }
 
+           
+  
+            mapElites.Run(synchronous, onProgress, token);
+            
+            
+        }
+        
         public void RequestOptimizerStop() => mapElites?.Optimizer?.RequestStop();
 
         public void OnEndSetup(Action endAction)

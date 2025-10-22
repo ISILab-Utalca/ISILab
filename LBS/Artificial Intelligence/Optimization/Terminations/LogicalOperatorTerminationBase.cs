@@ -87,6 +87,11 @@ namespace ISILab.AI.Optimization.Terminations
             return PerformHasReached(optimizer);
         }
 
+        public int GetMinIterations()
+        {
+            return m_minOperands;
+        }
+        
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents the current <see cref="GeneticSharp.Domain.Terminations.LogicalOperatorTerminationBase"/>.
         /// </summary>
@@ -104,6 +109,7 @@ namespace ISILab.AI.Optimization.Terminations
         /// True if termination has been reached, otherwise false.
         /// </returns>
         protected abstract bool PerformHasReached(BaseOptimizer optimizer);
+        
         #endregion
     }
 }

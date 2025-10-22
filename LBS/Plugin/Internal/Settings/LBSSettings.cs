@@ -6,10 +6,13 @@ using UnityEngine.Serialization;
 
 namespace ISILab.LBS.Settings
 {
-    [System.Serializable]
+    [Serializable]
     [CreateAssetMenu(menuName = "ISILab/LBS/Internal/LBS Settings", fileName = "LBS Settings")]
     public class LBSSettings : ScriptableObject
     {
+        
+        private const string USER_ASSET_FOLDER_NAME = "LBSUserContent";
+        
         #region SINGLETON
         private static LBSSettings instance;
 
@@ -24,12 +27,9 @@ namespace ISILab.LBS.Settings
                 // si es igual a null lo busco en carpeta
                 if (instance == null)
                     instance = Resources.Load<LBSSettings>("LBS Settings");
-                    
-
                 // si sigue siendo null lo creo
                 if (instance == null)
                     instance = ScriptableObject.CreateInstance<LBSSettings>();
-
                 return instance;
             }
 
@@ -85,10 +85,10 @@ namespace ISILab.LBS.Settings
             // Controller Paths
             public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBS Settings.asset";
             public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Editor/LBS Storage.asset";
-            public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/LBS Presets.asset";
+            public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
             public string backUpPath                    = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
                                                                   
-            // Folders data storages                              
+            // Folders for user data storages                              
             public string bundleFolderPath              = "Assets/isi-lab-unity-module/LBS/Data/Bundles";
             public string tagFolderPath                 = "Assets/isi-lab-unity-module/LBS/Data/Tags";
             public string meshFolderPath                = "Assets/isi-lab-unity-module/LBS/Data/Meshes";
@@ -108,7 +108,7 @@ namespace ISILab.LBS.Settings
 
         }
 
-        [System.Serializable]
+        [Serializable]
         public class Interface
         {
             public enum InterfaceTheme {Dark, Light, Alt}
