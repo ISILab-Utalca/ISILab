@@ -26,6 +26,7 @@ namespace ISILab.LBS.Drawers
             if (target is not PopulationBehaviour population) return;
 
             PaintNewTiles(population, view);
+            UpdateTilesRotation(population, view);
             //UpdateLoadedTiles(population, view);
 
             // Paint all tiles
@@ -78,6 +79,29 @@ namespace ISILab.LBS.Drawers
 
         private void UpdateLoadedTiles(PopulationBehaviour population, MainView view)
         {
+            UpdateTilesRotation(population, view);
+
+            // Update stored tiles
+            foreach (TileBundleGroup tile in population.Keys)
+            {
+                if (tile == null) continue;
+
+                var elements = view.GetElementsFromLayerContainer(population.OwnerLayer, tile.LocationKey);
+                if (elements == null) continue;
+
+                foreach (var graphElement in elements)
+                {
+                    var tView = (PopulationTileView)graphElement;
+                    if (tView == null) continue;
+                    if (!tView.visible) continue;
+
+                    UpdatePopulationTile(tView, tile, population);
+                }
+            }
+        }
+
+        private void UpdateTilesRotation(PopulationBehaviour population, MainView view)
+        {
             // Get rotated selection
             TileBundleGroup rotationHighlightedTile = null;
             var manipulator = ToolKit.Instance.GetActiveManipulator();
@@ -104,24 +128,6 @@ namespace ISILab.LBS.Drawers
                         lastHighlight?.Highlight(true);
                     }
                     graphElement.layer = population.OwnerLayer.index;
-                }
-            }
-
-            // Update stored tiles
-            foreach (TileBundleGroup tile in population.Keys)
-            {
-                if (tile == null) continue;
-
-                var elements = view.GetElementsFromLayerContainer(population.OwnerLayer, tile.LocationKey);
-                if (elements == null) continue;
-
-                foreach (var graphElement in elements)
-                {
-                    var tView = (PopulationTileView)graphElement;
-                    if (tView == null) continue;
-                    if (!tView.visible) continue;
-
-                    UpdatePopulationTile(tView, tile, population);
                 }
             }
         }
