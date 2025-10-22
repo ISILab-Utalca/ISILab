@@ -92,6 +92,8 @@ namespace ISILab.LBS.Manipulators
                 else
                     Debug.LogWarning(log);
 
+                DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
+                
                 if (EditorGUI.EndChangeCheck())
                 {
                     EditorUtility.SetDirty(x);
@@ -140,6 +142,7 @@ namespace ISILab.LBS.Manipulators
                     {
                         OnExecutionEnd(log, type);
                         taskbar.EnableProcess(false);
+                   
                     };
 
                 }
