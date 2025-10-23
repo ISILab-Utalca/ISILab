@@ -14,7 +14,13 @@ namespace ISILab.LBS.Manipulators
     {
         private List<Vector2Int> Directions => Commons.Directions.Bidimencional.Edges;
 
-        public TileBundleGroup Selected { get; private set; }
+        public TileBundleGroup Selected { get => _selected; private set
+            {
+                _selected = value;
+                //Debug.Log("Selected = " + value);
+            }
+        }
+        private TileBundleGroup _selected;
         private PopulationBehaviour _population;
         private Vector2Int _storedPosition;
         protected override string IconGuid => "485afea6f40f10e41a28c3d016a9250b";
@@ -34,28 +40,35 @@ namespace ISILab.LBS.Manipulators
         protected override void OnWheelEvent(WheelEvent evt)
         {
             if (Selected == null) return;
+
+            Rotate((int)Mathf.Sign(evt.delta.y));
             
-            if (evt.delta.y > 0) RotateLeft();
-            else if (evt.delta.y < 0) RotateRight();
+            //if (evt.delta.y > 0) Rotate(1);
+            //else if (evt.delta.y < 0) Rotate(-1);
 
         }
 
+        // TODO: Revisar de nuevo este método. No parece estar cumpliendo su función correctamente
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
             var position = _population.OwnerLayer.ToFixedPosition(movePosition);
-             var tileGroup = _population.GetTileGroup(position);
-             if (tileGroup == null ||
-                 tileGroup.BundleData == null ||
-                 !tileGroup.BundleData.Bundle ||
+            var tileGroup = _population.GetTileGroup(position);
+            if (tileGroup == null ||
+                tileGroup.BundleData == null ||
+                !tileGroup.BundleData.Bundle ||
                 !tileGroup.BundleData.Bundle.GetHasTagCharacteristic("NonRotate"))
-             {
-                 Selected = null;
-             }
-             
-             Selected = tileGroup;
-             if(Selected!=null) _storedPosition = position;
-             MainView.Instance.SetManipulatorZoom(Selected == null);
-             //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+            {
+                Selected = null;
+            }
+            //if(!tileGroup.BundleData.Bundle.GetHasTagCharacteristic("NonRotate"))
+            //{
+            //    Selected = null;
+            //}
+
+            Selected = tileGroup;
+            if(Selected!=null) _storedPosition = position;
+            MainView.Instance.SetManipulatorZoom(Selected == null);
+            //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
@@ -64,44 +77,61 @@ namespace ISILab.LBS.Manipulators
             
             if (e.button == 0)
             {
-                RotateRight();
+                Rotate(-1);
             }
             // rotate clockwise
             else if (e.button == 1)
             {
-                RotateLeft();
+                Rotate(1);
             }
         }
 
         protected override void OnKeyDown(KeyDownEvent e) { }
 
-        private void RotateRight()
+        private void Rotate(int magnitude)
         {
+            if (magnitude == 0) return;
+
             PreRotate();
-            
+
             var rotation = _population.GetTileRotation(_storedPosition);
-            if(rotation == default) return;
+            if (rotation == default) return;
             var index = Directions.FindIndex(dir => dir == new Vector2Int((int)rotation.x, (int)rotation.y));
-            index--;
-            if(index < 0) index = Directions.Count-1;
-            _population.RotateTile(_storedPosition, Directions[index]);
-                        
-            PostRotate();
+            index += magnitude;
+            if (index < 0) index = Directions.Count - 1;
+            if (index >= Directions.Count) index = 0;
+            bool didRotated = _population.RotateTile(_storedPosition, Directions[index]);
+
+            PostRotate(didRotated);
         }
 
-        private void RotateLeft()
-        {
-            PreRotate();
-            
-            var rotation = _population.GetTileRotation(_storedPosition);
-            if(rotation == default) return;
-            var index = Directions.FindIndex(dir => dir == new Vector2Int((int)rotation.x, (int)rotation.y));
-            index++;
-            if(index >= Directions.Count) index = 0;
-            _population.RotateTile(_storedPosition, Directions[index]);
-            
-            PostRotate();
-        }
+        //private void RotateRight()
+        //{
+        //    PreRotate();
+        //    
+        //    var rotation = _population.GetTileRotation(_storedPosition);
+        //    if(rotation == default) return;
+        //    var index = Directions.FindIndex(dir => dir == new Vector2Int((int)rotation.x, (int)rotation.y));
+        //    index--;
+        //    if(index < 0) index = Directions.Count-1;
+        //    _population.RotateTile(_storedPosition, Directions[index]);
+        //                
+        //    PostRotate();
+        //}
+        //
+        //private void RotateLeft()
+        //{
+        //    PreRotate();
+        //    
+        //    var rotation = _population.GetTileRotation(_storedPosition);
+        //    if(rotation == default) return;
+        //    var index = Directions.FindIndex(dir => dir == new Vector2Int((int)rotation.x, (int)rotation.y));
+        //    index++;
+        //    if(index >= Directions.Count) index = 0;
+        //    _population.RotateTile(_storedPosition, Directions[index]);
+        //    
+        //    PostRotate();
+        //}
 
         private void PreRotate()
         {
@@ -110,7 +140,7 @@ namespace ISILab.LBS.Manipulators
             Undo.RegisterCompleteObjectUndo(level, "Rotate");
         }
 
-        private void PostRotate()
+        private void PostRotate(bool success)
         {
             var level = LBSController.CurrentLevel;
             if (EditorGUI.EndChangeCheck())
@@ -118,7 +148,7 @@ namespace ISILab.LBS.Manipulators
                 EditorUtility.SetDirty(level);
             }
             
-            DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+            if (success) DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
         }
     }
 }
