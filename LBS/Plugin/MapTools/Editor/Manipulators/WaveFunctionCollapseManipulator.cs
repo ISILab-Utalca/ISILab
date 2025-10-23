@@ -105,7 +105,7 @@ namespace ISILab.LBS.Manipulators
         {
             if(_currentTaskCts == null) return;
             if(_currentTaskCts.IsCancellationRequested) return;
-            _currentTaskCts.Cancel();
+            _currentTaskCts?.Cancel();
         }
 
         private void RunTask()
@@ -142,7 +142,6 @@ namespace ISILab.LBS.Manipulators
                     {
                         OnExecutionEnd(log, type);
                         taskbar.EnableProcess(false);
-                   
                     };
 
                 }

@@ -86,6 +86,8 @@ namespace ISILab.LBS.Assistants
         public Action OnStart;
         [JsonIgnore]
         public Action OnTermination;
+        [JsonIgnore]
+        public Action OnCancellation;
         #endregion
 
         #region CONSTRUCTORS

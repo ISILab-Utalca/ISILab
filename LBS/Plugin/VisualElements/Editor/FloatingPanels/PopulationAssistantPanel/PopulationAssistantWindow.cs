@@ -25,7 +25,7 @@ using LBS.Components;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
-    public class PopulationAssistantWindow : EditorWindow
+    public class PopulationAssistantWindow : EditorWindow, IAssistantThreadedEditor
     {
         #region UXMLFACTORY
         // [UxmlElementAttribute]
@@ -151,7 +151,7 @@ namespace ISILab.LBS.VisualElements.Editor
         public Action UpdatePins;
         public Action<IOptimizable> OnValuesUpdated;
         #endregion
-
+        
         public void CreateGUI()
         {
             presetDictionary = new Dictionary<string, MAPElitesPreset>();
@@ -529,12 +529,16 @@ namespace ISILab.LBS.VisualElements.Editor
             assistant.LoadPresset(mapEliteBundle);
 
             var sw = new System.Diagnostics.Stopwatch();
-            assistant.OnEndSetup(() => 
+            assistant.OnEndSetup(() =>
             {
-                sw.Stop();
-                LBSMainWindow.MessageNotifyDelayed($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)", LogType.Log, 5);
-                Debug.Log($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)");
-                OnAssistantTerminate();
+                EditorApplication.delayCall += () =>
+                {
+                    sw.Stop();
+                    LBSMainWindow.MessageNotifyDelayed($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)",
+                        LogType.Log, 5);
+                    Debug.Log($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)");
+                    assistant.OnTermination?.Invoke();
+                };
             });
 
             //SetBackgroundTexture(square, assistant.RawToolRect);
@@ -553,65 +557,35 @@ namespace ISILab.LBS.VisualElements.Editor
             RunExecuteTask();
         }
 
-        void CancelCurrentTask()
-        {
-            if(_currentTaskCts == null) return;
-            if(_currentTaskCts.IsCancellationRequested) return;
-            _currentTaskCts.Cancel();
-        }
-
-        private void RunExecuteTask()
-        {
-            _currentTaskCts?.Cancel();
-
-            _currentTaskCts = new CancellationTokenSource();
-            var token = _currentTaskCts.Token;
-
-            var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-            void ReportProgress(float normalized)
-            {
-                // Use update so progress applies immediately
-                EditorApplication.delayCall += UpdateOnce;
-
-                void UpdateOnce()
-                {
-                    taskbar.SetProgressPercent(normalized);
-                    EditorApplication.delayCall -= UpdateOnce;
-                }
-            }
-
-            taskbar.EnableProcess(true, assistant.Name);
-            Task.Run(() =>
-            {
-                try
-                {
-                    assistant.OnTermination -= OnAssistantTerminate;
-                    assistant.OnTermination += OnAssistantTerminate;
-                    assistant.Execute(false, ReportProgress, token);
-                }
-                catch (Exception ex)
-                {
-                    Debug.LogError($"[MapElitesAssistant] Task failed: {ex}");
-                    EditorApplication.delayCall += () =>
-                    {
-                        taskbar.EnableProcess(false);
-                        UpdateContent();
-                    };
-                }
-            }, token);
-        }
-
-        private void OnAssistantTerminate()
+        public CancellationToken CancelToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+        public ToolBarMain TaskBar { get; set; }
+        void IAssistantThreadedEditor.OnAssistantTermination()
         {
             EditorApplication.delayCall += () =>
             {
-                var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-                taskbar.EnableProcess(false);
+                TaskBar.EnableProcess(false);
                 UpdateContent();
                 Repaint();
             };
         }
 
+        private void RunExecuteTask()
+        {
+            ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
+            Task.Run(() =>
+            {
+                try
+                {
+                    assistant.Execute(false, ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                }
+                catch (Exception ex)
+                {
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
+                }
+            }, CancelToken);
+        }
+        
         //Apply the suggestion in the world
         private void ApplySuggestion() => ApplySuggestion(selectedMap.Data);
         private void ApplySuggestion(object obj)

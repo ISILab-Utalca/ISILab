@@ -274,12 +274,13 @@ namespace ISILab.AI.Optimization
 
                 clock.Restart();
                 RunOnce(null, token);
-                onProgress?.Invoke((float)iterations/maxIterations);
-                Thread.Sleep(1);
                 clock.Stop();
                 OnGenerationRan?.Invoke();
                 State = Op_State.Running;
                 iterations++;
+                
+                onProgress?.Invoke((float)iterations/maxIterations);
+                Thread.Sleep(1);
             }
         }
 

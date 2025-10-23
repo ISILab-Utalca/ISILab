@@ -122,12 +122,8 @@ namespace ISILab.LBS.Assistants
             {
                 mapElites.Stop();
             }
-
-           
-  
+            
             mapElites.Run(synchronous, onProgress, token);
-            
-            
         }
         
         public void RequestOptimizerStop() => mapElites?.Optimizer?.RequestStop();
@@ -136,6 +132,7 @@ namespace ISILab.LBS.Assistants
         {
             mapElites.OnEnd = null;
             mapElites.OnEnd = endAction;
+           
         }
 
         public void Continue()
