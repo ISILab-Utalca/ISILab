@@ -133,7 +133,7 @@ namespace ISILab.LBS.AI.Assistants.Editor
             saveWeightsButton.clicked += SaveWeights;
             presetName = this.Q<TextField>("PresetName");
             presetsFolder = this.Q<TextField>("PresetsPath");
-            presetsFolder.focusable = false; // This field needs to be reworked. Meanwhile it'll remain disabled.
+            //presetsFolder.focusable = false; // This field needs to be reworked. Meanwhile it'll remain disabled.
 
             // Load weights from a preset
             var loadWeightsButton = this.Q<Button>("LoadWeights");
