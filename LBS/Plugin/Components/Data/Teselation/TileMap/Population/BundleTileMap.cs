@@ -345,6 +345,7 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired] 
         string guid;
 
+        bool? rotatable = null;
         string locationKey = null;
 
         #region PROPERTIES
@@ -387,6 +388,18 @@ namespace ISILab.LBS.Modules
         {
             get => rotation;
             set => rotation = value;
+        }
+
+        [JsonIgnore]
+        public bool Rotatable
+        {
+            get
+            {
+                if(!rotatable.HasValue)
+                    rotatable = !BundleData.Bundle.GetHasTagCharacteristic("NonRotate");
+                return rotatable.Value;
+            }
+            set => rotatable = value;
         }
 
         [JsonIgnore]

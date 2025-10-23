@@ -17,14 +17,7 @@ using ISILab.LBS.Components;
 using static ISILab.LBS.Characteristics.LBSDirectionedChance;
 using static UnityEngine.GraphicsBuffer;
 using System.Data;
-
-
-
-
-
-
-
-
+using System.Threading;
 
 
 #if UNITY_EDITOR
@@ -53,6 +46,14 @@ namespace ISILab.LBS.Assistants
         private ConnectedTileMapModule.ConnectedTileType? gridType;
 
         private bool safeMode;
+        private List<Vector2Int> originalPositions = new();
+        
+        // run execute fields
+        private LBSDirectionedGroup group;
+        private TileMapModule map;
+        private ConnectedTileMapModule connected;
+        private List<LBSModule> og;
+        private ConnectedTileMapModule originalTM;
 
         const int MAX_MEMORY = 3, MAX_RETRIES = 5;
         const int SAVE_STATE_INTERVAL = 10;
@@ -127,7 +128,7 @@ namespace ISILab.LBS.Assistants
             SafeMode = true;
             OnGUI(); 
         }
-        
+
         #endregion
 
         #region METHODS
@@ -135,6 +136,7 @@ namespace ISILab.LBS.Assistants
         public sealed override void OnGUI()
         {
             GetBundleRef();
+            OnTermination = RequestRepaint;
         }
 
         public override object Clone()
@@ -158,7 +160,7 @@ namespace ISILab.LBS.Assistants
             return TryExecute(out _, out _);
         }
 
-        public bool TryExecute(out string log, out LogType logType, int limit = 5)
+        public bool TryExecute(out string log, out LogType logType, int limit = 5, Action<float> onProgress = null, CancellationToken token = default)
         {
             log = "";
             logType = LogType.Log;
@@ -181,6 +183,16 @@ namespace ISILab.LBS.Assistants
                 return false;
             }
             */
+            
+            Bundle bundle = targetBundleRef;
+            
+            // get values for generation: 
+            group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
+            map = OwnerLayer.GetModule<TileMapModule>();
+            connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
+            originalTM = og.Clone()[0] as ConnectedTileMapModule;
+            
 
             var sw = System.Diagnostics.Stopwatch.StartNew();
             Func<double> getSeconds = () =>
@@ -190,7 +202,7 @@ namespace ISILab.LBS.Assistants
                 return (double)ticks / System.Diagnostics.Stopwatch.Frequency;
             };
 
-            var originalPositions = new List<Vector2Int>(Positions);
+            originalPositions = new List<Vector2Int>(Positions);
 
             if (safeMode)
             {
@@ -216,38 +228,72 @@ namespace ISILab.LBS.Assistants
                         sectors.Add(sector);
                     }
                 }
+                
+                int totalSectors = limit * sectors.Count;
+                
                 for (int i = 0; i < limit; i++)
                 {
                     int sectorSuccessCount = 0;
-                    foreach(RectInt sector in sectors)
+
+                    for (int s = 0; s < sectors.Count; s++)
                     {
-                        List<Vector2Int> positions = new List<Vector2Int>();
-                        for(int j = sector.position.x; j < sector.position.x + sector.width; j++)
+                        var sector = sectors[s];
+                        
+                        float baseProgress = (float)sectorSuccessCount / totalSectors;
+
+                        // Each sector contributes an equal portion
+                        float stepSize = 1f / totalSectors;
+
+                        Action<float> scaledProgress = localProgress =>
                         {
-                            for(int k = sector.position.y; k < sector.position.y + sector.height; k++)
+                            float totalProgress = baseProgress + localProgress * stepSize;
+                            onProgress?.Invoke(Mathf.Clamp01(totalProgress));
+                        };
+
+
+                        // Build positions as before
+                        List<Vector2Int> positions = new List<Vector2Int>();
+                        for (int j = sector.position.x; j < sector.position.x + sector.width; j++)
+                        {
+                            for (int k = sector.position.y; k < sector.position.y + sector.height; k++)
                             {
                                 positions.Add(new Vector2Int(j, k));
                             }
                         }
+
                         Positions = positions;
-                        bool sectorSuccess = Execute();//ExecuteChance();
-                        if (sectorSuccess)
+                        bool sectorSuccess = Execute(scaledProgress, token); // ExecuteChance();
+
+                        if (token.IsCancellationRequested)
                         {
-                            sectorSuccessCount++;
+                            Restore();
+                            if(token.IsCancellationRequested) log = $"Generation was cancelled.";
+                            return false;
                         }
+                        
+                        if (sectorSuccess) sectorSuccessCount++;
                         else break;
                         
+                        if (sectorSuccessCount >= sectors.Count)
+                        {
+                            onProgress?.Invoke(1f);
+                            log = $"Safely generated after {i + 1} attempts.";
+                            Thread.Sleep(1);
+                            return true;
+                        }
                     }
+                    
+                    Thread.Sleep(1);
+                    
                     if (sectorSuccessCount >= sectors.Count)
                     {
                         log = $"Safely generated after {i + 1} attempts. ({getSeconds()} s)";
-
-                        RequestRepaint();
                         return true;
                     }
                 }
 
                 log = $"Could not safely generate after {limit} attempts. ({getSeconds()} s)";
+                if(token.IsCancellationRequested) log = $"Generation was cancelled.";
                 logType = LogType.Warning;
 
                 //RequestRepaint();
@@ -255,58 +301,59 @@ namespace ISILab.LBS.Assistants
             }
             else
             {
-                Execute();//ExecuteChance();
+               bool success = Execute(onProgress, token);//ExecuteChance();
+               if (!success)
+               {
+                   Restore();
+                   log = $"Could not generate. ({getSeconds()} s)";
+                   if(token.IsCancellationRequested) log = $"Generation was cancelled.";
+                   logType = LogType.Warning;
+                   return false;
+               }
                 log = $"Generated. ({getSeconds()} s)";
-                RequestRepaint();
+             //   RequestRepaint();
                 return true;
-            }
-
-            void RequestRepaint()
-            {
-                var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
-                ExteriorBehaviour exterior = OwnerLayer.GetBehaviour<ExteriorBehaviour>();
-                var ogPairs = originalPositions.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
-                exterior.RequestTilesRepaint(ogPairs.Select(p => p.Tile));
-                var others = new List<Vector2Int>();
-                int minX = originalPositions.Min(pos => pos.x) - 1;
-                int maxX = originalPositions.Max(pos => pos.x) + 1;
-                int minY = originalPositions.Min(pos => pos.y) - 1;
-                int maxY = originalPositions.Max(pos => pos.y) + 1;
-                for(int x = minX; x <= maxX; x++)
-                {
-                    for (int y = minY; y <= maxY; y++)
-                    {
-                        if(x == minX || x == maxX || y == minY || y == maxY)
-                        {
-                            others.Add(new Vector2Int(x, y));
-                        }
-                    }
-                }
-                ;
-                var pairs = others.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
-                exterior.RequestTilesRepaint(pairs.Select(p => p.Tile));
-                //originalPositions.ForEach(pos => RequestTilePaint(connected.GetPair(pos).Tile));
             }
         }
 
+        void RequestRepaint()
+        {
+            var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            ExteriorBehaviour exterior = OwnerLayer.GetBehaviour<ExteriorBehaviour>();
+
+            var ogPairs = originalPositions.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
+            exterior.RequestTilesRepaint(ogPairs.Select(p => p.Tile));
+            var others = new List<Vector2Int>();
+            int minX = originalPositions.Min(pos => pos.x) - 1;
+            int maxX = originalPositions.Max(pos => pos.x) + 1;
+            int minY = originalPositions.Min(pos => pos.y) - 1;
+            int maxY = originalPositions.Max(pos => pos.y) + 1;
+            for(int x = minX; x <= maxX; x++)
+            {
+                for (int y = minY; y <= maxY; y++)
+                {
+                    if(x == minX || x == maxX || y == minY || y == maxY)
+                    {
+                        others.Add(new Vector2Int(x, y));
+                    }
+                }
+            }
+            
+            var pairs = others.Select(pos => connected.GetPair(pos)).ToList().RemoveEmpties();
+            exterior.RequestTilesRepaint(pairs.Select(p => p.Tile));
+            //originalPositions.ForEach(pos => RequestTilePaint(connected.GetPair(pos).Tile));
+        }
+        
         /// <summary>
         /// This new version, is similar but it constraints where the wave function collapse is applied, to the selected tiles only
         /// </summary>
-        public bool Execute()
+        public bool Execute(Action<float> onProgress = null, CancellationToken token = default)
         {
             bool success = false;
 
             int initialRetryBonus = 10;
             (int, int) retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
             int step = 0, maxStep = 0;
-
-            Bundle bundle = targetBundleRef;
-
-            var group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
-            var map = OwnerLayer.GetModule<TileMapModule>();
-            var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
-            var og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
-            var originalTM = og.Clone()[0] as ConnectedTileMapModule;
 
             // Paso 1
             // Get tiles to change
@@ -361,8 +408,8 @@ namespace ISILab.LBS.Assistants
             //Lista que guarda los tiles ya generados
             var closed = new List<LBSTile>();
 
-            //Tiles que tienen que recalcular los candidatos después de generar un tile
-            //generalmente van los tiles vecinos del que se generó
+            //Tiles que tienen que recalcular los candidatos despuï¿½s de generar un tile
+            //generalmente van los tiles vecinos del que se generï¿½
             var reCalc = new List<LBSTile>();
 
             //Diccionario que guarda los candidatos posibles para cada tile
@@ -382,10 +429,16 @@ namespace ISILab.LBS.Assistants
             }
             bool stepSuccess = true;
             int tryCount = 0;
-
+            int toCalcSize = toCalc.Count;
+            
             /// MAIN LOOP
             while (toCalc.Count > 0)
             {
+                if (token.IsCancellationRequested)
+                {
+                    return false;
+                }
+                
                 tryCount++;
 
                 //Paso 3
@@ -442,10 +495,14 @@ namespace ISILab.LBS.Assistants
                 reCalc.AddRange(neigthCalcs);
 
                 //bool noCandidatesFlag = false;
-
+                
                 //Paso 6
                 while (reCalc.Count > 0)
                 {
+                    if (token.IsCancellationRequested)
+                    {
+                        return false;
+                    }
                     LBSTile tile = reCalc.First();
 
                     if (!whitelist.Contains(tile.Position))
@@ -497,6 +554,14 @@ namespace ISILab.LBS.Assistants
                     retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
                 }
 
+                if (token.IsCancellationRequested)
+                {
+                    return false;
+                }
+                
+                onProgress?.Invoke(1f - (float)toCalc.Count / toCalcSize);
+                Thread.Sleep(1);
+                
                 if(safeMode)
                 {
                     //Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
@@ -514,7 +579,16 @@ namespace ISILab.LBS.Assistants
 
             success = toCalc.Count == 0;
             if (safeMode && !success) connected.Rewrite(originalTM);
+            
+            onProgress?.Invoke(1f);
+            Thread.Sleep(1);
             return success;
+        }
+
+        private void Restore()
+        {
+            connected.Rewrite(originalTM);
+            originalPositions = Positions;
         }
 
         public bool ExecuteChance()
@@ -717,7 +791,7 @@ namespace ISILab.LBS.Assistants
             }
 
             success = toCalc.Count == 0;
-            if (safeMode && !success) connected.Rewrite(originalTM);
+            if (safeMode && !success)   Restore();
             return success;
         }
 
@@ -872,7 +946,7 @@ namespace ISILab.LBS.Assistants
                 List<LBSTile> closedList, TileMapModule map)
         {
             //TO DO
-            //Check que chucha está pasando
+            //Check que chucha estï¿½ pasando
 
             var candidates = new List<Candidate>();
             var connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
@@ -891,11 +965,11 @@ namespace ISILab.LBS.Assistants
                     if (neighbor == null || closedList.Contains(neighbor))
                         continue;
 
-                    // Busca el TileDirection del vecino en la dirección opuesta
+                    // Busca el TileDirection del vecino en la direcciï¿½n opuesta
                     var neighborDir = chanceGroup.tileDirections.FirstOrDefault(td =>
                         td != null &&
                         td.direction != null &&
-                        td.direction.Contains((dirIndex + 2) % 4) // dirección opuesta
+                        td.direction.Contains((dirIndex + 2) % 4) // direcciï¿½n opuesta
                     );
 
                     if (neighborDir == null || neighborDir.chances == null)

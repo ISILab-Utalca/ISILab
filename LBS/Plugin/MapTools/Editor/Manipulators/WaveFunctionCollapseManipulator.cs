@@ -1,7 +1,11 @@
+using System;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Editor.Windows;
 using LBS.Components;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using ISILab.LBS.VisualElements.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -14,6 +18,8 @@ namespace ISILab.LBS.Manipulators
 
         private AssistantWFC _assistant;
 
+        private CancellationTokenSource _currentTaskCts;
+        
         protected override string IconGuid => "08c60bd0a76e4bb4dad11ebf18bca46e";
 
         public WaveFunctionCollapseManipulator()
@@ -69,18 +75,83 @@ namespace ISILab.LBS.Manipulators
             // No longer having empty tiles means overwrite is default
             //
             _assistant.OverrideValues = e.ctrlKey;
-            _assistant.TryExecute(out string log, out LogType type);
+            
+            RunTask();
+        }
 
-            LBSMainWindow.MessageNotify(log, type, 5);
-            if (type == LogType.Log)
-                Debug.Log(log);
-            else
-                Debug.LogWarning(log);
-
-            if (EditorGUI.EndChangeCheck())
+        private void OnExecutionEnd(string log,LogType type)
+        {
+            EditorApplication.delayCall += () =>
             {
-                EditorUtility.SetDirty(x);
+                var x = LBSController.CurrentLevel;
+
+                _assistant.OnTermination?.Invoke();
+                LBSMainWindow.MessageNotify(log, type, 5);
+                if (type == LogType.Log)
+                    Debug.Log(log);
+                else
+                    Debug.LogWarning(log);
+
+                DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
+                
+                if (EditorGUI.EndChangeCheck())
+                {
+                    EditorUtility.SetDirty(x);
+                }
+            };
+        }
+
+        void CancelCurrentTask()
+        {
+            if(_currentTaskCts == null) return;
+            if(_currentTaskCts.IsCancellationRequested) return;
+            _currentTaskCts.Cancel();
+        }
+
+        private void RunTask()
+        {
+            _currentTaskCts?.Cancel();
+
+            _currentTaskCts = new CancellationTokenSource();
+            var token = _currentTaskCts.Token;
+
+            var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
+            
+            taskbar.OnProgressCancelled -= CancelCurrentTask;
+            taskbar.OnProgressCancelled += CancelCurrentTask;
+
+            void ReportProgress(float normalized)
+            {
+                // Use update so progress applies immediately
+                EditorApplication.update += UpdateOnce;
+
+                void UpdateOnce()
+                {
+                    taskbar.SetProgressPercent(normalized);
+                    EditorApplication.update -= UpdateOnce;
+                }
             }
+            
+            taskbar.EnableProcess(true, _assistant.Name);
+            Task.Run(() =>
+            {
+                try
+                {
+                    _assistant.TryExecute(out string log, out LogType type, 5, ReportProgress, token);
+                    EditorApplication.delayCall += () =>
+                    {
+                        OnExecutionEnd(log, type);
+                        taskbar.EnableProcess(false);
+                   
+                    };
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"[WFCAssistant] Task failed: {ex}");
+                    EditorApplication.delayCall += () => taskbar.EnableProcess(false);
+                }
+            }, token);
         }
     }
 }

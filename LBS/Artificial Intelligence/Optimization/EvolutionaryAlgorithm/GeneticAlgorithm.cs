@@ -249,9 +249,6 @@ namespace ISILab.AI.Optimization
                     {
                         RunEvaluateFitness(c);
                     });
-                   // onProgress?.Invoke((float)index/optimizables.Count);
-                   // Thread.Sleep(1);
-                   
                 }
 
                 if (!TaskExecutor.Start())
