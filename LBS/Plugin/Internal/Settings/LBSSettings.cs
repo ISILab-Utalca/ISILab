@@ -12,6 +12,8 @@ namespace ISILab.LBS.Settings
     {
         
         private const string USER_ASSET_FOLDER_NAME = "LBSUserContent";
+
+        private static string mainFolder;
         
         #region SINGLETON
         private static LBSSettings instance;
@@ -26,10 +28,15 @@ namespace ISILab.LBS.Settings
             {
                 // si es igual a null lo busco en carpeta
                 if (instance == null)
+                {
                     instance = Resources.Load<LBSSettings>("LBS Settings");
-                // si sigue siendo null lo creo
-                if (instance == null)
-                    instance = ScriptableObject.CreateInstance<LBSSettings>();
+                    // si sigue siendo null lo creo
+                    if (instance == null)
+                        instance = ScriptableObject.CreateInstance<LBSSettings>();
+
+                    instance.InitPaths();
+                }
+                
                 return instance;
             }
 
@@ -50,6 +57,48 @@ namespace ISILab.LBS.Settings
         public Interface view = new Interface();
         public Test test = new Test();
         public Generator3D generator = new Generator3D();
+
+        private void InitPaths()
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+
+            mainFolder = packageInfo is null ? 
+                "Assets/isi-lab-unity-module" :
+                "Packages/" + packageInfo.name;
+
+            string[] _paths = new string[]
+            {
+                paths.settingsPath,
+                paths.storagePath,
+                paths.pressetsPath,
+                paths.backUpPath,
+
+                paths.bundleFolderPath,
+                paths.tagFolderPath,
+                paths.meshFolderPath,
+
+                paths.iconPath,
+
+                paths.layerPressetFolderPath,
+                paths.assistantPresetFolderPath,
+                paths.assistantOptimizerPresetPath,
+                paths.assistantEvaluatorPresetPath,
+                paths.Generator3DPresetFolderPath,
+                paths.bundlesPresetFolderPath
+            };
+
+            for(int i = 0; i < _paths.Length; i++)
+                ReplacePathStart(ref _paths[i]);
+        }
+
+        private void ReplacePathStart(ref string path)
+        {
+            if (path.StartsWith(mainFolder)) return;
+
+            int start = path.IndexOf("/LBS/");
+            path = path[start..];
+        }
 
         [System.Serializable]
         public class Test

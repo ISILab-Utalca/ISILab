@@ -23,7 +23,7 @@ namespace ISILab.LBS.Tests
         const string level4Rooms = "d26957894fd4ddb43b3eba81012a128c";
         const string level20Rooms = "ecb7a13f44837d845b00a5a19660369d";
 
-        const string dungeonPresetPath = "Assets/ISI Lab/LBS/Presets/Assistants/DungeonPreset.asset";
+        const string dungeonPresetPath = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
 
         [Test, Performance]
         public void MeasureMAPElites_4_Rooms_Exploration()

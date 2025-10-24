@@ -131,7 +131,7 @@ namespace ISILab.LBS.Template.Editor
             var layer = Template.layer;
             layer.ID = "Interior";
             layer.Name = "Layer Interior";
-            layer.iconGuid = "Assets/ISI Lab/Commons/Assets2D/Resources/Icons/Vectorial/Icon=InteriorLayerIcon.png";
+            layer.iconGuid = "Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=InteriorLayerIcon.png";
 
             layer.AddBehaviour(new SchemaBehaviour(behaviourIcon, "Schema behaviour", Settings.LBSSettings.Instance.view.behavioursColor));
             layer.AddAssistant(new HillClimbingAssistant(assistantIcon, "HillClimbing", Settings.LBSSettings.Instance.view.assistantColor));
@@ -155,7 +155,7 @@ namespace ISILab.LBS.Template.Editor
             var layer = Template.layer;
             layer.ID = "Exterior";
             layer.Name = "Layer Exterior";
-            layer.iconGuid = "Assets/ISI Lab/LBS/Plugin/Assets2D/Resources/Icons/pine-tree.png";
+            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/Plugin/Assets2D/Resources/Icons/pine-tree.png";
 
             var bh = new ExteriorBehaviour(behaviourIcon, "Exterior behaviour", Settings.LBSSettings.Instance.view.behavioursColor);
             bh.OnAttachLayer(layer);
@@ -183,7 +183,7 @@ namespace ISILab.LBS.Template.Editor
             var layer = Template.layer;
             layer.ID = "Population";
             layer.Name = "Layer Population";
-            layer.iconGuid = "Assets/ISI Lab/LBS/Plugin/Assets2D/Resources/Icons/ghost.png";
+            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/Plugin/Assets2D/Resources/Icons/ghost.png";
 
             layer.Settings = new Generator3D.Settings
             {
@@ -209,7 +209,7 @@ namespace ISILab.LBS.Template.Editor
             var layer = Template.layer;
             layer.ID = "Quest";
             layer.Name = "Layer Quest";
-            layer.iconGuid = "Assets/ISI Lab/LBS/Plugin/Assets2D/Resources/Icons/Stamp_Icon.png";
+            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/Plugin/Assets2D/Resources/Icons/Stamp_Icon.png";
 
             layer.Settings = new Generator3D.Settings
             {
@@ -241,7 +241,7 @@ namespace ISILab.LBS.Template.Editor
             var layer = Template.layer;
             layer.ID = "Simulation";
             layer.Name = "Layer Simulation";
-            layer.iconGuid = "Assets/ISI Lab/LBS/GABO/Resources/Icons/TinyIconPathOSModule16x16.png";
+            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/GABO/Resources/Icons/TinyIconPathOSModule16x16.png";
 
             layer.Settings = new Generator3D.Settings
             {

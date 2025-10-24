@@ -4,6 +4,7 @@ using ISILab.LBS.Settings;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Presets;
 using UnityEngine;
 using static ISILab.LBS.Settings.LBSSettings;
 
@@ -60,6 +61,14 @@ namespace ISILab.LBS.Settings
         [SettingsProvider]
         public static SettingsProvider GeneralSettingProvider()
         {
+            //Debug.Log(typeof(LBS_SettingsProvider).Assembly.GetName().Name);
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+            return packageInfo is null ? GetDevSettings() : GetUserSettings();
+        }
+
+        private static SettingsProvider GetDevSettings()
+        {
             // First parameter is the path in the Settings window.
             // Second parameter is the scope of this setting: it only appears in the Project Settings window.
             var provider = new SettingsProvider("LBS/General", SettingsScope.Project)
@@ -94,6 +103,30 @@ namespace ISILab.LBS.Settings
                         var so = DirectoryTools.GetScriptable<LBSAssetsStorage>();
                         var path = AssetDatabase.GetAssetPath(so);
                         settings.paths.storagePath = path;
+                        EditorUtility.SetDirty(settings);
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    //Presets path
+                    EditorGUILayout.BeginHorizontal();
+                    settings.paths.pressetsPath = EditorGUILayout.TextField("Presets path", settings.paths.pressetsPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    if (GUILayout.Button("Find", GUILayout.MaxWidth(60)))
+                    {
+                        var so = DirectoryTools.GetScriptable<LBSAssetsStorage>();
+                        var path = AssetDatabase.GetAssetPath(so);
+                        settings.paths.pressetsPath = path;
+                        EditorUtility.SetDirty(settings);
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    //Backup path
+                    EditorGUILayout.BeginHorizontal();
+                    settings.paths.backUpPath = EditorGUILayout.TextField("Backup path", settings.paths.backUpPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    if (GUILayout.Button("Find", GUILayout.MaxWidth(60)))
+                    {
+                        var so = DirectoryTools.GetScriptable<LBSAssetsStorage>();
+                        var path = AssetDatabase.GetAssetPath(so);
+                        settings.paths.backUpPath = path;
                         EditorUtility.SetDirty(settings);
                     }
                     EditorGUILayout.EndHorizontal();
@@ -155,7 +188,7 @@ namespace ISILab.LBS.Settings
                         EditorStyles.textField,
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
-                    
+
                     EditorGUILayout.BeginHorizontal();
                     settings.paths.meshFolderPath = EditorGUILayout.TextField("Generated Mesh Folder",
                         settings.paths.meshFolderPath,
@@ -223,6 +256,10 @@ namespace ISILab.LBS.Settings
             return provider;
         }
 
+        private static SettingsProvider GetUserSettings()
+        {
+            return null;
+        }
 
         [SettingsProvider]
         public static SettingsProvider InterfaceSettingsProvider()
