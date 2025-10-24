@@ -12,56 +12,47 @@ namespace ISILab.LBS.CustomComponents
         public readonly String LBSClassName = "lbs-button";
         
         [UxmlAttribute]
-        public Color ButtonTint
-        {
-            get => buttonTint;
-            set
-            {
-                buttonTint = value;
-                if (tintOverlayElement != null)
-                {
-                    if (buttonTint != Color.white)
-                    {
-                        
-                        tintOverlayElement.style.backgroundColor = new StyleColor(buttonTint); 
-                        tintOverlayElement.style.display = DisplayStyle.Flex;
-                    
-                    }
-                    else
-                    {
-                        tintOverlayElement.style.display = DisplayStyle.None;
-                    }
-                }
-
-            }
-        }
-
-        private Color buttonTint = Color.white;
-        private Color baseTint = Color.white;
+        public Color ButtonTint { get => buttonTint; set => buttonTint = value; }
+        [UxmlAttribute]
+        public Color HoverColor { get => hoverColor; set => hoverColor = value; }
+        [UxmlAttribute]
+        public Color PressedColor { get => pressedColor; set => pressedColor = value; }
         
-        private VisualElement tintOverlayElement;
+        
+        private Color buttonTint = Color.white;
+        private Color hoverColor = Color.white;
+        private Color pressedColor = Color.white;
+        
+        
         public LBSCustomButton() : base()
         {
             RemoveFromClassList(ussClassName);
             AddToClassList(LBSClassName);
-            baseTint = this.style.backgroundColor.value;
+            buttonTint = this.style.backgroundColor.value;
             
             
-            tintOverlayElement = new VisualElement();
-            tintOverlayElement.AddToClassList("lbs-button-tint-overlay");
-            this.Add(tintOverlayElement);
-            tintOverlayElement.SendToBack();
-            tintOverlayElement.style.position = Position.Absolute;
-            tintOverlayElement.pickingMode = PickingMode.Ignore;
-            if (baseTint != Color.white)
+            SetOverlayColors(buttonTint);
+            
+            RegisterCallback<MouseEnterEvent>((_evt => SetOverlayColors(hoverColor)));
+            RegisterCallback<MouseLeaveEvent>((_evt => SetOverlayColors(buttonTint)));
+            RegisterCallback<MouseDownEvent>((_evt => SetOverlayColors(pressedColor)));
+            RegisterCallback<MouseUpEvent>((_evt => SetOverlayColors(buttonTint)));
+            RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
+            RegisterCallbackOnce<NavigationSubmitEvent>((_evt =>
             {
-                tintOverlayElement.style.backgroundColor = new StyleColor(baseTint);
-            }
-            else
+             Debug.Log("Navigation submitted");   
+            }));
+        }
+
+
+
+        public void SetOverlayColors(Color _newColor = new Color())
+        {
+            if (_newColor != Color.white)
             {
-                tintOverlayElement.style.display = DisplayStyle.None;
+                style.backgroundColor = new StyleColor(buttonTint);
+                
             }
-            
         }
     }
 }
