@@ -45,6 +45,8 @@ namespace ISILab.LBS.CustomComponents
             RemoveFromClassList(ussClassName);
             AddToClassList(LBSClassName);
             baseTint = this.style.backgroundColor.value;
+            
+            
             tintOverlayElement = new VisualElement();
             tintOverlayElement.AddToClassList("lbs-button-tint-overlay");
             this.Add(tintOverlayElement);
@@ -60,9 +62,6 @@ namespace ISILab.LBS.CustomComponents
                 tintOverlayElement.style.display = DisplayStyle.None;
             }
             
-            
-
-
         }
     }
 }
