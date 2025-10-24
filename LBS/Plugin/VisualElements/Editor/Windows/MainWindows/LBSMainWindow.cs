@@ -21,7 +21,21 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
-namespace ISILab.LBS.Editor.Windows{
+namespace ISILab.LBS.Editor.Windows
+{
+    [InitializeOnLoad]
+    public static class PostReloadHandler
+    {
+        static PostReloadHandler()
+        {
+            AssemblyReloadEvents.afterAssemblyReload += () =>
+            {
+                // Only execute if window exists
+                LBSMainWindow.Instance?.InitializeUI();
+            };
+        }
+    }
+
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class LBSMainWindow : EditorWindow
@@ -145,35 +159,7 @@ namespace ISILab.LBS.Editor.Windows{
             Debug.Log("[Main Window] - OnEnable");
             _instance = this;
             
-            #region LOAD UI TREE
-            //MainWindows UXML 
-            VisualTreeAsset visualTree = LBSAssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
-            visualTree.CloneTree(rootVisualElement);
-            #endregion
-            
-            splitView = rootVisualElement.Q<SplitView>("SplitView");
-            
-            helpOverlayAnchor = rootVisualElement.Q<VisualElement>("HelpOverlayAnchor");
-            
-            topToolBar = rootVisualElement.Q<ToolBarMain>("ToolBar");
-            infoToolBar =  rootVisualElement.Q<InfoToolbar>("InfoToolbar");
-            
-            mainView = rootVisualElement.Q<MainView>("MainView");
-            
-            noLayerSign = rootVisualElement.Q<VisualElement>("NoLayerSign");
-            selectedLabel = rootVisualElement.Q<Label>("SelectedLabel");
-            positionLabel = rootVisualElement.Q<Label>("PositionLabel");
-            
-            notifier = rootVisualElement.Q<NotifierViewer>("NotifierViewer");
-            
-            inspectorPanelContainer = rootVisualElement.Q<VisualElement>("Inspector");
-            inspectorManager = rootVisualElement.Q<LBSInspectorPanel>("InspectorPanel");
-            sideBarPanel = rootVisualElement.Q<LBSSideBarPanel>("LBSSideBarPanel");
-            
-            subPanelScrollView = rootVisualElement.Q<ScrollView>("SubPanelScrollView");
-            
-            extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
-            taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
+            InitializeUI();
         }
         
         private void OnDisable()
@@ -181,7 +167,40 @@ namespace ISILab.LBS.Editor.Windows{
             if (_instance == this)
                 _instance = null;
         }
-        
+
+        public void InitializeUI()
+        {
+            #region LOAD UI TREE
+            //MainWindows UXML 
+            VisualTreeAsset visualTree = LBSAssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
+            visualTree.CloneTree(rootVisualElement);
+            #endregion
+
+            splitView = rootVisualElement.Q<SplitView>("SplitView");
+
+            helpOverlayAnchor = rootVisualElement.Q<VisualElement>("HelpOverlayAnchor");
+
+            topToolBar = rootVisualElement.Q<ToolBarMain>("ToolBar");
+            infoToolBar = rootVisualElement.Q<InfoToolbar>("InfoToolbar");
+
+            mainView = rootVisualElement.Q<MainView>("MainView");
+
+            noLayerSign = rootVisualElement.Q<VisualElement>("NoLayerSign");
+            selectedLabel = rootVisualElement.Q<Label>("SelectedLabel");
+            positionLabel = rootVisualElement.Q<Label>("PositionLabel");
+
+            notifier = rootVisualElement.Q<NotifierViewer>("NotifierViewer");
+
+            inspectorPanelContainer = rootVisualElement.Q<VisualElement>("Inspector");
+            inspectorManager = rootVisualElement.Q<LBSInspectorPanel>("InspectorPanel");
+            sideBarPanel = rootVisualElement.Q<LBSSideBarPanel>("LBSSideBarPanel");
+
+            subPanelScrollView = rootVisualElement.Q<ScrollView>("SubPanelScrollView");
+
+            extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
+            taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
+        }
+
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
         private static void ShowWindow()
         {
