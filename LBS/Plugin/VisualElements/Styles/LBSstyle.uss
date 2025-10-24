@@ -312,7 +312,7 @@ Toggle > .lbs-default-icon {
 
 .lbs-button:hover {
     overflow: hidden;
-    background-color: var(--lbs-selectable-hover-color);
+    background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
 }
 
 .lbs-button:focus {
