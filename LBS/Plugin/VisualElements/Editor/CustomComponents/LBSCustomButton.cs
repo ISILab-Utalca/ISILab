@@ -12,7 +12,19 @@ namespace ISILab.LBS.CustomComponents
         public readonly String LBSClassName = "lbs-button";
         
         [UxmlAttribute]
-        public Color ButtonTint { get => buttonTint; set => buttonTint = value; }
+        public Color ButtonTint
+        {
+            get => buttonTint;
+            set
+            {
+                buttonTint = value;
+                if (value != Color.white)
+                {
+                    style.backgroundColor = new StyleColor(buttonTint);
+                }
+            }
+        }
+
         [UxmlAttribute]
         public Color HoverColor { get => hoverColor; set => hoverColor = value; }
         [UxmlAttribute]
