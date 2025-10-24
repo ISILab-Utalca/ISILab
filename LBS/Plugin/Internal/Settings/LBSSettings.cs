@@ -36,7 +36,8 @@ namespace ISILab.LBS.Settings
 
                     instance.InitPaths();
                 }
-                
+                //else Debug.Log("LBS Settings existe.");
+
                 return instance;
             }
 
@@ -67,37 +68,34 @@ namespace ISILab.LBS.Settings
                 "Assets/isi-lab-unity-module" :
                 "Packages/" + packageInfo.name;
 
-            string[] _paths = new string[]
+            ReplacePathStart(ref instance.paths.settingsPath);
+            ReplacePathStart(ref instance.paths.storagePath);
+            ReplacePathStart(ref instance.paths.pressetsPath);
+            ReplacePathStart(ref instance.paths.backUpPath);
+
+            ReplacePathStart(ref instance.paths.bundleFolderPath);
+            ReplacePathStart(ref instance.paths.tagFolderPath);
+            ReplacePathStart(ref instance.paths.meshFolderPath);
+
+            ReplacePathStart(ref instance.paths.iconPath);
+
+            ReplacePathStart(ref instance.paths.layerPressetFolderPath);
+            ReplacePathStart(ref instance.paths.assistantPresetFolderPath);
+            ReplacePathStart(ref instance.paths.assistantOptimizerPresetPath);
+            ReplacePathStart(ref instance.paths.assistantEvaluatorPresetPath);
+            ReplacePathStart(ref instance.paths.Generator3DPresetFolderPath);
+            ReplacePathStart(ref instance.paths.bundlesPresetFolderPath);
+
+            instance.MarkSettingsAsDirty();
+
+            void ReplacePathStart(ref string path)
             {
-                paths.settingsPath,
-                paths.storagePath,
-                paths.pressetsPath,
-                paths.backUpPath,
+                if (path.StartsWith(mainFolder)) return;
 
-                paths.bundleFolderPath,
-                paths.tagFolderPath,
-                paths.meshFolderPath,
-
-                paths.iconPath,
-
-                paths.layerPressetFolderPath,
-                paths.assistantPresetFolderPath,
-                paths.assistantOptimizerPresetPath,
-                paths.assistantEvaluatorPresetPath,
-                paths.Generator3DPresetFolderPath,
-                paths.bundlesPresetFolderPath
-            };
-
-            for(int i = 0; i < _paths.Length; i++)
-                ReplacePathStart(ref _paths[i]);
-        }
-
-        private void ReplacePathStart(ref string path)
-        {
-            if (path.StartsWith(mainFolder)) return;
-
-            int start = path.IndexOf("/LBS/");
-            path = path[start..];
+                int start = path.IndexOf("/LBS/");
+                path = mainFolder + path[start..];
+                //Debug.Log("Updated path: " +  path);
+            }
         }
 
         [System.Serializable]
