@@ -70,7 +70,68 @@ namespace ISILab.LBS.VisualElements
             }
             */
 
+            int counter = 0;
             var list = new LBSCustomTreeView();
+            var finaldata = new List<TreeViewItemData<TreeNodeData>>();
+
+            for (int i = 0; i < target.tileDirections.Count; i++)
+            {
+                var tileDir = target.tileDirections[i];
+                var parentNode = new TreeNodeData
+                {
+                    Id = counter++,
+                    Label = tileDir.mainTarget.BundleName,
+                    Type = NodeType.Label
+                };
+
+                var directionNodes = new List<TreeViewItemData<TreeNodeData>>();
+
+                if (tileDir.chances.Any())
+                {
+                    for (int d = 0; d < tileDir.chances.Count; d++)
+                    {
+                        int dirValue = d;
+                        var dirNode = new TreeNodeData
+                        {
+                            Id = counter++,
+                            Label = $"Dirección: {dirValue}",
+                            Type = NodeType.Label
+                        };
+
+                        var chanceNodes = new List<TreeViewItemData<TreeNodeData>>();
+
+                        foreach (var chance in tileDir.chances)
+                        {
+                            chanceNodes.Add(
+                                new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
+                                {
+                                    Id = counter,
+                                    Label = chance.target.name,
+                                    Type = NodeType.Label
+                                })
+                            );
+                            chanceNodes.Add(
+                                new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
+                                {
+                                    Id = counter,
+                                    Label = "Chance",
+                                    SliderValue = chance.chance,
+                                    Type = NodeType.Slider
+                                })
+                            );
+                        }
+
+                        directionNodes.Add(new TreeViewItemData<TreeNodeData>(counter++, dirNode, chanceNodes));
+                    }
+                }
+
+
+                finaldata.Add(new TreeViewItemData<TreeNodeData>(i, parentNode, directionNodes));
+            }
+
+
+
+            /*
             var treeData = new List<TreeViewItemData<TreeNodeData>>
             {
                 new TreeViewItemData<TreeNodeData>(0, new TreeNodeData { Id = 0, Label = "Grupo 1", Type = NodeType.Label }, new List<TreeViewItemData<TreeNodeData>>
@@ -80,9 +141,10 @@ namespace ISILab.LBS.VisualElements
                     new TreeViewItemData<TreeNodeData>(3, new TreeNodeData { Id = 3, Label = "Objeto", ObjectFieldValue = null, Type = NodeType.ObjectField })
                 })
             };
+            */
 
 
-            list.SetRootItems(treeData);
+            list.SetRootItems(finaldata);
             list.makeItem = () => {
                 var ve = new VisualElement();
 
