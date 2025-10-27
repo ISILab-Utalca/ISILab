@@ -17,8 +17,6 @@ namespace ISILab.LBS.Manipulators
         private Vector2Int _cornerStart;
 
         private AssistantWFC _assistant;
-
-        private CancellationTokenSource _currentTaskCts;
         
         protected override string IconGuid => "08c60bd0a76e4bb4dad11ebf18bca46e";
 
@@ -107,9 +105,6 @@ namespace ISILab.LBS.Manipulators
                 {
                     EditorUtility.SetDirty(x);
                 }
-
-                // remove
-                _assistant.OnTermination = null;
             };
         }
 

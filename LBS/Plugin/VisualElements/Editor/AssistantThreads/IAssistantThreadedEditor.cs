@@ -67,6 +67,7 @@ public interface IAssistantThreadedEditor
         IATE.TaskBar.OnProgressCancelled -= CancelCurrentTask;
         IATE.TaskBar.OnProgressCancelled += CancelCurrentTask;
 
+        Assistant.OnTermination = null;
         Assistant.OnTermination -= HandleTermination;
         Assistant.OnTermination += HandleTermination;
 

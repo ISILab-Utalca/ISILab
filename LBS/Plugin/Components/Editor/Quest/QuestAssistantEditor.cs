@@ -19,7 +19,7 @@ using LBS.VisualElements;
 namespace ISILab.LBS.Editor
 {
     [LBSCustomEditor("QuestAssistant", typeof(QuestAssistant))]
-    public class QuestAssistantEditor : LBSCustomEditor, IToolProvider
+    public class QuestAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
     {
         
         #region FIELDS
@@ -37,7 +37,7 @@ namespace ISILab.LBS.Editor
             public const string RemoveAllSuggestions = "RemoveSuggestions";
         }
 
-        private QuestAssistant _questAssistant;
+        private QuestAssistant _assistant;
         private QuestGraph _questGraph;
         private ListView _layerList;
         private ListView _suggestionList;
@@ -48,8 +48,7 @@ namespace ISILab.LBS.Editor
         private VisualElement _lockedContextEntryContainer;
         private LBSPanelTextIcon _noSuggestionPanel;
         private LBSCustomUnsignedIntegerField _suggestionField;
- 
-        private CancellationTokenSource _currentTaskCts;
+        private IEnumerable<QuestNode> suggestions;
 
         #endregion
 
@@ -65,8 +64,8 @@ namespace ISILab.LBS.Editor
         public sealed override void SetInfo(object target)
         {
             this.target = target as QuestAssistant;
-            _questAssistant = target as QuestAssistant;
-            _questGraph = _questAssistant?.OwnerLayer.GetModule<QuestGraph>();
+            _assistant = target as QuestAssistant;
+            _questGraph = _assistant?.OwnerLayer.GetModule<QuestGraph>();
         }
 
         /// <summary>
@@ -87,11 +86,11 @@ namespace ISILab.LBS.Editor
             _autoConnectButton = this.Q<Button>(UIElementNames.ConnectAll);
             _noSuggestionPanel = this.Q<LBSPanelTextIcon>(UIElementNames.NoSuggestionPanel);
             _suggestionField = this.Q<LBSCustomUnsignedIntegerField>(UIElementNames.SuggestionField);
-            _suggestionField.value = _questAssistant.SuggestionAmount;
+            _suggestionField.value = _assistant.SuggestionAmount;
             
             _suggestionField.RegisterValueChangedCallback(evt =>
             {
-                _questAssistant.SuggestionAmount = evt.newValue; 
+                _assistant.SuggestionAmount = evt.newValue; 
             });
             
             _addLayerButton.clicked += ShowAddLayerMenu;
@@ -110,81 +109,57 @@ namespace ISILab.LBS.Editor
             return this;
         }
 
-        void CancelCurrentTask()
+        #region IAssistantThreadedEditor
+        
+        public CancellationToken CancelToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+        public ToolBarMain TaskBar { get; set; }
+
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
         {
-            if(_currentTaskCts == null) return;
-            if(_currentTaskCts.IsCancellationRequested) return;
-            _currentTaskCts.Cancel();
+            // Once done, update UI safely
+            EditorApplication.delayCall += () =>
+            {
+                _questGraph.Suggestions.AddRange(suggestions);
+                UpdateSuggestionsDisplay();
+                TaskBar.EnableProcess(false);
+            };
         }
+        
+        #endregion
+        
         
         private void RunTask()
         {
-            _currentTaskCts?.Cancel();
-
-            _currentTaskCts = new CancellationTokenSource();
-            var token = _currentTaskCts.Token;
-
-            var taskbar =LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();;
-            
-            taskbar.OnProgressCancelled -= CancelCurrentTask;
-            taskbar.OnProgressCancelled += CancelCurrentTask;
-            
-            void ReportProgress(float normalized)
-            {
-                // Use update so progress applies immediately
-                EditorApplication.update += UpdateOnce;
-                void UpdateOnce()
-                {
-                    taskbar.SetProgressPercent(normalized);
-                    EditorApplication.update -= UpdateOnce;
-                }
-            }
-            
-            taskbar.EnableProcess(true, _questAssistant.Name);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
             {
                 try
                 {
-                    var bundleToActions = _questAssistant.GenerateSuggestions((int)GetSuggestionCount(), progress =>
+                    var bundleToActions = _assistant.GenerateSuggestions((int)GetSuggestionCount(), progress =>
                     {
                         // progress from 0 to 0.5
-                        ReportProgress(0.05f * progress);
-                    }, token);
-
-                    if (token.IsCancellationRequested)
-                    {
-                        ReportProgress(0);
-                        return;
-                    }
+                        ((IAssistantThreadedEditor)this).ReportProgress(0.05f * progress);
+                    }, CancelToken);
                     
-                    var suggestions = _questAssistant.CreateNewSuggestions(bundleToActions, progress =>
+                    
+                    suggestions = _assistant.CreateNewSuggestions(bundleToActions, progress =>
                     {
                         // progress from 0 to 95
-                        ReportProgress(0.05f + 0.95f * progress);
-                    }, token);
+                        ((IAssistantThreadedEditor)this).ReportProgress(0.05f + 0.95f * progress);
+                    }, CancelToken);
                     
-                    if (token.IsCancellationRequested)
-                    {
-                        ReportProgress(0);
-                        return;
-                    }
-                    
-                    
-                    // Once done, update UI safely
-                    EditorApplication.delayCall += () =>
-                    {
-                        _questGraph.Suggestions.AddRange(suggestions);
-                        UpdateSuggestionsDisplay();
-                        taskbar.EnableProcess(false);
-                    };
+                    string log = "Recommended nodes generated.";
+                    LogType logType = LogType.Log;
+                    EditorApplication.delayCall += () => _assistant.OnTermination?.Invoke(log, logType);
+                   
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"[QuestAssistant] Task failed: {ex}");
-                    EditorApplication.delayCall += () => taskbar.EnableProcess(false);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
 
-            }, token);
+            }, CancelToken);
         }
 
         private uint GetSuggestionCount()
@@ -198,26 +173,26 @@ namespace ISILab.LBS.Editor
             _layerList.reorderable = false;
             _layerList.makeItem = () => new LayerContextEntry();
             _layerList.bindItem = BindLayerContextEntry;
-            _layerList.itemsSource = _questAssistant.Data.ContextLayers;
+            _layerList.itemsSource = _assistant.Data.ContextLayers;
             UpdateContextDisplay();
         }
         
         private void UpdateContextDisplay()
         {
             _layerList.Rebuild();
-            _layerList.style.display = _questAssistant.Data.ContextLayers.Count > 0 ? DisplayStyle.Flex : DisplayStyle.None;
+            _layerList.style.display = _assistant.Data.ContextLayers.Count > 0 ? DisplayStyle.Flex : DisplayStyle.None;
         }
         
         private void BindLayerContextEntry(VisualElement element, int index)
         {
             if (element is not LayerContextEntry layerContextEntry) return;
 
-            layerContextEntry.UpdateData(_questAssistant.Data.ContextLayers[index]);
-            layerContextEntry.EvaluateOverlap(_questAssistant.Data.ContextLayers);
+            layerContextEntry.UpdateData(_assistant.Data.ContextLayers[index]);
+            layerContextEntry.EvaluateOverlap(_assistant.Data.ContextLayers);
             layerContextEntry.OnRemoveButtonClicked = null;
             layerContextEntry.OnRemoveButtonClicked += () =>
             {
-                _questAssistant.Data.ContextLayers.RemoveAt(index);
+                _assistant.Data.ContextLayers.RemoveAt(index);
                 UpdateContextDisplay();
             };
         }
@@ -233,11 +208,11 @@ namespace ISILab.LBS.Editor
         private void ShowAddLayerMenu()
         {
             var menu = new GenericMenu();
-            foreach (var layer in _questAssistant.Data.Layers)
+            foreach (var layer in _assistant.Data.Layers)
             {
                 if (!_questGraph.OwnerLayer.Equals(layer))
                 {
-                    menu.AddItem(new GUIContent(layer.Name), _questAssistant.Data.ContextLayers.Contains(layer), ToggleLayerContext, layer);
+                    menu.AddItem(new GUIContent(layer.Name), _assistant.Data.ContextLayers.Contains(layer), ToggleLayerContext, layer);
                 }
             }
             menu.ShowAsContext();
@@ -251,10 +226,10 @@ namespace ISILab.LBS.Editor
                 return;
             }
 
-            if (_questAssistant.Data.ContextLayers.Contains(lbsLayer))
-                _questAssistant.Data.ContextLayers.Remove(lbsLayer);
+            if (_assistant.Data.ContextLayers.Contains(lbsLayer))
+                _assistant.Data.ContextLayers.Remove(lbsLayer);
             else
-                _questAssistant.Data.ContextLayers.Add(lbsLayer);
+                _assistant.Data.ContextLayers.Add(lbsLayer);
 
             UpdateContextDisplay();
         }
