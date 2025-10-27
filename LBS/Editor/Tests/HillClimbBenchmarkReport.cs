@@ -3,7 +3,7 @@ using ISILab.LBS.Assistants;
 using LBS.Components;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
-
+using UnityEngine;
 
 
 namespace ISILab.LBS.Tests
@@ -21,7 +21,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    Assert.AreEqual(HCassistant.TryExecute(out string failedLog), true);
+                    Assert.AreEqual(HCassistant.TryExecute(out string log, out LogType type), true);
                 })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -38,7 +38,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
             {
-                Assert.AreEqual(HCassistant.TryExecute(out string failedLog), true);
+                Assert.AreEqual(HCassistant.TryExecute(out string log, out LogType type), true);
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -55,7 +55,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    Assert.AreEqual(HCassistant.TryExecute(out string failedLog), true);
+                    Assert.AreEqual(HCassistant.TryExecute(out string log, out LogType type), true);
                 })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -70,7 +70,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    Assert.AreEqual(HCassistant.TryExecute(out string failedLog), true);
+                    Assert.AreEqual(HCassistant.TryExecute(out string log, out LogType type), true);
                 })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -85,7 +85,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    Assert.AreEqual(HCassistant.TryExecute(out string failedLog), true);
+                    Assert.AreEqual(HCassistant.TryExecute(out string log, out LogType type), true);
                 })
                 .WarmupCount(0)
                 .MeasurementCount(10)

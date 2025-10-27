@@ -31,7 +31,7 @@ namespace ISILab.LBS.VisualElements
             Add(label);
             Add(button);
 
-            agent.OnTermination += () =>
+            agent.OnTermination += (string log, LogType logType) =>
             {
                 LBSInspectorPanel.Instance.SetTarget(agent.OwnerLayer);
                // LBSInspectorPanel.Instance.InitTabs(new List<LayerTemplate>());

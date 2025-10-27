@@ -14,6 +14,7 @@ using ISILab.LBS.Modules;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -106,6 +107,8 @@ namespace ISILab.LBS.Assistants
 
         public void Execute(bool synchronous = false, Action<float> onProgress = null, CancellationToken token = default)
         {
+            mapElites.OnEnd = OnTerminateBind;
+                
             toUpdate.Clear();
             if (!Testing)
             {
@@ -122,21 +125,17 @@ namespace ISILab.LBS.Assistants
             {
                 mapElites.Stop();
             }
-
-           
-  
+            
             mapElites.Run(synchronous, onProgress, token);
-            
-            
         }
-        
+
+        private void OnTerminateBind()
+        {
+            EditorApplication.delayCall += () => OnTermination?.Invoke("MapElites ended!",  LogType.Log);
+        }
+
         public void RequestOptimizerStop() => mapElites?.Optimizer?.RequestStop();
 
-        public void OnEndSetup(Action endAction)
-        {
-            mapElites.OnEnd = null;
-            mapElites.OnEnd = endAction;
-        }
 
         public void Continue()
         {
