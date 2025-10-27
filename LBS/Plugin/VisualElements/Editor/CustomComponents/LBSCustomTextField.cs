@@ -16,6 +16,16 @@ namespace ISILab.LBS.CustomComponents
             AddToClassList(LBSClassName);
             AddToClassList(LBSFieldClassName);
         }
+
+        public LBSCustomTextField(string _name = ""): base(_name)
+        {
+            RemoveFromClassList(ussClassName);
+            AddToClassList(LBSClassName);
+            AddToClassList(LBSFieldClassName);
+        }
+        
+        
+        
     }   
 }
 

@@ -1,4 +1,6 @@
 using System;
+using ISILab.Extensions;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,40 +22,35 @@ namespace ISILab.LBS.CustomComponents
                 buttonTint = value;
                 if (value != Color.white)
                 {
-                    style.backgroundColor = new StyleColor(buttonTint);
+                    Color.RGBToHSV(buttonTint, out float h , out float s, out float v);
+                    hoverButtonTint = Color.HSVToRGB(h, s, Mathf.Clamp( v + 0.1f,0f,1f));
+                    pressedButtonTint = Color.HSVToRGB( h, 
+                        Mathf.Clamp( s + 0.1f,0f,1f), 
+                        Mathf.Clamp( v - 0.2f,0f,1f));
+                    
+                    SetOverlayColors(buttonTint);
                 }
             }
         }
-
-        [UxmlAttribute]
-        public Color HoverColor { get => hoverColor; set => hoverColor = value; }
-        [UxmlAttribute]
-        public Color PressedColor { get => pressedColor; set => pressedColor = value; }
         
         
         private Color buttonTint = Color.white;
-        private Color hoverColor = Color.white;
-        private Color pressedColor = Color.white;
-        
+        private Color hoverButtonTint = Color.white;
+        private Color pressedButtonTint = Color.white;
         
         public LBSCustomButton() : base()
         {
             RemoveFromClassList(ussClassName);
             AddToClassList(LBSClassName);
-            buttonTint = this.style.backgroundColor.value;
-            
-            
+            style.backgroundColor = new StyleColor(buttonTint);
             SetOverlayColors(buttonTint);
             
-            RegisterCallback<MouseEnterEvent>((_evt => SetOverlayColors(hoverColor)));
+            RegisterCallback<MouseEnterEvent>((_evt => SetOverlayColors(hoverButtonTint)));
             RegisterCallback<MouseLeaveEvent>((_evt => SetOverlayColors(buttonTint)));
-            RegisterCallback<MouseDownEvent>((_evt => SetOverlayColors(pressedColor)));
+            RegisterCallback<ClickEvent>((_evt => SetOverlayColors(pressedButtonTint)));
             RegisterCallback<MouseUpEvent>((_evt => SetOverlayColors(buttonTint)));
-            RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
-            RegisterCallbackOnce<NavigationSubmitEvent>((_evt =>
-            {
-             Debug.Log("Navigation submitted");   
-            }));
+            // RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
+            
         }
 
 
@@ -62,8 +59,7 @@ namespace ISILab.LBS.CustomComponents
         {
             if (_newColor != Color.white)
             {
-                style.backgroundColor = new StyleColor(buttonTint);
-                
+                style.backgroundColor = new StyleColor(_newColor);
             }
         }
     }
