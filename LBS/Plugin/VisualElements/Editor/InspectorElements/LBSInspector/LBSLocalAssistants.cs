@@ -102,7 +102,7 @@ namespace ISILab.LBS.VisualElements
 
             // Local functions
 
-            void OnTerminationBaseCallback()
+            void OnTerminationBaseCallback(string log, LogType type)
             {
                 if(currentAssistant is null) return;
                 currentAssistant.OnTermination -= OnTerminationBaseCallback;

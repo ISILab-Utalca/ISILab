@@ -14,13 +14,16 @@ public interface IAssistantThreadedEditor
     ToolBarMain TaskBar  { get; set; }
     
     // recommended to encapsulate logic within an "EditorApplication.delayCall"
-    protected abstract void OnAssistantTermination();
+    protected abstract void OnAssistantTermination(string log = "", LogType type = LogType.Log);
     
 
     public void OnTaskException(Exception ex, LBSAssistant Assistant)
     {
-        Debug.LogError($"{Assistant.Name} Task failed: {ex}");
-        EditorApplication.delayCall += () => TaskBar.EnableProcess(false);
+        EditorApplication.delayCall += () =>
+        {
+            Debug.LogError($"{Assistant.Name} Task failed: {ex}");
+            TaskBar.EnableProcess(false);
+        };
     }
     
     public void CancelCurrentTask()
@@ -48,7 +51,7 @@ public interface IAssistantThreadedEditor
     /// <param name="Assistant">The <see cref="LBSAssistant"/> whose method will be called within the task</param>
     public void SetUpTask(object InterfaceOwner, LBSAssistant Assistant)
     {
-        var IATE = (IAssistantThreadedEditor)InterfaceOwner;
+        IAssistantThreadedEditor IATE = (IAssistantThreadedEditor)InterfaceOwner;
         
         // cancel old token if exists
         IATE.CancellationTokenSource?.Cancel();
@@ -64,11 +67,19 @@ public interface IAssistantThreadedEditor
         IATE.TaskBar.OnProgressCancelled -= CancelCurrentTask;
         IATE.TaskBar.OnProgressCancelled += CancelCurrentTask;
 
-        Assistant.OnTermination -= IATE.OnAssistantTermination;
-        Assistant.OnTermination += IATE.OnAssistantTermination;
+        Assistant.OnTermination -= HandleTermination;
+        Assistant.OnTermination += HandleTermination;
+
         IATE.TaskBar.EnableProcess(true, Assistant.Name);
     }
     
+    private void HandleTermination(string log, LogType type)
+    {
+        EditorApplication.delayCall += () =>
+        {
+            OnAssistantTermination(log, type);
+        };
+    }
 
     public void ReportProgress(float normalized)
     {

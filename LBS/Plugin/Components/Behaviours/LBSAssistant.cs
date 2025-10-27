@@ -85,7 +85,7 @@ namespace ISILab.LBS.Assistants
         [JsonIgnore]
         public Action OnStart;
         [JsonIgnore]
-        public Action OnTermination;
+        public Action<string,LogType> OnTermination;
         [JsonIgnore]
         public Action OnCancellation;
         #endregion

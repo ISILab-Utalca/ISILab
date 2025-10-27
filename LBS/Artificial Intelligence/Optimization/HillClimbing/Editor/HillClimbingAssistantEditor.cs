@@ -22,12 +22,12 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("HillClimbingAssistant", typeof(HillClimbingAssistant))]
-    public class HillClimbingAssistantEditor : LBSCustomEditor, IToolProvider
+    public class HillClimbingAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
     {
         #region FIELDS
         private readonly UnityEngine.Color AssistantColor = LBSSettings.Instance.view.assistantColor;
 
-        private HillClimbingAssistant hillClimbing;
+        private HillClimbingAssistant _assistant;
 
         private Foldout foldout;
         private Button revert;
@@ -51,7 +51,7 @@ namespace ISILab.LBS.VisualElements
         
         public HillClimbingAssistantEditor(object target) : base(target)
         {
-            hillClimbing = target as HillClimbingAssistant;
+            _assistant = target as HillClimbingAssistant;
 
             CreateVisualElement();
 
@@ -63,7 +63,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void Repaint()
         {
-            var moduleConstr = hillClimbing.OwnerLayer.GetModule<ConstrainsZonesModule>();
+            var moduleConstr = _assistant.OwnerLayer.GetModule<ConstrainsZonesModule>();
             foldout.Clear();
             foreach (var constraint in moduleConstr.Constraints)
             {
@@ -75,7 +75,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetInfo(object paramTarget)
         {
-            hillClimbing = paramTarget as HillClimbingAssistant;
+            _assistant = paramTarget as HillClimbingAssistant;
         }
 
         public void SetTools(ToolKit toolKit)
@@ -83,13 +83,13 @@ namespace ISILab.LBS.VisualElements
             setZoneConnection = new SetZoneConnection();
             var t1 = new LBSTool(setZoneConnection);
             t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
-            t1.Init(hillClimbing.OwnerLayer, hillClimbing);
-            toolKit.ActivateTool(t1,hillClimbing.OwnerLayer, hillClimbing);
+            t1.Init(_assistant.OwnerLayer, _assistant);
+            toolKit.ActivateTool(t1,_assistant.OwnerLayer, _assistant);
             
             removeZoneConnection = new RemoveZoneConnection();
             var t2 = new LBSTool(removeZoneConnection);
             t2.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
-            toolKit.ActivateTool(t2,hillClimbing.OwnerLayer, hillClimbing);
+            toolKit.ActivateTool(t2,_assistant.OwnerLayer, _assistant);
             
             setZoneConnection.SetRemover(removeZoneConnection);
         }
@@ -99,7 +99,7 @@ namespace ISILab.LBS.VisualElements
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("HillClimbingEditor");
             visualTree.CloneTree(this);
 
-            var moduleConstr = hillClimbing.OwnerLayer.GetModule<ConstrainsZonesModule>();
+            var moduleConstr = _assistant.OwnerLayer.GetModule<ConstrainsZonesModule>();
 
             // Foldout
             foldout = this.Q<LBSCustomFoldout>();
@@ -114,7 +114,7 @@ namespace ISILab.LBS.VisualElements
             toggleTimer = this.Q<Toggle>("ShowTimerToggle");
             toggleTimer.RegisterCallback<ChangeEvent<bool>>(x =>
             {
-                hillClimbing.printClocks = x.newValue;
+                _assistant.printClocks = x.newValue;
             });
 
             // Execute
@@ -127,10 +127,10 @@ namespace ISILab.LBS.VisualElements
 
             // Show Constraint
             toggle = this.Q<LBSCustomToggleField>("ShowConstraintToggle");
-            toggle.value = hillClimbing.visibleConstraints;
+            toggle.value = _assistant.visibleConstraints;
             toggle.RegisterCallback<ChangeEvent<bool>>(x =>
             {
-                hillClimbing.visibleConstraints = x.newValue;
+                _assistant.visibleConstraints = x.newValue;
                 DrawManager.ReDraw();
             });
             
@@ -147,78 +147,56 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
 
-        void CancelCurrentTask()
+        #region IAssistantThreadedEditor
+        public CancellationToken CancelToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+        public ToolBarMain TaskBar { get; set; }
+
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
         {
-            if(_currentTaskCts == null) return;
-            if(_currentTaskCts.IsCancellationRequested) return;
-            _currentTaskCts.Cancel();
+            LoadedLevel loadedLevel = LBSController.CurrentLevel;
+            LBSMainWindow.MessageNotify(log, type);
+
+            // Mark as dirty
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(loadedLevel);
+            }
+
+            DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
+            Paint();
+                        
+            TaskBar.EnableProcess(false);
+            _assistant.OnTermination = null;
         }
+        #endregion}
         
         private void ClickedRecalculate()
         {
             // Save history version to revert if necessary
-            var x = LBSController.CurrentLevel;
-            Undo.RegisterCompleteObjectUndo(x, "Recalculate Constraints");
+            LoadedLevel loadedLevel = LBSController.CurrentLevel;
+            Undo.RegisterCompleteObjectUndo(loadedLevel, "Recalculate Constraints");
             EditorGUI.BeginChangeCheck();
 
             // Recalculate constraints
-            RunRecalculateTask(x);
+            RunRecalculateTask();
         }
 
-        private void RunRecalculateTask(LoadedLevel level)
+        private void RunRecalculateTask()
         {
-            _currentTaskCts?.Cancel();
-
-            _currentTaskCts = new CancellationTokenSource();
-            var token = _currentTaskCts.Token;
-
-            var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-            
-            taskbar.OnProgressCancelled -= CancelCurrentTask;
-            taskbar.OnProgressCancelled += CancelCurrentTask;
-
-            void ReportProgress(float normalized)
-            {
-                // Use update so progress applies immediately
-                EditorApplication.update += UpdateOnce;
-
-                void UpdateOnce()
-                {
-                    taskbar.SetProgressPercent(normalized);
-                    EditorApplication.update -= UpdateOnce;
-                }
-            }
-            
-            taskbar.EnableProcess(true, hillClimbing.Name);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
             {
                 try
                 {
-                    hillClimbing.RecalculateConstraint(ReportProgress, token);
-
-                    EditorApplication.delayCall += () =>
-                    {
-                        LBSMainWindow.MessageNotify("Zones constraints recalculated.");
-
-                        // Mark as dirty
-                        if (EditorGUI.EndChangeCheck())
-                        {
-                            EditorUtility.SetDirty(level);
-                        }
-
-                        DrawManager.Instance.RedrawLayer(hillClimbing.OwnerLayer);
-                        Paint();
-                        
-                        taskbar.EnableProcess(false);
-                    };
-
+                    _assistant.RecalculateConstraint(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke("Zone Constraints Recalculated", LogType.Log);
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"[HillClimbingAssistant] Task failed: {ex}");
-                    EditorApplication.delayCall += () => taskbar.EnableProcess(false);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
-            }, token);
+            }, CancelToken);
         }
 
         private void Paint()
@@ -229,63 +207,19 @@ namespace ISILab.LBS.VisualElements
 
         private void ExecuteOneStep()
         {
-            // Save history version to revert if necessary
-            var x = LBSController.CurrentLevel;
-            Undo.RegisterCompleteObjectUndo(x, "Execute One Step");
-            EditorGUI.BeginChangeCheck();
-
-            _currentTaskCts?.Cancel();
-
-            _currentTaskCts = new CancellationTokenSource();
-            var token = _currentTaskCts.Token;
-
-            var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-            ;
-
-            taskbar.OnProgressCancelled -= CancelCurrentTask;
-            taskbar.OnProgressCancelled += CancelCurrentTask;
-
-            void ReportProgress(float normalized)
-            {
-                // Use update so progress applies immediately
-                EditorApplication.update += UpdateOnce;
-
-                void UpdateOnce()
-                {
-                    taskbar.SetProgressPercent(normalized);
-                    EditorApplication.update -= UpdateOnce;
-                }
-            }
-
-            taskbar.EnableProcess(true, hillClimbing.Name);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
             {
                 try
                 {
-                    // Execute hill climbing one step
-                    hillClimbing.ExecuteOneStep(ReportProgress, token);
-                    
-                    EditorApplication.delayCall += () =>
-                    {
-                        hillClimbing.ExecutionEnded();
-                        LBSMainWindow.MessageNotify("Hill Climbing One Step executed.");
-                        
-                        // Mark as dirty
-                        if (EditorGUI.EndChangeCheck())
-                        {
-                            EditorUtility.SetDirty(x);
-                        }
-                        DrawManager.Instance.RedrawLayer(hillClimbing.OwnerLayer);
-                        Paint();
-                        taskbar.EnableProcess(false);
-                    };
+                    _assistant.ExecuteOneStep(out string log, out LogType type, ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type);
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"[HillClimbingAssistant] Task failed: {ex}");
-                    EditorApplication.delayCall += () => taskbar.EnableProcess(false);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
-            }, token);
+            }, CancelToken);
         }
 
         private void Execute()
@@ -295,62 +229,20 @@ namespace ISILab.LBS.VisualElements
             Undo.RegisterCompleteObjectUndo(x, "Execute HillClimbing");
             EditorGUI.BeginChangeCheck();
 
-            _currentTaskCts?.Cancel();
-
-            _currentTaskCts = new CancellationTokenSource();
-            var token = _currentTaskCts.Token;
-
-            var taskbar =LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();;
-            
-            taskbar.OnProgressCancelled -= CancelCurrentTask;
-            taskbar.OnProgressCancelled += CancelCurrentTask;
-            
-            void ReportProgress(float normalized)
-            {
-                // Use update so progress applies immediately
-                EditorApplication.update += UpdateOnce;
-                void UpdateOnce()
-                {
-                    taskbar.SetProgressPercent(normalized);
-                    EditorApplication.update -= UpdateOnce;
-                }
-            }
-            taskbar.EnableProcess(true, hillClimbing.Name);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
             {
                 try
                 {
-                    bool valid = hillClimbing.TryExecute(out string failedLog, ReportProgress, token);
-                    EditorApplication.delayCall += () =>
-                    {
-                        if (valid)
-                        {
-                            hillClimbing.ExecutionEnded();
-                            LBSMainWindow.MessageNotify("Hill Climbing executed.");
-                        }
-                        else
-                        {
-                            LBSMainWindow.MessageNotify(failedLog, LogType.Warning, 5);
-                        }
-                        
-                        // Mark as dirty
-                        if (EditorGUI.EndChangeCheck())
-                        {
-                            EditorUtility.SetDirty(x);
-                        }
-                        
-                        DrawManager.Instance.RedrawLayer(hillClimbing.OwnerLayer);
-                        Paint();
-                        taskbar.EnableProcess(false);
-                    };
-
+                    _assistant.TryExecute(out string log, out LogType type, ((IAssistantThreadedEditor)this).ReportProgress,
+                        CancelToken);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type);
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"[HillClimbingAssistant] Task failed: {ex}");
-                    EditorApplication.delayCall += () => taskbar.EnableProcess(false);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
-            }, token);
+            }, CancelToken);
         }
     }
 }

@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class WaveFunctionCollapseManipulator : ManipulateTeselation
+    public class WaveFunctionCollapseManipulator : ManipulateTeselation, IAssistantThreadedEditor
     {
         private Vector2Int _cornerStart;
 
@@ -75,82 +75,61 @@ namespace ISILab.LBS.Manipulators
             // No longer having empty tiles means overwrite is default
             //
             _assistant.OverrideValues = e.ctrlKey;
+            _assistant.OnGUI();
             
             RunTask();
         }
+        
+        #region IAssistantThreadedEditor
+        public CancellationToken CancelToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+        public ToolBarMain TaskBar { get; set; }
 
-        private void OnExecutionEnd(string log,LogType type)
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
         {
             EditorApplication.delayCall += () =>
             {
+                TaskBar.EnableProcess(false);
+                
                 var x = LBSController.CurrentLevel;
 
-                _assistant.OnTermination?.Invoke();
+         //       _assistant.OnTermination?.Invoke(log, type);
                 LBSMainWindow.MessageNotify(log, type, 5);
                 if (type == LogType.Log)
                     Debug.Log(log);
                 else
                     Debug.LogWarning(log);
 
+                _assistant.RequestRepaint(); // use this once its hotfixed to avoid the whole layer draw
                 DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
                 
                 if (EditorGUI.EndChangeCheck())
                 {
                     EditorUtility.SetDirty(x);
                 }
+
+                // remove
+                _assistant.OnTermination = null;
             };
         }
 
-        void CancelCurrentTask()
-        {
-            if(_currentTaskCts == null) return;
-            if(_currentTaskCts.IsCancellationRequested) return;
-            _currentTaskCts?.Cancel();
-        }
-
+        #endregion
+        
         private void RunTask()
         {
-            _currentTaskCts?.Cancel();
-
-            _currentTaskCts = new CancellationTokenSource();
-            var token = _currentTaskCts.Token;
-
-            var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-            
-            taskbar.OnProgressCancelled -= CancelCurrentTask;
-            taskbar.OnProgressCancelled += CancelCurrentTask;
-
-            void ReportProgress(float normalized)
-            {
-                // Use update so progress applies immediately
-                EditorApplication.update += UpdateOnce;
-
-                void UpdateOnce()
-                {
-                    taskbar.SetProgressPercent(normalized);
-                    EditorApplication.update -= UpdateOnce;
-                }
-            }
-            
-            taskbar.EnableProcess(true, _assistant.Name);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
             {
                 try
                 {
-                    _assistant.TryExecute(out string log, out LogType type, 5, ReportProgress, token);
-                    EditorApplication.delayCall += () =>
-                    {
-                        OnExecutionEnd(log, type);
-                        taskbar.EnableProcess(false);
-                    };
-
+                    _assistant.TryExecute(out string log, out LogType type, 5, ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type);
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"[WFCAssistant] Task failed: {ex}");
-                    EditorApplication.delayCall += () => taskbar.EnableProcess(false);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
-            }, token);
+            }, CancelToken);
         }
     }
 }

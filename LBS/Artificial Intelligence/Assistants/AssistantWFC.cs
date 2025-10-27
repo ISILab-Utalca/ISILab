@@ -28,7 +28,7 @@ namespace ISILab.LBS.Assistants
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(ConnectedTileMapModule))]
-    public class AssistantWFC : LBSAssistant
+    public class AssistantWFC : LBSAssistant, IAssistantThreaded
     {
         #region FIELDS
         [SerializeField, JsonRequired]
@@ -136,7 +136,6 @@ namespace ISILab.LBS.Assistants
         public sealed override void OnGUI()
         {
             GetBundleRef();
-            OnTermination = RequestRepaint;
         }
 
         public override object Clone()
@@ -164,9 +163,6 @@ namespace ISILab.LBS.Assistants
         {
             log = "";
             logType = LogType.Log;
-
-            // Get Bundle
-            OnGUI();
 
             if (targetBundleRef == null)
             {
@@ -262,12 +258,13 @@ namespace ISILab.LBS.Assistants
                         }
 
                         Positions = positions;
-                        bool sectorSuccess = Execute(scaledProgress, token); // ExecuteChance();
+                        bool sectorSuccess = Execute(ref log, scaledProgress, token); // ExecuteChance();
 
-                        if (token.IsCancellationRequested)
+                        // exit
+                        if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
                         {
-                            Restore();
-                            if(token.IsCancellationRequested) log = $"Generation was cancelled.";
+                            log = "Generation was cancelled.";
+                            logType = LogType.Warning;
                             return false;
                         }
                         
@@ -291,32 +288,39 @@ namespace ISILab.LBS.Assistants
                         return true;
                     }
                 }
-
+                
+                // exit
+                if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+                {
+                    log = "Generation was cancelled.";
+                    logType = LogType.Warning;
+                    return false;
+                }
+                
+                OnTaskCancelled();
                 log = $"Could not safely generate after {limit} attempts. ({getSeconds()} s)";
-                if(token.IsCancellationRequested) log = $"Generation was cancelled.";
                 logType = LogType.Warning;
-
-                //RequestRepaint();
                 return false;
             }
             else
             {
-               bool success = Execute(onProgress, token);//ExecuteChance();
+               bool success = Execute(ref log, onProgress, token);
                if (!success)
                {
                    Restore();
-                   log = $"Could not generate. ({getSeconds()} s)";
-                   if(token.IsCancellationRequested) log = $"Generation was cancelled.";
+                   if (log == string.Empty)
+                   {
+                       log = $"Could not safely generate after {limit} attempts. ({getSeconds()} s)";
+                   }
                    logType = LogType.Warning;
                    return false;
                }
-                log = $"Generated. ({getSeconds()} s)";
-             //   RequestRepaint();
-                return true;
+               log = $"Generated. ({getSeconds()} s)";
+               return true;
             }
         }
 
-        void RequestRepaint()
+        public void RequestRepaint()
         {
             var connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
             ExteriorBehaviour exterior = OwnerLayer.GetBehaviour<ExteriorBehaviour>();
@@ -347,7 +351,7 @@ namespace ISILab.LBS.Assistants
         /// <summary>
         /// This new version, is similar but it constraints where the wave function collapse is applied, to the selected tiles only
         /// </summary>
-        public bool Execute(Action<float> onProgress = null, CancellationToken token = default)
+        public bool Execute(ref string log, Action<float> onProgress = null, CancellationToken token = default)
         {
             bool success = false;
 
@@ -434,8 +438,9 @@ namespace ISILab.LBS.Assistants
             /// MAIN LOOP
             while (toCalc.Count > 0)
             {
-                if (token.IsCancellationRequested)
+                if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
                 {
+                    log = "Generation cancelled.";
                     return false;
                 }
                 
@@ -463,7 +468,9 @@ namespace ISILab.LBS.Assistants
                         Debug.Log($"TRY: {tryCount}\tSTEP {step}\tMAX STEP {maxStep}\tRETRY COUNT {retryCount}");
                         continue;
                     }
-                    else return false;
+
+                    return false;
+
                 }
 
                 stepSuccess = true;
@@ -499,8 +506,9 @@ namespace ISILab.LBS.Assistants
                 //Paso 6
                 while (reCalc.Count > 0)
                 {
-                    if (token.IsCancellationRequested)
+                    if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
                     {
+                        log = "Generation cancelled.";
                         return false;
                     }
                     LBSTile tile = reCalc.First();
@@ -554,8 +562,9 @@ namespace ISILab.LBS.Assistants
                     retryCount = (MAX_MEMORY, MAX_RETRIES + initialRetryBonus);
                 }
 
-                if (token.IsCancellationRequested)
+                if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
                 {
+                    log = "Generation cancelled.";
                     return false;
                 }
                 
@@ -578,7 +587,11 @@ namespace ISILab.LBS.Assistants
             }
 
             success = toCalc.Count == 0;
-            if (safeMode && !success) connected.Rewrite(originalTM);
+            if (safeMode && !success)
+            {
+                OnTaskCancelled();
+                log = "Could not generate.";
+            }
             
             onProgress?.Invoke(1f);
             Thread.Sleep(1);
@@ -1412,11 +1425,8 @@ namespace ISILab.LBS.Assistants
        
         public Bundle GetBundleRef()
         {
-            if (!targetBundleRef) // if it's null load default
-            {
-                targetBundleRef = LBSAssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
-            }
-            
+            // if null assign default
+            targetBundleRef ??= LBSAssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
             return targetBundleRef;
         }
         #endregion
@@ -1560,6 +1570,11 @@ namespace ISILab.LBS.Assistants
         //}
 
         #endregion
+
+        public void OnTaskCancelled()
+        {
+            Restore();
+        }
     }
 
     public class TileChance
