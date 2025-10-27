@@ -2,12 +2,13 @@ using LBS.Bundles;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static ISILab.LBS.Characteristics.LBSDirectionedGroup;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
 
 namespace ISILab.LBS.Characteristics
 {
-    [Serializable]
-    [LBSCharacteristic("Directioned Chance", "Define chances based on direction")]
+    [System.Serializable]
+    [LBSCharacteristicAttribute("Directioned Chance", "Define chances based on direction")]
 
     public class LBSDirectionedChance : LBSCharacteristic, ICloneable
     {
@@ -34,9 +35,6 @@ namespace ISILab.LBS.Characteristics
             //public List<string> mainTarget;
 
             [SerializeField]
-            public List<int> direction;
-
-            [SerializeField]
             public List<TileDirectionChance> chances = new List<TileDirectionChance>();
         }
 
@@ -59,6 +57,8 @@ namespace ISILab.LBS.Characteristics
         {
             if (Owner == null)
                 return;
+
+            tileDirections.Clear();
 
             var bundles = Owner.ChildsBundles;
 
@@ -100,8 +100,7 @@ namespace ISILab.LBS.Characteristics
 
         public override List<string> Validate()
         {
-            //throw new System.NotImplementedException();
-            return base.Validate();
+            throw new System.NotImplementedException();
         }
 
         public override int GetHashCode()

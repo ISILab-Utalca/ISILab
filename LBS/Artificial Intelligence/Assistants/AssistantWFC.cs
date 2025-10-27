@@ -361,8 +361,8 @@ namespace ISILab.LBS.Assistants
             //Lista que guarda los tiles ya generados
             var closed = new List<LBSTile>();
 
-            //Tiles que tienen que recalcular los candidatos después de generar un tile
-            //generalmente van los tiles vecinos del que se generó
+            //Tiles que tienen que recalcular los candidatos despuï¿½s de generar un tile
+            //generalmente van los tiles vecinos del que se generï¿½
             var reCalc = new List<LBSTile>();
 
             //Diccionario que guarda los candidatos posibles para cada tile
@@ -872,7 +872,7 @@ namespace ISILab.LBS.Assistants
                 List<LBSTile> closedList, TileMapModule map)
         {
             //TO DO
-            //Check que chucha está pasando
+            //Check que estÃ¡ pasando
 
             var candidates = new List<Candidate>();
             var connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
@@ -891,11 +891,11 @@ namespace ISILab.LBS.Assistants
                     if (neighbor == null || closedList.Contains(neighbor))
                         continue;
 
-                    // Busca el TileDirection del vecino en la dirección opuesta
+                    // Busca el TileDirection del vecino en la direcciÃ³n opuesta
                     var neighborDir = chanceGroup.tileDirections.FirstOrDefault(td =>
-                        td != null &&
-                        td.direction != null &&
-                        td.direction.Contains((dirIndex + 2) % 4) // dirección opuesta
+                        td != null
+                    //td.direction != null &&
+                    //td.direction.Contains((dirIndex + 2) % 4) // direcciÃ³n opuesta
                     );
 
                     if (neighborDir == null || neighborDir.chances == null)
@@ -1028,6 +1028,8 @@ namespace ISILab.LBS.Assistants
 
             var group = targetBundleRef.GetCharacteristics<LBSDirectionedChance>()[0];
 
+            group._Update();
+
             List<TileConnectionsPair> pairs = OwnerLayer.GetModule<ConnectedTileMapModule>().Pairs;
 
             if (pairs.Count == 0)
@@ -1054,11 +1056,16 @@ namespace ISILab.LBS.Assistants
                     {
                         foreach (TileChance tca in adjacent)
                         {
-                            // Busca si ya existe un TileChance igual en tileChances[key]
+                            if (tca.count == -1)
+                            {
+                                continue;
+                            }
+
                             var existing = tileChances[key].FirstOrDefault(tc => tc.Equals(tca));
+
                             if (existing != null)
                             {
-                                existing.count += tca.count;
+                                existing.count++;
                             }
                             else
                             {
@@ -1079,27 +1086,29 @@ namespace ISILab.LBS.Assistants
 
             foreach (var rule in tileChances)
             {
+                //OwnerLayer.GetModule<ConnectedTileMapModule>().
                 td = new()
                 {
-                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections),
-                    direction = new List<int>()
+                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections)
                 };
                 //Debug.Log(rule.Key);
 
-                int total = rule.Value.Sum(t => t.count);
+                int total = rule.Value.Where(t => t != null).Sum(t => t.count);
+
                 //Debug.Log(total);
+
+                // TODO
+                // Prevenir Nulls
 
                 foreach (var pair in rule.Value)
                 {
-                    td.direction.Add(pair.direction);
-
                     TileDirectionChance tileDirectionChance = new()
                     {
                         target = FindEqualConnection(currentBundles, pair.tile.Connections),
                         chance = (float)pair.count / total
                     };
                     td.chances.Add(tileDirectionChance);
-                    
+
 
                     //float chance = (float)pair.count / total;
                     //Debug.Log($" - {string.Join(", ", pair.tile + " " + pair.direction + " Count: " + pair.count + " Chance: " + chance.ToString("F2"))}");
@@ -1114,9 +1123,9 @@ namespace ISILab.LBS.Assistants
             {
                 Debug.Log("- " + item.mainTarget.BundleName);
 
-                for (int i = 0; i < item.direction.Count; i++)
+                for (int i = 0; i < item.chances.Count; i++)
                 {
-                    Debug.Log("-> " + item.direction[i]);
+                    Debug.Log("-> " + i);
                     foreach (var item2 in item.chances)
                     {
                         Debug.Log(item2.target + " " + item2.chance.ToString());
@@ -1163,33 +1172,25 @@ namespace ISILab.LBS.Assistants
         {
             List<TileChance> adjacent = new();
 
-            foreach (var tile in tiles)
+            for (int i = 0; i < 4; i++)
             {
-                if (tile.Tile == current.Tile)
-                    continue;
+                var adj = OwnerLayer.GetModule<ConnectedTileMapModule>().GetPair(current.Tile.Position 
+                    + Directions.Bidimencional.Edges[i]);
 
-                Vector2Int currentPos = current.Tile.Position;
-                Vector2Int tilePos = tile.Tile.Position;
-
-                for (int i = 0; i < 4; i++)
+                if (adj != null)
                 {
-                    if (tilePos == currentPos + Directions.Bidimencional.Edges[i])
-                    {
-                        //0 => "Right",
-                        //1 => "Up",
-                        //2 => "Left",
-                        //3 => "Down",
+                    //0 => "Right",  
+                    //1 => "Up",  
+                    //2 => "Left",  
+                    //3 => "Down",  
 
-                        //Busca en la lista de adjacent si hay uno con el mismo tile y direccion
-
-                        TileChance t = new(tile, i);
-
-                        adjacent.Add(t);
-                        continue;
-                    }
-                    
+                    TileChance t = new(adj, i);
+                    adjacent.Add(t);
                 }
             }
+
+            // Check for missing adjacent tiles  
+
 
             return adjacent;
         }
@@ -1511,6 +1512,14 @@ namespace ISILab.LBS.Assistants
             this.tile = tile;
             this.direction = direction;
             count = 1;
+        }
+
+        public TileChance(int direction)
+        {
+            List<string> emptyList = new(new string[] { "", "", "", "" });
+            tile = new TileConnectionsPair(new LBSTile(Vector2.zero), emptyList, new List<bool> { false });
+            count = -1;
+            this.direction = direction;
         }
 
         public override bool Equals(object obj)
