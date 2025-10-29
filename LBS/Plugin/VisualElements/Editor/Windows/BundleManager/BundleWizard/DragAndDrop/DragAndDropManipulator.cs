@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Samples.Editor.General
 {
@@ -17,6 +19,9 @@ namespace Samples.Editor.General
             Object droppedObject = null;
             // The path of the stored asset, or the empty string if there isn't one.
             string assetPath = string.Empty;
+            // IGNACIO: add list of Objects, and list of assetPaths
+            List<Object> droppedObjects = new List<Object>();
+            List<string> assetPaths = new List<string>();
 
             public DragAndDropManipulator(VisualElement root)
             {
@@ -79,6 +84,7 @@ namespace Samples.Editor.General
                 if (DragAndDrop.paths.Length > 0)
                 {
                     assetPath = DragAndDrop.paths[0];
+                    assetPaths = DragAndDrop.paths.ToList();
                     var splitPath = assetPath.Split('/');
                     draggedName = splitPath[splitPath.Length - 1];
                 }
@@ -97,7 +103,9 @@ namespace Samples.Editor.General
             void OnDragLeave(DragLeaveEvent _)
             {
                 assetPath = string.Empty;
+                assetPaths = null;
                 droppedObject = null;
+                droppedObjects = null;
                 dropLabel.text = "Drag an asset here...";
                 target.RemoveFromClassList("drop-area--dropping");
             }
@@ -113,6 +121,13 @@ namespace Samples.Editor.General
             {
                 // Set droppedObject and draggedName fields to refer to dragged object.
                 droppedObject = DragAndDrop.objectReferences[0];
+
+                droppedObjects = DragAndDrop.objectReferences.ToList();
+                foreach (var dObject in assetPaths)
+                {
+                    Debug.Log(dObject);
+                }
+
                 string draggedName;
                 if (assetPath != string.Empty)
                 {
