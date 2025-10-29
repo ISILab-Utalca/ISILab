@@ -5,13 +5,13 @@ using UnityEngine.UIElements;
 
 
 [UxmlElement]
-public partial class WizardStepOneMenu : VisualElement
+public partial class BundleWizardSelectBundleType : VisualElement
 {
     private LBSCustomTextField nameField;
     private LBSCustomRadioButtonGroup layersType;
     
     
-    public WizardStepOneMenu(): base()
+    public BundleWizardSelectBundleType(): base()
     {
 
         nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");

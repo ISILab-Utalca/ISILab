@@ -5,7 +5,7 @@
         <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," section-titles="Step 1,Step 2,Step 3,Step 4" enabled="false" style="height: 20px;" />
         <LBSCustomTabView name="TabView" display-tabs="false" style="flex-grow: 1; display: flex; overflow: hidden;">
             <ui:Tab label="1 - New Bundle Collection" closeable="false" name="Step1" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <WizardStepOneMenu style="padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; flex-grow: 1; align-self: stretch; justify-content: center;" />
+                <BundleWizardSelectBundleType class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
             </ui:Tab>
             <ui:Tab label="2 - Convert Prefabs/Assets" closeable="false" name="Step2" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
                 <BundleWizardSetAssetsMenu />
