@@ -8,13 +8,13 @@
                 <BundleWizardSelectBundleType class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
             </ui:Tab>
             <ui:Tab label="2 - Convert Prefabs/Assets" closeable="false" name="Step2" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetAssetsMenu />
+                <BundleWizardSetAssetsMenu class="lbs-wizard-menu-content" />
             </ui:Tab>
             <ui:Tab label="3- Asign Bundles" closeable="false" name="Step3" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetBundleMenu />
+                <BundleWizardSetBundleMenu class="lbs-wizard-menu-content" />
             </ui:Tab>
             <ui:Tab label="4 - Add Characteristics" closeable="false" name="Step4" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetCharacteristMenu />
+                <BundleWizardSetCharacteristMenu class="lbs-wizard-menu-content" />
             </ui:Tab>
         </LBSCustomTabView>
         <ui:VisualElement name="WizardButtons" class="lbs-group-box" style="flex-grow: 1; max-height: 32px; flex-direction: row; justify-content: flex-end;">

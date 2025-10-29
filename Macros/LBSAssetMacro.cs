@@ -61,6 +61,12 @@ namespace ISILab.Macros
             return LoadAssetByGuid<Texture2D>(PlaceholderTextureGuid);
         }
         
+        
+        public static VectorImage LoadPlaceholderVectorImage()
+        {
+            return LoadAssetByGuid<VectorImage>(PlaceholderUIVectorIconGUid);
+        }
+        
     }
 
     public class LBSLayerHelper
