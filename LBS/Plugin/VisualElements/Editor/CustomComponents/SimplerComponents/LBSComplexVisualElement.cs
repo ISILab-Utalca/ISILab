@@ -7,11 +7,14 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.CustomComponents
 {
+    
+    [LBSComplexElement]
     public class LBSComplexVisualElement: VisualElement, ILBSComplexComponent, ILBSField 
     {
         public LBSComplexVisualElement()
         {
             AddToClassList("lbs-component");
+            
         }
         
         public VisualTreeAsset GetVisualTreeForThis()
