@@ -4,12 +4,12 @@ using UnityEngine.UIElements;
 
 
 [UxmlElement]
-public partial class WizardStepTwoMenu : VisualElement
+public partial class BundleWizardSetAssetsMenu : VisualElement
 {
     private LBSCustomTextField nameField;
     TabView tabView;
     
-    public WizardStepTwoMenu(): base()
+    public BundleWizardSetAssetsMenu(): base()
     {
 
         nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
