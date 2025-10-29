@@ -24,5 +24,8 @@ public partial class WizardStepOneMenu : VisualElement
         this.Add(nameField);
         this.Add(layersType);
         
+        layersType.SelectChoice(0);
+        
+        
     }
 }
