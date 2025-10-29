@@ -42,9 +42,8 @@ namespace ISILab.LBS.CustomComponents
         {
             RemoveFromClassList(ussClassName);
             AddToClassList(LBSClassName);
-            style.backgroundColor = new StyleColor(buttonTint);
+            //style.backgroundColor = new StyleColor(buttonTint);
             SetOverlayColors(buttonTint);
-            
             RegisterCallback<MouseEnterEvent>((_evt => SetOverlayColors(hoverButtonTint)));
             RegisterCallback<MouseLeaveEvent>((_evt => SetOverlayColors(buttonTint)));
             RegisterCallback<ClickEvent>((_evt => SetOverlayColors(pressedButtonTint)));
