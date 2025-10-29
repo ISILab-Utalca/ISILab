@@ -1,24 +1,26 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Internal;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Settings;
+using ISILab.Macros;
 using LBS;
 using LBS.Bundles;
-using ISILab.LBS.Settings;
 using LBS.VisualElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Manipulators;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Internal;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Editor;
-using ISILab.LBS.Components;
-using ISILab.LBS.Editor.Windows;
-using ISILab.Macros;
-using UnityEditor;
-using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -40,11 +42,13 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon =LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
+        private VectorImage icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
         private SimplePallete connectionPallete;
-        private ObjectField bundleField;
+        private LBSCustomObjectField bundleField;
         private WarningPanel warningPanel;
         private string tileIconGuid = "";
+
+        private static LBSButtonListFilter bundlePickerWindow;
         #endregion
 
         #region PROPERTIES
@@ -132,10 +136,25 @@ namespace ISILab.LBS.VisualElements
             warningPanel = this.Q<WarningPanel>();
 
             // BundleField
-            bundleField = this.Q<ObjectField>("BundleField");
+            bundleField = this.Q<LBSCustomObjectField>("BundleField");
             bundleField.label = "Exterior Tile Bundle";
             bundleField.objectType = typeof(Bundle);
             bundleField.value = exterior.Bundle;
+            bundleField.UseCustomPicker = true;
+
+            bundleField.CustomFilter = obj =>
+            {
+                var bundle = obj as Bundle;
+                return IsValidExteriorBundle(bundle);
+            };
+
+            bundleField.CustomPicker = pick =>
+            {
+                var bundles = GetAllValidExteriorBundles();
+                OpenFilterWindow(bundles, picked => pick(picked));
+                //FilteredBundlePickerWindow.Show(bundles, picked => pick(picked));
+            };
+
             // only updates the first bundle value change - fix pending
             bundleField.RegisterValueChangedCallback(evt =>
             {
@@ -182,6 +201,43 @@ namespace ISILab.LBS.VisualElements
             };
             
             return this;
+        }
+
+        private void OpenFilterWindow(List<Bundle> bundles, Action<Bundle> onPick)
+        {
+            if (bundlePickerWindow)
+                bundlePickerWindow.Close();
+
+            LBSButtonListFilter.Show(bundles, picked => onPick(picked));
+        }
+
+        private static bool IsValidExteriorBundle(Bundle bundle)
+        {
+            if (bundle == null) return false;
+
+            // Si existe el método GetChildrenCharacteristics<T>, úsalo (lo usas con LBSDirection)
+            var groups = bundle.GetChildrenCharacteristics<LBSDirectionedGroup>();
+            if (groups != null && groups.Count > 0) return true;
+
+            // Fallback si sólo hay GetCharacteristics<T>()
+            var localGroups = bundle.GetCharacteristics<LBSDirectionedGroup>();
+            return localGroups != null && localGroups.Count > 0;
+        }
+
+        // Recolecta todos los Bundles válidos del proyecto
+        private static List<Bundle> GetAllValidExteriorBundles()
+        {
+            var result = new List<Bundle>();
+            foreach (var guid in AssetDatabase.FindAssets("t:Bundle"))
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var bundle = AssetDatabase.LoadAssetAtPath<Bundle>(path);
+                if (IsValidExteriorBundle(bundle))
+                    result.Add(bundle);
+            }
+            return result
+                .OrderBy(b => b.name, StringComparer.OrdinalIgnoreCase)
+                .ToList();
         }
 
         private void SetConnectionPallete(Bundle bundle)

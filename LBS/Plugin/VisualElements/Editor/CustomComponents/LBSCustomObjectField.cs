@@ -1,5 +1,8 @@
+using ISILab.LBS.Editor.Windows;
 using System;
+using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 
@@ -15,7 +18,14 @@ namespace ISILab.LBS.CustomComponents
         private IconPosition iconPosition = IconPosition.Left;
 
         private VisualElement iconVisualElement;
-        
+
+        private bool _useCustomPicker = false;
+        private bool _selectorHooked;
+
+        public Action<Action<UnityEngine.Object>> CustomPicker { get; set; }
+        public Func<UnityEngine.Object, bool> CustomFilter { get; set; }
+        public string InvalidSelectionMessage { get; set; }
+
         #region Properties
 
         [UxmlAttribute]
@@ -53,8 +63,22 @@ namespace ISILab.LBS.CustomComponents
             }
         }
 
+        [UxmlAttribute]
+        public bool UseCustomPicker
+        {
+            get => _useCustomPicker;
+            set
+            {
+                _useCustomPicker = value;
+                if (_useCustomPicker)
+                {
+                    TryHookSelector(); // engancha el botón nativo
+                }
+            }
+        }
+
         #endregion
-        
+
         public LBSCustomObjectField() : base()
         {
             RemoveFromClassList(ussClassName);
@@ -74,6 +98,9 @@ namespace ISILab.LBS.CustomComponents
             {
                 iconVisualElement.style.display = DisplayStyle.None;
             }
+
+            RegisterCallback<AttachToPanelEvent>(_ => TryHookSelector());
+            RegisterCallback<GeometryChangedEvent>(_ => TryHookSelector());
         }
 
         void SetIconPosition(IconPosition _iconPosition)
@@ -95,7 +122,85 @@ namespace ISILab.LBS.CustomComponents
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
-        
+
+        public void OpenCustomPicker()
+        {
+            if (!_useCustomPicker || CustomPicker == null)
+                return;
+
+            CustomPicker(obj =>
+            {
+                if (obj == null)
+                    return;
+
+                // Validación por tipo y escena
+                if (objectType != null && !objectType.IsInstanceOfType(obj))
+                {
+                    NotifyInvalid();
+                    return;
+                }
+
+                if (!allowSceneObjects && !EditorUtility.IsPersistent(obj))
+                {
+                    NotifyInvalid();
+                    return;
+                }
+
+                // Validación extra del usuario
+                if (CustomFilter != null && !CustomFilter(obj))
+                {
+                    NotifyInvalid();
+                    return;
+                }
+
+                // Asigna el valor (dispara el ValueChanged del ObjectField)
+                value = obj;
+            });
+        }
+
+        private void NotifyInvalid()
+        {
+            if (!string.IsNullOrEmpty(InvalidSelectionMessage))
+            {
+                LBSMainWindow.MessageNotify(InvalidSelectionMessage, LogType.Warning);
+            }
+        }
+
+        private void TryHookSelector()
+        {
+            if (!_useCustomPicker || _selectorHooked)
+                return;
+
+            // En versiones nuevas: ObjectField.selectorUssClassName
+            var selector = this.Q(className: "unity-object-field__selector");
+            if (selector == null) return;
+
+            _selectorHooked = true;
+
+            selector.RegisterCallback<PointerDownEvent>(evt =>
+            {
+                // Cancelar el selector estándar y abrir el custom
+                evt.StopImmediatePropagation();
+                evt.StopPropagation();
+                OpenCustomPicker();
+            }, TrickleDown.TrickleDown);
+
+            selector.RegisterCallback<ClickEvent>(evt =>
+            {
+                evt.StopImmediatePropagation();
+                evt.StopPropagation();
+            }, TrickleDown.TrickleDown);
+
+            selector.RegisterCallback<KeyDownEvent>(evt =>
+            {
+                if (evt.keyCode == KeyCode.Return || evt.keyCode == KeyCode.Space)
+                {
+                    evt.StopImmediatePropagation();
+                    evt.StopPropagation();
+                    OpenCustomPicker();
+                }
+            }, TrickleDown.TrickleDown);
+        }
+
     }
 }
