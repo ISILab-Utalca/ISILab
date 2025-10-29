@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Commons.Optimization;
 using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization.Populations;
 using ISILab.AI.Optimization.Selections;
@@ -18,10 +16,10 @@ namespace ISILab.AI.Optimization
     {
         #region FIELDS
         protected Op_State state = Op_State.NotStarted;
-        protected Stopwatch clock = new Stopwatch();
-        protected readonly object m_lock = new object();
-        protected bool stopRequested = false;
-        protected bool pauseRequested = false;
+        protected Stopwatch clock = new();
+        protected readonly object m_lock;
+        protected bool stopRequested;
+        protected bool pauseRequested;
 
         [SerializeField, SerializeReference]
         IPopulation population;
@@ -51,7 +49,7 @@ namespace ISILab.AI.Optimization
 
         public TimeSpan TimeEvolving => clock.Elapsed;
 
-        public bool IsRunning => State == Op_State.Running || State == Op_State.Started || State == Op_State.Resumed; 
+        public bool IsRunning => State is Op_State.Running or Op_State.Started or Op_State.Resumed; 
 
         public IPopulation Population
         {
@@ -257,6 +255,9 @@ namespace ISILab.AI.Optimization
 
         public void Run(Action<float> onProgress = null, CancellationToken token = default)
         {
+            // hardocoded to do 20 interations lets use that
+            int iterations = 0;
+      
             while(!TerminationReached() && !(State == Op_State.Paused || State == Op_State.Stopped))
             {
                 if (stopRequested || token.IsCancellationRequested)
@@ -271,10 +272,24 @@ namespace ISILab.AI.Optimization
                 }
 
                 clock.Restart();
-                RunOnce(onProgress, token);
+               
                 clock.Stop();
                 OnGenerationRan?.Invoke();
                 State = Op_State.Running;
+                iterations++;
+
+                if (Termination is GenerationNumberTermination gnt)
+                {
+                    RunOnce(null, token);
+                    int maxIterations = gnt.ExpectedGenerationNumber;
+                    onProgress?.Invoke((float)iterations/maxIterations);
+                }
+                else
+                {
+                    RunOnce(onProgress, token);
+                }
+                
+                Thread.Sleep(1);
             }
         }
 

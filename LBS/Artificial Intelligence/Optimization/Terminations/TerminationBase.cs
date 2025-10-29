@@ -25,7 +25,6 @@ namespace ISILab.AI.Optimization.Terminations
             ExceptionHelper.ThrowIfNull("geneticAlgorithm", optimizer);
 
             m_hasReached = PerformHasReached(optimizer);
-
             return m_hasReached;
         }
 
@@ -44,6 +43,7 @@ namespace ISILab.AI.Optimization.Terminations
         /// <returns>True if termination has been reached, otherwise false.</returns>
         /// <param name="optimizer">The genetic algorithm.</param>
         protected abstract bool PerformHasReached(BaseOptimizer optimizer);
+
         #endregion
     }
 }

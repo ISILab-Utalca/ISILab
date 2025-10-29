@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEditor;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.AI.Categorization;
@@ -22,25 +23,23 @@ using ISILab.AI.Categorization;
 using LBS.Components.TileMap;
 using ISILab.LBS.Modules;
 using LBS.Components;
+using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
-    public class PopulationAssistantWindow : EditorWindow
+    public class PopulationAssistantWindow : EditorWindow, IAssistantThreadedEditor
     {
-        #region UXMLFACTORY
-        // [UxmlElementAttribute]
-        // public new class UxmlFactory { }
-        #endregion
 
         #region Utilities
-        private Dictionary<String, MAPElitesPreset> presetDictionary;
+        private Dictionary<string, MAPElitesPreset> presetDictionary;
         private MAPElitesPreset mapEliteBundle;
 
         private BundleTileMap originalTileMap;
-        private AssistantMapElite assistant;
+        private AssistantMapElite _assistant;
 
         //Default text for unchosen elements
-        private string defaultSelectText = "Select...";
+        private const string defaultSelectText = "Select...";
+
         #endregion
 
         #region VIEW ELEMENTS
@@ -57,10 +56,7 @@ namespace ISILab.LBS.VisualElements.Editor
         private ProgressBar xProgressBar;
         private ProgressBar yProgressBar;
         private ProgressBar zProgressBar;
-
-        // their foldout functionalities are set in the constructor
-        private VisualElement visualizationOptionsContent;
-        private VisualElement presetSettingsContainer;
+        
         private VisualElement gridContent;
         
         //Visualization Information
@@ -82,25 +78,15 @@ namespace ISILab.LBS.VisualElements.Editor
         
         //Parameters' graphic
         private VisualElement graphOfHell;
-        private PopulationAssistantGraph hellGraph;
 
         //Layer Context
         private ListView layerList;
         private Button addLayerButton;
         private VisualElement lockedContextEntryContainer;
 
-        //Context Evaluator (the hardest part lol)
         #endregion
 
-        #region FIELDS
-        
-        private CancellationTokenSource _currentTaskCts;
-        
-        MAPElitesPreset MapEliteBundle
-        {
-            get => mapEliteBundle;
-            set => mapEliteBundle = value;
-        }
+        #region PROPERTIES
 
         private IRangedEvaluator currentXField
         {
@@ -111,7 +97,8 @@ namespace ISILab.LBS.VisualElements.Editor
                 mapEliteBundle.XEvaluator = value;
             }
         }
-        protected IRangedEvaluator currentYField
+
+        private IRangedEvaluator currentYField
         {
             get => mapEliteBundle?.YEvaluator;
             set
@@ -120,46 +107,79 @@ namespace ISILab.LBS.VisualElements.Editor
                 mapEliteBundle.YEvaluator = value;
             }
         }
-        protected BaseOptimizer currentOptimizer
-        {
-            get => mapEliteBundle?.Optimizer;
-            set {  
-                if (mapEliteBundle == null) return;
-                mapEliteBundle.Optimizer = value;
-            }
-        }
-        protected PopulationAssistantGraph CurrentGraph
-        {
-            get => hellGraph;
-            set => hellGraph = value;
-        }
-        protected PopulationBehaviour LayerPopulation
-        {
-            get => assistant.LayerPopulation;
-        }
-        protected LBSLevelData Data
-        {
-            get => LayerPopulation.OwnerLayer.Parent;
-        }
+
+        private BaseOptimizer currentOptimizer => mapEliteBundle?.Optimizer;
+
+        private PopulationAssistantGraph CurrentGraph { get; set; }
+
+        private PopulationBehaviour LayerPopulation => _assistant.LayerPopulation;
+
+        private LBSLevelData Data => LayerPopulation.OwnerLayer.Parent;
+
         #endregion
 
         #region EVENTS
-        // public Action OnExecute;
-        public Action<string> OnPresetChanged;
         public Action OnTileMapChanged;
-        public Action OnTileMapReset;
+        private Action OnTileMapReset;
         public Action UpdatePins;
-        public Action<IOptimizable> OnValuesUpdated;
-        #endregion
+        private Action<IOptimizable> OnValuesUpdated;
+        private Stopwatch sw;
 
+        #endregion
+        
+        #region METHODS
+        
+        #region GUI
         public void CreateGUI()
         {
-            presetDictionary = new Dictionary<string, MAPElitesPreset>();
-
+            if(LayerPopulation is null) Close();
+            
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationAssistantWindow");
             visualTree.CloneTree(rootVisualElement);
+            
+            SetUpPreset();
+            
+            SetUpOptimizer();
 
-            //Set up preset
+            // preset settings
+            SetUpPresets();
+
+            // grid
+            SetUpGrid();
+
+            // buttons lower bar
+            SetUpButtons();
+
+            // graph of hell
+            SetUpGraph();
+
+            //LAYER CONTEXT
+            SetUpLayerContext();
+        }
+
+        private void SetUpOptimizer()
+        {
+            optimizerField = rootVisualElement.Q<ClassDropDown>("ZParamDropdown");
+            optimizerField.Type = typeof(IRangedEvaluator);
+            optimizerField.value = defaultSelectText;
+            optimizerField.RegisterValueChangedCallback(_ =>
+            {
+                if (optimizerField.value == null) return;
+                if (optimizerField.value == currentOptimizer?.Evaluator?.GetType().Name) return;
+                if (currentOptimizer == null) return;
+
+                var optimizerChoice = optimizerField.GetChoiceInstance() as IRangedEvaluator;
+                currentOptimizer.Evaluator = optimizerChoice;
+                InitializeEvaluator(optimizerChoice);
+                zParamText.text = new string("Fitness ("+optimizerField.Value+")");
+
+            });
+            optimizerField.SetEnabled(false);
+        }
+
+        private void SetUpPreset()
+        {
+            presetDictionary = new Dictionary<string, MAPElitesPreset>();
             presetField = rootVisualElement.Q<DropdownField>("Preset");
             SetPresets();
             presetField.value = "Select Preset";
@@ -213,29 +233,10 @@ namespace ISILab.LBS.VisualElements.Editor
                 yParamText.text = param2Field.Value;
             });
             param2Field.SetEnabled(false);
+        }
 
-            //Optimizer
-
-            optimizerField = rootVisualElement.Q<ClassDropDown>("ZParamDropdown");
-            optimizerField.Type = typeof(IRangedEvaluator);
-            optimizerField.value = defaultSelectText;
-            optimizerField.RegisterValueChangedCallback(_ =>
-            {
-                if (optimizerField.value == null) return;
-                if (optimizerField.value == currentOptimizer?.Evaluator?.GetType().Name) return;
-                if (currentOptimizer == null) return;
-
-                var optimizerChoice = optimizerField.GetChoiceInstance() as IRangedEvaluator;
-                currentOptimizer.Evaluator = optimizerChoice;
-                InitializeEvaluator(optimizerChoice);
-                zParamText.text = new string("Fitness ("+optimizerField.Value+")");
-
-            });
-            optimizerField.SetEnabled(false);
-  
-            //PRESET SETTINGS
-            presetSettingsContainer = rootVisualElement.Q<VisualElement>("PresetSettingsContainer");
-
+        private void SetUpPresets()
+        {
             //Preset field (always disabled)
             presetFieldRef = rootVisualElement.Q<ObjectField>("PresetObjectField");
             presetFieldRef.SetEnabled(false);
@@ -259,15 +260,15 @@ namespace ISILab.LBS.VisualElements.Editor
             autoSelectButton = rootVisualElement.Q<Button>("AutoSelectButton");
             autoSelectButton.clicked += () =>
             {
-                assistant.AutoSelectArea(out List<string> logs);
+                _assistant.AutoSelectArea(out List<string> logs);
                 logs.ForEach(log => LBSMainWindow.MessageNotify(log, LogType.Warning, 5));
-                DrawManager.Instance.RedrawLayer(assistant.OwnerLayer);
+                DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
             };
+            
+        }
 
-            //Visualization option buttons
-            visualizationOptionsContent = rootVisualElement.Q<VisualElement>("VisualizationOptionsContent");
-
-            //Grid
+        private void SetUpGrid()
+        {
             rows = rootVisualElement.Q<SliderInt>("RowsSlideInt");
             rows.RegisterValueChangedCallback(_ => UpdateGrid());
             columns = rootVisualElement.Q<SliderInt>("ColumnsSlideInt");
@@ -275,44 +276,51 @@ namespace ISILab.LBS.VisualElements.Editor
 
             gridContent = rootVisualElement.Q<VisualElement>("GridContent");
             UpdateGrid();
+        }
 
+        private void SetUpGraph()
+        {
+            graphOfHell = rootVisualElement.Q<VisualElement>("GraphOfHell");
+            
+            //Create and add VisualElement: PopulationAssistantGraph to the container
+            CurrentGraph = new(new[] { 0f, 0f, 0f }, 2);
+            SetGraph();
+            graphOfHell.Add(CurrentGraph);
+        }
+
+        private void SetUpButtons()
+        {
             //Recalculate button
             recalculate = rootVisualElement.Q<Button>("ButtonRecalculate");
             recalculate.clicked += RunAlgorithm;
 
             //Suggestion button
             applySuggestion = rootVisualElement.Q<Button>("ButtonApplySuggestion");
-            applySuggestion.clicked += () => ApplySuggestion();
+            applySuggestion.clicked += ApplySuggestion;
 
             //Reset button
             originalTileMap = LayerPopulation.BundleTilemap.Clone() as BundleTileMap;
             resetButton = rootVisualElement.Q<Button>("ButtonReset");
             resetButton.clicked += ResetSuggestion;
             resetButton.SetEnabled(false);
-
+            
             OnTileMapChanged += () => {
                 originalTileMap = LayerPopulation.BundleTilemap.Clone() as BundleTileMap;
-                resetButton.SetEnabled((originalTileMap!=null));
+                resetButton.SetEnabled(originalTileMap!=null);
             };
             OnTileMapReset += () => 
             {
                 originalTileMap = null;
                 resetButton.SetEnabled(false);
             };
-
+            
             //Close button...?
             closeWindow = rootVisualElement.Q<Button>("ButtonClose");
             closeWindow.clicked += Close;
+        }
 
-            //PARAMETER'S GRAPH
-            graphOfHell = rootVisualElement.Q<VisualElement>("GraphOfHell");
-            
-            //Create and add VisualElement: PopulationAssistantGraph to the container
-            hellGraph = new(new[] { 0f, 0f, 0f }, 2);
-            SetGraph();
-            graphOfHell.Add(hellGraph);
-
-            //LAYER CONTEXT
+        private void SetUpLayerContext()
+        {
             lockedContextEntryContainer = rootVisualElement.Q<VisualElement>("LockedLayerContainer");
             AddLockedLayer();
 
@@ -348,13 +356,35 @@ namespace ISILab.LBS.VisualElements.Editor
             addLayerButton.clicked += AddLayerMenu;
         }
 
+        #endregion
+        
         private void OnDestroy()
         {
-            assistant.RequestOptimizerStop();
+            _assistant.RequestOptimizerStop();
+        }
+        
+        //Set assistant for window
+        public void SetAssistant(AssistantMapElite target)
+        {
+            _assistant = target;
         }
 
-        #region MAIN METHODS
-
+        //Create the window
+        public void ShowWindow()
+        {
+            titleContent = new GUIContent("Population Assistant");
+            minSize = new Vector2(1000, 500); // use the Canvas Size of the uxml
+            Show();
+        }
+        
+        private void UpdateTooltips()
+        {
+            param1Field.tooltip = currentXField?.Tooltip;
+            param2Field.tooltip = currentYField?.Tooltip;
+            optimizerField.tooltip = currentOptimizer?.Evaluator?.Tooltip;
+        }
+        
+        #region Presets
         //Add all presets in the preset directory to the preset dropdown
         private void SetPresets()
         {
@@ -393,7 +423,7 @@ namespace ISILab.LBS.VisualElements.Editor
         private void UpdatePreset(string value)
         {
             //Disable parameters unless the preset is valid. Otherwise, enable them since they can be manipulated.
-            if ((value == null) || (!presetDictionary.ContainsKey(value)))
+            if (value == null || !presetDictionary.TryGetValue(value, out var preset))
             {
                 param1Field.SetEnabled(false);
                 param2Field.SetEnabled(false);
@@ -402,7 +432,7 @@ namespace ISILab.LBS.VisualElements.Editor
             }
             
             //Set the map elite accordingly.
-            mapEliteBundle = presetDictionary[value];
+            mapEliteBundle = preset;
             presetFieldRef.value = mapEliteBundle;
             rows.value = mapEliteBundle.SampleCount.x;
             columns.value = mapEliteBundle.SampleCount.y;
@@ -427,53 +457,10 @@ namespace ISILab.LBS.VisualElements.Editor
             InitializeAllCurrentEvaluators();
         }
 
-        [Obsolete("Method was moved to AssistantMAPElite class.")]
-        private Rect GetLayerContextArea()
-        {
-            //Grabs an area that encloses all context layers
-            Rect combinedRect = new();
-            List<LBSLayer> filteredLayers = new List<LBSLayer>();
-
-            foreach (LBSLayer layer in Data.ContextLayers)
-            {
-                if (layer.ID != "Interior" && layer.ID != "Exterior")
-                {
-                    LBSMainWindow.MessageNotify("Context layers must be of type 'Interior' or 'Exterior'. " +
-                        "Layer '" + layer.Name + "' ignored.", LogType.Warning, 5);
-                    continue;
-                }
-
-                filteredLayers.Add(layer);
-            }
-
-            for (int i = 0; i < filteredLayers.Count; i++)
-            {
-                LBSLayer layer = filteredLayers[i];
-                string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
-
-                if (i == 0) combinedRect = layer.GetModule<ConnectedTileMapModule>(moduleID).GetBounds();
-
-                Rect rect = layer.GetModule<ConnectedTileMapModule>(moduleID).GetBounds();
-                combinedRect.GetCombinedArea(rect);
-            }
-
-            return combinedRect;
-        }
-
-        [Obsolete("Method was moved to AssistantMAPElite class.")]
-        private Rect GetDefaultLayerArea()
-        {
-            //Grabs the owner layer area
-            return assistant.OwnerLayer.GetModule<BundleTileMap>().GetBounds();
-        }
-
-        private void UpdateTooltips()
-        {
-            param1Field.tooltip = currentXField?.Tooltip;
-            param2Field.tooltip = currentYField?.Tooltip;
-            optimizerField.tooltip = currentOptimizer?.Evaluator?.Tooltip;
-        }
-
+        #endregion
+       
+        #region Evaluators
+        
         private void InitializeAllCurrentEvaluators()
         {
             var evalList = new List<IEvaluator>();
@@ -495,11 +482,13 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void InitializeEvaluator(IEvaluator evaluator)
         {
-            assistant.InitializeEvaluator(evaluator);
+            _assistant.InitializeEvaluator(evaluator);
 
             UpdateTooltips();
         }
 
+        #endregion
+        
         //Run the algorithm for suggestions
         private void RunAlgorithm()
         {
@@ -511,103 +500,68 @@ namespace ISILab.LBS.VisualElements.Editor
             }
 
             //Check if there's a place to optimize
-            if (assistant.RawToolRect.width == 0 || assistant.RawToolRect.height == 0)
+            if (_assistant.RawToolRect.width == 0 || _assistant.RawToolRect.height == 0)
             {
                 LBSMainWindow.MessageNotify("Use the Area Selector tool to select an area to optimize before starting MAP Elites.", LogType.Error, 5);
                 Debug.LogError("[ISI Lab]: Selected evolution area height or width < 0");
                 return;
             }
-
-            //Check how many of these there are, and get the optimizer!
-            var veChildren = GetButtonResults(new List<PopulationAssistantButtonResult>(), gridContent);
-
+            
             UpdateGrid();
 
             InitializeAllCurrentEvaluators();
 
             //This resets the algorithm all the time, so nothing to worry about regarding whether it's running or not. /// Not sure about that...
-            assistant.LoadPresset(mapEliteBundle);
+            _assistant.LoadPresset(mapEliteBundle);
 
-            var sw = new System.Diagnostics.Stopwatch();
-            assistant.OnEndSetup(() => 
-            {
-                sw.Stop();
-                LBSMainWindow.MessageNotifyDelayed($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)", LogType.Log, 5);
-                Debug.Log($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)");
-            });
-
-            //SetBackgroundTexture(square, assistant.RawToolRect);
-            assistant.SetAdam(assistant.RawToolRect, Data.ContextLayers);
-
-            //TODO: Hay que pasarle el Optimizer a los Map Elites
-         //   LBSMainWindow.OnWindowRepaint += RepaintContent;
-
-            //Update button
+            sw = new Stopwatch();
+            
+            _assistant.SetAdam(_assistant.RawToolRect, Data.ContextLayers);
             recalculate.text = "Recalculate";
             
             LBSMainWindow.MessageNotify("Calculating.");
-
             sw.Start();
-
             RunExecuteTask();
         }
+        
 
-        void CancelCurrentTask()
+        #region IAssistantThreadedEditor
+        public CancellationToken CancelToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+        public ToolBarMain TaskBar { get; set; }
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
         {
-            if(_currentTaskCts == null) return;
-            if(_currentTaskCts.IsCancellationRequested) return;
-            _currentTaskCts.Cancel();
+            EditorApplication.delayCall += () =>
+            {
+                sw.Stop();
+                LBSMainWindow.MessageNotify($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)",
+                    LogType.Log, 5);
+                Debug.Log($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)");
+                
+                TaskBar.EnableProcess(false);
+                UpdateContent();
+                Repaint();
+            };
         }
-
+        #endregion
+        
         private void RunExecuteTask()
         {
-            _currentTaskCts?.Cancel();
-
-            _currentTaskCts = new CancellationTokenSource();
-            var token = _currentTaskCts.Token;
-
-            var taskbar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-
-            taskbar.OnProgressCancelled -= CancelCurrentTask;
-            taskbar.OnProgressCancelled += CancelCurrentTask;
-
-            void ReportProgress(float normalized)
-            {
-                // Use update so progress applies immediately
-                EditorApplication.delayCall += UpdateOnce;
-
-                void UpdateOnce()
-                {
-                    taskbar.SetProgressPercent(normalized);
-                    EditorApplication.delayCall -= UpdateOnce;
-                }
-            }
-
-            taskbar.EnableProcess(true, assistant.Name);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
             {
                 try
                 {
-                    assistant.Execute(false, ReportProgress, token);
-                    EditorApplication.delayCall += () =>
-                    {
-                        taskbar.EnableProcess(false);
-                        UpdateContent();
-                        Repaint();
-                    };
+                    _assistant.Execute(false, ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"[MapElitesAssistant] Task failed: {ex}");
-                    EditorApplication.delayCall += () =>
-                    {
-                        taskbar.EnableProcess(false);
-                        UpdateContent();
-                    };
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
-            }, token);
+            }, CancelToken);
         }
-
+        
+        #region Suggestion
         //Apply the suggestion in the world
         private void ApplySuggestion() => ApplySuggestion(selectedMap.Data);
         private void ApplySuggestion(object obj)
@@ -615,8 +569,8 @@ namespace ISILab.LBS.VisualElements.Editor
             //This MUST go first since it'll save the original tilemap
             OnTileMapChanged?.Invoke();
 
-            var chrom = obj as BundleTilemapChromosome;
-            if (chrom == null)
+            BundleTilemapChromosome chromosome = obj as BundleTilemapChromosome;
+            if (chromosome == null)
             {
                 if (selectedMap.Data == null)
                 {
@@ -632,22 +586,22 @@ namespace ISILab.LBS.VisualElements.Editor
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Add Element population");
 
-            if (chrom != null)
+            if (chromosome != null)
             {
-                var rect = chrom.Rect;
+                var rect = chromosome.Rect;
 
-                for (int i = 0; i < chrom.Length; i++)
+                for (int i = 0; i < chromosome.Length; i++)
                 {
-                    var pos = chrom.ToMatrixPosition(i) + rect.position.ToInt();
+                    var pos = chromosome.ToMatrixPosition(i) + rect.position.ToInt();
                     LayerPopulation.RemoveTileGroup(pos);
-                    var gene = chrom.GetGene(i);
+                    var gene = chromosome.GetGene(i);
                     if (gene == null)
                         continue;
                     LayerPopulation.AddTileGroup(pos, gene as BundleData);
                 }
             }
 
-            DrawManager.Instance.RedrawLayer(assistant.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
 
             if (EditorGUI.EndChangeCheck())
             {
@@ -657,9 +611,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             LayerPopulation.OwnerLayer.OnChangeUpdate();
         }
-
-        //Pin the suggestion into the assistant tab
-        private void PinSuggestion() => PinSuggestion(selectedMap.Data);
+        
         private void PinSuggestion(object obj)
         {
             //Get chromosome
@@ -675,10 +627,11 @@ namespace ISILab.LBS.VisualElements.Editor
                 var newTileMap = new BundleTileMap();
                 for (int i = 0; i < suggestionData.GetGenes().Length; i++)
                 {
-                    if (suggestionData.GetGenes()[i] != null)
+                    if (suggestionData.GetGenes()[i] == null) continue;
+                    if (suggestionData.GetGenes()[i] is BundleData geneData)
                     {
-                        var geneData = suggestionData.GetGenes()[i] as BundleData;
-                        newTileMap.AddGroup(new TileBundleGroup(suggestionData.ToMatrixPosition(i), geneData.Bundle.TileSize, geneData, Vector2.right));
+                        newTileMap.AddGroup(new TileBundleGroup(suggestionData.ToMatrixPosition(i),
+                            geneData.Bundle.TileSize, geneData, Vector2.right));
                     }
                 }
 
@@ -691,15 +644,16 @@ namespace ISILab.LBS.VisualElements.Editor
                     //Check for duplicates
                     foreach (SavedMap storedMap in savedMapList.Maps)
                     {
-                        if (suggestionData.Equals(storedMap.Map))
-                        {
-                            LBSMainWindow.MessageNotify("An equal suggestion already exists.", LogType.Warning);
-                            return;
-                        }
+                        if (!suggestionData.Equals(storedMap.Map)) continue;
+                        
+                        LBSMainWindow.MessageNotify("An equal suggestion already exists.", LogType.Warning);
+                        return;
                     }
                 }
-                var newSavedMap = new SavedMap(suggestionData, "", (float)suggestionData.Fitness);
-                newSavedMap.Image = objVE.GetTexture();
+                var newSavedMap = new SavedMap(suggestionData, "", (float)suggestionData.Fitness)
+                {
+                    Image = objVE.GetTexture()
+                };
                 levelData.SaveMapInLayer(newSavedMap, layer);
             }
 
@@ -721,7 +675,7 @@ namespace ISILab.LBS.VisualElements.Editor
             Undo.RegisterCompleteObjectUndo(level, "Add Element population");
 
             LayerPopulation.ReplaceTileMap(originalTileMap);
-            DrawManager.Instance.RedrawLayer(assistant.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
             LBSMainWindow.MessageNotify("Layer reset.");
 
             if (EditorGUI.EndChangeCheck())
@@ -735,48 +689,28 @@ namespace ISILab.LBS.VisualElements.Editor
 
         #region GRID-RELATED METHODS
         
-        private void RepaintContent()
-        {
-            try
-            {
-                UpdateContent();
-            }
-            finally
-            {
-                if (assistant.Finished || !assistant.Running) // La segunda condicion evita los logs de error de Map Elites, pero obviamente no es una solucion, y no he probado si afecta a los resultados renderizados
-                {
-                    LBSMainWindow.OnWindowRepaint -= RepaintContent;
-                }
-            }
-        }
-        
         //Update all squares in the grid
         private void UpdateContent()
         {
             var veChildren = GetButtonResults(new List<PopulationAssistantButtonResult>(), gridContent);
-            for (int i = 0; i < assistant.toUpdate.Count &&
+            for (int i = 0; i < _assistant.toUpdate.Count &&
                             i < veChildren.Count; i++)
             {
-                var v = assistant.toUpdate[i];
-                var index = (int)(v.y * assistant.SampleWidth + v.x);
+                var v = _assistant.toUpdate[i];
+                var index = (int)(v.y * _assistant.SampleWidth + v.x);
 
-                SetBackgroundTexture(veChildren[index], assistant.RawToolRect);
+                SetBackgroundTexture(veChildren[index], _assistant.RawToolRect);
 
-                veChildren[index].Data = assistant.Samples[(int)v.y, (int)v.x];
-                veChildren[index].Score = ((decimal)assistant.Samples[(int)v.y, (int)v.x].Fitness).ToString("f4");
+                veChildren[index].Data = _assistant.Samples[(int)v.y, (int)v.x];
+                veChildren[index].Score = ((decimal)_assistant.Samples[(int)v.y, (int)v.x].Fitness).ToString("f4");
                 var t = veChildren[index].GetTexture();
-                if (veChildren[index].Data != null)
-                {
-                    veChildren[index].SetTexture(veChildren[index].backgroundTexture.MergeTextures(t).FitSquare());
-                }
-                else
-                {
-                    veChildren[index].SetTexture(DirectoryTools.GetAssetByName<Texture2D>("LoadingContent"));
-                }
-                //veChildren[i].selectButton.clicked += () => ShowResults(veChildren[i-1].Data);
+                veChildren[index].SetTexture(veChildren[index].Data != null
+                    ? veChildren[index].backgroundTexture.MergeTextures(t).FitSquare()
+                    : DirectoryTools.GetAssetByName<Texture2D>("LoadingContent"));
+
                 veChildren[index].UpdateLabel();
             }
-            assistant.toUpdate.Clear();
+            _assistant.toUpdate.Clear();
         }
         
         //Redraws the grid
@@ -786,25 +720,34 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 mapEliteBundle.SampleCount = new Vector2Int(rows.value, columns.value);
             }
-            // TODO change the population sample size
 
             gridContent.Clear();
             gridContent.style.flexDirection = FlexDirection.ColumnReverse;
             List<VisualElement> rowsVE = new();
             for (int i = 0; i < rows.value; i++)
             {
-                var newRowVE =  new VisualElement();
-                newRowVE.style.flexDirection = FlexDirection.Row;
-                newRowVE.style.flexGrow = 1;
+                var newRowVE =  new VisualElement
+                {
+                    style =
+                    {
+                        flexDirection = FlexDirection.Row,
+                        flexGrow = 1
+                    }
+                };
                 rowsVE.Add(newRowVE);
             }
             foreach (var rVE in rowsVE)
             {
                 for (int i = 0; i < columns.value; i++)
                 {
-                    var resultVE = new PopulationAssistantButtonResult();
-                    resultVE.style.flexGrow = 1;
-                    resultVE.style.alignSelf = Align.Stretch;
+                    var resultVE = new PopulationAssistantButtonResult
+                    {
+                        style =
+                        {
+                            flexGrow = 1,
+                            alignSelf = Align.Stretch
+                        }
+                    };
                     rVE.Add(resultVE);
                     resultVE.selectButton.clicked += () => ShowButtonStats(resultVE);
                     resultVE.OnApplySuggestion += () => ApplySuggestion(resultVE.Data);
@@ -818,27 +761,42 @@ namespace ISILab.LBS.VisualElements.Editor
             }
         }
         
-        //Change the texture of a specific button
-        public void SetBackgroundTexture(PopulationAssistantButtonResult gridSquare, Rect rect)
+        
+        //Return a list of all buttons available.
+        private List<PopulationAssistantButtonResult> GetButtonResults(List<PopulationAssistantButtonResult> buttons, VisualElement parent)
         {
-            var behaviours = assistant.OwnerLayer.Parent.ContextLayers.SelectMany(l => l.Behaviours);
-            var bh = assistant.OwnerLayer.Behaviours.Find(b => b is PopulationBehaviour);
+            foreach (var ve in parent.Children())
+            {
+                if (ve is PopulationAssistantButtonResult buttonResult)
+                {
+                    buttons.Add(buttonResult);
+                }
+
+                // Recurse on children
+                GetButtonResults(buttons, ve);
+            }
+            return buttons;
+        }
+        
+        //Change the texture of a specific button
+        private void SetBackgroundTexture(PopulationAssistantButtonResult gridSquare, Rect rect)
+        {
+            var behaviours = _assistant.OwnerLayer.Parent.ContextLayers.SelectMany(l => l.Behaviours);
+            var bh = _assistant.OwnerLayer.GetBehaviour<PopulationBehaviour>();
 
             var size = 16;
-            
             var textures = new List<Texture2D>();
 
             foreach (var b in behaviours)
             {
-                if (b == null)
-                    continue;
-
-                if (bh != null && b.Equals(bh))
-                    continue;
-
-                var drawerT = LBS_Editor.GetDrawer(b.GetType());
-                var drawer = Activator.CreateInstance(drawerT) as Drawer;
-                textures.Add(drawer.GetTexture(b, rect, Vector2Int.one * size));
+                if (b == null) continue;
+                if (bh != null && b.Equals(bh)) continue;
+                
+                Type drawerT = LBS_Editor.GetDrawer(b.GetType());
+                if (Activator.CreateInstance(drawerT) is Drawer drawer)
+                {
+                    textures.Add(drawer.GetTexture(b, rect, Vector2Int.one * size));
+                }
             }
 
             
@@ -848,15 +806,13 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 for (int i = 0; i < texture.width; i++)
                 {
-                    texture.SetPixel(i, j, new UnityEngine.Color(0.25f, 0.25f, 0.25f, 1));
+                    texture.SetPixel(i, j, new Color(0.25f, 0.25f, 0.25f, 1));
                 }
             }
 
             for (int i = textures.Count - 1; i >= 0; i--)
             {
-                if (textures[i] == null)
-                    continue;
-
+                if (textures[i] == null) continue;
                 texture = texture.MergeTextures(textures[i]);
             }
 
@@ -864,15 +820,10 @@ namespace ISILab.LBS.VisualElements.Editor
 
             //Update texture on the chosen square
             gridSquare.SetTexture(texture);
-            //veChildren.First().SetColor(new Color(0, 1, 0, 1));
-
-            //Debug.Log("texture changed");
-
-            //content.background = texture;
         }
 
         //Show the stats for any button selected
-        public void ShowButtonStats(PopulationAssistantButtonResult buttonResult)
+        private void ShowButtonStats(PopulationAssistantButtonResult buttonResult)
         {
             var mapData = buttonResult.Data as IOptimizable;
 
@@ -882,21 +833,18 @@ namespace ISILab.LBS.VisualElements.Editor
             xProgressBar.value = (float)mapData.xFitness;
             yProgressBar.value = (float)mapData.yFitness;
             zProgressBar.value = (float)mapData.Fitness;
-            xProgressBar.title = (Mathf.FloorToInt((float)mapData.xFitness * 100)).ToString() + "%";
-            yProgressBar.title = (Mathf.FloorToInt((float)mapData.yFitness * 100)).ToString() + "%";
-            zProgressBar.title = (Mathf.FloorToInt((float)mapData.Fitness * 100)).ToString() + "%";
+            xProgressBar.title = Mathf.FloorToInt((float)mapData.xFitness * 100).ToString() + "%";
+            yProgressBar.title = Mathf.FloorToInt((float)mapData.yFitness * 100).ToString() + "%";
+            zProgressBar.title = Mathf.FloorToInt((float)mapData.Fitness * 100).ToString() + "%";
 
             //Takes border off selected map previously selected map
-            if (selectedMap != null)
-            {
-                selectedMap.OnButtonDeselected?.Invoke();
-            }
+            selectedMap?.OnButtonDeselected?.Invoke();
             selectedMap = buttonResult;
             buttonResult.OnButtonSelected?.Invoke();
             OnValuesUpdated?.Invoke(mapData);
         }
 
-        void SetGraph()
+        private void SetGraph()
         {
             //Modify graph's colors (not necessary, it comes with default colors)
             CurrentGraph.MainColor = Color.green;
@@ -908,7 +856,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             OnValuesUpdated = null;
             OnValuesUpdated += (optimizable) => {
-                var opt = optimizable as IOptimizable;
+                IOptimizable opt = optimizable;
                 CurrentGraph.SetAxisValue((float)opt.Fitness, 0);
                 CurrentGraph.SetAxisValue((float)opt.xFitness, 1);
                 CurrentGraph.SetAxisValue((float)opt.yFitness, 2);
@@ -919,22 +867,23 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region LAYER CONTEXT METHODS
-        public void AddLockedLayer()
+
+        private void AddLockedLayer()
         {
             //Add the layer to Layer context
             var lockedLayer = new LayerContextEntry();
-            lockedLayer.UpdateData(assistant.OwnerLayer);
+            lockedLayer.UpdateData(_assistant.OwnerLayer);
             lockedLayer.SetEnabled(false);
             lockedContextEntryContainer.Add(lockedLayer);
         }
 
-        public void AddLayerMenu()
+        private void AddLayerMenu()
         {
             GenericMenu menu = new GenericMenu();
             foreach(LBSLayer layer in Data.Layers)
             {
                 //The layer the assistant is working on can't be used as context, since its content is overwritten.
-                if (!assistant.OwnerLayer.Equals(layer))
+                if (!_assistant.OwnerLayer.Equals(layer))
                 { 
                     menu.AddItem(new GUIContent(layer.Name), Data.ContextLayers.Contains(layer), ToggleLayerContext, layer); 
                 }
@@ -964,59 +913,9 @@ namespace ISILab.LBS.VisualElements.Editor
 
             InitializeAllCurrentEvaluators();
         }
+
         #endregion
-
-        #region OTHER METHODS
-
-        //Return a list of all buttons available.
-        private List<PopulationAssistantButtonResult> GetButtonResults(List<PopulationAssistantButtonResult> buttons, VisualElement parent)
-        {
-            foreach (var ve in parent.Children())
-            {
-                if (ve is PopulationAssistantButtonResult buttonResult)
-                {
-                    buttons.Add(buttonResult);
-                }
-
-                // Recurse on children
-                GetButtonResults(buttons, ve);
-            }
-            return buttons;
-        }
         
-        //Set assistant for window
-        public void SetAssistant(AssistantMapElite target)
-        {
-            assistant = target;
-        }
-
-        //Create the window
-        public void ShowWindow()
-       {
-           titleContent = new GUIContent("Population Assistant");
-           minSize = new Vector2(1000, 500); // use the Canvas Size of the uxml
-           Show();
-       }
-
-        #endregion
-
-        #region OBSOLETE
-        /*private void OpenOptimizer()
-        {
-            if ((currentOptimizer is GeneticAlgorithm) && (currentOptimizer != null))
-            {
-                //Debug.Log("optimizer is compatible");
-                optimizerEditor = new GeneticAlgorithmVE(mapEliteBundle.Optimizer);
-
-                var optimizerWindow = ScriptableObject.CreateInstance<EditorWindow>();
-                optimizerWindow.titleContent = new GUIContent("Optimizer Editor");
-                optimizerWindow.minSize = new Vector2(350, 500); // use the Canvas Size of the uxml
-                optimizerWindow.Show();
-                optimizerWindow.rootVisualElement.Add(optimizerEditor);
-            }
-        }*/
-
-        //To keep the grid updated
         #endregion
     }
 }

@@ -128,7 +128,6 @@ namespace ISILab.LBS.Generators
                 //Micro population tool
                 go.transform.position += current.GetMicroGenTool().MicroPosVector(go.transform, scale, r);
 
-
                 //Add components
                 LBSGenerated generatedComponent = go.AddComponent<LBSGenerated>();
                 generatedComponent.BundleRef = current;
@@ -145,6 +144,7 @@ namespace ISILab.LBS.Generators
             var x = objects.Keys.Average(o => o.transform.position.x);
             var y = objects.Keys.Min(o => o.transform.position.y);
             var z = objects.Keys.Average(o => o.transform.position.z);
+            parent.transform.position = new Vector3(x, y, z);
 
             foreach (var obj in objects)
             {
@@ -156,7 +156,6 @@ namespace ISILab.LBS.Generators
 
                 // continue your existing logic
                 go.AddComponent<DestroyNotifier>();
-                parent.transform.position = new Vector3(x, y, z);
             }
 
             parentEntity.transform.SetParent(parent.transform);

@@ -1,4 +1,6 @@
 using System;
+using ISILab.Extensions;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,51 +20,58 @@ namespace ISILab.LBS.CustomComponents
             set
             {
                 buttonTint = value;
-                if (tintOverlayElement != null)
+                if (value != Color.white)
                 {
-                    if (buttonTint != Color.white)
-                    {
-                        
-                        tintOverlayElement.style.backgroundColor = new StyleColor(buttonTint); 
-                        tintOverlayElement.style.display = DisplayStyle.Flex;
+                    Color.RGBToHSV(buttonTint, out float h , out float s, out float v);
+                    hoverButtonTint = Color.HSVToRGB(h, s, Mathf.Clamp( v + 0.1f,0f,1f));
+                    pressedButtonTint = Color.HSVToRGB( h, 
+                        Mathf.Clamp( s + 0.1f,0f,1f), 
+                        Mathf.Clamp( v - 0.2f,0f,1f));
                     
-                    }
-                    else
-                    {
-                        tintOverlayElement.style.display = DisplayStyle.None;
-                    }
+                    SetOverlayColors(buttonTint);
                 }
-
             }
         }
-
-        private Color buttonTint = Color.white;
-        private Color baseTint = Color.white;
         
-        private VisualElement tintOverlayElement;
+        
+        private Color buttonTint = Color.white;
+        private Color hoverButtonTint = Color.white;
+        private Color pressedButtonTint = Color.white;
+        
         public LBSCustomButton() : base()
         {
             RemoveFromClassList(ussClassName);
             AddToClassList(LBSClassName);
-            baseTint = this.style.backgroundColor.value;
-            tintOverlayElement = new VisualElement();
-            tintOverlayElement.AddToClassList("lbs-button-tint-overlay");
-            this.Add(tintOverlayElement);
-            tintOverlayElement.SendToBack();
-            tintOverlayElement.style.position = Position.Absolute;
-            tintOverlayElement.pickingMode = PickingMode.Ignore;
-            if (baseTint != Color.white)
-            {
-                tintOverlayElement.style.backgroundColor = new StyleColor(baseTint);
-            }
-            else
-            {
-                tintOverlayElement.style.display = DisplayStyle.None;
-            }
+            style.backgroundColor = new StyleColor(buttonTint);
+            SetOverlayColors(buttonTint);
             
+            RegisterCallback<MouseEnterEvent>((_evt => SetOverlayColors(hoverButtonTint)));
+            RegisterCallback<MouseLeaveEvent>((_evt => SetOverlayColors(buttonTint)));
+            RegisterCallback<ClickEvent>((_evt => SetOverlayColors(pressedButtonTint)));
+            RegisterCallback<MouseUpEvent>((_evt => SetOverlayColors(buttonTint)));
+            // RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
             
+        }
+        
+        public LBSCustomButton(VectorImage img) : this()
+        {
+            iconImage = Background.FromVectorImage(img);
+        }
+        
+        public LBSCustomButton(Texture2D img) : this()
+        {
+            iconImage = Background.FromTexture2D(img);
+        }
+        
 
 
+
+        public void SetOverlayColors(Color _newColor = new Color())
+        {
+            if (_newColor != Color.white)
+            {
+                style.backgroundColor = new StyleColor(_newColor);
+            }
         }
     }
 }

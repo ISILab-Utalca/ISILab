@@ -100,7 +100,8 @@ namespace ISILab.LBS.Characteristics
 
         public override List<string> Validate()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return  new List<string>();
         }
 
         public override int GetHashCode()

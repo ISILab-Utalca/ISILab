@@ -166,14 +166,16 @@ namespace ISILab.LBS.Behaviours
             return _bundleTileMap.GetGroup(tile).BundleData;
         }
 
-        public void RotateTile(Vector2Int pos, Vector2 rotation)
+        public bool RotateTile(Vector2Int pos, Vector2 rotation)
         {
             TileBundleGroup t = GetTileGroup(pos);
-            if (t == null)
-                return;
+            if (t is null || !t.Rotatable)
+                return false;
             t.Rotation = rotation;
 
             _newRotations.Add(t);
+
+            return true;
         }
 
         public Vector2 GetTileRotation(Vector2Int pos)
@@ -221,6 +223,11 @@ namespace ISILab.LBS.Behaviours
         {
             RequestTileRemove(tile);
             RequestTilePaint(tile);
+        }
+
+        public override object[] RetrieveExpiredTiles()
+        {
+            return base.RetrieveExpiredTiles().Cast<TileBundleGroup>().Select(t => t.LocationKey).ToArray();
         }
         
         public override object Clone()

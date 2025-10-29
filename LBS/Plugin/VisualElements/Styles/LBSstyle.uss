@@ -1,4 +1,4 @@
-@import url("project://database/Assets/ISI%20Lab/LBS/Plugin/VisualElements/Styles/LBSStyleVariables.uss?fileID=7433441132597879392&guid=85a69280ec227ab48bb86c136d9591fe&type=3#LBSStyleVariables");
+@import url("project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Styles/LBSStyleVariables.uss?fileID=7433441132597879392&guid=85a69280ec227ab48bb86c136d9591fe&type=3#LBSStyleVariables");
 :root {
 }
 
@@ -178,7 +178,7 @@ Label {
     margin-top: 0;
     margin-bottom: 0;
     height: 30px;
-    background-image: url("project://database/Assets/ISI%20Lab/Commons/Assets2D/Fade%201.png?fileID=2800000&guid=c86acac07209fcc41a17cab77404a8b9&type=3#Fade 1");
+    background-image: url("project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Fade%201.png?fileID=2800000&guid=c86acac07209fcc41a17cab77404a8b9&type=3#Fade 1");
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.1);
     font-size: 18px;
     background-color: var(--lbs-selectable-gray-color);
@@ -221,6 +221,15 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs_popup {
+    background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
+    margin-top: 71px;
+    margin-right: 71px;
+    margin-bottom: 71px;
+    margin-left: 71px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--lbs-border-white-overlay-color);
+    overflow: hidden;
 }
 
 .lbs-tool-bar-button {
@@ -303,7 +312,7 @@ Toggle > .lbs-default-icon {
 
 .lbs-button:hover {
     overflow: hidden;
-    background-color: var(--lbs-selectable-hover-color);
+    background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
 }
 
 .lbs-button:focus {
@@ -1138,7 +1147,7 @@ Toggle > .lbs-default-icon {
 .lbs-list-item {
     border-left-width: 1px;
     border-left-color: var(--lbs-dark-overlay-color);
-    background-color: var(--lbs-selectable-gray-color);
+    background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
     flex-direction: row;
     height: 24px;
     border-top-left-radius: 0;
@@ -1866,7 +1875,7 @@ Toggle > .lbs-default-icon {
     width: 100%;
     height: 100%;
     position: absolute;
-    opacity: 0.15;
+    opacity: 1;
 }
 
 .lbs-tree-view {
@@ -1881,4 +1890,50 @@ Toggle > .lbs-default-icon {
     height: 18px;
     overflow: shown;
     padding: 10px;
+}
+
+.lbs-breadcrumbs {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(22, 22, 22);
+    border-right-color: rgb(22, 22, 22);
+    border-top-color: rgb(22, 22, 22);
+    border-bottom-color: rgb(22, 22, 22);
+    background-color: rgb(62, 62, 62);
+    border-top-left-radius: 1.5px;
+    border-top-right-radius: 1.5px;
+    border-bottom-right-radius: 1.5px;
+    border-bottom-left-radius: 1.5px;
+}
+
+.lbs-tab-view {
+}
+
+.lbs-tab-view > .unity-tab-view__content-container {
+    flex-grow: 1;
+}
+
+.lbs-tab {
+}
+
+.lbs-tab > .unity-tab__content-container {
+    flex-grow: 1;
+}
+
+.lbs-custom-radio-button-group {
+    flex-direction: column;
+}
+
+.lbs-wizard-menu-content {
+    flex-grow: 1;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+    padding-left: 32px;
 }

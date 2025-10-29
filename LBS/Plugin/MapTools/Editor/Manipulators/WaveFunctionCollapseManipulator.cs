@@ -1,19 +1,23 @@
+using System;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Editor.Windows;
 using LBS.Components;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using ISILab.LBS.VisualElements.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class WaveFunctionCollapseManipulator : ManipulateTeselation
+    public class WaveFunctionCollapseManipulator : ManipulateTeselation, IAssistantThreadedEditor
     {
         private Vector2Int _cornerStart;
 
         private AssistantWFC _assistant;
-
+        
         protected override string IconGuid => "08c60bd0a76e4bb4dad11ebf18bca46e";
 
         public WaveFunctionCollapseManipulator()
@@ -69,18 +73,58 @@ namespace ISILab.LBS.Manipulators
             // No longer having empty tiles means overwrite is default
             //
             _assistant.OverrideValues = e.ctrlKey;
-            _assistant.TryExecute(out string log, out LogType type);
+            _assistant.OnGUI();
+            
+            RunTask();
+        }
+        
+        #region IAssistantThreadedEditor
+        public CancellationToken CancelToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+        public ToolBarMain TaskBar { get; set; }
 
-            LBSMainWindow.MessageNotify(log, type, 5);
-            if (type == LogType.Log)
-                Debug.Log(log);
-            else
-                Debug.LogWarning(log);
-
-            if (EditorGUI.EndChangeCheck())
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
+        {
+            EditorApplication.delayCall += () =>
             {
-                EditorUtility.SetDirty(x);
-            }
+                TaskBar.EnableProcess(false);
+                
+                var x = LBSController.CurrentLevel;
+
+         //       _assistant.OnTermination?.Invoke(log, type);
+                LBSMainWindow.MessageNotify(log, type, 5);
+                if (type == LogType.Log)
+                    Debug.Log(log);
+                else
+                    Debug.LogWarning(log);
+
+                _assistant.RequestRepaint(); // use this once its hotfixed to avoid the whole layer draw
+                DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
+                
+                if (EditorGUI.EndChangeCheck())
+                {
+                    EditorUtility.SetDirty(x);
+                }
+            };
+        }
+
+        #endregion
+        
+        private void RunTask()
+        {
+            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
+            Task.Run(() =>
+            {
+                try
+                {
+                    _assistant.TryExecute(out string log, out LogType type, 5, ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type);
+                }
+                catch (Exception ex)
+                {
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
+                }
+            }, CancelToken);
         }
     }
 }

@@ -70,10 +70,7 @@ namespace ISILab.LBS.Manipulators
             Vector2Int offset = endPos - originalTopLeft;
 
             // Move each tile relative to the offset
-            foreach (var lbsTile in Selected.TileGroup)
-            {
-                lbsTile.Position += offset;
-            }
+            Selected.Translate(offset);
 
             _population.OwnerLayer.OnChangeUpdate();
         }

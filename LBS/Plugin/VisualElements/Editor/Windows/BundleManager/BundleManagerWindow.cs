@@ -39,6 +39,10 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         private readonly List<BundleContainer> _subBundles = new();
         private readonly List<BundleContainer> _orphanBundles = new();
 
+        // BundleManagerListGroup
+        private BundleManagerListGroup _interiorListGroup;
+        
+        
         // ListViews
         private ListView _interiorList;
         private ListView _exteriorList;
@@ -58,29 +62,26 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             window.titleContent = new GUIContent("Bundle Manager", icon);
         }
         
-
         private void CreateGUI()
         {
             //Set references
-            _arrowDown =
-                AssetDatabase.LoadAssetAtPath<VectorImage>(
-                    AssetDatabase.GUIDToAssetPath("b570a25de51f01c41bd82dbe5372bb3f")); //GUIDs
-            _arrowSide =
-                AssetDatabase.LoadAssetAtPath<VectorImage>(
-                    AssetDatabase.GUIDToAssetPath("83eafacbab9ab554299bc4d0f124d980"));
+            _arrowDown = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("b570a25de51f01c41bd82dbe5372bb3f"));
+            _arrowSide = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("83eafacbab9ab554299bc4d0f124d980"));
 
             // Find all bundles in database
             SearchAllBundles();
-
             // Find issues in bundles
             FindWarnings();
-
             // Create window
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("BundleManagerWindow");
             visualTree.CloneTree(rootVisualElement);
 
+            
+            _interiorListGroup = rootVisualElement.Q<BundleManagerListGroup>("InteriorList");
+            
             // Setting MasterBundle lists
             SetBundleViewSettings(out _interiorList, "Interior", _interiorBundles, true);
+            _interiorListGroup.SetBundleListViewItem(out _interiorList, "Interior List",_interiorBundles, true);
             SetBundleViewSettings(out _exteriorList, "Exterior", _exteriorBundles, true);
             SetBundleViewSettings(out _populationList, "Population", _populationBundles, true);
             SetBundleViewSettings(out _unassignedList, "Unassigned", _unassignedBundles, true);
@@ -189,7 +190,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             _collections = LBSAssetsStorage.Instance.Get<BundleCollection>();
 
             // Bundle collections
-            foreach (var col in _collections)
+            foreach (BundleCollection col in _collections)
             {
                 List<BundleContainer> subBundles = new();
                 foreach (Bundle b in col.Collection)
@@ -202,7 +203,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             }
 
             // Normal bundles
-            foreach (var b in _allBundles)
+            foreach (Bundle b in _allBundles)
             {
                 switch (b.ChildsBundles.Count)
                 {
@@ -413,6 +414,10 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         void SetBundleViewSettings(out ListView listView, string columnName, List<BundleContainer> bundles,
             bool master = false)
         {
+           
+            
+            
+            
             // Get listView
             listView = rootVisualElement.Q<VisualElement>(columnName).Q<ListView>();
 
@@ -430,7 +435,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 
                 if (!container.IsCollection())
                 {
-                    element.SetRefs(container.GetMainBundle(), view, true);
+                    element.SetBundleReference(container.GetMainBundle(), view, true);
                 }
                 else
                 {

@@ -52,7 +52,7 @@ namespace ISILab.Extensions
             }
 
             var total = pairs.Sum(p => p.Item2);
-            var rand = uRandom.Range((float)0, total);
+            var rand = (float)(new Random().NextDouble() * total);
 
             var cur = 0f;
             for (int i = 0; i < pairs.Count; i++)
@@ -141,6 +141,21 @@ namespace ISILab.Extensions
                 int k = rnd.Next(0, n + 1); 
                 (list[k], list[n]) = (list[n], list[k]);
             }
+        }
+
+        public static string ElementsToString<T>(this List<T> list)
+        {
+            return string.Join(";", list.ToArray());
+        }
+
+        public static string SortedElementsToString<T>(this List<T> list, Comparison<T> sorter)
+        {
+            if (list.Count == 0) return list.ToString();
+            if (list.Count == 1) return list[0].ToString();
+
+            var sortedList = new List<T>(list);
+            sortedList.Sort(sorter);
+            return sortedList.ElementsToString();
         }
         
         #endregion

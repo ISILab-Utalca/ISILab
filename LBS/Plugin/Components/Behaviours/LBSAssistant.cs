@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.Macros;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -19,8 +20,12 @@ namespace ISILab.LBS.Assistants
         #region FIELDS
         [SerializeField, HideInInspector, JsonIgnore]
         private LBSLayer ownerLayer;
+        
+        [SerializeField, HideInInspector] 
+        private string iconGuid;
         [SerializeField, JsonRequired]//, JsonIgnore]
         private VectorImage icon;
+        
         [SerializeField, JsonRequired]//, JsonIgnore]
         private Color colorTint;
         [SerializeField, JsonRequired]
@@ -49,7 +54,23 @@ namespace ISILab.LBS.Assistants
         [JsonIgnore]
         public VectorImage Icon
         {
-            get => icon;
+            get
+            {
+                if (icon is not null)
+                {
+                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon); ;
+                }
+                else
+                {
+                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                }
+                return icon;
+            }
+            set
+            {
+                icon = value;
+                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+            }
         }
 
         [JsonIgnore]
@@ -64,7 +85,9 @@ namespace ISILab.LBS.Assistants
         [JsonIgnore]
         public Action OnStart;
         [JsonIgnore]
-        public Action OnTermination;
+        public Action<string,LogType> OnTermination;
+        [JsonIgnore]
+        public Action OnCancellation;
         #endregion
 
         #region CONSTRUCTORS

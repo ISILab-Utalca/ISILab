@@ -18,6 +18,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
 using ISILab.LBS.CustomComponents;
+using ISILab.Macros;
 
 namespace ISILab.LBS.AI.Assistants.Editor
 {
@@ -32,9 +33,11 @@ namespace ISILab.LBS.AI.Assistants.Editor
         private TextField presetsFolder;
 
         private ObjectField currentPreset;
-
+        
         private ListView presetsList;
 
+        private string defaultWFCAssetGUID = "aa906d6d48e992141b714743bb35ff3a";
+        
         public AssistantWFCEditor(object target) : base(target)
         {
             assistant = target as AssistantWFC;
@@ -133,13 +136,13 @@ namespace ISILab.LBS.AI.Assistants.Editor
             saveWeightsButton.clicked += SaveWeights;
             presetName = this.Q<TextField>("PresetName");
             presetsFolder = this.Q<TextField>("PresetsPath");
-            presetsFolder.focusable = false; // This field needs to be reworked. Meanwhile it'll remain disabled.
+            //presetsFolder.focusable = false; // This field needs to be reworked. Meanwhile it'll remain disabled.
 
             // Load weights from a preset
             var loadWeightsButton = this.Q<Button>("LoadWeights");
             loadWeightsButton.clicked += LoadWeights;
             currentPreset = this.Q<ObjectField>("CurrentPreset");
-            currentPreset.value = null;
+            currentPreset.value = LBSAssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
             // Safe Generation Mode
             var safeModeToggle = this.Q<LBSCustomToggleField>("SafeMode");
             safeModeToggle.RegisterValueChangedCallback(evt =>

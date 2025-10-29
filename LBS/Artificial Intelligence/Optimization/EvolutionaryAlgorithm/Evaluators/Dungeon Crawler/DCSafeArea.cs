@@ -162,6 +162,7 @@ namespace ISILab.AI.Categorization
                 {
                     Vector2Int pPos = chrom.ToMatrixPosition(p);
                     int dist = Mathf.Abs(ePos.x - pPos.x) + Mathf.Abs(ePos.y - pPos.y);
+                    if (halfDist == 0) halfDist = 1;
                     score = Mathf.Min(score, dist / halfDist);
                 }
                 totalScore += score;

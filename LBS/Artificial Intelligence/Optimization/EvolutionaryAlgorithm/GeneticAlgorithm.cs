@@ -21,7 +21,7 @@ using Debug = UnityEngine.Debug;
 namespace ISILab.AI.Optimization
 {
     [System.Serializable]
-    public class GeneticAlgorithm : BaseOptimizer
+    public class GeneticAlgorithm : BaseOptimizer, IAssistantThreaded
     {
         #region FIELDS
 
@@ -139,7 +139,10 @@ namespace ISILab.AI.Optimization
             var offspring = Cross(parentsChromosomes);
             
             // exit
-            if(token.IsCancellationRequested) return;
+            if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+            {
+                return;
+            }
             
             Mutate(offspring);
 
@@ -154,7 +157,10 @@ namespace ISILab.AI.Optimization
             EvaluateFitness(children, onProgress, token);
             
             // exit
-            if(token.IsCancellationRequested) return;
+            if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+            {
+                return;
+            }
             
             var newGenerationChromosomes = Reinsert(children, parents);
             Population.CreateNewGeneration(newGenerationChromosomes);
@@ -183,16 +189,16 @@ namespace ISILab.AI.Optimization
         private bool EndCurrentGeneration()
         {
             Population.EndCurrentGeneration();
-
+            
             OnGenerationRan?.Invoke();
-
+            
             if (Termination.HasReached(this))
             {
                 State = Op_State.TerminationReached;
                 //OnTerminationReached?.Invoke(); This is currently called from base class.
                 return true;
             }
-
+            
             if (stopRequested)
             {
                 TaskExecutor.Stop();
@@ -243,15 +249,15 @@ namespace ISILab.AI.Optimization
                     var c = optimizables[index];
                     
                     // exit
-                    if(token.IsCancellationRequested) return;
+                    if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+                    {
+                        return;
+                    }
                     
                     TaskExecutor.Add(() =>
                     {
                         RunEvaluateFitness(c);
                     });
-                    onProgress?.Invoke((float)index/optimizables.Count);
-                    Thread.Sleep(1);
-                   
                 }
 
                 if (!TaskExecutor.Start())
@@ -304,6 +310,11 @@ namespace ISILab.AI.Optimization
             roulette.mutations.Add(new WeightedMutation(new ExhaustiveSwapGene(), 1.0f));
 
             Mutation = new RoulleteWheelMutation();
+        }
+
+        void IAssistantThreaded.OnTaskCancelled()
+        {
+            // stub
         }
     }
 }
