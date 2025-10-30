@@ -34,6 +34,23 @@ namespace ISILab.LBS.CustomComponents
         }
         
         
+        [UxmlAttribute]
+        public Color IconColor
+        {
+            get => iconColor;
+            set
+            {
+                iconColor = value;
+                Image imageVe = this.Q<Image>(classes:"unity-button__image");
+                if (iconColor != Color.white && imageVe != null)
+                {
+                    //imageVe.style.unityBackgroundImageTintColor = new StyleColor(iconColor);
+                    imageVe.tintColor = IconColor;
+                }
+            }
+        }
+        
+        private Color iconColor = Color.white;
         private Color buttonTint = Color.white;
         private Color hoverButtonTint = Color.white;
         private Color pressedButtonTint = Color.white;
@@ -52,14 +69,14 @@ namespace ISILab.LBS.CustomComponents
             
         }
         
-        public LBSCustomButton(VectorImage img) : this()
+        public LBSCustomButton(VectorImage _img) : this()
         {
-            iconImage = Background.FromVectorImage(img);
+            iconImage = Background.FromVectorImage(_img);
         }
         
-        public LBSCustomButton(Texture2D img) : this()
+        public LBSCustomButton(Texture2D _img) : this()
         {
-            iconImage = Background.FromTexture2D(img);
+            iconImage = Background.FromTexture2D(_img);
         }
         
 
