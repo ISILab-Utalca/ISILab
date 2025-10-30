@@ -4,6 +4,7 @@ using LBS.Components;
 using ISILab.LBS.Settings;
 using System;
 using System.Collections.Generic;
+using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -13,12 +14,9 @@ namespace ISILab.LBS.Drawers
     public abstract class Drawer
     {
         protected bool Loaded = false;
-        public bool FullRedrawRequested { get; set; } = false;
-        public Vector2 DefalutSize
-        {
-            get => LBSSettings.Instance.general.TileSize;
-        }
-        
+        public bool FullRedrawRequested { get; set; }
+        public Vector2 DefaultSize => LBSSettings.Instance.general.TileSize;
+
         public Drawer() { }
 
         public abstract void Draw(object target, MainView view, Vector2 teselationSize);
@@ -47,11 +45,11 @@ namespace ISILab.LBS.Drawers
         public abstract void HideVisuals(object target, MainView view);
         public abstract void ShowVisuals(object target, MainView view);
         
-        public virtual void ReDraw(LBSLayer layer, object[] olds, object[] news, MainView view, Vector2 teselationSize) { }
+        public virtual void ReDraw(LBSLayer layer, object[] olds, object[] news, MainView view, Vector2 tesselationSize) { }
 
-        public virtual Texture2D GetTexture(object target, Rect sourceRect, Vector2Int teselationSize)
+        public virtual Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
         {
-            LBSMainWindow.MessageNotify($"Texture generation not implemented for {(target as Behaviours.LBSBehaviour).OwnerLayer.ID} layer drawer.", LogType.Warning);
+            LBSMainWindow.MessageNotify($"Texture generation not implemented for {((LBSBehaviour)target).OwnerLayer.ID} layer drawer.", LogType.Warning);
             return new Texture2D(16, 16);
         }
 

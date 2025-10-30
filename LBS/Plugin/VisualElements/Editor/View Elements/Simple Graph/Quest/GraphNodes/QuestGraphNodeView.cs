@@ -20,7 +20,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Fields
-        protected GraphNode Node;
+        public GraphNode Node;
         protected VisualElement InvalidConnectionIcon;
 
         private static Type _prevManipulatorType;

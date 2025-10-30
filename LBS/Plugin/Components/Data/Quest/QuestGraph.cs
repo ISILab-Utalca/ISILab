@@ -58,6 +58,11 @@ namespace ISILab.LBS.Modules
             get => _selectedNode;
             set
             {
+                if (value is not null && _selectedNode is not null)
+                {
+                    if (value.Equals(_selectedNode)) return;
+                }
+               
                 _selectedNode = value;
                 _onNodeSelected?.Invoke(_selectedNode);
             }
@@ -202,7 +207,11 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region Nodes
-        public void NodeDataChanged(GraphNode node) => _onNodeSelected?.Invoke(node);
+        public void NodeDataChanged(GraphNode node)
+        {
+            if(Equals(_selectedNode, node)) return;
+            _onNodeSelected?.Invoke(node);
+        }
 
         public T GetNodeAtPosition<T>(Vector2 pos) where T : GraphNode
         {
