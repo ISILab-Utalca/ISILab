@@ -84,7 +84,7 @@ namespace ISILab.LBS.VisualElements
         protected sealed override VisualElement CreateVisualElement()
         {
             Clear();
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestNodeBehaviourEditor");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestNodeBehaviourEditor");
             visualTree.CloneTree(this);
             
             #region Get VisualElements from UXML
@@ -161,8 +161,8 @@ namespace ISILab.LBS.VisualElements
         /// <param name="toolkit"></param>
         public void SetTools(ToolKit toolkit)
         { 
-            var questPicker = new QuestPicker();
-            var t1 = new LBSTool(questPicker);
+            QuestPicker questPicker = new QuestPicker();
+            LBSTool t1 = new LBSTool(questPicker);
             t1.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
             
             toolkit.ActivateTool(t1,_behaviour?.OwnerLayer, target);
@@ -171,7 +171,7 @@ namespace ISILab.LBS.VisualElements
         private void OnSelectNode(GraphNode graphNode)
         {
             QuestNode node = graphNode as QuestNode;
-            var validNode = node is not null && node.NodeData is not null;
+            bool validNode = node?.NodeData != null;
             
             _noNodeSelectedPanel.style.display = validNode ? DisplayStyle.None : DisplayStyle.Flex;  
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
@@ -186,7 +186,7 @@ namespace ISILab.LBS.VisualElements
             _paramActionLabel.text = node.QuestAction;
             _nodeIDLabel.text = node.ID;
 
-            var dataType = node.NodeData.GetType();
+            Type dataType = node.NodeData.GetType();
             
             if (TypeToPanelMap.TryGetValue(dataType, out Type visualElementType))
             {
@@ -207,7 +207,7 @@ namespace ISILab.LBS.VisualElements
         
         private void SetBaseDataValues(BaseQuestNodeData data)
         {
-            var backgroundColor = data.Color;
+            Color backgroundColor = data.Color;
             backgroundColor.a = BackgroundOpacity;
             _actionColor.SetBackgroundColor(backgroundColor);
             

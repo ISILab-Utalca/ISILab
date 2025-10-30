@@ -8,6 +8,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.VisualElements.Editor;
 using ISILab.Macros;
+using LBS.Components;
 using LBS.VisualElements;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -49,10 +50,7 @@ namespace ISILab.LBS.VisualElements
         private Vector2 _dragStartPosition;
         private Vector2 _resizeStartPosition;
         private Type _prevManipulatorType;
-
-        // stores the previous manipulator of mouse down
-  
-
+        
         public TriggerElementArea(BaseQuestNodeData data, Rect area, bool centerTarget = true)
         {
             _isCenter = centerTarget;
@@ -64,9 +62,9 @@ namespace ISILab.LBS.VisualElements
             _currentColor = data.Color;
 
             // Calculate initial visual position
-            var position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(
+            Vector2 position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(
                 new Vector2Int((int)area.x, (int)area.y), true);
-            Rect drawArea = new Rect(position, new Vector2(area.width * GraphGridLength, area.height * GraphGridLength));
+            Rect drawArea = new(position, new Vector2(area.width * GraphGridLength, area.height * GraphGridLength));
 
             SetPosition(drawArea);
 
@@ -83,10 +81,10 @@ namespace ISILab.LBS.VisualElements
             triggerElementGizmo.style.borderLeftColor = _currentColor;
 
 
-            var targetIcon = this.Q<VisualElement>("TargetIcon");
+            VisualElement targetIcon = this.Q<VisualElement>("TargetIcon");
             targetIcon.style.backgroundImage = new StyleBackground(data.GetIcon());
 
-            var cornerTargetIcon = this.Q<VisualElement>("CornerTargetIcon");
+            VisualElement cornerTargetIcon = this.Q<VisualElement>("CornerTargetIcon");
             cornerTargetIcon.style.backgroundImage = new StyleBackground(data.GetIcon());
 
             targetIcon.style.display = _isCenter ? DisplayStyle.Flex : DisplayStyle.None;
@@ -96,7 +94,6 @@ namespace ISILab.LBS.VisualElements
             SetupResizeHandle("Handle_br", HandleBottomRight, _isCenter);
             SetupResizeHandle("Handle_tl", HandleTopLeft, _isCenter);
             SetupResizeHandle("Handle_tr", HandleTopRight, _isCenter);
-            
             
             // Register mouse callbacks on the whole element
             RegisterCallback<MouseDownEvent>(OnMouseDown);
@@ -108,7 +105,7 @@ namespace ISILab.LBS.VisualElements
             generateVisualContent -= OnGenerateVisualContent;
             generateVisualContent += OnGenerateVisualContent;
         }
-
+        
         private void OnMouseEnter(MouseEnterEvent evt)
         {
             ShelfManipulator();
@@ -122,9 +119,9 @@ namespace ISILab.LBS.VisualElements
 
         void SetupResizeHandle(string handleName, string handleCode, bool isCenter)
         {
-            var handle = this.Q<VisualElement>(handleName);
+            VisualElement handle = this.Q<VisualElement>(handleName);
             handle.style.display = isCenter ? DisplayStyle.Flex : DisplayStyle.None;
-            var handleArea = handle.Q<VisualElement>("handleArea");
+            VisualElement handleArea = handle.Q<VisualElement>("handleArea");
             
             
             // can only resize the main trigger area of a quest action node
@@ -202,6 +199,8 @@ namespace ISILab.LBS.VisualElements
                 _data.Graph?.NodeDataChanged(_data.OwnerNode);
 
                 _activeHandle = null;
+                
+                DrawManager.Instance.RedrawLayer(_data.Layer);
             });
 
             // Hide the areas by default(show when click on handle, hide on mouse up)
@@ -216,12 +215,12 @@ namespace ISILab.LBS.VisualElements
         void OnGenerateVisualContent(MeshGenerationContext mgc)
         {
             if(!_isCenter) return;
-            var painter = mgc.painter2D;
-            var lbsLayer = _data.Layer;
+            Painter2D painter = mgc.painter2D;
+            LBSLayer lbsLayer = _data.Layer;
             
-            var nodeElements = MainView.Instance.GetElementsFromLayerContainer(lbsLayer, _data.ID);
+            var nodeElements = MainView.Instance.GetElementsFromLayerContainer(lbsLayer, _data.OwnerNode);
 
-            var node = nodeElements?.FirstOrDefault();
+            GraphElement node = nodeElements?.FirstOrDefault();
             if (node == null) return;
 
             Vector2 center = new Vector2(GetPosition().width / 2f, GetPosition().height / 2f);
@@ -244,7 +243,7 @@ namespace ISILab.LBS.VisualElements
             _dragStartMouse = e.mousePosition;
             
             
-            var tilePosition = new Vector2Int((int)_data.Area.x, (int)_data.Area.y);
+            Vector2Int tilePosition = new Vector2Int((int)_data.Area.x, (int)_data.Area.y);
             _dragStartPosition = LBSMainWindow.Instance._selectedLayer.FixedToPosition(tilePosition, true);
 
             e.StopPropagation();
@@ -278,12 +277,12 @@ namespace ISILab.LBS.VisualElements
             if (!_isDragging || e.pressedButtons != 1) return;
             if (!MainView.Instance.HasManipulator<SelectManipulator>()) return;
 
-            var scale = MainView.Instance.viewTransform.scale;
+            Vector3 scale = MainView.Instance.viewTransform.scale;
 
             Vector2 delta = (e.mousePosition - _dragStartMouse) / scale;
             Vector2 newPos = _dragStartPosition + delta;
 
-            Rect newRect = new Rect(newPos, GetPosition().size);
+            Rect newRect = new(newPos, GetPosition().size);
             SetPosition(newRect);
         }
 
@@ -297,6 +296,8 @@ namespace ISILab.LBS.VisualElements
 
             _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
             _data.Graph?.NodeDataChanged(_data.OwnerNode);
+            DrawManager.Instance.RedrawLayer(_data.Layer);
+
         }
 
         private void RestoreManipulator()
@@ -313,7 +314,7 @@ namespace ISILab.LBS.VisualElements
             if (!_resizing || string.IsNullOrEmpty(_activeHandle)) return;
             if (e.pressedButtons != 1 || e.button != 0) return;
 
-            var scale = MainView.Instance.viewTransform.scale;
+            Vector3 scale = MainView.Instance.viewTransform.scale;
             Vector2 delta = e.mouseDelta / scale;
             Rect currentRect = GetPosition();
 

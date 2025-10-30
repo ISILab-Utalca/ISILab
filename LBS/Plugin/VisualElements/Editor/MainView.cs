@@ -454,7 +454,7 @@ namespace ISILab.LBS.VisualElements.Editor
             var result = container.GetElement(key);
             if (result == null)
             {
-                //Debug.LogError($"container.GetElement({key}) does not contain any values.");
+                Debug.LogError($"container.GetElement({key}) does not contain any values.");
             }
             
             return result;
