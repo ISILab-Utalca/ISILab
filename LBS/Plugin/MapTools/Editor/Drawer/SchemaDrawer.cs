@@ -22,7 +22,7 @@ namespace ISILab.LBS.Drawers
         private VectorImage _doorConImage = null;
         private VectorImage _windowConImage = null;
         
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
             var schema = target as SchemaBehaviour;
@@ -33,12 +33,12 @@ namespace ISILab.LBS.Drawers
             var connectionsMod = schema.OwnerLayer.GetModule<ConnectedTileMapModule>();
 
 
-            PaintNewTiles(schema, teselationSize, view, zonesMod, connectionsMod);
+            PaintNewTiles(schema, tesselationSize, view, zonesMod, connectionsMod);
 
-            //UpdateLoadedTiles(schema, teselationSize, view, zonesMod, connectionsMod);
+            //UpdateLoadedTiles(schema, tesselationSize, view, zonesMod, connectionsMod);
             if (!Loaded || FullRedrawRequested)
             {
-                LoadAllTiles(schema, teselationSize, view, tilesMod, zonesMod, connectionsMod);
+                LoadAllTiles(schema, tesselationSize, view, tilesMod, zonesMod, connectionsMod);
                 Loaded = true;
                 FullRedrawRequested = false;
             }

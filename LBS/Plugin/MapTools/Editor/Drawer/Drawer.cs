@@ -19,7 +19,7 @@ namespace ISILab.LBS.Drawers
 
         public Drawer() { }
 
-        public abstract void Draw(object target, MainView view, Vector2 teselationSize);
+        public abstract void Draw(object target, MainView view, Vector2 tesselationSize);
         public virtual void Update(object target, MainView view, Vector2 teselationSize) { Draw(target, view, teselationSize); }
 
         #region RECOMMENDED METHODS

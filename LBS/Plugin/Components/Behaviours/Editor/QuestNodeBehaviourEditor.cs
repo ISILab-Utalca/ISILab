@@ -152,7 +152,7 @@ namespace ISILab.LBS.VisualElements
             newValue.width = MathF.Abs(newValue.width);
             
             nodeData.Area = newValue;
-        //    DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer, MainView.Instance);
+            DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
         }
 
         /// <summary>
@@ -161,11 +161,11 @@ namespace ISILab.LBS.VisualElements
         /// <param name="toolkit"></param>
         public void SetTools(ToolKit toolkit)
         { 
-            QuestPicker questPicker = new QuestPicker();
-            LBSTool t1 = new LBSTool(questPicker);
-            t1.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+            QuestPicker questPicker = new();
+            LBSTool toolPicker = new(questPicker);
+            toolPicker.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
             
-            toolkit.ActivateTool(t1,_behaviour?.OwnerLayer, target);
+            toolkit.ActivateTool(toolPicker,_behaviour?.OwnerLayer, target);
         }
 
         private void OnSelectNode(GraphNode graphNode)
