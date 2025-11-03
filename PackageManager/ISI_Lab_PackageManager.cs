@@ -20,6 +20,8 @@ public class ISI_Lab_PackageManager : IPackageManagerExtension
 
     public void OnPackageAddedOrUpdated(UnityEditor.PackageManager.PackageInfo packageInfo)
     {
+        Debug.Log("ON PACKAGE ADDED OR UPDATED");
+
         LBSSettings.assetName = "LBSUserSettings";
         LBSAssetsStorage.assetName = "Storage";
 
