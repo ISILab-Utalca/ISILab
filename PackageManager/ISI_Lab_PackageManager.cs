@@ -17,6 +17,7 @@ public class ISI_Lab_PackageManager : IPackageManagerExtension
     static ISI_Lab_PackageManager()
     {
         PackageManagerExtensions.RegisterExtension(new ISI_Lab_PackageManager());
+        Debug.Log("Extension registrada");
     }
 
     public void OnPackageAddedOrUpdated(UnityEditor.PackageManager.PackageInfo packageInfo)
