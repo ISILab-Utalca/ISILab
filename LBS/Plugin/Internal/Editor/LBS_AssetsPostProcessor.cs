@@ -83,9 +83,11 @@ namespace ISILab.LBS.Internal.Editor
             Debug.Log("LEVEL BUILDING SIDEKICK");
 
             LBSSettings.assetName = "LBSUserSettings";
-            LBSAssetsStorage.assetName = "Storage";
-
+            LBSSettings.ResetInstance();
             LBSSettings.Instance.ReplacePaths();
+
+            LBSAssetsStorage.assetName = "Storage";
+            LBSAssetsStorage.ResetInstance();
 
             // Crear carpetas de usuario LBS
             string userFolderFullPath = "Assets/LBSUserContent";
