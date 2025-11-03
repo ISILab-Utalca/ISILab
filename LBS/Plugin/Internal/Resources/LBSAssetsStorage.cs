@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Settings;
 using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
@@ -40,9 +39,7 @@ namespace ISILab.LBS.Internal
             {
                 if (instance == null)
                 {
-                    string path = LBSSettings.Instance.paths.storagePath;
-                    path = path.Substring(path.IndexOf("Storage/"));
-                    instance = Resources.Load<LBSAssetsStorage>(path);
+                    instance = Resources.Load<LBSAssetsStorage>("Storage/LBS Storage");
                 }
                 return instance;
             }
