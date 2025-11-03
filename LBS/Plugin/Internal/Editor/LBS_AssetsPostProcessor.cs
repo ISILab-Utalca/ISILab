@@ -15,6 +15,11 @@ namespace ISILab.LBS.Internal.Editor
 
         public static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
+            if (importedAssets.Contains(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
+            {
+                Debug.Log("LBS SETTINGS IMPORT");
+                InitializeLBS();
+            }
             OnPostImportProcess(importedAssets);
             OnPostDeleteProcess(deletedAssets);
             OnPostMoveProcess(movedAssets);
@@ -27,12 +32,6 @@ namespace ISILab.LBS.Internal.Editor
 
             foreach (var asset in importedAssets)
             {
-                if (asset.Equals(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
-                {
-                    Debug.Log("LBS SETTINGS IMPORT");
-                    InitializeLBS();
-                }
-
                 if (asset.Contains(".meta"))
                     continue;
 
