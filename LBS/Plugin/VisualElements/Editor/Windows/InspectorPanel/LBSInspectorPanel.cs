@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Template;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
@@ -54,7 +55,7 @@ namespace ISILab.LBS.VisualElements
         {
             instance = this;
             
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSInspectorPanel");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSInspectorPanel");
             visualTree.CloneTree(this);
             
             tabsGroup = this.Q<ButtonGroup>("SubTabs");
@@ -96,9 +97,9 @@ namespace ISILab.LBS.VisualElements
    
             tabsGroup.AddChoice(tab, btn =>
             {
-                var grupableBtn = btn as GrupalbeButton;
+                GrupalbeButton grupableBtn = btn as GrupalbeButton;
                 ClearContent();
-                VEs.TryGetValue(grupableBtn.text, out var inspct);
+                VEs.TryGetValue(grupableBtn.text, out LBSInspector inspct);
                 SetContent(inspct);
             });
             
@@ -109,7 +110,7 @@ namespace ISILab.LBS.VisualElements
             ClearContent();
             if (VEs == null) return;
             if (string.IsNullOrEmpty(name)) return;
-            if (!VEs.TryGetValue(name, out var inspector))  return;
+            if (!VEs.TryGetValue(name, out LBSInspector inspector))  return;
             if (inspector == null) return;
             
             // Notify previous active
@@ -122,6 +123,23 @@ namespace ISILab.LBS.VisualElements
             SetContent(inspector);
         }
 
+        private string GetActiveTabKey()
+        {
+            foreach (KeyValuePair<string, LBSInspector> entry in VEs)
+            {
+                if (entry.Value == ActiveInspector)
+                {
+                    return entry.Key;
+                }
+            }
+            
+            return string.Empty;
+            
+        }
+
+        public bool IsDataTabActive() { return GetActiveTabKey() == DataTab; }
+        public bool IsBehaviourTabActive() { return GetActiveTabKey() == BehavioursTab; }
+        public bool IsAssistantTabActive() { return GetActiveTabKey() == AssistantsTab; }
 
         private void ClearContent()
         {
@@ -141,7 +159,7 @@ namespace ISILab.LBS.VisualElements
             foreach (KeyValuePair<string, LBSInspector> ve in VEs)
             {
                 // Update the inspector with the new layer data
-                var inspector = ve.Value;
+                LBSInspector inspector = ve.Value;
                 inspector.SetTarget(layer);
              
                 // Focus updates
@@ -149,20 +167,23 @@ namespace ISILab.LBS.VisualElements
                 ActiveInspector = inspector;
                 ActiveInspector?.OnFocus?.Invoke();
             }
+            
+            // by default we set the pallete tab
+            SetSelectedTab(BehavioursTab);
         }
 
         public void Repaint()
         {
             ToolKit.Instance.Clear();
-            var currentManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
+            LBSManipulator currentManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
             Type manipulatorClass = null;
             if (currentManipulator is not null)
             {
                 manipulatorClass = currentManipulator.GetType();
             }
-            foreach (var ve in VEs)
+            foreach (KeyValuePair<string, LBSInspector> ve in VEs)
             {
-                var inspector = ve.Value;
+                LBSInspector inspector = ve.Value;
                 inspector.Repaint();
             }
             ToolKit.Instance.SetSeparators();
@@ -176,8 +197,8 @@ namespace ISILab.LBS.VisualElements
             if (recentTab == tab) return;
             recentTab = tab; 
             
-            var panel = Instance;
-            panel.VEs.TryGetValue(tab, out var ve);
+            LBSInspectorPanel panel = Instance;
+            panel.VEs.TryGetValue(tab, out LBSInspector ve);
             if(ve == null) return;
            
             // Avoid reopening the same tab constantly
@@ -202,7 +223,7 @@ namespace ISILab.LBS.VisualElements
         /// <param name="mainView"></param>
         public void CreateContainers(LBSLevelData levelData, MainView mainView)
         {
-            foreach (var layer in levelData.Layers)
+            foreach (LBSLayer layer in levelData.Layers)
             {
                 if(layer == null) continue;
                 mainView.AddContainer(layer);

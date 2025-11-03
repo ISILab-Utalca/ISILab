@@ -152,7 +152,7 @@ namespace ISILab.LBS.Modules
                 int destRoots = GetRoots(dest).Count;
                 int destBranches = GetBranches(dest).Count;
 
-                Debug.Log($"[DEST] Node {dest.ID} | Roots: {destRoots} | Branches: {destBranches}");
+                //Debug.Log($"[DEST] Node {dest.ID} | Roots: {destRoots} | Branches: {destBranches}");
 
                 dest.ValidConnections = destRoots > 0 && destBranches > 0;
 
@@ -162,7 +162,7 @@ namespace ISILab.LBS.Modules
                     int roots = GetRoots(node).Count;
                     int branches = GetBranches(node).Count;
 
-                    Debug.Log($"[FROM] Node {node.ID} | Roots: {roots} | Branches: {branches}");
+                  //Debug.Log($"[FROM] Node {node.ID} | Roots: {roots} | Branches: {branches}");
 
                     node.ValidConnections = roots > 0  && branches > 0;
                 }
@@ -172,7 +172,7 @@ namespace ISILab.LBS.Modules
                     bool hasBranches = GetBranches(goalNode).Any();
                     bool hasRoots = GetRoots(goalNode).Any();
 
-                    Debug.Log($"[GOAL CHECK] Node {goalNode.ID} | Roots: {hasRoots} | Branches: {hasBranches}");
+                    //Debug.Log($"[GOAL CHECK] Node {goalNode.ID} | Roots: {hasRoots} | Branches: {hasBranches}");
 
                     // the goal must not have branches!
                     goalNode.ValidConnections = !hasBranches && hasRoots;

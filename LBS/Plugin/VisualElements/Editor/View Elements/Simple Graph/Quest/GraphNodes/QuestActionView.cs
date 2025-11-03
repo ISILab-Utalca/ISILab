@@ -30,7 +30,8 @@ namespace ISILab.LBS.VisualElements
         
         private readonly ToolbarMenu _toolbar;
         private readonly Label _label;
-    
+        private readonly QuestActionDetailsView _tooltipWindow;
+
         #endregion
         
         #endregion
@@ -51,7 +52,9 @@ namespace ISILab.LBS.VisualElements
             _iconNodeDataInvalid = this.Q<VisualElement>("InvalidDataIcon");
             _iconGrammarInvalid = this.Q<VisualElement>("InvalidGrammarIcon");
             _toolbar           = this.Q<ToolbarMenu>("ToolBar");
-
+            _tooltipWindow = this.Q<QuestActionDetailsView>("TooltipWindow");
+            
+            
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");
             coloredVe.style.backgroundColor = DefaultBackgroundColor;
             
@@ -64,11 +67,10 @@ namespace ISILab.LBS.VisualElements
             InvalidConnectionIcon.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _iconNodeDataInvalid.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _iconGrammarInvalid.style.unityBackgroundImageTintColor = InvalidGrammarColor;
+            _tooltipWindow.style.display = DisplayStyle.None;
             
             Update();
         }
-
-      
         
         #region Setup
         private void SetupToolbar()
@@ -192,6 +194,25 @@ namespace ISILab.LBS.VisualElements
                 _toolbar.ShowMenu();
             }
         }
+
+        protected override void OnMouseEnter(MouseEnterEvent evt)
+        {
+            if (_iconGrammarInvalid.style.display == DisplayStyle.Flex ||
+                _iconNodeDataInvalid.style.display == DisplayStyle.Flex ||
+                InvalidConnectionIcon.style.display == DisplayStyle.Flex)
+            {
+                _tooltipWindow.style.display = DisplayStyle.Flex;
+            }
+ 
+            base.OnMouseEnter(evt);
+        }
+
+        protected override void OnMouseLeave(MouseLeaveEvent evt)
+        {
+            _tooltipWindow.style.display = DisplayStyle.None;
+            base.OnMouseLeave(evt);
+        }
+        
         #endregion
 
         #region Helpers

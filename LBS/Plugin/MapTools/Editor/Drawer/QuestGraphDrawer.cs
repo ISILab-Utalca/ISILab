@@ -102,6 +102,12 @@ namespace ISILab.LBS.Drawers.Editor
             
             foreach (QuestNode suggestNode in questGraph.Suggestions)
             {
+                // only draw suggestions when the assistant tab is active
+                if(!LBSInspectorPanel.Instance.IsAssistantTabActive())
+                {
+                    break;
+                }
+                
                 if (!Equals(LBSMainWindow.Instance._selectedLayer, behaviour.OwnerLayer)) continue;
                 
                 _suggestionViews.TryGetValue(suggestNode, out SuggestionElementArea suggestView);

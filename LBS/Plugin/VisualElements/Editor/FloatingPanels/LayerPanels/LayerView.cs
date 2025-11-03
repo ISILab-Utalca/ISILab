@@ -167,11 +167,6 @@ namespace ISILab.LBS.VisualElements.Editor
             _iconFocus.style.display = FocusToggle ? DisplayStyle.Flex :  DisplayStyle.None;
             AddToClassList("unity-collection-view__item:selected");
         }
-
-
-        
-        
-        
         #endregion
 
         #endregion
