@@ -45,6 +45,12 @@ namespace ISILab.LBS.Internal
                 return instance;
             }
         }
+
+        public static void ResetInstance()
+        {
+            instance = null;
+            var a = Instance;
+        }
         #endregion
 
         #region FIELDS

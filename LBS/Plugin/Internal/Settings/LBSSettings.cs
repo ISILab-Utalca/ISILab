@@ -51,6 +51,12 @@ namespace ISILab.LBS.Settings
             }
         }
 
+        public static void ResetInstance()
+        {
+            Instance = null;
+            var a = Instance;
+        }
+
         public void MarkSettingsAsDirty()
         {
             EditorUtility.SetDirty(this);
