@@ -15,6 +15,8 @@ namespace ISILab.LBS.Settings
         private const string USER_ASSET_FOLDER_NAME = "LBSUserContent";
 
         private static string mainFolder = "Assets/isi-lab-unity-module";
+
+        public static string assetName = "LBSDefaultSettings";
         
         #region SINGLETON
         private static LBSSettings instance;
@@ -30,7 +32,8 @@ namespace ISILab.LBS.Settings
                 // si es igual a null lo busco en carpeta
                 if (instance == null)
                 {
-                    instance = Resources.Load<LBSSettings>("LBS Settings");
+                    Debug.Log(assetName);
+                    instance = Resources.Load<LBSSettings>(assetName);
                     // si sigue siendo null lo creo
                     if (instance == null)
                         instance = ScriptableObject.CreateInstance<LBSSettings>();
@@ -132,7 +135,7 @@ namespace ISILab.LBS.Settings
         {
             // Controller Paths
             public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset";
-            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Editor/StorageTemplate.asset";
+            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset";
             public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
             public string backUpPath                    = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
                                                                   

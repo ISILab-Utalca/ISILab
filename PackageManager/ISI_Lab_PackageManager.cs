@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using ISILab.LBS.Settings;
+using ISILab.LBS.Internal;
 
 public class ISI_Lab_PackageManager : IPackageManagerExtension
 {
@@ -19,6 +20,9 @@ public class ISI_Lab_PackageManager : IPackageManagerExtension
 
     public void OnPackageAddedOrUpdated(UnityEditor.PackageManager.PackageInfo packageInfo)
     {
+        LBSSettings.assetName = "LBSUserSettings";
+        LBSAssetsStorage.assetName = "Storage";
+
         LBSSettings.Instance.ReplacePaths(packageInfo);
 
         // Crear carpetas de usuario LBS

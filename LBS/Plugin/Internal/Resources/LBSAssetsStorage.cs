@@ -40,9 +40,8 @@ namespace ISILab.LBS.Internal
             {
                 if (instance == null)
                 {
-                    string path = LBSSettings.Instance.paths.storagePath;
-                    path = path.Substring(path.IndexOf("Storage/"));
-                    instance = Resources.Load<LBSAssetsStorage>(path);
+                    Debug.Log(assetName);
+                    instance = Resources.Load<LBSAssetsStorage>("Storage/" + assetName);
                 }
                 return instance;
             }
@@ -52,6 +51,8 @@ namespace ISILab.LBS.Internal
         #region FIELDS
         [SerializeField]
         private List<TypeGroup> groups = new List<TypeGroup>();
+
+        public static string assetName = "StorageTemplate";
         #endregion
 
         #region METHODS
