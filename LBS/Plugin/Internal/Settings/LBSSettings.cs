@@ -63,10 +63,10 @@ namespace ISILab.LBS.Settings
         public Test test = new Test();
         public Generator3D generator = new Generator3D();
 
-        public void ReplacePaths(UnityEditor.PackageManager.PackageInfo packageInfo)
+        public void ReplacePaths()
         {
-            //var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            //var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
 
             mainFolder = packageInfo is null ? 
                 "Assets/isi-lab-unity-module" :

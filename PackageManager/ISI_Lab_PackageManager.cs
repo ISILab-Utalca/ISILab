@@ -27,7 +27,7 @@ public class ISI_Lab_PackageManager : IPackageManagerExtension
         switch (packageInfo.name)
         {
             case "com.isilab.lbs":
-                InitializeLBS(packageInfo);
+                InitializeLBS();
                 break;
 
             default:
@@ -42,14 +42,14 @@ public class ISI_Lab_PackageManager : IPackageManagerExtension
 
     public VisualElement CreateExtensionUI() => null;
 
-    private void InitializeLBS(UnityEditor.PackageManager.PackageInfo packageInfo)
+    private void InitializeLBS()
     {
         Debug.Log("LEVEL BUILDING SIDEKICK");
 
         LBSSettings.assetName = "LBSUserSettings";
         LBSAssetsStorage.assetName = "Storage";
 
-        LBSSettings.Instance.ReplacePaths(packageInfo);
+        LBSSettings.Instance.ReplacePaths();
 
         // Crear carpetas de usuario LBS
         string userFolderFullPath = "Assets/LBSUserContent";
