@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Serialization;
+using UnityEditor.PackageManager;
 
 namespace ISILab.LBS.Settings
 {
@@ -13,7 +14,7 @@ namespace ISILab.LBS.Settings
         
         private const string USER_ASSET_FOLDER_NAME = "LBSUserContent";
 
-        private static string mainFolder;
+        private static string mainFolder = "Assets/isi-lab-unity-module";
         
         #region SINGLETON
         private static LBSSettings instance;
@@ -34,7 +35,7 @@ namespace ISILab.LBS.Settings
                     if (instance == null)
                         instance = ScriptableObject.CreateInstance<LBSSettings>();
 
-                    instance.InitPaths();
+                    //instance.InitPaths();
                 }
                 //else Debug.Log("LBS Settings existe.");
 
@@ -59,17 +60,17 @@ namespace ISILab.LBS.Settings
         public Test test = new Test();
         public Generator3D generator = new Generator3D();
 
-        private void InitPaths()
+        public void ReplacePaths(UnityEditor.PackageManager.PackageInfo packageInfo)
         {
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+            //var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            //var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
 
             mainFolder = packageInfo is null ? 
                 "Assets/isi-lab-unity-module" :
                 "Packages/" + packageInfo.name;
 
-            ReplacePathStart(ref instance.paths.settingsPath);
-            ReplacePathStart(ref instance.paths.storagePath);
+            ReplacePathStart(ref instance.paths.settingsPath); instance.paths.settingsPath.Replace("LBSDefaultSettings", "LBSUserSettings");
+            ReplacePathStart(ref instance.paths.storagePath); instance.paths.storagePath.Replace("StorageTemplate", "Storage");
             ReplacePathStart(ref instance.paths.pressetsPath);
             ReplacePathStart(ref instance.paths.backUpPath);
 
@@ -130,8 +131,8 @@ namespace ISILab.LBS.Settings
         public class Paths
         {
             // Controller Paths
-            public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBS Settings.asset";
-            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Editor/LBS Storage.asset";
+            public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset";
+            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Editor/StorageTemplate.asset";
             public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
             public string backUpPath                    = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
                                                                   
