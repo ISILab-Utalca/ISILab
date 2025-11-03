@@ -4,7 +4,9 @@ using UnityEngine;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Drawers.Editor
@@ -47,12 +49,29 @@ namespace ISILab.LBS.Drawers.Editor
             DisplayStyle display = (DisplayStyle)(behaviour.OwnerLayer.IsVisible ? 0 : 1);
            
             // Trigger Position
-            var triggerBase = new TriggerElementArea(nodeData,nodeData.Area);
-            triggerBase.style.display = display;
+            TriggerElementArea triggerBase = new(nodeData,nodeData.Area)
+            {
+                style =
+                {
+                    display = display
+                }
+            };
 
             // Stores using the behavior as key
             view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, triggerBase);
+
+            QuestGraph graph = behaviour.OwnerLayer.GetModule<QuestGraph>();
+            if(graph is null) return;
+            if(graph.SelectedGraphNode is null) return;
             
+            foreach (GraphElement graphElement in view.GetAllElementsInLayer(behaviour.OwnerLayer))
+            {
+                if (graphElement is not QuestActionView qav) continue;
+                if (qav.Node.Equals(graph.SelectedGraphNode))
+                {
+                    Debug.Log("hook");
+                }
+            }
             
             #region BundleGraph View
             
@@ -60,25 +79,35 @@ namespace ISILab.LBS.Drawers.Editor
             {
                 case DataKill dataKill:
                     if(!dataKill.bundlesToKill.Any()) break;
-                    foreach (var bundle in dataKill.bundlesToKill)
+                    foreach (BundleGraph bundle in dataKill.bundlesToKill)
                     {
                         if (bundle is null || !bundle.Valid()) continue;
                         
-                        var visual = new TriggerElementArea(nodeData, bundle.Area, false);
-                        visual.style.display = display;
+                        TriggerElementArea visual = new(nodeData, bundle.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
                 
                 case DataStealth dataStealth:
                     if(dataStealth.bundlesObservers == null || !dataStealth.bundlesObservers.Any()) break;
-                    foreach (var bundle in dataStealth.bundlesObservers)
+                    foreach (BundleGraph bundle in dataStealth.bundlesObservers)
                     {
                         if (bundle is null || !bundle.Valid()) continue;
                         
-                        var visual = new TriggerElementArea(nodeData, bundle.Area, false);
+                        TriggerElementArea visual = new(nodeData, bundle.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
 
-                        visual.style.display = display;
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
@@ -86,8 +115,13 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataTake dataTake:
                     if (dataTake.bundleToTake.Valid())
                     {
-                        var visual = new TriggerElementArea(nodeData, dataTake.bundleToTake.Area);
-                        visual.style.display = display;
+                        TriggerElementArea visual = new(nodeData, dataTake.bundleToTake.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
@@ -95,8 +129,13 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataRead dataRead:
                     if (dataRead.bundleToRead.Valid())
                     {
-                        var visual = new TriggerElementArea(nodeData, dataRead.bundleToRead.Area);
-                        visual.style.display = display;
+                        TriggerElementArea visual = new(nodeData, dataRead.bundleToRead.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
@@ -104,8 +143,13 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataGive dataGive:
                     if (dataGive.bundleGiveTo.Valid())
                     {
-                        var visual = new TriggerElementArea(nodeData, dataGive.bundleGiveTo.Area);
-                        visual.style.display = display;
+                        TriggerElementArea visual = new(nodeData, dataGive.bundleGiveTo.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
@@ -113,8 +157,13 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataReport dataReport:
                     if (dataReport.bundleReportTo.Valid())
                     {
-                        var visual = new TriggerElementArea(nodeData, dataReport.bundleReportTo.Area);
-                        visual.style.display = display;
+                        TriggerElementArea visual = new(nodeData, dataReport.bundleReportTo.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
@@ -122,8 +171,13 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataSpy dataSpy:
                     if (dataSpy.bundleToSpy.Valid())
                     {
-                        var visual = new TriggerElementArea(nodeData, dataSpy.bundleToSpy.Area);
-                        visual.style.display = display;
+                        TriggerElementArea visual = new(nodeData, dataSpy.bundleToSpy.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
@@ -131,8 +185,13 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataListen dataListen:
                     if (dataListen.bundleListenTo.Valid())
                     {
-                        var visual = new TriggerElementArea(nodeData, dataListen.bundleListenTo.Area);
-                        visual.style.display = display;
+                        TriggerElementArea visual = new(nodeData, dataListen.bundleListenTo.Area)
+                        {
+                            style =
+                            {
+                                display = display
+                            }
+                        };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
                     break;
@@ -150,7 +209,7 @@ namespace ISILab.LBS.Drawers.Editor
             
             foreach (object tile in behaviour.Keys)
             {
-                foreach (var graphElement in view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile).Where(graphElement => graphElement != null))
+                foreach (GraphElement graphElement in view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -166,14 +225,12 @@ namespace ISILab.LBS.Drawers.Editor
                 if (tile == null) continue;
 
                 var elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile);
-                foreach (var graphElement in elements)
+                foreach (GraphElement graphElement in elements)
                 {
                     graphElement.style.display = DisplayStyle.None;
                 }
             }
         }
-
-      
     }        
     
 }

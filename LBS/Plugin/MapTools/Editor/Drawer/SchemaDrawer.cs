@@ -184,12 +184,12 @@ namespace ISILab.LBS.Drawers
             }
         }
 
-        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int teselationSize)
+        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
         {
             var schema = target as SchemaBehaviour;
             var zones = schema.Zones;
 
-            var texture = new Texture2D((int)(sourceRect.width * teselationSize.x), (int)(sourceRect.height * teselationSize.y));
+            var texture = new Texture2D((int)(sourceRect.width * tesselationSize.x), (int)(sourceRect.height * tesselationSize.y));
 
             for (int j = 0; j < texture.height; j++)
             {
@@ -202,18 +202,18 @@ namespace ISILab.LBS.Drawers
             foreach (var z in zones)
             {
                 var tiles = schema.GetTiles(z);
-                var text = GetTileTexture(teselationSize, z.Color);
+                var text = GetTileTexture(tesselationSize, z.Color);
 
                 foreach (var t in tiles)
                 {
                     if (!sourceRect.Contains(t.Position))
                         continue;
-                    for (int j = 0; j < teselationSize.y; j++)
+                    for (int j = 0; j < tesselationSize.y; j++)
                     {
-                        for (int i = 0; i < teselationSize.x; i++)
+                        for (int i = 0; i < tesselationSize.x; i++)
                         {
                             var pos = t.Position - sourceRect.position;
-                            texture.SetPixel((int)(pos.x * teselationSize.x) + i, (int)(pos.y * teselationSize.y) + j, text.GetPixel(i, j));
+                            texture.SetPixel((int)(pos.x * tesselationSize.x) + i, (int)(pos.y * tesselationSize.y) + j, text.GetPixel(i, j));
                         }
                     }
                 }
@@ -233,7 +233,7 @@ namespace ISILab.LBS.Drawers
         private void AdjustTileView(SchemaTileView tView, LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
         {
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
-            var size = DefalutSize * teselationSize;
+            var size = DefaultSize * teselationSize;
             tView.SetPosition(new Rect(pos * size, size));
             tView.SetBackgroundColor(zone.Color);
             tView.SetBorderColor(zone.Color, zone.BorderThickness);
