@@ -88,21 +88,28 @@ namespace ISILab.LBS.Internal.Editor
             string userFolder = pathFolders[pathFolders.Count - 1];
             pathFolders.Remove(userFolder);
             string userFolderPath = string.Join('/', pathFolders);
+            string resourcesFolderPath = userFolderPath + "/Resources";
+
 
             CreateFolderIfItDoesntExist(userFolderPath, userFolder);
+            CreateFolderIfItDoesntExist(userFolderFullPath, "Resources");
 
-            foreach (string subfolder in new string[] { "Bundles", "Tags", "Meshes", "Settings", "Cache" })
+            foreach (string subfolder in new string[] { "Bundles", "Tags", "Meshes" })
             {
                 CreateFolderIfItDoesntExist(userFolderFullPath, subfolder);
             }
-
-            if (AssetDatabase.FindAssets("LBSUserSettings", new string[] { userFolderFullPath + "/Settings" }).Length == 0)
+            foreach (string subFolder in new string[] {"Settings", "Cache" })
             {
-                AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID), userFolderFullPath + "/Settings/LBSUserSettings.asset");
+                CreateFolderIfItDoesntExist(resourcesFolderPath, subFolder);
             }
-            if (AssetDatabase.FindAssets("Storage", new string[] { userFolderFullPath + "/Cache" }).Length == 0)
+
+            if (AssetDatabase.FindAssets("LBSUserSettings", new string[] { resourcesFolderPath + "/Settings" }).Length == 0)
             {
-                AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), userFolderFullPath + "/Cache/Storage.asset");
+                AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID), resourcesFolderPath + "/Settings/LBSUserSettings.asset");
+            }
+            if (AssetDatabase.FindAssets("Storage", new string[] { resourcesFolderPath + "/Cache" }).Length == 0)
+            {
+                AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
             }
 
             LBSSettings.assetName = "LBSUserSettings";
