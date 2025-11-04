@@ -9,7 +9,7 @@ namespace ISILab.LBS.CustomComponents
 {
     
     [LBSComplexElement]
-    public class LBSComplexVisualElement: VisualElement, ILBSComplexComponent, ILBSField 
+    public class LBSComplexVisualElement: VisualElement, ILBSComplexComponent 
     {
         public LBSComplexVisualElement()
         {
