@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Settings;
 using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
@@ -39,16 +40,25 @@ namespace ISILab.LBS.Internal
             {
                 if (instance == null)
                 {
-                    instance = Resources.Load<LBSAssetsStorage>("Storage/LBS Storage");
+                    Debug.Log(assetName);
+                    instance = Resources.Load<LBSAssetsStorage>("Storage/" + assetName);
                 }
                 return instance;
             }
+        }
+
+        public static void ResetInstance()
+        {
+            instance = null;
+            var a = Instance;
         }
         #endregion
 
         #region FIELDS
         [SerializeField]
         private List<TypeGroup> groups = new List<TypeGroup>();
+
+        public static string assetName = "StorageTemplate";
         #endregion
 
         #region METHODS
