@@ -18,7 +18,7 @@ namespace ISILab.LBS.Internal.Editor
             if (importedAssets.Contains(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
             {
                 Debug.Log("LBS SETTINGS IMPORT");
-                InitializeLBS();
+                InitializeLBSPackage();
             }
             OnPostImportProcess(importedAssets);
             OnPostDeleteProcess(deletedAssets);
@@ -78,16 +78,9 @@ namespace ISILab.LBS.Internal.Editor
             // do nothing
         }
 
-        private static void InitializeLBS()
+        private static void InitializeLBSPackage()
         {
             Debug.Log("LEVEL BUILDING SIDEKICK");
-
-            LBSSettings.assetName = "LBSUserSettings";
-            LBSSettings.ResetInstance();
-            LBSSettings.Instance.ReplacePaths();
-
-            LBSAssetsStorage.assetName = "Storage";
-            LBSAssetsStorage.ResetInstance();
 
             // Crear carpetas de usuario LBS
             string userFolderFullPath = "Assets/LBSUserContent";
@@ -111,6 +104,13 @@ namespace ISILab.LBS.Internal.Editor
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), userFolderFullPath + "/Cache/Storage.asset");
             }
+
+            LBSSettings.assetName = "LBSUserSettings";
+            LBSSettings.ResetInstance();
+            LBSSettings.Instance.ReplacePaths();
+
+            LBSAssetsStorage.assetName = "Storage";
+            LBSAssetsStorage.ResetInstance();
         }
         private static void CreateFolderIfItDoesntExist(string parent, string name)
         {
