@@ -117,6 +117,7 @@ namespace ISILab.LBS.Internal.Editor
             LBSSettings.Instance.ReplacePaths();
 
             LBSAssetsStorage.assetName = "Storage";
+            LBSAssetsStorage.folderName = "Cache";
             LBSAssetsStorage.ResetInstance();
         }
         private static void CreateFolderIfItDoesntExist(string parent, string name)
