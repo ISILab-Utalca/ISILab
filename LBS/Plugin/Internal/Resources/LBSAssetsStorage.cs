@@ -41,7 +41,7 @@ namespace ISILab.LBS.Internal
                 {
                     Debug.Log(folderName + "/" + assetName);
                     instance = Resources.Load<LBSAssetsStorage>(folderName + "/" + assetName);
-                    Debug.Log("Instance loaded: " + instance is not null);
+                    Debug.Log("Instance loaded: " + (instance != null));
                 }
                 return instance;
             }
