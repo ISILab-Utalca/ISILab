@@ -83,14 +83,22 @@ namespace ISILab.LBS.Settings
             string userFolder = "Assets/LBSUserContent";
             string packageFolder = "Packages/" + packageInfo.name;
 
-            ReplacePathStart(ref instance.paths.settingsPath, userFolder); instance.paths.settingsPath.Replace("LBSDefaultSettings", "LBSUserSettings");
-            ReplacePathStart(ref instance.paths.storagePath, userFolder); instance.paths.storagePath.Replace("StorageTemplate", "Storage");
-            //ReplacePathStart(ref instance.paths.pressetsPath);
-            ReplacePathStart(ref instance.paths.backUpPath, userFolder);
+            instance.paths.settingsPath = userFolder + "/Resources/Settings/LBSUserSettings.asset";
+            instance.paths.storagePath = userFolder + "/Resources/Cache/Storage.asset";
+            instance.paths.backUpPath = userFolder + "/Resources/Cache/LBSBackUp.asset";
 
-            ReplacePathStart(ref instance.paths.bundleFolderPath, userFolder);
-            ReplacePathStart(ref instance.paths.tagFolderPath, userFolder);
-            ReplacePathStart(ref instance.paths.meshFolderPath, userFolder);
+            //ReplacePathStart(ref instance.paths.settingsPath, userFolder); instance.paths.settingsPath.Replace("LBSDefaultSettings", "LBSUserSettings");
+            //ReplacePathStart(ref instance.paths.storagePath, userFolder); instance.paths.storagePath.Replace("StorageTemplate", "Storage");
+            //ReplacePathStart(ref instance.paths.pressetsPath);
+            //ReplacePathStart(ref instance.paths.backUpPath, userFolder);
+
+            instance.paths.bundleFolderPath = userFolder + "/Bundles";
+            instance.paths.tagFolderPath = userFolder + "/Tags";
+            instance.paths.meshFolderPath = userFolder + "/Meshes";
+
+            //ReplacePathStart(ref instance.paths.bundleFolderPath, userFolder);
+            //ReplacePathStart(ref instance.paths.tagFolderPath, userFolder);
+            //ReplacePathStart(ref instance.paths.meshFolderPath, userFolder);
 
             //ReplacePathStart(ref instance.paths.iconPath);
 
