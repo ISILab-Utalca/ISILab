@@ -39,8 +39,8 @@ namespace ISILab.LBS.Internal
             {
                 if (instance == null)
                 {
-                    Debug.Log(assetName);
-                    instance = Resources.Load<LBSAssetsStorage>("Storage/" + assetName);
+                    Debug.Log(folderName + "/" + assetName);
+                    instance = Resources.Load<LBSAssetsStorage>(folderName + "/" + assetName);
                 }
                 return instance;
             }
@@ -58,6 +58,7 @@ namespace ISILab.LBS.Internal
         private List<TypeGroup> groups = new List<TypeGroup>();
 
         public static string assetName = "StorageTemplate";
+        public static string folderName = "Storage";
         #endregion
 
         #region METHODS
