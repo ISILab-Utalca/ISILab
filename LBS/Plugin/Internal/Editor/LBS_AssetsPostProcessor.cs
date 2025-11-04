@@ -88,7 +88,7 @@ namespace ISILab.LBS.Internal.Editor
             string userFolder = pathFolders[pathFolders.Count - 1];
             pathFolders.Remove(userFolder);
             string userFolderPath = string.Join('/', pathFolders);
-            string resourcesFolderPath = userFolderPath + "/Resources";
+            string resourcesFolderPath = userFolderFullPath + "/Resources";
 
 
             CreateFolderIfItDoesntExist(userFolderPath, userFolder);
