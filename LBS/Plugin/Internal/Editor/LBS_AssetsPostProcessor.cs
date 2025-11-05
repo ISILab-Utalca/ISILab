@@ -107,6 +107,7 @@ namespace ISILab.LBS.Internal.Editor
             if (AssetDatabase.FindAssets("LBSUserSettings", new string[] { resourcesFolderPath + "/Settings" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID), resourcesFolderPath + "/Settings/LBSUserSettings.asset");
+                AssetDatabase.SaveAssets();
                 LBSSettings.ResetInstance();
                 LBSSettings.Instance.ReplacePaths();
             }
@@ -116,6 +117,7 @@ namespace ISILab.LBS.Internal.Editor
             if (AssetDatabase.FindAssets("Storage", new string[] { resourcesFolderPath + "/Cache" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
+                AssetDatabase.SaveAssets();
                 LBSAssetsStorage.ResetInstance();
             }
 
