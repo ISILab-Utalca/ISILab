@@ -78,7 +78,7 @@ namespace ISILab.LBS.Internal.Editor
             // do nothing
         }
 
-        private static void InitializeLBSPackage()
+        public static void InitializeLBSPackage()
         {
             Debug.Log("LEVEL BUILDING SIDEKICK");
 
@@ -103,22 +103,23 @@ namespace ISILab.LBS.Internal.Editor
                 CreateFolderIfItDoesntExist(resourcesFolderPath, subFolder);
             }
 
+            LBSSettings.assetName = "LBSUserSettings";
             if (AssetDatabase.FindAssets("LBSUserSettings", new string[] { resourcesFolderPath + "/Settings" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID), resourcesFolderPath + "/Settings/LBSUserSettings.asset");
+                LBSSettings.ResetInstance();
+                LBSSettings.Instance.ReplacePaths();
             }
-            if (AssetDatabase.FindAssets("Storage", new string[] { resourcesFolderPath + "/Cache" }).Length == 0)
-            {
-                AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
-            }
-
-            LBSSettings.assetName = "LBSUserSettings";
-            LBSSettings.ResetInstance();
-            LBSSettings.Instance.ReplacePaths();
 
             LBSAssetsStorage.assetName = "Storage";
             LBSAssetsStorage.folderName = "Cache";
-            LBSAssetsStorage.ResetInstance();
+            if (AssetDatabase.FindAssets("Storage", new string[] { resourcesFolderPath + "/Cache" }).Length == 0)
+            {
+                AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
+                LBSAssetsStorage.ResetInstance();
+            }
+
+
         }
         private static void CreateFolderIfItDoesntExist(string parent, string name)
         {
