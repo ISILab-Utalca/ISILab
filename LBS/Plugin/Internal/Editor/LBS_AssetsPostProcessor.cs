@@ -103,25 +103,25 @@ namespace ISILab.LBS.Internal.Editor
                 CreateFolderIfItDoesntExist(resourcesFolderPath, subFolder);
             }
 
-            LBSSettings.assetName = "LBSUserSettings";
             if (AssetDatabase.FindAssets("LBSUserSettings", new string[] { resourcesFolderPath + "/Settings" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID), resourcesFolderPath + "/Settings/LBSUserSettings.asset");
-                AssetDatabase.SaveAssets();
-                LBSSettings.ResetInstance();
-                LBSSettings.Instance.ReplacePaths();
             }
-
-            LBSAssetsStorage.assetName = "Storage";
-            LBSAssetsStorage.folderName = "Cache";
             if (AssetDatabase.FindAssets("Storage", new string[] { resourcesFolderPath + "/Cache" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
-                AssetDatabase.SaveAssets();
-                LBSAssetsStorage.ResetInstance();
             }
 
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
 
+            LBSSettings.assetName = "LBSUserSettings";
+            LBSSettings.ResetInstance();
+            LBSSettings.Instance.ReplacePaths();
+
+            LBSAssetsStorage.assetName = "Storage";
+            LBSAssetsStorage.folderName = "Cache";
+            LBSAssetsStorage.ResetInstance();
         }
         private static void CreateFolderIfItDoesntExist(string parent, string name)
         {
