@@ -22,6 +22,8 @@ namespace ISILab.LBS.VisualElements
 
         #endregion
 
+        public Button Button => _button;
+        
         #region EVENTS
         public event Action OnFocusEvent;
         public event Action OnBlurEvent;

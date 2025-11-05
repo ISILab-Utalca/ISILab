@@ -478,15 +478,17 @@ namespace ISILab.LBS.Editor.Windows{
         /// <param name="layer"></param>
         private void OnSelectedLayerChange(LBSLayer layer)
         {
-            if (_selectedLayer is not null)
-            {
-                _selectedLayer.OnChange -= NotifyChange;
-                _selectedLayer.OnChangeUpdate();
-            }
+            LBSLayer previousSelected = _selectedLayer;
             _selectedLayer = layer;
             
+            if (previousSelected is not null)
+            {
+                previousSelected.OnChangeUpdate();
+                previousSelected.OnChange -= NotifyChange;
+            }
             if (_selectedLayer is not null)
             {
+                _selectedLayer.OnChangeUpdate();
                 _selectedLayer.OnChange += NotifyChange;
             }
             
@@ -508,7 +510,7 @@ namespace ISILab.LBS.Editor.Windows{
             warningNotification.visible = description != null;
         }
 
-        public static void NotifyChange()
+        private static void NotifyChange()
         {
             OnLayerChange?.Invoke();
         }

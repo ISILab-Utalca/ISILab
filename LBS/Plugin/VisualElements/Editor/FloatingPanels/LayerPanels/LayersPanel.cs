@@ -173,9 +173,8 @@ namespace ISILab.LBS.VisualElements.Editor
         private void SelectionChanged(IEnumerable<object> objs)
         {
             //Debug.Log("LIST SELECTION CHANGED");
-            var selected = objs.FirstOrDefault() as LBSLayer;
-            LBSMainWindow.Instance._selectedLayer = selected;
-            OnSelectLayer?.Invoke(GetSelectedLayer());
+            LBSLayer selected = objs.FirstOrDefault() as LBSLayer;
+            OnSelectLayer?.Invoke(selected);
         }
 
         private void ItemChosen(IEnumerable<object> objs)

@@ -23,20 +23,20 @@ namespace ISILab.LBS.Drawers
         private List<LBSTag> Identifiers => LBSAssetsStorage.Instance.Get<LBSTag>();
         public ExteriorDrawer() : base() { }
 
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviours
             if (target is not ExteriorBehaviour exterior) return;
             // Get modules
             var connectMod = exterior.OwnerLayer.GetModule<ConnectedTileMapModule>();
             
-            PaintNewTiles(exterior, connectMod, teselationSize, view);
-            //UpdateLoadedTiles(exterior, connectMod, teselationSize, view);
+            PaintNewTiles(exterior, connectMod, tesselationSize, view);
+            //UpdateLoadedTiles(exterior, connectMod, tesselationSize, view);
             
             if (!Loaded || FullRedrawRequested)
             {
                 //Debug.Log($"EXTERIOR FULL REDRAW: {exterior.Tiles.Count}");
-                LoadAllTiles(exterior, connectMod, teselationSize, view);
+                LoadAllTiles(exterior, connectMod, tesselationSize, view);
                 Loaded = true;
                 FullRedrawRequested = false;
             }
