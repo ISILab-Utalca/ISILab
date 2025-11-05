@@ -1,8 +1,12 @@
-using System;
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Assistants;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Manipulators;
+using LBS.VisualElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Macros;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -10,18 +14,15 @@ namespace ISILab.LBS.VisualElements
     public partial class QuestActionDetailsView : VisualElement
     {
         private static VisualTreeAsset _asset;
-
-        private const string ConnectionIconGuid = "ec280cec81783e94cb5df0b0b40dec7e";
-        private const string GrammarIconGuid = "7bdf2adeb17673349abf65c6f8f0f411";
-        private const string DataIconGuid = "5549d02f87d9642469d0336544f4cb88";
-
-        private const string ConnectionDescription = "Indicates that the Node must be connected to another action node. Or the connection is invalid.";
-        private const string GrammarDescription = "Indicates that the position of the node in the graph is not gramatically valid. To see what actions can make it valid, check the Grammar Assistant.";
-        private const string DataDescription = "Indicates that the node's data is not complete, see the Node Behaviour Panel and make sure all references are set and complete.";
-
-        private const string PanelDescription =
-            "If any of the following icons are displayed in the node the graph won't be generated (using 3D Generator) in the scene.";
-
+        private readonly LBSInteractiveTooltip connectionItt;
+        private readonly LBSInteractiveTooltip grammarItt;
+        private readonly LBSInteractiveTooltip dataItt;
+        
+        // Node assigned to the QuestActionView that uses this panel
+        private readonly QuestNode node;
+        
+        public QuestNode Node { get; set; }
+        
         public QuestActionDetailsView()
         {
             if (_asset == null)
@@ -29,145 +30,69 @@ namespace ISILab.LBS.VisualElements
 
             _asset.CloneTree(this);
             
-            VisualElement connectionSection = CreateInfoSection("Connection", ConnectionDescription, "Use Connection Tool", ConnectionIconGuid, OnConnectionClicked);
-            VisualElement grammarSection = CreateInfoSection("Grammar",GrammarDescription , "See Grammatically Valid Options.", GrammarIconGuid, OnGrammarClicked);
-            VisualElement dataSection = CreateInfoSection("Data",DataDescription , "Go to Node Data Information", DataIconGuid, OnDataClicked);
-
-            Label descriptionLabel = new(PanelDescription)
-            {
-                style =
-                {
-                    unityFontStyleAndWeight = FontStyle.Italic,
-                    fontSize = 11,
-                    color = new StyleColor(new Color(0.75f, 0.75f, 0.75f)),
-                    marginBottom = 6,
-                    whiteSpace = WhiteSpace.Normal
-                }
-            };
+            connectionItt = this.Q<LBSInteractiveTooltip>("Connection");
+            grammarItt =  this.Q<LBSInteractiveTooltip>("Grammar");
+            dataItt = this.Q<LBSInteractiveTooltip>("Data");
             
-            Add(descriptionLabel);
-            Add(connectionSection);
-            Add(grammarSection);
-            Add(dataSection);
-
-            style.flexDirection = FlexDirection.Column;
-            style.paddingTop = 4;
-            style.paddingBottom = 4;
-            style.paddingLeft = 6;
-            style.paddingRight = 6;
+            connectionItt.SetAction(OnConnectionClicked);
+            grammarItt.SetAction(OnGrammarClicked);
+            dataItt.SetAction(OnDataClicked);
         }
         
         #region Button Callbacks
         private void OnConnectionClicked()
         {
-            Debug.Log("Connection Clicked");
+            ToolKit.Instance.SetActive(typeof(ConnectQuestNodes));
+            if(ToolKit.Instance.GetToolButton(typeof(ConnectQuestNodes)) is ToolButton tb)
+            {
+                LBSFocusHighlight.Highlight(tb.Button);
+            }
         }
 
         private void OnGrammarClicked()
         {
-            Debug.Log("Grammar Clicked");
+            Node.Graph.SelectedGraphNode = Node;
+            LBSInspectorPanel.ActivateAssistantTab();
+            VisualElement grammarAssistant = LBSInspectorPanel.Instance.ActiveInspector.GetInspector(
+                typeof(GrammarAssistant), LBSMainWindow.Instance._selectedLayer);
+            
+            LBSFocusHighlight.Highlight(grammarAssistant);
         }
-
+    
         private void OnDataClicked()
         {
-            Debug.Log("Data Clicked");
+            Node.Graph.SelectedGraphNode = Node;
+            LBSInspectorPanel.ActivateBehaviourTab();
+            VisualElement nodeBehaviour = LBSInspectorPanel.Instance.ActiveInspector.GetInspector(
+                typeof(QuestNodeBehaviour), LBSMainWindow.Instance._selectedLayer);
+            
+            LBSFocusHighlight.Highlight(nodeBehaviour);
         }
+
         #endregion
-
-     private VisualElement CreateInfoSection(string title, string description, string buttonLabel, string iconGuid, Action onClick)
-    {
-        VisualElement container = new()
+        
+        /// <summary>
+        /// Pass the icons of each of the possible generation problems.
+        ///
+        /// Display the tooltips based on the existing issues.
+        /// </summary>
+        public void SetDisplays(VisualElement connection, VisualElement grammar, VisualElement data)
         {
-            style =
+            connectionItt.style.display = connection.style.display;
+            grammarItt.style.display = grammar.style.display;
+            dataItt.style.display = data.style.display;
+            
+            if(connectionItt.style.display == DisplayStyle.Flex 
+               || grammarItt.style.display == DisplayStyle.Flex 
+               || dataItt.style.display == DisplayStyle.Flex
+               )
             {
-                flexDirection = FlexDirection.Row,
-                alignItems = Align.Center,
-                justifyContent = Justify.SpaceBetween,
-                marginBottom = 4,
-                paddingTop = 4,
-                paddingBottom = 4,
-                paddingLeft = 4,
-                paddingRight = 4,
-                borderBottomColor = new Color(0.25f, 0.25f, 0.25f),
-                borderBottomWidth = 1,
-                borderBottomLeftRadius = 2,
-                borderBottomRightRadius = 2
+                style.display = DisplayStyle.Flex;
             }
-        };
-
-        // Icon (fixed size)
-        VisualElement icon = new()
-        {
-            name = $"{title}Icon",
-            style =
+            else
             {
-                width = 24,
-                height = 24,
-                backgroundImage = new StyleBackground(LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid)),
-                marginRight = 8,
-                flexShrink = 0
+                style.display = DisplayStyle.None;
             }
-        };
-
-        // Text group (fills half width)
-        VisualElement textGroup = new()
-        {
-            style =
-            {
-                flexDirection = FlexDirection.Column,
-                flexGrow = 1,
-                flexBasis = Length.Percent(50),
-                marginRight = 6
-            }
-        };
-
-        Label nameLabel = new(title)
-        {
-            style =
-            {
-                unityFontStyleAndWeight = FontStyle.Bold,
-                fontSize = 12
-            }
-        };
-
-        Label descLabel = new(description)
-        {
-            style =
-            {
-                fontSize = 10,
-                color = new StyleColor(new Color(0.8f, 0.8f, 0.8f)),
-                whiteSpace = WhiteSpace.Normal
-            }
-        };
-
-        textGroup.Add(nameLabel);
-        textGroup.Add(descLabel);
-
-        // Button (fills the other half)
-        Button button = new(() => onClick?.Invoke())
-        {
-            text = buttonLabel,
-            style =
-            {
-                flexGrow = 1,
-                flexBasis = Length.Percent(50),
-                height = StyleKeyword.Auto,
-                fontSize = 10,
-                unityTextAlign = TextAnchor.MiddleCenter,
-                marginLeft = 6,
-                marginRight = 4,
-                paddingLeft = 8,
-                paddingRight = 8
-            }
-        };
-
-        // Put it all together
-        container.Add(icon);
-        container.Add(textGroup);
-        container.Add(button);
-
-        return container;
-    }
-
+        }
     }
 }

@@ -97,7 +97,7 @@ namespace LBS.VisualElements
         #region CONSTRUCTOR
         public ToolKit()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ToolKit");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ToolKit");
             visualTree.CloneTree(this);
             content = this.Q<VisualElement>("Content");
 
@@ -136,11 +136,17 @@ namespace LBS.VisualElements
         private KeyValuePair<Type, (LBSTool, ToolButton)> GetTool(Type manipulatorType)
         {
             // Find the first matching tool in the dictionary with all null checks
-            var foundTool = tools.FirstOrDefault(kvp =>
+            KeyValuePair<Type, (LBSTool, ToolButton)> foundTool = tools.FirstOrDefault(kvp =>
                 kvp is { Key: not null, Value: { Item1: { Manipulator: not null } } } &&
                 kvp.Value.Item1.Manipulator.GetType() == manipulatorType);
 
             return foundTool;
+        }
+
+        public VisualElement GetToolButton(Type manipulatorType)
+        {
+            // Find the first matching tool in the dictionary with all null checks
+            return GetTool(manipulatorType).Value.Item2;
         }
         
         public void SetActive(Type manipulatorType)
@@ -154,7 +160,7 @@ namespace LBS.VisualElements
             }
 
             // Find the first matching tool in the dictionary
-            var foundTool = GetTool(manipulatorType);
+            KeyValuePair<Type, (LBSTool, ToolButton)> foundTool = GetTool(manipulatorType);
 
             if (foundTool.Key == null)
             {
@@ -170,7 +176,7 @@ namespace LBS.VisualElements
             current.Item2?.OnFocus();
 
             // Activate its manipulator
-            var manipulator = current.Item1.Manipulator;
+            LBSManipulator manipulator = current.Item1.Manipulator;
             MainView.Instance.AddManipulator(manipulator);
 
             // Notify
@@ -183,7 +189,7 @@ namespace LBS.VisualElements
         
         private void ClearSeparators()
         {
-            foreach (var separator in separators)
+            foreach (VisualElement separator in separators)
             {
                 separator.style.display = DisplayStyle.None;
             }
@@ -201,7 +207,7 @@ namespace LBS.VisualElements
 
         private void AddTool(LBSTool tool)
         {
-            var button = new ToolButton(tool);
+            ToolButton button = new ToolButton(tool);
             tool.BindButton(button);
             content.Add(button);
             tools[tool.Manipulator.GetType()] = (tool, button);
@@ -224,7 +230,7 @@ namespace LBS.VisualElements
                 tool.Manipulator.OnManipulationRightClick += () =>
                 {
                     // Use GetTool to find the matching Remover tool safely
-                    var removerTool = GetTool(tool.Manipulator.Remover.GetType());
+                    KeyValuePair<Type, (LBSTool, ToolButton)> removerTool = GetTool(tool.Manipulator.Remover.GetType());
 
                     if (removerTool.Key != null)
                     {
@@ -241,7 +247,7 @@ namespace LBS.VisualElements
                 tool.Manipulator.OnManipulationRightClickEnd += () =>
                 {
                     // Use GetTool to find the matching Adder tool safely
-                    var adderTool = GetTool(tool.Manipulator.Adder.GetType());
+                    KeyValuePair<Type, (LBSTool, ToolButton)> adderTool = GetTool(tool.Manipulator.Adder.GetType());
 
                     if (adderTool.Key != null)
                     {
@@ -309,13 +315,13 @@ namespace LBS.VisualElements
             List<ToolButton> lastButtonPerType = new();
             for (int i = 0; i < presentTypes.Count - 1; i++)
             {
-                if (groupedButtons.TryGetValue(presentTypes[i], out var buttons) && buttons.Count > 0)
+                if (groupedButtons.TryGetValue(presentTypes[i], out List<ToolButton> buttons) && buttons.Count > 0)
                 {
                     lastButtonPerType.Add(buttons.Last());
                 }
             }
             
-            foreach (var button in lastButtonPerType)
+            foreach (ToolButton button in lastButtonPerType)
             {
                 InsertSeparatorAfter(button);
             }
@@ -325,14 +331,14 @@ namespace LBS.VisualElements
         
         private void InsertSeparatorAfter(VisualElement element)
         {
-            var separator = new VisualElement();
+            VisualElement separator = new VisualElement();
             separator.style.height = 1;
             separator.style.marginTop = 4;
             separator.style.marginBottom = 4;
             separator.style.backgroundColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             separator.style.flexGrow = 1;
 
-            var parent = element.parent;
+            VisualElement parent = element.parent;
             if (parent == null) return;
 
             int index = parent.IndexOf(element);
