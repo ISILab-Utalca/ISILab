@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6b738addc7fdb346a753be66842cf18, type: 3}
-  m_Name: LBSDefaultSettings
+  m_Name: LBS Settings
   m_EditorClassIdentifier: 
   paths:
-    settingsPath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset
+    settingsPath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBS
+      Settings.asset
     storagePath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/Storage/LBS
       Storage.asset
     pressetsPath: Assets/isi-lab-unity-module/LBS/Presets/LBS Presets.asset
@@ -68,15 +69,31 @@ MonoBehaviour:
       resize: {x: 0, y: 0}
       position: {x: 0, y: 0, z: 0}
       replacePrevious: 1
-      name: New Layer 1
+      name: New Layer
       rootParentName: Root_Parent
     rules:
-    - rid: 7378586678529885068
+    - rid: 2069232974700740869
+    - rid: 2069232974700740870
   references:
     version: 2
     RefIds:
-    - rid: 7378586678529885068
-      type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
+    - rid: 2069232974700740869
+      type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
+      data:
+        generator3D:
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          rules: []
+    - rid: 2069232974700740870
+      type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Generators, asm: LBS}
       data:
         generator3D:
           settings:

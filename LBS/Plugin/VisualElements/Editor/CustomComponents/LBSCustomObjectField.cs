@@ -1,5 +1,11 @@
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Editor.Windows;
+using LBS.Bundles;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -19,11 +25,10 @@ namespace ISILab.LBS.CustomComponents
 
         private VisualElement iconVisualElement;
 
-        private bool _useCustomPicker = false;
+        private bool _useCustomFilter = false;
         private bool _selectorHooked;
 
-        public Action<Action<UnityEngine.Object>> CustomPicker { get; set; }
-        public Func<UnityEngine.Object, bool> CustomFilter { get; set; }
+        public Action<Action<UnityEngine.Object>> CustomFilter { get; set; }
         public string InvalidSelectionMessage { get; set; }
 
         #region Properties
@@ -64,15 +69,15 @@ namespace ISILab.LBS.CustomComponents
         }
 
         [UxmlAttribute]
-        public bool UseCustomPicker
+        public bool UseCustomFilter
         {
-            get => _useCustomPicker;
+            get => _useCustomFilter;
             set
             {
-                _useCustomPicker = value;
-                if (_useCustomPicker)
+                _useCustomFilter = value;
+                if (_useCustomFilter)
                 {
-                    TryHookSelector(); // engancha el botón nativo
+                    TryHookSelector();
                 }
             }
         }
@@ -123,17 +128,16 @@ namespace ISILab.LBS.CustomComponents
             }
         }
 
-        public void OpenCustomPicker()
+        public void OpenCustomFilter()
         {
-            if (!_useCustomPicker || CustomPicker == null)
+            if (!_useCustomFilter || CustomFilter == null)
                 return;
 
-            CustomPicker(obj =>
+            CustomFilter(obj =>
             {
                 if (obj == null)
                     return;
 
-                // Validación por tipo y escena
                 if (objectType != null && !objectType.IsInstanceOfType(obj))
                 {
                     NotifyInvalid();
@@ -146,14 +150,6 @@ namespace ISILab.LBS.CustomComponents
                     return;
                 }
 
-                // Validación extra del usuario
-                if (CustomFilter != null && !CustomFilter(obj))
-                {
-                    NotifyInvalid();
-                    return;
-                }
-
-                // Asigna el valor (dispara el ValueChanged del ObjectField)
                 value = obj;
             });
         }
@@ -168,21 +164,21 @@ namespace ISILab.LBS.CustomComponents
 
         private void TryHookSelector()
         {
-            if (!_useCustomPicker || _selectorHooked)
+            if (!_useCustomFilter || _selectorHooked)
                 return;
 
-            // En versiones nuevas: ObjectField.selectorUssClassName
             var selector = this.Q(className: "unity-object-field__selector");
             if (selector == null) return;
 
             _selectorHooked = true;
 
+            //Stops the default object field behavior and opens the custom picker instead
+
             selector.RegisterCallback<PointerDownEvent>(evt =>
             {
-                // Cancelar el selector estándar y abrir el custom
                 evt.StopImmediatePropagation();
                 evt.StopPropagation();
-                OpenCustomPicker();
+                OpenCustomFilter();
             }, TrickleDown.TrickleDown);
 
             selector.RegisterCallback<ClickEvent>(evt =>
@@ -197,10 +193,12 @@ namespace ISILab.LBS.CustomComponents
                 {
                     evt.StopImmediatePropagation();
                     evt.StopPropagation();
-                    OpenCustomPicker();
+                    OpenCustomFilter();
                 }
             }, TrickleDown.TrickleDown);
         }
 
     }
+
+    
 }
