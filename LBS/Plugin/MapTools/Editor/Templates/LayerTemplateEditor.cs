@@ -33,7 +33,8 @@ namespace ISILab.LBS.Template.Editor
 
         private const string DefaultBehaviorIcon = "e17eb0e02534666439fca8ea30b4d4e4";
         private const string DefaultAssistantIcon = "ad8feef201665454ca79e31b7d798ac3";
-
+        
+        
         private LayerTemplate Template => (LayerTemplate)target;
 
         private void OnEnable()
@@ -56,7 +57,7 @@ namespace ISILab.LBS.Template.Editor
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-
+            
             GUILayout.Space(15);
             DrawAddSection("Behaviour", ref behaviourIndex, behaviourNames, behaviourOptions, AddBehaviour);
             DrawAddSection("Assistant", ref assistantIndex, assistantNames, assistantOptions, AddAssistant);
@@ -66,8 +67,8 @@ namespace ISILab.LBS.Template.Editor
 
             DrawPresetButtons();
 
-            if (GUILayout.Button("Apply Changes"))
-                ApplyChanges();
+            if (GUILayout.Button("Apply Changes")) ApplyChanges();
+               
         }
 
         #region UI Helpers

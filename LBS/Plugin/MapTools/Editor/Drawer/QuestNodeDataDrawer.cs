@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using ISILab.LBS.VisualElements.Editor;
 using UnityEngine;
@@ -6,6 +7,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
+using LBS.Components;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
@@ -14,23 +16,25 @@ namespace ISILab.LBS.Drawers.Editor
     [Drawer(typeof(QuestNodeBehaviour))]
     public class QuestNodeBehaviourDrawer : Drawer
     {
+     
+        private Action _onChangeAction;
+        
         /// <summary>
         /// Draws the information that corresponds to the quest node behavior selected node.
         /// </summary>
         /// <param name="target"></param>
         /// <param name="view"></param>
-        /// <param name="teselationSize"></param>
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        /// <param name="tesselationSize"></param>
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             if (target is not QuestNodeBehaviour behaviour) return;
             if (behaviour.OwnerLayer is not { } layer) return;
             view.ClearLayerContainer(behaviour.OwnerLayer, true);
             
-            layer.OnChange += () =>
-            {
-                view.ClearLayerComponentView(layer, behaviour);
-            };
-
+            if (_onChangeAction != null) layer.OnChange -= _onChangeAction;
+            _onChangeAction = ClearElements(view, layer, behaviour);
+            layer.OnChange += _onChangeAction;
+            
             if (!Equals(LBSMainWindow.Instance._selectedLayer, layer)) return; 
             
             BaseQuestNodeData nodeData = behaviour.Graph.GetNodeData();
@@ -200,6 +204,14 @@ namespace ISILab.LBS.Drawers.Editor
             #endregion
             
   
+        }
+
+        private static Action ClearElements(MainView view, LBSLayer layer, QuestNodeBehaviour behaviour)
+        {
+            return () =>
+            {
+                view.ClearLayerComponentView(layer, behaviour);
+            };
         }
 
         public override void ShowVisuals(object target, MainView view)

@@ -16,10 +16,10 @@ namespace ISILab.LBS.VisualElements
     [UxmlElement]
     public partial class LBSLocalCurrent : LBSInspector
     {
-        private LBSLayer target;
+        private LBSLayer _target;
         
-        private ModulesPanel modulesPanel;
-        private LayerInfoView layerInfoView;
+        private readonly ModulesPanel modulesPanel;
+        private readonly LayerInfoView layerInfoView;
 
         #region CONSTRUCTORS
         public LBSLocalCurrent()
@@ -63,7 +63,7 @@ namespace ISILab.LBS.VisualElements
         {
             noContentPanel.SetDisplay(layer is null);
             contentPanel.Clear();
-            target = layer;
+            _target = layer;
 
             if (layer == null)
             {
@@ -72,17 +72,19 @@ namespace ISILab.LBS.VisualElements
                 return;    
             }
             
-            noContentPanel.SetDisplay(!target.Modules.Any());
+            noContentPanel.SetDisplay(!_target.Modules.Any());
             
-            ToolKit.Instance.InitGeneralTools(target);
+            ToolKit.Instance.InitGeneralTools(_target);
             
-            modulesPanel.SetInfo(target.Modules);
-            layerInfoView.SetInfo(target);
+            modulesPanel.SetInfo(_target.Modules);
+            layerInfoView.SetInfo(_target);
+            
+            
         }
 
         public override void Repaint()
         {
-            if(target is not null) SetTarget(target);
+            if(_target is not null) SetTarget(_target);
             MarkDirtyRepaint();
         }
 
@@ -117,14 +119,18 @@ namespace ISILab.LBS.VisualElements
                 var editorType = ves.First().Item1;
                 
                 // set target info on visual element
-                if (Activator.CreateInstance(editorType) is not LBSCustomEditor ve) continue;
+                if (Activator.CreateInstance(editorType) is not LBSCustomEditor instance) continue;
                 
-                ve.SetInfo(obj);
-                ToolKit.Instance.SetTarget(ve);
+                instance.SetInfo(obj);
+                ToolKit.Instance.SetTarget(instance);
 
                 // create content container
-                var container = new DataContent(ve, ves.First().Item2.First().name);
+                var container = new DataContent(instance, ves.First().Item2.First().name);
                 contentPanel.Add(container);
+                
+                if (activeEditor is null) continue;
+                InspectorInstance entry = new InspectorInstance(obj.GetType(), _target);
+                activeEditor[entry] = instance;
             }
         }
         #endregion

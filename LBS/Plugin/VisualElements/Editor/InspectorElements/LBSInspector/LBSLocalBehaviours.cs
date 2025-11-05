@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Editor;
 using LBS.VisualElements;
+using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -55,8 +56,6 @@ namespace ISILab.LBS.VisualElements
                     Type behaviourEditorType = ves.First().Item1;
                     if (behaviourEditorType == null) continue;
                     customEditor.Add(type, behaviourEditorType);
-
-                   
                 }
             }
         }
@@ -81,6 +80,7 @@ namespace ISILab.LBS.VisualElements
                 if(editorType == null) continue;
                 LBSCustomEditor instance = Activator.CreateInstance(editorType, behaviour) as LBSCustomEditor;
                 
+                
                 instance?.SetInfo(behaviour);
                 ToolKit.Instance.SetTarget(instance);
 
@@ -88,7 +88,10 @@ namespace ISILab.LBS.VisualElements
                 
                 var content = new InspectorContentPanel(instance, behaviour.Name, behaviour.Icon, behaviour.ColorTint);
                 contentPanel.Add(content);
-  
+
+                if (activeEditor is null) continue;
+                InspectorInstance entry = new InspectorInstance(behaviour.GetType(), _target);
+                activeEditor[entry] = instance;
             }
         }
 

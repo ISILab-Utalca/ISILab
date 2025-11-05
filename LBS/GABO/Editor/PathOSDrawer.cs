@@ -15,18 +15,18 @@ namespace ISILab.LBS.Drawers
     [Drawer(typeof(PathOSBehaviour))]
     public class PathOSDrawer : Drawer
     {
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             PathOSBehaviour behaviour = target as PathOSBehaviour;
 
             if (behaviour == null) { return; }
 
-            PaintNewTiles(behaviour, teselationSize, view);
-            UpdateLoadedTiles(behaviour, teselationSize, view);
+            PaintNewTiles(behaviour, tesselationSize, view);
+            UpdateLoadedTiles(behaviour, tesselationSize, view);
 
             if(!Loaded || FullRedrawRequested)
             {
-                LoadAllTiles(behaviour, teselationSize, view);
+                LoadAllTiles(behaviour, tesselationSize, view);
                 Loaded = true;
                 FullRedrawRequested = false;
             }

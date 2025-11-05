@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -69,6 +68,27 @@ namespace ISILab.Extensions
             element.style.borderBottomRightRadius = value;
             element.style.borderTopLeftRadius = value;
             element.style.borderTopRightRadius = value;
+        }
+        
+        public static Background ConvertToBackground(Object obj)
+        {
+            if (obj == null) return default;
+                
+
+            switch (obj)
+            {
+                case Texture2D tex:
+                    return new Background { texture = tex };
+                case Sprite sprite:
+                    return new Background { sprite = sprite };
+                case RenderTexture rt:
+                    return new Background { renderTexture = rt };
+                case VectorImage vi:
+                    return new Background { vectorImage = vi };
+                default:
+                    Debug.LogWarning($"Unsupported icon type: {obj.GetType().Name}. Expected Texture2D, Sprite, RenderTexture, or VectorImage.");
+                    return default;
+            }
         }
     }
 }
