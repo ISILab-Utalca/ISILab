@@ -112,6 +112,7 @@ namespace ISILab.LBS.Editor.Windows{
 
         #endregion
 
+        private bool packageInitialized = false;
 
         #region EVENTS
         public static Action OnWindowRepaint;
@@ -150,9 +151,10 @@ namespace ISILab.LBS.Editor.Windows{
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
-            if (packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
+            if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
             {
                 LBS_AssetsPostProcessor.InitializeLBSPackage();
+                packageInitialized = true;
             }
 
             #region LOAD UI TREE
