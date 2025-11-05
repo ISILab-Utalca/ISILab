@@ -13,7 +13,7 @@ namespace ISILab.LBS.Drawers
     {
         private DottedAreaFeedback _dotArea;
         
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             var assistant = target as AssistantMapElite;
             if(assistant == null) return;

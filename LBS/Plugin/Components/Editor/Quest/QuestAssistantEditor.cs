@@ -242,7 +242,7 @@ namespace ISILab.LBS.Editor
             _suggestionList.makeItem = () => new QuestNodeSuggestion();
             _suggestionList.bindItem = BindQuestNodeSuggestion;
             _suggestionList.itemsSource = _questGraph.Suggestions;
-            UpdateSuggestionsDisplay();
+          //  UpdateSuggestionsDisplay();
         }
         
         private void UpdateSuggestionsDisplay()

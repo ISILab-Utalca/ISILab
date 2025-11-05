@@ -19,7 +19,7 @@ namespace ISILab.LBS.Drawers.Editor
         // for actions, and ors,
         private readonly Dictionary<GraphNode, QuestGraphNodeView> _actionViews = new();
         private readonly Dictionary<QuestNode, SuggestionElementArea> _suggestionViews = new();
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             if (target is not QuestBehaviour behaviour) return;
             if (behaviour.OwnerLayer is not { } layer) return;
@@ -102,6 +102,12 @@ namespace ISILab.LBS.Drawers.Editor
             
             foreach (QuestNode suggestNode in questGraph.Suggestions)
             {
+                // only draw suggestions when the assistant tab is active
+                if(!LBSInspectorPanel.Instance.IsAssistantTabActive())
+                {
+                    break;
+                }
+                
                 if (!Equals(LBSMainWindow.Instance._selectedLayer, behaviour.OwnerLayer)) continue;
                 
                 _suggestionViews.TryGetValue(suggestNode, out SuggestionElementArea suggestView);

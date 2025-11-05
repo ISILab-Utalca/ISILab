@@ -19,7 +19,7 @@ namespace ISILab.LBS.VisualElements
     public partial class LBSLocalAssistants : LBSInspector
     {
 
-        private LBSLayer target;
+        private LBSLayer _target;
         
         #region CONSTRUCTORS
         public LBSLocalAssistants()
@@ -66,19 +66,19 @@ namespace ISILab.LBS.VisualElements
         {
             noContentPanel.SetDisplay(layer is null);
             contentPanel.Clear();
-            target = layer;
+            _target = layer;
             
             if (layer == null)
                 return;
             
-            noContentPanel.SetDisplay(!target.Assistants.Any());
+            noContentPanel.SetDisplay(!_target.Assistants.Any());
 
             OnFocus = null;
 
             LBSAssistant currentAssistant = null;
 
             // Add the tools into the toolkit and set the data of behaviour
-            foreach (LBSAssistant assistant in target.Assistants)
+            foreach (LBSAssistant assistant in _target.Assistants)
             {
                 currentAssistant = assistant;
 
@@ -96,6 +96,10 @@ namespace ISILab.LBS.VisualElements
                 var content = new InspectorContentPanel(instance, assistant.Name, assistant.Icon, assistant.ColorTint);
                 contentPanel.Add(content);
                 currentAssistant.OnTermination += OnTerminationBaseCallback;
+                
+                if (activeEditor is null) continue;
+                InspectorInstance entry = new InspectorInstance(assistant.GetType(), _target);
+                activeEditor[entry] = instance;
             }
 
             return; /// END OF METHOD
@@ -115,7 +119,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void Repaint()
         {
-            if(target is not null) SetTarget(target);
+            if(_target is not null) SetTarget(_target);
             MarkDirtyRepaint();
         }
         #endregion
