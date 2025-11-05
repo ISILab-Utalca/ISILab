@@ -15,18 +15,18 @@ namespace ISILab.LBS.Drawers
     [Drawer(typeof(PathOSBehaviour))]
     public class PathOSDrawer : Drawer
     {
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             PathOSBehaviour behaviour = target as PathOSBehaviour;
 
             if (behaviour == null) { return; }
 
-            PaintNewTiles(behaviour, teselationSize, view);
-            UpdateLoadedTiles(behaviour, teselationSize, view);
+            PaintNewTiles(behaviour, tesselationSize, view);
+            UpdateLoadedTiles(behaviour, tesselationSize, view);
 
             if(!Loaded || FullRedrawRequested)
             {
-                LoadAllTiles(behaviour, teselationSize, view);
+                LoadAllTiles(behaviour, tesselationSize, view);
                 Loaded = true;
                 FullRedrawRequested = false;
             }
@@ -38,7 +38,7 @@ namespace ISILab.LBS.Drawers
             {
                 var tView = new PathOSTileView(tile);
                 Vector2 pos = new Vector2(tile.X, -tile.Y);
-                Vector2 size = DefalutSize * teselationSize;
+                Vector2 size = DefaultSize * teselationSize;
                 tView.SetPosition(new Rect(pos * size, size));
                 //view.AddElement(tView);
                 view.AddElementToLayerContainer(behaviour.OwnerLayer, tile, tView);
@@ -64,7 +64,7 @@ namespace ISILab.LBS.Drawers
                     if(!tView.visible) continue;
 
                     Vector2 pos = new Vector2(tile.X, -tile.Y);
-                    Vector2 size = DefalutSize * teselationSize;
+                    Vector2 size = DefaultSize * teselationSize;
 
                     tView.SetPosition(new Rect(pos * size, size));
 
@@ -80,7 +80,7 @@ namespace ISILab.LBS.Drawers
                 var tView = new PathOSTileView(tile);
                 //var size = behaviour.OwnerLayer.TileSize * LBSSettings.Instance.general.TileSize;
                 Vector2 pos = new Vector2(tile.X, -tile.Y);
-                Vector2 size = DefalutSize * teselationSize;
+                Vector2 size = DefaultSize * teselationSize;
                 tView.SetPosition(new Rect(pos * size, size));
                 tView.style.display = (DisplayStyle)(behaviour.OwnerLayer.IsVisible ? 0 : 1);
                 //view.AddElement(tView);
@@ -119,9 +119,9 @@ namespace ISILab.LBS.Drawers
             }
         }
 
-        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int teselationSize)
+        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
         {
-            //return new Texture2D((int)(sourceRect.width * teselationSize.x), (int)(sourceRect.height * teselationSize.y));
+            //return new Texture2D((int)(sourceRect.width * tesselationSize.x), (int)(sourceRect.height * tesselationSize.y));
             return null;
         }
     }

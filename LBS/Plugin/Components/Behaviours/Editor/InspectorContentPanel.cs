@@ -15,7 +15,7 @@ namespace ISILab.LBS.VisualElements
 
         public InspectorContentPanel(LBSCustomEditor content, string name, VectorImage icon, Color color)
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("BehaviourContent");
+            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ContentPanel");
             visualTree.CloneTree(this);
             
             var foldout1 = this.Q<Foldout>();

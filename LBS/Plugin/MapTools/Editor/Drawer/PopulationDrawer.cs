@@ -20,7 +20,7 @@ namespace ISILab.LBS.Drawers
         private Rect previousRect;
         private PopulationTileView lastHighlight = null;
 
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
             if (target is not PopulationBehaviour population) return;

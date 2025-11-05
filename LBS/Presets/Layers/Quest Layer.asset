@@ -79,6 +79,8 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: 1248747549014622365
+        suggestions: []
+        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 1248747549014622362
       type: {class: QuestBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
@@ -105,6 +107,7 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           index: 0
+        iconGuid: 49b9448c876b36c4ba26740d7deae035
         icon: {fileID: 7388822144124034973, guid: 49b9448c876b36c4ba26740d7deae035, type: 3}
         colorTint: {r: 0.47058827, g: 1, b: 0.8313726, a: 1}
         name: Quest Behaviour
@@ -133,8 +136,9 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           index: 0
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 7388822144124034973, guid: ad8feef201665454ca79e31b7d798ac3, type: 3}
-        colorTint: {r: 0.47058827, g: 1, b: 0.8313726, a: 1}
+        colorTint: {r: 0.46274513, g: 0.5921569, b: 0.2627451, a: 1}
         name: Grammar Assistant
     - rid: 1248747549014622364
       type: {class: QuestRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
@@ -203,9 +207,11 @@ MonoBehaviour:
             name: Quest
             rootParentName: Root_Parent
           index: 0
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 7388822144124034973, guid: ad8feef201665454ca79e31b7d798ac3, type: 3}
-        colorTint: {r: 0.47058827, g: 1, b: 0.8313726, a: 1}
+        colorTint: {r: 0.46274513, g: 0.5921569, b: 0.2627451, a: 1}
         name: Quest Assistant
+        suggestionAmount: 3
     - rid: 6953538662824935526
       type: {class: QuestFlowBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
@@ -231,6 +237,7 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           index: 0
+        iconGuid: 
         icon: {fileID: 7388822144124034973, guid: a919b94406bb9f5469d29bf56201e3f1, type: 3}
         colorTint: {r: 0.47058827, g: 1, b: 0.8313726, a: 1}
         name: Quest Flow
@@ -265,6 +272,7 @@ MonoBehaviour:
             name: Quest
             rootParentName: Root_Parent
           index: 0
+        iconGuid: 8a9f4ea328526464085e24168d212ac9
         icon: {fileID: 7388822144124034973, guid: 8a9f4ea328526464085e24168d212ac9, type: 3}
-        colorTint: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+        colorTint: {r: 0.5294118, g: 0.8431373, b: 0.96470594, a: 1}
         name: Selected Action Config

@@ -34,6 +34,23 @@ namespace ISILab.LBS.CustomComponents
         }
         
         
+        [UxmlAttribute]
+        public Color IconColor
+        {
+            get => iconColor;
+            set
+            {
+                iconColor = value;
+                Image imageVe = this.Q<Image>(classes:"unity-button__image");
+                if (iconColor != Color.white && imageVe != null)
+                {
+                    //imageVe.style.unityBackgroundImageTintColor = new StyleColor(iconColor);
+                    imageVe.tintColor = IconColor;
+                }
+            }
+        }
+        
+        private Color iconColor = Color.white;
         private Color buttonTint = Color.white;
         private Color hoverButtonTint = Color.white;
         private Color pressedButtonTint = Color.white;
@@ -51,6 +68,10 @@ namespace ISILab.LBS.CustomComponents
             // RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
             
         }
+    
+        
+
+
 
         public void SetOverlayColors(Color _newColor = new Color())
         {
