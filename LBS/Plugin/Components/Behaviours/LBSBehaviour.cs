@@ -26,7 +26,7 @@ namespace ISILab.LBS.Behaviours
         
         [SerializeField, HideInInspector] 
         private string iconGuid;
-        [SerializeField, JsonRequired] 
+        [SerializeReference] 
         private VectorImage icon;
         
         [SerializeField, JsonRequired] 

@@ -109,7 +109,7 @@ namespace LBS.Bundles
         [SerializeField, HideInInspector] 
         private string iconGuid;
         
-        [SerializeField]
+        [SerializeReference]
         private VectorImage icon;
         
         [SerializeField]

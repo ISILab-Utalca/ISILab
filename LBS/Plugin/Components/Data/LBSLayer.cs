@@ -27,7 +27,7 @@ namespace LBS.Components
         [SerializeField, JsonRequired]
         private bool blocked = false;
 
-        [FormerlySerializedAs("iconGUID")] [FormerlySerializedAs("iconPath")] [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired]
         public string iconGuid = "Icon/Default";
         #endregion
 
