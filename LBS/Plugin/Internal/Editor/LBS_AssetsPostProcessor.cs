@@ -15,11 +15,11 @@ namespace ISILab.LBS.Internal.Editor
 
         public static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
-            //if (importedAssets.Contains(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
-            //{
-            //    Debug.Log("LBS SETTINGS IMPORT");
-            //    InitializeLBSPackage();
-            //}
+            if (importedAssets.Contains(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
+            {
+                Debug.Log("LBS SETTINGS IMPORT");
+                InitializeLBSPackage();
+            }
             OnPostImportProcess(importedAssets);
             OnPostDeleteProcess(deletedAssets);
             OnPostMoveProcess(movedAssets);

@@ -149,13 +149,13 @@ namespace ISILab.LBS.Editor.Windows{
             Debug.Log("[Main Window] - OnEnable");
             _instance = this;
 
-            //var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            //var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
-            //if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
-            //{
-            //    LBS_AssetsPostProcessor.InitializeLBSPackage();
-            //    packageInitialized = true;
-            //}
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+            if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
+            {
+                LBS_AssetsPostProcessor.InitializeLBSPackage();
+                packageInitialized = true;
+            }
 
             #region LOAD UI TREE
             //MainWindows UXML 
