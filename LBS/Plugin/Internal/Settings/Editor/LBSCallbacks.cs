@@ -27,19 +27,15 @@ namespace ISILab.LBS.Internal.Editor
                 SessionState.SetBool("start", false);
             }
 
+            AssemblyReloadEvents.afterAssemblyReload += OnAfterReloadScript;
+            AssemblyReloadEvents.beforeAssemblyReload += OnBeforeReloadScript;
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
             if (packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
             {
-                AssemblyReloadEvents.afterAssemblyReload += () =>
-                {
-                    InitializeLBSPackage();
-                    OnAfterReloadScript();
-                };
+                AssemblyReloadEvents.afterAssemblyReload += InitializeLBSPackage;
             }
-            else AssemblyReloadEvents.afterAssemblyReload += OnAfterReloadScript;
-
-            AssemblyReloadEvents.beforeAssemblyReload += OnBeforeReloadScript;
         }
 
         /// <summary>
