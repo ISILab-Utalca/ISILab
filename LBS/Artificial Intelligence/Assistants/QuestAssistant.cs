@@ -169,12 +169,12 @@ namespace ISILab.LBS.Assistants
         #region CONSTRUCTORS
         public QuestAssistant() : base(null, null, Color.black) { }
 
-        public QuestAssistant(VectorImage icon, string name, Color colorTint)
-            : base(icon, name, colorTint) { }
+        public QuestAssistant(string IconGuid, string name, Color colorTint)
+            : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region PUBLIC METHODS
-        public override object Clone() => new QuestAssistant(Icon, Name, ColorTint);
+        public override object Clone() => new QuestAssistant(IconGuid, Name, ColorTint);
 
         public override void OnGUI() { }
 

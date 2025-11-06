@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Extensions;
@@ -10,7 +9,6 @@ using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -74,7 +72,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region CONSTRUCTORS
-        public PopulationBehaviour(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint) { }
+        public PopulationBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
@@ -232,7 +230,7 @@ namespace ISILab.LBS.Behaviours
         
         public override object Clone()
         {
-            return new PopulationBehaviour(this.Icon, this.Name, this.ColorTint);
+            return new PopulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override bool Equals(object obj)

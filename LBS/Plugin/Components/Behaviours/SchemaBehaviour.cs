@@ -9,8 +9,6 @@ using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -102,7 +100,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region CONSTRUCTORS
-        public SchemaBehaviour(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint) { }
+        public SchemaBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
@@ -299,7 +297,7 @@ namespace ISILab.LBS.Behaviours
 
         public override object Clone()
         {
-            return new SchemaBehaviour(this.Icon, this.Name, this.ColorTint);
+            return new SchemaBehaviour(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override bool Equals(object obj)

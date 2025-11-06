@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Settings;
 using ISILab.Macros;
 using LBS.Components;
-using LBS.Components.TileMap;
 using Newtonsoft.Json;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -23,11 +21,6 @@ namespace ISILab.LBS.Behaviours
         #region FIELDS
         [SerializeField, HideInInspector, JsonIgnore]
         private LBSLayer ownerLayerLayer;
-        
-        [SerializeField, HideInInspector] 
-        private string iconGuid;
-        [SerializeReference] 
-        private VectorImage icon;
         
         [SerializeField, JsonRequired] 
         private Color colorTint;
@@ -55,29 +48,36 @@ namespace ISILab.LBS.Behaviours
             set => ownerLayerLayer = value;
         }
 
-        [JsonIgnore]
+        [HideInInspector, SerializeField]
+        private string iconGuid; 
+
+        // although not serialized because this IClonable is stored within a list of LBSLayer template
+        // unity does not keep references of objects in list of references of objects. Serialized to display in inspector
+        [SerializeField]
+        private VectorImage icon; 
+        
         public VectorImage Icon
         {
             get
             {
-                if (icon is not null)
-                {
-                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon); ;
-                }
-                else
-                {
-                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
-                }
-                return icon;
+                return icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
             }
             set
             {
                 icon = value;
-                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+                string guid = LBSAssetMacro.GetGuidFromAsset(icon);
+                iconGuid = guid != string.Empty ? guid : LBSSettings.Instance.view.DebugVectorGUID;
             }
         }
-
+        
+ 
         [JsonIgnore]
+        public string IconGuid
+        {
+            get => iconGuid;
+            set => iconGuid = value;
+        }
+
         public string Name => name;
 
         [JsonIgnore]
@@ -86,9 +86,9 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region CONSTRUCTORS
-        public LBSBehaviour(VectorImage icon, string name, Color  colorTint)
+        public LBSBehaviour(string IconGuid, string name, Color  colorTint)
         {
-            this.icon = icon;
+            this.IconGuid = IconGuid;
             this.name = name;
             this.colorTint = colorTint;
         }
@@ -102,16 +102,16 @@ namespace ISILab.LBS.Behaviours
         #region METHODS
         public List<Type> GetRequiredModules()
         {
-            var toR = new List<Type>();
-            Type tipo = this.GetType();
+            List<Type> toR = new List<Type>();
+            Type type = GetType();
 
-            object[] atts = tipo.GetCustomAttributes(true);
+            object[] attributes = type.GetCustomAttributes(true);
 
-            foreach (var att in atts)
+            foreach (object att in attributes)
             {
-                if (att is RequieredModuleAttribute)
+                if (att is RequieredModuleAttribute attribute)
                 {
-                    toR.AddRange((att as RequieredModuleAttribute).types);
+                    toR.AddRange(attribute.types);
                 }
             }
             return toR;
@@ -247,5 +247,10 @@ namespace ISILab.LBS.Behaviours
         }
 
         #endregion
+
+        protected virtual void OnOnBehaviourUpdated(object obj)
+        {
+            OnBehaviourUpdated?.Invoke(obj);
+        }
     }
 }
