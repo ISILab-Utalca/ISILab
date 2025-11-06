@@ -153,7 +153,7 @@ namespace ISILab.LBS.Editor.Windows{
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
             if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
             {
-                LBS_AssetsPostProcessor.InitializeLBSPackage();
+                LBS_AssetsPostProcessor.InitializeLBSPackage(out _);
                 packageInitialized = true;
             }
 
