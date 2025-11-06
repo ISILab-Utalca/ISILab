@@ -94,7 +94,7 @@ namespace ISILab.LBS.Assistants
         #endregion
 
         #region CONSTRUCTORS
-        public AssistantMapElite(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint)
+        public AssistantMapElite(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
         #endregion
@@ -425,7 +425,7 @@ namespace ISILab.LBS.Assistants
 
         public override object Clone()
         {
-            return new AssistantMapElite(Icon, Name, ColorTint);
+            return new AssistantMapElite(IconGuid, Name, ColorTint);
         }
 
         public override bool Equals(object obj)
