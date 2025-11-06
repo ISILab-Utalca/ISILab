@@ -23,7 +23,7 @@ namespace ISILab.LBS.Assistants
         
         [SerializeField, HideInInspector] 
         private string iconGuid;
-        [SerializeField, JsonRequired]//, JsonIgnore]
+        [SerializeReference] 
         private VectorImage icon;
         
         [SerializeField, JsonRequired]//, JsonIgnore]
