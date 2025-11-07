@@ -10,7 +10,6 @@ using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UIElements;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
 
 namespace ISILab.LBS.Behaviours
@@ -100,7 +99,7 @@ namespace ISILab.LBS.Behaviours
         
         #region CONSTRUCTORS
 
-        public ExteriorBehaviour(VectorImage icon, string name, Color colorTint, Bundle targetBundleRef = null) : base(icon, name, colorTint)
+        public ExteriorBehaviour(string iconGUID, string name, Color colorTint, Bundle targetBundleRef = null) : base(iconGUID, name, colorTint)
         {
             if(targetBundleRef != null)
                 this.targetBundleRef = targetBundleRef;
@@ -188,7 +187,7 @@ namespace ISILab.LBS.Behaviours
 
         public override object Clone()
         {
-            return new ExteriorBehaviour(Icon, Name, ColorTint, targetBundleRef);
+            return new ExteriorBehaviour(IconGuid, Name, ColorTint, targetBundleRef);
         }
 
         public override bool Equals(object obj)

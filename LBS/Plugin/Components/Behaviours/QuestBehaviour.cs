@@ -1,11 +1,7 @@
 using System;
 using System.Linq;
-using ISILab.AI.Grammar;
-using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using LBS.Components;
-using Newtonsoft.Json;
-using UnityEngine.UIElements;
 using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
@@ -18,7 +14,7 @@ namespace ISILab.LBS.Behaviours
 
         public QuestGraph Graph => OwnerLayer.GetModule<QuestGraph>();
         
-        public QuestBehaviour(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint)
+        public QuestBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
         
@@ -30,7 +26,7 @@ namespace ISILab.LBS.Behaviours
         
         public override object Clone()
         {
-            return new QuestBehaviour(Icon, Name, ColorTint);
+            return new QuestBehaviour(IconGuid, Name, ColorTint);
         }
 
         public override void OnAttachLayer(LBSLayer layer)

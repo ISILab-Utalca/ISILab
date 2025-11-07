@@ -13,13 +13,13 @@ namespace ISILab.LBS.Assistants
 
         public PathOSWindow PathOSOriginalWindow { get => pathOSOriginalWindow; set => pathOSOriginalWindow = value; }
 
-        public TestingAssistant(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint)
+        public TestingAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
 
         public override object Clone()
         {
-            return new TestingAssistant(Icon, Name, ColorTint);
+            return new TestingAssistant(IconGuid, Name, ColorTint);
         }
 
         public override void OnGUI()
