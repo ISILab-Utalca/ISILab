@@ -83,6 +83,14 @@ namespace ISI_Lab.LBS.Plugin.MapTools.Generators3D
                 Undo.AddComponent<Custom3dMeshGizmo>(gameObject); // Supports undo in editor
             }
         }
+
+        private void TryAddQuestGizmo()
+        {
+            if (this != null && gameObject != null && !GetComponent<Custom3dQuestGizmo>())
+            {
+                Undo.AddComponent<Custom3dQuestGizmo>(gameObject); // Supports undo in editor
+            }
+        }
 #endif
 
         private void EnsureGizmoComponent()
