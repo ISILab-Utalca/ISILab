@@ -65,7 +65,7 @@ namespace ISI_Lab.DevTools.Gizmos.Editor
             
             UpdatePopupPosition(screenPoint);
         }
-
+        
         private void UpdatePopupPosition(Vector2 screenPoint)
         {
             if (rootVisualElement == null) return;

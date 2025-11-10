@@ -55,7 +55,7 @@ namespace ISILab.LBS.VisualElements
                     Node.Graph.SelectedGraphNode = Node;
             }
             
-            DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+        //    DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
         }
 
         protected void OnMouseMove(MouseMoveEvent e)

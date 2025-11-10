@@ -88,12 +88,14 @@ namespace LBS.VisualElements
             var newMessage = new NotificationMessage();
             
             newMessage.SetData(message, logType);
+            messageContainer.pickingMode = PickingMode.Ignore;
             scrollView.Add(newMessage);
-            
             newMessage.pickingMode = PickingMode.Ignore;
-            // ignore the Toolkit auto parent generated VisualElement container
-            if(newMessage.parent is not null) newMessage.parent.pickingMode = PickingMode.Ignore;
-            
+            scrollView.pickingMode = PickingMode.Ignore;
+            scrollView.contentViewport.pickingMode = PickingMode.Ignore;
+            scrollView.contentContainer.pickingMode = PickingMode.Ignore;
+            scrollView.contentViewport.contentContainer.pickingMode = PickingMode.Ignore;
+
             Lifetime(newMessage, duration);
         }
         

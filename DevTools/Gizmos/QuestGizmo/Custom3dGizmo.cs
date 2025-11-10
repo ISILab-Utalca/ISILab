@@ -1,3 +1,4 @@
+using System;
 using ISILab.LBS.VisualElements;
 using UnityEditor;
 using UnityEngine;
@@ -16,11 +17,16 @@ namespace ISI_Lab.LBS.DevTools
         
         private MeshRenderer mRendererComponent;
         public PrevStepButton RootVisualElement { get; set; }
-
- private void OnEnable()
+        
+        private void OnEnable()
         {
             Selection.selectionChanged += UpdatePosition;
             mRendererComponent = GetComponent<MeshRenderer>();
+        }
+
+        private void OnMouseDown()
+        {
+            Debug.Log("Clicked!");
         }
 
         private void OnDisable()
@@ -36,14 +42,22 @@ namespace ISI_Lab.LBS.DevTools
                 worldPosition = mr.bounds.center;
                 Gizmos.color = gizmoColor;
                 Gizmos.DrawWireCube(mr.bounds.center, mr.bounds.size);
-                
-                Gizmos.DrawWireMesh(
-                    gizmoMesh,
-                    mr.bounds.center,
-                    Quaternion.identity,
-                    new Vector3(meshGizmoScale,meshGizmoScale,meshGizmoScale)
-                );
             }
+            
+            DrawCustomMesh();
+        }
+
+        public void DrawCustomMesh()
+        {
+            MeshRenderer mr = GetComponent<MeshRenderer>();
+            if(!mr) return;
+            
+            Gizmos.DrawWireMesh(
+                gizmoMesh,
+                mr.bounds.center,
+                Quaternion.identity,
+                new Vector3(meshGizmoScale,meshGizmoScale,meshGizmoScale)
+            );
         }
 
         public void UpdatePosition()

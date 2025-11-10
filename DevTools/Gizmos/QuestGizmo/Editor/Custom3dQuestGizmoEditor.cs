@@ -15,6 +15,18 @@ namespace ISI_Lab.DevTools.Gizmos.Editor
             return rootVisualElement;
         }
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            QuestBarView.ClearPreviousButtons();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            QuestBarView.ClearPreviousButtons();
+        }
+
         protected override void OnUpdate(SceneView sceneView)
         {
             QuestBarView qbv = rootVisualElement as  QuestBarView;

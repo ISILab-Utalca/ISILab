@@ -28,7 +28,6 @@ namespace ISILab.LBS.VisualElements
             ButtonElement = new Button
             {   style =
                 {
-                    
                     width = buttonTemplate.style.width,
                     height = buttonTemplate.style.height,
                     backgroundColor = buttonTemplate.style.backgroundColor,

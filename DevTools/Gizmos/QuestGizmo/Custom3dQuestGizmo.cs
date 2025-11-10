@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using ISILab.LBS;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ISI_Lab.LBS.DevTools
 {
@@ -24,16 +26,19 @@ namespace ISI_Lab.LBS.DevTools
         }
         
         [HideInInspector]
-        public List<Vector3> Positions = new();
+        public List<QuestTrigger> prevTriggers = new();
         
 
         protected override void OnDrawGizmosSelected()
         {
             base.OnDrawGizmosSelected();
 
-            foreach (Vector3 Position in Positions)
+            foreach (QuestTrigger prevTrigger in prevTriggers)
             {
-                Gizmos.DrawLine(transform.position, Position);
+                if(!prevTrigger) continue;
+                Gizmos.DrawLine(transform.position, prevTrigger.transform.position);
+                Custom3dQuestGizmo gizmo = prevTrigger.GetComponent<Custom3dQuestGizmo>();
+                gizmo?.DrawCustomMesh();
             }
         }
     }
