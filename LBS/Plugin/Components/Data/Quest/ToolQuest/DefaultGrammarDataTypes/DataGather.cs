@@ -47,7 +47,7 @@ namespace ISILab.LBS.Components
 
         public override bool IsValid()
         {
-            return bundleGatherType is not null && bundleGatherType.Valid();
+            return bundleGatherType is not null && bundleGatherType.Valid() && gatherAmount > 0;
         }
 
         public override void SetDataByTiles(List<LBSLayer> layers, List<TileBundleGroup> tiles)

@@ -51,29 +51,18 @@ namespace ISILab.LBS.Drawers.Editor
            // temp fix just clearing the whole layer, as this is called BEFORE the other drawer this one clears it once
 
             DisplayStyle display = (DisplayStyle)(behaviour.OwnerLayer.IsVisible ? 0 : 1);
-           
-            // Trigger Position
-            TriggerElementArea triggerBase = new(nodeData,nodeData.Area)
-            {
-                style =
-                {
-                    display = display
-                }
-            };
-
-            // Stores using the behavior as key
-            view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, triggerBase);
 
             QuestGraph graph = behaviour.OwnerLayer.GetModule<QuestGraph>();
             if(graph is null) return;
             if(graph.SelectedGraphNode is null) return;
-            
+
+            QuestActionView selectedActionView = null;
             foreach (GraphElement graphElement in view.GetAllElementsInLayer(behaviour.OwnerLayer))
             {
                 if (graphElement is not QuestActionView qav) continue;
                 if (qav.Node.Equals(graph.SelectedGraphNode))
                 {
-                    Debug.Log("hook");
+                    selectedActionView = qav;
                 }
             }
             
@@ -87,7 +76,7 @@ namespace ISILab.LBS.Drawers.Editor
                     {
                         if (bundle is null || !bundle.Valid()) continue;
                         
-                        TriggerElementArea visual = new(nodeData, bundle.Area)
+                        TriggerElementArea visual = new(nodeData, bundle.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -104,7 +93,7 @@ namespace ISILab.LBS.Drawers.Editor
                     {
                         if (bundle is null || !bundle.Valid()) continue;
                         
-                        TriggerElementArea visual = new(nodeData, bundle.Area)
+                        TriggerElementArea visual = new(nodeData, bundle.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -119,7 +108,7 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataTake dataTake:
                     if (dataTake.bundleToTake.Valid())
                     {
-                        TriggerElementArea visual = new(nodeData, dataTake.bundleToTake.Area)
+                        TriggerElementArea visual = new(nodeData, dataTake.bundleToTake.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -133,7 +122,7 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataRead dataRead:
                     if (dataRead.bundleToRead.Valid())
                     {
-                        TriggerElementArea visual = new(nodeData, dataRead.bundleToRead.Area)
+                        TriggerElementArea visual = new(nodeData, dataRead.bundleToRead.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -147,7 +136,7 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataGive dataGive:
                     if (dataGive.bundleGiveTo.Valid())
                     {
-                        TriggerElementArea visual = new(nodeData, dataGive.bundleGiveTo.Area)
+                        TriggerElementArea visual = new(nodeData, dataGive.bundleGiveTo.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -161,7 +150,7 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataReport dataReport:
                     if (dataReport.bundleReportTo.Valid())
                     {
-                        TriggerElementArea visual = new(nodeData, dataReport.bundleReportTo.Area)
+                        TriggerElementArea visual = new(nodeData, dataReport.bundleReportTo.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -175,7 +164,7 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataSpy dataSpy:
                     if (dataSpy.bundleToSpy.Valid())
                     {
-                        TriggerElementArea visual = new(nodeData, dataSpy.bundleToSpy.Area)
+                        TriggerElementArea visual = new(nodeData, dataSpy.bundleToSpy.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -189,7 +178,7 @@ namespace ISILab.LBS.Drawers.Editor
                 case DataListen dataListen:
                     if (dataListen.bundleListenTo.Valid())
                     {
-                        TriggerElementArea visual = new(nodeData, dataListen.bundleListenTo.Area)
+                        TriggerElementArea visual = new(nodeData, dataListen.bundleListenTo.Area, selectedActionView?.OnMoving)
                         {
                             style =
                             {
@@ -198,6 +187,20 @@ namespace ISILab.LBS.Drawers.Editor
                         };
                         view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, visual);
                     }
+                    break;
+                
+                default:
+                    // Trigger Position
+                    TriggerElementArea triggerBase = new(nodeData,nodeData.Area, selectedActionView?.OnMoving)
+                    {
+                        style =
+                        {
+                            display = display
+                        }
+                    };
+
+                    // Stores using the behavior as key
+                    view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, triggerBase);
                     break;
             }
             

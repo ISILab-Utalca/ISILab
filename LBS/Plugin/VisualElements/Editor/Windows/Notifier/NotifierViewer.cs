@@ -1,8 +1,6 @@
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using ISILab.Commons.Utility.Editor;
-using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,90 +10,75 @@ namespace LBS.VisualElements
     [UxmlElement]
     public partial class NotifierViewer : VisualElement
     {
-        private ListView messageContainer;
-        
-        private bool notificationOn = true;
-        private ScrollView scrollView;
-        private VectorImage iconNotificationsOn; 
-        private VectorImage iconNotificationsOff;
-        private static int fadeTime = 5;
-        
-        //public class NotifierViewerFactory : UxmlFactory<NotifierViewer, UxmlTraits> { }
+        private bool _notificationOn = true;
+        private ScrollView _scrollView;
+        private readonly VectorImage _iconNotificationsOn; 
+        private readonly VectorImage _iconNotificationsOff;
+        private const int FadeTime = 5;
         
         public NotifierViewer()
         {
-            // to overlap other visual elements
-            // Set up the container styles
             style.position = Position.Absolute;
-            style.bottom = 0; // Anchor to the bottom
-            style.left = 0;   // Anchor to the left
-            style.alignContent = Align.FlexStart; // Align content at the start
-            style.justifyContent = Justify.FlexStart; // Ensure content alignment starts at the bottom
-            style.overflow = Overflow.Visible; // Allow it
+            style.bottom = 0; 
+            style.left = 0;   
+            style.alignContent = Align.FlexStart; 
+            style.justifyContent = Justify.FlexStart; 
+            style.overflow = Overflow.Visible;
             
-            iconNotificationsOn = Resources.Load<VectorImage>("Icons/Vectorial/Icon=Notification");
-            iconNotificationsOff = Resources.Load<VectorImage>("Icons/Vectorial/Icon=MuteNotification");
+            _iconNotificationsOn = Resources.Load<VectorImage>("Icons/Vectorial/Icon=Notification");
+            _iconNotificationsOff = Resources.Load<VectorImage>("Icons/Vectorial/Icon=MuteNotification");
             
-            pickingMode = PickingMode.Ignore;
+           // SetContainer();
         }
         
         private void SetContainer()
         {
-            if (messageContainer != null) return;
+            if (_scrollView != null) return;
             
-            messageContainer = this.Q<ListView>("MessageContainer");
-            if (messageContainer == null)
-            {
-                Debug.LogError("MessageContainer not found in the UXML.");
-                return;
-            }
-            scrollView = messageContainer.hierarchy.Children().OfType<ScrollView>().Single();
-            
+            _scrollView = this.Q<ScrollView>("MessageContainer");
+  
             // disable as a clickable 
-            messageContainer.pickingMode = PickingMode.Ignore;
-            scrollView.contentViewport.pickingMode = PickingMode.Ignore;
-            scrollView.contentContainer.pickingMode = PickingMode.Ignore;
-            scrollView.pickingMode = PickingMode.Ignore;
+            pickingMode = PickingMode.Ignore;
+            _scrollView.pickingMode = PickingMode.Ignore;
+            VisualElement container = _scrollView.Q<VisualElement>("unity-content-and-vertical-scroll-container");
+            container.pickingMode = PickingMode.Ignore;
             
-            scrollView.contentViewport.style.justifyContent = Justify.FlexStart;
+            _scrollView.contentViewport.style.justifyContent = Justify.FlexStart;
 
             // Make sure the content does not grow; list with fixed height size
-            scrollView.contentViewport.style.flexGrow = 1f;
+            _scrollView.contentViewport.style.flexGrow = 1f;
 
-            scrollView.verticalScrollerVisibility = ScrollerVisibility.Hidden;
-            scrollView.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
+            _scrollView.verticalScrollerVisibility = ScrollerVisibility.Hidden;
+            _scrollView.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
 
-            scrollView.contentViewport.style.flexDirection = FlexDirection.Row;
-            scrollView.contentContainer.style.flexDirection = FlexDirection.Column;
+            _scrollView.contentViewport.style.flexDirection = FlexDirection.Row;
+            _scrollView.contentContainer.style.flexDirection = FlexDirection.Column;
             
         }
         
+        /*
         private NotificationMessage[] GetChildren()
         {
             List<NotificationMessage> messages = new List<NotificationMessage>();
-            var veChildren = scrollView.Children().ToArray();
-            foreach (var veChild in veChildren)
+            var veChildren = _scrollView.Children().ToArray();
+            foreach (VisualElement veChild in veChildren)
             {
                 if(veChild is NotificationMessage message) messages.Add(message);
             }
             
             return messages.ToArray();
         }
+        */
         
         public void SendNotification(string message, LogType logType, int duration)
         {
             SetContainer();
-            var newMessage = new NotificationMessage();
+            NotificationMessage newMessage = new();
             
             newMessage.SetData(message, logType);
-            messageContainer.pickingMode = PickingMode.Ignore;
-            scrollView.Add(newMessage);
             newMessage.pickingMode = PickingMode.Ignore;
-            scrollView.pickingMode = PickingMode.Ignore;
-            scrollView.contentViewport.pickingMode = PickingMode.Ignore;
-            scrollView.contentContainer.pickingMode = PickingMode.Ignore;
-            scrollView.contentViewport.contentContainer.pickingMode = PickingMode.Ignore;
-
+            _scrollView.Add(newMessage);
+            
             Lifetime(newMessage, duration);
         }
         
@@ -104,7 +87,7 @@ namespace LBS.VisualElements
             // Ensure the duration is valid
             if (duration > 0)
             {
-                var stopwatch = System.Diagnostics.Stopwatch.StartNew(); 
+                Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew(); 
                 while (stopwatch.Elapsed.TotalSeconds < duration)
                 {
                     await Task.Yield();
@@ -117,44 +100,44 @@ namespace LBS.VisualElements
         private async void FadeOut(NotificationMessage element)
         {
             // Ensure the duration is valid
-            if (fadeTime > 0)
+            if (FadeTime > 0)
             {
                 float startOpacity = element.resolvedStyle.opacity;
                 float elapsed = 0f;
 
-                while (elapsed < fadeTime)
+                while (elapsed < FadeTime)
                 {
                     await Task.Yield(); 
                     elapsed += Time.deltaTime;
-                    float t = elapsed / fadeTime; 
+                    float t = elapsed / FadeTime; 
                     element.style.opacity = Mathf.Lerp(startOpacity, 0f, t);
                 }
             }
             
             element.style.opacity = 0f;
-            if(scrollView.childCount >0 && scrollView.Contains(element)) scrollView.Remove(element);
+            if(_scrollView.childCount >0 && _scrollView.Contains(element)) _scrollView.Remove(element);
         }
 
         public void ClearNotifications()
         {
-            scrollView?.Clear();
+            _scrollView?.Clear();
         }
         
         public void NotificationFlipFlop(VisualElement button)
         {
-            notificationOn = !notificationOn;
+            _notificationOn = !_notificationOn;
             if (button == null) return;
-            var tButton = button as ToolbarButton;
+            ToolbarButton tButton = button as ToolbarButton;
             if (tButton == null) return;
-            var ve = button.Children().First() as VisualElement;
+            VisualElement ve = button.Children().First();
             
-            ve.style.backgroundImage = notificationOn ? new StyleBackground(iconNotificationsOn) : new StyleBackground(iconNotificationsOff);
+            ve.style.backgroundImage = _notificationOn ? new StyleBackground(_iconNotificationsOn) : new StyleBackground(_iconNotificationsOff);
             
         }
         
         public void SetButtons(VisualElement cleanButton, VisualElement disableNotificationButton)
         {
-            cleanButton.RegisterCallback<ClickEvent>(vt => ClearNotifications());
+            cleanButton.RegisterCallback<ClickEvent>(_ => ClearNotifications());
             disableNotificationButton.RegisterCallback<ClickEvent>(vt => NotificationFlipFlop(disableNotificationButton));
         }
 
