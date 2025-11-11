@@ -15,13 +15,21 @@ namespace ISI_Lab.LBS.DevTools
         private QuestTracker tracker;
         public QuestTracker Tracker
         {
-            get => tracker;
+            get
+            {
+                tracker ??= GetComponent<QuestTracker>();
+                return tracker;
+            }
             set => tracker = value;
         }
 
         public QuestTrigger Trigger
         {
-            get => trigger;
+            get
+            {
+                trigger ??= GetComponent<QuestTrigger>();
+                return trigger;
+            }
             set => trigger = value;
         }
         

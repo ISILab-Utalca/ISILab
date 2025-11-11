@@ -1,5 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using System.Collections.Generic;
+using System.Linq;
 using ISI_Lab.LBS.DevTools;
 using ISILab.LBS.Components;
 using UnityEditor.Experimental.GraphView;
@@ -44,6 +45,9 @@ namespace ISILab.LBS.VisualElements
 
         public QuestBarView(QuestTracker tracker, QuestTrigger trigger,  Custom3dQuestGizmo questGizmo)
         {
+            if(trigger is null) return;
+            if(trigger.Node is null) return;
+            
             VisualTreeAsset view = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestBarView");
             view.CloneTree(this);
 
@@ -56,11 +60,11 @@ namespace ISILab.LBS.VisualElements
             VisualElement stepType = this.Q<VisualElement>("StepType");
 
             previousStep.style.display = DisplayStyle.Flex;
-            previousStep.SetEnabled(false);
             _nextStep.clicked += NextStepOnClicked;
             
             _tracker = tracker;
             _trigger = trigger;
+            
             action.text = trigger.Node.QuestAction;
             
             if(trigger.Node.NodeType == QuestNode.ENodeType.Middle) stepType.style.display = DisplayStyle.None;
@@ -90,13 +94,15 @@ namespace ISILab.LBS.VisualElements
             {
                 if (!Equals(qe.To, trigger.Node)) continue;
                 
+                previousStep.clicked += ()=> OnPrevStepClicked(questObjects.First());
+                
                 foreach (QuestTrigger qt in questObjects)
                 {
                     if (!qe.From.Contains(qt.Node)) continue;
                     
                     // for line drawing
                     questGizmo.prevTriggers.Add(qt);
-                            
+                    
                     VisualElement prevButton = new PrevStepButton(previousStep, this, qt);
                             
                     SceneView.lastActiveSceneView.rootVisualElement.Add(prevButton);
@@ -164,8 +170,8 @@ namespace ISILab.LBS.VisualElements
             const float buttonSize = 50f;
             button.style.position = Position.Absolute;
             button.style.left = uiX - (buttonSize * 0.5f);
-            // Add off (UIToolkit has reversed Y)
-            button.style.top  = uiY + buttonSize * 4;
+            // subtract offset (UIToolkit has reversed Y)
+            button.style.top  = uiY - buttonSize;
     
             button.style.display = DisplayStyle.Flex;
         }
@@ -192,6 +198,7 @@ namespace ISILab.LBS.VisualElements
 
         private static void SelectQuestObject(QuestTrigger qt)
         {
+            if(qt is null) return;
             GameObject destination = qt.gameObject;
                      
             // Select it in the Hierarchy

@@ -108,6 +108,7 @@ namespace ISILab.LBS.Manipulators
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
+                    Debug.Log("selected tile: " + i + " | " + j);
                     Vector2Int position = new Vector2Int(i, j);
                     var tileGroup = _population.GetTileGroup(position);
                        
@@ -118,15 +119,16 @@ namespace ISILab.LBS.Manipulators
                         fixToTeselation = true
                     };
 
-                    var topLeftCorner = new Vector2Int(-i, -j);
+                    
+                    var topLeftCorner = new Vector2Int(i, j);
                     var bottomRightCorner = topLeftCorner;
                         
                     pf.ValidForInput(true);
                     if (tileGroup.BundleData.Bundle.TileSize.x > 1 || tileGroup.BundleData.Bundle.TileSize.y > 1 )
                     {
-                        var offset = tileGroup.BundleData.Bundle.TileSize - new Vector2Int(1, 1);
-                        offset.x = -Mathf.Abs(offset.x);
-                        offset.y = Mathf.Abs(offset.y);
+                        var offset = tileGroup.BundleData.Bundle.TileSize;// - new Vector2Int(1, 1);
+                        offset.x = Mathf.Abs(offset.x);
+                        if(j > 0) offset.y = -Mathf.Abs(offset.y);
                         bottomRightCorner += offset;
                     }
 
@@ -134,23 +136,26 @@ namespace ISILab.LBS.Manipulators
                     var firstPos = _population.OwnerLayer.FixedToPosition(topLeftCorner);
                     var lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner);
 
-                    // weird correction on coordinates, hate it but it works
-                    if(movePosition.y < 0)
-                    {
-                        firstPos.y += 99;
-                        lastPos.y += 99;
-                    }
-                    if(movePosition.x < 0)
-                    {
-                        firstPos.x -= 99;
-                        lastPos.x -= 99;
-                    }
-                    firstPos.x *= -1;
-                    lastPos.x *= -1;
+                    /*
+
+                 // weird correction on coordinates, hate it but it works
+                 if(movePosition.y < 0)
+                 {
+                     firstPos.y += 99;
+                     lastPos.y += 99;
+                 }
+                 if(movePosition.x < 0)
+                 {
+                     firstPos.x -= 99;
+                     lastPos.x -= 99;
+                 }
+                 firstPos.x *= -1;
+                 lastPos.x *= -1;
+                    */
+                 pf.ValidForInput(true);
+                 pf.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
+                 previews.Add(pf);
                 
-                    pf.ValidForInput(true);
-                    pf.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
-                    previews.Add(pf);
                 }
             }
 
