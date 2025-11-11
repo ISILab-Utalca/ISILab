@@ -215,6 +215,10 @@ namespace ISILab.LBS.Settings
             public Color colorReport = new Color(0.41f, 0.63f, 1f);
             public Color colorSpy = new Color(0.78f, 0.79f, 1f);
             public Color colorListen = new Color(0.52f, 1f, 0.05f);
+            
+            
+            public string DebugVectorGUID = "4fc870f9e2f488d4bb2c1bffe1f5b751";
+
             #endregion
         }
         

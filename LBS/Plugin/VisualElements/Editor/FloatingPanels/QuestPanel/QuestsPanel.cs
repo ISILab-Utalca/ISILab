@@ -12,6 +12,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
+    /*
     public class QuestsPanel : VisualElement
     {
 
@@ -148,4 +149,5 @@ namespace ISILab.LBS.VisualElements.Editor
         }
 
     }
+    */
 }

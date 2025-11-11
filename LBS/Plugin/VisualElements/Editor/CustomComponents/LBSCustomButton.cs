@@ -68,10 +68,6 @@ namespace ISILab.LBS.CustomComponents
             // RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
             
         }
-    
-        
-
-
 
         public void SetOverlayColors(Color _newColor = new Color())
         {

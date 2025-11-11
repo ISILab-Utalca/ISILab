@@ -67,7 +67,7 @@ namespace ISILab.LBS.Assistants
         #endregion
 
         #region CONSTRUCTORS
-        public HillClimbingAssistant(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint)
+        public HillClimbingAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
         #endregion
@@ -801,7 +801,7 @@ namespace ISILab.LBS.Assistants
 
         public override object Clone()
         {
-            return new HillClimbingAssistant(Icon, Name, ColorTint);
+            return new HillClimbingAssistant(IconGuid, Name, ColorTint);
         }
 
         public override bool Equals(object obj)
