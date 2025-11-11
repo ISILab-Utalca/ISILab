@@ -16,6 +16,8 @@ namespace ISILab.LBS.Characteristics
         #region FIELDS
         [SerializeReference, SerializeField]
         private Bundle owner;
+
+        protected bool initialized = false;
         #endregion
 
         #region PROPERTIES
@@ -39,11 +41,16 @@ namespace ISILab.LBS.Characteristics
         /// </summary>
         public void Init(Bundle owner)
         {
+            if (initialized) return;
+
             this.owner = owner;
             OnEnable();
+            initialized = true;
         }
 
         public virtual void OnEnable() {  }
+
+        public virtual void OnRefresh() { }
 
         public abstract object Clone();
 

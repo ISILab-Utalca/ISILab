@@ -18,6 +18,8 @@ using static ISILab.LBS.Characteristics.LBSDirectionedChance;
 using static UnityEngine.GraphicsBuffer;
 using System.Data;
 using System.Threading;
+using ISILab.LBS.Settings;
+
 
 
 #if UNITY_EDITOR
@@ -116,6 +118,12 @@ namespace ISILab.LBS.Assistants
             get => safeMode;
             set => safeMode = value;
         }
+
+        #endregion
+
+        #region EVENTS
+
+        public Action OnRefreshInspector;
 
         #endregion
 
@@ -1289,11 +1297,22 @@ namespace ISILab.LBS.Assistants
             newPreset = null;
             errMsg = null;
 
-            if(string.IsNullOrEmpty(folder))
+            //if(string.IsNullOrEmpty(folder))
+            //{
+            //    errMsg = "Cannot save preset. You need to specify a Save Folder.";
+            //    return false;
+            //}
+
+            var presetCharArr = targetBundleRef.GetCharacteristics<WFCPresetsCharacteristic>();
+            WFCPresetsCharacteristic presetChar;
+            if(presetCharArr is null || presetCharArr.Count == 0)
             {
-                errMsg = "Cannot save preset. You need to specify a Save Folder.";
-                return false;
+                presetChar = new WFCPresetsCharacteristic();
+                targetBundleRef.AddCharacteristic(presetChar);
             }
+            else presetChar = presetCharArr[0];
+            UnityEngine.Assertions.Assert.IsNotNull(presetChar, "Characteristic was null.");
+            UnityEngine.Assertions.Assert.IsNotNull(presetChar.Presets, "Presets List was null.");
 
             endName = presetName;
             if (endName.Length == 0)
@@ -1302,19 +1321,34 @@ namespace ISILab.LBS.Assistants
             }
             if(endName == "New WFC Preset")
             {
-                int count = AssetDatabase.FindAssets(endName).Length;
+                //int count = AssetDatabase.FindAssets(endName).Length;
+                int count = presetChar.Presets.Where(p => p.Name.Equals(presetName)).Count();
                 if(count > 0)
                 {
                     endName += $" ({count})";
                 }
             }
-            string path = folder + "/" + endName + ".asset";
-            bool overwrite = AssetDatabase.FindAssets(endName, new[] { folder })
-                .Count(guid => AssetDatabase.GUIDToAssetPath(guid).Equals(path)) > 0;
+
+
+            //string path = folder + "/" + endName + ".asset";
+            //bool overwrite = AssetDatabase.FindAssets(endName, new[] { folder })
+            //    .Count(guid => AssetDatabase.GUIDToAssetPath(guid).Equals(path)) > 0;
+            string n = endName;
+            bool overwrite = presetChar.Presets.Find(p => p.Name.Equals(n)) is not null;
             if (overwrite)
             {
-                bool confirmOverwrite = EditorUtility.DisplayDialog("Overwrite?", $"You are about to overwrite the WFC preset at {path}. Continue?", "Yes", "No");
+                bool confirmOverwrite = EditorUtility.DisplayDialog("Overwrite?", $"You are about to overwrite the WFC preset from Bundle {targetBundleRef.BundleName}. Continue?", "Yes", "No");
                 if (!confirmOverwrite) return false;
+                presetChar.Presets.RemoveAll(p =>
+                {
+                    if (p.Name.Equals(n))
+                    {
+                        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(p));
+                        //ScriptableObject.DestroyImmediate(p, p is WFCPreset);
+                        return true;
+                    }
+                    return false;
+                });
             }
 
             var group = targetBundleRef.GetCharacteristics<LBSDirectionedGroup>()[0];
@@ -1322,12 +1356,18 @@ namespace ISILab.LBS.Assistants
             newPreset.Name = endName;
             newPreset.SetWeights(group.Weights);
 
-            AssetDatabase.CreateAsset(newPreset, folder + "/" + endName + ".asset");
+            presetChar.Presets.Add(newPreset);
+
+            RefreshInspector(targetBundleRef);
+
+            string path = LBSSettings.Instance.paths.WFCpresetsFolderPath + $"/{endName}.asset";
+            AssetDatabase.CreateAsset(newPreset, path);
             AssetDatabase.SaveAssets();
-
-            EditorUtility.FocusProjectWindow();
-
-            Selection.activeObject = newPreset;
+            newPreset.SetAssetGUID(AssetDatabase.AssetPathToGUID(path));
+            //
+            //EditorUtility.FocusProjectWindow();
+            //
+            //Selection.activeObject = newPreset;
 
             return true;
         }
@@ -1366,7 +1406,11 @@ namespace ISILab.LBS.Assistants
             EditorApplication.delayCall += () => 
             { 
                 makeNull();
-                EditorApplication.delayCall += () => set();
+                EditorApplication.delayCall += () =>
+                {
+                    set();
+                    OnRefreshInspector?.Invoke();
+                };
             };
         }
 
