@@ -1160,10 +1160,12 @@ namespace ISILab.LBS.Assistants
                                 tileChances[key].Add(new TileChance(tca.tile, tca.count, tca.direction));
                             }
                         }
+                        //If it finds anything, it gets marked as true.
                         newfound = true;
                     }
                 }
 
+                //If it doesnt find anything, that means the tile is empty, and needs a tilechance.
                 if (!newfound)
                 {
                     tileChances.Add(p, adjacent);
@@ -1177,7 +1179,7 @@ namespace ISILab.LBS.Assistants
                 //OwnerLayer.GetModule<ConnectedTileMapModule>().
                 td = new()
                 {
-                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections)
+                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out _)
                 };
                 //Debug.Log(rule.Key);
 
@@ -1190,7 +1192,8 @@ namespace ISILab.LBS.Assistants
                 {
                     TileDirectionChance tileDirectionChance = new()
                     {
-                        target = FindEqualConnection(currentBundles, pair.tile.Connections),
+                        target = FindEqualConnection(currentBundles, pair.tile.Connections, out int rot),
+                        rotation = rot,
                         chance = (float)pair.count / total
                     };
                     td.chances.Add(tileDirectionChance);
@@ -1225,7 +1228,7 @@ namespace ISILab.LBS.Assistants
             return true;
         }
 
-        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection)
+        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection, out int rot)
         {
             int count = 0;
 
@@ -1243,6 +1246,7 @@ namespace ISILab.LBS.Assistants
 
                         if (count == 4)
                         {
+                            rot = k;
                             return bundle[i];
                         }
                         
@@ -1252,6 +1256,7 @@ namespace ISILab.LBS.Assistants
 
             }
 
+            rot = -1;
             return null;
         }
 

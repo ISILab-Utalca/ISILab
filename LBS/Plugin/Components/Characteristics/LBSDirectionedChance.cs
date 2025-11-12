@@ -18,8 +18,8 @@ namespace ISILab.LBS.Characteristics
             [SerializeField]
             public Bundle target;
 
-            //[SerializeField]
-            //public List<string> target;
+            [SerializeField]
+            public int rotation;
 
             [Range(0f, 1f)]
             public float chance;
@@ -31,8 +31,8 @@ namespace ISILab.LBS.Characteristics
             [SerializeField]
             public Bundle mainTarget;
 
-            //[SerializeField]
-            //public List<string> mainTarget;
+            [SerializeField]
+            public int rotation;
 
             [SerializeField]
             public List<TileDirectionChance> chances = new List<TileDirectionChance>();
