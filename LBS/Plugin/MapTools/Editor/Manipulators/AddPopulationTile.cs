@@ -145,37 +145,28 @@ namespace ISILab.LBS.Manipulators
             // when dragging by using CTRL, do not display the feedback area
             Feedback.SetDisplay(!e.ctrlKey);
 
-            var topLeftCorner = -_population.OwnerLayer.ToFixedPosition(endPosition); // use negative value for corner
+            var topLeftCorner = _population.OwnerLayer.ToFixedPosition(endPosition);
             var bottomRightCorner = topLeftCorner;
-
+            
             // Set corner by tile size
-            if (ToSet.TileSize.x > 1 || ToSet.TileSize.y > 1 )
-            {
-                var offset = ToSet.TileSize - new Vector2Int(1, 1);
-                offset.x = -Mathf.Abs(offset.x);
-                offset.y = Mathf.Abs(offset.y);
-                bottomRightCorner += offset;
-            }
+            Vector2Int offset = Vector2Int.zero;
+            
+            if(ToSet.TileSize.x > 1) offset.x += ToSet.TileSize.x - 1;
+            if(ToSet.TileSize.y > 1) offset.y -= ToSet.TileSize.y - 1;
 
             // grid to local position
-            var firstPos = _population.OwnerLayer.FixedToPosition(topLeftCorner);
-            var lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner);
-
-            // weird correction on coordinates, hate it but it works
-            if(endPosition.y < 0)
-            {
-                firstPos.y += 99;
-                lastPos.y += 99;
-            }
-            if(endPosition.x < 0)
-            {
-                firstPos.x -= 99;
-                lastPos.x -= 99;
-            }
-            firstPos.x *= -1;
-            lastPos.x *= -1;
+            var firstPos = _population.OwnerLayer.FixedToPosition(topLeftCorner, true);
+            var lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner + offset, true);
+ 
+            /* negative numbers in the FixedToPosition get clamped on negatives, jumping to the next lowest value.
+             example: coordinate -100 instead draws on -200
+             */
+            if (firstPos.x < 0) firstPos.x += 99;
+            if (lastPos.x < 0) lastPos.x += 99;
+            if (firstPos.y < 0) firstPos.y += 99;
+            if (lastPos.y < 0) lastPos.y += 99;
             
-            _previewFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
+           _previewFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
             MainView.Instance.AddElement(_previewFeedback);
 
             bool valid;
@@ -192,6 +183,7 @@ namespace ISILab.LBS.Manipulators
                 valid = _population.ValidNewGroup(-topLeftCorner, ToSet); 
             }
             _previewFeedback.ValidForInput(valid);
+            
             
         }
     }
