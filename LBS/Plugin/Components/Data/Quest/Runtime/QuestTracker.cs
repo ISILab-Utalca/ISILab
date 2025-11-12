@@ -38,9 +38,11 @@ namespace ISILab.LBS
         /// Effect called whenever a trigger(actionNode) is completed. Updates UI
         /// </summary>
         public event Action OnQuestAdvance; 
+        
+        public QuestGraph QuestGraph  => questGraph;
+        
         #endregion
-
-
+        
         #region METHODS
         private void Awake()
         {

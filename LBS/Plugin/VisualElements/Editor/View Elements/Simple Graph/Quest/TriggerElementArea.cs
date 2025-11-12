@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
@@ -31,6 +32,7 @@ namespace ISILab.LBS.VisualElements
     /// </summary>
     public sealed class TriggerElementArea : GraphElement
     {
+        public static TriggerElementArea activeTriggerElementArea;
         private readonly BaseQuestNodeData _data;
         private Color _currentColor;
         
@@ -50,8 +52,9 @@ namespace ISILab.LBS.VisualElements
         private Vector2 _dragStartPosition;
         private Vector2 _resizeStartPosition;
         private Type _prevManipulatorType;
-        
-        public TriggerElementArea(BaseQuestNodeData data, Rect area, bool centerTarget = true)
+
+        public TriggerElementArea(BaseQuestNodeData data, Rect area, Action<Rect> OnMovingAction,
+            bool centerTarget = true)
         {
             _isCenter = centerTarget;
             _data = data;
@@ -89,23 +92,25 @@ namespace ISILab.LBS.VisualElements
 
             targetIcon.style.display = _isCenter ? DisplayStyle.Flex : DisplayStyle.None;
             cornerTargetIcon.style.display = _isCenter ? DisplayStyle.None : DisplayStyle.Flex;
-            
+
             SetupResizeHandle("Handle_bl", HandleBottomLeft, _isCenter);
             SetupResizeHandle("Handle_br", HandleBottomRight, _isCenter);
             SetupResizeHandle("Handle_tl", HandleTopLeft, _isCenter);
             SetupResizeHandle("Handle_tr", HandleTopRight, _isCenter);
-            
+
             // Register mouse callbacks on the whole element
             RegisterCallback<MouseDownEvent>(OnMouseDown);
             RegisterCallback<MouseMoveEvent>(OnMouseMove);
             RegisterCallback<MouseUpEvent>(OnMouseUp);
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
-            
+
             generateVisualContent -= OnGenerateVisualContent;
             generateVisualContent += OnGenerateVisualContent;
+
+            activeTriggerElementArea = this;
         }
-        
+
         private void OnMouseEnter(MouseEnterEvent evt)
         {
             ShelfManipulator();
@@ -115,8 +120,7 @@ namespace ISILab.LBS.VisualElements
         {
             RestoreManipulator();
         }
-
-
+        
         void SetupResizeHandle(string handleName, string handleCode, bool isCenter)
         {
             VisualElement handle = this.Q<VisualElement>(handleName);
@@ -246,6 +250,8 @@ namespace ISILab.LBS.VisualElements
             Vector2Int tilePosition = new Vector2Int((int)_data.Area.x, (int)_data.Area.y);
             _dragStartPosition = LBSMainWindow.Instance._selectedLayer.FixedToPosition(tilePosition, true);
 
+            DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
+            
             e.StopPropagation();
         }
 
@@ -284,6 +290,9 @@ namespace ISILab.LBS.VisualElements
 
             Rect newRect = new(newPos, GetPosition().size);
             SetPosition(newRect);
+            MarkDirtyRepaint();
+            
+            e.StopImmediatePropagation();
         }
 
         private void OnMouseUp(MouseUpEvent e)
@@ -297,6 +306,8 @@ namespace ISILab.LBS.VisualElements
             _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
             _data.Graph?.NodeDataChanged(_data.OwnerNode);
             DrawManager.Instance.RedrawLayer(_data.Layer);
+            
+            DrawManager.Instance.PickingModeRestoreAll();
 
         }
 
@@ -347,6 +358,7 @@ namespace ISILab.LBS.VisualElements
             newHeight = Mathf.Max(newHeight, 20);
 
             SetPosition(new Rect(newX, newY, newWidth, newHeight));
+
             e.StopPropagation();
         }
 

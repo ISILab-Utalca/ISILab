@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -55,7 +56,7 @@ namespace ISILab.LBS.VisualElements
                     Node.Graph.SelectedGraphNode = Node;
             }
             
-            DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+            DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
         }
 
         protected void OnMouseMove(MouseMoveEvent e)
@@ -85,6 +86,7 @@ namespace ISILab.LBS.VisualElements
         protected void OnMouseUp(MouseUpEvent evt)
         {
             RestoreManipulator();
+            DrawManager.Instance.PickingModeRestoreAll();
         }
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)
