@@ -183,11 +183,11 @@ namespace ISILab.LBS.Assistants
             Bundle bundle = targetBundleRef;
             
             // get values for generation: 
-            group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
-            map = OwnerLayer.GetModule<TileMapModule>();
-            connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
-            og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
-            originalTM = og.Clone()[0] as ConnectedTileMapModule;
+            //group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
+            //map = OwnerLayer.GetModule<TileMapModule>();
+            //connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            //og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
+            //originalTM = og.Clone()[0] as ConnectedTileMapModule;
             
 
             var sw = System.Diagnostics.Stopwatch.StartNew();
@@ -258,10 +258,10 @@ namespace ISILab.LBS.Assistants
                         }
 
                         Positions = positions;
-                        bool sectorSuccess = Execute(ref log, scaledProgress, token); // ExecuteChance();
-
+                        bool sectorSuccess = ExecuteChance();
+                        //Execute(ref log, scaledProgress, token);
                         // exit
-                        if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+                        if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
                         {
                             log = "Generation was cancelled.";
                             logType = LogType.Warning;
@@ -304,7 +304,8 @@ namespace ISILab.LBS.Assistants
             }
             else
             {
-               bool success = Execute(ref log, onProgress, token);
+                bool success = ExecuteChance();
+                    //Execute(ref log, onProgress, token);
                if (!success)
                {
                    Restore();
@@ -1148,7 +1149,7 @@ namespace ISILab.LBS.Assistants
                                 continue;
                             }
 
-                            var existing = tileChances[key].FirstOrDefault(tc => tc.Equals(tca));
+                            TileChance existing = tileChances[key].FirstOrDefault(tc => tc.Equals(tca));
 
                             if (existing != null)
                             {
@@ -1184,8 +1185,6 @@ namespace ISILab.LBS.Assistants
 
                 //Debug.Log(total);
 
-                // TODO
-                // Prevenir Nulls
 
                 foreach (var pair in rule.Value)
                 {
@@ -1204,6 +1203,7 @@ namespace ISILab.LBS.Assistants
                 group.tileDirections.Add(td);
             }
 
+            //Almacenar Rotaciones
             group.tileDirections.RemoveAll(td => !td.chances.Any());
 
             foreach (var item in group.tileDirections)
@@ -1233,15 +1233,21 @@ namespace ISILab.LBS.Assistants
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    if (bundle[i].GetCharacteristics<LBSDirection>()[0].Connections[j] == tileConnection[j])
+                    count = 0;
+                    for (int k = 0; k < 4; k++)
                     {
-                        count++;
-                    }
+                        if (bundle[i].GetCharacteristics<LBSDirection>()[0].GetConnection(j)[k] == tileConnection[k])
+                        {
+                            count++;
+                        }
 
-                    if (count == 4)
-                    {
-                        return bundle[i];
+                        if (count == 4)
+                        {
+                            return bundle[i];
+                        }
+                        
                     }
+                    
                 }
 
             }
