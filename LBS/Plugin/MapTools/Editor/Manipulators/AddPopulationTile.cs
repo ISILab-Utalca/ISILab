@@ -174,13 +174,13 @@ namespace ISILab.LBS.Manipulators
             if (e.ctrlKey && _selectedTile != null)
             {
                 // undo the negative of topLeftCorner
-                valid = _population.ValidMoveGroup(-topLeftCorner, _selectedTile); 
+                valid = _population.ValidMoveGroup(topLeftCorner, _selectedTile); 
             }
             // adding feedback
             else
             {
                 // undo the negative of topLeftCorner
-                valid = _population.ValidNewGroup(-topLeftCorner, ToSet); 
+                valid = _population.ValidNewGroup(topLeftCorner, ToSet); 
             }
             _previewFeedback.ValidForInput(valid);
             
