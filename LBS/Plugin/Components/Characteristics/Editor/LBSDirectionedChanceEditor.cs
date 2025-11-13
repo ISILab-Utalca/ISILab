@@ -8,6 +8,10 @@ using static ISILab.LBS.Modules.ConnectedTileMapModule;
 
 namespace ISILab.LBS.VisualElements
 {
+    /// <summary>
+    /// Shows what was captured using CaptureChance() in AssistantWFC. It orders the information into a treeview, in which
+    /// the data can be partially manipulated, like the chance, but not which new tiles will appear.
+    /// </summary>
     [LBSCustomEditor("Connections group chance", typeof(LBSDirectionedChance))]
     public class LBSDirectionedChanceEditor : LBSCustomEditor
     {
@@ -29,7 +33,7 @@ namespace ISILab.LBS.VisualElements
             this.target = paramTarget;
             var target = paramTarget as LBSDirectionedChance;
 
-            //if (target == null)
+            if (target == null)
                 return;
 
             //target._Update();
@@ -70,12 +74,17 @@ namespace ISILab.LBS.VisualElements
             }
             */
 
+            //An LBSCustomTreeView is used to show the information.
+            //The counter is for the ID that TreeNodeData asks for.
+
             int counter = 0;
             var list = new LBSCustomTreeView();
             var finaldata = new List<TreeViewItemData<TreeNodeData>>();
 
+            //For each tile direction captured..
             for (int i = 0; i < target.tileDirections.Count; i++)
             {
+                //Register the main bundles
                 var tileDir = target.tileDirections[i];
                 var parentNode = new TreeNodeData
                 {
@@ -84,42 +93,50 @@ namespace ISILab.LBS.VisualElements
                     Type = NodeType.Label
                 };
 
+                //And then register it's sub-bundles with their respective direction and chance.
                 var directionNodes = new List<TreeViewItemData<TreeNodeData>>();
 
                 if (tileDir.chances.Any())
                 {
                     for (int d = 0; d < tileDir.chances.Count; d++)
                     {
+                        //Depending on which direction it will appear, from 0 (right) to 3 (down), clockwise
                         int dirValue = d;
                         var dirNode = new TreeNodeData
                         {
                             Id = counter++,
-                            Label = $"Dirección: {dirValue}",
+                            Label = $"Direction: {dirValue}",
                             Type = NodeType.Label
                         };
 
+                        
                         var chanceNodes = new List<TreeViewItemData<TreeNodeData>>();
 
-                        foreach (var chance in tileDir.chances)
+                        //For each rotation that the tile might've gotten:
+                        for (int k = 0; k < 4; k++)
                         {
-                            chanceNodes.Add(
-                                new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
-                                {
-                                    Id = counter,
-                                    //Label = chance.target.name + $"({chance.rotation})",
-                                    Type = NodeType.Label
-                                })
-                            );
-                            chanceNodes.Add(
-                                new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
-                                {
-                                    Id = counter,
-                                    Label = "Chance",
-                                    //SliderValue = chance.chance,
-                                    Type = NodeType.Slider
-                                })
-                            );
+                            foreach (var chance in tileDir.chances[k])
+                            {
+                                chanceNodes.Add(
+                                    new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
+                                    {
+                                        Id = counter,
+                                        Label = chance.target.name + $" (Rotation = {chance.rotation})",
+                                        Type = NodeType.Label
+                                    })
+                                );
+                                chanceNodes.Add(
+                                    new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
+                                    {
+                                        Id = counter,
+                                        Label = "Chance",
+                                        SliderValue = chance.chance,
+                                        Type = NodeType.Slider
+                                    })
+                                );
+                            }
                         }
+                        
 
                         directionNodes.Add(new TreeViewItemData<TreeNodeData>(counter++, dirNode, chanceNodes));
                     }
@@ -176,7 +193,7 @@ namespace ISILab.LBS.VisualElements
                         break;
                     case NodeType.ObjectField:
                         var objField = new LBSCustomObjectField { objectType = typeof(UnityEngine.Object), value = nodeData.ObjectFieldValue };
-                        objField.RegisterValueChangedCallback(evt => nodeData.ObjectFieldValue = evt.newValue as UnityEngine.Object);
+                        objField.RegisterValueChangedCallback(evt => nodeData.ObjectFieldValue = evt.newValue);
                         objField.AddToClassList("lbs-tree-view-item");
                         element.Add(label);
                         element.Add(objField);

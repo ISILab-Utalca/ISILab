@@ -956,12 +956,10 @@ namespace ISILab.LBS.Assistants
             return candidates;
         }
 
+        //I suggest redoing the whole CalcCandidates method for LBSDirectionedChance, as this one's deprecated.
         private List<Candidate> CalcCandidates(LBSTile tile, LBSDirectionedChance chanceGroup,
                 List<LBSTile> closedList, TileMapModule map)
         {
-            //TO DO
-            //Check que está pasando
-
             var candidates = new List<Candidate>();
             var connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
             var neighbors = map.GetTileNeighbors(tile, Dirs);
@@ -1106,6 +1104,7 @@ namespace ISILab.LBS.Assistants
 
         //out string errMsg
 
+        //The replacement for CaptureWeights. Captures the tiles from surrounding tiles too, to create chances of apparition.
         public bool CaptureRules()
         {
             Selection.activeObject = targetBundleRef;
@@ -1187,15 +1186,19 @@ namespace ISILab.LBS.Assistants
                 {
                     // If no rotated bundle match the tile, mainTarget will be null
                     mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out int mainRot),
-                    rotation = mainRot
+                    rotation = mainRot,
+                    chances = new List<List<TileDirectionChance>>()
+                    {
+                        new List<TileDirectionChance>(),
+                        new List<TileDirectionChance>(),
+                        new List<TileDirectionChance>(),
+                        new List<TileDirectionChance>()
+                    }
                 };
-                //Debug.Log(rule.Key);
 
                 int total = rule.Value.Where(t => t != null).Sum(t => t.count);
 
-                //Debug.Log(total);
-
-
+                //For every neighbour tile registered for this tile
                 foreach (var pair in rule.Value)
                 {
                     TileDirectionChance tileDirectionChance = new()
@@ -1205,18 +1208,14 @@ namespace ISILab.LBS.Assistants
                         chance = (float)pair.count / total
                     };
                     td.chances[rot].Add(tileDirectionChance);
-
-
-                    //float chance = (float)pair.count / total;
-                    //Debug.Log($" - {string.Join(", ", pair.tile + " " + pair.direction + " Count: " + pair.count + " Chance: " + chance.ToString("F2"))}");
                 }
 
                 group.tileDirections.Add(td);
             }
-
-            // TODO: Almacenar Rotaciones
+            
             group.tileDirections.RemoveAll(td => !td.chances.Any());
-
+            
+            /*
             foreach (var item in group.tileDirections)
             {
                 Debug.Log("- " + item.mainTarget.BundleName);
@@ -1233,6 +1232,7 @@ namespace ISILab.LBS.Assistants
                     }
                 }
             }
+            */
 
             RefreshInspector(targetBundleRef);
 
@@ -1604,6 +1604,9 @@ namespace ISILab.LBS.Assistants
         }
     }
 
+    /// <summary>
+    /// A TileConnectionPair which holds how many times it appears adjacent to another tile, and in which direction.
+    /// </summary>
     public class TileChance
     {
         public TileConnectionsPair tile;
@@ -1629,6 +1632,7 @@ namespace ISILab.LBS.Assistants
             count = 1;
         }
 
+        //Formerly used for defining empty tiles. It shouldn't be used now.
         public TileChance(int direction)
         {
             List<string> emptyList = new(new string[] { "", "", "", "" });
@@ -1738,6 +1742,8 @@ namespace ISILab.LBS.Assistants
         }
     }
 
+    //A former version of Candidate, kept for possible future use. Though it's a little unnecessary since
+    //Candidate works fine for the new Chance system.
     public class ChanceCandidate : ICloneable
     {
         public float weigth;

@@ -22,7 +22,9 @@ namespace LBS.Components
             return FindBundlesWithCharacteristic(typeof(TCharacteristic), includeChildren);
         }
 
-        // Versión por Type, útil cuando el tipo se conoce en tiempo de ejecución
+        /// <summary>
+        /// Returns the bundles that contain the specified characteristic type.
+        /// </summary>
         public static List<Bundle> FindBundlesWithCharacteristic(Type characteristicType, bool includeChildren = true)
         {
             if (characteristicType == null)
