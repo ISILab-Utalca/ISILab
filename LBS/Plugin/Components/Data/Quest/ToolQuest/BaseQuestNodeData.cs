@@ -9,11 +9,11 @@ using LBS.Bundles;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Components
 {
-    
     
     #region Targets
     [Serializable]
@@ -171,8 +171,43 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region PROPERTIES
-        public QuestNode OwnerNode => ownerNode;
+        [SerializeField, SerializeReference]
+        private UnityEvent onCompleteEvent = new();
+
+        [SerializeField]
+        private int targetID;
         
+        [SerializeReference]
+        private GameObject target;
+        
+        public UnityEvent OnCompleteEvent
+        {
+            get
+            {
+                onCompleteEvent ??= new UnityEvent();
+                return onCompleteEvent;
+            }
+        }
+        
+        public GameObject Target
+        {
+            get
+            {
+                if (target is null)
+                {
+                    var allObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID);
+                    target = allObjects.FirstOrDefault(o => o.GetInstanceID() == targetID);
+                }
+                return target;
+            }
+            set
+            {
+                target =  value;
+                targetID = target.GetInstanceID();
+            }
+        }
+
+        public QuestNode OwnerNode => ownerNode;
 
         public QuestGraph Graph => ownerNode.Graph;
         
@@ -197,7 +232,7 @@ namespace ISILab.LBS.Components
             this.tag = tag;
 
             if (ownerNode?.Graph?.OwnerLayer == null) return;
-  
+            onCompleteEvent = new UnityEvent();
             var pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
         }
@@ -208,6 +243,8 @@ namespace ISILab.LBS.Components
             ownerNode = data.ownerNode;
             tag = data.tag;
             area = data.area;
+            target = data.Target;
+            onCompleteEvent = data.OnCompleteEvent;
         }
 
         // by default there are no references to other layers.

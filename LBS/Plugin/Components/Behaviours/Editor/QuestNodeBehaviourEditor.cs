@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
@@ -8,11 +10,16 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using LBS;
 using LBS.VisualElements;
+using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.VisualElements
 {
+    
     [LBSCustomEditor("QuestFlowBehaviour", typeof(QuestNodeBehaviour))]
     public class QuestNodeBehaviourEditor : LBSCustomEditor, IToolProvider
     {
@@ -38,6 +45,8 @@ namespace ISILab.LBS.VisualElements
             { typeof(DataListen), typeof(NodeEditorListen) }
         };
         
+        private List<(GameObject, Component, MethodInfo)> _availableMethods = new();
+        
         #endregion
         
         #region VIEW FIELDS
@@ -61,6 +70,12 @@ namespace ISILab.LBS.VisualElements
         private PickerVector2Int _targetPosition;
         private RectField _area;
         private VisualElement _selectedNodePanel;
+        private ObjectField _gameObjectSelector;
+        private IMGUIContainer _imguiContainer;
+        
+        private ListView _availableMethodList;
+        private ListView _selectedMethodList;
+        private VisualElement _onEventCompleteVe;
 
         #endregion
         
@@ -80,6 +95,7 @@ namespace ISILab.LBS.VisualElements
             if (_behaviour == null) return;
             _behaviour.Graph!.OnGraphNodeSelected += OnSelectNode;
             DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
+
         }
         protected sealed override VisualElement CreateVisualElement()
         {
@@ -132,6 +148,23 @@ namespace ISILab.LBS.VisualElements
             
             _area = this.Q<RectField>("Area");
             _area.RegisterValueChangedCallback(evt => SetNodeDataArea(evt.newValue));
+
+            _onEventCompleteVe = this.Q<VisualElement>("EventComplete");
+            _gameObjectSelector = this.Q<ObjectField>("GameObjectSelector");
+            _gameObjectSelector.RegisterValueChangedCallback(evt =>
+            {
+                BaseQuestNodeData data = GetSelectedNodeData();
+                if (data is null) return;
+                data.Target = evt.newValue as GameObject;
+                RefreshMethodList();
+            });
+            _gameObjectSelector.allowSceneObjects = true;
+            
+            // ListView to show available methods
+            _selectedMethodList = new ListView();
+            _selectedMethodList.headerTitle = "Method to Bind:";
+            _selectedMethodList.style.flexGrow = 1;
+            _onEventCompleteVe.Add(_selectedMethodList);
             
             // No node when instanced
             _noNodeSelectedPanel.style.display = DisplayStyle.Flex;    
@@ -139,11 +172,53 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
         
-        private void SetNodeDataArea(Rect newValue)
+        private void RefreshMethodList()
+        {
+            // Collect all public void methods (no parameters)
+            _availableMethods.Clear();
+            _selectedMethodList.Rebuild();
+            
+            BaseQuestNodeData nodeData = GetSelectedNodeData();
+            GameObject gameObject = nodeData?.Target;
+            if (gameObject != null || gameObject?.GetType() != typeof(GameObject) || gameObject.Equals(null) || !gameObject.scene.IsValid())  return;
+            
+            foreach (MonoBehaviour comp in gameObject.GetComponents<MonoBehaviour>())
+            {
+                if (comp == null) continue;
+                foreach (MethodInfo method in comp.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Default | BindingFlags.DeclaredOnly))
+                {
+                    // for now only bind void non parameter methods
+                    if (method.ReturnType == typeof(void) && !method.GetParameters().Any())
+                    {
+                        _availableMethods.Add((gameObject, comp, method));
+                    }
+                }
+            }
+
+            // Populate list items
+            _selectedMethodList.itemsSource = _availableMethods;
+            _selectedMethodList.makeItem = () => new QuestMethodVisualElement();
+            _selectedMethodList.bindItem = (element, i) =>
+            {
+                QuestMethodVisualElement button = (QuestMethodVisualElement)element;
+                button.SetData(_availableMethods[i], nodeData);
+ 
+            };
+
+            _selectedMethodList.Rebuild();
+        }
+
+        private BaseQuestNodeData GetSelectedNodeData()
         {
             QuestNode node = _behaviour.Graph.SelectedGraphNode as QuestNode;
-
             BaseQuestNodeData nodeData = node?.NodeData;
+            return nodeData;
+        }
+
+
+        private void SetNodeDataArea(Rect newValue)
+        {
+            BaseQuestNodeData nodeData = GetSelectedNodeData();
             if (nodeData is null) return;
             
             newValue.x = Mathf.Round(newValue.x);
@@ -178,7 +253,12 @@ namespace ISILab.LBS.VisualElements
             _actionPanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _targetPosition.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _selectedNodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
+            _onEventCompleteVe.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             
+            // on complete related
+            _gameObjectSelector.value = GetSelectedNodeData()?.Target;
+            RefreshMethodList();
+                
             _instancedContent.Clear();
             
             if (!validNode )  return;
