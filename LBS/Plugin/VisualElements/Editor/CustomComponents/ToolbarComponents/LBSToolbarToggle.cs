@@ -38,6 +38,24 @@ namespace ISILab.LBS.CustomComponents
         }
 
         [UxmlAttribute]
+        public Boolean ToogleOnClick
+        {
+            get => toggleOnClick;
+            set
+            {
+                toggleOnClick = value;
+                
+                if(toggleOnClick)
+                {
+                        ///THIS IS WHERE I'M WORKING BTW! -Alice
+                } else
+                {
+
+                }
+            }
+        }
+
+        [UxmlAttribute]
         public Boolean HideToggle
         {
             get => hideToggle;
@@ -65,6 +83,7 @@ namespace ISILab.LBS.CustomComponents
         
         private VectorImage toggleIcon;
         private bool hideToggle = true;
+        private bool toggleOnClick = true;
 
         public LBSToolbarToggle() : base()
         {
