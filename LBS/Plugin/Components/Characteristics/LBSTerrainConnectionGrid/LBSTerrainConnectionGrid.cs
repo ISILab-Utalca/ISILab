@@ -44,6 +44,9 @@ namespace ISILab.LBS.Characteristics
                 gridList[Assets[i]] = new AssetConnectionGrid(gridSize);
             }
         }
+
+        public LBSTerrainConnectionGrid() : base() { }
+
         #endregion
 
         #region METHODS
