@@ -37,6 +37,20 @@ namespace ISILab.LBS.CustomComponents
         {
             this.AddToClassList("lbs-icon");
         }
+
+
+        public LBSCustomImage(VectorImage image) : base()
+        {
+            this.AddToClassList("lbs-icon");
+
+            if (image != null)
+            {
+                lbsImage = image;
+                this.vectorImage = image;
+                this.style.backgroundImage = new StyleBackground(image);
+            }
+            
+        }
     }
 
 }

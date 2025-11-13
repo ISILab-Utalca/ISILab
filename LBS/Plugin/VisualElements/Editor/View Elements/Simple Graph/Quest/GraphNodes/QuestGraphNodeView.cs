@@ -56,6 +56,7 @@ namespace ISILab.LBS.VisualElements
                     Node.Graph.SelectedGraphNode = Node;
             }
             
+            DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
             DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
         }
 

@@ -32,7 +32,6 @@ namespace ISILab.LBS.VisualElements
     /// </summary>
     public sealed class TriggerElementArea : GraphElement
     {
-        public static TriggerElementArea activeTriggerElementArea;
         private readonly BaseQuestNodeData _data;
         private Color _currentColor;
         
@@ -52,9 +51,8 @@ namespace ISILab.LBS.VisualElements
         private Vector2 _dragStartPosition;
         private Vector2 _resizeStartPosition;
         private Type _prevManipulatorType;
-
-        public TriggerElementArea(BaseQuestNodeData data, Rect area, Action<Rect> OnMovingAction,
-            bool centerTarget = true)
+        
+        public TriggerElementArea(BaseQuestNodeData data, Rect area, bool centerTarget = true)
         {
             _isCenter = centerTarget;
             _data = data;
@@ -92,25 +90,23 @@ namespace ISILab.LBS.VisualElements
 
             targetIcon.style.display = _isCenter ? DisplayStyle.Flex : DisplayStyle.None;
             cornerTargetIcon.style.display = _isCenter ? DisplayStyle.None : DisplayStyle.Flex;
-
+            
             SetupResizeHandle("Handle_bl", HandleBottomLeft, _isCenter);
             SetupResizeHandle("Handle_br", HandleBottomRight, _isCenter);
             SetupResizeHandle("Handle_tl", HandleTopLeft, _isCenter);
             SetupResizeHandle("Handle_tr", HandleTopRight, _isCenter);
-
+            
             // Register mouse callbacks on the whole element
             RegisterCallback<MouseDownEvent>(OnMouseDown);
             RegisterCallback<MouseMoveEvent>(OnMouseMove);
             RegisterCallback<MouseUpEvent>(OnMouseUp);
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
-
+            
             generateVisualContent -= OnGenerateVisualContent;
             generateVisualContent += OnGenerateVisualContent;
-
-            activeTriggerElementArea = this;
         }
-
+        
         private void OnMouseEnter(MouseEnterEvent evt)
         {
             ShelfManipulator();

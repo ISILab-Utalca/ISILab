@@ -64,7 +64,7 @@ namespace ISILab.LBS.Settings
             //Debug.Log(typeof(LBS_SettingsProvider).Assembly.GetName().Name);
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
-            return packageInfo is null ? GetDevSettings() : GetUserSettings();
+            return packageInfo is null ? GetDevSettings() : GetDevSettings();//GetUserSettings();
         }
 
         private static SettingsProvider GetDevSettings()
@@ -107,17 +107,17 @@ namespace ISILab.LBS.Settings
                     }
                     EditorGUILayout.EndHorizontal();
 
-                    //Presets path
-                    EditorGUILayout.BeginHorizontal();
-                    settings.paths.pressetsPath = EditorGUILayout.TextField("Presets path", settings.paths.pressetsPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                    if (GUILayout.Button("Find", GUILayout.MaxWidth(60)))
-                    {
-                        var so = DirectoryTools.GetScriptable<LBSAssetsStorage>();
-                        var path = AssetDatabase.GetAssetPath(so);
-                        settings.paths.pressetsPath = path;
-                        EditorUtility.SetDirty(settings);
-                    }
-                    EditorGUILayout.EndHorizontal();
+                    ////Presets path
+                    //EditorGUILayout.BeginHorizontal();
+                    //settings.paths.pressetsPath = EditorGUILayout.TextField("Presets path", settings.paths.pressetsPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    //if (GUILayout.Button("Find", GUILayout.MaxWidth(60)))
+                    //{
+                    //    var so = DirectoryTools.GetScriptable<LBSAssetsStorage>();
+                    //    var path = AssetDatabase.GetAssetPath(so);
+                    //    settings.paths.pressetsPath = path;
+                    //    EditorUtility.SetDirty(settings);
+                    //}
+                    //EditorGUILayout.EndHorizontal();
 
                     //Backup path
                     EditorGUILayout.BeginHorizontal();
@@ -147,26 +147,26 @@ namespace ISILab.LBS.Settings
                     }
                     EditorGUILayout.EndHorizontal();
 
-                    // header Controller paths
-                    EditorGUILayout.Space();
-                    EditorStyles.boldLabel.fontSize = 14;
-                    EditorGUILayout.LabelField("Extra Paths", EditorStyles.boldLabel);
-
-                    // Storage path
-                    EditorGUILayout.BeginHorizontal();
-                    settings.paths.iconPath = EditorGUILayout.TextField("Icons paths", settings.paths.iconPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                    EditorGUILayout.EndHorizontal();
-
-                    // Set Default button
-                    EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.Space();
-                    if (GUILayout.Button("Set default", GUILayout.MaxWidth(120)))
-                    {
-                        var newSettings = new LBSSettings();
-                        settings.paths.iconPath = newSettings.paths.iconPath;
-                        EditorUtility.SetDirty(settings);
-                    }
-                    EditorGUILayout.EndHorizontal();
+                    //// header Controller paths
+                    //EditorGUILayout.Space();
+                    //EditorStyles.boldLabel.fontSize = 14;
+                    //EditorGUILayout.LabelField("Extra Paths", EditorStyles.boldLabel);
+                    //
+                    //// Storage path
+                    //EditorGUILayout.BeginHorizontal();
+                    //settings.paths.iconPath = EditorGUILayout.TextField("Icons paths", settings.paths.iconPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    //EditorGUILayout.EndHorizontal();
+                    //
+                    //// Set Default button
+                    //EditorGUILayout.BeginHorizontal();
+                    //EditorGUILayout.Space();
+                    //if (GUILayout.Button("Set default", GUILayout.MaxWidth(120)))
+                    //{
+                    //    var newSettings = new LBSSettings();
+                    //    settings.paths.iconPath = newSettings.paths.iconPath;
+                    //    EditorUtility.SetDirty(settings);
+                    //}
+                    //EditorGUILayout.EndHorizontal();
 
                     // Header foplders
                     EditorGUILayout.Space();
@@ -189,12 +189,15 @@ namespace ISILab.LBS.Settings
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
 
+                    // Mesh folder
                     EditorGUILayout.BeginHorizontal();
                     settings.paths.meshFolderPath = EditorGUILayout.TextField("Generated Mesh Folder",
                         settings.paths.meshFolderPath,
                         EditorStyles.textField,
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
+
+                    // TODO: Presets folder
 
                     // Set Default button
                     EditorGUILayout.BeginHorizontal();
@@ -204,6 +207,7 @@ namespace ISILab.LBS.Settings
                         var newSettings = new LBSSettings();
                         settings.paths.bundleFolderPath = newSettings.paths.bundleFolderPath;
                         settings.paths.tagFolderPath = newSettings.paths.tagFolderPath;
+                        settings.paths.meshFolderPath = newSettings.paths.meshFolderPath;
                         EditorUtility.SetDirty(settings);
                     }
                     EditorGUILayout.EndHorizontal();
@@ -214,25 +218,25 @@ namespace ISILab.LBS.Settings
                     EditorStyles.boldLabel.fontSize = 14;
                     EditorGUILayout.LabelField("Pressets folders", EditorStyles.boldLabel);
 
-                    // Bundles pressets folder
-                    EditorGUILayout.BeginHorizontal();
-                    settings.paths.bundlesPresetFolderPath = EditorGUILayout.TextField("Bundles pressets", settings.paths.bundlesPresetFolderPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                    EditorGUILayout.EndHorizontal();
-
-                    // Generator3D presset folder
-                    EditorGUILayout.BeginHorizontal();
-                    settings.paths.Generator3DPresetFolderPath = EditorGUILayout.TextField("Generator3D presset", settings.paths.Generator3DPresetFolderPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                    EditorGUILayout.EndHorizontal();
+                    //// Bundles pressets folder
+                    //EditorGUILayout.BeginHorizontal();
+                    //settings.paths.bundlesPresetFolderPath = EditorGUILayout.TextField("Bundles pressets", settings.paths.bundlesPresetFolderPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    //EditorGUILayout.EndHorizontal();
+                    //
+                    //// Generator3D presset folder
+                    //EditorGUILayout.BeginHorizontal();
+                    //settings.paths.Generator3DPresetFolderPath = EditorGUILayout.TextField("Generator3D presset", settings.paths.Generator3DPresetFolderPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    //EditorGUILayout.EndHorizontal();
 
                     // Assisstants presset folder
                     EditorGUILayout.BeginHorizontal();
                     settings.paths.assistantPresetFolderPath = EditorGUILayout.TextField("Assisstants pressets", settings.paths.assistantPresetFolderPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
 
-                    // Layer presset folder
-                    EditorGUILayout.BeginHorizontal();
-                    settings.paths.layerPressetFolderPath = EditorGUILayout.TextField("Layer presset", settings.paths.layerPressetFolderPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                    EditorGUILayout.EndHorizontal();
+                    //// Layer presset folder
+                    //EditorGUILayout.BeginHorizontal();
+                    //settings.paths.layerPressetFolderPath = EditorGUILayout.TextField("Layer presset", settings.paths.layerPressetFolderPath, EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    //EditorGUILayout.EndHorizontal();
 
                     // Set Default button
                     EditorGUILayout.BeginHorizontal();
@@ -240,10 +244,10 @@ namespace ISILab.LBS.Settings
                     if (GUILayout.Button("Set default", GUILayout.MaxWidth(120)))
                     {
                         var newSettings = new LBSSettings();
-                        settings.paths.bundlesPresetFolderPath = newSettings.paths.bundlesPresetFolderPath;
-                        settings.paths.Generator3DPresetFolderPath = newSettings.paths.Generator3DPresetFolderPath;
+                        //settings.paths.bundlesPresetFolderPath = newSettings.paths.bundlesPresetFolderPath;
+                        //settings.paths.Generator3DPresetFolderPath = newSettings.paths.Generator3DPresetFolderPath;
                         settings.paths.assistantPresetFolderPath = newSettings.paths.assistantPresetFolderPath;
-                        settings.paths.layerPressetFolderPath = newSettings.paths.layerPressetFolderPath;
+                        //settings.paths.layerPressetFolderPath = newSettings.paths.layerPressetFolderPath;
                         EditorUtility.SetDirty(settings);
                     }
                     EditorGUILayout.EndHorizontal();

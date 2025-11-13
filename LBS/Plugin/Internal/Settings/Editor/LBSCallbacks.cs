@@ -16,6 +16,7 @@ namespace ISILab.LBS.Internal.Editor
         static LBSCallbacks()
         {
             var onStart = SessionState.GetBool("start", true);
+            Debug.Log("On Start:" + onStart);
             if (onStart)
             {
                 EditorApplication.update += OnStartEditor;
@@ -42,6 +43,7 @@ namespace ISILab.LBS.Internal.Editor
         /// </summary>
         private static void OnBeforeReloadScript()
         {
+            Debug.Log("Before Reload Script");
             SaveBackUp();
         }
 
@@ -50,6 +52,7 @@ namespace ISILab.LBS.Internal.Editor
         /// </summary>
         private static void OnAfterReloadScript()
         {
+            Debug.Log("After Reload Script");
             LoadBackUp();
             ReloadCurrentLevel();
         }

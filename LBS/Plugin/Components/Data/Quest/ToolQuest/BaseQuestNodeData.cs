@@ -47,7 +47,7 @@ namespace ISILab.LBS.Components
     public class BundleGraph : LayerTarget
     {
         [SerializeReference] [SerializeField] private TileBundleGroup tileBundle;
-        [SerializeField] private string guid = string.Empty;
+        [SerializeField] private string guid;
         [SerializeField] private BaseQuestNodeData _nodeData;
         // must be assigned on all bundleGraphs to the Resize Function
         
@@ -95,7 +95,7 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class BundleType : LayerTarget
     {
-        [SerializeField]private string guid = string.Empty;
+        [SerializeField]private string guid;
      
         // TODO clean up this class
         public BundleType(
@@ -113,7 +113,7 @@ namespace ISILab.LBS.Components
 
         public override bool Valid()
         {
-            return GetGuid() != string.Empty;
+            return GetGuid()!= string.Empty;
         }
         
     }

@@ -117,6 +117,13 @@ namespace ISILab.LBS.Bundles.Editor
                 if (EditorGUI.EndChangeCheck()) EditorUtility.SetDirty(target);
                 Undo.undoRedoPerformed += UNDO;
             };
+            characteristics.itemsRemoved += items =>
+            {
+                foreach(int index in items)
+                {
+                    bundle.RemoveCharacteristicCallback(characteristics.itemsSource[index] as LBSCharacteristic);
+                }
+            };
 
             root.Insert(root.childCount, characteristics);
 
@@ -341,6 +348,7 @@ namespace ISILab.LBS.Bundles.Editor
             var v = new ObjectField();
             v.objectType = typeof(Bundle);
             v.SetEnabled(false);
+            v.style.opacity = 100;
             v.RegisterValueChangedCallback(HandleChildBundleChange);
             
             return v;

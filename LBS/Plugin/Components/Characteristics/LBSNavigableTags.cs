@@ -36,6 +36,7 @@ namespace ISILab.LBS.Characteristics
             this.tags = new List<LBSTag>(idents);
             if (tagsChanged)
             {
+                Debug.Log("Tags Changed");
                 navigable.Clear();
                 for (int i = 0; i < idents.Count; i++)
                     navigable.Add(false);
@@ -66,7 +67,9 @@ namespace ISILab.LBS.Characteristics
 
         public override bool Equals(object obj)
         {
-            throw new System.NotImplementedException();
+            if (obj is not LBSNavigableTags other) return false;
+
+            return other.NavigableTagsRef.Equals(NavigableTagsRef);
         }
 
         public override int GetHashCode()

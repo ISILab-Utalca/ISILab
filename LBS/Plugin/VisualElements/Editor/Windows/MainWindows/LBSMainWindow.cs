@@ -20,6 +20,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
+using ISILab.LBS.Internal.Editor;
 
 namespace ISILab.LBS.Editor.Windows{
 
@@ -111,6 +112,7 @@ namespace ISILab.LBS.Editor.Windows{
 
         #endregion
 
+        private bool packageInitialized = false;
 
         #region EVENTS
         public static Action OnWindowRepaint;
@@ -138,13 +140,23 @@ namespace ISILab.LBS.Editor.Windows{
         {
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
+            
+                
         }
-        
+
         private void OnEnable()
         {
             Debug.Log("[Main Window] - OnEnable");
             _instance = this;
-            
+
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+            if (!packageInitialized && packageInfo is not null && packageInfo.name.Equals("com.isilab.lbs"))
+            {
+                LBS_AssetsPostProcessor.InitializeLBSPackage();
+                packageInitialized = true;
+            }
+
             #region LOAD UI TREE
             //MainWindows UXML 
             VisualTreeAsset visualTree = LBSAssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");

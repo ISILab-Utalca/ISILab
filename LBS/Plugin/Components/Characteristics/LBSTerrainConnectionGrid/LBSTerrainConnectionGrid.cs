@@ -15,9 +15,10 @@ namespace ISILab.LBS.Characteristics
     public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable
     {
         [SerializeField, JsonRequired]
-        Dictionary<Asset, AssetConnectionGrid> gridList;
+        Dictionary<Asset, AssetConnectionGrid> gridList = new Dictionary<Asset, AssetConnectionGrid>();
         [SerializeField, JsonRequired]
-        Dictionary<int, UnityEngine.Color> flagColorPalette;
+        Dictionary<int, UnityEngine.Color> flagColorPalette = new Dictionary<int, UnityEngine.Color>();
+        [SerializeField, JsonRequired]
         int gridSize;
 
         #region PROPERTIES
@@ -28,12 +29,9 @@ namespace ISILab.LBS.Characteristics
         }
 
         [JsonIgnore]
-        public Dictionary<Asset, AssetConnectionGrid> GridList
-        {
-            get => gridList;
-            set => gridList = value;
-        }
+        public Dictionary<Asset, AssetConnectionGrid> GridList => gridList;
         public int GridSize => gridSize;
+        public Dictionary<int, UnityEngine.Color> FlagColorPalette => flagColorPalette;
 
         #endregion
 
@@ -46,6 +44,9 @@ namespace ISILab.LBS.Characteristics
                 gridList[Assets[i]] = new AssetConnectionGrid(gridSize);
             }
         }
+
+        public LBSTerrainConnectionGrid() : base() { }
+
         #endregion
 
         #region METHODS

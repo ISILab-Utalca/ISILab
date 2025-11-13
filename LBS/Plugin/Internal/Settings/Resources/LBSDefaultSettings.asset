@@ -14,27 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paths:
     settingsPath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset
-    storagePath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/Storage/LBS
-      Storage.asset
-    pressetsPath: Assets/isi-lab-unity-module/LBS/Presets/LBS Presets.asset
+    storagePath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset
     backUpPath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset
     bundleFolderPath: Assets/isi-lab-unity-module/LBS/Data/Bundles
     tagFolderPath: Assets/isi-lab-unity-module/LBS/Data/Tags
     meshFolderPath: Assets/isi-lab-unity-module/LBS/Data/Meshes
-    iconPath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Icons
+    WFCpresetsFolderPath: Assets/isi-lab-unity-module/LBS/Data/Presets/WFC
     layerPressetFolderPath: Assets/isi-lab-unity-module/LBS/Presets/Layers
     assistantPresetFolderPath: Assets/isi-lab-unity-module/LBS/Presets/Assistants
-    assistantOptimizerPresetPath: Assets/isi-lab-unity-module/LBS/Presets/Optimizers
-    assistantEvaluatorPresetPath: Assets/isi-lab-unity-module/LBS/Presets/Evaluators
-    Generator3DPresetFolderPath: Assets/isi-lab-unity-module/LBS/Presets/Generators3D
-    bundlesPresetFolderPath: Assets/isi-lab-unity-module/LBS/Presets/Bundles
   general:
     zoomMax: 10
     zoomMin: 0.1
     tileSize: {x: 50, y: 50}
     baseLayerName: New Layer
   view:
-    LBSTheme: 2
+    LBSTheme: 0
     toolkitNormal: {r: 0.28, g: 0.28, b: 0.28, a: 1}
     toolkitNormalDark: {r: 0.16, g: 0.16, b: 0.16, a: 1}
     newToolkitSelected: {r: 0, g: 0, b: 0, a: 1}
@@ -69,14 +63,22 @@ MonoBehaviour:
       resize: {x: 0, y: 0}
       position: {x: 0, y: 0, z: 0}
       replacePrevious: 1
-      name: New Layer
+      name: New Layer 2
       rootParentName: Root_Parent
     rules:
+<<<<<<< HEAD
+    - rid: 9117504771994419215
+  references:
+    version: 2
+    RefIds:
+    - rid: 9117504771994419215
+=======
     - rid: 7571179107354148898
   references:
     version: 2
     RefIds:
     - rid: 7571179107354148898
+>>>>>>> joaco-develop
       type: {class: QuestRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
       data:
         generator3D:

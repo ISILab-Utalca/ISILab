@@ -60,7 +60,7 @@ namespace ISILab.LBS.Editor.Windows
                 rotationDegres %= 360; 
                 taskIcon.style.rotate =  new Rotate(rotationDegres);
                 taskIcon.MarkDirtyRepaint();
-            }).Every(64L).StartingIn(0L);
+            }).Every(64L).StartingIn(0L); // In miliseconds 
             rotationSchedule.Resume();
             
         }

@@ -6,13 +6,13 @@ namespace ISI_Lab.DevTools.Gizmos.Editor
 {
     using UnityEngine;
     using UnityEditor;
-    using LBS.Plugin.MapTools.Generators3D;
+    using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
 
     [CustomEditor(typeof(Custom3dMeshGizmo))]
     public class Custom3dMeshGizmoEditor : Editor
     {
         private WorldEditBarView rootVisualElement;
-        private bool isVisible;
+        private bool isVisible = false;
         private Rect popupRect;
 
         private const float buttonSize = 18;
@@ -91,5 +91,7 @@ namespace ISI_Lab.DevTools.Gizmos.Editor
             // Make the window draggable
             GUI.DragWindow();
         }
+        
+        
     }
 }
