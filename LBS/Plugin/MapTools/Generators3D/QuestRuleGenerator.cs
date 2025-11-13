@@ -21,8 +21,9 @@ namespace ISILab.LBS.Generators
     {
         private const float frameDelay = 5f;
         private float _currentFrameDelay = frameDelay;
-        private const float ProbeRadius = 10f;
-       // private static readonly Collider[] OverlapResults = new Collider[32];
+        
+        // the probe radius detects objects at a given position in the scene, based on the existing graph
+        private const float ProbeRadius = 2f;
         
         private Action<string> _onLayerRequired;
         public event Action<string> OnLayerRequired
@@ -223,8 +224,9 @@ namespace ISILab.LBS.Generators
         {
             List<string> referencedLayers = node.NodeData.ReferencedLayerNames();
             if (referencedLayers is null || !referencedLayers.Any()) return;
-            
-            // Find all GameObjects in the scene
+            referencedLayers = referencedLayers.Distinct().ToList();
+
+        // Find all GameObjects in the scene
             GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
             List<GameObject> matchingObjects = allObjects.Where(gameObject => referencedLayers.Contains(gameObject.name)).ToList();
                     

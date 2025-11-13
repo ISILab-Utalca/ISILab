@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
@@ -115,8 +116,7 @@ namespace ISILab.LBS.VisualElements
         {
             RestoreManipulator();
         }
-
-
+        
         void SetupResizeHandle(string handleName, string handleCode, bool isCenter)
         {
             VisualElement handle = this.Q<VisualElement>(handleName);
@@ -246,6 +246,8 @@ namespace ISILab.LBS.VisualElements
             Vector2Int tilePosition = new Vector2Int((int)_data.Area.x, (int)_data.Area.y);
             _dragStartPosition = LBSMainWindow.Instance._selectedLayer.FixedToPosition(tilePosition, true);
 
+            DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
+            
             e.StopPropagation();
         }
 
@@ -284,6 +286,9 @@ namespace ISILab.LBS.VisualElements
 
             Rect newRect = new(newPos, GetPosition().size);
             SetPosition(newRect);
+            MarkDirtyRepaint();
+            
+            e.StopImmediatePropagation();
         }
 
         private void OnMouseUp(MouseUpEvent e)
@@ -297,6 +302,8 @@ namespace ISILab.LBS.VisualElements
             _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
             _data.Graph?.NodeDataChanged(_data.OwnerNode);
             DrawManager.Instance.RedrawLayer(_data.Layer);
+            
+            DrawManager.Instance.PickingModeRestoreAll();
 
         }
 
@@ -347,6 +354,7 @@ namespace ISILab.LBS.VisualElements
             newHeight = Mathf.Max(newHeight, 20);
 
             SetPosition(new Rect(newX, newY, newWidth, newHeight));
+
             e.StopPropagation();
         }
 

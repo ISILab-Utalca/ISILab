@@ -33,7 +33,6 @@ namespace ISILab.LBS
                 var destroyer = obj.GetComponent<DestroyNotifier>();
                 destroyer.OnDestroyed += (obj)=>
                 {
-                  
                     objectsToKill.Remove(obj);
                     CheckComplete();
                 };

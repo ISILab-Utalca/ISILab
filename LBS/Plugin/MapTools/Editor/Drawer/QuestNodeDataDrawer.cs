@@ -79,6 +79,18 @@ namespace ISILab.LBS.Drawers.Editor
             
             #region BundleGraph View
             
+            // Trigger Position
+            TriggerElementArea triggerBase = new(nodeData,nodeData.Area, selectedActionView?.OnMoving)
+            {
+                style =
+                {
+                    display = display
+                }
+            };
+
+            // Stores using the behavior as key
+            view.AddElementToLayerContainer(behaviour.OwnerLayer, behaviour, triggerBase);
+            
             switch (nodeData)
             {
                 case DataKill dataKill:
