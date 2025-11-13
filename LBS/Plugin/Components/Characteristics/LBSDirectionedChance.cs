@@ -35,7 +35,7 @@ namespace ISILab.LBS.Characteristics
             public int rotation;
 
             [SerializeField]
-            public List<TileDirectionChance> chances = new List<TileDirectionChance>();
+            public List<List<TileDirectionChance>> chances = new List<List<TileDirectionChance>>(4);
         }
 
         [SerializeField]
@@ -50,7 +50,7 @@ namespace ISILab.LBS.Characteristics
             //Owner.OnAddChild += OnAddChildToOwner;
             //Owner.OnRemoveChild += OnRemoveChildToOwner;
 
-            _Update();
+            //_Update();
         }
 
         public void _Update()

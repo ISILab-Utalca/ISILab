@@ -973,7 +973,7 @@ namespace ISILab.LBS.Assistants
                 int neighborCount = 0;
                 bool allNeighborsAccept = true;
 
-                for (int dirIndex = 0; dirIndex < neighbors.Count; dirIndex++)
+                for (int dirIndex = 0; dirIndex < 4; dirIndex++)
                 {
                     var neighbor = neighbors[dirIndex];
                     if (neighbor == null || closedList.Contains(neighbor))
@@ -993,7 +993,7 @@ namespace ISILab.LBS.Assistants
                     }
 
                     // Busca si el candidato existe en los chances del vecino
-                    var chanceObj = neighborDir.chances.FirstOrDefault(c => c.target == candidateBundle);
+                    TileDirectionChance chanceObj = null;//neighborDir.chances.FirstOrDefault(c => c.target == candidateBundle);
                     if (chanceObj == null)
                     {
                         allNeighborsAccept = false;
@@ -1115,7 +1115,7 @@ namespace ISILab.LBS.Assistants
             Dictionary<TileConnectionsPair, List<TileChance>> tileChances = new();
 
             var group = targetBundleRef.GetCharacteristics<LBSDirectionedChance>()[0];
-
+            // Se llena con todos los bundles hijos antes de filtrar
             group._Update();
 
             List<TileConnectionsPair> pairs = OwnerLayer.GetModule<ConnectedTileMapModule>().Pairs;
@@ -1131,55 +1131,63 @@ namespace ISILab.LBS.Assistants
             var currentBundles = new List<Bundle>();
             group.tileDirections.ForEach(ws => currentBundles.Add(ws.mainTarget));
 
+            // Check all tiles in map
             foreach (var p in pairs)
             {
-                bool newfound = false;
-                var adjacent = GetAdjacentFromCurrent(pairs, p);
-                List<TileChance> aux = new();
+                bool found = false;
+                List<TileChance> adjacent = GetAdjacentFromCurrent(pairs, p);
 
+                // For each tile, compare with registered tiles
                 foreach (TileConnectionsPair key in tileChances.Keys)
                 {
                     // Check if each connection from key and p are equal
+
+                    // If tile was previously registered
                     if (key.Connections.SequenceEqual(p.Connections))
                     {
+                        // Check neighbours
                         foreach (TileChance tca in adjacent)
                         {
                             if (tca.count == -1)
                             {
                                 continue;
                             }
-
+                            // Checks if tile had registered this neighbour before
                             TileChance existing = tileChances[key].FirstOrDefault(tc => tc.Equals(tca));
-
+                            // If it had, increase counter
                             if (existing != null)
                             {
                                 existing.count++;
                             }
-                            else
+                            else // If not, register a new neighbour chance for this tile, including a new counter (1) and its direction from origin
                             {
                                 tileChances[key].Add(new TileChance(tca.tile, tca.count, tca.direction));
                             }
                         }
-                        //If it finds anything, it gets marked as true.
-                        newfound = true;
+                        //If it finds anything, it gets marked as found.
+                        found = true;
                     }
                 }
 
                 //If it doesnt find anything, that means the tile is empty, and needs a tilechance.
-                if (!newfound)
+                if (!found)
                 {
                     tileChances.Add(p, adjacent);
                 }
             }
 
-            TileDirection td = null;
+            
 
+            // For each kvp
             foreach (var rule in tileChances)
             {
-                //OwnerLayer.GetModule<ConnectedTileMapModule>().
+                TileDirection td = null;
+                // Create a TileDirection. Search amongst existent bundles
                 td = new()
                 {
-                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out _)
+                    // If no rotated bundle match the tile, mainTarget will be null
+                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out int mainRot),
+                    rotation = mainRot
                 };
                 //Debug.Log(rule.Key);
 
@@ -1196,7 +1204,7 @@ namespace ISILab.LBS.Assistants
                         rotation = rot,
                         chance = (float)pair.count / total
                     };
-                    td.chances.Add(tileDirectionChance);
+                    td.chances[rot].Add(tileDirectionChance);
 
 
                     //float chance = (float)pair.count / total;
@@ -1206,7 +1214,7 @@ namespace ISILab.LBS.Assistants
                 group.tileDirections.Add(td);
             }
 
-            //Almacenar Rotaciones
+            // TODO: Almacenar Rotaciones
             group.tileDirections.RemoveAll(td => !td.chances.Any());
 
             foreach (var item in group.tileDirections)
@@ -1218,7 +1226,10 @@ namespace ISILab.LBS.Assistants
                     Debug.Log("-> " + i);
                     foreach (var item2 in item.chances)
                     {
-                        Debug.Log(item2.target + " " + item2.chance.ToString());
+                        for(int j = 0; j < item2.Count; j++)
+                        {
+                            Debug.Log(item2[j].target + " " + item2[j].chance.ToString());
+                        }
                     }
                 }
             }
@@ -1232,21 +1243,25 @@ namespace ISILab.LBS.Assistants
         {
             int count = 0;
 
+            // For each bundle
             for (int i = 0; i < bundle.Count; i++)
             {
+                // For each rotation
                 for (int j = 0; j < 4; j++)
                 {
                     count = 0;
+                    // Compare all 4 connections
                     for (int k = 0; k < 4; k++)
                     {
                         if (bundle[i].GetCharacteristics<LBSDirection>()[0].GetConnection(j)[k] == tileConnection[k])
                         {
                             count++;
                         }
+                        else break;
 
                         if (count == 4)
                         {
-                            rot = k;
+                            rot = j;
                             return bundle[i];
                         }
                         
@@ -1272,8 +1287,8 @@ namespace ISILab.LBS.Assistants
 
             for (int i = 0; i < 4; i++)
             {
-                var adj = OwnerLayer.GetModule<ConnectedTileMapModule>().GetPair(current.Tile.Position 
-                    + Directions.Bidimencional.Edges[i]);
+                var adj = OwnerLayer.GetModule<ConnectedTileMapModule>()
+                    .GetPair(current.Tile.Position + Directions.Bidimencional.Edges[i]);
 
                 if (adj != null)
                 {

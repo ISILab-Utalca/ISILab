@@ -29,7 +29,7 @@ namespace ISILab.LBS.VisualElements
             this.target = paramTarget;
             var target = paramTarget as LBSDirectionedChance;
 
-            if (target == null)
+            //if (target == null)
                 return;
 
             //target._Update();
@@ -106,7 +106,7 @@ namespace ISILab.LBS.VisualElements
                                 new TreeViewItemData<TreeNodeData>(counter++, new TreeNodeData
                                 {
                                     Id = counter,
-                                    Label = chance.target.name,
+                                    //Label = chance.target.name + $"({chance.rotation})",
                                     Type = NodeType.Label
                                 })
                             );
@@ -115,7 +115,7 @@ namespace ISILab.LBS.VisualElements
                                 {
                                     Id = counter,
                                     Label = "Chance",
-                                    SliderValue = chance.chance,
+                                    //SliderValue = chance.chance,
                                     Type = NodeType.Slider
                                 })
                             );
