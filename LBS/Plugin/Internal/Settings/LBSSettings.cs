@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Serialization;
+using UnityEditor.PackageManager;
 
 namespace ISILab.LBS.Settings
 {
@@ -12,6 +13,10 @@ namespace ISILab.LBS.Settings
     {
         
         private const string USER_ASSET_FOLDER_NAME = "LBSUserContent";
+
+        private static string mainFolder = "Assets/isi-lab-unity-module";
+
+        public static string assetName = "LBSDefaultSettings";
         
         #region SINGLETON
         private static LBSSettings instance;
@@ -26,10 +31,17 @@ namespace ISILab.LBS.Settings
             {
                 // si es igual a null lo busco en carpeta
                 if (instance == null)
-                    instance = Resources.Load<LBSSettings>("LBS Settings");
-                // si sigue siendo null lo creo
-                if (instance == null)
-                    instance = ScriptableObject.CreateInstance<LBSSettings>();
+                {
+                    Debug.Log(assetName);
+                    instance = Resources.Load<LBSSettings>(assetName);
+                    // si sigue siendo null lo creo
+                    if (instance == null)
+                        instance = ScriptableObject.CreateInstance<LBSSettings>();
+
+                    //instance.InitPaths();
+                }
+                //else Debug.Log("LBS Settings existe.");
+
                 return instance;
             }
 
@@ -37,6 +49,12 @@ namespace ISILab.LBS.Settings
             {
                 instance = value;
             }
+        }
+
+        public static void ResetInstance()
+        {
+            Instance = null;
+            var a = Instance;
         }
 
         public void MarkSettingsAsDirty()
@@ -50,6 +68,60 @@ namespace ISILab.LBS.Settings
         public Interface view = new Interface();
         public Test test = new Test();
         public Generator3D generator = new Generator3D();
+
+        public void ReplacePaths()
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+
+            //mainFolder = packageInfo is null ? 
+            //    "Assets/isi-lab-unity-module" :
+            //    "Packages/" + packageInfo.name;
+
+            if (packageInfo is null) return;
+
+            string userFolder = "Assets/LBSUserContent";
+            string packageFolder = "Packages/" + packageInfo.name;
+
+            instance.paths.settingsPath = userFolder + "/Resources/Settings/LBSUserSettings.asset";
+            instance.paths.storagePath = userFolder + "/Resources/Cache/Storage.asset";
+            instance.paths.backUpPath = userFolder + "/Resources/Cache/LBSBackUp.asset";
+
+            //ReplacePathStart(ref instance.paths.settingsPath, userFolder); instance.paths.settingsPath.Replace("LBSDefaultSettings", "LBSUserSettings");
+            //ReplacePathStart(ref instance.paths.storagePath, userFolder); instance.paths.storagePath.Replace("StorageTemplate", "Storage");
+            //ReplacePathStart(ref instance.paths.pressetsPath);
+            //ReplacePathStart(ref instance.paths.backUpPath, userFolder);
+
+            instance.paths.bundleFolderPath = userFolder + "/Bundles";
+            instance.paths.tagFolderPath = userFolder + "/Tags";
+            instance.paths.meshFolderPath = userFolder + "/Meshes";
+
+            instance.paths.WFCpresetsFolderPath = userFolder + "/Presets/WFC";
+
+            //ReplacePathStart(ref instance.paths.bundleFolderPath, userFolder);
+            //ReplacePathStart(ref instance.paths.tagFolderPath, userFolder);
+            //ReplacePathStart(ref instance.paths.meshFolderPath, userFolder);
+
+            //ReplacePathStart(ref instance.paths.iconPath);
+
+            ReplacePathStart(ref instance.paths.layerPressetFolderPath, packageFolder);
+            ReplacePathStart(ref instance.paths.assistantPresetFolderPath, packageFolder);
+            //ReplacePathStart(ref instance.paths.assistantOptimizerPresetPath);
+            //ReplacePathStart(ref instance.paths.assistantEvaluatorPresetPath);
+            //ReplacePathStart(ref instance.paths.Generator3DPresetFolderPath);
+            //ReplacePathStart(ref instance.paths.bundlesPresetFolderPath);
+
+            instance.MarkSettingsAsDirty();
+
+            void ReplacePathStart(ref string path, string newStart)
+            {
+                if (path.StartsWith(newStart)) return;
+
+                int start = path.IndexOf("/LBS/");
+                path = newStart + path[start..];
+                //Debug.Log("Updated path: " +  path);
+            }
+        }
 
         [System.Serializable]
         public class Test
@@ -83,26 +155,28 @@ namespace ISILab.LBS.Settings
         public class Paths
         {
             // Controller Paths
-            public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBS Settings.asset";
-            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Editor/LBS Storage.asset";
-            public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
+            public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset";
+            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset";
+            //public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
             public string backUpPath                    = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
                                                                   
             // Folders for user data storages                              
             public string bundleFolderPath              = "Assets/isi-lab-unity-module/LBS/Data/Bundles";
             public string tagFolderPath                 = "Assets/isi-lab-unity-module/LBS/Data/Tags";
             public string meshFolderPath                = "Assets/isi-lab-unity-module/LBS/Data/Meshes";
-                                                                  
+
+            public string WFCpresetsFolderPath          = "Assets/isi-lab-unity-module/LBS/Data/Presets/WFC";
+
             // Folders extra storages                             
-            public string iconPath                      = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Icons";
-                                                                  
+            //public string iconPath                      = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Icons";
+
             // Folders presets                                    
             public string layerPressetFolderPath        = "Assets/isi-lab-unity-module/LBS/Presets/Layers";
             public string assistantPresetFolderPath     = "Assets/isi-lab-unity-module/LBS/Presets/Assistants";
-            public string assistantOptimizerPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Optimizers";
-            public string assistantEvaluatorPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Evaluators";
-            public string Generator3DPresetFolderPath   = "Assets/isi-lab-unity-module/LBS/Presets/Generators3D";
-            public string bundlesPresetFolderPath       = "Assets/isi-lab-unity-module/LBS/Presets/Bundles";
+            //public string assistantOptimizerPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Optimizers";
+            //public string assistantEvaluatorPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Evaluators";
+            //public string Generator3DPresetFolderPath   = "Assets/isi-lab-unity-module/LBS/Presets/Generators3D";
+            //public string bundlesPresetFolderPath       = "Assets/isi-lab-unity-module/LBS/Presets/Bundles";
 
             //public string savedMapsPresetPath = "Assets/ISI Lab/LBS/Presets/SavedMaps";
 
@@ -145,6 +219,10 @@ namespace ISILab.LBS.Settings
             public Color colorReport = new Color(0.41f, 0.63f, 1f);
             public Color colorSpy = new Color(0.78f, 0.79f, 1f);
             public Color colorListen = new Color(0.52f, 1f, 0.05f);
+            
+            
+            public string DebugVectorGUID = "4fc870f9e2f488d4bb2c1bffe1f5b751";
+
             #endregion
         }
         

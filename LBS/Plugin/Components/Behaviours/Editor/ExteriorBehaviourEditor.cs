@@ -1,24 +1,27 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Internal;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Settings;
+using ISILab.Macros;
 using LBS;
 using LBS.Bundles;
-using ISILab.LBS.Settings;
+using LBS.Components;
 using LBS.VisualElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Manipulators;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Internal;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Editor;
-using ISILab.LBS.Components;
-using ISILab.LBS.Editor.Windows;
-using ISILab.Macros;
-using UnityEditor;
-using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -40,11 +43,13 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon =LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
+        private VectorImage icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
         private SimplePallete connectionPallete;
-        private ObjectField bundleField;
+        private LBSCustomObjectField bundleField;
         private WarningPanel warningPanel;
         private string tileIconGuid = "";
+
+        private static LBSButtonListFilter bundlePickerWindow;
         #endregion
 
         #region PROPERTIES
@@ -132,10 +137,18 @@ namespace ISILab.LBS.VisualElements
             warningPanel = this.Q<WarningPanel>();
 
             // BundleField
-            bundleField = this.Q<ObjectField>("BundleField");
+            bundleField = this.Q<LBSCustomObjectField>("BundleField");
             bundleField.label = "Exterior Tile Bundle";
             bundleField.objectType = typeof(Bundle);
             bundleField.value = exterior.Bundle;
+            bundleField.UseCustomFilter = true;
+
+            bundleField.CustomFilter = pick =>
+            {
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSDirectionedGroup>(includeChildren: true);
+                OpenFilterWindow(bundles, picked => pick(picked));
+            };
+
             // only updates the first bundle value change - fix pending
             bundleField.RegisterValueChangedCallback(evt =>
             {
@@ -150,7 +163,7 @@ namespace ISILab.LBS.VisualElements
                 if(bundle)
                 {
                     var identifierTags = LBSAssetsStorage.Instance.Get<LBSTag>();
-                    var idents = SePalleteConnectionView(bundle, identifierTags);
+                    var idents = SetPalleteConnectionView(bundle, identifierTags);
 
                     if (idents.Any())
                     {
@@ -184,6 +197,14 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
 
+        private void OpenFilterWindow(List<Bundle> bundles, Action<Bundle> onPick)
+        {
+            if (bundlePickerWindow)
+                bundlePickerWindow.Close();
+
+            LBSButtonListFilter.Show(bundles, picked => onPick(picked));
+        }
+
         private void SetConnectionPallete(Bundle bundle)
         {
             if (bundle == null) return;
@@ -202,7 +223,7 @@ namespace ISILab.LBS.VisualElements
             connectionPallete.SetIcon(icon, BHcolor);
             
             var identifierTags = LBSAssetsStorage.Instance.Get<LBSTag>();
-            var idents = SePalleteConnectionView(bundle, identifierTags);
+            var idents = SetPalleteConnectionView(bundle, identifierTags);
 
             exterior.identifierToSet = idents[0];
             
@@ -247,7 +268,7 @@ namespace ISILab.LBS.VisualElements
             connectionPallete.Repaint();
         }
 
-        private List<LBSTag> SePalleteConnectionView(Bundle bundle, List<LBSTag> identifierTags)
+        private List<LBSTag> SetPalleteConnectionView(Bundle bundle, List<LBSTag> identifierTags)
         {
             var connections = bundle.GetChildrenCharacteristics<LBSDirection>();
             var tags = connections.SelectMany(c => c.Connections).ToList().RemoveDuplicates();

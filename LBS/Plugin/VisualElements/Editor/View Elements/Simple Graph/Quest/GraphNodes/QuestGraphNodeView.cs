@@ -20,7 +20,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Fields
-        protected GraphNode Node;
+        public GraphNode Node;
         protected VisualElement InvalidConnectionIcon;
 
         private static Type _prevManipulatorType;
@@ -75,7 +75,7 @@ namespace ISILab.LBS.VisualElements
             SetPosition(newPos);
         }
 
-        protected void OnMouseLeave(MouseLeaveEvent e) 
+        protected virtual void OnMouseLeave(MouseLeaveEvent e) 
         {
             if (Node == null) return;
             RestoreManipulator();
@@ -87,7 +87,7 @@ namespace ISILab.LBS.VisualElements
             RestoreManipulator();
         }
 
-        protected void OnMouseEnter(MouseEnterEvent evt)
+        protected virtual void OnMouseEnter(MouseEnterEvent evt)
         {
             ShelfManipulator();
         }

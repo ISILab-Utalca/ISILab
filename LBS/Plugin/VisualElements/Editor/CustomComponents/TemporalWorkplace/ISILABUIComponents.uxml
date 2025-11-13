@@ -55,12 +55,7 @@
                     <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" selectable="true" />
                     <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" />
                     <ui:Instance template="LayerView" name="TemplateContainer" style="flex-direction: row;" />
-                    <ISILab.LBS.CustomComponents.LBSCustomTreeView>
-                        <TreeViewItems>
-                            <ISILab.LBS.CustomComponents.LBSTreeData />
-                            <ISILab.LBS.CustomComponents.LBSTreeData />
-                        </TreeViewItems>
-                    </ISILab.LBS.CustomComponents.LBSCustomTreeView>
+                    <ISILab.LBS.CustomComponents.LBSCustomRadioButtonGroup choices="a,b,c" selected-choice="0" />
                 </ui:VisualElement>
                 <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
                     <ISILab.LBS.CustomComponents.LBSCustomFoldout>

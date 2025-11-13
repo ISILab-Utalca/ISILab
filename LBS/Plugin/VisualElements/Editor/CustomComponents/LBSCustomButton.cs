@@ -1,4 +1,6 @@
 using System;
+using ISILab.Extensions;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,50 +20,61 @@ namespace ISILab.LBS.CustomComponents
             set
             {
                 buttonTint = value;
-                if (tintOverlayElement != null)
+                if (value != Color.white)
                 {
-                    if (buttonTint != Color.white)
-                    {
-                        
-                        tintOverlayElement.style.backgroundColor = new StyleColor(buttonTint); 
-                        tintOverlayElement.style.display = DisplayStyle.Flex;
+                    Color.RGBToHSV(buttonTint, out float h , out float s, out float v);
+                    hoverButtonTint = Color.HSVToRGB(h, s, Mathf.Clamp( v + 0.1f,0f,1f));
+                    pressedButtonTint = Color.HSVToRGB( h, 
+                        Mathf.Clamp( s + 0.1f,0f,1f), 
+                        Mathf.Clamp( v - 0.2f,0f,1f));
                     
-                    }
-                    else
-                    {
-                        tintOverlayElement.style.display = DisplayStyle.None;
-                    }
+                    SetOverlayColors(buttonTint);
                 }
-
             }
         }
-
-        private Color buttonTint = Color.white;
-        private Color baseTint = Color.white;
         
-        private VisualElement tintOverlayElement;
+        
+        [UxmlAttribute]
+        public Color IconColor
+        {
+            get => iconColor;
+            set
+            {
+                iconColor = value;
+                Image imageVe = this.Q<Image>(classes:"unity-button__image");
+                if (iconColor != Color.white && imageVe != null)
+                {
+                    //imageVe.style.unityBackgroundImageTintColor = new StyleColor(iconColor);
+                    imageVe.tintColor = IconColor;
+                }
+            }
+        }
+        
+        private Color iconColor = Color.white;
+        private Color buttonTint = Color.white;
+        private Color hoverButtonTint = Color.white;
+        private Color pressedButtonTint = Color.white;
+        
         public LBSCustomButton() : base()
         {
             RemoveFromClassList(ussClassName);
             AddToClassList(LBSClassName);
-            baseTint = this.style.backgroundColor.value;
+            //style.backgroundColor = new StyleColor(buttonTint);
+            SetOverlayColors(buttonTint);
+            RegisterCallback<MouseEnterEvent>((_evt => SetOverlayColors(hoverButtonTint)));
+            RegisterCallback<MouseLeaveEvent>((_evt => SetOverlayColors(buttonTint)));
+            RegisterCallback<ClickEvent>((_evt => SetOverlayColors(pressedButtonTint)));
+            RegisterCallback<MouseUpEvent>((_evt => SetOverlayColors(buttonTint)));
+            // RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
             
-            
-            tintOverlayElement = new VisualElement();
-            tintOverlayElement.AddToClassList("lbs-button-tint-overlay");
-            this.Add(tintOverlayElement);
-            tintOverlayElement.SendToBack();
-            tintOverlayElement.style.position = Position.Absolute;
-            tintOverlayElement.pickingMode = PickingMode.Ignore;
-            if (baseTint != Color.white)
+        }
+
+        public void SetOverlayColors(Color _newColor = new Color())
+        {
+            if (_newColor != Color.white)
             {
-                tintOverlayElement.style.backgroundColor = new StyleColor(baseTint);
+                style.backgroundColor = new StyleColor(_newColor);
             }
-            else
-            {
-                tintOverlayElement.style.display = DisplayStyle.None;
-            }
-            
         }
     }
 }

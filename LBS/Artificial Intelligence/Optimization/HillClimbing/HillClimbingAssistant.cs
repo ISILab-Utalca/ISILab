@@ -18,6 +18,7 @@ using ISILab.LBS.Modules;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
@@ -31,7 +32,7 @@ namespace ISILab.LBS.Assistants
         typeof(SectorizedTileMapModule),
         typeof(ConnectedZonesModule),
         typeof(ConstrainsZonesModule))]
-    public class HillClimbingAssistant : LBSAssistant
+    public class HillClimbingAssistant : LBSAssistant, IAssistantThreaded
     {
         private List<Vector2Int> Dirs => Directions.Bidimencional.Edges;
 
@@ -66,7 +67,7 @@ namespace ISILab.LBS.Assistants
         #endregion
 
         #region CONSTRUCTORS
-        public HillClimbingAssistant(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint)
+        public HillClimbingAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
         #endregion
@@ -77,21 +78,24 @@ namespace ISILab.LBS.Assistants
         {
         }
 
-        public bool TryExecute(out string failedLog, Action<float> onProgress = null, CancellationToken token = default)
+        public bool TryExecute(out string log, out LogType type, Action<float> onProgress = null, CancellationToken token = default)
         {
-            failedLog = null;
+            log = "HillClimbing Completed";
+            type =  LogType.Log;
             var modules = (hillClimbing.Adam as OptimizableModules)?.Modules;
             
             int edgeCount = modules.GetModule<ConnectedZonesModule>().Edges.Count;
             int zoneCount = modules.GetModule<SectorizedTileMapModule>().ZonesWithTiles.Count;
             if(zoneCount <= 0)
             {
-                failedLog = "Map has no zones!";
+                log = "Map has no zones!";
+                type = LogType.Error;
                 return false;
             }
             if(edgeCount <= 0)
             {
-                failedLog = "Cannot calculate the adjacency of a map if their nodes are not connected.";
+                log = "Cannot calculate the adjacency of a map if their nodes are not connected.";
+                type = LogType.Error;
                 return false;
             }
             Execute(onProgress, token);
@@ -132,14 +136,11 @@ namespace ISILab.LBS.Assistants
             
         }
 
-        public void ExecutionEnded()
+        public void ExecuteOneStep(out string log, out LogType type, Action<float> onProgress = null, CancellationToken token = default)
         {
-            OwnerLayer.Reload();
-            OnTermination?.Invoke();
-        }
-
-        public void ExecuteOneStep(Action<float> onProgress = null, CancellationToken token = default)
-        {
+            log = "HillClimbing cancelled";
+            type = LogType.Error;
+            
             var clock = new Stopwatch();
 
             Debug.Log("HillClimbing one step, start!");
@@ -153,15 +154,20 @@ namespace ISILab.LBS.Assistants
             var zones = modules.GetModule<SectorizedTileMapModule>();
             var schema = OwnerLayer.GetBehaviour<Behaviours.SchemaBehaviour>();
             
-            if(token.IsCancellationRequested) return;
+            if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+            {
+                return;
+            }
+            
             schema.RequestFullRepaint(TileMapMod.Tiles, modules.GetModule<TileMapModule>().Tiles);
-           
-            if(token.IsCancellationRequested) return;
             RecalculateWalls(modules);
             SetDoors(modules);
 
             // last cancel attempt before the modules are replaced
-            if(token.IsCancellationRequested) return;
+            if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+            {
+                return;
+            }
             
             foreach (var module in modules)
             {
@@ -174,6 +180,9 @@ namespace ISILab.LBS.Assistants
                 "Execute \n" +
                 "Time: " + clock.ElapsedMilliseconds / 1000f + " s. \n" +
                 "Ticks: " + clock.ElapsedTicks);
+            
+            log = "HillClimbing on step Ended!";
+            type = LogType.Log;
         }
 
         public void RecalculateWalls(List<LBSModule> layer)
@@ -314,7 +323,7 @@ namespace ISILab.LBS.Assistants
 
             for (var index = 0; index < zones.Count; index++)
             {
-                if (token.IsCancellationRequested)
+                if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
                 {
                     ConstrainsZonesMod.Clear();
                     foreach (var constraintPair in PreviousConstraints)
@@ -792,7 +801,7 @@ namespace ISILab.LBS.Assistants
 
         public override object Clone()
         {
-            return new HillClimbingAssistant(Icon, Name, ColorTint);
+            return new HillClimbingAssistant(IconGuid, Name, ColorTint);
         }
 
         public override bool Equals(object obj)
@@ -811,5 +820,10 @@ namespace ISILab.LBS.Assistants
             return base.GetHashCode();
         }
         #endregion
+
+        public void OnTaskCancelled()
+        {
+            // stub
+        }
     }
 }

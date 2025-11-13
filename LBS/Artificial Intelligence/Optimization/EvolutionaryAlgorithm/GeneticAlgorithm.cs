@@ -21,7 +21,7 @@ using Debug = UnityEngine.Debug;
 namespace ISILab.AI.Optimization
 {
     [System.Serializable]
-    public class GeneticAlgorithm : BaseOptimizer
+    public class GeneticAlgorithm : BaseOptimizer, IAssistantThreaded
     {
         #region FIELDS
 
@@ -139,7 +139,10 @@ namespace ISILab.AI.Optimization
             var offspring = Cross(parentsChromosomes);
             
             // exit
-            if(token.IsCancellationRequested) return;
+            if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+            {
+                return;
+            }
             
             Mutate(offspring);
 
@@ -154,7 +157,10 @@ namespace ISILab.AI.Optimization
             EvaluateFitness(children, onProgress, token);
             
             // exit
-            if(token.IsCancellationRequested) return;
+            if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+            {
+                return;
+            }
             
             var newGenerationChromosomes = Reinsert(children, parents);
             Population.CreateNewGeneration(newGenerationChromosomes);
@@ -243,7 +249,10 @@ namespace ISILab.AI.Optimization
                     var c = optimizables[index];
                     
                     // exit
-                    if(token.IsCancellationRequested) return;
+                    if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+                    {
+                        return;
+                    }
                     
                     TaskExecutor.Add(() =>
                     {
@@ -301,6 +310,11 @@ namespace ISILab.AI.Optimization
             roulette.mutations.Add(new WeightedMutation(new ExhaustiveSwapGene(), 1.0f));
 
             Mutation = new RoulleteWheelMutation();
+        }
+
+        void IAssistantThreaded.OnTaskCancelled()
+        {
+            // stub
         }
     }
 }

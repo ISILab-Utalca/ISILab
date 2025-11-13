@@ -23,20 +23,20 @@ namespace ISILab.LBS.Drawers
         private List<LBSTag> Identifiers => LBSAssetsStorage.Instance.Get<LBSTag>();
         public ExteriorDrawer() : base() { }
 
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviours
             if (target is not ExteriorBehaviour exterior) return;
             // Get modules
             var connectMod = exterior.OwnerLayer.GetModule<ConnectedTileMapModule>();
             
-            PaintNewTiles(exterior, connectMod, teselationSize, view);
-            //UpdateLoadedTiles(exterior, connectMod, teselationSize, view);
+            PaintNewTiles(exterior, connectMod, tesselationSize, view);
+            //UpdateLoadedTiles(exterior, connectMod, tesselationSize, view);
             
             if (!Loaded || FullRedrawRequested)
             {
                 //Debug.Log($"EXTERIOR FULL REDRAW: {exterior.Tiles.Count}");
-                LoadAllTiles(exterior, connectMod, teselationSize, view);
+                LoadAllTiles(exterior, connectMod, tesselationSize, view);
                 Loaded = true;
                 FullRedrawRequested = false;
             }
@@ -139,7 +139,7 @@ namespace ISILab.LBS.Drawers
         {
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
 
-            Vector2 size = DefalutSize * teselationSize;
+            Vector2 size = DefaultSize * teselationSize;
             tView.SetPosition(new Rect(pos * size, size));
 
             tView.layer = layerIndex;
@@ -261,20 +261,20 @@ namespace ISILab.LBS.Drawers
 
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
 
-            Vector2 size = DefalutSize * teselationSize;
+            Vector2 size = DefaultSize * teselationSize;
             tView.SetPosition(new Rect(pos * size, size));
 
             return tView;
         }
 
-        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int teselationSize)
+        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
         {
             var exterior = target as ExteriorBehaviour;
 
             var tileMod = exterior.OwnerLayer.GetModule<TileMapModule>();
             var connectMod = exterior.OwnerLayer.GetModule<ConnectedTileMapModule>();
 
-            var texture = new Texture2D((int)(sourceRect.width * teselationSize.x), (int)(sourceRect.height * teselationSize.y));
+            var texture = new Texture2D((int)(sourceRect.width * tesselationSize.x), (int)(sourceRect.height * tesselationSize.y));
 
             for (int j = 0; j < texture.height; j++)
             {
@@ -291,13 +291,13 @@ namespace ISILab.LBS.Drawers
                     continue;
                 c++;
                 var connections = connectMod.GetConnections(t);
-                var text = GetTileTexture(connections, teselationSize);
-                for (int j = 0; j < teselationSize.y; j++)
+                var text = GetTileTexture(connections, tesselationSize);
+                for (int j = 0; j < tesselationSize.y; j++)
                 {
-                    for (int i = 0; i < teselationSize.x; i++)
+                    for (int i = 0; i < tesselationSize.x; i++)
                     {
                         var pos = t.Position - sourceRect.position;
-                        texture.SetPixel((int)(pos.x * teselationSize.x) + i, (int)(pos.y * teselationSize.y) + j, text.GetPixel(i, j));
+                        texture.SetPixel((int)(pos.x * tesselationSize.x) + i, (int)(pos.y * tesselationSize.y) + j, text.GetPixel(i, j));
                     }
                 }
             }

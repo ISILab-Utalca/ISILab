@@ -1,5 +1,14 @@
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Editor.Windows;
+using LBS.Bundles;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 
@@ -15,7 +24,13 @@ namespace ISILab.LBS.CustomComponents
         private IconPosition iconPosition = IconPosition.Left;
 
         private VisualElement iconVisualElement;
-        
+
+        private bool _useCustomFilter = false;
+        private bool _selectorHooked;
+
+        public Action<Action<UnityEngine.Object>> CustomFilter { get; set; }
+        public string InvalidSelectionMessage { get; set; }
+
         #region Properties
 
         [UxmlAttribute]
@@ -53,8 +68,22 @@ namespace ISILab.LBS.CustomComponents
             }
         }
 
+        [UxmlAttribute]
+        public bool UseCustomFilter
+        {
+            get => _useCustomFilter;
+            set
+            {
+                _useCustomFilter = value;
+                if (_useCustomFilter)
+                {
+                    TryHookSelector();
+                }
+            }
+        }
+
         #endregion
-        
+
         public LBSCustomObjectField() : base()
         {
             RemoveFromClassList(ussClassName);
@@ -74,6 +103,9 @@ namespace ISILab.LBS.CustomComponents
             {
                 iconVisualElement.style.display = DisplayStyle.None;
             }
+
+            RegisterCallback<AttachToPanelEvent>(_ => TryHookSelector());
+            RegisterCallback<GeometryChangedEvent>(_ => TryHookSelector());
         }
 
         void SetIconPosition(IconPosition _iconPosition)
@@ -95,7 +127,78 @@ namespace ISILab.LBS.CustomComponents
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
-        
+
+        public void OpenCustomFilter()
+        {
+            if (!_useCustomFilter || CustomFilter == null)
+                return;
+
+            CustomFilter(obj =>
+            {
+                if (obj == null)
+                    return;
+
+                if (objectType != null && !objectType.IsInstanceOfType(obj))
+                {
+                    NotifyInvalid();
+                    return;
+                }
+
+                if (!allowSceneObjects && !EditorUtility.IsPersistent(obj))
+                {
+                    NotifyInvalid();
+                    return;
+                }
+
+                value = obj;
+            });
+        }
+
+        private void NotifyInvalid()
+        {
+            if (!string.IsNullOrEmpty(InvalidSelectionMessage))
+            {
+                LBSMainWindow.MessageNotify(InvalidSelectionMessage, LogType.Warning);
+            }
+        }
+
+        private void TryHookSelector()
+        {
+            if (!_useCustomFilter || _selectorHooked)
+                return;
+
+            var selector = this.Q(className: "unity-object-field__selector");
+            if (selector == null) return;
+
+            _selectorHooked = true;
+
+            //Stops the default object field behavior and opens the custom picker instead
+
+            selector.RegisterCallback<PointerDownEvent>(evt =>
+            {
+                evt.StopImmediatePropagation();
+                evt.StopPropagation();
+                OpenCustomFilter();
+            }, TrickleDown.TrickleDown);
+
+            selector.RegisterCallback<ClickEvent>(evt =>
+            {
+                evt.StopImmediatePropagation();
+                evt.StopPropagation();
+            }, TrickleDown.TrickleDown);
+
+            selector.RegisterCallback<KeyDownEvent>(evt =>
+            {
+                if (evt.keyCode == KeyCode.Return || evt.keyCode == KeyCode.Space)
+                {
+                    evt.StopImmediatePropagation();
+                    evt.StopPropagation();
+                    OpenCustomFilter();
+                }
+            }, TrickleDown.TrickleDown);
+        }
+
     }
+
+    
 }

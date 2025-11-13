@@ -22,12 +22,12 @@ namespace ISILab.LBS.Assistants
         [JsonIgnore]
         public QuestGraph _questGraph => OwnerLayer.GetModule<QuestGraph>();
 
-        public GrammarAssistant(VectorImage icon, string name, Color colorTint)
-            : base(icon, name, colorTint) { }
+        public GrammarAssistant(string IconGuid, string name, Color colorTint)
+            : base(IconGuid, name, colorTint) { }
 
         public override object Clone()
         {
-            return new GrammarAssistant(Icon, this.Name, this.ColorTint);
+            return new GrammarAssistant(IconGuid, this.Name, this.ColorTint);
         }
 
         public bool ValidateQuestGraph()

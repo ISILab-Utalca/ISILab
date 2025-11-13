@@ -56,7 +56,7 @@ namespace ISILab.AI.Categorization
 
             float fitness = 0;
 
-            var genes = chrom.GetGenes().Cast<BundleData>().ToList();
+            List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
             /* Search for your tagged elements. */
             int defaultCharacteristicIndex = -1;
@@ -89,7 +89,7 @@ namespace ISILab.AI.Categorization
             }
             else
             {
-                fitness = EvaluateWithoutContext(defaultCharacteristicIndex, chrom, null);
+                fitness = EvaluateWithoutContext(defaultCharacteristicIndex, chrom);
             }
 
             UnityEngine.Assertions.Assert.IsFalse(fitness == float.NaN);
@@ -101,7 +101,7 @@ namespace ISILab.AI.Categorization
             throw new System.NotImplementedException("Default evaluation method not overwritten.");
         }
 
-        float EvaluateWithoutContext(int index, BundleTilemapChromosome chrom, params LBSModule[] modules)
+        float EvaluateWithoutContext(int index, BundleTilemapChromosome chrom)
         {
             throw new System.NotImplementedException("Default evaluation method not overwritten.");
         }

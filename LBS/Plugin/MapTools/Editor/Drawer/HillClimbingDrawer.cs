@@ -8,6 +8,8 @@ using ISILab.LBS.VisualElements.Editor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Editor.Windows;
+using LBS.Components.TileMap;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -19,34 +21,60 @@ namespace ISILab.LBS.Drawers
     {
         private readonly Vector2 _nodeSize = new(100, 100);
 
+        private Action _onChangeAction;
+        
         private readonly Dictionary<Zone, LBSNodeView> _nodeRefs = new();
         private readonly HashSet<object> _keyRefs = new();
 
-        public override void Draw(object target, MainView view, Vector2 teselationSize)
+        public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Set target Assistant
-            var assistant = target as HillClimbingAssistant;
-            if (assistant == null) return;
-
+            if (target is not HillClimbingAssistant assistant) return;
+         
+            ClearElements(assistant);
+            
             // Get modules
-            var consts = assistant.ConstrainsZonesMod.Constraints;
+            List<ConstraintPair> constraints = assistant.ConstrainsZonesMod.Constraints;
 
-            // Get new tiles
-            //assistant.ReloadPrevData();
-            foreach (var key in _keyRefs)
+            if (assistant.OwnerLayer is not { } layer) return;
+            
+            //if (_onChangeAction != null) layer.OnChange -= _onChangeAction;
+            layer.OnChange += CheckDrawing(view, tesselationSize, assistant, assistant.ConstrainsZonesMod.Constraints);
+            //layer.OnChange += _onChangeAction;
+           
+            PaintElements(view, tesselationSize, assistant, constraints);
+            
+            //PaintNewTiles(assistant, view, consts, tesselationSize);
+            //UpdateLoadedTiles(view, assistant, consts, tesselationSize);
+        }
+
+        private Action CheckDrawing(MainView view, Vector2 tesselationSize, HillClimbingAssistant assistant, List<ConstraintPair> constraints)
+        {
+            return () => { PaintElements(view, tesselationSize, assistant, constraints); };
+        }
+
+        private void PaintElements(MainView view, Vector2 tesselationSize, HillClimbingAssistant assistant, List<ConstraintPair> constraints)
+        {
+            ClearElements(assistant);
+
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, assistant.OwnerLayer)) return; 
+            
+            PaintEverything(assistant, view, constraints, tesselationSize);
+        }
+
+        private void ClearElements(HillClimbingAssistant assistant)
+        {
+            foreach (object key in _keyRefs)
             {
-                view.ClearLayerComponentView(assistant.OwnerLayer, key);
+                MainView.Instance.ClearLayerComponentView(assistant.OwnerLayer, key);
             }
+
             _keyRefs.Clear();
             _nodeRefs.Clear();
-            PaintEverything(assistant, view, consts, teselationSize);
-
-            //PaintNewTiles(assistant, view, consts, teselationSize);
-            //UpdateLoadedTiles(view, assistant, consts, teselationSize);
         }
 
         private void PaintEverything(HillClimbingAssistant assistant, MainView view,
-            List<ConstraintPair> consts, Vector2 teselationSize)
+            List<ConstraintPair> constraints, Vector2 tesselationSize)
         {
             if (!assistant.OwnerLayer.IsVisible) return;
             
@@ -59,7 +87,7 @@ namespace ISILab.LBS.Drawers
                 }
 
                 // Zone node
-                var nView = CreateNode(assistant, zone);
+                LBSNodeView nView = CreateNode(assistant, zone);
 
                 if (!_nodeRefs.TryAdd(zone, nView))
                 {
@@ -70,13 +98,13 @@ namespace ISILab.LBS.Drawers
                 if (!assistant.visibleConstraints) continue;
 
                 // Constrains
-                foreach (var pair in consts)
+                foreach (ConstraintPair pair in constraints)
                 {
                     if (!pair.Zone.Equals(zone)) continue;
                     
-                    var vws = CreateFeedBackAreas(nView, pair, teselationSize);
-                    var ve = new Empty();
-                    foreach (var v in vws)
+                    List<DottedAreaFeedback> vws = CreateFeedBackAreas(nView, pair, tesselationSize);
+                    Empty ve = new Empty();
+                    foreach (DottedAreaFeedback v in vws)
                     {
                         ve.Add(v);
                     }
@@ -92,33 +120,33 @@ namespace ISILab.LBS.Drawers
             foreach (ZoneEdge edge in assistant.GetEdges())
             {
                 // Get view nodes
-                var n1 = _nodeRefs[edge.First];
-                var n2 = _nodeRefs[edge.Second];
+                LBSNodeView n1 = _nodeRefs[edge.First];
+                LBSNodeView n2 = _nodeRefs[edge.Second];
 
                 // Create EdgeView
-                var eView = new LBSEdgeView(edge, n1, n2, 4, 4);
+                LBSEdgeView eView = new(edge, n1, n2, 4, 4);
                 
                 view.AddElementToLayerContainer(assistant.OwnerLayer, edge, eView);
                 _keyRefs.Add(edge);
             }
 
-            foreach(var node in _nodeRefs)
+            foreach(KeyValuePair<Zone, LBSNodeView> node in _nodeRefs)
             {
                 view.AddElementToLayerContainer(assistant.OwnerLayer, node.Key, node.Value);
             }
         }
 
         private void PaintNewTiles(HillClimbingAssistant assistant, MainView view,
-            List<ConstraintPair> consts, Vector2 teselationSize)
+            List<ConstraintPair> constraints, Vector2 tesselationSize)
         {
-            var newTiles = assistant.RetrieveNewTiles();
+            object[] newTiles = assistant.RetrieveNewTiles();
             
             // Draw new Nodes
-            foreach (var o in newTiles)
+            foreach (object o in newTiles)
             {
                 if (o is not Zone zone) continue;
                 
-                var nView = CreateNode(assistant, zone);
+                LBSNodeView nView = CreateNode(assistant, zone);
                 view.AddElementToLayerContainer(assistant.OwnerLayer, zone, nView);
                 
                 if (!_nodeRefs.TryAdd(zone, nView))
@@ -128,14 +156,14 @@ namespace ISILab.LBS.Drawers
                 _keyRefs.Add(zone);
 
                 // Constrains
-                foreach (var pair in consts)
+                foreach (ConstraintPair pair in constraints)
                 {
                     if (!pair.Zone.Equals(zone)) continue;
                     
                     
-                    var vws = CreateFeedBackAreas(nView, pair, teselationSize);
-                    var ve = new Empty();
-                    foreach (var v in vws)
+                    List<DottedAreaFeedback> vws = CreateFeedBackAreas(nView, pair, tesselationSize);
+                    Empty ve = new Empty();
+                    foreach (DottedAreaFeedback v in vws)
                     {
                         ve.Add(v);
                     }
@@ -148,16 +176,16 @@ namespace ISILab.LBS.Drawers
             }
             
             // Draw new Edges
-            foreach (var o in newTiles)
+            foreach (object o in newTiles)
             {
                 if (o is not ZoneEdge edge) continue;
                 
                 // Get view nodes
-                var n1 = _nodeRefs[edge.First];
-                var n2 = _nodeRefs[edge.Second];
+                LBSNodeView n1 = _nodeRefs[edge.First];
+                LBSNodeView n2 = _nodeRefs[edge.Second];
 
                 // Create EdgeView
-                var eView = new LBSEdgeView(edge, n1, n2, 4, 4);
+                LBSEdgeView eView = new LBSEdgeView(edge, n1, n2, 4, 4);
                 
                 view.AddElementToLayerContainer(assistant.OwnerLayer, edge, eView);
                 _keyRefs.Add(edge);
@@ -167,9 +195,9 @@ namespace ISILab.LBS.Drawers
         private void UpdateLoadedTiles(MainView view, HillClimbingAssistant assistant, List<ConstraintPair> consts, Vector2 teselationSize)
         {
             // Update visuals
-            foreach (var key in _keyRefs.ToList())
+            foreach (object key in _keyRefs.ToList())
             {
-                var elements = view.GetElementsFromLayerContainer(assistant.OwnerLayer, key);
+                List<GraphElement> elements = view.GetElementsFromLayerContainer(assistant.OwnerLayer, key);
                 
                 // Remove lost references
                 if (elements == null)
@@ -179,21 +207,21 @@ namespace ISILab.LBS.Drawers
                 }
 
                 // Update visuals
-                foreach (var element in elements.Where(element => element != null))
+                foreach (GraphElement element in elements.Where(element => element != null))
                 {
                     switch (key)
                     {
                         case Zone zone:
-                            var node = element as LBSNodeView;
+                            LBSNodeView node = element as LBSNodeView;
                             if (node == null) break;
                             UpdateNode(ref node, assistant, zone);
                             break;
                         
                         case ConstraintPair keyPair:
-                            var feedback = element as Empty;
+                            Empty feedback = element as Empty;
                             if (feedback == null) break;
 
-                            foreach (var pair in consts.Where(pair => keyPair.Zone.Equals(pair.Zone)))
+                            foreach (ConstraintPair pair in consts.Where(pair => keyPair.Zone.Equals(pair.Zone)))
                             {
                                 UpdateFeedbackArea(ref feedback, pair, teselationSize, assistant.visibleConstraints);
                                 break;
@@ -201,7 +229,7 @@ namespace ISILab.LBS.Drawers
                             break;
                         
                         case ZoneEdge zEdge:
-                            var edgeView = element as LBSEdgeView;
+                            LBSEdgeView edgeView = element as LBSEdgeView;
                             UpdateEdge(ref edgeView, _nodeRefs[zEdge.First], _nodeRefs[zEdge.Second]);
                             break;
                         
@@ -225,7 +253,7 @@ namespace ISILab.LBS.Drawers
 
             foreach (object tile in _keyRefs)
             {
-                foreach (var graphElement in view.GetElementsFromLayerContainer(assistant.OwnerLayer, tile).Where(graphElement => graphElement != null))
+                foreach (GraphElement graphElement in view.GetElementsFromLayerContainer(assistant.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -245,8 +273,8 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
             
-                var _elements = view.GetElementsFromLayerContainer(assistant.OwnerLayer, tile);
-                foreach (var graphElement in _elements)
+                List<GraphElement> _elements = view.GetElementsFromLayerContainer(assistant.OwnerLayer, tile);
+                foreach (GraphElement graphElement in _elements)
                 {
                     graphElement.style.display = DisplayStyle.None;
                 }
@@ -262,22 +290,22 @@ namespace ISILab.LBS.Drawers
         /// <returns></returns>
         private List<DottedAreaFeedback> CreateFeedBackAreas(LBSNodeView nodeView, ConstraintPair pair, Vector2 size)
         {
-            var settings = LBSSettings.Instance;
-            var tileSize = settings.general.TileSize;
+            LBSSettings settings = LBSSettings.Instance;
+            Vector2 tileSize = settings.general.TileSize;
 
             List<DottedAreaFeedback> cViews = new();
 
-            var constr = pair.Constraint;
+            Constraint constr = pair.Constraint;
 
             // Get points from first dotted area
-            var maxV1 = new Vector2(-constr.maxWidth / 2f, -constr.maxHeight / 2f);
-            var maxV2 = new Vector2(constr.maxWidth / 2f, constr.maxHeight / 2f);
+            Vector2 maxV1 = new Vector2(-constr.maxWidth / 2f, -constr.maxHeight / 2f);
+            Vector2 maxV2 = new Vector2(constr.maxWidth / 2f, constr.maxHeight / 2f);
 
             // Create first dotted area
-            var c1 = new DottedAreaFeedback();
+            DottedAreaFeedback c1 = new DottedAreaFeedback();
 
             // Get center position
-            var center = nodeView.GetPosition().center;
+            Vector2 center = nodeView.GetPosition().center;
 
             // Set values to first doted area
             c1.SetPosition(new Rect(center, new Vector2(10, 10)));
@@ -285,11 +313,11 @@ namespace ISILab.LBS.Drawers
             c1.SetColor(Color.red);
 
             // Get points from second dotted area
-            var minV1 = new Vector2(-constr.minWidth / 2f, -constr.minHeight / 2f);
-            var minV2 = new Vector2(constr.minWidth / 2f, constr.minHeight / 2f);
+            Vector2 minV1 = new Vector2(-constr.minWidth / 2f, -constr.minHeight / 2f);
+            Vector2 minV2 = new Vector2(constr.minWidth / 2f, constr.minHeight / 2f);
 
             // Create second dotted area
-            var c2 = new DottedAreaFeedback();
+            DottedAreaFeedback c2 = new DottedAreaFeedback();
 
             // Set value to second dotted area
             c2.SetPosition(new Rect(center, new Vector2(10, 10)));
@@ -310,22 +338,22 @@ namespace ISILab.LBS.Drawers
             feedbackArea.visible = visible;
             if (!visible) return;
             
-            var settings = LBSSettings.Instance;
-            var tileSize = settings.general.TileSize;
-            var constr = pair.Constraint;
+            LBSSettings settings = LBSSettings.Instance;
+            Vector2 tileSize = settings.general.TileSize;
+            Constraint constr = pair.Constraint;
 
-            var areas = feedbackArea.Children().ToArray();
-            var a1 = (DottedAreaFeedback) areas[0];
-            var a2 = (DottedAreaFeedback) areas[1];
-            _nodeRefs.TryGetValue(pair.Zone, out var nodeView);
+            VisualElement[] areas = feedbackArea.Children().ToArray();
+            DottedAreaFeedback a1 = (DottedAreaFeedback) areas[0];
+            DottedAreaFeedback a2 = (DottedAreaFeedback) areas[1];
+            _nodeRefs.TryGetValue(pair.Zone, out LBSNodeView nodeView);
             
             if(a1 == null || a2 == null || nodeView == null) return;
-            var center = nodeView.GetPosition().center;
+            Vector2 center = nodeView.GetPosition().center;
             
             // -------- First dotted area --------
             // Get points 
-            var maxV1 = new Vector2(-constr.maxWidth / 2f, -constr.maxHeight / 2f);
-            var maxV2 = new Vector2(constr.maxWidth / 2f, constr.maxHeight / 2f);
+            Vector2 maxV1 = new Vector2(-constr.maxWidth / 2f, -constr.maxHeight / 2f);
+            Vector2 maxV2 = new Vector2(constr.maxWidth / 2f, constr.maxHeight / 2f);
             
             // Set values
             a1.SetPosition(new Rect(center, new Vector2(10, 10)));
@@ -334,8 +362,8 @@ namespace ISILab.LBS.Drawers
             
             // -------- Second dotted area --------
             // Get points from second dotted area
-            var minV1 = new Vector2(-constr.minWidth / 2f, -constr.minHeight / 2f);
-            var minV2 = new Vector2(constr.minWidth / 2f, constr.minHeight / 2f);
+            Vector2 minV1 = new Vector2(-constr.minWidth / 2f, -constr.minHeight / 2f);
+            Vector2 minV2 = new Vector2(constr.minWidth / 2f, constr.minHeight / 2f);
 
             // Set value to second dotted area
             a2.SetPosition(new Rect(center, new Vector2(10, 10)));
@@ -346,13 +374,13 @@ namespace ISILab.LBS.Drawers
         private LBSNodeView CreateNode(HillClimbingAssistant assistant, Zone zone)
         {
             // Create node view
-            var nView = new LBSNodeView();
+            LBSNodeView nView = new LBSNodeView();
 
-            var tiles = assistant.GetTiles(zone);
-            var bound = tiles.GetBounds();
+            List<LBSTile> tiles = assistant.GetTiles(zone);
+            Rect bound = tiles.GetBounds();
 
             // Set position
-            var pos = new Vector2(
+            Vector2 pos = new Vector2(
                 bound.center.x * _nodeSize.x - _nodeSize.x / 2f,
                 -(bound.center.y * _nodeSize.y - _nodeSize.y / 2f));
 
@@ -366,11 +394,11 @@ namespace ISILab.LBS.Drawers
 
         private void UpdateNode(ref LBSNodeView nView, HillClimbingAssistant assistant, Zone zone)
         {
-            var tiles = assistant.GetTiles(zone);
-            var bound = tiles.GetBounds();
+            List<LBSTile> tiles = assistant.GetTiles(zone);
+            Rect bound = tiles.GetBounds();
 
             // Set position
-            var pos = new Vector2(
+            Vector2 pos = new Vector2(
                 bound.center.x * _nodeSize.x - _nodeSize.x / 2f,
                 -(bound.center.y * _nodeSize.y - _nodeSize.y / 2f));
 
@@ -382,8 +410,8 @@ namespace ISILab.LBS.Drawers
 
         private void UpdateEdge(ref LBSEdgeView edgeView, LBSNodeView node1, LBSNodeView node2)
         {
-            var sPos1 = new Vector2Int((int)node1.GetPosition().center.x, (int)node1.GetPosition().center.y);
-            var sPos2 = new Vector2Int((int)node2.GetPosition().center.x, (int)node2.GetPosition().center.y);
+            Vector2Int sPos1 = new Vector2Int((int)node1.GetPosition().center.x, (int)node1.GetPosition().center.y);
+            Vector2Int sPos2 = new Vector2Int((int)node2.GetPosition().center.x, (int)node2.GetPosition().center.y);
             edgeView.ActualizePositions(sPos1, sPos2);
         }
     }

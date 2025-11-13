@@ -1,12 +1,29 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
-    <ui:VisualElement name="Overlay" style="flex-grow: 1; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.24); position: absolute; right: 0; left: 0; bottom: 0; top: 0;" />
+    <ui:VisualElement name="Overlay" style="flex-grow: 1; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.24); position: absolute; right: 0; left: 0; bottom: 1px; top: 0;" />
     <ui:VisualElement name="VisualElement" class="lbs_popup" style="flex-grow: 1; padding-left: 12px; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; margin-top: 72px; margin-right: 72px; margin-bottom: 72px; margin-left: 72px;">
-        <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," section-titles="One,Two,Four,Four" enabled="false" style="height: 20px;" />
-        <ui:VisualElement name="WizardContent" class="lbs-group-box" style="flex-grow: 1;" />
+        <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," section-titles="Step 1,Step 2,Step 3,Step 4" enabled="false" style="height: 20px;" />
+        <LBSCustomTabView name="TabView" display-tabs="false" style="flex-grow: 1; display: flex; overflow: hidden;">
+            <ui:Tab label="1 - New Bundle Collection" closeable="false" name="Step1" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
+                <BundleWizardSelectBundleType class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
+            </ui:Tab>
+            <ui:Tab label="2 - Convert Prefabs/Assets" closeable="false" name="Step2" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
+                <BundleWizardSetAssetsMenu class="lbs-wizard-menu-content" />
+            </ui:Tab>
+            <ui:Tab label="3- Asign Bundles" closeable="false" name="Step3" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
+                <BundleWizardSetBundleMenu class="lbs-wizard-menu-content" />
+            </ui:Tab>
+            <ui:Tab label="4 - Add Characteristics" closeable="false" name="Step4" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
+                <BundleWizardSetCharacteristMenu class="lbs-wizard-menu-content" />
+            </ui:Tab>
+        </LBSCustomTabView>
+        <ISILab.LBS.CustomComponents.LBSCustomButton text="aaaaa" icon-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=Add.svg?fileID=7388822144124034973&amp;guid=ad8d08a3d465b3a438016713ae2f99c5&amp;type=3#Icon=Add" button-tint="#393939FF" />
         <ui:VisualElement name="WizardButtons" class="lbs-group-box" style="flex-grow: 1; max-height: 32px; flex-direction: row; justify-content: flex-end;">
-            <ISILab.LBS.CustomComponents.LBSCustomButton button-tint="#00FDF03A" text="Next" name="LBSCustomButton" enable-rich-text="false" icon-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/QuestIcons/QuestIcon=Play.svg?fileID=7388822144124034973&amp;guid=fd14dc66fb454e44daa6b867959fd8e1&amp;type=3#QuestIcon=Play" style="flex-direction: row; width: 144px;" />
-            <ISILab.LBS.CustomComponents.LBSCustomButton button-tint="#FD001A3A" text="Cancel" name="LBSCustomButton" enable-rich-text="false" style="flex-direction: row; width: 96px;" />
+            <ISILab.LBS.CustomComponents.LBSCustomButton button-tint="#636363FF" text="Back&#10;" name="Back" enable-rich-text="false" icon-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Arrows/Icon=ArrowLeft.svg?fileID=7388822144124034973&amp;guid=bd96d266e4bde964183b9e2aeba8d4a8&amp;type=3#Icon=ArrowLeft" hover-color="#BDFFFCFF" pressed-color="#FF0005FF" style="flex-direction: row; width: 144px;" />
+            <ui:VisualElement style="flex-grow: 1; display: flex; visibility: hidden;" />
+            <ISILab.LBS.CustomComponents.LBSCustomButton button-tint="#29827DFF" text="Next" name="Next" enable-rich-text="false" icon-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/QuestIcons/QuestIcon=Play.svg?fileID=7388822144124034973&amp;guid=fd14dc66fb454e44daa6b867959fd8e1&amp;type=3#QuestIcon=Play" hover-color="#BDFFFCFF" pressed-color="#FF0005FF" style="flex-direction: row; width: 144px;" />
+            <ISILab.LBS.CustomComponents.LBSCustomButton button-tint="#60181FFF" text="Cancel" name="Cancel" enable-rich-text="false" style="flex-direction: row; width: 96px;" />
+            <ISILab.LBS.CustomComponents.LBSCustomButton text="Waaaaaaa" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
