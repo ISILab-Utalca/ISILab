@@ -2,6 +2,7 @@ using System;
 using ISILab.LBS.VisualElements;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISI_Lab.LBS.DevTools
 {
@@ -16,7 +17,7 @@ namespace ISI_Lab.LBS.DevTools
         public Vector3 worldPosition = Vector3.zero;
         
         private MeshRenderer mRendererComponent;
-        //public PrevStepButton RootVisualElement { get; set; }
+        public VisualElement RootVisualElement { get; set; }
         
         private void OnEnable()
         {

@@ -28,6 +28,9 @@ namespace ISILab.LBS
         #endregion
 
         #region PROPERTIES
+        
+        public QuestGraph QuestGraph  => questGraph;
+        
         /// <summary>
         /// Objectives(tracking the progress and node advancement)
         /// </summary>
