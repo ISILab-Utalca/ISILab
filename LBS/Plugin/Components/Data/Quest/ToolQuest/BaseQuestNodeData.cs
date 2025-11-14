@@ -203,7 +203,7 @@ namespace ISILab.LBS.Components
             set
             {
                 target =  value;
-                targetID = target.GetInstanceID();
+                if(target is not null) targetID = target.GetInstanceID();
             }
         }
 
