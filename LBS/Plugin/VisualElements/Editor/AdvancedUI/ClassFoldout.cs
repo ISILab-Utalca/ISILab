@@ -79,5 +79,17 @@ namespace ISILab.LBS.VisualElements
                 icon.style.display = DisplayStyle.None;
             }
         }
+        public void ReplaceDropdown(ClassDropDown newDropdown)
+        {
+            int ind = hierarchy.IndexOf(dropdown);
+            hierarchy.RemoveAt(ind);
+
+            newDropdown.Init();
+            newDropdown.style.marginRight = 4;
+            newDropdown.style.flexShrink = 1;
+            newDropdown.style.flexGrow = 1;
+
+            hierarchy.Insert(ind, newDropdown);
+        }
     }
 }

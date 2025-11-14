@@ -12,6 +12,8 @@ namespace ISILab.LBS.Characteristics
     [LBSCharacteristic("Tags", "")]
     public class LBSTagsCharacteristic : LBSCharacteristic, ISerializationCallbackReceiver
     {
+        public new static readonly bool unique = false;
+
         [SerializeField, JsonRequired]
         string tagName = "";
 

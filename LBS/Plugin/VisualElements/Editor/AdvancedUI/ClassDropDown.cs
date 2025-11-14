@@ -4,11 +4,12 @@ using System.Linq;
 
 using UnityEngine.UIElements;
 using ISILab.Commons.Utility;
+using ISILab.LBS.CustomComponents;
 
 namespace ISILab.LBS.VisualElements
 {
     [UxmlElement]
-    public partial class ClassDropDown : DropdownField
+    public partial class ClassDropDown : LBSCustomDropdown
     {
    //     public new class UxmlFactory : UxmlFactory<ClassDropDown, UxmlTraits> {}
 
@@ -30,7 +31,7 @@ namespace ISILab.LBS.VisualElements
         Type type;
 
         bool filterAbstract;
-        private List<Type> types;
+        protected List<Type> types;
 
         #endregion
 
@@ -77,7 +78,7 @@ namespace ISILab.LBS.VisualElements
             }
         }
 
-        public ClassDropDown()
+        public ClassDropDown() : base()
         {
             
         }
@@ -92,7 +93,7 @@ namespace ISILab.LBS.VisualElements
             this.SetValueWithoutNotify("");
         }
 
-        void UpdateOptions()
+        public virtual void UpdateOptions()
         {
             choices.Clear();
 
@@ -123,10 +124,10 @@ namespace ISILab.LBS.VisualElements
             object obj = null;
             var dv = value;
             var dx = choices.IndexOf(dv);
-
+            
             if (dx < 0)
                 return null;
-
+            
             var t = types[dx];
             try
             {
@@ -136,9 +137,8 @@ namespace ISILab.LBS.VisualElements
             {
                 throw new FormatException(t + " class needs to have an empty constructor.");
             }
-
+            
             return obj;
         }
-
     }
 }

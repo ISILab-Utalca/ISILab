@@ -1,8 +1,9 @@
+using LBS.Bundles;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using LBS.Bundles;
-using Newtonsoft.Json;
+using System.Reflection;
 using UnityEngine;
 
 namespace ISILab.LBS.Characteristics
@@ -14,6 +15,8 @@ namespace ISILab.LBS.Characteristics
     public abstract class LBSCharacteristic : ICloneable
     {
         #region FIELDS
+        public static readonly bool unique = true;
+
         [SerializeReference, SerializeField]
         private Bundle owner;
 
@@ -46,6 +49,14 @@ namespace ISILab.LBS.Characteristics
             this.owner = owner;
             OnEnable();
             initialized = true;
+        }
+
+        public static bool IsUnique(Type t)
+        {
+            var field = t.GetField(nameof(unique),
+                BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
+
+            return (bool)(field?.GetValue(null) ?? false);
         }
 
         public virtual void OnEnable() {  }
