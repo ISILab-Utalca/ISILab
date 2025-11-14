@@ -180,7 +180,7 @@ namespace ISILab.LBS.VisualElements
             
             BaseQuestNodeData nodeData = GetSelectedNodeData();
             GameObject gameObject = nodeData?.Target;
-            if (gameObject != null || gameObject?.GetType() != typeof(GameObject) || gameObject.Equals(null) || !gameObject.scene.IsValid())  return;
+            if (gameObject is null || gameObject?.GetType() != typeof(GameObject) || gameObject.Equals(null) || !gameObject.scene.IsValid())  return;
             
             foreach (MonoBehaviour comp in gameObject.GetComponents<MonoBehaviour>())
             {
