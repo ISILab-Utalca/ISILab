@@ -74,8 +74,9 @@ namespace ISILab.LBS.Manipulators
             //
             _assistant.OverrideValues = e.ctrlKey;
             _assistant.OnGUI();
-            
-            RunTask();
+
+            _assistant.TryExecute(out string log, out LogType type, 5);
+            //RunTask();
         }
         
         #region IAssistantThreadedEditor

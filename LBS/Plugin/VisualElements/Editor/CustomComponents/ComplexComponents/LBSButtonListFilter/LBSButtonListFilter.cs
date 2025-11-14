@@ -11,6 +11,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// A window that shows a list of buttons representing bundles (or any list of objects), with a search bar to filter them.
+/// </summary>
 public class LBSButtonListFilter : EditorWindow
 {
     #region VIEW ELEMENTS

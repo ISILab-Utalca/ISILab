@@ -191,11 +191,11 @@ namespace ISILab.LBS.Assistants
             Bundle bundle = targetBundleRef;
             
             // get values for generation: 
-            group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
-            map = OwnerLayer.GetModule<TileMapModule>();
-            connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
-            og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
-            originalTM = og.Clone()[0] as ConnectedTileMapModule;
+            //group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
+            //map = OwnerLayer.GetModule<TileMapModule>();
+            //connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            //og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
+            //originalTM = og.Clone()[0] as ConnectedTileMapModule;
             
 
             var sw = System.Diagnostics.Stopwatch.StartNew();
@@ -266,10 +266,10 @@ namespace ISILab.LBS.Assistants
                         }
 
                         Positions = positions;
-                        bool sectorSuccess = Execute(ref log, scaledProgress, token); // ExecuteChance();
-
+                        bool sectorSuccess = ExecuteChance();
+                        //Execute(ref log, scaledProgress, token);
                         // exit
-                        if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+                        if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
                         {
                             log = "Generation was cancelled.";
                             logType = LogType.Warning;
@@ -312,7 +312,8 @@ namespace ISILab.LBS.Assistants
             }
             else
             {
-               bool success = Execute(ref log, onProgress, token);
+                bool success = ExecuteChance();
+                    //Execute(ref log, onProgress, token);
                if (!success)
                {
                    Restore();
@@ -963,12 +964,10 @@ namespace ISILab.LBS.Assistants
             return candidates;
         }
 
+        //I suggest redoing the whole CalcCandidates method for LBSDirectionedChance, as this one's deprecated.
         private List<Candidate> CalcCandidates(LBSTile tile, LBSDirectionedChance chanceGroup,
                 List<LBSTile> closedList, TileMapModule map)
         {
-            //TO DO
-            //Check que está pasando
-
             var candidates = new List<Candidate>();
             var connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>();
             var neighbors = map.GetTileNeighbors(tile, Dirs);
@@ -980,7 +979,7 @@ namespace ISILab.LBS.Assistants
                 int neighborCount = 0;
                 bool allNeighborsAccept = true;
 
-                for (int dirIndex = 0; dirIndex < neighbors.Count; dirIndex++)
+                for (int dirIndex = 0; dirIndex < 4; dirIndex++)
                 {
                     var neighbor = neighbors[dirIndex];
                     if (neighbor == null || closedList.Contains(neighbor))
@@ -1000,7 +999,7 @@ namespace ISILab.LBS.Assistants
                     }
 
                     // Busca si el candidato existe en los chances del vecino
-                    var chanceObj = neighborDir.chances.FirstOrDefault(c => c.target == candidateBundle);
+                    TileDirectionChance chanceObj = null;//neighborDir.chances.FirstOrDefault(c => c.target == candidateBundle);
                     if (chanceObj == null)
                     {
                         allNeighborsAccept = false;
@@ -1113,6 +1112,7 @@ namespace ISILab.LBS.Assistants
 
         //out string errMsg
 
+        //The replacement for CaptureWeights. Captures the tiles from surrounding tiles too, to create chances of apparition.
         public bool CaptureRules()
         {
             Selection.activeObject = targetBundleRef;
@@ -1122,7 +1122,7 @@ namespace ISILab.LBS.Assistants
             Dictionary<TileConnectionsPair, List<TileChance>> tileChances = new();
 
             var group = targetBundleRef.GetCharacteristics<LBSDirectionedChance>()[0];
-
+            // Se llena con todos los bundles hijos antes de filtrar
             group._Update();
 
             List<TileConnectionsPair> pairs = OwnerLayer.GetModule<ConnectedTileMapModule>().Pairs;
@@ -1138,82 +1138,92 @@ namespace ISILab.LBS.Assistants
             var currentBundles = new List<Bundle>();
             group.tileDirections.ForEach(ws => currentBundles.Add(ws.mainTarget));
 
+            // Check all tiles in map
             foreach (var p in pairs)
             {
-                bool newfound = false;
-                var adjacent = GetAdjacentFromCurrent(pairs, p);
-                List<TileChance> aux = new();
+                bool found = false;
+                List<TileChance> adjacent = GetAdjacentFromCurrent(pairs, p);
 
+                // For each tile, compare with registered tiles
                 foreach (TileConnectionsPair key in tileChances.Keys)
                 {
                     // Check if each connection from key and p are equal
+
+                    // If tile was previously registered
                     if (key.Connections.SequenceEqual(p.Connections))
                     {
+                        // Check neighbours
                         foreach (TileChance tca in adjacent)
                         {
                             if (tca.count == -1)
                             {
                                 continue;
                             }
-
-                            var existing = tileChances[key].FirstOrDefault(tc => tc.Equals(tca));
-
+                            // Checks if tile had registered this neighbour before
+                            TileChance existing = tileChances[key].FirstOrDefault(tc => tc.Equals(tca));
+                            // If it had, increase counter
                             if (existing != null)
                             {
                                 existing.count++;
                             }
-                            else
+                            else // If not, register a new neighbour chance for this tile, including a new counter (1) and its direction from origin
                             {
                                 tileChances[key].Add(new TileChance(tca.tile, tca.count, tca.direction));
                             }
                         }
-                        newfound = true;
+                        //If it finds anything, it gets marked as found.
+                        found = true;
                     }
                 }
 
-                if (!newfound)
+                //If it doesnt find anything, that means the tile is empty, and needs a tilechance.
+                if (!found)
                 {
                     tileChances.Add(p, adjacent);
                 }
             }
 
-            TileDirection td = null;
+            
 
+            // For each kvp
             foreach (var rule in tileChances)
             {
-                //OwnerLayer.GetModule<ConnectedTileMapModule>().
+                TileDirection td = null;
+                // Create a TileDirection. Search amongst existent bundles
                 td = new()
                 {
-                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections)
+                    // If no rotated bundle match the tile, mainTarget will be null
+                    mainTarget = FindEqualConnection(currentBundles, rule.Key.Connections, out int mainRot),
+                    rotation = mainRot,
+                    chances = new List<List<TileDirectionChance>>()
+                    {
+                        new List<TileDirectionChance>(),
+                        new List<TileDirectionChance>(),
+                        new List<TileDirectionChance>(),
+                        new List<TileDirectionChance>()
+                    }
                 };
-                //Debug.Log(rule.Key);
 
                 int total = rule.Value.Where(t => t != null).Sum(t => t.count);
 
-                //Debug.Log(total);
-
-                // TODO
-                // Prevenir Nulls
-
+                //For every neighbour tile registered for this tile
                 foreach (var pair in rule.Value)
                 {
                     TileDirectionChance tileDirectionChance = new()
                     {
-                        target = FindEqualConnection(currentBundles, pair.tile.Connections),
+                        target = FindEqualConnection(currentBundles, pair.tile.Connections, out int rot),
+                        rotation = rot,
                         chance = (float)pair.count / total
                     };
-                    td.chances.Add(tileDirectionChance);
-
-
-                    //float chance = (float)pair.count / total;
-                    //Debug.Log($" - {string.Join(", ", pair.tile + " " + pair.direction + " Count: " + pair.count + " Chance: " + chance.ToString("F2"))}");
+                    td.chances[rot].Add(tileDirectionChance);
                 }
 
                 group.tileDirections.Add(td);
             }
-
+            
             group.tileDirections.RemoveAll(td => !td.chances.Any());
-
+            
+            /*
             foreach (var item in group.tileDirections)
             {
                 Debug.Log("- " + item.mainTarget.BundleName);
@@ -1223,37 +1233,53 @@ namespace ISILab.LBS.Assistants
                     Debug.Log("-> " + i);
                     foreach (var item2 in item.chances)
                     {
-                        Debug.Log(item2.target + " " + item2.chance.ToString());
+                        for(int j = 0; j < item2.Count; j++)
+                        {
+                            Debug.Log(item2[j].target + " " + item2[j].chance.ToString());
+                        }
                     }
                 }
             }
+            */
 
             RefreshInspector(targetBundleRef);
 
             return true;
         }
 
-        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection)
+        private Bundle FindEqualConnection(List<Bundle> bundle, List<string> tileConnection, out int rot)
         {
             int count = 0;
 
+            // For each bundle
             for (int i = 0; i < bundle.Count; i++)
             {
+                // For each rotation
                 for (int j = 0; j < 4; j++)
                 {
-                    if (bundle[i].GetCharacteristics<LBSDirection>()[0].Connections[j] == tileConnection[j])
+                    count = 0;
+                    // Compare all 4 connections
+                    for (int k = 0; k < 4; k++)
                     {
-                        count++;
-                    }
+                        if (bundle[i].GetCharacteristics<LBSDirection>()[0].GetConnection(j)[k] == tileConnection[k])
+                        {
+                            count++;
+                        }
+                        else break;
 
-                    if (count == 4)
-                    {
-                        return bundle[i];
+                        if (count == 4)
+                        {
+                            rot = j;
+                            return bundle[i];
+                        }
+                        
                     }
+                    
                 }
 
             }
 
+            rot = -1;
             return null;
         }
 
@@ -1269,8 +1295,8 @@ namespace ISILab.LBS.Assistants
 
             for (int i = 0; i < 4; i++)
             {
-                var adj = OwnerLayer.GetModule<ConnectedTileMapModule>().GetPair(current.Tile.Position 
-                    + Directions.Bidimencional.Edges[i]);
+                var adj = OwnerLayer.GetModule<ConnectedTileMapModule>()
+                    .GetPair(current.Tile.Position + Directions.Bidimencional.Edges[i]);
 
                 if (adj != null)
                 {
@@ -1622,6 +1648,9 @@ namespace ISILab.LBS.Assistants
         }
     }
 
+    /// <summary>
+    /// A TileConnectionPair which holds how many times it appears adjacent to another tile, and in which direction.
+    /// </summary>
     public class TileChance
     {
         public TileConnectionsPair tile;
@@ -1647,6 +1676,7 @@ namespace ISILab.LBS.Assistants
             count = 1;
         }
 
+        //Formerly used for defining empty tiles. It shouldn't be used now.
         public TileChance(int direction)
         {
             List<string> emptyList = new(new string[] { "", "", "", "" });
@@ -1756,6 +1786,8 @@ namespace ISILab.LBS.Assistants
         }
     }
 
+    //A former version of Candidate, kept for possible future use. Though it's a little unnecessary since
+    //Candidate works fine for the new Chance system.
     public class ChanceCandidate : ICloneable
     {
         public float weigth;

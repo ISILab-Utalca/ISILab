@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISI_Lab.LBS.DevTools;
 using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Assistants;
@@ -21,8 +22,9 @@ namespace ISILab.LBS.Generators
     {
         private const float frameDelay = 5f;
         private float _currentFrameDelay = frameDelay;
-        private const float ProbeRadius = 10f;
-       // private static readonly Collider[] OverlapResults = new Collider[32];
+        
+        // the probe radius detects objects at a given position in the scene, based on the existing graph
+        private const float ProbeRadius = 2f;
         
         private Action<string> _onLayerRequired;
         public event Action<string> OnLayerRequired
@@ -124,8 +126,21 @@ namespace ISILab.LBS.Generators
         private static void GenerateTriggersPerNode(Generator3D.Settings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
             // Map QuestNode -> Trigger GameObject
-            var questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
+            Dictionary<QuestNode, GameObject> questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
 
+            foreach (KeyValuePair<QuestNode, GameObject> entry in questNodeGameObjects)
+            {
+                GameObject go = entry.Value;
+                QuestTrigger qt = go.GetComponent<QuestTrigger>();
+                if(qt is null) continue;
+
+                Custom3dQuestGizmo questGizmo = go.AddComponent<Custom3dQuestGizmo>();
+                if(questGizmo is null) continue;
+
+                questGizmo.Tracker = tracker;
+                questGizmo.Trigger = qt;
+            }
+            
             // Create AND/OR branch node components
             CreateBranchNodeComponents(quest, tracker, questNodeGameObjects);
         }
@@ -223,8 +238,9 @@ namespace ISILab.LBS.Generators
         {
             List<string> referencedLayers = node.NodeData.ReferencedLayerNames();
             if (referencedLayers is null || !referencedLayers.Any()) return;
-            
-            // Find all GameObjects in the scene
+            referencedLayers = referencedLayers.Distinct().ToList();
+
+        // Find all GameObjects in the scene
             GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
             List<GameObject> matchingObjects = allObjects.Where(gameObject => referencedLayers.Contains(gameObject.name)).ToList();
                     
