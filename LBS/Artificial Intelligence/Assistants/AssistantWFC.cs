@@ -191,11 +191,11 @@ namespace ISILab.LBS.Assistants
             Bundle bundle = targetBundleRef;
             
             // get values for generation: 
-            //group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
-            //map = OwnerLayer.GetModule<TileMapModule>();
-            //connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
-            //og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
-            //originalTM = og.Clone()[0] as ConnectedTileMapModule;
+            group = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
+            map = OwnerLayer.GetModule<TileMapModule>();
+            connected = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            og = new List<LBSModule>() { OwnerLayer.GetModule<ConnectedTileMapModule>() };
+            originalTM = og.Clone()[0] as ConnectedTileMapModule;
             
 
             var sw = System.Diagnostics.Stopwatch.StartNew();
@@ -266,8 +266,8 @@ namespace ISILab.LBS.Assistants
                         }
 
                         Positions = positions;
-                        bool sectorSuccess = ExecuteChance();
-                        //Execute(ref log, scaledProgress, token);
+                        bool sectorSuccess = Execute(ref log, scaledProgress, token);
+
                         // exit
                         if (((IAssistantThreaded)this).CheckPendingCancel(this, token))
                         {
@@ -312,20 +312,20 @@ namespace ISILab.LBS.Assistants
             }
             else
             {
-                bool success = ExecuteChance();
-                    //Execute(ref log, onProgress, token);
-               if (!success)
-               {
-                   Restore();
-                   if (log == string.Empty)
-                   {
-                       log = $"Could not safely generate after {limit} attempts. ({getSeconds()} s)";
-                   }
-                   logType = LogType.Warning;
-                   return false;
-               }
-               log = $"Generated. ({getSeconds()} s)";
-               return true;
+                bool success = Execute(ref log, onProgress, token);
+
+                if (!success)
+                {
+                    Restore();
+                    if (log == string.Empty)
+                    {
+                        log = $"Could not safely generate after {limit} attempts. ({getSeconds()} s)";
+                    }
+                    logType = LogType.Warning;
+                    return false;
+                }
+                log = $"Generated. ({getSeconds()} s)";
+                return true;
             }
         }
 
