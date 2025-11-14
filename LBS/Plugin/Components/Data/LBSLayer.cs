@@ -359,7 +359,10 @@ namespace LBS.Components
             return true;
         }
 
-        public override int GetHashCode() => HashCode.Combine(id, name, settings);
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         #endregion
         
