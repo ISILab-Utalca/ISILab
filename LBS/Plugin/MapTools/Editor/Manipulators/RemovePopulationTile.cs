@@ -18,7 +18,7 @@ namespace ISILab.LBS.Manipulators
         
         private Feedback _previewFeedback;
 
-        private List<Feedback> previews = new();
+        private readonly List<Feedback> previews = new();
 
         private bool LeftButtonPressed;
         

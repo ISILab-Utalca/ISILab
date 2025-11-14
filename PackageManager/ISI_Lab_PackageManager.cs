@@ -16,6 +16,7 @@ public class ISI_Lab_PackageManager : IPackageManagerExtension
 
     static ISI_Lab_PackageManager()
     {
+        return;
         PackageManagerExtensions.RegisterExtension(new ISI_Lab_PackageManager());
         Debug.Log("Extension registrada");
     }

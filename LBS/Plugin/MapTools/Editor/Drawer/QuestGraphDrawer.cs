@@ -92,17 +92,8 @@ namespace ISILab.LBS.Drawers.Editor
                 
                 // if not successfully created
                 if(nodeView is null) continue;
-
-                if (nodeView.IsSelectedView())
-                {
-                    var tea = TriggerElementArea.activeTriggerElementArea; 
-                    selectedGraphView = nodeView;
-                    selectedGraphView.OnMoving += _ =>
-                    {
-                        // trigger generate visual content
-                        tea.MarkDirtyRepaint(); 
-                    };
-                }
+           
+                if(nodeView.IsSelectedView()) selectedGraphView = nodeView;
                 
                 nodeView.style.display = (DisplayStyle)(behaviour.OwnerLayer.IsVisible ? 0 : 1);
                // view.AddElementToLayerContainer(questGraph.OwnerLayer, node, nodeView);

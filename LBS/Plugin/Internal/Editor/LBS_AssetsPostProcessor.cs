@@ -15,24 +15,20 @@ namespace ISILab.LBS.Internal.Editor
 
         public static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
-            bool databaseChanged = false;
             if (importedAssets.Contains(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
             {
-                Debug.Log("LBS SETTINGS IMPORT");
-                InitializeLBSPackage(out databaseChanged);
+                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+                if(packageInfo is not null)
+                {
+                    Debug.Log("LBS SETTINGS IMPORT");
+                    InitializeLBSPackage();
+                }
             }
-
-            if (!databaseChanged) PostProcessAll();
-            else EditorApplication.delayCall += () => PostProcessAll();
-
-
-            void PostProcessAll()
-            {
-                OnPostImportProcess(importedAssets);
-                OnPostDeleteProcess(deletedAssets);
-                OnPostMoveProcess(movedAssets);
-                OnPostMoveFromPathsProcess(movedFromAssetPaths);
-            }
+            OnPostImportProcess(importedAssets);
+            OnPostDeleteProcess(deletedAssets);
+            OnPostMoveProcess(movedAssets);
+            OnPostMoveFromPathsProcess(movedFromAssetPaths);
         }
 
         public static void OnPostImportProcess(string[] importedAssets)
@@ -87,11 +83,9 @@ namespace ISILab.LBS.Internal.Editor
             // do nothing
         }
 
-        public static void InitializeLBSPackage(out bool databaseChaged)
+        public static void InitializeLBSPackage()
         {
             Debug.Log("LEVEL BUILDING SIDEKICK");
-
-            databaseChaged = false;
 
             // Crear carpetas de usuario LBS
             string userFolderFullPath = "Assets/LBSUserContent";
@@ -102,30 +96,25 @@ namespace ISILab.LBS.Internal.Editor
             string resourcesFolderPath = userFolderFullPath + "/Resources";
 
 
-            if( CreateFolderIfItDoesntExist(userFolderPath, userFolder) ||
-                CreateFolderIfItDoesntExist(userFolderFullPath, "Resources"))
-                databaseChaged = true;
+            CreateFolderIfItDoesntExist(userFolderPath, userFolder);
+            CreateFolderIfItDoesntExist(userFolderFullPath, "Resources");
 
             foreach (string subfolder in new string[] { "Bundles", "Tags", "Meshes" })
             {
-                if(CreateFolderIfItDoesntExist(userFolderFullPath, subfolder))
-                    databaseChaged = true;
+                CreateFolderIfItDoesntExist(userFolderFullPath, subfolder);
             }
             foreach (string subFolder in new string[] {"Settings", "Cache" })
             {
-                if(CreateFolderIfItDoesntExist(resourcesFolderPath, subFolder))
-                    databaseChaged = true;
+                CreateFolderIfItDoesntExist(resourcesFolderPath, subFolder);
             }
 
             if (AssetDatabase.FindAssets("LBSUserSettings", new string[] { resourcesFolderPath + "/Settings" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID), resourcesFolderPath + "/Settings/LBSUserSettings.asset");
-                databaseChaged = true;
             }
             if (AssetDatabase.FindAssets("Storage", new string[] { resourcesFolderPath + "/Cache" }).Length == 0)
             {
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(defaultStorageGUID), resourcesFolderPath + "/Cache/Storage.asset");
-                databaseChaged = true;
             }
 
             AssetDatabase.SaveAssets();
@@ -139,14 +128,12 @@ namespace ISILab.LBS.Internal.Editor
             LBSAssetsStorage.folderName = "Cache";
             LBSAssetsStorage.ResetInstance();
         }
-        private static bool CreateFolderIfItDoesntExist(string parent, string name)
+        private static void CreateFolderIfItDoesntExist(string parent, string name)
         {
             if (!AssetDatabase.IsValidFolder(parent + "/" + name))
             {
                 AssetDatabase.CreateFolder(parent, name);
-                return true; // Was created
             }
-            return false; // Was not created
         }
     }
 }

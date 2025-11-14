@@ -43,9 +43,7 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
 
-            // auto select new node
-            _questGraph.SelectedGraphNode = _questGraph.AddNewNode(_behaviour,endPosition);
-            
+            _questGraph.AddNewNode(_behaviour,endPosition);
             OnManipulationEnd.Invoke();
         }
     }

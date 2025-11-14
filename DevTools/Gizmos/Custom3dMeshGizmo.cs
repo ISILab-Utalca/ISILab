@@ -1,5 +1,10 @@
+
+using System;
+using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
+using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISI_Lab.LBS.DevTools
 {
@@ -10,7 +15,7 @@ namespace ISI_Lab.LBS.DevTools
         public Color gizmoColor = new Color(1f, 0.67f, 0.06f);
         public Mesh gizmoMesh;
         [Range(0f,1f)]
-        public float meshGizmoScale = 0.75f;
+        public float meshGizmoScale = 0.3f;
         public Vector3 worldPosition = Vector3.zero;
         
         [HideInInspector]

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISI_Lab.LBS.DevTools;
 using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Assistants;
@@ -126,21 +125,8 @@ namespace ISILab.LBS.Generators
         private static void GenerateTriggersPerNode(Generator3D.Settings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
             // Map QuestNode -> Trigger GameObject
-            Dictionary<QuestNode, GameObject> questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
+            var questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
 
-            foreach (KeyValuePair<QuestNode, GameObject> entry in questNodeGameObjects)
-            {
-                GameObject go = entry.Value;
-                QuestTrigger qt = go.GetComponent<QuestTrigger>();
-                if(qt is null) continue;
-
-                Custom3dQuestGizmo questGizmo = go.AddComponent<Custom3dQuestGizmo>();
-                if(questGizmo is null) continue;
-
-                questGizmo.Tracker = tracker;
-                questGizmo.Trigger = qt;
-            }
-            
             // Create AND/OR branch node components
             CreateBranchNodeComponents(quest, tracker, questNodeGameObjects);
         }

@@ -209,7 +209,7 @@ namespace ISILab.LBS.Modules
         #region Nodes
         public void NodeDataChanged(GraphNode node)
         {
-            if(Equals(SelectedGraphNode, node)) return;
+            if(Equals(_selectedNode, node)) return;
             _onNodeSelected?.Invoke(node);
         }
 
@@ -290,7 +290,8 @@ namespace ISILab.LBS.Modules
             if (node is QuestNode qn)
             {
                 if (root == null) SetRoot(qn);
-                SelectedGraphNode = qn;
+                _selectedNode = qn;
+                NodeDataChanged(qn);
             }
         }
 
@@ -303,11 +304,11 @@ namespace ISILab.LBS.Modules
                 RemoveEdge(e); 
             }
             
+         
             if (Equals(node, root)) root = null;
-            if (Equals(node, SelectedGraphNode)) SelectedGraphNode = null;
+            if (Equals(node, _selectedNode)) _selectedNode = null;
 
-            NodeDataChanged(SelectedGraphNode as QuestNode);
-            if(SelectedGraphNode is null) _onNodeSelected?.Invoke(null);
+            NodeDataChanged(_selectedNode as QuestNode);
         }
         #endregion
 
@@ -645,11 +646,11 @@ namespace ISILab.LBS.Modules
             foreach (var e in edges) clone.graphEdges.Add(e);
 
             // assign selected node
-            if (SelectedGraphNode is not null)
+            if (_selectedNode is not null)
             {
-                foreach (var cloneNode in clone.graphNodes.Where(cloneNode => cloneNode.ID == SelectedGraphNode.ID))
+                foreach (var cloneNode in clone.graphNodes.Where(cloneNode => cloneNode.ID == _selectedNode.ID))
                 {
-                    clone.SelectedGraphNode = cloneNode;
+                    clone._selectedNode = cloneNode;
                     break;
                 }
             }

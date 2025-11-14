@@ -95,6 +95,7 @@ namespace ISILab.LBS
         {
             node = paramNode;
             nodeID = paramNode.ID;
+            onCompleteEvent = paramNode.NodeData.OnCompleteEvent;
         }
         
         /// <summary>

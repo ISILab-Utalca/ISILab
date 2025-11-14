@@ -19,6 +19,7 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using ISILab.LBS.CustomComponents;
 using ISILab.Macros;
+using System.Collections.Generic;
 
 namespace ISILab.LBS.AI.Assistants.Editor
 {
@@ -42,6 +43,9 @@ namespace ISILab.LBS.AI.Assistants.Editor
         {
             assistant = target as AssistantWFC;
             assistant.Bundle = GetExteriorBehaviour().Bundle;
+            assistant.Bundle.OnRemoveCharacteristic += _ => EditorApplication.delayCall += UpdatePresetsList;
+            assistant.OnRefreshInspector = null;
+            assistant.OnRefreshInspector = assistant.Bundle.Refresh;
             CreateVisualElement();
         }
 
@@ -116,7 +120,8 @@ namespace ISILab.LBS.AI.Assistants.Editor
                 assistant.Bundle = exterior.Bundle;
                 ToolKit.Instance.SetActive(typeof(WaveFunctionCollapseManipulator));
                 MarkDirtyRepaint();
-                
+
+                UpdatePresetsList();
             });
             
             exterior.OwnerLayer.OnChange += () =>
@@ -199,12 +204,14 @@ namespace ISILab.LBS.AI.Assistants.Editor
         private void UpdatePresetsList()
         {
             //Debug.Log("Update Presets List");
-            var WFCPresets = AssetDatabase.FindAssets("", new[] { presetsFolder.value });
-            var a = WFCPresets.Select(guid => AssetDatabase.LoadAssetAtPath<Object>(AssetDatabase.GUIDToAssetPath(guid)));
-            var b = a.Where(asset => asset != null && asset is WFCPreset)
-                           .ToList();
+            //var WFCPresets = AssetDatabase.FindAssets("", new[] { presetsFolder.value });
+            //var a = WFCPresets.Select(guid => AssetDatabase.LoadAssetAtPath<Object>(AssetDatabase.GUIDToAssetPath(guid)));
+            //var b = a.Where(asset => asset != null && asset is WFCPreset)
+            //               .ToList();
+
+            var presetsChars = assistant.Bundle.GetCharacteristics<WFCPresetsCharacteristic>();
             
-            presetsList.itemsSource = b;
+            presetsList.itemsSource = presetsChars is not null && presetsChars.Count > 0 ? new List<WFCPreset>(presetsChars[0].Presets) : new WFCPreset[0];
             presetsList.bindItem = (element, i) =>
             {
                 var obj = element.Q<ObjectField>("Element");
