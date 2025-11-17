@@ -166,80 +166,107 @@ namespace ISILab.LBS.VisualElements
             // No node when instanced
             _noNodeSelectedPanel.style.display = DisplayStyle.Flex;    
             
+            RefreshMethodList();
+            
             return this;
         }
         
         private void RefreshMethodList()
         {
-            #region AvailableList
+            List<(GameObject, Component, MethodInfo)> selectedMethods = new();
 
-            // Collect all public void methods (no parameters)
-            _availableMethods.Clear();
-            _availableMethodsList.Rebuild();
-            
             BaseQuestNodeData nodeData = GetSelectedNodeData();
             GameObject gameObject = nodeData?.Target;
-            if (gameObject is null || gameObject?.GetType() != typeof(GameObject) || gameObject.Equals(null) || !gameObject.scene.IsValid())  return;
+
+            // reset on refresh
+            _availableMethodsList.itemsSource = null;
+            _selectedMethodsList.itemsSource = null;
+            _availableMethodsList.Rebuild();
+            _selectedMethodsList.Rebuild();
             
+            if (!gameObject) return;
+            
+            #region Available Methods
+
+            _availableMethods.Clear();
+
             foreach (MonoBehaviour comp in gameObject.GetComponents<MonoBehaviour>())
             {
                 if (comp == null) continue;
-                foreach (MethodInfo method in comp.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Default | BindingFlags.DeclaredOnly))
+
+                foreach (MethodInfo method in comp.GetType().GetMethods(
+                             BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly))
                 {
-                    // for now only bind void non parameter methods
                     if (method.ReturnType == typeof(void) && !method.GetParameters().Any())
-                    {
                         _availableMethods.Add((gameObject, comp, method));
-                    }
                 }
             }
 
-            // Populate list items
             _availableMethodsList.itemsSource = _availableMethods;
             _availableMethodsList.makeItem = () => new QuestMethodVisualElement();
             _availableMethodsList.bindItem = (element, i) =>
             {
-                QuestMethodVisualElement button = (QuestMethodVisualElement)element;
-                button.AddListener(_availableMethods[i], nodeData);
- 
+                GetRegisteredMethods(nodeData, selectedMethods);
+
+                if (i < 0 || i >= _availableMethods.Count)
+                    return;
+
+                var availableMethod = _availableMethods[i];
+                QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
+
+                vm.SetEnabled(!selectedMethods.Contains(availableMethod));
+                vm.AddListener(availableMethod, nodeData);
+                vm.Q<Button>().clicked += () => RefreshMethodList();
             };
 
-            _availableMethodsList.Rebuild();
-
             #endregion
+            
+            #region Selected Methods
 
-            #region SelectedList
-            
-            List<(GameObject, Component, MethodInfo)> selectedMethods = new List<(GameObject, Component, MethodInfo)>();
-            int size =  nodeData.OnCompleteEvent.GetPersistentEventCount();
-            for (int i = 0; i < size; i++)
-            {
-                Object listener = nodeData.OnCompleteEvent.GetPersistentTarget(i);
-                if (listener != nodeData.Target) continue;
-               
-                string methodName = nodeData.OnCompleteEvent.GetPersistentMethodName(i);
-                GameObject go = listener as GameObject;
-                if(go is null) continue;
-                
-                foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())
-                {
-                    if (comp == null) continue;
-                    MethodInfo method = nodeData.Target.GetType().GetMethod(methodName);
-                    selectedMethods.Add((go, comp, method));
-                }
-            }
-            
+            selectedMethods.Clear();
+            GetRegisteredMethods(nodeData, selectedMethods);
+
             _selectedMethodsList.itemsSource = selectedMethods;
             _selectedMethodsList.makeItem = () => new QuestMethodVisualElement();
             _selectedMethodsList.bindItem = (element, i) =>
             {
-                QuestMethodVisualElement button = (QuestMethodVisualElement)element;
-                button.RemoveListener(selectedMethods[i], nodeData);
- 
+                if (i < 0 || i >= selectedMethods.Count)
+                    return;
+
+                QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
+                vm.RemoveListener(selectedMethods[i], nodeData);
+                vm.Q<Button>().clicked += () => RefreshMethodList();
             };
-            _selectedMethodsList.Rebuild();
 
             #endregion
+            
+            // rebuild both at the end
+            _availableMethodsList.Rebuild();
+            _selectedMethodsList.Rebuild();
+        }
+
+
+        private static void GetRegisteredMethods(BaseQuestNodeData nodeData, List<(GameObject, Component, MethodInfo)> selectedMethods)
+        {
+            selectedMethods.Clear();
+            foreach (KeyValuePair<UnityActionStored, UnityAction> entry in nodeData.RegisteredListeners)
+            {
+                GameObject go = nodeData.Target;
+                if(go is null || go.GetInstanceID() != entry.Key.gameObjectID)
+                {
+                    continue;
+                }
+                
+                foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())
+                {
+                    if (comp == null || comp.GetType().Name != entry.Key.componentName)
+                    {
+                        continue;
+                    }
+                    MethodInfo method = comp.GetType().GetMethod(entry.Key.methodName);
+                    selectedMethods.Add((go, comp, method));
+                }
+            }
         }
 
         private BaseQuestNodeData GetSelectedNodeData()

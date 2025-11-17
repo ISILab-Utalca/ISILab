@@ -121,6 +121,41 @@ namespace ISILab.LBS.Components
     }
     
     #endregion
+
+    [Serializable]
+    public struct UnityActionStored : IEquatable<UnityActionStored>
+    {
+        [SerializeField]
+        public int gameObjectID;
+        [SerializeField]
+        public string componentName;
+        [SerializeField]
+        public string methodName;
+
+        public UnityActionStored((GameObject, Component, MethodInfo) methodInfo)
+        {
+            (GameObject target, Component comp, MethodInfo method) = methodInfo;
+            
+            gameObjectID = target.GetInstanceID();
+            componentName = comp.GetType().Name;
+            methodName = method.Name;
+        }
+        
+        public bool Equals(UnityActionStored other)
+        {
+            return gameObjectID == other.gameObjectID && componentName == other.componentName && methodName == other.methodName;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is UnityActionStored other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(gameObjectID, componentName, methodName);
+        }
+    }
     
     /// <summary>
     /// <para><b>FOR LBS USER</b></para>
@@ -175,9 +210,8 @@ namespace ISILab.LBS.Components
         #region PROPERTIES
 
         /** listeners subscribed to OnComplete Event */
-        [SerializeField, SerializeReference]
-        public Dictionary<(GameObject target, Component comp, MethodInfo method), UnityAction> registeredListeners =
-            new();
+        [SerializeField]
+        private Dictionary<UnityActionStored, UnityAction> _registeredListeners = new();
         
         [SerializeField, SerializeReference]
         private UnityEvent onCompleteEvent = new();
@@ -185,8 +219,18 @@ namespace ISILab.LBS.Components
         [SerializeField]
         private int targetID;
         
-        [SerializeReference]
+        [SerializeField]
         private GameObject target;
+        
+        public Dictionary<UnityActionStored, UnityAction> RegisteredListeners
+        {
+            get
+            {
+                _registeredListeners ??= new Dictionary<UnityActionStored, UnityAction>();
+                return _registeredListeners;
+            }
+        }
+
         
         public UnityEvent OnCompleteEvent
         {
@@ -211,7 +255,10 @@ namespace ISILab.LBS.Components
             set
             {
                 target =  value;
-                if(target is not null) targetID = target.GetInstanceID();
+                if(target is not null)
+                {
+                    targetID = target.GetInstanceID();
+                }
             }
         }
 
@@ -241,7 +288,7 @@ namespace ISILab.LBS.Components
 
             if (ownerNode?.Graph?.OwnerLayer == null) return;
             onCompleteEvent = new UnityEvent();
-            registeredListeners = new Dictionary<(GameObject target, Component comp, MethodInfo method), UnityAction>();
+            _registeredListeners = new Dictionary<UnityActionStored, UnityAction>();
             
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
@@ -255,7 +302,7 @@ namespace ISILab.LBS.Components
             area = data.area;
             target = data.Target;
             onCompleteEvent = data.OnCompleteEvent;
-            registeredListeners = data.registeredListeners;
+            _registeredListeners = data._registeredListeners;
         }
 
         // by default there are no references to other layers.

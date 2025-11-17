@@ -29,8 +29,11 @@ namespace ISILab.LBS.VisualElements
             {
                 UnityAction action = (UnityAction)Delegate.CreateDelegate(typeof(UnityAction), target.GetComponent(comp.GetType()), method);
                 // during generation we must check that this event is still valid scene wise
-                nodeData.OnCompleteEvent.AddListener(action);
-                nodeData.registeredListeners.TryAdd(methodInfo, action);
+                UnityActionStored entryKey = new(methodInfo);
+                if (nodeData.RegisteredListeners.TryAdd(entryKey, action))
+                {
+                    nodeData.OnCompleteEvent.AddListener(action);
+                }
             };
         }
         
@@ -40,8 +43,13 @@ namespace ISILab.LBS.VisualElements
             button.text = $"{method.Name}";
             button.clicked += () =>
             {
-                UnityAction action = nodeData.registeredListeners[methodInfo];
-                nodeData.OnCompleteEvent.RemoveListener(action);
+                UnityActionStored entryKey = new(methodInfo);
+                if (nodeData.RegisteredListeners.ContainsKey(entryKey))
+                {
+                    UnityAction action = nodeData.RegisteredListeners[entryKey];
+                    nodeData.OnCompleteEvent.RemoveListener(action);
+                    nodeData.RegisteredListeners.Remove(entryKey);
+                }
             };
         }
     }
