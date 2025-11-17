@@ -70,9 +70,11 @@ namespace ISILab.LBS.Manipulators
             Vector2Int offset = endPos - originalTopLeft;
 
             // Move each tile relative to the offset
-            Selected.Translate(offset);
+            //Selected.Translate(offset);
+            _population.MoveGroup(Selected, offset);
 
             _population.OwnerLayer.OnChangeUpdate();
+            DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)

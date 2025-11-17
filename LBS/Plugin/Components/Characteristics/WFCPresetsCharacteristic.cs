@@ -15,7 +15,21 @@ namespace ISILab.LBS.Characteristics
         private List<WFCPreset> presets = new List<WFCPreset>();
 
         [JsonIgnore]
-        public List<WFCPreset> Presets { get => presets; }
+        public List<WFCPreset> Presets
+        {
+            get
+            {
+                for(int i = 0; i < presets.Count; i++)
+                {
+                    if (presets[i] == null)
+                    {
+                        presets.RemoveAt(i);
+                        i--;
+                    }
+                }
+                return presets;
+            }
+        }
 
         public override void OnEnable()
         {

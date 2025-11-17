@@ -200,7 +200,7 @@ namespace ISILab.LBS.Assistants
             for (int i = 0; i < filteredLayers.Count; i++)
             {
                 LBSLayer layer = filteredLayers[i];
-                string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                string moduleID = (layer.ID.Equals("Exterior") && layer.Behaviours.Any(b => (bool)((b as ExteriorBehaviour)?.GridType.Equals(ConnectedTileMapModule.ConnectedTileType.VertexBased)))) ? "TempConnectedModule" : "";
 
                 if (i == firstValid) combinedRect = layer.GetModule<ConnectedTileMapModule>(moduleID).GetBounds();
 

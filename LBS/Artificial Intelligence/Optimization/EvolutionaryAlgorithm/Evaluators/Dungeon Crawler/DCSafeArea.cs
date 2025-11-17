@@ -136,6 +136,7 @@ namespace ISILab.AI.Categorization
             foreach(int enemy in enemies)
             {
                 Zone zone = sectorTM.GetZone(chrom.ToMatrixPosition(enemy) + Vector2Int.RoundToInt(chrom.Rect.position));
+                if(zone is null) continue;
                 int eZone = zonesIndex[zone];
                 int score = 2;
                 foreach (int pZone in playerZones)

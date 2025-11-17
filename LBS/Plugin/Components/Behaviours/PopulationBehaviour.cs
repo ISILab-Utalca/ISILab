@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
 using ISILab.Macros;
@@ -7,8 +5,11 @@ using LBS.Bundles;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -97,10 +98,38 @@ namespace ISILab.LBS.Behaviours
             }
         }
 
+        public void AddTileGroup(Vector2Int position, TileBundleGroup expired)
+        {
+            if (expired is null) return;
+            if (!_bundleTileMap.ValidNewGroup(position, expired.BundleData, Vector2.right)) return;
+
+            TileBundleGroup group = expired.Clone() as TileBundleGroup;
+            group.Translate(position - expired.TileGroup[0].Position);
+            _bundleTileMap.AddGroup(group);
+            RequestTilePaint(group);
+
+            //Add all tiles from the group
+            foreach (LBSTile tile in group.TileGroup)
+            {
+                tileMap.AddTile(tile);
+            }
+        }
+
         public bool ValidMoveGroup(Vector2Int position, TileBundleGroup group)
         {
             //RequestTilePaint(group);
             return _bundleTileMap.ValidMoveGroup(position, group, Vector2.right);
+        }
+
+        public void MoveGroup(TileBundleGroup group, Vector2Int offset)
+        {
+            Vector2Int oldPos = group.TileGroup[0].Position;
+            AddTileGroup(oldPos + offset, group);
+            RemoveTileGroup(oldPos);
+            //RequestTileRemove(group);
+            ////group.Translate(offset);
+            //group.LocationKey = null;
+            //RequestTilePaint(group);
         }
 
         public void RemoveTileGroup(Vector2Int position)

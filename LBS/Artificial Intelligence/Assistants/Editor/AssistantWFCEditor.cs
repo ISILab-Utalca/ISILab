@@ -170,7 +170,7 @@ namespace ISILab.LBS.AI.Assistants.Editor
             if(assistant.CaptureWeights(out string errMsg))
                 LBSMainWindow.MessageNotify("Current map weights captured.");
             else LBSMainWindow.MessageNotify(errMsg, LogType.Warning);
-
+            //
             //if (assistant.CaptureRules())
             //    LBSMainWindow.MessageNotify("Current map weights captured.");
         }

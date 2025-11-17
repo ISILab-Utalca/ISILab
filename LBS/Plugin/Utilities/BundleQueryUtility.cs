@@ -10,6 +10,10 @@ using UnityEngine;
 
 namespace LBS.Components
 {
+    /// <summary>
+    /// A static class that finds bundles with a certain characteristic within their children or themselves.
+    /// Useful for LBSButtonListFilter component.
+    /// </summary>
     public static class BundleQueryUtility
     {
         public static List<Bundle> FindBundlesWithCharacteristic<TCharacteristic>(bool includeChildren = true)
@@ -18,7 +22,9 @@ namespace LBS.Components
             return FindBundlesWithCharacteristic(typeof(TCharacteristic), includeChildren);
         }
 
-        // Versión por Type, útil cuando el tipo se conoce en tiempo de ejecución
+        /// <summary>
+        /// Returns the bundles that contain the specified characteristic type.
+        /// </summary>
         public static List<Bundle> FindBundlesWithCharacteristic(Type characteristicType, bool includeChildren = true)
         {
             if (characteristicType == null)

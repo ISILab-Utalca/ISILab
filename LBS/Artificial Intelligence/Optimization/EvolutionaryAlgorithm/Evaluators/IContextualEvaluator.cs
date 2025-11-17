@@ -78,7 +78,9 @@ public interface IContextualEvaluator : IEvaluator
     {
         if (ContextLayers.Count == 0) return null;
 
-        List<LBSLayer> exteriorLayers = ContextLayers.FindAll(l => l.ID.Equals("Exterior"));
+        List<LBSLayer> exteriorLayers = ContextLayers.FindAll(l => l.ID.Equals("Exterior") 
+                                        && l.GetModule<SectorizedTileMapModule>() is not null
+                                        && l.GetModule<ConnectedTileMapModule>("TempConnectedModule") is not null);
         if (exteriorLayers.Count == 0) return null;
 
         //return exteriorLayers[0];

@@ -21,6 +21,8 @@ namespace ISILab.LBS.Bundles.Editor
         ListView characteristics;
         ListView childBundles;
 
+        Action OnAnyCharacteristicChanged;
+
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -102,10 +104,11 @@ namespace ISILab.LBS.Bundles.Editor
 
             characteristics.makeItem = MakeItem;
             characteristics.bindItem = BindItem;
+            characteristics.unbindItem = UnbindItem;
 
             characteristics.itemsSource = bundle!.Characteristics;
 
-            characteristics.itemsAdded += view =>
+            characteristics.itemsAdded += items =>
             {
                 var x = bundle!.Characteristics.Last();
                 bundle.Characteristics.RemoveAt(bundle.Characteristics.Count - 1);
@@ -116,6 +119,8 @@ namespace ISILab.LBS.Bundles.Editor
 
                 if (EditorGUI.EndChangeCheck()) EditorUtility.SetDirty(target);
                 Undo.undoRedoPerformed += UNDO;
+
+                characteristics.RefreshItem(items.First());
             };
             characteristics.itemsRemoved += items =>
             {
@@ -123,6 +128,7 @@ namespace ISILab.LBS.Bundles.Editor
                 {
                     bundle.RemoveCharacteristicCallback(characteristics.itemsSource[index] as LBSCharacteristic);
                 }
+                EditorApplication.delayCall += () => OnAnyCharacteristicChanged?.Invoke();
             };
 
             root.Insert(root.childCount, characteristics);
@@ -314,15 +320,27 @@ namespace ISILab.LBS.Bundles.Editor
             Undo.undoRedoPerformed -= UNDO;
         }
 
+        bool CharacteristicUniquenessFilter(object obj)
+        {
+            ;
+            if (obj is not Type type) return false;
+            if (type.BaseType != typeof(LBSCharacteristic)) return false;
+
+            if (LBSCharacteristic.IsUnique(type) && (target as Bundle).Characteristics.Any(ch => ch?.GetType() == type))
+                return false;
+            return true;
+        }
+
         VisualElement MakeItem()
         {
             var bundle = target as Bundle;
-            var v = new DynamicFoldout(typeof(LBSCharacteristic));
+            var v = new DynamicFoldout(typeof(LBSCharacteristic), CharacteristicUniquenessFilter);
             return v;
         }
 
         void BindItem(VisualElement ve, int index)
         {
+            //Debug.Log($"Bind ({index})");
             var bundle = target as Bundle;
             if (index < bundle!.Characteristics.Count)
             {
@@ -334,12 +352,23 @@ namespace ISILab.LBS.Bundles.Editor
                     bundle.Characteristics[index].Init(bundle);
                 }
 
+                OnAnyCharacteristicChanged -= cf.UpdateDropdown;
+                OnAnyCharacteristicChanged += cf.UpdateDropdown;
+
                 cf.OnChoiceSelection = () =>
                 {
                     bundle.Characteristics[index] = cf.Data as LBSCharacteristic;
                     (cf.Data as LBSCharacteristic)?.Init(bundle);
+                    OnAnyCharacteristicChanged?.Invoke();
                 };
             }
+        }
+
+        void UnbindItem(VisualElement ve, int index)
+        {
+            //Debug.Log($"Unbind ({index})");
+            var cf = ve.Q<DynamicFoldout>();
+            OnAnyCharacteristicChanged -= cf.UpdateDropdown;
         }
 
         VisualElement MakeChildBundleItem()

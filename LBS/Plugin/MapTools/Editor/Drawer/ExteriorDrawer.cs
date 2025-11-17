@@ -267,14 +267,14 @@ namespace ISILab.LBS.Drawers
             return tView;
         }
 
-        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
+        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int teselationSize)
         {
             var exterior = target as ExteriorBehaviour;
 
             var tileMod = exterior.OwnerLayer.GetModule<TileMapModule>();
             var connectMod = exterior.OwnerLayer.GetModule<ConnectedTileMapModule>();
 
-            var texture = new Texture2D((int)(sourceRect.width * tesselationSize.x), (int)(sourceRect.height * tesselationSize.y));
+            var texture = new Texture2D((int)(sourceRect.width * teselationSize.x), (int)(sourceRect.height * teselationSize.y));
 
             for (int j = 0; j < texture.height; j++)
             {
@@ -285,19 +285,19 @@ namespace ISILab.LBS.Drawers
             }
 
             int c = 0;
-            foreach (var t in tileMod.Tiles)
+            foreach (LBSTile t in tileMod.Tiles)
             {
                 if (!sourceRect.Contains(t.Position))
                     continue;
                 c++;
-                var connections = connectMod.GetConnections(t);
-                var text = GetTileTexture(connections, tesselationSize);
-                for (int j = 0; j < tesselationSize.y; j++)
+                List<string> connections = connectMod.GetConnections(t);
+                Texture2D text = GetTileTexture(connections, teselationSize, exterior.GridType);
+                for (int j = 0; j < teselationSize.y; j++)
                 {
-                    for (int i = 0; i < tesselationSize.x; i++)
+                    for (int i = 0; i < teselationSize.x; i++)
                     {
-                        var pos = t.Position - sourceRect.position;
-                        texture.SetPixel((int)(pos.x * tesselationSize.x) + i, (int)(pos.y * tesselationSize.y) + j, text.GetPixel(i, j));
+                        Vector2 pos = t.Position - sourceRect.position;
+                        texture.SetPixel((int)(pos.x * teselationSize.x) + i, (int)(pos.y * teselationSize.y) + j, text.GetPixel(i, j));
                     }
                 }
             }
@@ -306,8 +306,20 @@ namespace ISILab.LBS.Drawers
 
             return texture;
         }
-        private Texture2D GetTileTexture(List<string> connections, Vector2Int teselationSize)
+        private Texture2D GetTileTexture(List<string> connections, Vector2Int teselationSize, ConnectedTileType gridType)
         {
+            switch (gridType)
+            {
+                case ConnectedTileType.EdgeBased:   return GetEdgeTileTexture(connections, teselationSize);
+                case ConnectedTileType.VertexBased: return GetVertexTileTexture(connections, teselationSize);
+                default: return null;
+            }
+        }
+
+        private Texture2D GetEdgeTileTexture(List<string> connections, Vector2Int teselationSize)
+        {
+            List<Vector2Int> edges = Directions.Bidimencional.Edges;
+
             var texture = new Texture2D(teselationSize.x, teselationSize.y);
 
             for (int j = 0; j < teselationSize.y; j++)
@@ -319,38 +331,25 @@ namespace ISILab.LBS.Drawers
                     {
                         if (j < teselationSize.y * 0.33 || j > teselationSize.y * 0.66)
                             continue;
-                        var index = Directions.Bidimencional.Edges.FindIndex(v => v == Vector2.left);
-                        var connection = connections[index];
-                        var color = Identifiers.Find(t => t.Label.Equals(connection)).Color;
-                        texture.SetPixel(i, j, color);
+                        SetDirectionColor(Vector2.left);
                     }
                     else if (i > teselationSize.x * 0.66) // RIGHT
                     {
                         if (j < teselationSize.y * 0.33 || j > teselationSize.y * 0.66)
                             continue;
-                        var index = Directions.Bidimencional.Edges.FindIndex(v => v == Vector2.right);
-                        var connection = connections[index];
-                        var color = Identifiers.Find(t => t.Label.Equals(connection)).Color;
-                        texture.SetPixel(i, j, color);
+                        SetDirectionColor(Vector2.right);
                     }
                     if (j < teselationSize.y * 0.33) // DOWN
                     {
                         if (i < teselationSize.x * 0.33 || i > teselationSize.x * 0.66)
                             continue;
-                        var index = Directions.Bidimencional.Edges.FindIndex(v => v == Vector2.down);
-                        var connection = connections[index];
-                        var color = Identifiers.Find(t => t.Label.Equals(connection)).Color;
-                        texture.SetPixel(i, j, color);
+                        SetDirectionColor(Vector2.down);
                     }
                     else if (j > teselationSize.y * 0.66) // UP
                     {
-
                         if (i < teselationSize.x * 0.33 || i > teselationSize.x * 0.66)
                             continue;
-                        var index = Directions.Bidimencional.Edges.FindIndex(v => v == Vector2.up);
-                        var connection = connections[index];
-                        var color = Identifiers.Find(t => t.Label.Equals(connection)).Color;
-                        texture.SetPixel(i, j, color);
+                        SetDirectionColor(Vector2.up);
                     }
 
                     if ((i < teselationSize.x * 0.33 || i > teselationSize.x * 0.66) && (j < teselationSize.y * 0.33 || j > teselationSize.y * 0.66))
@@ -358,6 +357,63 @@ namespace ISILab.LBS.Drawers
                         texture.SetPixel(i, j, Color.gray);
                     }
 
+                    // Local function
+                    void SetDirectionColor(Vector2 dir)
+                    {
+                        int index = edges.FindIndex(v => v == dir);
+                        string connection = connections[index];
+                        Color color = Identifiers.Find(t => t.Label.Equals(connection)).Color;
+                        texture.SetPixel(i, j, color);
+                    }
+                }
+            }
+
+            return texture;
+        }
+
+        private Texture2D GetVertexTileTexture(List<string> connections, Vector2Int teselationSize)
+        {
+            List<Vector2Int> diagonals = Directions.Bidimencional.Diagonals;
+
+            var texture = new Texture2D(teselationSize.x, teselationSize.y);
+
+            for(int j = 0; j < teselationSize.y; j++)
+            {
+                for(int i = 0; i < teselationSize.x; i++)
+                {
+                    Color color;
+                    // Up
+                    if(j > teselationSize.y * 0.5f)
+                    {
+                        // UPPER RIGHT
+                        if(i > teselationSize.x * 0.5f)
+                            SetDirectionColor(Vector2.one, out color);
+                        // UPPER LEFT
+                        else SetDirectionColor(new Vector2(-1, 1), out color);
+                    }
+                    // Down
+                    else
+                    {
+                        // LOWER LEFT
+                        if (i <= teselationSize.x * 0.5f)
+                            SetDirectionColor(-Vector2.one, out color);
+                        // LOWER RIGHT
+                        else SetDirectionColor(new Vector2(1, -1), out color);
+                    }
+
+                    if(i == 0 || j == 0 || i == teselationSize.x - 1 || j == teselationSize.y - 1)
+                    {
+                        texture.SetPixel(i, j, new Color(color.r, color.g, color.b, .8f));
+                    }
+
+                    // Local function
+                    void SetDirectionColor(Vector2 dir, out Color color)
+                    {
+                        int index = diagonals.FindIndex(v => v == dir);
+                        string connection = connections[index];
+                        color = Identifiers.Find(t => t.Label.Equals(connection)).Color;
+                        texture.SetPixel(i, j, color);
+                    }
                 }
             }
 
