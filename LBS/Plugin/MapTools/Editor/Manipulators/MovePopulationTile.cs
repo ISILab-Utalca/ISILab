@@ -16,7 +16,8 @@ namespace ISILab.LBS.Manipulators
     {
         private PopulationBehaviour _population;
 
-        private readonly Feedback _previewFeedback;
+        private readonly Feedback _dottedFeedback;
+        private readonly IconFeedback _iconFeedback;
         // Used to access from me draw manager
         public TileBundleGroup Selected { get; private set; }
         
@@ -26,9 +27,13 @@ namespace ISILab.LBS.Manipulators
 
         public MovePopulationTile()
         {
-            _previewFeedback = new DottedAreaFeedback();
-            _previewFeedback.preview = true;
-            _previewFeedback.fixToTeselation = true;
+            _dottedFeedback = new DottedAreaFeedback();
+            _dottedFeedback.preview = true;
+            _dottedFeedback.fixToTeselation = true;
+
+            _iconFeedback = new IconFeedback();
+            _iconFeedback.preview = true;
+            _iconFeedback.fixToTeselation = true;
 
             Name = "Move Item Tile";
             Description =
@@ -42,19 +47,28 @@ namespace ISILab.LBS.Manipulators
 
         }
 
+        protected override void OnKeyDown(KeyDownEvent e)
+        {
+            base.OnKeyDown(e);
+            MainView.Instance.RemoveElement(_iconFeedback);
+        }
+
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
         {
-            MainView.Instance.RemoveElement(_previewFeedback);
+            MainView.Instance.RemoveElement(_dottedFeedback);
+            MainView.Instance.RemoveElement(_iconFeedback);
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
             base.OnMouseUp(element, endPosition, e);
 
+            MainView.Instance.RemoveElement(_iconFeedback);
+
             //If esc key was pressed, cancel the operation
             if (ForceCancel)
             {
-                MainView.Instance.RemoveElement(_previewFeedback);
+                MainView.Instance.RemoveElement(_dottedFeedback);
                 ForceCancel = false;
                 return;
             }
@@ -90,12 +104,14 @@ namespace ISILab.LBS.Manipulators
             }
              
             Selected = tileGroup;
+            _iconFeedback.Icon = Selected.BundleData.Bundle.Icon;
+            MainView.Instance.AddElement(_iconFeedback);
         }
         
         // TODO Currently it completely bugs out whenever x or y are 0 in the grid space. why? wish i fucking knew
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
-            MainView.Instance.RemoveElement(_previewFeedback);
+            MainView.Instance.RemoveElement(_dottedFeedback);
 
             if (ForceCancel) return;
  
@@ -129,8 +145,9 @@ namespace ISILab.LBS.Manipulators
             firstPos.x *= -1;
             lastPos.x *= -1;
             
-            _previewFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
-            MainView.Instance.AddElement(_previewFeedback);
+            _dottedFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
+            MainView.Instance.AddElement(_dottedFeedback);
+
 
             bool valid;
             // dragging feedback
@@ -138,7 +155,8 @@ namespace ISILab.LBS.Manipulators
             {
                 // undo the negative of topLeftCorner
                 valid = _population.ValidMoveGroup(-topLeftCorner, Selected); 
-                _previewFeedback.ValidForInput(valid);
+                _dottedFeedback.ValidForInput(valid);
+                _iconFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
             }
             // adding feedback
             else
@@ -149,12 +167,12 @@ namespace ISILab.LBS.Manipulators
                     tileGroup.BundleData == null ||
                     !tileGroup.BundleData.Bundle)
                 {
-                    _previewFeedback.ValidForInput(false);  
+                    _dottedFeedback.ValidForInput(false);  
                     return;
                 }
 
                 // undo the negative of topLeftCorner
-                _previewFeedback.ValidForInput(true);            
+                _dottedFeedback.ValidForInput(true);            
             }
         }
     }
