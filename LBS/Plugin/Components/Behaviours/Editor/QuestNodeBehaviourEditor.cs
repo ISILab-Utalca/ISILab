@@ -6,6 +6,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using LBS;
@@ -46,7 +47,6 @@ namespace ISILab.LBS.VisualElements
         };
         
         private List<(GameObject, Component, MethodInfo)> _availableMethods = new();
-        
         #endregion
         
         #region VIEW FIELDS
@@ -70,11 +70,11 @@ namespace ISILab.LBS.VisualElements
         private PickerVector2Int _targetPosition;
         private RectField _area;
         private VisualElement _selectedNodePanel;
-        private ObjectField _gameObjectSelector;
+        private LBSCustomObjectField _gameObjectSelector;
         private IMGUIContainer _imguiContainer;
         
-        private ListView _availableMethodList;
-        private ListView _selectedMethodList;
+        private ListView _selectedMethodsList;
+        private ListView _availableMethodsList;
         private VisualElement _onEventCompleteVe;
 
         #endregion
@@ -150,7 +150,7 @@ namespace ISILab.LBS.VisualElements
             _area.RegisterValueChangedCallback(evt => SetNodeDataArea(evt.newValue));
 
             _onEventCompleteVe = this.Q<VisualElement>("EventComplete");
-            _gameObjectSelector = this.Q<ObjectField>("GameObjectSelector");
+            _gameObjectSelector = this.Q<LBSCustomObjectField>("GameObjectSelector");
             _gameObjectSelector.RegisterValueChangedCallback(evt =>
             {
                 BaseQuestNodeData data = GetSelectedNodeData();
@@ -159,12 +159,9 @@ namespace ISILab.LBS.VisualElements
                 RefreshMethodList();
             });
             _gameObjectSelector.allowSceneObjects = true;
-            
-            // ListView to show available methods
-            _selectedMethodList = new ListView();
-            _selectedMethodList.headerTitle = "Method to Bind:";
-            _selectedMethodList.style.flexGrow = 1;
-            _onEventCompleteVe.Add(_selectedMethodList);
+          
+            _availableMethodsList = this.Q<ListView>("AvailableMethodsList");
+            _selectedMethodsList = this.Q<ListView>("SelectedMethodsList");
             
             // No node when instanced
             _noNodeSelectedPanel.style.display = DisplayStyle.Flex;    
@@ -174,9 +171,11 @@ namespace ISILab.LBS.VisualElements
         
         private void RefreshMethodList()
         {
+            #region AvailableList
+
             // Collect all public void methods (no parameters)
             _availableMethods.Clear();
-            _selectedMethodList.Rebuild();
+            _availableMethodsList.Rebuild();
             
             BaseQuestNodeData nodeData = GetSelectedNodeData();
             GameObject gameObject = nodeData?.Target;
@@ -196,16 +195,51 @@ namespace ISILab.LBS.VisualElements
             }
 
             // Populate list items
-            _selectedMethodList.itemsSource = _availableMethods;
-            _selectedMethodList.makeItem = () => new QuestMethodVisualElement();
-            _selectedMethodList.bindItem = (element, i) =>
+            _availableMethodsList.itemsSource = _availableMethods;
+            _availableMethodsList.makeItem = () => new QuestMethodVisualElement();
+            _availableMethodsList.bindItem = (element, i) =>
             {
                 QuestMethodVisualElement button = (QuestMethodVisualElement)element;
-                button.SetData(_availableMethods[i], nodeData);
+                button.AddListener(_availableMethods[i], nodeData);
  
             };
 
-            _selectedMethodList.Rebuild();
+            _availableMethodsList.Rebuild();
+
+            #endregion
+
+            #region SelectedList
+            
+            List<(GameObject, Component, MethodInfo)> selectedMethods = new List<(GameObject, Component, MethodInfo)>();
+            int size =  nodeData.OnCompleteEvent.GetPersistentEventCount();
+            for (int i = 0; i < size; i++)
+            {
+                Object listener = nodeData.OnCompleteEvent.GetPersistentTarget(i);
+                if (listener != nodeData.Target) continue;
+               
+                string methodName = nodeData.OnCompleteEvent.GetPersistentMethodName(i);
+                GameObject go = listener as GameObject;
+                if(go is null) continue;
+                
+                foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())
+                {
+                    if (comp == null) continue;
+                    MethodInfo method = nodeData.Target.GetType().GetMethod(methodName);
+                    selectedMethods.Add((go, comp, method));
+                }
+            }
+            
+            _selectedMethodsList.itemsSource = selectedMethods;
+            _selectedMethodsList.makeItem = () => new QuestMethodVisualElement();
+            _selectedMethodsList.bindItem = (element, i) =>
+            {
+                QuestMethodVisualElement button = (QuestMethodVisualElement)element;
+                button.RemoveListener(selectedMethods[i], nodeData);
+ 
+            };
+            _selectedMethodsList.Rebuild();
+
+            #endregion
         }
 
         private BaseQuestNodeData GetSelectedNodeData()

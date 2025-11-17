@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Settings;
@@ -10,6 +11,7 @@ using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Components
@@ -33,7 +35,7 @@ namespace ISILab.LBS.Components
         
         public override bool Equals(object obj)
         {
-            var other =  obj as LayerTarget;
+            LayerTarget other =  obj as LayerTarget;
             return other?.GetGuid() == GetGuid();
         }
 
@@ -171,6 +173,12 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region PROPERTIES
+
+        /** listeners subscribed to OnComplete Event */
+        [SerializeField, SerializeReference]
+        public Dictionary<(GameObject target, Component comp, MethodInfo method), UnityAction> registeredListeners =
+            new();
+        
         [SerializeField, SerializeReference]
         private UnityEvent onCompleteEvent = new();
 
@@ -195,7 +203,7 @@ namespace ISILab.LBS.Components
             {
                 if (target is null)
                 {
-                    var allObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID);
+                    GameObject[] allObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID);
                     target = allObjects.FirstOrDefault(o => o.GetInstanceID() == targetID);
                 }
                 return target;
@@ -233,7 +241,9 @@ namespace ISILab.LBS.Components
 
             if (ownerNode?.Graph?.OwnerLayer == null) return;
             onCompleteEvent = new UnityEvent();
-            var pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
+            registeredListeners = new Dictionary<(GameObject target, Component comp, MethodInfo method), UnityAction>();
+            
+            Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
         }
 
@@ -245,6 +255,7 @@ namespace ISILab.LBS.Components
             area = data.area;
             target = data.Target;
             onCompleteEvent = data.OnCompleteEvent;
+            registeredListeners = data.registeredListeners;
         }
 
         // by default there are no references to other layers.
@@ -260,7 +271,7 @@ namespace ISILab.LBS.Components
         }
         protected void ResizeToFitBundles(IEnumerable<BundleGraph> bundles)
         {
-            var validRects = bundles
+            List<Rect> validRects = bundles
                 .Where(b => (b is not null) && b.Valid())
                 .Select(b => b.Area)
                 .ToList();
@@ -305,12 +316,12 @@ namespace ISILab.LBS.Components
             HashSet<Bundle.EElementFlag> flags,
             bool bRequireAllTags = false)
         {
-            foreach (var suggestionTile in suggestions)
+            foreach (TileBundleGroup suggestionTile in suggestions)
             {
-                var GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
+                Tuple<LBSLayer, TileBundleGroup> GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
                 // safe assign clauses
                 if (GraphData is null) continue;
-                var bundle = GraphData.Item2.BundleData.Bundle;
+                Bundle bundle = GraphData.Item2.BundleData.Bundle;
                 
                 bool bTagRequirement;
                 if (bRequireAllTags)
@@ -325,7 +336,7 @@ namespace ISILab.LBS.Components
                 }
                 if(!bTagRequirement) continue;
                 
-                var newBG = new BundleGraph(this, GraphData.Item1,  GraphData.Item2);
+                BundleGraph newBG = new BundleGraph(this, GraphData.Item1,  GraphData.Item2);
                 listVar.Add(newBG);
             }
             
@@ -338,11 +349,11 @@ namespace ISILab.LBS.Components
             HashSet<Bundle.EElementFlag> flags,
             bool bRequireAllTags = false)
         {
-            foreach (var suggestionTile in suggestions)
+            foreach (TileBundleGroup suggestionTile in suggestions)
             {
-                var GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
+                Tuple<LBSLayer, TileBundleGroup> GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
                 if (GraphData is null) continue;
-                var bundle = GraphData.Item2.BundleData.Bundle;
+                Bundle bundle = GraphData.Item2.BundleData.Bundle;
 
                 bool bTagRequirement;
                 if (bRequireAllTags)
@@ -370,11 +381,11 @@ namespace ISILab.LBS.Components
             HashSet<Bundle.EElementFlag> flags,
             bool bRequireAllTags = false)
         {
-            foreach (var suggestionTile in suggestions)
+            foreach (TileBundleGroup suggestionTile in suggestions)
             {
-                var GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
+                Tuple<LBSLayer, TileBundleGroup> GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
                 if (GraphData is null) continue;
-                var bundle = GraphData.Item2.BundleData.Bundle;
+                Bundle bundle = GraphData.Item2.BundleData.Bundle;
                 bool bTagRequirement;
                 if (bRequireAllTags)
                 {
