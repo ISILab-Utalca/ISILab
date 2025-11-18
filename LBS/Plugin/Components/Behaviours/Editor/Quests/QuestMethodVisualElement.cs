@@ -29,11 +29,11 @@ namespace ISILab.LBS.VisualElements
             {
                 UnityAction action = (UnityAction)Delegate.CreateDelegate(typeof(UnityAction), target.GetComponent(comp.GetType()), method);
                 // during generation we must check that this event is still valid scene wise
-                UnityActionStored entryKey = new(methodInfo);
-                if (nodeData.RegisteredListeners.TryAdd(entryKey, action))
-                {
-                    nodeData.OnCompleteEvent.AddListener(action);
-                }
+                UnityActionStored entryKey = new(methodInfo, action);
+                
+                if(nodeData.RegisteredListeners.Contains(entryKey)) return;
+                nodeData.RegisteredListeners.Add(entryKey);
+
             };
         }
         
@@ -44,11 +44,17 @@ namespace ISILab.LBS.VisualElements
             button.clicked += () =>
             {
                 UnityActionStored entryKey = new(methodInfo);
-                if (nodeData.RegisteredListeners.ContainsKey(entryKey))
+                foreach (UnityActionStored t in nodeData.RegisteredListeners)
                 {
-                    UnityAction action = nodeData.RegisteredListeners[entryKey];
-                    nodeData.OnCompleteEvent.RemoveListener(action);
-                    nodeData.RegisteredListeners.Remove(entryKey);
+                    UnityActionStored entry = t;
+                    if (entry.componentName == comp.GetType().Name &&
+                        entry.methodName == method.Name &&
+                        entry.objectName == target.name)
+                    {
+                        UnityAction action = entry.action;
+                        nodeData.OnCompleteEvent.RemoveListener(action);
+                        nodeData.RegisteredListeners.Remove(entryKey);
+                    }
                 }
             };
         }

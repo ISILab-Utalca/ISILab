@@ -84,14 +84,15 @@ namespace ISILab.LBS.Modules
         public event Action<GraphNode> OnGraphNodeSelected
         {
             add => _onNodeSelected += value;
-            remove => _onNodeSelected = null;
+            remove => _onNodeSelected -= value;
         }
 
         public event Action RedrawGraph
         {
             add => _onUpdateGraph += value;
-            remove => _onUpdateGraph = null;
+            remove => _onUpdateGraph -= null;
         }
+        
         #endregion
 
         #region EVENTS
@@ -106,6 +107,7 @@ namespace ISILab.LBS.Modules
         #region CONSTRUCTOR
         public QuestGraph()
         {
+            _onNodeSelected = null;
             // changing one edge can change the values of all the graph so we recheck all the graph for
             OnAddEdge += _ =>  ValidateGraph();
             OnRemoveEdge += _ =>  ValidateGraph();
@@ -653,7 +655,8 @@ namespace ISILab.LBS.Modules
                     break;
                 }
             }
-            
+
+            clone._onNodeSelected = null;
             return clone;
         }
 

@@ -93,10 +93,11 @@ namespace ISILab.LBS.VisualElements
         {
             _behaviour = paramTarget as QuestNodeBehaviour;
             if (_behaviour == null) return;
+            _behaviour.Graph!.OnGraphNodeSelected -= OnSelectNode;
             _behaviour.Graph!.OnGraphNodeSelected += OnSelectNode;
             DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
-
         }
+        
         protected sealed override VisualElement CreateVisualElement()
         {
             Clear();
@@ -249,21 +250,21 @@ namespace ISILab.LBS.VisualElements
         private static void GetRegisteredMethods(BaseQuestNodeData nodeData, List<(GameObject, Component, MethodInfo)> selectedMethods)
         {
             selectedMethods.Clear();
-            foreach (KeyValuePair<UnityActionStored, UnityAction> entry in nodeData.RegisteredListeners)
+            foreach (UnityActionStored entry in nodeData.RegisteredListeners)
             {
                 GameObject go = nodeData.Target;
-                if(go is null || go.GetInstanceID() != entry.Key.gameObjectID)
+                if(go is null || go.name != entry.objectName)
                 {
                     continue;
                 }
                 
                 foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())
                 {
-                    if (comp == null || comp.GetType().Name != entry.Key.componentName)
+                    if (comp == null || comp.GetType().Name != entry.componentName)
                     {
                         continue;
                     }
-                    MethodInfo method = comp.GetType().GetMethod(entry.Key.methodName);
+                    MethodInfo method = comp.GetType().GetMethod(entry.methodName);
                     selectedMethods.Add((go, comp, method));
                 }
             }

@@ -9,141 +9,42 @@ using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Components;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Components
 {
-    
-    #region Targets
-    [Serializable]
-    public abstract class LayerTarget
-    {
-        [SerializeReference][SerializeField]protected LBSLayer layer;
-        
-        public LBSLayer GetLayer() => layer;
-        
-        public string GetLayerName()
-        {
-            return layer?.Name ?? "";
-        }
-
-        public abstract string GetGuid();
-        public abstract bool Valid();
-        
-        public override bool Equals(object obj)
-        {
-            LayerTarget other =  obj as LayerTarget;
-            return other?.GetGuid() == GetGuid();
-        }
-
-    }
-    
-    /// <summary>
-    /// Saves the bundle guid and the position in the graph to get in the scene
-    /// </summary>
-    /// 
-    [Serializable]
-    public class BundleGraph : LayerTarget
-    {
-        [SerializeReference] [SerializeField] private TileBundleGroup tileBundle;
-        [SerializeField] private string guid;
-        [SerializeField] private BaseQuestNodeData _nodeData;
-        // must be assigned on all bundleGraphs to the Resize Function
-        
-        public BundleGraph(BaseQuestNodeData nodeData, LBSLayer layer = null, TileBundleGroup tileBundle = null)
-        {
-            this.layer = layer;
-            
-            this.tileBundle = tileBundle;
-            _nodeData = nodeData;
-            
-            if(this.tileBundle is null) return;
-            guid = this.tileBundle.GetGuid();
-            
-            if(_nodeData is null) return;
-            this.tileBundle!.OnRemoved += ClearTileBundle;
-        }
-
-        private void ClearTileBundle()
-        {
-            tileBundle = null;
-        }
-
-        public Vector2Int Position => new((int)Area.x, (int)Area.y);
-        public Rect Area
-        {
-            get
-            {   
-                if(tileBundle is null) return Rect.zero;
-                return tileBundle.AreaRect;
-            }
-        }
-
-        public override bool Valid() => GetGuid() != string.Empty;
-        public override string GetGuid()
-        {
-            return guid;
-        }
-        
-    }
-    
-    
-    /// <summary>
-    /// Saves the bundle type
-    /// </summary>
-    [Serializable]
-    public class BundleType : LayerTarget
-    {
-        [SerializeField]private string guid;
-     
-        // TODO clean up this class
-        public BundleType(
-            LBSLayer layer = null, 
-            TileBundleGroup tileBundle = null)
-        {
-            this.layer = layer;
-            if (tileBundle != null) guid = tileBundle.GetGuid();
-        }
-
-        public override string GetGuid()
-        {
-            return guid;
-        }
-
-        public override bool Valid()
-        {
-            return GetGuid()!= string.Empty;
-        }
-        
-    }
-    
-    #endregion
-
+ 
     [Serializable]
     public struct UnityActionStored : IEquatable<UnityActionStored>
     {
         [SerializeField]
-        public int gameObjectID;
+        public string objectName;
         [SerializeField]
         public string componentName;
         [SerializeField]
         public string methodName;
-
-        public UnityActionStored((GameObject, Component, MethodInfo) methodInfo)
+        [SerializeField]
+        public UnityAction action;
+        
+        
+        public UnityActionStored((GameObject, Component, MethodInfo) methodInfo, UnityAction action = null)
         {
             (GameObject target, Component comp, MethodInfo method) = methodInfo;
             
-            gameObjectID = target.GetInstanceID();
+            objectName = target.name;
             componentName = comp.GetType().Name;
             methodName = method.Name;
+            this.action = action;
         }
         
         public bool Equals(UnityActionStored other)
         {
-            return gameObjectID == other.gameObjectID && componentName == other.componentName && methodName == other.methodName;
+            return objectName == other.objectName && componentName == other.componentName && methodName == other.methodName;
         }
 
         public override bool Equals(object obj)
@@ -153,7 +54,7 @@ namespace ISILab.LBS.Components
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(gameObjectID, componentName, methodName);
+            return HashCode.Combine(objectName, componentName, methodName);
         }
     }
     
@@ -177,61 +78,45 @@ namespace ISILab.LBS.Components
     /// <see cref="BaseQuestNodeData"/> child class.
     /// </para>
     /// </summary>
-    [Serializable]
+   [Serializable]
     public abstract class BaseQuestNodeData
     {
         #region FIELDS
-        [SerializeField, SerializeReference, JsonRequired]
-        protected QuestNode ownerNode;
-        
-        [SerializeField, JsonRequired]
-        protected string tag;
 
-        [SerializeField, JsonRequired] 
-        protected Rect area;
-        
-        [SerializeField, JsonRequired] 
-        protected Color color =  LBSSettings.Instance.view.behavioursColor;
+        [SerializeField, SerializeReference, JsonRequired] protected QuestNode ownerNode;
+        [SerializeField, JsonRequired] protected string tag;
+        [SerializeField, JsonRequired] protected Rect area;
+        [SerializeField, JsonRequired] protected Color color = LBSSettings.Instance.view.behavioursColor;
+        [SerializeField, JsonRequired] protected string iconGuid = LocationIcon;
 
-        [SerializeField, JsonRequired] 
-        protected string iconGuid = LocationIcon;
+        [SerializeField] private List<UnityActionStored> _registeredListeners = new();
+        [SerializeField] private UnityEvent onCompleteEvent = new();
 
-        // The default trigger icon
+        private GameObject _target;        // Not serialized
+        [SerializeField] private string targetName;
+        [SerializeField] private string sceneGuid;
+
+        // Icons
         protected static string LocationIcon = "efd5e48bd83c08d469fcc341c886b38b";
-        // Use to indicate friendly npc
         protected static string StarIcon = "99b7816ce61fd85449ad2379f39bb8c2";
-        // Use to indicate foes
         protected static string FoeIcon = "d0baea4f8bdb0c948887aed23edd4cad";
-        // Use to indicate objects or items
         protected static string ObjectIcon = "699cc90614aad8047875eb0fae8b175f";
-            
+
         #endregion
+
+
 
         #region PROPERTIES
 
-        /** listeners subscribed to OnComplete Event */
-        [SerializeField]
-        private Dictionary<UnityActionStored, UnityAction> _registeredListeners = new();
-        
-        [SerializeField, SerializeReference]
-        private UnityEvent onCompleteEvent = new();
-
-        [SerializeField]
-        private int targetID;
-        
-        [SerializeField]
-        private GameObject target;
-        
-        public Dictionary<UnityActionStored, UnityAction> RegisteredListeners
+        public List<UnityActionStored> RegisteredListeners
         {
             get
             {
-                _registeredListeners ??= new Dictionary<UnityActionStored, UnityAction>();
+                _registeredListeners ??= new List<UnityActionStored>();
                 return _registeredListeners;
             }
         }
 
-        
         public UnityEvent OnCompleteEvent
         {
             get
@@ -240,34 +125,38 @@ namespace ISILab.LBS.Components
                 return onCompleteEvent;
             }
         }
-        
+
         public GameObject Target
         {
             get
             {
-                if (target is null)
+                if (_target is null)
                 {
-                    GameObject[] allObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID);
-                    target = allObjects.FirstOrDefault(o => o.GetInstanceID() == targetID);
+                    var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+
+                    // Optional: ensure the stored scene GUID matches the currently open scene
+                    string currentSceneGuid = AssetDatabase.AssetPathToGUID(currentScene.path);
+                    if (currentSceneGuid == sceneGuid)
+                    {
+                        Target = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
+                            .FirstOrDefault(o => o.name == targetName);
+                    }
                 }
-                return target;
+
+                if (_target is not GameObject) Target = null;
+                return _target;
             }
             set
             {
-                target =  value;
-                if(target is not null)
-                {
-                    targetID = target.GetInstanceID();
-                }
+                if (value is not GameObject) return;
+                _target = value;
+                ResaveTargetValues()?.Invoke();
             }
         }
 
         public QuestNode OwnerNode => ownerNode;
-
         public QuestGraph Graph => ownerNode.Graph;
-        
         public LBSLayer Layer => Graph.OwnerLayer;
-        
         public string Tag => tag;
 
         public Rect Area
@@ -281,73 +170,57 @@ namespace ISILab.LBS.Components
 
         #endregion
 
+
+
+        #region CONSTRUCTOR
+
         protected BaseQuestNodeData(QuestNode ownerNode, string tag)
         {
+            EditorApplication.quitting += ResaveTargetValues();
+
             this.ownerNode = ownerNode;
             this.tag = tag;
 
             if (ownerNode?.Graph?.OwnerLayer == null) return;
+
             onCompleteEvent = new UnityEvent();
-            _registeredListeners = new Dictionary<UnityActionStored, UnityAction>();
-            
+            _registeredListeners = new List<UnityActionStored>();
+
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
         }
 
+        #endregion
+
+        #region METHODS
+
+        #region CLONE / VALIDATION
 
         public virtual void Clone(BaseQuestNodeData data)
         {
             ownerNode = data.ownerNode;
             tag = data.tag;
             area = data.area;
-            target = data.Target;
+            _target = data.Target;
             onCompleteEvent = data.OnCompleteEvent;
             _registeredListeners = data._registeredListeners;
         }
 
-        // by default there are no references to other layers.
-        public virtual List<string> ReferencedLayerNames()
-        {
-            return null;
-        }
-
-        // by default no resize. Implement if using bundleGraph fields
-        public virtual void Resize()
-        {
-           
-        }
-        protected void ResizeToFitBundles(IEnumerable<BundleGraph> bundles)
-        {
-            List<Rect> validRects = bundles
-                .Where(b => (b is not null) && b.Valid())
-                .Select(b => b.Area)
-                .ToList();
-
-            if (validRects.Count == 0)
-                return;
-
-            // Only use the rects' x and y positions
-            float minX = validRects.Min(r => r.x);
-            float maxX = validRects.Max(r => r.x + r.width);
-            float minY = validRects.Min(r => r.y - r.height);
-            float maxY = validRects.Max(r => r.y ); // subtract height because of inverted Y in graph
-
-            float width = maxX - minX;
-            float height = maxY - minY;
-
-            // Inverted Y origin: anchor from maxY going downward
-            area = new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height));
-        }
+        public virtual List<string> ReferencedLayerNames() => null;
+        public virtual void Resize() { }
 
         public abstract bool Equals(BaseQuestNodeData other);
-        
         public abstract bool IsValid();
+
+        #endregion
+        
+        #region DATA
 
         public VectorImage GetIcon()
         {
             return LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
         }
-
+        
         /// <summary>
         /// Used in the quest assistant, assign data to the node by passing tiles
         /// </summary>
@@ -355,103 +228,134 @@ namespace ISILab.LBS.Components
         /// <param name="tiles"></param>
         public abstract void SetDataByTiles(List<LBSLayer> layers, List<TileBundleGroup> tiles);
         
-        #region Helpers
+        protected void ResizeToFitBundles(IEnumerable<BundleGraph> bundles)
+        {
+            List<Rect> validRects = bundles
+                .Where(b => b != null && b.Valid())
+                .Select(b => b.Area)
+                .ToList();
+
+            if (validRects.Count == 0) return;
+
+            float minX = validRects.Min(r => r.x);
+            float maxX = validRects.Max(r => r.x + r.width);
+            float minY = validRects.Min(r => r.y - r.height);
+            float maxY = validRects.Max(r => r.y);
+
+            float width = maxX - minX;
+            float height = maxY - minY;
+
+            area = new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height));
+        }
+
+        #endregion
+        
+        #region TILE + BUNDLE HELPERS
 
         protected bool TrySetBundleGraphList(
-            List<LBSLayer> layers, List<TileBundleGroup> suggestions,
-            ref  List<BundleGraph> listVar,
+            List<LBSLayer> layers,
+            List<TileBundleGroup> suggestions,
+            ref List<BundleGraph> listVar,
             HashSet<Bundle.EElementFlag> flags,
             bool bRequireAllTags = false)
         {
             foreach (TileBundleGroup suggestionTile in suggestions)
             {
-                Tuple<LBSLayer, TileBundleGroup> GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
-                // safe assign clauses
-                if (GraphData is null) continue;
-                Bundle bundle = GraphData.Item2.BundleData.Bundle;
-                
-                bool bTagRequirement;
-                if (bRequireAllTags)
-                {
-                    bTagRequirement = bundle.HasAllFlags(flags);
-                    if(!bTagRequirement)Debug.Log($"{bundle}: missing a flag ({flags}). Can't assign as bundle graph");
-                }
-                else
-                {
-                    bTagRequirement = bundle.HasAnyFlag(flags);
-                    if(!bTagRequirement)Debug.Log($"{bundle}: missing does not contain any of ({flags}). Can't assign as bundle graph");
-                }
-                if(!bTagRequirement) continue;
-                
-                BundleGraph newBG = new BundleGraph(this, GraphData.Item1,  GraphData.Item2);
-                listVar.Add(newBG);
+                Tuple<LBSLayer, TileBundleGroup> graphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
+                if (graphData is null) continue;
+
+                Bundle bundle = graphData.Item2.BundleData.Bundle;
+
+                bool bTagRequirement =
+                    bRequireAllTags ? bundle.HasAllFlags(flags) : bundle.HasAnyFlag(flags);
+
+                if (!bTagRequirement) continue;
+
+                listVar.Add(new BundleGraph(this, graphData.Item1, graphData.Item2));
             }
-            
+
             return listVar.Any();
         }
-        
+
+
         protected bool TrySetBundleGraph(
-            List<LBSLayer> layers, List<TileBundleGroup> suggestions,
+            List<LBSLayer> layers,
+            List<TileBundleGroup> suggestions,
             ref BundleGraph graphVar,
             HashSet<Bundle.EElementFlag> flags,
             bool bRequireAllTags = false)
         {
             foreach (TileBundleGroup suggestionTile in suggestions)
             {
-                Tuple<LBSLayer, TileBundleGroup> GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
-                if (GraphData is null) continue;
-                Bundle bundle = GraphData.Item2.BundleData.Bundle;
+                Tuple<LBSLayer, TileBundleGroup> graphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
+                if (graphData is null) continue;
 
-                bool bTagRequirement;
-                if (bRequireAllTags)
-                {
-                    bTagRequirement = bundle.HasAllFlags(flags);
-                  //  if(!bTagRequirement)Debug.Log($"{bundle}: missing a flag ({flags}). Can't assign as bundle graph");
-                }
-                else
-                {
-                    bTagRequirement = bundle.HasAnyFlag(flags);
-                //    if(!bTagRequirement)Debug.Log($"{bundle}: missing does not contain any of ({flags}). Can't assign as bundle graph");
-                }
-                if(!bTagRequirement) continue;
-                
-                graphVar = new BundleGraph(this, GraphData.Item1,  GraphData.Item2);
-                if (graphVar is not null) return true;
+                Bundle bundle = graphData.Item2.BundleData.Bundle;
+                bool bTagRequirement =
+                    bRequireAllTags ? bundle.HasAllFlags(flags) : bundle.HasAnyFlag(flags);
+
+                if (!bTagRequirement) continue;
+
+                graphVar = new BundleGraph(this, graphData.Item1, graphData.Item2);
+                if (graphVar != null) return true;
             }
 
             return false;
         }
-            
+
+
         protected bool TrySetBundleType(
-            List<LBSLayer> layers, List<TileBundleGroup> suggestions,
+            List<LBSLayer> layers,
+            List<TileBundleGroup> suggestions,
             ref BundleType typeVar,
             HashSet<Bundle.EElementFlag> flags,
             bool bRequireAllTags = false)
         {
             foreach (TileBundleGroup suggestionTile in suggestions)
             {
-                Tuple<LBSLayer, TileBundleGroup> GraphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
-                if (GraphData is null) continue;
-                Bundle bundle = GraphData.Item2.BundleData.Bundle;
-                bool bTagRequirement;
-                if (bRequireAllTags)
-                {
-                    bTagRequirement = bundle.HasAllFlags(flags);
-                 //   if(!bTagRequirement)Debug.Log($"{bundle}: missing a flag ({flags}). Can't assign as bundle graph");
-                }
-                else
-                {
-                    bTagRequirement = bundle.HasAnyFlag(flags);
-                  //  if(!bTagRequirement)Debug.Log($"{bundle}: missing does not contain any of ({flags}). Can't assign as bundle graph");
-                }
-                if(!bTagRequirement) continue;
-                
+                Tuple<LBSLayer, TileBundleGroup> graphData = LBSLayerHelper.GetBundleTileByPosition(suggestionTile.AreaRect.position.ToInt(), layers);
+                if (graphData is null) continue;
+
+                Bundle bundle = graphData.Item2.BundleData.Bundle;
+                bool bTagRequirement =
+                    bRequireAllTags ? bundle.HasAllFlags(flags) : bundle.HasAnyFlag(flags);
+
+                if (!bTagRequirement) continue;
+
                 typeVar = new BundleType(null, suggestionTile);
-                if (typeVar is not null) return true;
+                if (typeVar != null) return true;
             }
+
             return false;
         }
+
+        #endregion
         
+        #region ON COMPLETE TARGET SAVE
+
+        /// <summary>
+        /// Used to keep GameObject name + Scene GUID in sync before editor shutdown.
+        /// </summary>
+        private Action ResaveTargetValues()
+        {
+            return () =>
+            {
+                if (Target != null)
+                {
+                    targetName = Target.name;
+                    SetSceneGuid(Target);
+                }
+            };
+        }
+
+        private void SetSceneGuid(GameObject value)
+        {
+            string scenePath = value.scene.path;
+            sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
+        }
+
+#endregion
+
         #endregion
     }
 
