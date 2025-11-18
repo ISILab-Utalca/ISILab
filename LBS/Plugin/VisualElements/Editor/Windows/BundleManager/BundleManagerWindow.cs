@@ -81,7 +81,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             
             // Setting MasterBundle lists
             SetBundleViewSettings(out _interiorList, "Interior", _interiorBundles, true);
-            _interiorListGroup.SetBundleListViewItem(out _interiorList, "Interior List",_interiorBundles, true);
+            //_interiorListGroup.SetBundleListViewItem(out _interiorList, "Interior List",_interiorBundles, true);
             SetBundleViewSettings(out _exteriorList, "Exterior", _exteriorBundles, true);
             SetBundleViewSettings(out _populationList, "Population", _populationBundles, true);
             SetBundleViewSettings(out _unassignedList, "Unassigned", _unassignedBundles, true);
@@ -90,7 +90,8 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             // Setting Bundle lists
             SetBundleViewSettings(out _subBundleList, "SubBundles", _subBundles);
             SetBundleViewSettings(out _orphanList, "OrphanBundles", _orphanBundles);
-            SetBundleViewSettings(out _validatorList, "BundleValidator", new List<BundleContainer>());
+            //SetBundleViewSettings(out _validatorList, "BundleValidator", new List<BundleContainer>());
+            _validatorList = rootVisualElement.Q<VisualElement>("BundleValidator").Q<ListView>();
 
             // Setting Expand List Buttons
             SetExpandButtonSetting("Interior", _interiorList);
@@ -140,7 +141,8 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 _orphanList.RefreshItems();
 
                 SetExpandButtonSetting("SubBundles", _subBundleList);
-                SetBundleViewSettings(out _validatorList, "BundleValidator", new List<BundleContainer>());
+                //SetBundleViewSettings(out _validatorList, "BundleValidator", new List<BundleContainer>());
+                _validatorList = rootVisualElement.Q<VisualElement>("BundleValidator").Q<ListView>();
                 SetExpandButtonSetting("BundleValidator", _validatorList);
             };
         }
@@ -163,7 +165,8 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             _orphanList.RefreshItems();
 
             SetExpandButtonSetting("SubBundles", _subBundleList);
-            SetBundleViewSettings(out _validatorList, "BundleValidator", new List<BundleContainer>());
+            //SetBundleViewSettings(out _validatorList, "BundleValidator", new List<BundleContainer>());
+            _validatorList = rootVisualElement.Q<VisualElement>("BundleValidator").Q<ListView>();
             SetExpandButtonSetting("BundleValidator", _validatorList);
         }
 
@@ -334,7 +337,16 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                     }
 
                     // Particular cases (it depends and is defined on the type of the characteristic)
-                    List<string> warnings = cha.Validate();
+                    List<string> warnings = new();
+                    try
+                    {
+                        warnings.AddRange(cha.Validate());
+                    }
+                    catch(System.Exception e)
+                    {
+                        warnings.Add(e.Message); // idk if its receiving the exception message
+                    }
+
                     foreach (var w in warnings)
                     {
                         bundleContainer.AddWarning(w);
@@ -543,7 +555,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 button.iconImage = Background.FromVectorImage(list.GetDisplay() ? _arrowDown : _arrowSide);
             };
 
-            list.SetDisplay(list.itemsSource.Count > 0);
+            list.SetDisplay(list.itemsSource is not null && list.itemsSource.Count > 0);
             button.iconImage = Background.FromVectorImage(list.GetDisplay() ? _arrowDown : _arrowSide);
         }
 
