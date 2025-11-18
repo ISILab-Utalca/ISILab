@@ -123,6 +123,8 @@ namespace ISILab.LBS.Behaviours
 
         public void MoveGroup(TileBundleGroup group, Vector2Int offset)
         {
+            if (offset.Equals(Vector2Int.zero)) return;
+
             Vector2Int oldPos = group.TileGroup[0].Position;
             AddTileGroup(oldPos + offset, group);
             RemoveTileGroup(oldPos);

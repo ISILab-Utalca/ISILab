@@ -170,6 +170,7 @@ namespace ISILab.LBS.Manipulators
             target.RegisterCallback<MouseDownEvent>(OnInternalMouseDown);
             target.RegisterCallback<MouseMoveEvent>(OnInternalMouseMove);
             target.RegisterCallback<MouseLeaveEvent>(OnInternalMouseLeave);
+            target.RegisterCallback<MouseEnterEvent>(OnInternalMouseEnter);
             target.RegisterCallback<MouseUpEvent>(OnInternalMouseUp);
             target.RegisterCallback<KeyDownEvent>(OnKeyDown);
             target.RegisterCallback<KeyUpEvent>(OnKeyUp);
@@ -184,8 +185,10 @@ namespace ISILab.LBS.Manipulators
             target.UnregisterCallback<MouseDownEvent>(OnInternalMouseDown);
             target.UnregisterCallback<MouseMoveEvent>(OnInternalMouseMove);
             target.UnregisterCallback<MouseLeaveEvent>(OnInternalMouseLeave);
+            target.UnregisterCallback<MouseEnterEvent>(OnInternalMouseEnter);
             target.UnregisterCallback<MouseUpEvent>(OnInternalMouseUp);
             target.UnregisterCallback<KeyDownEvent>(OnKeyDown);
+            target.UnregisterCallback<KeyUpEvent>(OnKeyUp);
             target.UnregisterCallback<WheelEvent>(OnWheelEvent);
         }
 
@@ -294,6 +297,11 @@ namespace ISILab.LBS.Manipulators
         protected void OnInternalMouseLeave(MouseLeaveEvent e)
         {
             OnMouseLeave(e.target as VisualElement, e);
+        }
+
+        protected void OnInternalMouseEnter(MouseEnterEvent e)
+        {
+            OnMouseEnter(e.target as VisualElement, e);
         }
 
         /// <summary>
@@ -416,6 +424,8 @@ namespace ISILab.LBS.Manipulators
         protected virtual void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) { }
         
         protected virtual void OnMouseLeave(VisualElement element, MouseLeaveEvent e) { }
+
+        protected virtual void OnMouseEnter(VisualElement element, MouseEnterEvent e) { }
 
         protected virtual void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e) { }
 

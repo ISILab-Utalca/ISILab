@@ -47,17 +47,16 @@ namespace ISILab.LBS.CustomComponents
                 
                 if(lockOnClick)
                 {
-                        ///THIS IS WHERE I'M WORKING BTW! -Alice
-                    this.RegisterValueChangedCallback(lokedButtonClick);
+                    this.RegisterValueChangedCallback(lockedButtonClick);
                 } else
                 {
-                    this.UnregisterValueChangedCallback(lokedButtonClick);
+                    this.UnregisterValueChangedCallback(lockedButtonClick);
                 }
             }
         }
 
         [UxmlAttribute]
-        public Boolean HideToggle
+        public bool HideToggle
         {
             get => hideToggle;
             set
@@ -117,7 +116,7 @@ namespace ISILab.LBS.CustomComponents
             
         }
 
-        private void lokedButtonClick(ChangeEvent<bool> _changeEvent)
+        private void lockedButtonClick(ChangeEvent<bool> _changeEvent)
         {
             if (lockOnClick)
             {
