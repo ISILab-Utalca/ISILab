@@ -21,7 +21,7 @@ namespace ISILab.LBS.VisualElements
             button = this.Q<LBSCustomButton>("Button");
         }
 
-        public void SetData((GameObject, Component, MethodInfo) methodInfo, BaseQuestNodeData nodeData)
+        public void AddListener((GameObject, Component, MethodInfo) methodInfo, BaseQuestNodeData nodeData)
         {
             (GameObject target, Component comp, MethodInfo method) = methodInfo;
             button.text = $"{method.Name}";
@@ -29,8 +29,27 @@ namespace ISILab.LBS.VisualElements
             {
                 UnityAction action = (UnityAction)Delegate.CreateDelegate(typeof(UnityAction), target.GetComponent(comp.GetType()), method);
                 // during generation we must check that this event is still valid scene wise
-                nodeData.OnCompleteEvent.AddListener(action);
-                
+                UnityActionStored entryKey = new(methodInfo);
+                if (nodeData.RegisteredListeners.TryAdd(entryKey, action))
+                {
+                    nodeData.OnCompleteEvent.AddListener(action);
+                }
+            };
+        }
+        
+        public void RemoveListener((GameObject, Component, MethodInfo) methodInfo, BaseQuestNodeData nodeData)
+        {
+            (GameObject target, Component comp, MethodInfo method) = methodInfo;
+            button.text = $"{method.Name}";
+            button.clicked += () =>
+            {
+                UnityActionStored entryKey = new(methodInfo);
+                if (nodeData.RegisteredListeners.ContainsKey(entryKey))
+                {
+                    UnityAction action = nodeData.RegisteredListeners[entryKey];
+                    nodeData.OnCompleteEvent.RemoveListener(action);
+                    nodeData.RegisteredListeners.Remove(entryKey);
+                }
             };
         }
     }

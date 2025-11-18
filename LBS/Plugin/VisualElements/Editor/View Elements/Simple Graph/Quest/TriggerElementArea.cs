@@ -306,9 +306,7 @@ namespace ISILab.LBS.VisualElements
             _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
             _data.Graph?.NodeDataChanged(_data.OwnerNode);
             DrawManager.Instance.RedrawLayer(_data.Layer);
-            
             DrawManager.Instance.PickingModeRestoreAll();
-
         }
 
         private void RestoreManipulator()

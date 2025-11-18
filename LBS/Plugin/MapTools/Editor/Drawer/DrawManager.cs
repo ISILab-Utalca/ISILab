@@ -227,30 +227,51 @@ namespace ISILab.LBS
         /// Stores the picking mode of each existing element to restore afterwards
         /// </summary>
         /// <param name="newPickingMode">the picking mode that will be assigned to all visual elements</param>
-        /// <param name="Exceptions">the visual elements that wont be affected</param>
-        public void PickingModeChangeAll(PickingMode newPickingMode, List<VisualElement> Exceptions)
+        /// <param name="exceptions">the visual elements that wont be affected</param>
+        public void PickingModeChangeAll(PickingMode newPickingMode, List<VisualElement> exceptions)
         {
+            // restore all before changing again to avoid rewriting the same pickmode(changing original)
+            Instance.PickingModeRestoreAll();
+            
+            Dictionary<VisualElement, PickingMode> exceptionsMap = new Dictionary<VisualElement, PickingMode>();
+            foreach (VisualElement ve in exceptions)
+            {
+                exceptionsMap.TryAdd(ve, ve.pickingMode);
+            }
+            
             foreach (LBSLayer layer in LBSMainWindow.Instance.GetLayers())
             {
                 foreach(GraphElement element in _view.GetAllElementsInLayer(layer))
                 {
-                    if(Exceptions.Contains(element)) continue;
-                    ChangePickingMode(element, newPickingMode, Exceptions);
-                    
+                    if (exceptions.Contains(element))
+                    {
+                        continue;
+                    }
+                    ChangePickingMode(element, newPickingMode, exceptions);
                 }
             }
-            
+
+            // make sure to to keep pick mode
+            foreach (VisualElement ve in exceptions)
+            {
+                ve.pickingMode = exceptionsMap[ve];
+            }
         }
 
         private void ChangePickingMode(VisualElement element, PickingMode newPickingMode, List<VisualElement> exceptions)
         {
-            if (element == null) return;
-            if (exceptions.Contains(element)) return;
+            if (element == null)
+            {
+                return;
+            }
+            if (exceptions.Contains(element))
+            {
+                return;
+            }
             
-            elementPicks.TryAdd(element, element.pickingMode);
-            element.pickingMode = newPickingMode;
+            if (!elementPicks.ContainsKey(element)) elementPicks[element] = element.pickingMode;
             
-            Debug.Log("pickmode changed to " + newPickingMode);
+            Debug.Log("pick-mode changed to " + newPickingMode);
             
             // Recursively apply to parent}
             foreach (VisualElement child in element.Children())

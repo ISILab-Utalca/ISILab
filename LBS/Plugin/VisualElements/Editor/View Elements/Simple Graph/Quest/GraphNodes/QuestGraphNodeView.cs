@@ -82,12 +82,14 @@ namespace ISILab.LBS.VisualElements
             if (Node == null) return;
             RestoreManipulator();
             OnMouseMove(MouseMoveEvent.GetPooled(e.mousePosition, e.button, e.clickCount, e.mouseDelta));
+            DrawManager.Instance.PickingModeRestoreAll();
         }
         
         protected void OnMouseUp(MouseUpEvent evt)
         {
             RestoreManipulator();
             DrawManager.Instance.PickingModeRestoreAll();
+            DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
         }
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)
