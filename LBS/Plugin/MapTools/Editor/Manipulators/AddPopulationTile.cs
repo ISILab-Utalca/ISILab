@@ -26,8 +26,8 @@ namespace ISILab.LBS.Manipulators
         {
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
-            
-            _previewFeedback = new DottedAreaFeedback();
+
+            _previewFeedback = new IconFeedback();//DottedAreaFeedback();
             _previewFeedback.preview = true;
             _previewFeedback.fixToTeselation = true;
 
@@ -54,11 +54,20 @@ namespace ISILab.LBS.Manipulators
             _population = provider as PopulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
+
+            if(ToSet != null) 
+                (_previewFeedback as IconFeedback).Icon = ToSet.Icon;
         }
 
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
         {
             MainView.Instance.RemoveElement(_previewFeedback);
+        }
+
+        protected override void OnMouseEnter(VisualElement element, MouseEnterEvent e)
+        {
+            if (ToSet != null)
+                (_previewFeedback as IconFeedback).Icon = ToSet.Icon;
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
