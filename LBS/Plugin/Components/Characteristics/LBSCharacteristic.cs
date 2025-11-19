@@ -17,6 +17,11 @@ namespace ISILab.LBS.Characteristics
         #region FIELDS
         public static readonly bool unique = true;
 
+        public static List<List<Type>> exclusives = new List<List<Type>>()
+        {
+            new List<Type>(){typeof(LBSMainInteriorBundle), typeof(LBSMainExteriorBundle), typeof(LBSMainPopulationBundle)}
+        };
+
         [SerializeReference, SerializeField]
         private Bundle owner;
 
@@ -57,6 +62,21 @@ namespace ISILab.LBS.Characteristics
                 BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
 
             return (bool)(field?.GetValue(null) ?? false);
+        }
+
+        public static bool IsExclusive(Type t, out List<List<Type>> exclusivenessGroups)
+        {
+            bool isExclusive = false;
+            exclusivenessGroups = new List<List<Type>>();
+            foreach(List<Type> group in exclusives)
+            {
+                if (group.Contains(t))
+                {
+                    exclusivenessGroups.Add(group);
+                    isExclusive = true;
+                }
+            }
+            return isExclusive;
         }
 
         public virtual void OnEnable() {  }

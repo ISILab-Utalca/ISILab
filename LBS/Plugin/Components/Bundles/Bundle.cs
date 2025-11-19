@@ -591,6 +591,11 @@ namespace LBS.Bundles
             return false;
         }
 
+        public bool HasCharacteristic(Type t)
+        {
+            return Characteristics.Any(ch => ch?.GetType() == t);
+        }
+
         public MicroGenTool GetMicroGenTool()
         {
             return microGenTool;

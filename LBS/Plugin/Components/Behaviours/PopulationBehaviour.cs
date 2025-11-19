@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.LBS.Behaviours
 {
