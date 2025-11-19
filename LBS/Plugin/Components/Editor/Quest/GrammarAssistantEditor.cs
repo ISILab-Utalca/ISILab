@@ -223,7 +223,7 @@ namespace ISILab.LBS.Editor
             return _questGraph.GetNodeAsQuest()?.QuestAction;
         }
 
-        private void SetBaseDataValues(BaseQuestNodeData data)
+        private void SetBaseDataValues(QuestActionData data)
         {
             if (data == null) return;
 

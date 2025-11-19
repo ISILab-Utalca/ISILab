@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements
             
         }
 
-        public override void SetNodeData(BaseQuestNodeData data)
+        public override void SetNodeData(QuestActionData data)
         {
 
         }

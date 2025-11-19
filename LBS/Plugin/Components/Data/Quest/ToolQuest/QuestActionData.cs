@@ -12,52 +12,14 @@ using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Components
 {
- 
-    [Serializable]
-    public struct UnityActionStored : IEquatable<UnityActionStored>
-    {
-        [SerializeField]
-        public string objectName;
-        [SerializeField]
-        public string componentName;
-        [SerializeField]
-        public string methodName;
-        [SerializeField]
-        public UnityAction action;
-        
-        
-        public UnityActionStored((GameObject, Component, MethodInfo) methodInfo, UnityAction action = null)
-        {
-            (GameObject target, Component comp, MethodInfo method) = methodInfo;
-            
-            objectName = target.name;
-            componentName = comp.GetType().Name;
-            methodName = method.Name;
-            this.action = action;
-        }
-        
-        public bool Equals(UnityActionStored other)
-        {
-            return objectName == other.objectName && componentName == other.componentName && methodName == other.methodName;
-        }
 
-        public override bool Equals(object obj)
-        {
-            return obj is UnityActionStored other && Equals(other);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(objectName, componentName, methodName);
-        }
-    }
-    
     /// <summary>
     /// <para><b>FOR LBS USER</b></para>
     /// 
@@ -75,54 +37,44 @@ namespace ISILab.LBS.Components
     /// <para>
     /// Remember to update the <see cref="QuestNodeDataFactory"/> by adding 
     /// an action <c>string</c> and its  
-    /// <see cref="BaseQuestNodeData"/> child class.
+    /// <see cref="QuestActionData"/> child class.
     /// </para>
     /// </summary>
-   [Serializable]
-    public abstract class BaseQuestNodeData
+    [Serializable]
+    public abstract class QuestActionData
     {
         #region FIELDS
 
-        [SerializeField, SerializeReference, JsonRequired] protected QuestNode ownerNode;
+        [SerializeField, SerializeReference, JsonRequired]
+        protected QuestNode ownerNode;
+
         [SerializeField, JsonRequired] protected string tag;
         [SerializeField, JsonRequired] protected Rect area;
         [SerializeField, JsonRequired] protected Color color = LBSSettings.Instance.view.behavioursColor;
         [SerializeField, JsonRequired] protected string iconGuid = LocationIcon;
 
-        [SerializeField] private List<UnityActionStored> _registeredListeners = new();
-        [SerializeField] private UnityEvent onCompleteEvent = new();
+        [SerializeField] private List<UnityActionStored> registeredActions = new();
 
-        private GameObject _target;        // Not serialized
+        [NonSerialized] private GameObject _target;
         [SerializeField] private string targetName;
         [SerializeField] private string sceneGuid;
 
         // Icons
-        protected static string LocationIcon = "efd5e48bd83c08d469fcc341c886b38b";
-        protected static string StarIcon = "99b7816ce61fd85449ad2379f39bb8c2";
-        protected static string FoeIcon = "d0baea4f8bdb0c948887aed23edd4cad";
-        protected static string ObjectIcon = "699cc90614aad8047875eb0fae8b175f";
+        protected const string LocationIcon = "efd5e48bd83c08d469fcc341c886b38b";
+        protected const string StarIcon = "99b7816ce61fd85449ad2379f39bb8c2";
+        protected const string FoeIcon = "d0baea4f8bdb0c948887aed23edd4cad";
+        protected const string ObjectIcon = "699cc90614aad8047875eb0fae8b175f";
 
         #endregion
-
-
-
+        
         #region PROPERTIES
 
-        public List<UnityActionStored> RegisteredListeners
+        public List<UnityActionStored> RegisteredActions
         {
             get
             {
-                _registeredListeners ??= new List<UnityActionStored>();
-                return _registeredListeners;
-            }
-        }
-
-        public UnityEvent OnCompleteEvent
-        {
-            get
-            {
-                onCompleteEvent ??= new UnityEvent();
-                return onCompleteEvent;
+                registeredActions ??= new List<UnityActionStored>();
+                return registeredActions;
             }
         }
 
@@ -132,8 +84,8 @@ namespace ISILab.LBS.Components
             {
                 if (_target is null)
                 {
-                    var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-
+                    Scene currentScene = SceneManager.GetActiveScene();
+                    if(!currentScene.isLoaded) return null;
                     // Optional: ensure the stored scene GUID matches the currently open scene
                     string currentSceneGuid = AssetDatabase.AssetPathToGUID(currentScene.path);
                     if (currentSceneGuid == sceneGuid)
@@ -143,14 +95,14 @@ namespace ISILab.LBS.Components
                     }
                 }
 
-                if (_target is not GameObject) Target = null;
                 return _target;
             }
             set
             {
-                if (value is not GameObject) return;
+                if (value == null) return;
                 _target = value;
                 ResaveTargetValues()?.Invoke();
+
             }
         }
 
@@ -169,12 +121,10 @@ namespace ISILab.LBS.Components
         public string ID => OwnerNode.ID;
 
         #endregion
-
-
-
+        
         #region CONSTRUCTOR
 
-        protected BaseQuestNodeData(QuestNode ownerNode, string tag)
+        protected QuestActionData(QuestNode ownerNode, string tag)
         {
             EditorApplication.quitting += ResaveTargetValues();
 
@@ -182,9 +132,8 @@ namespace ISILab.LBS.Components
             this.tag = tag;
 
             if (ownerNode?.Graph?.OwnerLayer == null) return;
-
-            onCompleteEvent = new UnityEvent();
-            _registeredListeners = new List<UnityActionStored>();
+            
+            registeredActions = new List<UnityActionStored>();
 
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
@@ -196,20 +145,19 @@ namespace ISILab.LBS.Components
 
         #region CLONE / VALIDATION
 
-        public virtual void Clone(BaseQuestNodeData data)
+        public virtual void Clone(QuestActionData data)
         {
             ownerNode = data.ownerNode;
             tag = data.tag;
             area = data.area;
             _target = data.Target;
-            onCompleteEvent = data.OnCompleteEvent;
-            _registeredListeners = data._registeredListeners;
+            registeredActions = data.registeredActions;
         }
 
         public virtual List<string> ReferencedLayerNames() => null;
         public virtual void Resize() { }
 
-        public abstract bool Equals(BaseQuestNodeData other);
+        public abstract bool Equals(QuestActionData other);
         public abstract bool IsValid();
 
         #endregion

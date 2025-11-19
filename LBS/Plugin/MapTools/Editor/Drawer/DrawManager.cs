@@ -271,7 +271,7 @@ namespace ISILab.LBS
             
             if (!elementPicks.ContainsKey(element)) elementPicks[element] = element.pickingMode;
             
-            Debug.Log("pick-mode changed to " + newPickingMode);
+            //Debug.Log("pick-mode changed to " + newPickingMode);
             
             // Recursively apply to parent}
             foreach (VisualElement child in element.Children())
@@ -290,7 +290,7 @@ namespace ISILab.LBS
                 elementPick.Key.pickingMode = elementPick.Value;
             }
             
-            Debug.Log("restore pickmode all");
+            //Debug.Log("restore pickmode all");
             elementPicks.Clear();
         }
     }

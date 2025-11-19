@@ -11,12 +11,8 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using LBS;
 using LBS.VisualElements;
-using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -46,7 +42,7 @@ namespace ISILab.LBS.VisualElements
             { typeof(DataListen), typeof(NodeEditorListen) }
         };
         
-        private List<(GameObject, Component, MethodInfo)> _availableMethods = new();
+        private readonly List<(GameObject, Component, MethodInfo)> _availableMethods = new();
         #endregion
         
         #region VIEW FIELDS
@@ -128,17 +124,17 @@ namespace ISILab.LBS.VisualElements
             {
                 if (ToolKit.Instance.GetActiveManipulatorInstance() is not QuestPicker pickerManipulator) return;
                 
-                BaseQuestNodeData nodeData = _behaviour.Graph.GetNodeData();
-                if (nodeData is null) return;
+                QuestActionData actionData = _behaviour.Graph.GetNodeData();
+                if (actionData is null) return;
                 
                 pickerManipulator.PickTriggerPosition = true;
-                pickerManipulator.ActiveData = nodeData;
+                pickerManipulator.ActiveData = actionData;
                 
                 if(pickerManipulator.ActiveData == null) return;
                 
                 pickerManipulator.OnPositionPicked = (pos) =>
                 {
-                    nodeData.Area = new Rect(pos.x,pos.y, nodeData.Area.width,nodeData.Area.height);
+                    actionData.Area = new Rect(pos.x,pos.y, actionData.Area.width,actionData.Area.height);
                     
                     // Refresh UI
                     _targetPosition.SetTarget(pos);
@@ -154,7 +150,7 @@ namespace ISILab.LBS.VisualElements
             _gameObjectSelector = this.Q<LBSCustomObjectField>("GameObjectSelector");
             _gameObjectSelector.RegisterValueChangedCallback(evt =>
             {
-                BaseQuestNodeData data = GetSelectedNodeData();
+                QuestActionData data = GetSelectedNodeData();
                 if (data is null) return;
                 data.Target = evt.newValue as GameObject;
                 RefreshMethodList();
@@ -176,8 +172,8 @@ namespace ISILab.LBS.VisualElements
         {
             List<(GameObject, Component, MethodInfo)> selectedMethods = new();
 
-            BaseQuestNodeData nodeData = GetSelectedNodeData();
-            GameObject gameObject = nodeData?.Target;
+            QuestActionData actionData = GetSelectedNodeData();
+            GameObject gameObject = actionData?.Target;
 
             // reset on refresh
             _availableMethodsList.itemsSource = null;
@@ -207,7 +203,7 @@ namespace ISILab.LBS.VisualElements
             _availableMethodsList.makeItem = () => new QuestMethodVisualElement();
             _availableMethodsList.bindItem = (element, i) =>
             {
-                GetRegisteredMethods(nodeData, selectedMethods);
+                GetRegisteredMethods(actionData, selectedMethods);
 
                 if (i < 0 || i >= _availableMethods.Count)
                     return;
@@ -216,8 +212,8 @@ namespace ISILab.LBS.VisualElements
                 QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
 
                 vm.SetEnabled(!selectedMethods.Contains(availableMethod));
-                vm.AddListener(availableMethod, nodeData);
-                vm.Q<Button>().clicked += () => RefreshMethodList();
+                vm.AddListener(availableMethod, actionData);
+                vm.Q<Button>().clicked += RefreshMethodList;
             };
 
             #endregion
@@ -225,7 +221,7 @@ namespace ISILab.LBS.VisualElements
             #region Selected Methods
 
             selectedMethods.Clear();
-            GetRegisteredMethods(nodeData, selectedMethods);
+            GetRegisteredMethods(actionData, selectedMethods);
 
             _selectedMethodsList.itemsSource = selectedMethods;
             _selectedMethodsList.makeItem = () => new QuestMethodVisualElement();
@@ -235,8 +231,8 @@ namespace ISILab.LBS.VisualElements
                     return;
 
                 QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
-                vm.RemoveListener(selectedMethods[i], nodeData);
-                vm.Q<Button>().clicked += () => RefreshMethodList();
+                vm.RemoveListener(selectedMethods[i], actionData);
+                vm.Q<Button>().clicked += RefreshMethodList;
             };
 
             #endregion
@@ -247,48 +243,42 @@ namespace ISILab.LBS.VisualElements
         }
 
 
-        private static void GetRegisteredMethods(BaseQuestNodeData nodeData, List<(GameObject, Component, MethodInfo)> selectedMethods)
+        private static void GetRegisteredMethods(QuestActionData actionData, List<(GameObject, Component, MethodInfo)> selectedMethods)
         {
             selectedMethods.Clear();
-            foreach (UnityActionStored entry in nodeData.RegisteredListeners)
+            foreach (UnityActionStored entry in actionData.RegisteredActions)
             {
-                GameObject go = nodeData.Target;
-                if(go is null || go.name != entry.objectName)
-                {
-                    continue;
-                }
+                GameObject go = actionData.Target;
+                if(go is null || go.name != entry.objectName) continue;
                 
                 foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())
                 {
-                    if (comp == null || comp.GetType().Name != entry.componentName)
-                    {
-                        continue;
-                    }
+                    if (comp == null || comp.GetType().Name != entry.componentName) continue;
                     MethodInfo method = comp.GetType().GetMethod(entry.methodName);
                     selectedMethods.Add((go, comp, method));
                 }
             }
         }
 
-        private BaseQuestNodeData GetSelectedNodeData()
+        private QuestActionData GetSelectedNodeData()
         {
             QuestNode node = _behaviour.Graph.SelectedGraphNode as QuestNode;
-            BaseQuestNodeData nodeData = node?.NodeData;
-            return nodeData;
+            QuestActionData actionData = node?.Data;
+            return actionData;
         }
 
 
         private void SetNodeDataArea(Rect newValue)
         {
-            BaseQuestNodeData nodeData = GetSelectedNodeData();
-            if (nodeData is null) return;
+            QuestActionData actionData = GetSelectedNodeData();
+            if (actionData is null) return;
             
             newValue.x = Mathf.Round(newValue.x);
             newValue.y = Mathf.Round(newValue.y);
             newValue.height = MathF.Abs(newValue.height);
             newValue.width = MathF.Abs(newValue.width);
             
-            nodeData.Area = newValue;
+            actionData.Area = newValue;
             DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
         }
 
@@ -308,7 +298,7 @@ namespace ISILab.LBS.VisualElements
         private void OnSelectNode(GraphNode graphNode)
         {
             QuestNode node = graphNode as QuestNode;
-            bool validNode = node?.NodeData != null;
+            bool validNode = node?.Data != null;
             
             _noNodeSelectedPanel.style.display = validNode ? DisplayStyle.None : DisplayStyle.Flex;  
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
@@ -328,7 +318,7 @@ namespace ISILab.LBS.VisualElements
             _paramActionLabel.text = node.QuestAction;
             _nodeIDLabel.text = node.ID;
 
-            Type dataType = node.NodeData.GetType();
+            Type dataType = node.Data.GetType();
             
             if (TypeToPanelMap.TryGetValue(dataType, out Type visualElementType))
             {
@@ -336,18 +326,18 @@ namespace ISILab.LBS.VisualElements
                 if (Activator.CreateInstance(visualElementType) is not NodeEditor instance) return;
                 
                 _instancedContent.Add(instance);
-                instance.SetNodeData(node.NodeData); // bindings per editor type
-                SetBaseDataValues(node.NodeData); // for trigger position and size
+                instance.SetNodeData(node.Data); // bindings per editor type
+                SetBaseDataValues(node.Data); // for trigger position and size
             }
             
             // if not in the dictionary just set the default data: For example "GoTo" action
             else
             {
-                SetBaseDataValues(node.NodeData);
+                SetBaseDataValues(node.Data);
             }
         }
         
-        private void SetBaseDataValues(BaseQuestNodeData data)
+        private void SetBaseDataValues(QuestActionData data)
         {
             Color backgroundColor = data.Color;
             backgroundColor.a = BackgroundOpacity;

@@ -1,8 +1,4 @@
-using System;
-using System.Linq;
 using ISILab.LBS.Components;
-using ISILab.Macros;
-using LBS.Bundles;
 using UnityEngine;
 
 namespace ISILab.LBS
@@ -17,6 +13,7 @@ namespace ISILab.LBS
     [QuestNodeActionTag("exchange")]
     public class QuestTriggerExchange : QuestTrigger
     {
+        [HideInInspector]
         public DataExchange dataExchange;
         [SerializeField]
         private string _giveType;
@@ -30,17 +27,17 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataExchange);
+            SetUniqueData(dataExchange);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataExchange =  (DataExchange)baseData;
+            dataExchange =  (DataExchange)data;
             _giveType = dataExchange.bundleGiveType.GetGuid();
             _receiveType =dataExchange.bundleReceiveType.GetGuid();
         }
         
-        protected override bool CompleteCondition()
+        protected override bool CanComplete()
         {
             if (_playerInventory.HasType(_giveType))  givenAmount += _playerInventory.GetTypeAmount(_giveType);
             if (givenAmount < dataExchange.requiredAmount) return false;

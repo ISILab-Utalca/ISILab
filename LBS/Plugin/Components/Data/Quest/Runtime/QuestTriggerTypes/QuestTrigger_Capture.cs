@@ -1,4 +1,3 @@
-using System;
 using ISILab.LBS.Components;
 using UnityEngine;
 
@@ -7,6 +6,7 @@ namespace ISILab.LBS
     [QuestNodeActionTag("capture")]
     public class QuestTriggerCapture : QuestTrigger
     {
+        [HideInInspector]
         public DataCapture dataCapture;
         private float ActiveCaptureTime { get; set; }
 
@@ -16,9 +16,9 @@ namespace ISILab.LBS
             SetTypedData(dataCapture);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataCapture = (DataCapture)baseData;
+            dataCapture = (DataCapture)data;
         }
 
         protected override void OnTriggerEnter(Collider other) 

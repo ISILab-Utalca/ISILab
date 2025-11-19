@@ -6,18 +6,19 @@ namespace ISILab.LBS
     [QuestNodeActionTag("listen")]
     public class QuestTriggerListen : QuestTrigger
     {
+        [HideInInspector]
         public DataListen dataListen;
         public GameObject objectToListen;
 
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataListen);
+            SetUniqueData(dataListen);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataListen = (DataListen)baseData;
+            dataListen = (DataListen)data;
         }
 
         protected override void OnTriggerEnter(Collider other)

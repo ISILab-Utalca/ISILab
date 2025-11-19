@@ -6,19 +6,20 @@ namespace ISILab.LBS
     [QuestNodeActionTag("report")]
     public class QuestTriggerReport : QuestTrigger
     {
+        [HideInInspector]
         public DataReport dataReport;
         public GameObject objectToReport;
 
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataReport);
+            SetUniqueData(dataReport);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataReport =  (DataReport)baseData;
-            var objectiveTrigger = objectToReport.AddComponent<GenericObjectiveTrigger>();
+            dataReport =  (DataReport)data;
+            GenericObjectiveTrigger objectiveTrigger = objectToReport.AddComponent<GenericObjectiveTrigger>();
             objectiveTrigger.Setup(this);
         }
 

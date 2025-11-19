@@ -6,17 +6,18 @@ namespace ISILab.LBS
     [QuestNodeActionTag("go to")]
     public class QuestTriggerGoTo : QuestTrigger
     {
+        [HideInInspector]
         public DataGoto dataGoto;
 
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataGoto);
+            SetUniqueData(dataGoto);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataGoto =  (DataGoto)baseData;
+            dataGoto =  (DataGoto)data;
         }
 
         protected override void OnTriggerEnter(Collider other) 
