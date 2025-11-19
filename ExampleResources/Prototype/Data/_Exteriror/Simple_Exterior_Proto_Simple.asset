@@ -17,11 +17,13 @@ MonoBehaviour:
   type: 1
   anchorPosition: 0
   color: {r: 0.9056604, g: 0.029903898, b: 0.35830382, a: 1}
+  iconGuid: 
   icon: {fileID: 0}
   assets: []
   characteristics:
   - rid: 4305865203777798400
-  populationType: 1
+  - rid: 8832571964957394844
+  elementFlag: 0
   tileSize: {x: 1, y: 1}
   childsBundles:
   - {fileID: 11400000, guid: 98d3e3489e6579a4294c8de2b5e4ca89, type: 2}
@@ -61,3 +63,7 @@ MonoBehaviour:
         - target: {fileID: 11400000, guid: 4429de8e76b1f30469dfbafcfb3a2367, type: 2}
           weight: 0
         currentType: 0
+    - rid: 8832571964957394844
+      type: {class: LBSMainExteriorBundle, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 11400000}

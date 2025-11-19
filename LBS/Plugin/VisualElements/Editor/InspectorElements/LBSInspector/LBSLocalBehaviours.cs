@@ -72,7 +72,8 @@ namespace ISILab.LBS.VisualElements
             noContentPanel.SetDisplay(!_target.Behaviours.Any());
 
             OnFocus = null;
-            
+            OnUnfocus = null;
+
             // Add the tools into the toolkit and set the data of behaviour
             foreach (var behaviour in _target.Behaviours)
             {
@@ -85,6 +86,7 @@ namespace ISILab.LBS.VisualElements
                 ToolKit.Instance.SetTarget(instance);
 
                 OnFocus += instance.OnFocus;
+                OnUnfocus += instance.OnUnfocus;
                 
                 var content = new InspectorContentPanel(instance, behaviour.Name, behaviour.Icon, behaviour.ColorTint);
                 contentPanel.Add(content);

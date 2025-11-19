@@ -74,6 +74,7 @@ namespace ISILab.LBS.VisualElements
             noContentPanel.SetDisplay(!_target.Assistants.Any());
 
             OnFocus = null;
+            OnUnfocus = null;
 
             LBSAssistant currentAssistant = null;
 
