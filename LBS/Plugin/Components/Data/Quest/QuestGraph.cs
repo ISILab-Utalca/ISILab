@@ -290,8 +290,8 @@ namespace ISILab.LBS.Modules
             if (node is QuestNode qn)
             {
                 if (root == null) SetRoot(qn);
-                _selectedNode = qn;
-                NodeDataChanged(qn);
+                SelectedGraphNode = qn;
+               // NodeDataChanged(qn);
             }
         }
 
@@ -306,9 +306,8 @@ namespace ISILab.LBS.Modules
             
          
             if (Equals(node, root)) root = null;
-            if (Equals(node, _selectedNode)) _selectedNode = null;
-
-            NodeDataChanged(_selectedNode as QuestNode);
+            if (Equals(node, _selectedNode)) SelectedGraphNode = null;
+            
         }
         #endregion
 
