@@ -6,6 +6,7 @@ namespace ISILab.LBS
     [QuestNodeActionTag("gather")]
     public class QuestTriggerGather : QuestTrigger
     {
+        [HideInInspector]
         public DataGather dataGather;
 
         private string _bundleGuid = string.Empty;
@@ -14,12 +15,12 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataGather);
+            SetUniqueData(dataGather);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataGather = (DataGather) baseData;
+            dataGather = (DataGather) data;
             _bundleGuid = dataGather.bundleGatherType.GetGuid();
         }
 
@@ -39,7 +40,7 @@ namespace ISILab.LBS
             }
         }
         
-        protected override bool CompleteCondition()
+        protected override bool CanComplete()
         {
             return _playerInventory.GetTypeAmount(_bundleGuid) >= dataGather.gatherAmount;
         }

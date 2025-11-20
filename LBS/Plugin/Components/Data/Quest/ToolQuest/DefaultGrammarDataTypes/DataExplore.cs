@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataExplore : BaseQuestNodeData
+    public class DataExplore : QuestActionData
     {
         [SerializeField] public int subdivisions = 4;
     
@@ -20,7 +20,7 @@ namespace ISILab.LBS.Components
         {
         }
             
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataExplore exploreData) return;
@@ -28,7 +28,7 @@ namespace ISILab.LBS.Components
             findRandomPosition = exploreData.findRandomPosition;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var exploreOther = other as DataExplore;
             if(exploreOther == null) return false;

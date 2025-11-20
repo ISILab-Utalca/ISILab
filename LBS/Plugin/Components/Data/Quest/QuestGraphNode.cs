@@ -209,7 +209,7 @@ namespace ISILab.LBS.Components
 
         #region FIELDS
         [SerializeField, SerializeReference, JsonRequired]
-        private BaseQuestNodeData nodeData;
+        private QuestActionData data;
 
         [SerializeField, JsonRequired]
         private string questAction = "";
@@ -223,10 +223,10 @@ namespace ISILab.LBS.Components
 
         #region PROPERTIES
         [JsonIgnore]
-        public BaseQuestNodeData NodeData
+        public QuestActionData Data
         {
-            get => nodeData;
-            set => nodeData = value;
+            get => data;
+            set => data = value;
         }
 
         [JsonIgnore]
@@ -267,7 +267,7 @@ namespace ISILab.LBS.Components
         private void InstanceDataByAction(string action)
         {
             if (string.IsNullOrEmpty(action)) return;
-            nodeData = QuestNodeDataFactory.CreateByTag(action, this);
+            data = QuestNodeDataFactory.CreateByTag(action, this);
         }
 
         protected override GraphNode CreateCloneInstance()
@@ -276,7 +276,7 @@ namespace ISILab.LBS.Components
             {
                 nodeType = nodeType,
                 questState = questState,
-                nodeData = nodeData
+                data = data
             };
             return clone;
         }

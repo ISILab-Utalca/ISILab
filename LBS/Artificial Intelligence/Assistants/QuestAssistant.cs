@@ -265,7 +265,7 @@ namespace ISILab.LBS.Assistants
                 if(token.IsCancellationRequested) return Suggestions;
                 var entry = suggestions[index];
                 var newNode = QuestGraph.CreateSuggestionNode(entry.Action, Suggestions);
-                var nodeData = newNode.NodeData;
+                var nodeData = newNode.Data;
 
                 entry.Tiles.Shuffle();
                 nodeData.SetDataByTiles(Data.ContextLayers, entry.Tiles);

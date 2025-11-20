@@ -6,6 +6,7 @@ namespace ISILab.LBS
     [QuestNodeActionTag("take")]
     public class QuestTriggerTake : QuestTrigger
     {
+        [HideInInspector]
         public DataTake dataTake;
         public GameObject objectToTake;
 
@@ -14,15 +15,15 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataTake);
+            SetUniqueData(dataTake);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataTake = (DataTake)baseData;
+            dataTake = (DataTake)data;
             if (objectToTake is not null)
             {
-                var objectiveTrigger = objectToTake.AddComponent<GenericObjectiveTrigger>();
+                GenericObjectiveTrigger objectiveTrigger = objectToTake.AddComponent<GenericObjectiveTrigger>();
                 objectiveTrigger.Setup(this);
             }
             else

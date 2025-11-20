@@ -20,7 +20,7 @@ namespace ISILab.LBS.VisualElements
     /// <summary>
     /// Represents a visual element on the quest graph used to indicate a trigger area or region.
     /// 
-    /// This element is associated with a <see cref="BaseQuestNodeData"/> and draws a visual box on the graph.
+    /// This element is associated with a <see cref="QuestActionData"/> and draws a visual box on the graph.
     /// 
     /// Supports interaction such as:
     /// - Dragging to reposition
@@ -33,7 +33,7 @@ namespace ISILab.LBS.VisualElements
     public sealed class TriggerElementArea : GraphElement
     {
         public static TriggerElementArea activeTriggerElementArea;
-        private readonly BaseQuestNodeData _data;
+        private readonly QuestActionData _data;
         private Color _currentColor;
         
         private string _activeHandle;
@@ -53,7 +53,7 @@ namespace ISILab.LBS.VisualElements
         private Vector2 _resizeStartPosition;
         private Type _prevManipulatorType;
 
-        public TriggerElementArea(BaseQuestNodeData data, Rect area, Action<Rect> OnMovingAction,
+        public TriggerElementArea(QuestActionData data, Rect area, Action<Rect> OnMovingAction,
             bool centerTarget = true)
         {
             _isCenter = centerTarget;

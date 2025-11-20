@@ -7,11 +7,11 @@ namespace ISILab.LBS.VisualElements
 {
     public abstract class NodeEditor : VisualElement
     {
-        private BaseQuestNodeData _nodeData;
+        private QuestActionData _actionData;
 
-        public virtual void SetNodeData(BaseQuestNodeData data)
+        public virtual void SetNodeData(QuestActionData data)
         {
-            _nodeData = data;
+            _actionData = data;
         }
 
         protected QuestPicker AssignPickerData()
@@ -19,18 +19,18 @@ namespace ISILab.LBS.VisualElements
             ToolKit.Instance.SetActive(typeof(QuestPicker));
             if (ToolKit.Instance.GetActiveManipulatorInstance() is not QuestPicker pickerManipulator) return null;
             
-            pickerManipulator.ActiveData = _nodeData;
+            pickerManipulator.ActiveData = _actionData;
             pickerManipulator.PickTriggerPosition = false;
             
             return pickerManipulator;
         }
     }
 
-    public abstract class NodeEditor<T> : NodeEditor where T : BaseQuestNodeData
+    public abstract class NodeEditor<T> : NodeEditor where T : QuestActionData
     {
         protected T NodeData;
 
-        public override void SetNodeData(BaseQuestNodeData data)
+        public override void SetNodeData(QuestActionData data)
         {
             base.SetNodeData(data);
             NodeData = data as T;

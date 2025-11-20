@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataGather : BaseQuestNodeData
+    public class DataGather : QuestActionData
     {
         /// <summary>
         /// material that must be gathered
@@ -29,7 +29,7 @@ namespace ISILab.LBS.Components
         {
         }
           
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataGather gatherData) return;
@@ -37,7 +37,7 @@ namespace ISILab.LBS.Components
             gatherAmount = gatherData.gatherAmount;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var gatherOther = other as DataGather;
             if(gatherOther == null) return false;

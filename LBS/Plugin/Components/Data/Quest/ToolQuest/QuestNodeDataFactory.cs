@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ISILab.LBS.Components
 {
     /// <summary>
-    /// Returns a (<see cref="BaseQuestNodeData"/>) child class, based on a given action<c>string</c> from a <c>LBSGrammar</c>
+    /// Returns a (<see cref="QuestActionData"/>) child class, based on a given action<c>string</c> from a <c>LBSGrammar</c>
     /// </summary>
     public static class QuestNodeDataFactory
     {
@@ -27,14 +27,14 @@ namespace ISILab.LBS.Components
             { "empty", null }
         };
         
-        public static BaseQuestNodeData CreateByTag(string tag, QuestNode owner)
+        public static QuestActionData CreateByTag(string tag, QuestNode owner)
         {
             if (!TagDataTypesPerTerminal.TryGetValue(tag, out var dataClass))
             {
                 return null;
             }
 
-            var nodeData = (BaseQuestNodeData)Activator.CreateInstance(dataClass, owner, tag);
+            var nodeData = (QuestActionData)Activator.CreateInstance(dataClass, owner, tag);
             return nodeData;
         }
     }
