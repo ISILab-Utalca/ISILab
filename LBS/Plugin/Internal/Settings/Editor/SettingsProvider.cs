@@ -189,12 +189,15 @@ namespace ISILab.LBS.Settings
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
 
+                    // Mesh folder
                     EditorGUILayout.BeginHorizontal();
                     settings.paths.meshFolderPath = EditorGUILayout.TextField("Generated Mesh Folder",
                         settings.paths.meshFolderPath,
                         EditorStyles.textField,
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
+
+                    // TODO: Presets folder
 
                     // Set Default button
                     EditorGUILayout.BeginHorizontal();
@@ -204,6 +207,7 @@ namespace ISILab.LBS.Settings
                         var newSettings = new LBSSettings();
                         settings.paths.bundleFolderPath = newSettings.paths.bundleFolderPath;
                         settings.paths.tagFolderPath = newSettings.paths.tagFolderPath;
+                        settings.paths.meshFolderPath = newSettings.paths.meshFolderPath;
                         EditorUtility.SetDirty(settings);
                     }
                     EditorGUILayout.EndHorizontal();

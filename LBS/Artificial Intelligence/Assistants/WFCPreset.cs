@@ -21,6 +21,8 @@ namespace ISILab.LBS.Assistants
         [SerializeField]
         List<LBSDirectionedGroup.WeightStruct> weights = new List<LBSDirectionedGroup.WeightStruct>();
 
+        [SerializeField, HideInInspector]
+        string assetGUID;
 
         public string Name
         {
@@ -28,6 +30,11 @@ namespace ISILab.LBS.Assistants
             set => presetName = name = value;
         }
 
+        public string AssetGUID
+        {
+            get => assetGUID;
+            private set => assetGUID = value;
+        }
 
         public List<LBSDirectionedGroup.WeightStruct> GetWeights() => new List<LBSDirectionedGroup.WeightStruct>(weights);
 
@@ -35,5 +42,7 @@ namespace ISILab.LBS.Assistants
         {
             weights = new List<LBSDirectionedGroup.WeightStruct>(newWeights);
         }
+
+        public void SetAssetGUID(string guid) => AssetGUID = guid;
     }
 }

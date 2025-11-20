@@ -11,7 +11,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataReport : BaseQuestNodeData
+    public class DataReport : QuestActionData
     {
         /// <summary>
         /// Character to report to
@@ -30,7 +30,7 @@ namespace ISILab.LBS.Components
             color = LBSSettings.Instance.view.colorReport;
         }
            
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataReport reportData) return;
@@ -48,7 +48,7 @@ namespace ISILab.LBS.Components
             if (bundleReportTo.Valid()) area = bundleReportTo.Area;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var reportOther = other as DataReport;
             if(reportOther == null) return false;

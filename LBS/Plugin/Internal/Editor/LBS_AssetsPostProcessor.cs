@@ -17,8 +17,13 @@ namespace ISILab.LBS.Internal.Editor
         {
             if (importedAssets.Contains(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
             {
-                Debug.Log("LBS SETTINGS IMPORT");
-                InitializeLBSPackage();
+                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(assembly);
+                if(packageInfo is not null)
+                {
+                    Debug.Log("LBS SETTINGS IMPORT");
+                    InitializeLBSPackage();
+                }
             }
             OnPostImportProcess(importedAssets);
             OnPostDeleteProcess(deletedAssets);

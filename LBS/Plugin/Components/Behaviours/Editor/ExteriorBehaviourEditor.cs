@@ -13,6 +13,7 @@ using ISILab.LBS.Settings;
 using ISILab.Macros;
 using LBS;
 using LBS.Bundles;
+using LBS.Components;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("Exterior Behaviour", typeof(ExteriorBehaviour))]
-    public class ExteriorBehaviourEditor : LBSCustomEditor, IToolProvider
+    public class ExteriorBehaviourEditor : LBSCustomEditor, IToolProvider, IBundleFilter
     {
         #region FIELDS
         private ExteriorBehaviour exterior;
@@ -47,11 +48,11 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomObjectField bundleField;
         private WarningPanel warningPanel;
         private string tileIconGuid = "";
-
-        private static LBSButtonListFilter bundlePickerWindow;
         #endregion
 
         #region PROPERTIES
+        public LBSButtonListFilter BundlePickerWindow { get; set; }
+        
         private Color BHcolor => LBSSettings.Instance.view.behavioursColor;
 
         public ConnectedTileMapModule.ConnectedTileType GridType => exterior.GridType;
@@ -140,19 +141,12 @@ namespace ISILab.LBS.VisualElements
             bundleField.label = "Exterior Tile Bundle";
             bundleField.objectType = typeof(Bundle);
             bundleField.value = exterior.Bundle;
-            bundleField.UseCustomPicker = true;
+            bundleField.UseCustomFilter = true;
 
-            bundleField.CustomFilter = obj =>
+            bundleField.CustomFilter = pick =>
             {
-                var bundle = obj as Bundle;
-                return IsValidExteriorBundle(bundle);
-            };
-
-            bundleField.CustomPicker = pick =>
-            {
-                var bundles = GetAllValidExteriorBundles();
-                OpenFilterWindow(bundles, picked => pick(picked));
-                //FilteredBundlePickerWindow.Show(bundles, picked => pick(picked));
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
+                (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
             };
 
             // only updates the first bundle value change - fix pending
@@ -169,7 +163,7 @@ namespace ISILab.LBS.VisualElements
                 if(bundle)
                 {
                     var identifierTags = LBSAssetsStorage.Instance.Get<LBSTag>();
-                    var idents = SePalleteConnectionView(bundle, identifierTags);
+                    var idents = SetPalleteConnectionView(bundle, identifierTags);
 
                     if (idents.Any())
                     {
@@ -203,41 +197,10 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
 
-        private void OpenFilterWindow(List<Bundle> bundles, Action<Bundle> onPick)
+        public override void OnUnfocus()
         {
-            if (bundlePickerWindow)
-                bundlePickerWindow.Close();
-
-            LBSButtonListFilter.Show(bundles, picked => onPick(picked));
-        }
-
-        private static bool IsValidExteriorBundle(Bundle bundle)
-        {
-            if (bundle == null) return false;
-
-            // Si existe el método GetChildrenCharacteristics<T>, úsalo (lo usas con LBSDirection)
-            var groups = bundle.GetChildrenCharacteristics<LBSDirectionedGroup>();
-            if (groups != null && groups.Count > 0) return true;
-
-            // Fallback si sólo hay GetCharacteristics<T>()
-            var localGroups = bundle.GetCharacteristics<LBSDirectionedGroup>();
-            return localGroups != null && localGroups.Count > 0;
-        }
-
-        // Recolecta todos los Bundles válidos del proyecto
-        private static List<Bundle> GetAllValidExteriorBundles()
-        {
-            var result = new List<Bundle>();
-            foreach (var guid in AssetDatabase.FindAssets("t:Bundle"))
-            {
-                var path = AssetDatabase.GUIDToAssetPath(guid);
-                var bundle = AssetDatabase.LoadAssetAtPath<Bundle>(path);
-                if (IsValidExteriorBundle(bundle))
-                    result.Add(bundle);
-            }
-            return result
-                .OrderBy(b => b.name, StringComparer.OrdinalIgnoreCase)
-                .ToList();
+            base.OnUnfocus();
+            (this as IBundleFilter).CloseFilterWindow();
         }
 
         private void SetConnectionPallete(Bundle bundle)
@@ -258,7 +221,7 @@ namespace ISILab.LBS.VisualElements
             connectionPallete.SetIcon(icon, BHcolor);
             
             var identifierTags = LBSAssetsStorage.Instance.Get<LBSTag>();
-            var idents = SePalleteConnectionView(bundle, identifierTags);
+            var idents = SetPalleteConnectionView(bundle, identifierTags);
 
             exterior.identifierToSet = idents[0];
             
@@ -303,7 +266,7 @@ namespace ISILab.LBS.VisualElements
             connectionPallete.Repaint();
         }
 
-        private List<LBSTag> SePalleteConnectionView(Bundle bundle, List<LBSTag> identifierTags)
+        private List<LBSTag> SetPalleteConnectionView(Bundle bundle, List<LBSTag> identifierTags)
         {
             var connections = bundle.GetChildrenCharacteristics<LBSDirection>();
             var tags = connections.SelectMany(c => c.Connections).ToList().RemoveDuplicates();

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Components;
@@ -12,35 +11,35 @@ namespace ISILab.LBS
     [QuestNodeActionTag("kill")]
     public class QuestTriggerKill : QuestTrigger
     {
+        [HideInInspector]
         public DataKill dataKill;
         public List<GameObject> objectsToKill = new();
 
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataKill);
+            SetUniqueData(dataKill);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataKill = (DataKill)baseData;
+            dataKill = (DataKill)data;
         }
 
         public void Start()
         {
-            foreach (var obj in objectsToKill)
+            foreach (GameObject obj in objectsToKill)
             {
-                var destroyer = obj.GetComponent<DestroyNotifier>();
-                destroyer.OnDestroyed += (obj)=>
+                DestroyNotifier destroyer = obj.GetComponent<DestroyNotifier>();
+                destroyer.OnDestroyed += item=>
                 {
-                  
-                    objectsToKill.Remove(obj);
+                    objectsToKill.Remove(item);
                     CheckComplete();
                 };
             }
         }
 
-        protected override bool CompleteCondition()
+        protected override bool CanComplete()
         {
             // if the list is empty all enemies were killed
             return !objectsToKill.Any();

@@ -6,13 +6,13 @@ using LBS.Components;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataGoto : BaseQuestNodeData
+    public class DataGoto : QuestActionData
     {
         public DataGoto(QuestNode ownerNode, string tag) : base(ownerNode, tag)
         {
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             return Area == other.Area;
         }

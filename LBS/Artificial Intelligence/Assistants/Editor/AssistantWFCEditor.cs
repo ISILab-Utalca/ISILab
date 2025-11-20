@@ -1,29 +1,31 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Assistants;
-using ISILab.LBS.Editor;
-using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Manipulators;
-using ISILab.LBS.VisualElements;
-using LBS;
-using LBS.Bundles;
-using LBS.VisualElements;
-using System.Linq;
 using ISILab.Extensions;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Internal;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.VisualElements;
+using ISILab.Macros;
+using LBS;
+using LBS.Bundles;
+using LBS.Components;
+using LBS.VisualElements;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEditor;
-using ISILab.LBS.CustomComponents;
-using ISILab.Macros;
 
 namespace ISILab.LBS.AI.Assistants.Editor
 {
     [LBSCustomEditor("Wave Function Collapse", typeof(AssistantWFC))]
-    public class AssistantWFCEditor : LBSCustomEditor, IToolProvider
+    public class AssistantWFCEditor : LBSCustomEditor, IToolProvider, IBundleFilter
     {
         private WaveFunctionCollapseManipulator collapseManipulator;
 
@@ -37,11 +39,16 @@ namespace ISILab.LBS.AI.Assistants.Editor
         private ListView presetsList;
 
         private string defaultWFCAssetGUID = "aa906d6d48e992141b714743bb35ff3a";
-        
+
+        public LBSButtonListFilter BundlePickerWindow { get; set; }
+
         public AssistantWFCEditor(object target) : base(target)
         {
             assistant = target as AssistantWFC;
             assistant.Bundle = GetExteriorBehaviour().Bundle;
+            assistant.Bundle.OnRemoveCharacteristic += _ => EditorApplication.delayCall += UpdatePresetsList;
+            assistant.OnRefreshInspector = null;
+            assistant.OnRefreshInspector = assistant.Bundle.Refresh;
             CreateVisualElement();
         }
 
@@ -65,9 +72,17 @@ namespace ISILab.LBS.AI.Assistants.Editor
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("AssistantWFCEditor");
             visualTree.CloneTree(this);
 
-            var bundleField = this.Q<ObjectField>();
+            //var bundleField = this.Q<ObjectField>();
+            var bundleField = this.Q<LBSCustomObjectField>();
             bundleField.objectType = typeof(Bundle);
             bundleField.label = "Exterior Tile Bundle";
+            bundleField.UseCustomFilter = true;
+            bundleField.CustomFilter = pick =>
+            {
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
+                (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
+            };
+
             var exterior = GetExteriorBehaviour();
             bundleField.value = exterior.Bundle;
             bundleField.RegisterValueChangedCallback(evt =>
@@ -116,7 +131,8 @@ namespace ISILab.LBS.AI.Assistants.Editor
                 assistant.Bundle = exterior.Bundle;
                 ToolKit.Instance.SetActive(typeof(WaveFunctionCollapseManipulator));
                 MarkDirtyRepaint();
-                
+
+                UpdatePresetsList();
             });
             
             exterior.OwnerLayer.OnChange += () =>
@@ -165,7 +181,7 @@ namespace ISILab.LBS.AI.Assistants.Editor
             if(assistant.CaptureWeights(out string errMsg))
                 LBSMainWindow.MessageNotify("Current map weights captured.");
             else LBSMainWindow.MessageNotify(errMsg, LogType.Warning);
-
+            //
             //if (assistant.CaptureRules())
             //    LBSMainWindow.MessageNotify("Current map weights captured.");
         }
@@ -199,12 +215,14 @@ namespace ISILab.LBS.AI.Assistants.Editor
         private void UpdatePresetsList()
         {
             //Debug.Log("Update Presets List");
-            var WFCPresets = AssetDatabase.FindAssets("", new[] { presetsFolder.value });
-            var a = WFCPresets.Select(guid => AssetDatabase.LoadAssetAtPath<Object>(AssetDatabase.GUIDToAssetPath(guid)));
-            var b = a.Where(asset => asset != null && asset is WFCPreset)
-                           .ToList();
+            //var WFCPresets = AssetDatabase.FindAssets("", new[] { presetsFolder.value });
+            //var a = WFCPresets.Select(guid => AssetDatabase.LoadAssetAtPath<Object>(AssetDatabase.GUIDToAssetPath(guid)));
+            //var b = a.Where(asset => asset != null && asset is WFCPreset)
+            //               .ToList();
+
+            var presetsChars = assistant.Bundle.GetCharacteristics<WFCPresetsCharacteristic>();
             
-            presetsList.itemsSource = b;
+            presetsList.itemsSource = presetsChars is not null && presetsChars.Count > 0 ? new List<WFCPreset>(presetsChars[0].Presets) : new WFCPreset[0];
             presetsList.bindItem = (element, i) =>
             {
                 var obj = element.Q<ObjectField>("Element");
@@ -219,7 +237,12 @@ namespace ISILab.LBS.AI.Assistants.Editor
         {
             base.OnFocus();
             UpdatePresetsList();
-            
+        }
+
+        public override void OnUnfocus()
+        {
+            base.OnUnfocus();
+            (this as IBundleFilter).CloseFilterWindow();
         }
 
         private ExteriorBehaviour GetExteriorBehaviour()

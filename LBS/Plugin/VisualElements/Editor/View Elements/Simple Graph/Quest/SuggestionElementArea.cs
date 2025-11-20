@@ -21,7 +21,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Fields
-        private readonly BaseQuestNodeData _data;
+        private readonly QuestActionData _data;
         private readonly QuestNode _generatedQuestNode;
 
         private Button _applyButton;
@@ -42,7 +42,7 @@ namespace ISILab.LBS.VisualElements
             _generatedQuestNode = suggestion;
             if (_generatedQuestNode is null) return;
 
-            _data = _generatedQuestNode.NodeData;
+            _data = _generatedQuestNode.Data;
             if (_data is null) return;
 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SuggestionElementArea");

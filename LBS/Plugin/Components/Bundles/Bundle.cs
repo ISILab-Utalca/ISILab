@@ -257,6 +257,14 @@ namespace LBS.Bundles
             }
         }
 
+        public void Refresh()
+        {
+            foreach(LBSCharacteristic characteristic in Characteristics)
+            {
+                characteristic?.OnRefresh();
+            }
+        }
+
         /* Checks that a child to be added:
             - not in a child already
             - not parent of the current bundle
@@ -390,12 +398,17 @@ namespace LBS.Bundles
             OnRemoveAsset?.Invoke(asset);
         }
 
-        public void RemoveCharacteristic(LBSCharacteristic characterictic)
+        public void RemoveCharacteristic(LBSCharacteristic characteristic)
         {
-            if (characteristics.Remove(characterictic))
+            if (characteristics.Remove(characteristic))
             {
-                OnRemoveCharacteristic?.Invoke(characterictic);
+                OnRemoveCharacteristic?.Invoke(characteristic);
             }
+        }
+
+        public void RemoveCharacteristicCallback(LBSCharacteristic characteristic)
+        {
+            OnRemoveCharacteristic?.Invoke(characteristic);
         }
 
         public List<T> GetChildrenCharacteristics<T>() where T : LBSCharacteristic
@@ -576,6 +589,11 @@ namespace LBS.Bundles
             }
 
             return false;
+        }
+
+        public bool HasCharacteristic(Type t)
+        {
+            return Characteristics.Any(ch => ch?.GetType() == t);
         }
 
         public MicroGenTool GetMicroGenTool()

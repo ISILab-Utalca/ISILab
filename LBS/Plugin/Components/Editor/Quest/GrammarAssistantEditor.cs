@@ -77,10 +77,14 @@ namespace ISILab.LBS.Editor
             target = paramTarget as GrammarAssistant;
             _assistant = LBSLayerHelper.GetObjectFromLayerChild<GrammarAssistant>(paramTarget);
             _questBehaviour = LBSLayerHelper.GetObjectFromLayerChild<QuestBehaviour>(paramTarget);
-
-            if (_questBehaviour != null)
+            if (_questGraph is not null)
             {
-                _questGraph = _questBehaviour.Graph;
+                _questGraph.OnGraphNodeSelected -= UpdatePanel;
+            }
+            _questGraph = _assistant._questGraph;
+            if (_questGraph is not null)
+            {
+                _questGraph.OnGraphNodeSelected -= UpdatePanel;
                 _questGraph.OnGraphNodeSelected += UpdatePanel;
             }
 
@@ -219,7 +223,7 @@ namespace ISILab.LBS.Editor
             return _questGraph.GetNodeAsQuest()?.QuestAction;
         }
 
-        private void SetBaseDataValues(BaseQuestNodeData data)
+        private void SetBaseDataValues(QuestActionData data)
         {
             if (data == null) return;
 

@@ -455,6 +455,9 @@ namespace ISILab.LBS.VisualElements.Editor
             if (result == null)
             {
                 //Debug.LogError($"container.GetElement({key}) does not contain any values.");
+                
+                // TODO FIX TRYING TO REDRAW THIS
+              //  Debug.LogError($"container.GetElement({key}) does not contain any values.");
             }
             
             return result;

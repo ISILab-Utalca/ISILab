@@ -11,10 +11,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// A window that shows a list of buttons representing bundles (or any list of objects), with a search bar to filter them.
+/// </summary>
 public class LBSButtonListFilter : EditorWindow
 {
-    //Cada botón debe tener un 0.05 de grow
-
     #region VIEW ELEMENTS
 
     private LBSCustomListView buttonListView;
@@ -24,6 +25,7 @@ public class LBSButtonListFilter : EditorWindow
     #endregion
 
     private List<Bundle> _bundles;
+    private List<Bundle> _filteredBundles;
     private Action<Bundle> _onPick;
     private string _search = "";
     private Vector2 _scroll;
@@ -40,14 +42,15 @@ public class LBSButtonListFilter : EditorWindow
         Init();
     }
 
-    public static void Show(List<Bundle> bundles, Action<Bundle> onPick)
+    public static LBSButtonListFilter Show(List<Bundle> bundles, Action<Bundle> onPick)
     {
         var win = CreateInstance<LBSButtonListFilter>();
         win._bundles = bundles ?? new List<Bundle>();
         win._onPick = onPick;
-        win.titleContent = new GUIContent("Seleccionar");
+        win.titleContent = new GUIContent("Select Bundle");
 
         win.ShowUtility();
+        return win;
     }
 
     private void TestList()
@@ -65,29 +68,42 @@ public class LBSButtonListFilter : EditorWindow
     {
         //TestList();
 
-        buttonListView.itemsSource = _bundles;
+        _filteredBundles = _bundles;
+
+        buttonListView.itemsSource = _filteredBundles;
         buttonListView.makeItem = () => new LBSCustomButton();
         buttonListView.bindItem = (element, index) =>
         {
-            var button = element as LBSCustomButton;
-            if (button != null)
+            if (element is not LBSCustomButton button) return;
+
+            if (buttonListView.itemsSource is not List<Bundle> source || 
+                index < 0 || index >= source.Count) return;
+
+            var bundle = source[index];
+
+            button.iconImage = (Background)EditorGUIUtility.ObjectContent(bundle, typeof(Bundle)).image;
+            button.text = bundle != null ? bundle.name : string.Empty;
+
+            button.Q<Image>().style.maxWidth = 20;
+
+            if (button.userData is Action oldCb)
+                button.clicked -= oldCb;
+
+            Action onClick = () =>
             {
-                var bundle = _bundles[index];
-                button.text = bundle.name;
-                button.iconImage = Background.FromVectorImage(bundle.Icon);
-                button.clicked += () =>
-                {
-                    _onPick?.Invoke(bundle);
-                    Close();
-                    GUIUtility.ExitGUI();
-                };
-            }
+                _onPick?.Invoke(bundle);
+                Close();
+                GUIUtility.ExitGUI();
+            };
+
+            button.userData = onClick;
+            button.clicked += onClick;
         };
 
         searchField.RegisterValueChangedCallback(evt =>
         {
             _search = evt.newValue;
-            buttonListView.Rebuild();
+            ApplyFilter();
         });
 
         closeButton.clicked += () =>
@@ -97,54 +113,24 @@ public class LBSButtonListFilter : EditorWindow
         };
     }
 
-    /*
-    private void OnGUI()
+    private void ApplyFilter()
     {
-        EditorGUILayout.Space();
-        using (new EditorGUILayout.HorizontalScope())
+        if (string.IsNullOrWhiteSpace(_search))
         {
-            GUILayout.Label("Buscar:", GUILayout.Width(60));
-            _search = EditorGUILayout.TextField(_search);
+            _filteredBundles = _bundles;
+        }
+        else
+        {
+            var term = _search.Trim();
+            _filteredBundles = _bundles
+                .Where(b =>
+                    b != null &&
+                    !string.IsNullOrEmpty(b.name) &&
+                    b.name.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
         }
 
-        EditorGUILayout.Space();
-        _scroll = EditorGUILayout.BeginScrollView(_scroll);
-
-        var query = string.IsNullOrWhiteSpace(_search)
-            ? _bundles
-            : _bundles.Where(b => b.name.IndexOf(_search, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-
-        foreach (var b in query)
-        {
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                if (GUILayout.Button(EditorGUIUtility.ObjectContent(b, typeof(Bundle)), GUILayout.Height(22)))
-                {
-                    _onPick?.Invoke(b);
-                    Close();
-                    GUIUtility.ExitGUI();
-                }
-            }
-        }
-
-        EditorGUILayout.EndScrollView();
-
-        if (query.Count == 0)
-        {
-            EditorGUILayout.HelpBox("No hay resultados para el filtro actual.", MessageType.Info);
-        }
-
-        EditorGUILayout.Space();
-        using (new EditorGUILayout.HorizontalScope())
-        {
-            GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Cerrar", GUILayout.Width(80)))
-            {
-                Close();
-                GUIUtility.ExitGUI();
-            }
-        }
+        buttonListView.itemsSource = _filteredBundles;
+        buttonListView.Rebuild();
     }
-    */
-
 }

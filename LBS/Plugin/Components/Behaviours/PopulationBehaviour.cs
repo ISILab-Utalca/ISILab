@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
 using ISILab.Macros;
@@ -8,9 +5,10 @@ using LBS.Bundles;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -26,7 +24,11 @@ namespace ISILab.LBS.Behaviours
 
         [SerializeField,JsonRequired]
         private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
-        
+
+        [SerializeField, JsonRequired]
+        private string bundleRefGuid = "668e6768d7619b3459df4f6378dfa3bb";
+        private string DefaultBundleRefGuid { get => "668e6768d7619b3459df4f6378dfa3bb"; }
+
         private HashSet<TileBundleGroup> _newRotations = new ();
         #endregion
 
@@ -36,7 +38,10 @@ namespace ISILab.LBS.Behaviours
         
         [SerializeField, JsonIgnore]
         private BundleCollection bundleCollection;
-        
+
+        [SerializeField, JsonIgnore]
+        private Bundle mainBundle;
+
         public string allFilter = "All";
         
         [FormerlySerializedAs("selectedTypetoSet")] [JsonIgnore]
@@ -59,6 +64,16 @@ namespace ISILab.LBS.Behaviours
                 bundleRefGui = LBSAssetMacro.GetGuidFromAsset(value);
             }
         }
+
+        public Bundle MainBundle
+        {
+            get => GetMainBundle();
+            set
+            {
+                mainBundle = value;
+                bundleRefGuid = LBSAssetMacro.GetGuidFromAsset(value);
+            }
+        }
         
         public string SelectedFilter 
         {
@@ -74,7 +89,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region CONSTRUCTORS
-        public PopulationBehaviour(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint) { }
+        public PopulationBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
@@ -99,10 +114,40 @@ namespace ISILab.LBS.Behaviours
             }
         }
 
+        public void AddTileGroup(Vector2Int position, TileBundleGroup expired)
+        {
+            if (expired is null) return;
+            if (!_bundleTileMap.ValidNewGroup(position, expired.BundleData, Vector2.right)) return;
+
+            TileBundleGroup group = expired.Clone() as TileBundleGroup;
+            group.Translate(position - expired.TileGroup[0].Position);
+            _bundleTileMap.AddGroup(group);
+            RequestTilePaint(group);
+
+            //Add all tiles from the group
+            foreach (LBSTile tile in group.TileGroup)
+            {
+                tileMap.AddTile(tile);
+            }
+        }
+
         public bool ValidMoveGroup(Vector2Int position, TileBundleGroup group)
         {
             //RequestTilePaint(group);
             return _bundleTileMap.ValidMoveGroup(position, group, Vector2.right);
+        }
+
+        public void MoveGroup(TileBundleGroup group, Vector2Int offset)
+        {
+            if (offset.Equals(Vector2Int.zero)) return;
+
+            Vector2Int oldPos = group.TileGroup[0].Position;
+            AddTileGroup(oldPos + offset, group);
+            RemoveTileGroup(oldPos);
+            //RequestTileRemove(group);
+            ////group.Translate(offset);
+            //group.LocationKey = null;
+            //RequestTilePaint(group);
         }
 
         public void RemoveTileGroup(Vector2Int position)
@@ -232,7 +277,7 @@ namespace ISILab.LBS.Behaviours
         
         public override object Clone()
         {
-            return new PopulationBehaviour(this.Icon, this.Name, this.ColorTint);
+            return new PopulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override bool Equals(object obj)
@@ -258,7 +303,16 @@ namespace ISILab.LBS.Behaviours
 
             return bundleCollection;
         }
-        
+
+        private Bundle GetMainBundle()
+        {
+            if(mainBundle == null)
+            {
+                mainBundle = LBSAssetMacro.LoadAssetByGuid<Bundle>(bundleRefGuid ?? DefaultBundleRefGuid);
+            }
+
+            return mainBundle;
+        }        
         
         /// <summary>
         /// Get all tileBundleGroups that were rotated since the last time they were retrieved.

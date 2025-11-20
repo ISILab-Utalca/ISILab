@@ -1,8 +1,4 @@
-using System;
-using System.Linq;
 using ISILab.LBS.Components;
-using ISILab.Macros;
-using LBS.Bundles;
 using UnityEngine;
 
 namespace ISILab.LBS
@@ -10,6 +6,7 @@ namespace ISILab.LBS
     [QuestNodeActionTag("give")]
     public class QuestTriggerGive : QuestTrigger
     {
+        [HideInInspector]
         public DataGive dataGive;
         [SerializeField]
         private string _giveObjectType;
@@ -22,12 +19,12 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataGive);
+            SetUniqueData(dataGive);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataGive = (DataGive)baseData;
+            dataGive = (DataGive)data;
             _giveObjectType = dataGive.bundleGive.GetGuid();
         }
 
@@ -44,7 +41,7 @@ namespace ISILab.LBS
             CheckComplete();
         }
 
-        protected override bool CompleteCondition()
+        protected override bool CanComplete()
         {
             return !_playerInventory.HasType(_giveObjectType);
         }

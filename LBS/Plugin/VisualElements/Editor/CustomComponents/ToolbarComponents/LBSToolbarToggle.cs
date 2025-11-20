@@ -38,7 +38,25 @@ namespace ISILab.LBS.CustomComponents
         }
 
         [UxmlAttribute]
-        public Boolean HideToggle
+        public Boolean LockOnClick    
+        {
+            get => lockOnClick;
+            set
+            {
+                lockOnClick = value;
+                
+                if(lockOnClick)
+                {
+                    this.RegisterValueChangedCallback(lockedButtonClick);
+                } else
+                {
+                    this.UnregisterValueChangedCallback(lockedButtonClick);
+                }
+            }
+        }
+
+        [UxmlAttribute]
+        public bool HideToggle
         {
             get => hideToggle;
             set
@@ -65,6 +83,7 @@ namespace ISILab.LBS.CustomComponents
         
         private VectorImage toggleIcon;
         private bool hideToggle = true;
+        private bool lockOnClick = false;
 
         public LBSToolbarToggle() : base()
         {
@@ -94,8 +113,16 @@ namespace ISILab.LBS.CustomComponents
             }
             //_toggleIconElement.PlaceBehind(labelElement);
             
+            
         }
-        
+
+        private void lockedButtonClick(ChangeEvent<bool> _changeEvent)
+        {
+            if (lockOnClick)
+            {
+                SetValueWithoutNotify(true);
+            }
+        }
         
     }
 }

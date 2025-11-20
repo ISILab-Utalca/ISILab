@@ -43,6 +43,10 @@ namespace ISILab.LBS.Characteristics
             {
                 gridList[Assets[i]] = new AssetConnectionGrid(gridSize);
             }
+            Owner.OnAddAsset += (Asset asset) => InitAsset(asset);
+            Owner.OnRemoveAsset += (Asset asset) => DetachAsset(asset);
+
+            //TODO: Grid list should account for assets being added or removed from the bundle.
         }
         #endregion
 
@@ -95,6 +99,15 @@ namespace ISILab.LBS.Characteristics
         }
         #endregion
 
+        public void InitAsset(Asset asset)
+        {
+            gridList[asset] = new AssetConnectionGrid(gridSize);
+        }
+
+        public void DetachAsset(Asset asset)
+        {
+            gridList.Remove(asset);
+        }
     }
 
     public class AssetConnectionGrid

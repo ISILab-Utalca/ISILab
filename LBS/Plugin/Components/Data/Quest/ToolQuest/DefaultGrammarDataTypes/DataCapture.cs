@@ -8,7 +8,7 @@ namespace ISILab.LBS.Components
 {
 
     [Serializable]
-    public class DataCapture : BaseQuestNodeData
+    public class DataCapture : QuestActionData
     {
         [SerializeField] public float captureTime = 5f;
         [SerializeField] public bool resetTimeOnExit = true;
@@ -17,7 +17,7 @@ namespace ISILab.LBS.Components
         {
         }
 
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataCapture captureData) return;
@@ -25,7 +25,7 @@ namespace ISILab.LBS.Components
             resetTimeOnExit = captureData.resetTimeOnExit;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var captureOther = other as DataCapture;
             if(captureOther == null) return false;

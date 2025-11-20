@@ -68,19 +68,6 @@ namespace ISILab.LBS.CustomComponents
             // RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
             
         }
-        
-        public LBSCustomButton(VectorImage _img) : this()
-        {
-            iconImage = Background.FromVectorImage(_img);
-        }
-        
-        public LBSCustomButton(Texture2D _img) : this()
-        {
-            iconImage = Background.FromTexture2D(_img);
-        }
-        
-
-
 
         public void SetOverlayColors(Color _newColor = new Color())
         {

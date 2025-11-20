@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -45,9 +46,9 @@ namespace ISILab.LBS.VisualElements
         #region Mouse Events
         protected virtual void OnMouseDown(MouseDownEvent evt)
         {
-            if (Node == null) return;
             if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             
+            if (Node == null) return;
             if (evt.button == 0 && ToolKit.Instance.GetActiveManipulatorInstance() is SelectManipulator)
             {
                 LBSInspectorPanel.ActivateBehaviourTab();
@@ -56,15 +57,16 @@ namespace ISILab.LBS.VisualElements
             }
             
             DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+            DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
         }
 
         protected void OnMouseMove(MouseMoveEvent e)
         {
-            if(this != _selectedGraph) return;
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             
+            if(this != _selectedGraph) return;
             // only move the selected node
             if (Node == null) return;
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             if (e.pressedButtons != 1) return; // only while dragging
             if (!MainView.Instance.HasManipulator<SelectManipulator>()) return;
 
@@ -77,18 +79,24 @@ namespace ISILab.LBS.VisualElements
 
         protected virtual void OnMouseLeave(MouseLeaveEvent e) 
         {
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             if (Node == null) return;
             RestoreManipulator();
             OnMouseMove(MouseMoveEvent.GetPooled(e.mousePosition, e.button, e.clickCount, e.mouseDelta));
+            DrawManager.Instance.PickingModeRestoreAll();
         }
         
         protected void OnMouseUp(MouseUpEvent evt)
         {
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             RestoreManipulator();
+            DrawManager.Instance.PickingModeRestoreAll();
+            DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
         }
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)
         {
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             ShelfManipulator();
         }
         

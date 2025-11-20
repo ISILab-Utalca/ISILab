@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using System;
 using System.Collections;
@@ -49,15 +50,32 @@ namespace ISILab.LBS.VisualElements
             visualTree.CloneTree(this);
         }
         
-        public DynamicFoldout(Type type)
+        public DynamicFoldout(Type type, params Func<object, bool>[] typeFilters)
         {
             visualTree.CloneTree(this);
 
+            bool filtered = typeFilters.Length > 0;
+
             var foldout = this.Q<ClassFoldout>();
-            dropdown = foldout.Q<ClassDropDown>();
+            if(filtered)
+            {
+                foldout.ReplaceDropdown(new FilteredDropdown(typeFilters));
+                dropdown = foldout.Q<FilteredDropdown>();
+            }
+            else
+            {
+                dropdown = foldout.Q<ClassDropDown>();
+            }
             dropdown.RegisterValueChangedCallback(ApplyChoice);
             dropdown.Type = type;
             content = foldout.Q<VisualElement>(name: "unity-content");
+        }
+
+        public DynamicFoldout(params Func<bool>[] predicates)
+        {
+            visualTree.CloneTree(this);
+
+
         }
 
         void UpdateView(Type type, object data)
@@ -99,6 +117,12 @@ namespace ISILab.LBS.VisualElements
             data = dropdown.GetChoiceInstance();
             OnChoiceSelection?.Invoke();
             UpdateView(data?.GetType(), data);
+        }
+
+        public void UpdateDropdown()
+        {
+            //Debug.Log($"UpdateDropdown ({(data is not null ? data.GetType() : "Empty")})");
+            dropdown.UpdateOptions();
         }
 
         public new void RemoveFromHierarchy()

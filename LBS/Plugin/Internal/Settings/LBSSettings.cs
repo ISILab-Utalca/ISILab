@@ -96,6 +96,8 @@ namespace ISILab.LBS.Settings
             instance.paths.tagFolderPath = userFolder + "/Tags";
             instance.paths.meshFolderPath = userFolder + "/Meshes";
 
+            instance.paths.WFCpresetsFolderPath = userFolder + "/Presets/WFC";
+
             //ReplacePathStart(ref instance.paths.bundleFolderPath, userFolder);
             //ReplacePathStart(ref instance.paths.tagFolderPath, userFolder);
             //ReplacePathStart(ref instance.paths.meshFolderPath, userFolder);
@@ -162,10 +164,12 @@ namespace ISILab.LBS.Settings
             public string bundleFolderPath              = "Assets/isi-lab-unity-module/LBS/Data/Bundles";
             public string tagFolderPath                 = "Assets/isi-lab-unity-module/LBS/Data/Tags";
             public string meshFolderPath                = "Assets/isi-lab-unity-module/LBS/Data/Meshes";
-                                                                  
+
+            public string WFCpresetsFolderPath          = "Assets/isi-lab-unity-module/LBS/Data/Presets/WFC";
+
             // Folders extra storages                             
             //public string iconPath                      = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Icons";
-                                                                  
+
             // Folders presets                                    
             public string layerPressetFolderPath        = "Assets/isi-lab-unity-module/LBS/Presets/Layers";
             public string assistantPresetFolderPath     = "Assets/isi-lab-unity-module/LBS/Presets/Assistants";
@@ -215,6 +219,10 @@ namespace ISILab.LBS.Settings
             public Color colorReport = new Color(0.41f, 0.63f, 1f);
             public Color colorSpy = new Color(0.78f, 0.79f, 1f);
             public Color colorListen = new Color(0.52f, 1f, 0.05f);
+            
+            
+            public string DebugVectorGUID = "4fc870f9e2f488d4bb2c1bffe1f5b751";
+
             #endregion
         }
         

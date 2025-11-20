@@ -51,7 +51,7 @@ public class LBSInventory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var lbsGen = other.gameObject.GetComponent<LBSGenerated>();
+        LBSGenerated lbsGen = other.gameObject.GetComponent<LBSGenerated>();
         if (lbsGen == null || lbsGen.BundleRef == null) return;
 
         // Can only equip items

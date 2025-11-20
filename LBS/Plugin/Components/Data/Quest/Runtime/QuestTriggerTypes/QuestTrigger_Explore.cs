@@ -6,6 +6,7 @@ namespace ISILab.LBS
     [QuestNodeActionTag("explore")]
     public class QuestTriggerExplore : QuestTrigger
     {
+        [HideInInspector]
         public DataExplore dataExplore;
         [SerializeField]
         private int requiredExplored;
@@ -20,17 +21,17 @@ namespace ISILab.LBS
         {
             foreach (Transform child in transform)
             {
-                var triggerGoto = child.GetComponent<QuestTriggerGoTo>();
+                QuestTriggerGoTo triggerGoto = child.GetComponent<QuestTriggerGoTo>();
                 if (triggerGoto == null) continue;
                 triggerGoto.OnTriggerCompleted -= ExploredMinus;
                 triggerGoto.OnTriggerCompleted += ExploredMinus;
             }
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
             
-            dataExplore = (DataExplore)baseData;
+            dataExplore = (DataExplore)data;
             if (dataExplore.findRandomPosition)
             {
                 requiredExplored = 1;
@@ -43,7 +44,7 @@ namespace ISILab.LBS
                 triggerObject.transform.SetParent(transform);
                 triggerObject.transform.position = randomPoint;
                 
-                var triggerGoto = triggerObject.AddComponent<QuestTriggerGoTo>();
+                QuestTriggerGoTo triggerGoto = triggerObject.AddComponent<QuestTriggerGoTo>();
                 triggerGoto.Init();
 
             }
@@ -64,9 +65,9 @@ namespace ISILab.LBS
                     Vector3 localPosition = mainCenter + new Vector3(offsetX, 0, 0);
                     triggerObject.transform.localPosition = localPosition;
 
-                    var triggerGoto = triggerObject.AddComponent<QuestTriggerGoTo>();
+                    QuestTriggerGoTo triggerGoto = triggerObject.AddComponent<QuestTriggerGoTo>();
                     triggerGoto.Init();
-                    var size = new Vector3(
+                    Vector3 size = new Vector3(
                         Mathf.Abs(subdivisionSizeX), 
                         Mathf.Abs(mainSize.y), 
                         Mathf.Abs(mainSize.z)
@@ -106,7 +107,7 @@ namespace ISILab.LBS
             );
         }
 
-        protected override bool CompleteCondition()
+        protected override bool CanComplete()
         {
             return requiredExplored <= 0;
         }

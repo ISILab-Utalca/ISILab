@@ -94,7 +94,7 @@ namespace ISILab.LBS.Assistants
         #endregion
 
         #region CONSTRUCTORS
-        public AssistantMapElite(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint)
+        public AssistantMapElite(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
         #endregion
@@ -200,7 +200,7 @@ namespace ISILab.LBS.Assistants
             for (int i = 0; i < filteredLayers.Count; i++)
             {
                 LBSLayer layer = filteredLayers[i];
-                string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                string moduleID = (layer.ID.Equals("Exterior") && layer.Behaviours.Any(b => (bool)((b as ExteriorBehaviour)?.GridType.Equals(ConnectedTileMapModule.ConnectedTileType.VertexBased)))) ? "TempConnectedModule" : "";
 
                 if (i == firstValid) combinedRect = layer.GetModule<ConnectedTileMapModule>(moduleID).GetBounds();
 
@@ -425,7 +425,7 @@ namespace ISILab.LBS.Assistants
 
         public override object Clone()
         {
-            return new AssistantMapElite(Icon, Name, ColorTint);
+            return new AssistantMapElite(IconGuid, Name, ColorTint);
         }
 
         public override bool Equals(object obj)

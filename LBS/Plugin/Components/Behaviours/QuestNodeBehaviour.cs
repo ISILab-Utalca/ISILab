@@ -1,10 +1,5 @@
-using System;
-using System.Linq;
-using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using LBS.Components;
-using UnityEngine;
-using UnityEngine.UIElements;
 using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
@@ -20,7 +15,7 @@ namespace ISILab.LBS.Behaviours
         /// </summary>
       
 
-        public QuestNodeBehaviour(VectorImage icon, string name, Color colorTint) : base(icon, name, colorTint)
+        public QuestNodeBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
 
@@ -31,7 +26,7 @@ namespace ISILab.LBS.Behaviours
         
         public override object Clone()
         {
-            return new QuestNodeBehaviour(this.Icon, this.Name, this.ColorTint);
+            return new QuestNodeBehaviour(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override void OnAttachLayer(LBSLayer layer)

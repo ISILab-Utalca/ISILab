@@ -7,6 +7,10 @@ using static ISILab.LBS.Modules.ConnectedTileMapModule;
 
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// The replacement for LBSDirectionedGroup characteristic, allowing to define chances based on each direction
+    /// of the tile.
+    /// </summary>
     [System.Serializable]
     [LBSCharacteristicAttribute("Directioned Chance", "Define chances based on direction")]
 
@@ -18,8 +22,8 @@ namespace ISILab.LBS.Characteristics
             [SerializeField]
             public Bundle target;
 
-            //[SerializeField]
-            //public List<string> target;
+            [SerializeField]
+            public int rotation;
 
             [Range(0f, 1f)]
             public float chance;
@@ -31,13 +35,15 @@ namespace ISILab.LBS.Characteristics
             [SerializeField]
             public Bundle mainTarget;
 
-            //[SerializeField]
-            //public List<string> mainTarget;
+            [SerializeField]
+            public int rotation;
 
             [SerializeField]
-            public List<TileDirectionChance> chances = new List<TileDirectionChance>();
+            public List<List<TileDirectionChance>> chances = new List<List<TileDirectionChance>>(4);
         }
 
+        //This list holds the different tile directions and their chances. Imagine for each tile placed in the map,
+        //it has 4 possible directions (right, up, left, down), and for each direction, there are different bundles that can be placed.
         [SerializeField]
         public List<TileDirection> tileDirections = new List<TileDirection>();
 
@@ -50,7 +56,7 @@ namespace ISILab.LBS.Characteristics
             //Owner.OnAddChild += OnAddChildToOwner;
             //Owner.OnRemoveChild += OnRemoveChildToOwner;
 
-            _Update();
+            //_Update();
         }
 
         public void _Update()

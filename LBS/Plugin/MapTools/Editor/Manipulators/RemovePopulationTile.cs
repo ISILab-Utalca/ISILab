@@ -4,6 +4,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
+using LBS.Bundles;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace ISILab.LBS.Manipulators
         
         private Feedback _previewFeedback;
 
-        private List<Feedback> previews = new();
+        private readonly List<Feedback> previews = new();
 
         private bool LeftButtonPressed;
         
@@ -58,11 +59,11 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
 
-            var x = LBSController.CurrentLevel;
+            LoadedLevel x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(x, "Remove element population");
 
-            var corners = _population.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+            (Vector2Int min, Vector2Int max) corners = _population.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
             for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
             {
@@ -73,7 +74,7 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
-            var level = LBSController.CurrentLevel;
+            LoadedLevel level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Remove Element population");
             
@@ -103,58 +104,58 @@ namespace ISILab.LBS.Manipulators
 
             if (!LeftButtonPressed || ForceCancel) return;
             
-            var corners = _population.OwnerLayer.ToFixedPosition(StartPosition, movePosition);
+            List<TileBundleGroup> dottedGroups = new List<TileBundleGroup>();
+            
+            (Vector2Int min, Vector2Int max) corners = _population.OwnerLayer.ToFixedPosition(StartPosition, movePosition);
             for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
-                    Vector2Int position = new Vector2Int(i, j);
-                    var tileGroup = _population.GetTileGroup(position);
-                       
+                    Debug.Log("selected tile: " + i + " | " + j);
+                    Vector2Int position = new(i, j);
+                    
+                    TileBundleGroup tileGroup = _population.GetTileGroup(position);
                     if (tileGroup is null) continue;
-                    var pf = new DottedAreaFeedback
+                    if(dottedGroups.Contains(tileGroup)) continue;
+       
+                    dottedGroups.Add(tileGroup);
+                    
+                    DottedAreaFeedback pf = new()
                     {
                         preview = true,
                         fixToTeselation = true
                     };
-
-                    var topLeftCorner = new Vector2Int(-i, -j);
-                    var bottomRightCorner = topLeftCorner;
-                        
-                    pf.ValidForInput(true);
-                    if (tileGroup.BundleData.Bundle.TileSize.x > 1 || tileGroup.BundleData.Bundle.TileSize.y > 1 )
-                    {
-                        var offset = tileGroup.BundleData.Bundle.TileSize - new Vector2Int(1, 1);
-                        offset.x = -Mathf.Abs(offset.x);
-                        offset.y = Mathf.Abs(offset.y);
-                        bottomRightCorner += offset;
-                    }
+                    
+                    Vector2Int topLeftCorner = tileGroup.AreaRect.position.ToInt();
+                    Vector2Int bottomRightCorner = topLeftCorner;
+                    
+                    // Set corner by tile size
+                    Vector2Int offset = Vector2Int.zero;
+            
+                    Bundle ToSet = tileGroup.BundleData.Bundle;
+                    if(ToSet.TileSize.x > 1) offset.x += ToSet.TileSize.x - 1;
+                    if(ToSet.TileSize.y > 1) offset.y -= ToSet.TileSize.y - 1;
 
                     // grid to local position
-                    var firstPos = _population.OwnerLayer.FixedToPosition(topLeftCorner);
-                    var lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner);
-
-                    // weird correction on coordinates, hate it but it works
-                    if(movePosition.y < 0)
-                    {
-                        firstPos.y += 99;
-                        lastPos.y += 99;
-                    }
-                    if(movePosition.x < 0)
-                    {
-                        firstPos.x -= 99;
-                        lastPos.x -= 99;
-                    }
-                    firstPos.x *= -1;
-                    lastPos.x *= -1;
-                
+                    Vector2 firstPos = _population.OwnerLayer.FixedToPosition(topLeftCorner, true);
+                    Vector2 lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner + offset, true);
+ 
+                    /* negative numbers in the FixedToPosition get clamped on negatives, jumping to the next lowest value.
+                     example: coordinate -100 instead draws on -200
+                     */
+                    if (firstPos.x < 0) firstPos.x += 99;
+                    if (lastPos.x < 0) lastPos.x += 99;
+                    if (firstPos.y < 0) firstPos.y += 99;
+                    if (lastPos.y < 0) lastPos.y += 99;
+            
                     pf.ValidForInput(true);
                     pf.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
                     previews.Add(pf);
+                
                 }
             }
 
-            foreach (var feedback in previews)
+            foreach (Feedback feedback in previews)
             {
                 MainView.Instance.AddElement(feedback);
             }
@@ -163,7 +164,7 @@ namespace ISILab.LBS.Manipulators
 
         private void CleanPreviews()
         {
-            foreach (var feedback in previews)
+            foreach (Feedback feedback in previews)
             {
                 if (feedback is null) continue;
                 MainView.Instance.RemoveElement(feedback);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISI_Lab.LBS.DevTools;
 using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Assistants;
@@ -21,8 +22,9 @@ namespace ISILab.LBS.Generators
     {
         private const float frameDelay = 5f;
         private float _currentFrameDelay = frameDelay;
-        private const float ProbeRadius = 10f;
-       // private static readonly Collider[] OverlapResults = new Collider[32];
+        
+        // the probe radius detects objects at a given position in the scene, based on the existing graph
+        private const float ProbeRadius = 2f;
         
         private Action<string> _onLayerRequired;
         public event Action<string> OnLayerRequired
@@ -124,8 +126,21 @@ namespace ISILab.LBS.Generators
         private static void GenerateTriggersPerNode(Generator3D.Settings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
             // Map QuestNode -> Trigger GameObject
-            var questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
+            Dictionary<QuestNode, GameObject> questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
 
+            foreach (KeyValuePair<QuestNode, GameObject> entry in questNodeGameObjects)
+            {
+                GameObject go = entry.Value;
+                QuestTrigger qt = go.GetComponent<QuestTrigger>();
+                if(qt is null) continue;
+
+                Custom3dQuestGizmo questGizmo = go.AddComponent<Custom3dQuestGizmo>();
+                if(questGizmo is null) continue;
+
+                questGizmo.Tracker = tracker;
+                questGizmo.Trigger = qt;
+            }
+            
             // Create AND/OR branch node components
             CreateBranchNodeComponents(quest, tracker, questNodeGameObjects);
         }
@@ -157,14 +172,14 @@ namespace ISILab.LBS.Generators
             var trigger = (QuestTrigger)go.AddComponent(triggerType);
 
             // Set visual size
-            var size = node.NodeData.Area;
+            var size = node.Data.Area;
             trigger.SetSize(new Vector3(size.width * settings.scale.x,
                                         size.height * settings.scale.y,
                                         size.height * settings.scale.y));
 
             // Set position
-            var x = (node.NodeData.Area.x + node.NodeData.Area.width / 2 - 1) * settings.scale.x;
-            var z = (node.NodeData.Area.y - node.NodeData.Area.height / 2) * settings.scale.y;
+            var x = (node.Data.Area.x + node.Data.Area.width / 2 - 1) * settings.scale.x;
+            var z = (node.Data.Area.y - node.Data.Area.height / 2) * settings.scale.y;
             var y = pivot.transform.position.y;
             go.transform.position = settings.position + new Vector3(x, y, z);
 
@@ -172,14 +187,14 @@ namespace ISILab.LBS.Generators
             trigger.SetData(node);
             FindPopulationObjects(trigger, settings, node, settings.position, y, new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
 
-            if (!node.NodeData.IsValid())
+            if (!node.Data.IsValid())
             {
                 Debug.LogError($"Node Data '{node.ID}' doesn't have a valid data");
                 Object.DestroyImmediate(pivot);
                 return null;
             }
 
-            trigger.SetDataNode(node.NodeData);
+            trigger.SetUniqueData(node.Data);
             // all are active in the scene, on play they are activated in order
             go.SetActive(true);
             return go;
@@ -221,10 +236,11 @@ namespace ISILab.LBS.Generators
 
         private void GenerateRequiredLayers(QuestNode node)
         {
-            List<string> referencedLayers = node.NodeData.ReferencedLayerNames();
+            List<string> referencedLayers = node.Data.ReferencedLayerNames();
             if (referencedLayers is null || !referencedLayers.Any()) return;
-            
-            // Find all GameObjects in the scene
+            referencedLayers = referencedLayers.Distinct().ToList();
+
+        // Find all GameObjects in the scene
             GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
             List<GameObject> matchingObjects = allObjects.Where(gameObject => referencedLayers.Contains(gameObject.name)).ToList();
                     
@@ -263,7 +279,7 @@ namespace ISILab.LBS.Generators
         /// <param name="delta">Rescale from graph size </param>
         private static void FindPopulationObjects(QuestTrigger trigger, Generator3D.Settings settings, QuestNode node, Vector3 basePos, float y, Vector3 delta)
         {
-            switch (node.NodeData)
+            switch (node.Data)
             {
                 case DataTake dataTake when trigger is QuestTriggerTake takeTrigger:
                     if (dataTake.bundleToTake.Valid())
