@@ -15,7 +15,7 @@ public partial class LBSCustomTabView: TabView
         set
         {
             displayTabs = value;
-            SetTabsVisibility(value);
+            schedule.Execute(() => SetTabsVisibility(value));
         }
     }
 

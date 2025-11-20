@@ -3,11 +3,13 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [UxmlElement]
-public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement
+public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundleWizardTab
 {
     private LBSCustomTextField nameField;
     TabView tabView;
     
+    public BundleBuilder Builder { get; set; }
+
     public BundleWizardSetBundleMenu(): base()
     {
         GetVisualTreeForThis();
@@ -16,5 +18,19 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement
         this.Add(nameField);
         
     }
-    
+
+    public void Init()
+    {
+        Debug.Log("Init: " + GetType().Name);
+    }
+
+    public void Step()
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public void Revert()
+    {
+        //throw new System.NotImplementedException();
+    }
 }

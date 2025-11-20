@@ -4,11 +4,13 @@ using UnityEngine.UIElements;
 
 
 [UxmlElement]
-public partial class BundleWizardSetAssetsMenu : VisualElement
+public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
 {
     private LBSCustomTextField nameField;
     TabView tabView;
     
+    public BundleBuilder Builder { get; set; }
+
     public BundleWizardSetAssetsMenu(): base()
     {
 
@@ -16,5 +18,20 @@ public partial class BundleWizardSetAssetsMenu : VisualElement
         this.Add(nameField);
         
     }
-    
+
+    public void Init()
+    {
+        //Debug.Log("Init: " + GetType().Name);
+        Debug.Log("Builder data:\n\n" + Builder.ToString());
+    }
+
+    public void Step()
+    {
+        
+    }
+
+    public void Revert()
+    {
+        
+    }
 }

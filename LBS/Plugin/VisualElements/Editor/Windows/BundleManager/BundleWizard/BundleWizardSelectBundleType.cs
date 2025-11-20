@@ -1,21 +1,25 @@
 using System.Collections.Generic;
+using System.Linq;
 using ISILab.LBS.CustomComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 
 [UxmlElement]
-public partial class BundleWizardSelectBundleType : VisualElement
+public partial class BundleWizardSelectBundleType : VisualElement, IBundleWizardTab
 {
     private LBSCustomTextField nameField;
     private LBSCustomRadioButtonGroup layersType;
     
-    
+    public BundleBuilder Builder { get; set; }
+
+
     public BundleWizardSelectBundleType(): base()
     {
 
-        nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
-        layersType = new LBSCustomRadioButtonGroup("Select the Layer for your New Bundle Collection:", new List<string>()
+        nameField = new LBSCustomTextField("New Main Bundle’s Name: ");
+        nameField.value = "New Main Bundle";
+        layersType = new LBSCustomRadioButtonGroup("Select the Layer for your new Main Bundle:", new List<string>()
         {
             "Interior Layer",
             "Exterior Layer",
@@ -24,8 +28,42 @@ public partial class BundleWizardSelectBundleType : VisualElement
         this.Add(nameField);
         this.Add(layersType);
         
-        layersType.SelectChoice(0);
         
         
+        //nameField.RegisterValueChangedCallback(evt => )
     }
+
+    public void Init()
+    {
+        //Debug.Log("Init: " + GetType().Name);
+        nameField.value = "";
+        //layersType.SelectChoice(0);
+        layersType.value = 0;
+        //Debug.Log("Radio button group value: " + layersType.value);
+        Debug.Log("Builder data:\n\n" + Builder.ToString());
+    }
+
+    public void Step()
+    {
+        Builder.bundleName = nameField.value;
+        Builder.layerType = layersType.choices.ToList()[layersType.value];
+
+    }
+
+    public void Revert()
+    {
+        Builder.bundleName = "";
+        Builder.layerType = null;
+    }
+}
+
+public interface IBundleWizardTab
+{
+    public BundleBuilder Builder { get; set; }
+
+    public void Init();
+
+    public void Step();
+
+    public void Revert();
 }

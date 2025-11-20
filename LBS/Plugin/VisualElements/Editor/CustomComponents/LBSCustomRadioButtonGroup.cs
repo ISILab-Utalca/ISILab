@@ -51,7 +51,7 @@ namespace ISILab.LBS.CustomComponents
         {
             var choice = choices.ElementAt(_index);
             var radiobuttons = this.Query<RadioButton>().ToList();
-            radiobuttons[_index].SetValueWithoutNotify(true);
+            radiobuttons[_index].value = (true);
         }
     }
     
