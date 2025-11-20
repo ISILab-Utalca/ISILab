@@ -17,22 +17,22 @@ namespace ISILab.LBS.Components
     {
         #region FIELDS
 
-        [SerializeField, JsonRequired]
+        [SerializeField]
         private string id = "";
 
-        [SerializeField, JsonRequired]
+        [SerializeField]
         protected bool validGrammar;
 
-        [SerializeField, JsonRequired]
+        [SerializeField]
         protected bool validConnections;
 
-        [SerializeField, HideInInspector, JsonRequired]
+        [SerializeField, HideInInspector]
         protected int x;
 
-        [SerializeField, HideInInspector, JsonRequired]
+        [SerializeField, HideInInspector]
         protected int y;
 
-        [SerializeField, JsonRequired, SerializeReference]
+        [SerializeField, SerializeReference]
         protected QuestGraph graph;
 
         [SerializeField]
@@ -41,21 +41,18 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region PROPERTIES
-        [JsonIgnore]
         public QuestGraph Graph
         {
             get => graph;
             set => graph = value;
         }
-
-        [JsonIgnore]
+        
         public string ID
         {
             get => id;
             set => id = value;
         }
-
-        [JsonIgnore]
+        
         public Vector2Int Position
         {
             get => new(x, y);
@@ -65,22 +62,19 @@ namespace ISILab.LBS.Components
                 y = value.y;
             }
         }
-
-        [JsonIgnore]
+        
         public bool ValidGrammar
         {
             get => validGrammar;
             set => validGrammar = value;
         }
-
-        [JsonIgnore]
+        
         public bool ValidConnections
         {
             get => validConnections;
             set => validConnections = value;
         }
-
-        [JsonIgnore]
+        
         public Rect NodeViewPosition
         {
             get => nodeViewRect;

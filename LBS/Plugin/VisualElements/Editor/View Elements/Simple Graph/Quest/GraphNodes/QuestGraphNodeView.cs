@@ -92,6 +92,11 @@ namespace ISILab.LBS.VisualElements
             RestoreManipulator();
             DrawManager.Instance.PickingModeRestoreAll();
             DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+            /// avoid recall on assistant
+            bool usingSelect = MainView.Instance.HasManipulator<SelectManipulator>();
+            bool usingAdd = MainView.Instance.HasManipulator<AddGraphNode>();
+            if (usingAdd || usingSelect) evt.StopPropagation();
+
         }
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)
