@@ -96,7 +96,6 @@ namespace ISILab.LBS.VisualElements
             bool usingSelect = MainView.Instance.HasManipulator<SelectManipulator>();
             bool usingAdd = MainView.Instance.HasManipulator<AddGraphNode>();
             if (usingAdd || usingSelect) evt.StopPropagation();
-
         }
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)
