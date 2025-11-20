@@ -6,20 +6,21 @@ namespace ISILab.LBS
     [QuestNodeActionTag("spy")]
     public class QuestTriggerSpy : QuestTrigger
     {
+        [HideInInspector]
         public DataSpy dataSpy;
         public GameObject objectToSpy;
 
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataSpy);
+            SetUniqueData(dataSpy);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataSpy = (DataSpy)baseData;
+            dataSpy = (DataSpy)data;
             
-            var followTrigger = objectToSpy.AddComponent<FollowTrigger>();
+            FollowTrigger followTrigger = objectToSpy.AddComponent<FollowTrigger>();
             followTrigger.SetTriggerData(
                 objectToSpy,
                 BoxCollider, 
@@ -70,7 +71,7 @@ namespace ISILab.LBS
 
         private void OnTriggerStay(Collider other)
         {
-            if (!_questTrigger.IsPlayer(other)) return;
+            if (!QuestTrigger.IsPlayer(other)) return;
 
             _withinSeconds += Time.deltaTime;
             if (_withinSeconds >= _withinRequiredSeconds)
@@ -82,7 +83,7 @@ namespace ISILab.LBS
 
         private void OnTriggerExit(Collider other)
         {
-            if (!_questTrigger.IsPlayer(other)) return;
+            if (!QuestTrigger.IsPlayer(other)) return;
             if (_resetOnExit) _withinSeconds = 0f;
 
         }

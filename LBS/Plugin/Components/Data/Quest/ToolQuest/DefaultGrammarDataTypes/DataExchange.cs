@@ -11,7 +11,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataExchange : BaseQuestNodeData
+    public class DataExchange : QuestActionData
     {
         [SerializeField] public BundleType bundleGiveType;
         [SerializeField, JsonRequired] public int requiredAmount = 1;
@@ -31,7 +31,7 @@ namespace ISILab.LBS.Components
             color = LBSSettings.Instance.view.colorExchange;
         }
         
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataExchange exchangeData) return;
@@ -41,7 +41,7 @@ namespace ISILab.LBS.Components
             receiveAmount = exchangeData.receiveAmount;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var exchangeOther = other as DataExchange;
             if(exchangeOther == null) return false;

@@ -6,19 +6,20 @@ namespace ISILab.LBS
     [QuestNodeActionTag("read")]
     public class QuestTriggerRead : QuestTrigger
     {
+        [HideInInspector]
         public DataRead readData;
         public GameObject objectToRead;
 
         public override void Init()
         {
             base.Init();
-            SetDataNode(readData);
+            SetUniqueData(readData);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            readData = (DataRead)baseData;
-            var objectiveTrigger = objectToRead.AddComponent<GenericObjectiveTrigger>();
+            readData = (DataRead)data;
+            GenericObjectiveTrigger objectiveTrigger = objectToRead.AddComponent<GenericObjectiveTrigger>();
             objectiveTrigger.Setup(this);
         }
 

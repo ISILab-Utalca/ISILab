@@ -9,7 +9,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
             [Serializable]
-        public class DataRead : BaseQuestNodeData
+        public class DataRead : QuestActionData
         {
             [SerializeField] public BundleGraph bundleToRead;
             
@@ -25,7 +25,7 @@ namespace ISILab.LBS.Components
                 iconGuid = ObjectIcon;
             }
             
-            public override void Clone(BaseQuestNodeData data)
+            public override void Clone(QuestActionData data)
             {
                 base.Clone(data);
                 if (data is not DataRead readData) return;
@@ -43,7 +43,7 @@ namespace ISILab.LBS.Components
                 if (bundleToRead.Valid())area = bundleToRead.Area;
             }
 
-            public override bool Equals(BaseQuestNodeData other)
+            public override bool Equals(QuestActionData other)
             {
                 var readOther = other as DataRead;
                 if(readOther == null) return false;

@@ -23,7 +23,7 @@ namespace ISILab.LBS.Manipulators
         public bool PickTriggerPosition = false;
         
         // Public properties
-        public BaseQuestNodeData ActiveData { get; set; }
+        public QuestActionData ActiveData { get; set; }
 
         /// <summary>
         /// Callback invoked when a bundle is picked. Only one function is allowed at a time.

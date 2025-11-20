@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
 using UnityEngine;
@@ -8,6 +7,7 @@ namespace ISILab.LBS
     [QuestNodeActionTag("stealth")]
     public class QuestTriggerStealth : QuestTrigger
     {
+        [HideInInspector]
         public DataStealth dataStealth;
         public List<GameObject> objectsObservers = new();
         /// <summary>
@@ -22,28 +22,28 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetDataNode(dataStealth);
+            SetUniqueData(dataStealth);
         }
 
-        public override void SetDataNode(BaseQuestNodeData baseData)
+        public override void SetUniqueData(QuestActionData data)
         {
-            dataStealth = (DataStealth)baseData;
+            dataStealth = (DataStealth)data;
             
-            foreach (var observer in objectsObservers)
+            foreach (GameObject observer in objectsObservers)
             {
                 if (observer is null)continue;
                 
-                var observerTrigger = observer.AddComponent<StealthObserverTrigger>();
+                StealthObserverTrigger observerTrigger = observer.AddComponent<StealthObserverTrigger>();
                 observerTrigger.Setup(this);
             }
 
             // Create objective trigger
-            var objectiveGameObject = new GameObject("StealthObjectiveTrigger")
+            GameObject objectiveGameObject = new GameObject("StealthObjectiveTrigger")
             {
                 transform = { parent = transform, position = objectivePosition }
             };
 
-            var objectiveTrigger = objectiveGameObject.AddComponent<GenericObjectiveTrigger>();
+            GenericObjectiveTrigger objectiveTrigger = objectiveGameObject.AddComponent<GenericObjectiveTrigger>();
             objectiveTrigger.Setup(this);
         }
         
@@ -68,7 +68,7 @@ namespace ISILab.LBS
         /// Complete if non detectable
         /// </summary>
         /// <returns></returns>
-        protected override bool CompleteCondition()
+        protected override bool CanComplete()
         {
             return _stealthDetected == false;
         }
@@ -85,7 +85,7 @@ namespace ISILab.LBS
         {
             _questTrigger = trigger;
 
-            var sphereCollider = GetComponent<SphereCollider>() ?? gameObject.AddComponent<SphereCollider>();
+            SphereCollider sphereCollider = GetComponent<SphereCollider>() ?? gameObject.AddComponent<SphereCollider>();
 
             sphereCollider.isTrigger = true;
             sphereCollider.radius = DetectRadius; 
@@ -93,7 +93,7 @@ namespace ISILab.LBS
 
         private void OnTriggerEnter(Collider other)
         {
-            if (_questTrigger.IsPlayer(other)) _questTrigger.OnPlayerDetected();
+            if (QuestTrigger.IsPlayer(other)) _questTrigger.OnPlayerDetected();
         }
     }
 

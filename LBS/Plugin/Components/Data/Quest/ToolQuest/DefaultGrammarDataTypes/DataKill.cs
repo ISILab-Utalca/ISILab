@@ -12,7 +12,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
             [Serializable]
-        public class DataKill : BaseQuestNodeData
+        public class DataKill : QuestActionData
         {
             /// <summary>
             /// Objects that must be killed
@@ -31,7 +31,7 @@ namespace ISILab.LBS.Components
                 bundlesToKill = new List<BundleGraph>();
             }
             
-            public override void Clone(BaseQuestNodeData data)
+            public override void Clone(QuestActionData data)
             {
                 base.Clone(data);
                 if (data is not DataKill killData) return;
@@ -48,7 +48,7 @@ namespace ISILab.LBS.Components
                 ResizeToFitBundles(bundlesToKill);
             }
 
-            public override bool Equals(BaseQuestNodeData other)
+            public override bool Equals(QuestActionData other)
             {
                 var killOther = other as DataKill;
                 if(killOther == null) return false;

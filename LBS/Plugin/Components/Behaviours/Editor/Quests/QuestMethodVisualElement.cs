@@ -1,54 +1,54 @@
-using System;
+using System.Linq;
 using System.Reflection;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
     public partial class QuestMethodVisualElement : VisualElement
     {
-        private LBSCustomButton button;
+        private readonly LBSCustomButton _button;
         
         public QuestMethodVisualElement()
         {
             Clear();
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestMethodVisualElement");
             visualTree.CloneTree(this);
-            button = this.Q<LBSCustomButton>("Button");
+            _button = this.Q<LBSCustomButton>("Button");
         }
 
-        public void AddListener((GameObject, Component, MethodInfo) methodInfo, BaseQuestNodeData nodeData)
+        public void AddListener((GameObject, Component, MethodInfo) methodInfo, QuestActionData actionData)
         {
-            (GameObject target, Component comp, MethodInfo method) = methodInfo;
-            button.text = $"{method.Name}";
-            button.clicked += () =>
+            _button.text = $"{methodInfo.Item3.Name}";
+            _button.clicked += () =>
             {
-                UnityAction action = (UnityAction)Delegate.CreateDelegate(typeof(UnityAction), target.GetComponent(comp.GetType()), method);
                 // during generation we must check that this event is still valid scene wise
                 UnityActionStored entryKey = new(methodInfo);
-                if (nodeData.RegisteredListeners.TryAdd(entryKey, action))
-                {
-                    nodeData.OnCompleteEvent.AddListener(action);
-                }
+                if(actionData.RegisteredActions.Contains(entryKey)) return;
+                actionData.RegisteredActions.Add(entryKey);
+
             };
         }
         
-        public void RemoveListener((GameObject, Component, MethodInfo) methodInfo, BaseQuestNodeData nodeData)
+        public void RemoveListener((GameObject, Component, MethodInfo) methodInfo, QuestActionData actionData)
         {
             (GameObject target, Component comp, MethodInfo method) = methodInfo;
-            button.text = $"{method.Name}";
-            button.clicked += () =>
+            _button.text = $"{method.Name}";
+            _button.clicked += () =>
             {
                 UnityActionStored entryKey = new(methodInfo);
-                if (nodeData.RegisteredListeners.ContainsKey(entryKey))
+                foreach (UnityActionStored t in actionData.RegisteredActions.ToList())
                 {
-                    UnityAction action = nodeData.RegisteredListeners[entryKey];
-                    nodeData.OnCompleteEvent.RemoveListener(action);
-                    nodeData.RegisteredListeners.Remove(entryKey);
+                    UnityActionStored entry = t;
+                    if (entry.componentName == comp.GetType().Name &&
+                        entry.methodName == method.Name &&
+                        entry.objectName == target.name)
+                    {
+                        actionData.RegisteredActions.Remove(entryKey);
+                    }
                 }
             };
         }
