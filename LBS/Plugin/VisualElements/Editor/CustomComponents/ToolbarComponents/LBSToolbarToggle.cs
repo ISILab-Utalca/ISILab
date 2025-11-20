@@ -3,6 +3,7 @@ using System;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -115,7 +116,6 @@ namespace ISILab.LBS.CustomComponents
             
             
         }
-
         private void lockedButtonClick(ChangeEvent<bool> _changeEvent)
         {
             if (lockOnClick)

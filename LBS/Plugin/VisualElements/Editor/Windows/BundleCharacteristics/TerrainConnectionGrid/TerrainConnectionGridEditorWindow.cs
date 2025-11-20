@@ -34,6 +34,12 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
     public void CreateGUI()
     {
+        //Initialize connection grid if not initialized
+        if(connectionGridTarget.GridList == null || connectionGridTarget.GridList.Count!=connectionGridTarget.Assets.Count)
+        {
+            connectionGridTarget.UpdateGridList();
+        }
+
         var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TerrainConnectionGridEditorWindow");
         visualTree.CloneTree(rootVisualElement);
 
@@ -45,23 +51,27 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
         //Tools!
         brushTool = rootVisualElement.Q<LBSToolbarToggle>("BrushTool");
-        //brushTool.RegisterCallback<ClickEvent>((evt) => { SwitchTools(GridTerrainTool.Brush); });
-        
-
+        brushTool.RegisterValueChangedCallback((evt) => { SwitchTools(brushTool, GridTerrainTool.Brush); });
         fillTool = rootVisualElement.Q<LBSToolbarToggle>("FillTool");
-        //brushTool.RegisterCallback<ClickEvent>((evt) => { SwitchTools(GridTerrainTool.Fill); });
+        fillTool.RegisterValueChangedCallback((evt) => { SwitchTools(fillTool, GridTerrainTool.Fill); });
         eraserTool = rootVisualElement.Q<LBSToolbarToggle>("EraserTool");
-
-        //brushTool.RegisterCallback<ClickEvent>((evt) => { SwitchTools(GridTerrainTool.Eraser); });
-
+        eraserTool.RegisterValueChangedCallback((evt) => { SwitchTools(eraserTool, GridTerrainTool.Eraser); });
         gridTerrainTools.Add(brushTool);
         gridTerrainTools.Add(fillTool);
         gridTerrainTools.Add(eraserTool);
 
-    }
-    void SwitchTools(GridTerrainTool _newTool)
-    {
+        //Icons!
 
+    }
+    void SwitchTools(LBSToolbarToggle button, GridTerrainTool _newTool)
+    {
+        foreach(LBSToolbarToggle otherButton in gridTerrainTools)
+        {
+            if(otherButton!=button)
+            {
+                otherButton.SetValueWithoutNotify(false);
+            }
+        }
         activeTool = _newTool;
     }
 

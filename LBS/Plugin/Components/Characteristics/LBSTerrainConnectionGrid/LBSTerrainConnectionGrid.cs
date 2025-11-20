@@ -19,7 +19,7 @@ namespace ISILab.LBS.Characteristics
         [SerializeField, JsonRequired]
         Dictionary<int, UnityEngine.Color> flagColorPalette = new Dictionary<int, UnityEngine.Color>();
         [SerializeField, JsonRequired]
-        int gridSize;
+        int gridSize = 9;
 
         #region PROPERTIES
         [JsonIgnore]
@@ -38,15 +38,10 @@ namespace ISILab.LBS.Characteristics
         #region CONSTRUCTOR
         public LBSTerrainConnectionGrid(int gSize = 9) {
             gridSize = gSize;
-            gridList = new Dictionary<Asset, AssetConnectionGrid>();
-            for(int i = 0; i<Assets.Count; i++)
-            {
-                gridList[Assets[i]] = new AssetConnectionGrid(gridSize);
-            }
-            Owner.OnAddAsset += (Asset asset) => InitAsset(asset);
-            Owner.OnRemoveAsset += (Asset asset) => DetachAsset(asset);
+        }
 
-            //TODO: Grid list should account for assets being added or removed from the bundle.
+        public LBSTerrainConnectionGrid() : base()
+        {
         }
         #endregion
 
@@ -79,7 +74,6 @@ namespace ISILab.LBS.Characteristics
         {
             return base.GetHashCode();
         }
-
         public override List<string> Validate()
         {
             List<string> warnings = new List<string>();
@@ -98,15 +92,35 @@ namespace ISILab.LBS.Characteristics
             return warnings;
         }
         #endregion
-
-        public void InitAsset(Asset asset)
+    
+        public void SetGridSize(int gSize)
         {
-            gridList[asset] = new AssetConnectionGrid(gridSize);
+            gridSize = gSize;
+            foreach(Asset asset in Assets)
+            {
+                gridList[asset].terrainFlag = new int[gSize];
+            }
         }
 
-        public void DetachAsset(Asset asset)
+        public void UpdateGridList()
         {
-            gridList.Remove(asset);
+            if (gridList == null) gridList = new Dictionary<Asset, AssetConnectionGrid>();
+            //Add everything new
+            foreach (Asset asset in Assets)
+            {
+                if (!gridList.ContainsKey(asset))
+                {
+                    gridList.Add(asset, new AssetConnectionGrid(gridSize));
+                }
+            }
+            //Remove everything old
+            foreach(KeyValuePair<Asset, AssetConnectionGrid> pair in gridList)
+            {
+                if(!Assets.Contains(pair.Key))
+                {
+                    gridList.Remove(pair.Key);
+                }
+            }
         }
     }
 
