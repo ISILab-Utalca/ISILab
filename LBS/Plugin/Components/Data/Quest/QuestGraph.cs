@@ -16,13 +16,13 @@ namespace ISILab.LBS.Modules
     public class QuestGraph : LBSModule, ICloneable, ISelectable
     {
         #region FIELDS
-        [SerializeField, SerializeReference, JsonRequired]
+        [SerializeField, SerializeReference]
         private List<GraphNode> graphNodes = new();
        
-        [SerializeField, SerializeReference, JsonRequired]
+        [SerializeField, SerializeReference]
         private List<QuestEdge> graphEdges = new();
 
-        [SerializeField, SerializeReference, JsonRequired]
+        [SerializeField, SerializeReference]
         private QuestNode root;
         
         private GraphNode _selectedNode;
@@ -37,21 +37,21 @@ namespace ISILab.LBS.Modules
         [SerializeField]
         private string grammarGuid = "63ab688b53411154db5edd0ec7171c42"; // Default grammar guid
 
-        [JsonIgnore] private LBSGrammar _grammar;
-        [JsonIgnore] private Action<GraphNode> _onNodeSelected;
-        [JsonIgnore] private Action _onUpdateGraph;
+        private LBSGrammar _grammar;
+        private Action<GraphNode> _onNodeSelected;
+        private Action _onUpdateGraph;
         #endregion
 
         #region PROPERTIES
-        [JsonIgnore] public QuestNode Root => root;
-        [JsonIgnore] public List<GraphNode> GraphNodes => graphNodes;
-        [JsonIgnore] public List<QuestNode> Suggestions
+        public QuestNode Root => root;
+        public List<GraphNode> GraphNodes => graphNodes;
+        public List<QuestNode> Suggestions
         {
             get => suggestions;
             set => suggestions = value;
         }
 
-        [JsonIgnore] public List<QuestEdge> GraphEdges => graphEdges;
+        public List<QuestEdge> GraphEdges => graphEdges;
 
         public GraphNode SelectedGraphNode
         {
@@ -96,11 +96,11 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region EVENTS
-        [JsonIgnore] public Action<Vector2Int> GoToNodeInGraph;
-        [JsonIgnore] public Action<QuestEdge> OnAddEdge;
-        [JsonIgnore] public Action<QuestEdge> OnRemoveEdge;
-        [JsonIgnore] public Action<QuestNode> OnAddSuggestion;
-        [JsonIgnore] public Action<QuestNode> OnRemoveSuggestion;
+        public Action<Vector2Int> GoToNodeInGraph;
+        public Action<QuestEdge> OnAddEdge;
+        public Action<QuestEdge> OnRemoveEdge;
+        public Action<QuestNode> OnAddSuggestion;
+        public Action<QuestNode> OnRemoveSuggestion;
 
         #endregion
 
