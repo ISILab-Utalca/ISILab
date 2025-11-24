@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 
 namespace ISILab.LBS.Manipulators
 {

@@ -4,7 +4,6 @@ using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Settings;
-using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Components;
 using UnityEngine;

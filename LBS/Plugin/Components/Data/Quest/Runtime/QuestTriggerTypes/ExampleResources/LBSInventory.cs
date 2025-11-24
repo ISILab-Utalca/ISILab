@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using LBS.Bundles;
 using UnityEngine;
 

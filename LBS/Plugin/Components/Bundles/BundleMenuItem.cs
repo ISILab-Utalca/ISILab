@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;

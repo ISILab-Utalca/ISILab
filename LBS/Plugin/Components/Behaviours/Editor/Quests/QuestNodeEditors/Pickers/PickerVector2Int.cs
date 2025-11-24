@@ -12,7 +12,6 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Settings;
 using ISILab.LBS.VisualElements.Editor;
-using ISILab.Macros;
 using LBS;
 using LBS.Bundles;
 using LBS.Components;

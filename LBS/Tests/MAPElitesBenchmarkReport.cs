@@ -1,6 +1,6 @@
 using Commons.Optimization.Evaluator;
 using ISILab.AI.Categorization;
-using ISILab.JsonNet;
+using ISILab.Commons.JsonNet;   
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Assistants;
 using LBS.Components;

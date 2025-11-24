@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.AI.Grammar;
-using ISILab.JsonNet;
+using ISILab.Commons.JsonNet;
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
-using ISILab.Macros;
 using LBS.Components;
 using NUnit.Framework;
 using Unity.PerformanceTesting;

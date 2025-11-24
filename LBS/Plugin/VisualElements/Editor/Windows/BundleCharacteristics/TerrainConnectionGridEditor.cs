@@ -2,7 +2,6 @@
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
-using ISILab.Macros;
 using LBS.Bundles;
 using System;
 using System.IO;

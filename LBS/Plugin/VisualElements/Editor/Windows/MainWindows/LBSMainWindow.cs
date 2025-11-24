@@ -4,7 +4,6 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Template;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using ISILab.Macros;
 using LBS.Components;
 using LBS.VisualElements;
 using System;
@@ -21,6 +20,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 using ISILab.LBS.Internal.Editor;
+using ISILab.LBS.Macros;
 
 namespace ISILab.LBS.Editor.Windows{
 

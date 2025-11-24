@@ -2,7 +2,7 @@ using ISILab.Commons.Utility.Editor;
 using LBS.Components;
 using System;
 using ISILab.LBS.CustomComponents;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using UnityEngine;
 using UnityEngine.UIElements;
 

@@ -5,7 +5,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Internal;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using JetBrains.Annotations;
 using LBS.Bundles;
 using UnityEditor;

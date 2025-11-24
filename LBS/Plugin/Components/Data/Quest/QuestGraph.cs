@@ -6,7 +6,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using Newtonsoft.Json;
 using UnityEngine;
 

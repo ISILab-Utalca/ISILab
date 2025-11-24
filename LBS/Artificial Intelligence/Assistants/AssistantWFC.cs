@@ -3,7 +3,6 @@ using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
-using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -18,6 +17,7 @@ using static ISILab.LBS.Characteristics.LBSDirectionedChance;
 using static UnityEngine.GraphicsBuffer;
 using System.Data;
 using System.Threading;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Settings;
 
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Internal;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using LBS.Bundles;
 using LBS.Bundles.Tools;
 
