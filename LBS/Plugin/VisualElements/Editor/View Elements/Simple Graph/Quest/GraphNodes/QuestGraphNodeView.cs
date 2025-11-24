@@ -10,7 +10,7 @@ using ISILab.LBS.Settings;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;
 
-namespace ISILab.LBS.VisualElements
+namespace ISILab.LBS.VisualElements 
 {
     public abstract class QuestGraphNodeView : GraphElement
     {

@@ -48,7 +48,7 @@ namespace ISILab.LBS.Manipulators
 
         }
 
-        // TODO: Revisar de nuevo este método. No parece estar cumpliendo su función correctamente
+        // TODO: Revisar de nuevo este mï¿½todo. No parece estar cumpliendo su funciï¿½n correctamente
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
             var position = _population.OwnerLayer.ToFixedPosition(movePosition);
