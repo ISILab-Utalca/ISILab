@@ -3,6 +3,7 @@ using System.Linq;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Internal;
 using ISILab.Macros;
 using JetBrains.Annotations;
@@ -112,9 +113,14 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             SetCreateBundleButtonSetting("SubBundles", _selection);
             SetCreateBundleButtonSetting("OrphanBundles", BundleFlags.None, true);
 
+            // Bundle Wizard
+            BundleWizardPopup wizard = rootVisualElement.Q<BundleWizardPopup>("BundleWizardPopup");
+
+
+            VisualElement bottomBar = rootVisualElement.Q<VisualElement>("BottomBar");
             // Setting organize button
-            Button organizeButton = rootVisualElement.Q<VisualElement>("BottomBar").Q<Button>("OrganizeButton");
-            organizeButton.clickable.clicked += () =>
+            LBSCustomButton organizeButton = bottomBar.Q<LBSCustomButton>("OrganizeButton");
+            organizeButton.clicked += () =>
             {
                 rootVisualElement.Q<VisualElement>("SubBundles").Q<Label>().text = "Sub Bundles - Layer";
                 ClearSelectionInOtherLists();
@@ -123,8 +129,8 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             };
 
             // Setting findIssues button
-            Button issuesButton = rootVisualElement.Q<VisualElement>("BottomBar").Q<Button>("IssuesButton");
-            issuesButton.clickable.clicked += () =>
+            LBSCustomButton issuesButton = bottomBar.Q<LBSCustomButton>("IssuesButton");
+            issuesButton.clicked += () =>
             {
                 rootVisualElement.Q<VisualElement>("SubBundles").Q<Label>().text = "Sub Bundles - Layer";
                 ClearSelectionInOtherLists();
@@ -144,6 +150,14 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 //SetBundleViewSettings(out _validatorList, "BundleValidator", new List<BundleContainer>());
                 _validatorList = rootVisualElement.Q<VisualElement>("BundleValidator").Q<ListView>();
                 SetExpandButtonSetting("BundleValidator", _validatorList);
+            };
+
+            // Create new main bundle button
+            LBSCustomButton newMainBundleButton = bottomBar.Q<LBSCustomButton>("NewMainBundle");
+            newMainBundleButton.clicked += () =>
+            {
+                wizard.Init();
+                wizard.SetDisplay(true);
             };
         }
 

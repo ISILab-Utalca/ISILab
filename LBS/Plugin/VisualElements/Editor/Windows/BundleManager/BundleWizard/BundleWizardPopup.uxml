@@ -2,19 +2,19 @@
     <Style src="project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <ui:VisualElement name="Overlay" style="flex-grow: 1; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.24); position: absolute; right: 0; left: 0; bottom: 1px; top: 0;" />
     <ui:VisualElement name="VisualElement" class="lbs_popup" style="flex-grow: 1; padding-left: 12px; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; margin-top: 72px; margin-right: 72px; margin-bottom: 72px; margin-left: 72px;">
-        <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," section-titles="Step 1,Step 2,Step 3,Step 4" enabled="false" style="height: 20px;" />
+        <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," enabled="false" style="height: 20px; opacity: 1;" />
         <LBSCustomTabView name="TabView" display-tabs="false" style="flex-grow: 1; display: flex; overflow: hidden;">
-            <ui:Tab label="1 - New Bundle Collection" closeable="false" name="Step1" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSelectBundleType class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
+            <ui:Tab label="1 - New Main Bundle" closeable="false" name="Step1" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
+                <BundleWizardSelectBundleType name="SelectBundleTypeMenu" class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
             </ui:Tab>
             <ui:Tab label="2 - Convert Prefabs/Assets" closeable="false" name="Step2" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetAssetsMenu class="lbs-wizard-menu-content" />
+                <BundleWizardSetAssetsMenu name="SetAssetsMenu" class="lbs-wizard-menu-content" />
             </ui:Tab>
             <ui:Tab label="3- Asign Bundles" closeable="false" name="Step3" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetBundleMenu class="lbs-wizard-menu-content" />
+                <BundleWizardSetBundleMenu name="SetBundleMenu" class="lbs-wizard-menu-content" />
             </ui:Tab>
             <ui:Tab label="4 - Add Characteristics" closeable="false" name="Step4" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetCharacteristMenu class="lbs-wizard-menu-content" />
+                <BundleWizardSetCharacteristMenu name="SetCharacteristicsMenu" class="lbs-wizard-menu-content" />
             </ui:Tab>
         </LBSCustomTabView>
         <ISILab.LBS.CustomComponents.LBSCustomButton text="aaaaa" icon-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=Add.svg?fileID=7388822144124034973&amp;guid=ad8d08a3d465b3a438016713ae2f99c5&amp;type=3#Icon=Add" button-tint="#393939FF" />
