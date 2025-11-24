@@ -12,16 +12,18 @@ namespace ISILab.LBS.CustomComponents
     public partial class LBSCustomBreadcrumbs : ToolbarBreadcrumbs
     {
 
-        string[] m_titles;
-        private int m_selectSecction = -1;
+        string[] mTitles;
+        private int mSelectSection = -1;
+        
+        public static event Action OnBreadcrumbClickEvent;
 
         [UxmlAttribute]
         public string[] SectionTitles
         {
-            get => m_titles;
+            get => mTitles;
             set
             {
-                m_titles = value;
+                mTitles = value;
                 DrawBreadcrumbsItems();
             }
         }
@@ -29,22 +31,22 @@ namespace ISILab.LBS.CustomComponents
         [UxmlAttribute]
         public int SelectSection
         {
-            get => m_selectSecction;
+            get => mSelectSection;
             set
             {
-                m_selectSecction = value;
-                SelectAtIndex(m_selectSecction);
+                mSelectSection = value;
+                SelectAtIndex(mSelectSection);
             }
         }
 
-        public LBSCustomBreadcrumbs() : base()
+        public LBSCustomBreadcrumbs()
         {
             this.AddToClassList("lbs-breadcrumbs");
         }
 
-        public LBSCustomBreadcrumbs(List<string> _labelsToDisplay): base()
+        public LBSCustomBreadcrumbs(List<string> _labelsToDisplay): this()
         {
-            m_titles = _labelsToDisplay.ToArray();
+            mTitles = _labelsToDisplay.ToArray();
             DrawBreadcrumbsItems();
         }
 
@@ -53,16 +55,15 @@ namespace ISILab.LBS.CustomComponents
             if (this.childCount > 0) this.Clear();
             if (SectionTitles == null) return;
             
-            foreach (var title in SectionTitles)
+            for (int i = 0; i < SectionTitles.Length; i++)
             {
-                this.PushItem(title, null);
-                
+                string title = SectionTitles[i];
+                this.PushItem(title, OnBreadcrumbClickEvent);
             }
-            
-            
         }
         
-        public void SelectAtIndex(int _index)
+        
+        private void SelectAtIndex(int _index)
         {
             if (childCount == 0) return;
             if (_index < 0 || _index >= this.childCount)
@@ -73,15 +74,15 @@ namespace ISILab.LBS.CustomComponents
             
             for (int i = 0; i < this.childCount; i++)
             {
-                VisualElement breadcrumsElement  = this.ElementAt(i);
-                if  (breadcrumsElement == null) continue;
+                VisualElement breadcrumbsElement  = this.ElementAt(i);
+                if  (breadcrumbsElement == null) continue;
                 if (i == _index)
                 {
-                    breadcrumsElement.AddToClassList("lbs-breadcrumb-item-selected");
+                    breadcrumbsElement.AddToClassList("lbs-breadcrumb-item-selected");
                 }
                 else
                 {
-                    breadcrumsElement.RemoveFromClassList("lbs-breadcrumb-item-selected");
+                    breadcrumbsElement.RemoveFromClassList("lbs-breadcrumb-item-selected");
                 }
             }
         }
@@ -90,9 +91,9 @@ namespace ISILab.LBS.CustomComponents
         {
             for (int i = 0; i < this.childCount; i++)
             {
-                VisualElement breadcrumsElement = this.ElementAt(i);
-                if (breadcrumsElement == null) continue;
-                breadcrumsElement.RemoveFromClassList("lbs-breadcrumb-item-selected");
+                VisualElement breadcrumbElement = this.ElementAt(i);
+                if (breadcrumbElement == null) continue;
+                breadcrumbElement.RemoveFromClassList("lbs-breadcrumb-item-selected");
             }
         }
     }
