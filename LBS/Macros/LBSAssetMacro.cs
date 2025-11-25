@@ -25,9 +25,9 @@ namespace ISILab.LBS.Macros
         /// <typeparam name="T">Type of the asset to load.</typeparam>
         /// <param name="guid">The GUID of the asset.</param>
         /// <returns>The loaded asset of type T, or null if not found.</returns>
-        public static T LoadAssetByGuid<T>(string guid) where T : Object
+        public static T LoadAssetByGuid<T>(string _guid) where T : Object
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
+            string path = AssetDatabase.GUIDToAssetPath(_guid);
             return !string.IsNullOrEmpty(path) ? AssetDatabase.LoadAssetAtPath<T>(path) : null;
         }
         
@@ -35,11 +35,11 @@ namespace ISILab.LBS.Macros
         /// <summary>
         /// Retrieves the GUID of the given asset.
         /// </summary>
-        /// <param name="asset">The asset to retrieve the GUID from.</param>
+        /// <param name="_asset">The asset to retrieve the GUID from.</param>
         /// <returns>The GUID as a string, or null if not found.</returns>
-        public static string GetGuidFromAsset(Object asset)
+        public static string GetGuidFromAsset(Object _asset)
         {
-            string path = AssetDatabase.GetAssetPath(asset);
+            string path = AssetDatabase.GetAssetPath(_asset);
             return string.IsNullOrEmpty(path) ? null : AssetDatabase.AssetPathToGUID(path);
         }
 

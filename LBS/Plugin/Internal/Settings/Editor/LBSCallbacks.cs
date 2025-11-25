@@ -4,8 +4,10 @@ using ISILab.LBS.Editor.Windows;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace ISILab.LBS.Internal.Editor
 {
@@ -126,7 +128,7 @@ namespace ISILab.LBS.Internal.Editor
 
         public static void ReloadStorage()
         {
-            var storage = LBSAssetsStorage.Instance;
+            LBSAssetsStorage storage = LBSAssetsStorage.Instance;
             storage.SearchInProject();
         }
 
@@ -139,8 +141,11 @@ namespace ISILab.LBS.Internal.Editor
 
         public static void ReloadBundles()
         {
-            var storage = LBSAssetsStorage.Instance;
-            var bundles = storage.Get<Bundle>();
+            LBSAssetsStorage storage = LBSAssetsStorage.Instance;
+            Assert.IsNotNull(storage, "There no storage found!");
+            List<Bundle> bundles = storage?.Get<Bundle>();
+            Assert.IsNotNull(bundles, "There no bundles in storage found!");
+            Assert.IsTrue(bundles?.Count == 0,  "There are no bundles!");
             foreach (var bundle in bundles)
             {
                 bundle.Reload();

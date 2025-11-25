@@ -21,6 +21,7 @@ using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 using ISILab.LBS.Internal.Editor;
 using ISILab.LBS.Macros;
+using ISILab;
 
 namespace ISILab.LBS.Editor.Windows{
 
@@ -197,7 +198,7 @@ namespace ISILab.LBS.Editor.Windows{
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
         private static void ShowWindow()
         {
-            var window = GetWindow<LBSMainWindow>();
+            LBSMainWindow window = GetWindow<LBSMainWindow>();
             Texture icon = LBSAssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
             window.titleContent = new GUIContent("Level Builder", icon);
             window.minSize = new Vector2(800, 400);

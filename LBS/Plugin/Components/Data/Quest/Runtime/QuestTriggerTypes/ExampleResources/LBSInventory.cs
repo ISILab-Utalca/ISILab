@@ -1,8 +1,9 @@
 // LBSInventory.cs
 using System;
 using System.Collections.Generic;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using UnityEngine;
 

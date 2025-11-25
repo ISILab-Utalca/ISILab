@@ -1,13 +1,10 @@
-using System;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
-using LBS.Bundles;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
+using ISILab.LBS.Plugin.MapTools.Generators;
+using ISILab.LBS.Plugin.Components.Bundles;
 
-namespace ISI_Lab.LBS.Plugin.MapTools.Editor
+
+namespace ISILab.LBS.Plugin.MapTools.Editor
 {
     [CustomEditor(typeof(LBSGenerated))]   
     public class LBSGeneratedEditor : UnityEditor.Editor

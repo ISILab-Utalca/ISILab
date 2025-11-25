@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
-using ISILab.LBS;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ISI_Lab.LBS.DevTools
+namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(MeshRenderer))]
@@ -44,7 +40,7 @@ namespace ISI_Lab.LBS.DevTools
             foreach (QuestTrigger prevTrigger in prevTriggers)
             {
                 if(!prevTrigger) continue;
-                Gizmos.DrawLine(transform.position, prevTrigger.transform.position);
+                UnityEngine.Gizmos.DrawLine(transform.position, prevTrigger.transform.position);
                 Custom3dQuestGizmo gizmo = prevTrigger.GetComponent<Custom3dQuestGizmo>();
                 gizmo?.DrawCustomMesh();
             }

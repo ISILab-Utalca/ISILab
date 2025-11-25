@@ -1,6 +1,7 @@
 using LBS.Bundles;
 using System;
 using System.Collections.Generic;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using static ISILab.LBS.Characteristics.LBSDirectionedGroup;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;

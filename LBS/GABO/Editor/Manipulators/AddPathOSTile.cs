@@ -6,6 +6,7 @@ using LBS.Bundles;
 using LBS.Components;
 using System.Collections;
 using System.Collections.Generic;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;

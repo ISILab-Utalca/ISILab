@@ -6,6 +6,7 @@ using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
 using JetBrains.Annotations;
 using LBS.Bundles;
 using UnityEditor;

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Bundles;

@@ -1,8 +1,7 @@
-using ISILab.LBS.Generators;
 using UnityEditor;
 using UnityEngine;
 
-namespace ISI_Lab.DevTools.Editor
+namespace ISILab.LBS.Plugin.MapTools.Generators.Editor
 {
     [CustomEditor(typeof(LightProbeCubeGenerator))]
     public class ObjectBuilderEditor : UnityEditor.Editor

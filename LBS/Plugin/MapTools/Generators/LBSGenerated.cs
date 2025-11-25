@@ -1,10 +1,11 @@
-using ISI_Lab.LBS.DevTools;
 using ISILab.LBS.Characteristics;
-using LBS.Bundles;
+using ISILab.LBS.Plugin.Components.Bundles;
+
 using UnityEditor;
 using UnityEngine;
+using ISILab.LBS.Plugin.MapTools.CustomGizmo;
 
-namespace ISI_Lab.LBS.Plugin.MapTools.Generators3D
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     /// <summary>
     /// Component added to any game objects created by the LBS tool.

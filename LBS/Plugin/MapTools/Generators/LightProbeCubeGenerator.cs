@@ -2,7 +2,7 @@
 using UnityEngine;  
 using static UnityEngine.Mathf;
 
-namespace ISILab.LBS.Generators
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [RequireComponent(typeof(LightProbeGroup))]  
     [RequireComponent(typeof(BoxCollider))]  

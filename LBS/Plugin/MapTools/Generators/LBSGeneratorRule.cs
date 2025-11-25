@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ISILab.LBS.Generators
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [System.Serializable]
     public abstract class LBSGeneratorRule : ICloneable

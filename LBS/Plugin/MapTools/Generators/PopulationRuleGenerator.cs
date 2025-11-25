@@ -1,19 +1,18 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
 using ISILab.Commons;
-using ISILab.Extensions;
+using ISILab.LBS.Generators;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace ISILab.LBS.Generators
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [System.Serializable]
     public class PopulationRuleGenerator : LBSGeneratorRule // FIX: Change to a better name

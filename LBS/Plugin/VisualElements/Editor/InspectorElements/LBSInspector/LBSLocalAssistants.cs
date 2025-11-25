@@ -12,6 +12,7 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Template;
 using LBS.VisualElements;
 using ISILab.LBS.Assistants;
+using UnityEngine.Assertions;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -37,9 +38,10 @@ namespace ISILab.LBS.VisualElements
         #region METHODS
         public override void InitCustomEditors(ref List<LBSLayer> layers)
         {
-            foreach (LBSLayer reflayer in layers)
+            foreach (LBSLayer _reflayer in layers)
             {
-                var layer = reflayer.Clone() as LBSLayer;
+                LBSLayer layer = (LBSLayer)_reflayer.Clone();
+                Assert.IsNotNull(layer, "Layer could not be created");
                 if (layer == null) continue;
                 foreach (var assistant in layer.Assistants)
                 {

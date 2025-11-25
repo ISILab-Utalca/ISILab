@@ -1,7 +1,8 @@
+
 using UnityEditor;
 using UnityEngine;
 
-namespace LBS.Bundles.Tools.Editor
+namespace ISILab.LBS.Plugin.Components.Bundles.Tools
 {
     [CustomEditor(typeof(ScatterAreaBase), true)]
     public class ScatterAreaBaseEditor : UnityEditor.Editor

@@ -5,6 +5,7 @@ using LBS.Bundles;
 using ISILab.LBS.AI.VisualElements;
 using ISILab.LBS.Internal;
 using ISILab.AI.Categorization;
+using ISILab.LBS.Plugin.Components.Bundles;
 
 namespace ISILab.LBS.VisualElements
 {

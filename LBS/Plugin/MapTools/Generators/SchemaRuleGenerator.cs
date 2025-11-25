@@ -1,25 +1,22 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
 using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.Generators;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
-namespace ISILab.LBS.Generators
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule),

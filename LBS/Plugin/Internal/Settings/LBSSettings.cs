@@ -1,5 +1,6 @@
 using ISILab.LBS.Generators;
 using System;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Serialization;

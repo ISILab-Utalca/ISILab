@@ -1,9 +1,8 @@
-using ISI_Lab.LBS.DevTools;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISI_Lab.DevTools.Gizmos.Editor
+namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.Editor
 {
     /// <summary>
     /// Generic base class for 3D gizmo editors using UI Toolkit overlays.

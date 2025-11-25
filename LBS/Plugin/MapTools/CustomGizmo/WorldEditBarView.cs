@@ -14,10 +14,10 @@ using LBS.Bundles;
 using UnityEditor;
 using Object = UnityEngine.Object;
 using System.Runtime.InteropServices;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
-using ISI_Lab.LBS.DevTools;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Bundles;
 
 namespace ISILab.LBS.VisualElements
 {

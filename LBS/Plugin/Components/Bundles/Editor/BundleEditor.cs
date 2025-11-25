@@ -12,6 +12,7 @@ using System;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.VisualElements;
 using System.Collections.Generic;
+using ISILab.LBS.Plugin.Components.Bundles;
 
 
 namespace ISILab.LBS.Bundles.Editor

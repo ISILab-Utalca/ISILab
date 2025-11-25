@@ -4,6 +4,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using UnityEngine;
 using UnityEngine.UIElements;

@@ -9,6 +9,7 @@ using System.Linq;
 using LBS.Bundles;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Bundles;
 
 namespace ISILab.LBS.VisualElements
 {

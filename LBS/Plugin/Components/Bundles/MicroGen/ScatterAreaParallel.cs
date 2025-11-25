@@ -1,8 +1,7 @@
 using UnityEngine;
 
 
-
-namespace LBS.Bundles.Tools
+namespace ISILab.LBS.Plugin.Components.Bundles.Tools
 {
     
     [RequireComponent(typeof(BoxCollider))]

@@ -17,6 +17,7 @@ using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;

@@ -1,16 +1,9 @@
-using ISILab.Commons.Utility.Editor;
-using System;
-using System.Collections.Generic;
-using ISI_Lab.LBS.DevTools;
+using ISILab.LBS.VisualElements;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
-using ISILab.LBS.Modules;
-using UnityEditor;
-using Object = UnityEngine.Object;
 
-namespace ISILab.LBS.VisualElements
+namespace ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo
 {
     public class PrevStepButton : GraphElement
     {

@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using LBS.Components;
-
 using UnityEditor;
 using UnityEngine;
 
-namespace ISILab.LBS.Generators
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     public class ExteriorRuleGenerator : LBSGeneratorRule 
     {
