@@ -11,7 +11,7 @@ namespace Samples.Editor.General
     {
         // DragAndDropManipulator is a manipulator that stores pointer-related callbacks, so it inherits from
         // PointerManipulator.
-        class DragAndDropManipulator : PointerManipulator
+        public class DragAndDropManipulator : PointerManipulator
         {
             // The Label in the window that shows the stored asset, if any.
             Label dropLabel;
@@ -23,17 +23,21 @@ namespace Samples.Editor.General
             List<Object> droppedObjects = new List<Object>();
             List<string> assetPaths = new List<string>();
 
-            public DragAndDropManipulator(VisualElement root)
+            // SEBASTIAN: Callback to pass objects to the wizard tab
+            System.Action<List<Object>> RetrieveObjectsAction;
+
+            public DragAndDropManipulator(VisualElement root, System.Action<List<Object>> retrieveObjectsAction = null)
             {
                 // The target of the manipulator, the object to which to register all callbacks, is the drop area.
                 target = root.Q<VisualElement>(className: "drop-area");
                 dropLabel = root.Q<Label>(className: "drop-area__label");
+                RetrieveObjectsAction = retrieveObjectsAction;
             }
 
             protected override void RegisterCallbacksOnTarget()
             {
                 // Register a callback when the user presses the pointer down.
-                target.RegisterCallback<PointerDownEvent>(OnPointerDown);
+                //target.RegisterCallback<PointerDownEvent>(OnPointerDown);
                 // Register callbacks for various stages in the drag process.
                 target.RegisterCallback<DragEnterEvent>(OnDragEnter);
                 target.RegisterCallback<DragLeaveEvent>(OnDragLeave);
@@ -44,11 +48,12 @@ namespace Samples.Editor.General
             protected override void UnregisterCallbacksFromTarget()
             {
                 // Unregister all callbacks that you registered in RegisterCallbacksOnTarget().
-                target.UnregisterCallback<PointerDownEvent>(OnPointerDown);
                 target.UnregisterCallback<DragEnterEvent>(OnDragEnter);
                 target.UnregisterCallback<DragLeaveEvent>(OnDragLeave);
                 target.UnregisterCallback<DragUpdatedEvent>(OnDragUpdate);
                 target.UnregisterCallback<DragPerformEvent>(OnDragPerform);
+
+                target.UnregisterCallback<PointerDownEvent>(OnPointerDown);
             }
 
             // This method runs when a user presses a pointer down on the drop area.
@@ -123,6 +128,9 @@ namespace Samples.Editor.General
                 droppedObject = DragAndDrop.objectReferences[0];
 
                 droppedObjects = DragAndDrop.objectReferences.ToList();
+
+                RetrieveObjectsAction?.Invoke(droppedObjects);
+
                 foreach (var dObject in assetPaths)
                 {
                     Debug.Log(dObject);

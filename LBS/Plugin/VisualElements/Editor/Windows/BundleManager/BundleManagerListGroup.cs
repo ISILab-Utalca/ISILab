@@ -77,14 +77,39 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         }
 
 
-        public void SetBundleListViewItem(
+        public void SetBundleListViewItem<T>(
             out ListView listView,
             string columnName,
             List<BundleManagerWindow.BundleContainer> bundles,
-            bool master = false
-        )
+            bool main = false
+        ) where T : VisualElement, IBundleElement, new()
         {
-            listView = null;
+            //listView = null;
+            listView = this.listView;
+            //titleLabel.text = columnName; 
+
+            listView.itemsSource = bundles;
+            listView.fixedItemHeight = 32;
+
+            var list = listView;
+            listView.makeItem = () => new T();
+            listView.bindItem = (item, i) =>
+            {
+                T element = (T)item;
+                BundleManagerWindow.BundleContainer container = (BundleManagerWindow.BundleContainer)list.itemsSource[i];
+                element.SetBundleReference(container.GetMainBundle(), list, main);
+
+                element.SetIconDisplay("Main", main);
+                element.SetIconDisplay("Warning", container.GetWarnings().Count > 0);
+                element.SetIconDisplay("Bundle", false);
+                element.SetIconDisplay("Select", true); // TODO: Handle condition
+            };
+
+            if(typeof(T) == typeof(BundleManagerElement))
+            {
+                if(BundleManagerWindow.Instance)
+                    BundleManagerWindow.Instance.SetBundleListViewSettings(ref listView, columnName, bundles, main);
+            }
         }
     }
 }
