@@ -33,7 +33,7 @@ namespace LBS.Components
         [SerializeField, SerializeReference] private List<LBSModule> modules = new();
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
-        [SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
+        [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
 
         [SerializeField] private Generator3D.Settings settings = new();
 

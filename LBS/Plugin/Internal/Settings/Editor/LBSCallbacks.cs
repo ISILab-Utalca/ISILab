@@ -143,7 +143,7 @@ namespace ISILab.LBS.Internal.Editor
         {
             LBSAssetsStorage storage = LBSAssetsStorage.Instance;
             Assert.IsNotNull(storage, "There no storage found!");
-            List<Bundle> bundles = storage?.Get<Bundle>();
+            List<Bundle> bundles = storage.Get<Bundle>();
             Assert.IsNotNull(bundles, "There no bundles in storage found!");
             Assert.IsTrue(bundles?.Count == 0,  "There are no bundles!");
             foreach (var bundle in bundles)
