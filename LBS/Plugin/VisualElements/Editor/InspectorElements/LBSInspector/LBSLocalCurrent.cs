@@ -35,12 +35,12 @@ namespace ISILab.LBS.VisualElements
         #endregion
         
         #region METHODS
-        public override void InitCustomEditors(ref List<LBSLayer> layers)
+        public override void InitCustomEditors(ref List<LBSLayer> _layers)
         {
-            foreach (LBSLayer reflayer in layers)
+            foreach (LBSLayer refLayer in _layers)
             {
-                if (reflayer == null) continue;
-                foreach (var module in reflayer.Modules)
+                if (refLayer == null) continue;
+                foreach (LBSModule module in refLayer.Modules)
                 {
                     Type type = module.GetType();
                     var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()

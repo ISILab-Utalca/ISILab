@@ -19,6 +19,7 @@ using System.Data;
 using System.Threading;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Settings;
 
 

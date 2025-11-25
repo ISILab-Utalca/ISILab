@@ -34,17 +34,17 @@ namespace AssetStoreTools.Exporter
 
         protected override async Task<PackageExporterResult> ExportImpl()
         {
-            return await this.Export();
+            return await Export();
         }
 
-        private new async Task<PackageExporterResult> Export()
+        private new static Task<PackageExporterResult> Export()
         {
             //ASDebug.Log("Using custom package exporter");
 
             // Save assets before exporting
             EditorUtility.DisplayProgressBar(ProgressBarTitle, ProgressBarStepSavingAssets, 0.1f);
             AssetDatabase.SaveAssets();
-            return new PackageExporterResult() { Success = false };
+            return Task.FromResult(new PackageExporterResult() { Success = false });
             //try
             //{
             //    // Create a temporary export path

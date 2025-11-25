@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace ISILab.LBS.Internal.Editor
+namespace ISILab.LBS.Plugin.Internal.Editor
 {
     public class LBS_AssetsPostProcessor : AssetPostprocessor
     {

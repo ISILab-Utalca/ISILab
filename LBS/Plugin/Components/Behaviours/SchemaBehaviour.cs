@@ -1,18 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Extensions;
-using ISILab.LBS.Components;
-using ISILab.LBS.Internal;
-using ISILab.LBS.Macros;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Bundles;
-using LBS.Bundles;
-using LBS.Components;
-using LBS.Components.TileMap;
+using ISILab.LBS.Plugin.Components.Data;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ISILab.LBS.Behaviours
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+
+using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+
+using LBS.Components;
+using LBS.Components.TileMap;
+
+namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
     [System.Serializable]

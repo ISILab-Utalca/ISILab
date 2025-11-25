@@ -8,10 +8,9 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles.Tools;
-
+using ISILab.LBS.Plugin.Internal;
 
 
 namespace ISILab.LBS.Plugin.Components.Bundles

@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using LBS.Components.TileMap;
 
 namespace ISILab.LBS.VisualElements.Editor

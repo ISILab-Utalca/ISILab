@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 using System.Collections.Generic;
 using ISILab.LBS.Settings;
 using ISILab.LBS.Internal;
+using ISILab.LBS.Plugin.Internal;
 
 
 namespace ISILab
@@ -19,9 +20,8 @@ namespace ISILab
 
     static ISI_Lab_PackageManager()
     {
+        // PackageManagerExtensions.RegisterExtension(new ISI_Lab_PackageManager());
         return;
-        PackageManagerExtensions.RegisterExtension(new ISI_Lab_PackageManager());
-        Debug.Log("Extension registrada");
     }
 
     public void OnPackageAddedOrUpdated(UnityEditor.PackageManager.PackageInfo packageInfo)

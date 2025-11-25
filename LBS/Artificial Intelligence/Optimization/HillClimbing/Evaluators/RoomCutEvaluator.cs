@@ -4,6 +4,7 @@ using Commons.Optimization.Evaluator;
 using ISILab.AI.Wrappers;
 using ISILab.Commons;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using LBS.Components;
 using LBS.Components.TileMap;
 using UnityEditor;

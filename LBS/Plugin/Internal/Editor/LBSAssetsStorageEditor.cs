@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace ISILab.LBS.Internal.Editor
+namespace ISILab.LBS.Plugin.Internal.Editor
 {
     [CustomEditor(typeof(LBSAssetsStorage))]
     public class LBSAssetsStorageEditor : UnityEditor.Editor

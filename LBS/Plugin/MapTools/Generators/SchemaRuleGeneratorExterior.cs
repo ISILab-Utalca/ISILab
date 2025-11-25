@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Generators;
-using ISILab.LBS.Internal;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using LBS.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -50,6 +51,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public SchemaRuleGeneratorExterior() { }
         #endregion
 
+        
         public void Init(LBSLayer layer, Generator3D.Settings settings)
         {
             this.tilesMod = layer.GetModule<TileMapModule>();
@@ -176,17 +178,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             Init(layer, settings);
 
             // Get bundles
-            var allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
-            var rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
+            List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
+            List<Bundle> rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
 
             // Create pivot
-            var mainPivot = new GameObject("Schema outside");
+            GameObject mainPivot = new GameObject("Schema outside");
 
-            var tiles = new List<GameObject>();
-            foreach (var tile in tilesMod.Tiles)
+            List<GameObject> tiles = new List<GameObject>();
+            foreach (LBSTile tile in tilesMod.Tiles)
             {
                 // Get zone
-                var zone = zonesMod.GetZone(tile);
+                Zone zone = zonesMod.GetZone(tile);
 
                 // Get bundle from current tile
                 var bundles = zone.GetOutsideBundles();

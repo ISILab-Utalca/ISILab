@@ -11,7 +11,9 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using LBS.Components.TileMap;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Behaviours;
 
 namespace ISILab.LBS.Manipulators
 {

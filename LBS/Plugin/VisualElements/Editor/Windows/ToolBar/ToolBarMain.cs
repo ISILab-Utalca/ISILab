@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements.Editor
         public event Action<LoadedLevel> OnLevelChange;
         public event Action<LBSSettings.Interface.InterfaceTheme> OnThemeChanged;
         
-        public event Action OnProgressCompleted;
+        //public event Action OnProgressCompleted;
         public event Action OnProgressCancelled;
         
         #region  Visual Elements

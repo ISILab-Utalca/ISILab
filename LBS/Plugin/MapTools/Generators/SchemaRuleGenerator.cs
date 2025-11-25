@@ -4,12 +4,13 @@ using System.Linq;
 using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
-using ISILab.LBS.Generators;
-using ISILab.LBS.Internal;
+
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using LBS.Bundles;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+using ISILab.LBS.Plugin.Internal;
+
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -268,6 +269,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             }
 
+            
             return pivot;
         }
 
@@ -294,7 +296,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 if(tile == null) continue;
                 // Get zone
-                var zone = zonesMod.GetZone(tile);
+                Zone zone = zonesMod.GetZone(tile);
                 if(zone == null) continue;
                 zone.AddPosition(tile.Position);
                 // Get bundle from current tile

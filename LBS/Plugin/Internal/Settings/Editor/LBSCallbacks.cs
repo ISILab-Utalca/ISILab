@@ -1,13 +1,15 @@
-using LBS.Bundles;
-using ISILab.LBS.Settings;
-using ISILab.LBS.Editor.Windows;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using ISILab.LBS.Plugin.Components.Bundles;
+
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
+
+using ISILab.LBS.Settings;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
+using ISILab.LBS.Plugin.Internal.Editor;
 
 namespace ISILab.LBS.Internal.Editor
 {
@@ -18,7 +20,7 @@ namespace ISILab.LBS.Internal.Editor
         static LBSCallbacks()
         {
             var onStart = SessionState.GetBool("start", true);
-            Debug.Log("On Start:" + onStart);
+            Debug.Log("[LBS Callbacks] - On Start:" + onStart);
             if (onStart)
             {
                 EditorApplication.update += OnStartEditor;
@@ -45,7 +47,7 @@ namespace ISILab.LBS.Internal.Editor
         /// </summary>
         private static void OnBeforeReloadScript()
         {
-            Debug.Log("Before Reload Script");
+            Debug.Log("[LBS Callbacks] Before Reload Script");
             SaveBackUp();
         }
 
@@ -145,7 +147,7 @@ namespace ISILab.LBS.Internal.Editor
             Assert.IsNotNull(storage, "There no storage found!");
             List<Bundle> bundles = storage.Get<Bundle>();
             Assert.IsNotNull(bundles, "There no bundles in storage found!");
-            Assert.IsTrue(bundles?.Count == 0,  "There are no bundles!");
+            Assert.AreNotEqual(bundles?.Count, 0,   "There are no bundles!");
             foreach (var bundle in bundles)
             {
                 bundle.Reload();

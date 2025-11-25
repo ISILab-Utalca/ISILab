@@ -4,29 +4,29 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Template;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using LBS.Components;
-using LBS.VisualElements;
 using System;
-
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using ISILab.Commons.VisualElements.Editor;
-using ISILab.Extensions;
-using ISILab.LBS.Manipulators;
-using ISILab.LBS.Settings;
+
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
-using ISILab.LBS.Internal.Editor;
+
+using LBS.Components;
+using LBS.VisualElements;
+using ISILab.Extensions;
+using ISILab.LBS.Settings;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Internal.Editor;
 using ISILab.LBS.Macros;
-using ISILab;
+using ISILab.Commons.VisualElements.Editor;
 
 namespace ISILab.LBS.Editor.Windows{
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public class LBSMainWindow : EditorWindow
+    public sealed class LBSMainWindow : EditorWindow
     {
         #region PROPERTIES
 
@@ -206,7 +206,7 @@ namespace ISILab.LBS.Editor.Windows{
         
         
         #region METHODS
-        public virtual void CreateGUI()
+        public void CreateGUI()
         {
             Debug.Log("[Main Window] - CreateGUI");
             Init();

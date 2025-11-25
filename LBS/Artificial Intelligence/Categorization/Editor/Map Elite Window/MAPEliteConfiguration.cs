@@ -10,6 +10,7 @@ using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.AI.Categorization.Editor;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Internal;
+using ISILab.LBS.Plugin.Internal;
 
 namespace ISILab.LBS.AI.Assistants.Editor
 {

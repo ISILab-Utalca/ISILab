@@ -5,10 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Editor;
 using LBS.VisualElements;
+using UnityEngine.Assertions;
 using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.VisualElements
@@ -36,12 +38,13 @@ namespace ISILab.LBS.VisualElements
         #region METHODS
         public override void InitCustomEditors(ref List<LBSLayer> layers)
         {
-            foreach (LBSLayer reflayer in layers)
+            foreach (LBSLayer _refLayer in layers)
             {
                // var layer = reflayer.Clone() as LBSLayer;
-                if (reflayer == null) continue;
-                foreach (var behaviour in reflayer.Behaviours)
+                if (_refLayer == null) continue;
+                foreach (LBSBehaviour behaviour in _refLayer.Behaviours)
                 {
+                    Assert.IsNotNull(behaviour,  "Behaviour is null");
                     Type type = behaviour.GetType();
                     if (customEditor.ContainsKey(type)) continue;
                     var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()

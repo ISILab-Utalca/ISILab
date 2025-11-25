@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ISILab.LBS.Settings;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Data;
 using LBS.Components.TileMap;
 using LBS.Bundles;
 using ISILab.Commons;
@@ -13,7 +14,10 @@ using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Template;
 
 namespace ISILab.LBS.Tests

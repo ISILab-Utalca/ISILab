@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ISILab.LBS.Internal
+namespace ISILab.LBS.Plugin.Internal
 {
     [CreateAssetMenu(fileName = "New LBS Storage", menuName = "ISILab/LBS/Internal/AssetStorage")]
     public class LBSAssetsStorage : ScriptableObject

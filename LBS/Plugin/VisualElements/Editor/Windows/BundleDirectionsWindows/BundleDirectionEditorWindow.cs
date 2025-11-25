@@ -13,6 +13,7 @@ using UnityEngine.UIElements;
 using ISILab.LBS.Internal;
 using ISILab.LBS;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.VisualElements;
 
 public class BundleDirectionEditorWindow : EditorWindow

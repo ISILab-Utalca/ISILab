@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Commons.Optimization.Evaluator;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.AI.Optimization;
 using ISILab.AI.Optimization.Populations;
 using ISILab.AI.Optimization.Selections;
@@ -15,6 +16,7 @@ using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -22,6 +24,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
+using ISILab.LBS.Plugin.Components.Behaviours;
 
 namespace ISILab.LBS.Assistants
 {
@@ -113,9 +116,10 @@ namespace ISILab.LBS.Assistants
             hillClimbing.Start(onProgress, token);
             clock.Stop();
 
-            var modules = (hillClimbing.BestCandidate as OptimizableModules)?.Modules;
+            
+            List<LBSModule> modules = (hillClimbing.BestCandidate as OptimizableModules)?.Modules;
            // var zones = modules.GetModule<SectorizedTileMapModule>();
-            var schema = OwnerLayer.GetBehaviour<Behaviours.SchemaBehaviour>();
+            var schema = OwnerLayer.GetBehaviour<SchemaBehaviour>();
             schema.RequestFullRepaint(TileMapMod.Tiles, modules.GetModule<TileMapModule>().Tiles);
             RecalculateWalls(modules);
 
@@ -152,7 +156,7 @@ namespace ISILab.LBS.Assistants
 
             var modules = (hillClimbing.BestCandidate as OptimizableModules).Modules;
             var zones = modules.GetModule<SectorizedTileMapModule>();
-            var schema = OwnerLayer.GetBehaviour<Behaviours.SchemaBehaviour>();
+            var schema = OwnerLayer.GetBehaviour<SchemaBehaviour>();
             
             if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
             {

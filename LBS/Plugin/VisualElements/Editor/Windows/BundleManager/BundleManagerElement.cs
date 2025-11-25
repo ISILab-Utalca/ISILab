@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
 using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
