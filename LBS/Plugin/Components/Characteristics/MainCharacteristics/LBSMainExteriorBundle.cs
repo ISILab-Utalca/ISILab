@@ -15,6 +15,11 @@ namespace ISILab.LBS.Characteristics
         {
             return obj is LBSMainExteriorBundle;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
     

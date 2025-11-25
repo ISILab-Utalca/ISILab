@@ -21,7 +21,8 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundl
 
     public void Init()
     {
-        Debug.Log("Init: " + GetType().Name);
+        //Debug.Log("Init: " + GetType().Name);
+        Debug.Log("Builder data:\n\n" + Builder.ToString());
     }
 
     public void Step()
@@ -31,6 +32,7 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundl
 
     public void Revert()
     {
+        Debug.Log("Builder data:\n\n" + Builder.ToString());
         //throw new System.NotImplementedException();
     }
 }
