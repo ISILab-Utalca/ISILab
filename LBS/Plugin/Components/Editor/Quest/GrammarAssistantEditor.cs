@@ -36,7 +36,7 @@ namespace ISILab.LBS.Editor
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
         
-        private CancellationTokenSource _currentTaskCts;
+  
         #endregion
 
         #region VIEW
@@ -74,21 +74,20 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-            target = paramTarget as GrammarAssistant;
-            _assistant = LBSLayerHelper.GetObjectFromLayerChild<GrammarAssistant>(paramTarget);
-            _questBehaviour = LBSLayerHelper.GetObjectFromLayerChild<QuestBehaviour>(paramTarget);
-            if (_questGraph is not null)
-            {
-                _questGraph.OnGraphNodeSelected -= UpdatePanel;
-            }
-            _questGraph = _assistant._questGraph;
-            if (_questGraph is not null)
-            {
-                _questGraph.OnGraphNodeSelected -= UpdatePanel;
-                _questGraph.OnGraphNodeSelected += UpdatePanel;
-            }
 
-            UpdatePanel();
+            target = paramTarget;
+            _assistant = target as GrammarAssistant;
+
+            if(_questGraph is not null)
+            {
+                if (_questGraph.Equals(_assistant._questGraph)) return;
+            }
+       
+            _questGraph = _assistant._questGraph;
+            _questGraph.OnGraphNodeSelected -= UpdatePanel;
+            _questGraph.OnGraphNodeSelected += UpdatePanel;
+
+           // UpdatePanel();
         }
 
         protected sealed override VisualElement CreateVisualElement()
@@ -118,6 +117,7 @@ namespace ISILab.LBS.Editor
 
         private void UpdatePanel(GraphNode selectedGraphNode = null)
         {
+            if (LBSMainWindow.Instance._selectedLayer != _questGraph.OwnerLayer) return;
             if (_questGraph is null) return;
 
             _grammarField.value = _questGraph.Grammar;

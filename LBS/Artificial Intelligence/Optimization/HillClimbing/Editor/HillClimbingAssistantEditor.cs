@@ -46,7 +46,6 @@ namespace ISILab.LBS.VisualElements
         private SetZoneConnection setZoneConnection;
         private RemoveZoneConnection removeZoneConnection;
 
-        private CancellationTokenSource _currentTaskCts;
         #endregion
         
         public HillClimbingAssistantEditor(object target) : base(target)

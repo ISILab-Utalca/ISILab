@@ -1,44 +1,58 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Settings;
 using System;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    
+
     [UxmlElement]
     public partial class ActionButton : VisualElement
     {
-        private static ActionButton _activeButton;
-        
-        public readonly Label Label;
+
+        UnityEngine.Color HighlightColor = LBSSettings.Instance.view.newToolkitSelected;
+        UnityEngine.Color NormalColor = LBSSettings.Instance.view.toolkitNormal;
+
+        static ActionButton selectedButton;
+
+        string ActionText;
         private  Button _button;
 
         public  ActionButton()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ActionButton");
             visualTree.CloneTree(this);
-            AddToClassList("lbs-quest-list-item");
-            Label = this.Q<Label>(name: "Action");
-            _button = this.Q<Button>(name: "Button");
-            _button.RemoveFromClassList(Button.ussClassName);
-            _button.clicked += Highlight;
+            _button = this.Q<LBSCustomButton>("Button");
         }
 
         public ActionButton(string text, Action action) : this()
         {
-            Label.text = char.ToUpper(text[0]) + text.Substring(1);
+           
+            ActionText = text;
+            _button.text = char.ToUpper(text[0]) + text.Substring(1);
             _button.clicked += action;
+            _button.clicked += () =>
+            {
+                SetHighlight(true);
+                selectedButton = this;
+            };
         }
 
-        private void Highlight()
+        public void SetHighlight(bool isSelected)
         {
-            if (_button is not null)
+   
+            if (selectedButton != null && selectedButton != this)
             {
-                _button.RemoveFromClassList(".lbs-action-button_selected");
+                selectedButton._button.SetBackgroundColor(NormalColor);
             }
 
-            _button = this.Q<Button>(name: "Button");
-            _button.AddToClassList(".lbs-action-button_selected");
+            var color = isSelected ? HighlightColor : NormalColor;
+            _button.SetBackgroundColor(color);
+
+            selectedButton = isSelected ? this : null;
         }
+
     }
 }
