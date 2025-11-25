@@ -91,28 +91,18 @@ namespace ISILab.LBS.Plugin.Internal
 
         public List<T> Get<T>() where T : Object
         {
-            // Try to find just by type > fullname > name
-            foreach (var group in groups)
+            List<T> result = new List<T>();
+            // return all objects of T type in groups
+            foreach (TypeGroup group in groups)
             {
-                if (group.type.Equals(typeof(T)))
+                foreach (var item in group.items)
                 {
-                    return new List<T>(group.items.Cast<T>());
-                }
+                    if (item is T t) result.Add(t);
 
-              
-                if (group.type.Equals(typeof(T).FullName))
-                {
-                    return new List<T>(group.items.Cast<T>());
-                }
-
-    
-                if (group.type.Equals(typeof(T).Name))
-                {
-                    return new List<T>(group.items.Cast<T>());
                 }
             }
 
-            return null;
+            return result;
         }
 
         

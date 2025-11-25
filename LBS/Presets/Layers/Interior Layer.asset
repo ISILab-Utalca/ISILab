@@ -30,7 +30,9 @@ MonoBehaviour:
     - rid: 7571179378660343913
     assistants:
     - rid: 7571179374700920927
-    generatorRules: []
+    generatorRules:
+    - rid: 7571179378973868154
+    - rid: 7571179378973868224
     settings:
       useBundleSize: 0
       lightVolume: 0
@@ -367,3 +369,33 @@ MonoBehaviour:
         pressetOutsideStyleGuid: c0e28f3a70727474a81b860669e32870
         multiLayerConnections: 1
         conectionToSet: 
+    - rid: 7571179378973868154
+      type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+      data:
+        generator3D:
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          rules: []
+    - rid: 7571179378973868224
+      type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+      data:
+        generator3D:
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          rules: []
