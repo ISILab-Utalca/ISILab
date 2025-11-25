@@ -7,6 +7,7 @@ using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
+using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -83,8 +84,8 @@ namespace ISILab.LBS.Modules
 
         public event Action<GraphNode> OnGraphNodeSelected
         {
-            add => _onNodeSelected += value;
-            remove => _onNodeSelected -= value;
+            add { _onNodeSelected += value; }
+            remove { _onNodeSelected -= value; }
         }
 
         public event Action RedrawGraph
@@ -107,7 +108,6 @@ namespace ISILab.LBS.Modules
         #region CONSTRUCTOR
         public QuestGraph()
         {
-            _onNodeSelected = null;
             // changing one edge can change the values of all the graph so we recheck all the graph for
             OnAddEdge += _ =>  ValidateGraph();
             OnRemoveEdge += _ =>  ValidateGraph();
@@ -622,7 +622,7 @@ namespace ISILab.LBS.Modules
         public override object Clone()
         {
             QuestGraph clone = new QuestGraph { grammarGuid = grammarGuid };
-
+ 
             // cloning nodes and their data
             var nodes = graphNodes.Select(CloneRefs.Get).Cast<GraphNode>();
             foreach (GraphNode n in nodes)

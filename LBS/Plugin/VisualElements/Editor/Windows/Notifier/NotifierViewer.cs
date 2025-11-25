@@ -81,24 +81,28 @@ namespace LBS.VisualElements
             
             return messages.ToArray();
         }
-        
+
         public void SendNotification(string message, LogType logType, int duration)
         {
             SetContainer();
             var newMessage = new NotificationMessage();
-            
+
             newMessage.SetData(message, logType);
             scrollView.Add(newMessage);
-            
+
+            // hardcoding overwritting scrollbox picking mode as each time an object is added, these are auto-changed to PickingMode.Position:
             newMessage.pickingMode = PickingMode.Ignore;
-            // ignore the Toolkit auto parent generated VisualElement container
-            if(newMessage.parent is not null) newMessage.parent.pickingMode = PickingMode.Ignore;
-            
+            newMessage.parent.pickingMode = PickingMode.Ignore;
+            newMessage.parent.parent.pickingMode = PickingMode.Ignore;
+            newMessage.parent.parent.parent.pickingMode = PickingMode.Ignore;
+            newMessage.parent.parent.parent.parent.pickingMode = PickingMode.Ignore;
+
             Lifetime(newMessage, duration);
         }
         
         private async void Lifetime(NotificationMessage element, float duration)
         {
+
             // Ensure the duration is valid
             if (duration > 0)
             {

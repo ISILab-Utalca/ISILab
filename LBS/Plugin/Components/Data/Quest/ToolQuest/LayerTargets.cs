@@ -37,7 +37,7 @@ namespace ISILab.LBS.Components
     public class BundleGraph : LayerTarget
     {
         [SerializeReference] [SerializeField] private TileBundleGroup tileBundle;
-        [SerializeField] private string guid;
+        [SerializeField] private string guid = string.Empty;
         [SerializeField] private QuestActionData _actionData;
         // must be assigned on all bundleGraphs to the Resize Function
         
@@ -85,7 +85,7 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class BundleType : LayerTarget
     {
-        [SerializeField]private string guid;
+        [SerializeField]private string guid = string.Empty;
         
         public BundleType(
             LBSLayer layer = null, 
