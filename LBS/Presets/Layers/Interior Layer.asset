@@ -25,8 +25,9 @@ MonoBehaviour:
     - rid: 7571179374700920922
     - rid: 7571179374700920924
     - rid: 7571179374700920925
+    - rid: 7571179378660343912
     behaviours:
-    - rid: 7571179374700920926
+    - rid: 7571179378660343913
     assistants:
     - rid: 7571179374700920927
     generatorRules: []
@@ -292,3 +293,77 @@ MonoBehaviour:
         icon: {fileID: 0}
         visibleConstraints: 0
         printClocks: 0
+    - rid: 7571179378660343912
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          modules:
+          - rid: 7571179374700920921
+          - rid: 7571179374700920922
+          - rid: 7571179374700920924
+          - rid: 7571179374700920925
+          - rid: 7571179378660343912
+          behaviours:
+          - rid: 7571179378660343913
+          assistants:
+          - rid: 7571179374700920927
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 7571179378660343913
+      type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
+      data:
+        visible: 1
+        ownerLayerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          modules:
+          - rid: 7571179374700920921
+          - rid: 7571179374700920922
+          - rid: 7571179374700920924
+          - rid: 7571179374700920925
+          - rid: 7571179378660343912
+          behaviours:
+          - rid: 7571179378660343913
+          assistants:
+          - rid: 7571179374700920927
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.5294118, g: 0.84313726, b: 0.9647059, a: 1}
+        name: SchemaBehaviour
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
+        pressetInsideStyleGuid: c61b774ce5ee4c640b93988da7937edc
+        pressetOutsideStyleGuid: c0e28f3a70727474a81b860669e32870
+        multiLayerConnections: 1
+        conectionToSet: 

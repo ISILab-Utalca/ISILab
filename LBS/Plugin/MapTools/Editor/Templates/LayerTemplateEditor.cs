@@ -166,7 +166,7 @@ namespace ISILab.LBS.Template.Editor
         private void AddBehaviour(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, s_behaviourIcon, type.Name, Color.clear) is LBSBehaviour instance)
+            if (Activator.CreateInstance(type, LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), type.Name, Color.clear) is LBSBehaviour instance)
             {
                 Template.layer.AddBehaviour(instance);
             }
@@ -175,7 +175,7 @@ namespace ISILab.LBS.Template.Editor
         private void AddAssistant(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, s_assistantIcon, type.Name, Color.clear) is LBSAssistant instance)
+            if (Activator.CreateInstance(type, LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), type.Name, Color.clear) is LBSAssistant instance)
             {
                 Template.layer.AddAssistant(instance);
             }
