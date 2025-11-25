@@ -4,12 +4,12 @@ using ISILab.Commons;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
-using ISILab.Macros;
 using LBS.Components;
 using LBS.Components.TileMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Macros;
 using UnityEngine;
 
 namespace ISILab.AI.Categorization

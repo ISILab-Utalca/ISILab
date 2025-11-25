@@ -9,12 +9,13 @@ using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Generators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.Settings;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace LBS.Components
+namespace LBS.Components    
 {
     [Serializable]
     public class LBSLayer : ICloneable
@@ -32,7 +33,7 @@ namespace LBS.Components
         [SerializeField, SerializeReference] private List<LBSModule> modules = new();
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
-        [SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
+        [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
 
         [SerializeField] private Generator3D.Settings settings = new();
 
@@ -339,10 +340,10 @@ namespace LBS.Components
         public object Clone()
         {
             // Clone modules via provided helper, clone lists of polymorphic objects by calling Clone() on each
-            var clonedModules = this.modules.Clone(); // assuming Clone extension returns List<LBSModule>
-            var clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
-            var clonedRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
-            var clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
+            List<LBSModule> clonedModules = this.modules.Clone(); // assuming Clone extension returns List<LBSModule>
+            List<LBSAssistant> clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
+            List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
+            List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
 
             return new LBSLayer(clonedModules, clonedAssistants, clonedRules, clonedBehaviours, id, visible, name, iconGuid, TileSize);
         }

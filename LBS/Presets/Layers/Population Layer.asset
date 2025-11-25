@@ -28,7 +28,7 @@ MonoBehaviour:
     assistants:
     - rid: 6598277744948937224
     generatorRules:
-    - rid: 6598277744948937225
+    - rid: 7571179374700920914
     settings:
       useBundleSize: 0
       lightVolume: 0
@@ -43,6 +43,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 6598277744948937221
       type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:
@@ -130,10 +132,10 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           index: 0
-        iconGuid: 87f2bb6f2c78b184a8ea2b6a5b14f878
-        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
         colorTint: {r: 0.5294118, g: 0.8431373, b: 0.96470594, a: 1}
         name: Population Layer's Palette
+        iconGuid: 87f2bb6f2c78b184a8ea2b6a5b14f878
+        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
         tileMap:
           id: TileMapModule
           ownerLayer:
@@ -164,8 +166,10 @@ MonoBehaviour:
             index: 0
           tiles: []
         bundleRefGui: 3e607c0f80297b849a6ea0d7f98c73a3
+        bundleRefGuid: 
         selectedToSet: {fileID: 0}
         bundleCollection: {fileID: 11400000, guid: 3e607c0f80297b849a6ea0d7f98c73a3, type: 2}
+        mainBundle: {fileID: 0}
         allFilter: 
         selectedTypeFilter: All
     - rid: 6598277744948937224
@@ -193,13 +197,28 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           index: 0
-        iconGuid: 6515130e0caff664593540ffec59637c
-        icon: {fileID: 7388822144124034973, guid: 6515130e0caff664593540ffec59637c, type: 3}
         colorTint: {r: 0.7607844, g: 0.96470594, b: 0.4431373, a: 1}
         name: Map Elite - Genetic Algorithm
+        iconGuid: 6515130e0caff664593540ffec59637c
+        icon: {fileID: 7388822144124034973, guid: 6515130e0caff664593540ffec59637c, type: 3}
         toUpdate: []
     - rid: 6598277744948937225
       type: {class: PopulationRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
+      data:
+        generator3D:
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          rules: []
+    - rid: 7571179374700920914
+      type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:
         generator3D:
           settings:

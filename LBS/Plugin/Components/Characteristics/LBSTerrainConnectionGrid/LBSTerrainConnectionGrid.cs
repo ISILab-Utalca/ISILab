@@ -7,6 +7,7 @@ using System.Drawing;
 using Newtonsoft.Json;
 using UnityEditor.MemoryProfiler;
 using ISILab.Extensions;
+using ISILab.LBS.Plugin.Components.Bundles;
 
 namespace ISILab.LBS.Characteristics
 {

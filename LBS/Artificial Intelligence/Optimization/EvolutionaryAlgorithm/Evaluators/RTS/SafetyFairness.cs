@@ -6,7 +6,7 @@ using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.Commons;
 using ISILab.LBS.Characteristics;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using LBS.Components.TileMap;
 using UnityEngine;
 

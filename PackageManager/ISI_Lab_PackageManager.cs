@@ -8,9 +8,12 @@ using System.Collections.Generic;
 using ISILab.LBS.Settings;
 using ISILab.LBS.Internal;
 
-[InitializeOnLoad]
-public class ISI_Lab_PackageManager : IPackageManagerExtension
+
+namespace ISILab
 {
+    [InitializeOnLoad]
+    public class ISI_Lab_PackageManager : IPackageManagerExtension
+    {
     const string defaultSettingsGUID = "29abd09f3cff7644da7097258d0ae978";
     const string defaultStorageGUID = "5dacd13b749bccf469893489a5d0f94b";
 
@@ -84,4 +87,7 @@ public class ISI_Lab_PackageManager : IPackageManagerExtension
         }
     }
 }
+}
 #endif
+
+

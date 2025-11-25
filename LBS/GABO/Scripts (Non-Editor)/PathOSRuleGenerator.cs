@@ -10,6 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using ISILab.Extensions;
+using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.LBS.Generators
 {

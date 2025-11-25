@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Settings;
-using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Components;
 using Newtonsoft.Json;

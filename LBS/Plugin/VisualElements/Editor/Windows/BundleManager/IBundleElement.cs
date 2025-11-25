@@ -1,4 +1,4 @@
-using LBS.Bundles;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine.UIElements;
 
 public interface IBundleElement

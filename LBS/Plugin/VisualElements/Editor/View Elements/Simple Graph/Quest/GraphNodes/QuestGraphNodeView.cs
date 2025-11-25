@@ -10,7 +10,7 @@ using ISILab.LBS.Settings;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;
 
-namespace ISILab.LBS.VisualElements
+namespace ISILab.LBS.VisualElements 
 {
     public abstract class QuestGraphNodeView : GraphElement
     {
@@ -92,6 +92,12 @@ namespace ISILab.LBS.VisualElements
             RestoreManipulator();
             DrawManager.Instance.PickingModeRestoreAll();
             DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+            
+            /// avoid recall on assistant
+            Type activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance().GetType();
+            bool usingSelect = activeManipulator == typeof(SelectManipulator);
+            bool usingAdd = activeManipulator == typeof(AddGraphNode);
+            if (usingAdd || usingSelect) evt.StopImmediatePropagation();
         }
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)

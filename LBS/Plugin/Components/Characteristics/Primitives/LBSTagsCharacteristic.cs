@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
 using ISILab.LBS.Internal;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using Newtonsoft.Json;
 using UnityEngine;
 

@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Dynamic;
+
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace LBS.Bundles.Tools
+namespace ISILab.LBS.Plugin.Components.Bundles.Tools
 {
     [Serializable]
     public class MicroGenTool

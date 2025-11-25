@@ -8,7 +8,6 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.VisualElements.Editor;
-using ISILab.Macros;
 using LBS.Components;
 using LBS.VisualElements;
 using UnityEditor.Experimental.GraphView;

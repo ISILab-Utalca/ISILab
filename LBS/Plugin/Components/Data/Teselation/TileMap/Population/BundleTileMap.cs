@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Extensions;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;

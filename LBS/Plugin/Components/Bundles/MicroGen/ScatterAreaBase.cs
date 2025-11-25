@@ -13,7 +13,7 @@ using UnityEngine.Assertions;
 using UnityEngine.Rendering;
 
 
-namespace LBS.Bundles.Tools
+namespace ISILab.LBS.Plugin.Components.Bundles.Tools
 {
     [ExecuteAlways]
     public class ScatterAreaBase : MonoBehaviour

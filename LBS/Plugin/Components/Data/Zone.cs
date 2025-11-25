@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Internal;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using Newtonsoft.Json;
 using UnityEditor;

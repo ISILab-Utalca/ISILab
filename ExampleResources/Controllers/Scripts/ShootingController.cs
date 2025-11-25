@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ISILab.Examples
+namespace ISILab.Runtime.Examples
 {
     public class ShootingController : MonoBehaviour
     {

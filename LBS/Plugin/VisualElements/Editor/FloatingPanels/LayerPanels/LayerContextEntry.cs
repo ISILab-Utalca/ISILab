@@ -9,10 +9,10 @@ using ISILab.LBS.AI.Categorization;
 using LBS.Components;
 using ISILab.LBS.Behaviours;
 using System.Numerics;
-using ISILab.Macros;
 using System.Collections.Generic;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
 using LBS.Components.TileMap;
 
 namespace ISILab.LBS.VisualElements.Editor

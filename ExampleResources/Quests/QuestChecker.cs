@@ -1,8 +1,9 @@
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using ISILab.LBS;
 
-namespace ISILab.LBS
+namespace ISILab.Runtime.Examples
 {       
     /// <summary>
     /// Utility class meant to use in case quest wants to be advanced manually

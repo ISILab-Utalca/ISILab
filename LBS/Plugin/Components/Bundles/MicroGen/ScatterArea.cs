@@ -3,7 +3,7 @@ using Random = UnityEngine.Random;
 using System.Diagnostics;
 
 
-namespace LBS.Bundles.Tools
+namespace ISILab.LBS.Plugin.Components.Bundles.Tools
 {
     [RequireComponent(typeof(SphereCollider))]
     public class ScatterArea : ScatterAreaBase

@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Template;
 using UnityEditor;
 using UnityEngine;

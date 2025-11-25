@@ -8,7 +8,8 @@ using ISILab.Extensions;
 using ISILab.LBS.Generators;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Assistants;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using LBS.Components;
 
 namespace ISILab.LBS.Template.Editor

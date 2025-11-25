@@ -1,19 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Internal;
-using ISILab.Macros;
-using LBS.Bundles;
-using LBS.Bundles.Tools;
 
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
-using static UnityEngine.UI.GridLayoutGroup;
 
-namespace LBS.Bundles
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Internal;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles.Tools;
+
+
+
+namespace ISILab.LBS.Plugin.Components.Bundles
 {
     [System.Flags]
     public enum BundleFlags

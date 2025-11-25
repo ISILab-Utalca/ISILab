@@ -2,9 +2,8 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
-namespace ISILab.Examples
+namespace ISILab.Runtime.Examples
 {
     public class Character : MonoBehaviour
     {

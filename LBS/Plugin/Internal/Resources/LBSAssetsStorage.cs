@@ -91,22 +91,27 @@ namespace ISILab.LBS.Internal
 
         public List<T> Get<T>() where T : Object
         {
-            //CleanAllEmpties();
+            // Try to find just by type > fullname > name
             foreach (var group in groups)
             {
+                if (group.type.Equals(typeof(T)))
+                {
+                    return new List<T>(group.items.Cast<T>());
+                }
+
+              
                 if (group.type.Equals(typeof(T).FullName))
                 {
                     return new List<T>(group.items.Cast<T>());
                 }
 
-                //Added, might be worth looking into if the method gives problems again.
-                //
+    
                 if (group.type.Equals(typeof(T).Name))
                 {
                     return new List<T>(group.items.Cast<T>());
                 }
             }
-            
+
             return null;
         }
 
