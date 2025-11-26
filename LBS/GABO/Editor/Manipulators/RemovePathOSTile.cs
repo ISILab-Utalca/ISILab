@@ -14,10 +14,11 @@ public class RemovePathOSTile : LBSManipulator
 {
     #region FIELDS
     PathOSBehaviour behaviour;
+
     #endregion
 
     #region PROPERTIES
-    protected override string IconGuid => null;
+    protected override string IconGuid => "ce08b36a396edbf4394f7a4e641f253d";
     #endregion
 
     #region CONSTRUCTORS

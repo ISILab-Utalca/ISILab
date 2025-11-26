@@ -165,15 +165,14 @@ namespace ISILab.LBS.VisualElements.Editor
             view.OnVisibilityChange += view.OnLayerVisibilityChangeAction;
             view.SetInfo(layer);
             view.OnNameChange += layer.InvokeNameChanged;
-            // OnLayerOrderChange -= view.UpdateSelect;
-            // OnLayerOrderChange += view.UpdateSelect;
+
             CheckOpacity();
     }
 
         private void SelectionChanged(IEnumerable<object> objs)
         {
-            //Debug.Log("LIST SELECTION CHANGED");
             LBSLayer selected = objs.FirstOrDefault() as LBSLayer;
+            LBSMainWindow.Instance._selectedLayer = selected;
             OnSelectLayer?.Invoke(selected);
         }
 
