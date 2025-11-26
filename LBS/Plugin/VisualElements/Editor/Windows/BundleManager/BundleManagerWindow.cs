@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
@@ -674,6 +675,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         public class BundleContainer
         {
             private readonly Bundle _main;
+            
             [System.Obsolete]
             private readonly BundleCollection _collection;
             
@@ -688,6 +690,8 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 _subBundles = subBundles;
                 _warnings = new List<string>();
             }
+            
+            
             public BundleContainer(BundleCollection collection, List<BundleContainer> subBundles = null)
             {
                 _main = null;
