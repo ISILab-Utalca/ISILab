@@ -2,10 +2,12 @@ using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using UnityEditor;
+using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 
-namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
 
     [UxmlElement]
@@ -56,7 +58,8 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         public BundleManagerListGroup() : base()
         {
             VisualTreeAsset vta = DirectoryTools.GetAssetByName<VisualTreeAsset>(nameof(BundleManagerListGroup));
-            vta?.CloneTree(this);
+            Assert.IsNotNull(vta);
+            vta.CloneTree(this);
 
             arrowDownIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("b570a25de51f01c41bd82dbe5372bb3f"));
             arrowSideIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("83eafacbab9ab554299bc4d0f124d980"));
@@ -84,17 +87,19 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             bool main = false
         ) where T : VisualElement, IBundleElement, new()
         {
-            //listView = null;
             listView = this.listView;
-            //titleLabel.text = columnName; 
 
             listView.itemsSource = bundles;
             listView.fixedItemHeight = 32;
 
             var list = listView;
-            listView.makeItem = () => new T();
+            listView.makeItem = () =>
+            {
+                return new T();
+            };
             listView.bindItem = (item, i) =>
             {
+                Debug.Log("BIND ITEM");
                 T element = (T)item;
                 BundleManagerWindow.BundleContainer container = (BundleManagerWindow.BundleContainer)list.itemsSource[i];
                 element.SetBundleReference(container.GetMainBundle(), list, main);

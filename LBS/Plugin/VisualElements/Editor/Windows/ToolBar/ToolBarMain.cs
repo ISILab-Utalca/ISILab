@@ -1,6 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using System;
-using ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
 using ISILab.LBS.CustomComponents;
 using UnityEditor;
 using UnityEngine.UIElements;

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
 using ISILab.Commons.Utility.Editor;
 using UnityEngine.UIElements;
 using ISILab.LBS.CustomComponents.Events;
