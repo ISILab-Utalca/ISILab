@@ -27,6 +27,8 @@ namespace LBS.Components.TileMap // FIX: change namespace to ISILab.LBS.Bundle
 
         [SerializeField, SerializeReference]
         protected Bundle bundle;
+
+
         #endregion
 
         #region PROPERTIES
