@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Malee.Editor {
 
@@ -11,6 +13,8 @@ namespace Malee.Editor {
 
 		private static Dictionary<int, ReorderableList> lists = new Dictionary<int, ReorderableList>();
 
+		
+		[Obsolete("CanCacheInspectorGUI has been deprecated and is no longer used.", false)]
 		public override bool CanCacheInspectorGUI(SerializedProperty _property) {
 
 			return false;
