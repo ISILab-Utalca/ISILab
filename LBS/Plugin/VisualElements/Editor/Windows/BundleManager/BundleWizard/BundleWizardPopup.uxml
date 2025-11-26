@@ -9,8 +9,9 @@
                 <BundleWizardSelectBundleType name="SelectBundleTypeMenu" class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
             </ui:Tab>
             <ui:Tab label="2 - Convert Prefabs/Assets" closeable="false" name="Step2" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetAssetsMenu name="SetAssetsMenu" class="lbs-wizard-menu-content">
+                <BundleWizardSetAssetsMenu name="SetAssetsMenu" class="lbs-wizard-menu-content" style="flex-direction: row; justify-content: space-around; align-content: stretch; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;">
                     <ui:Instance template="DragAndDrop" name="DragAndDropContainer" style="height: 100%; width: 60%; flex-direction: column; align-items: stretch; justify-content: space-between; -unity-text-align: upper-left; align-self: flex-start; flex-shrink: 0; flex-wrap: nowrap; align-content: flex-start;" />
+                    <ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleManagerListGroup title-text="New Bundles" name="NewBundles" style="flex-grow: 1; margin-left: 5px; margin-right: 5px; margin-top: -5px;" />
                 </BundleWizardSetAssetsMenu>
             </ui:Tab>
             <ui:Tab label="3- Asign Bundles" closeable="false" name="Step3" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">

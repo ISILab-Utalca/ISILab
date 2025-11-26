@@ -1,7 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using UnityEngine.UIElements;
 
-namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
     public class BundleManagerWarning : VisualElement
     {
