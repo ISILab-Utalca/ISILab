@@ -12,7 +12,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
     
     [UxmlElement]
-    public partial class BundleManagerElement : VisualElement
+    public partial class BundleManagerElement : VisualElement, IBundleElement
     {
         // External references
         private Bundle _bundleRef;
@@ -23,11 +23,14 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         // Internal references
         private readonly Label _bundleName;
         private readonly IMGUIContainer _bundleIcon;
-        private readonly IMGUIContainer _masterIcon;
+        private readonly IMGUIContainer _mainIcon;
         private readonly IMGUIContainer _warningIcon;
         
         // Properties
-        private bool _isMasterBundle;
+        private bool _isMainBundle;
+
+        public Bundle BundleRef { get => _bundleRef; set => _bundleRef = value; }
+        public ListView ListRef { get => _listRef; set => _listRef = value; }
 
         public BundleManagerElement() : base()
         {
@@ -36,7 +39,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             
             _bundleName = this.Q<Label>("BundleName");
             _bundleIcon = this.Q<IMGUIContainer>("BundleIcon");
-            _masterIcon = this.Q<IMGUIContainer>("MasterIcon");
+            _mainIcon = this.Q<IMGUIContainer>("MasterIcon");
             _warningIcon = this.Q<IMGUIContainer>("WarningIcon");
             _deleteButton = this.Q<Button>("DeleteButton");
             
@@ -53,7 +56,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             //this.Q<VisualElement>("DeleteButton").style.height = size - gapSize;
         }
 
-        public void SetBundleReference(Bundle bundle, ListView list, bool masterBundle)
+        public void SetBundleReference(Bundle bundle, ListView list, bool mainBundle)
         {
             _bundleRef = bundle;
             _bundleCollectionRef = null;
@@ -61,7 +64,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             _bundleName.text = bundle == null ? "Empty Bundle" : _bundleRef.name;
             
             _listRef = list;
-            _isMasterBundle = masterBundle;
+            _isMainBundle = mainBundle;
 
             if (bundle.Icon != null)
             {
@@ -76,7 +79,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             _bundleName.text = bundle == null ? "Empty Bundle Collection" : _bundleCollectionRef.name;
             
             _listRef = list;
-            _isMasterBundle = true;
+            _isMainBundle = true;
 
             if (bundle.Icon != null)
             {
@@ -86,7 +89,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 
         private void RemoveFromList()
         {
-            if (_isMasterBundle)
+            if (_isMainBundle)
             {
                 foreach (BundleManagerWindow.BundleContainer item in _listRef.itemsSource)
                 {
@@ -121,12 +124,22 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 case Icons.Bundle:
                     _bundleIcon.style.display = displayStyle;
                     break;
-                case Icons.Master:
-                    _masterIcon.style.display = displayStyle;
+                case Icons.Main:
+                    _mainIcon.style.display = displayStyle;
                     break;
                 case Icons.Warning:
                     _warningIcon.style.display = displayStyle;
                     break;
+            }
+        }
+
+        public void SetIconDisplay(string iconName, bool display)
+        {
+            switch(iconName)
+            {
+                case "Bundle"   : SetIconDisplay(Icons.Bundle,  display); break;
+                case "Main"     : SetIconDisplay(Icons.Main,    display); break;
+                case "Warning"  : SetIconDisplay(Icons.Warning, display); break;
             }
         }
 
@@ -154,6 +167,6 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             return 0; // Do nothing
         }
 
-        public enum Icons { Bundle, Master, Warning}
+        public enum Icons { Bundle, Main, Warning}
     }
 }

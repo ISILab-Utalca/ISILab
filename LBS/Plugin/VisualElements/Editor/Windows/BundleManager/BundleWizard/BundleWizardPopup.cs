@@ -13,7 +13,7 @@ using UnityEngine.UIElements;
 [UxmlElement]
 public partial class BundleWizardPopup: VisualElement
 {
-    
+    private LBSCustomTabView tabView;
     
     private LBSCustomBreadcrumbs breadcrumbs;
 
@@ -30,7 +30,16 @@ public partial class BundleWizardPopup: VisualElement
 
     private Dictionary<string, VisualElement> tabs = new Dictionary<string, VisualElement>();
     
-    private string CurrentBreadcrumb { get => breadcrumbLabels[currentStep]; }
+
+    private int CurrentStep 
+    { 
+        get => currentStep; 
+        set 
+        { 
+            currentStep = value; if (tabView is not null) tabView.selectedTabIndex = value; 
+        } 
+    }
+    private string CurrentBreadcrumb { get => breadcrumbLabels[CurrentStep]; }
     private IBundleWizardTab CurrentWizardTab { get => tabs[CurrentBreadcrumb] as IBundleWizardTab; }
     
     public BundleWizardPopup()
@@ -38,6 +47,9 @@ public partial class BundleWizardPopup: VisualElement
         VisualTreeAsset vta = DirectoryTools.GetAssetByName<VisualTreeAsset>(nameof(BundleWizardPopup));
         vta?.CloneTree(this);
 
+        tabView = this.Q<LBSCustomTabView>("TabView");
+        breadcrumbs = this.Q<LBSCustomBreadcrumbs>("WizardBreadcrumbs");
+        
         var backButton = this.Q<LBSCustomButton>("Back");
         backButton.clicked += Back;
         backButton.clicked += () => OnAnyButtonClicked(backButton);
@@ -50,31 +62,31 @@ public partial class BundleWizardPopup: VisualElement
         cancelButton.clicked += Cancel;
         cancelButton.clicked += () => OnAnyButtonClicked(cancelButton);
 
-        // Local functions
+        #region Local functions
 
         void Back()
         {
             CurrentWizardTab.Revert();
 
-            if (currentStep <= 0)
+            if (CurrentStep <= 0)
             {
                 Cancel();
                 return;
             }
 
-            currentStep--;
+            CurrentStep--;
             breadcrumbs.PopItem();
             //CurrentWizardTab.Init();
-            OnTabChanged();
+            //OnTabChanged();
         }
 
         void Next()
         {
             CurrentWizardTab.Step();
-            currentStep++;
+            CurrentStep++;
             breadcrumbs.PushItem(CurrentBreadcrumb);
             CurrentWizardTab.Init();
-            OnTabChanged();
+            //OnTabChanged();
         }
 
         void Cancel()
@@ -86,13 +98,14 @@ public partial class BundleWizardPopup: VisualElement
         void OnAnyButtonClicked(Button button)
         {
             //Debug.Log(button.text);
-            Debug.Log("Current Step: " + currentStep);
+            Debug.Log("Current Step: " + CurrentStep);
         }
+
+        #endregion
     }
 
     public void Init()
     {
-        breadcrumbs = this.Q<LBSCustomBreadcrumbs>("WizardBreadcrumbs");
 
         var tabNames = new[] { "SelectBundleTypeMenu", "SetAssetsMenu", "SetBundleMenu", "SetCharacteristicsMenu" };
         BundleBuilder builder = new BundleBuilder();
@@ -105,7 +118,7 @@ public partial class BundleWizardPopup: VisualElement
 
         breadcrumbs.PushItem(CurrentBreadcrumb);
         CurrentWizardTab.Init();
-        OnTabChanged();
+        //OnTabChanged();
 
         //var tab = this.Q<LBSCustomTabView>("TabView");
         //Debug.Log(tab.DisplayTabs);
@@ -113,20 +126,28 @@ public partial class BundleWizardPopup: VisualElement
 
     void OnTabChanged()
     {
+        return;
         foreach (VisualElement tab in tabs.Values)
         {
             tab.SetDisplay(false);
         }
         tabs[CurrentBreadcrumb].SetDisplay(true);
+
+        string s = "Tabs Display:\n\n";
+        foreach (VisualElement tab in tabs.Values)
+        {
+            s += tab.GetDisplay() + "\n";
+        }
+        Debug.Log(s);
     }
 
     void CleanUp()
     {
         try
         {
-            while (currentStep > 0)
+            while (CurrentStep > 0)
             {
-                currentStep--;
+                CurrentStep--;
                 breadcrumbs.PopItem();
             }
             breadcrumbs.PopItem();

@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="DragAndDrop" src="project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Editor/Windows/BundleManager/BundleWizard/DragAndDrop/DragAndDrop.uxml?fileID=9197481963319205126&amp;guid=d098d59943b71c74faaf332e807af294&amp;type=3#DragAndDrop" />
     <Style src="project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <ui:VisualElement name="Overlay" style="flex-grow: 1; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.24); position: absolute; right: 0; left: 0; bottom: 1px; top: 0;" />
     <ui:VisualElement name="VisualElement" class="lbs_popup" style="flex-grow: 1; padding-left: 12px; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; margin-top: 72px; margin-right: 72px; margin-bottom: 72px; margin-left: 72px;">
@@ -8,7 +9,9 @@
                 <BundleWizardSelectBundleType name="SelectBundleTypeMenu" class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
             </ui:Tab>
             <ui:Tab label="2 - Convert Prefabs/Assets" closeable="false" name="Step2" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <BundleWizardSetAssetsMenu name="SetAssetsMenu" class="lbs-wizard-menu-content" />
+                <BundleWizardSetAssetsMenu name="SetAssetsMenu" class="lbs-wizard-menu-content">
+                    <ui:Instance template="DragAndDrop" name="DragAndDropContainer" style="height: 100%; width: 60%; flex-direction: column; align-items: stretch; justify-content: space-between; -unity-text-align: upper-left; align-self: flex-start; flex-shrink: 0; flex-wrap: nowrap; align-content: flex-start;" />
+                </BundleWizardSetAssetsMenu>
             </ui:Tab>
             <ui:Tab label="3- Asign Bundles" closeable="false" name="Step3" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
                 <BundleWizardSetBundleMenu name="SetBundleMenu" class="lbs-wizard-menu-content" />

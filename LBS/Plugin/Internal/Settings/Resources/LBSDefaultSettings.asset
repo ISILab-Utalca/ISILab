@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: LBSDefaultSettings
   m_EditorClassIdentifier: 
   paths:
-    settingsPath: Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset
-    storagePath: 
-    backUpPath: Assets/LBSUserContent/Resources/Cache/Storage.asset
+    settingsPath: Assets/ISILab/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset
+    storagePath: Assets/ISILab/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset
+    backUpPath: Assets/ISILab/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset
     bundleFolderPath: Assets/isi-lab-unity-module/LBS/Data/Bundles
     tagFolderPath: Assets/isi-lab-unity-module/LBS/Data/Tags
     meshFolderPath: Assets/isi-lab-unity-module/LBS/Data/Meshes
@@ -63,15 +63,31 @@ MonoBehaviour:
       resize: {x: 0, y: 0}
       position: {x: 0, y: 0, z: 0}
       replacePrevious: 1
-      name: New Layer 3
+      name: New Layer
       rootParentName: Root_Parent
     rules:
-    - rid: 7571179379582304984
+    - rid: 9117505065036546063
+    - rid: 9117505065036546064
   references:
     version: 2
     RefIds:
-    - rid: 7571179379582304984
-      type: {class: QuestRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+    - rid: 9117505065036546063
+      type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+      data:
+        generator3D:
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          rules: []
+    - rid: 9117505065036546064
+      type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:
         generator3D:
           settings:

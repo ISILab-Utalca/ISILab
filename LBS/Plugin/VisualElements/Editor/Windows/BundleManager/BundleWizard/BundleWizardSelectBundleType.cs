@@ -54,16 +54,8 @@ public partial class BundleWizardSelectBundleType : VisualElement, IBundleWizard
     {
         Builder.bundleName = "";
         Builder.layerType = null;
+        Debug.Log("Builder data:\n\n" + Builder.ToString());
     }
 }
 
-public interface IBundleWizardTab
-{
-    public BundleBuilder Builder { get; set; }
 
-    public void Init();
-
-    public void Step();
-
-    public void Revert();
-}
