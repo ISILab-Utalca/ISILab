@@ -23,13 +23,13 @@ namespace ISILab.LBS.VisualElements
     [LBSCustomEditor("PathOSBehaviour", typeof(PathOSBehaviour))]
     public class PathOSBehaviourEditor : LBSCustomEditor, IToolProvider
     {
-        #region FIELDS
+       #region FIELDS
         // Palletes
         private PathOSTagPallete bundlePallete;
         // PathOS Original Inspector
         private PathOSWindow pathOSOriginalWindow;
         // Target (PathOSBehaviour)
-        private PathOSBehaviour _target;
+        private PathOSBehaviour pathOS;
         // Manipulators
         AddPathOSTile addPathOSTile;
         RemovePathOSTile removePathOSTile;
@@ -49,16 +49,16 @@ namespace ISILab.LBS.VisualElements
         #region PROPERTIES
         public PathOSWindow PathOSOriginalWindow { get => pathOSOriginalWindow; set => pathOSOriginalWindow = value; }
 
-        LBSLevelData Data { get => _target.OwnerLayer.Parent; }
+        LBSLevelData Data { get => pathOS.OwnerLayer.Parent; }
         #endregion
 
         #region METHODS
         public PathOSBehaviourEditor(object target) : base(target)
         {
-            _target = target as PathOSBehaviour;
+            pathOS = target as PathOSBehaviour;
             Debug.Log("BEHAVIOUR CONSTRUCTED");
-            _target.AutoMapCallback = MapToCurrentPopulation;
-            _target.RemoveAutoMapCallbacks = () =>
+            pathOS.AutoMapCallback = MapToCurrentPopulation;
+            pathOS.RemoveAutoMapCallbacks = () =>
             {
                 GetPopulationLayers();
                 foreach(LBSLayer layer in populationLayers)
@@ -73,7 +73,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetInfo(object target)
         {
-            _target = target as PathOSBehaviour;
+            pathOS = target as PathOSBehaviour;
         }
 
         protected override VisualElement CreateVisualElement()
@@ -93,9 +93,9 @@ namespace ISILab.LBS.VisualElements
                     MapToCurrentPopulation();
                 else
                     GetPopulationLayers();
-                _target.ToggleAutoMap(value, populationLayers);
+                pathOS.ToggleAutoMap(value, populationLayers);
             });
-            autoMapToggle.SetValueWithoutNotify(_target.AutoMap);
+            autoMapToggle.SetValueWithoutNotify(pathOS.AutoMap);
 
             var mapPopulButton = this.Q<Button>("MapPopulation");
             mapPopulButton.clicked += () => MapToCurrentPopulation();
@@ -140,7 +140,7 @@ namespace ISILab.LBS.VisualElements
             // OnSelect event
             bundlePallete.OnSelectOption += (selected) =>
             {
-                _target.selectedToSet = selected as Bundle;
+                pathOS.selectedToSet = selected as Bundle;
                 ToolKit.Instance.SetActive(typeof(AddPathOSTile));
             };
 
@@ -176,45 +176,33 @@ namespace ISILab.LBS.VisualElements
                 optionView.Icon = bundle.Icon;
             });
 
-            bundlePallete.OnRepaint += () => { bundlePallete.Selected = _target.selectedToSet; };
+            bundlePallete.OnRepaint += () => { bundlePallete.Selected = pathOS.selectedToSet; };
 
             bundlePallete.Repaint();
         }
 
-        //GABO TODO: Agregar herramientas faltantes
         public void SetTools(ToolKit toolkit)
         {
-            // Add tiles
-            Texture2D icon = Resources.Load<Texture2D>("Icons/AddTileBrush");
+    
             addPathOSTile = new AddPathOSTile();
-            //var tAdd = new LBSTool(icon, "Paint tiles", "", addPathOSTile);
-            var tAdd = new LBSTool(addPathOSTile);
-            //tAdd.OnSelect += () => LBSInspectorPanel.ShowInspector("Behaviours");
-            tAdd.OnSelect += () => LBSInspectorPanel.ActivateBehaviourTab();
-            //tAdd.Init(_target.OwnerLayer, _target);
-            //toolkit.AddTool(tAdd);
-            toolkit.ActivateTool(tAdd, _target.OwnerLayer, _target);
+            var t1 = new LBSTool(addPathOSTile);
 
-            // Remove tiles
-            icon = Resources.Load<Texture2D>("Icons/RemoveTileBrush");
             removePathOSTile = new RemovePathOSTile();
-            var tRemove = new LBSTool(removePathOSTile);
+            var t2 = new LBSTool(removePathOSTile);         
 
-            toolkit.ActivateTool(tRemove, _target.OwnerLayer, _target);
-
-            // Add closed obstacle
-            icon = Resources.Load<Texture2D>("Icons/AddClosedObstacle");
+      
             addClosedObstacle = new AddClosedObstacle();
-            var tClosed = new LBSTool(addClosedObstacle);
-            //tClosed.OnSelect += () => LBSInspectorPanel.ActivateAssistantTab();
-            toolkit.ActivateTool(tClosed, _target.OwnerLayer, _target);
+            var t3 = new LBSTool(addClosedObstacle);
 
-            // Add open obstacle
-            icon = Resources.Load<Texture2D>("Icons/AddOpenedObstacle");
+
             addOpenedObstacle = new AddOpenedObstacle();
-            var tOpen = new LBSTool(addOpenedObstacle);
-            //tOpen.OnSelect += () => LBSInspectorPanel.ActivateAssistantTab();
-            toolkit.ActivateTool(tOpen, _target.OwnerLayer, _target);
+            var t4 = new LBSTool(addOpenedObstacle);
+
+            foreach (LBSTool tool in new[] { t1, t2, t3, t4 })
+            {
+                tool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+                toolkit.ActivateTool(tool, pathOS.OwnerLayer, pathOS);
+            }
         }
 
         public override void OnFocus()
@@ -282,12 +270,12 @@ namespace ISILab.LBS.VisualElements
 
             EditorGUI.BeginChangeCheck();
 
-            _target.MapToPopulation(populationGroups);
+            pathOS.MapToPopulation(populationGroups);
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);
 
-            DrawManager.Instance.RedrawLayer(_target.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(pathOS.OwnerLayer);
         }
 
         private void ClearMapping()
@@ -296,14 +284,14 @@ namespace ISILab.LBS.VisualElements
 
             EditorGUI.BeginChangeCheck();
 
-            _target.ClearMapping();
+            pathOS.ClearMapping();
             autoMapToggle.value = false;
 
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);
 
-            DrawManager.Instance.RedrawLayer(_target.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(pathOS.OwnerLayer);
         }
 
         #endregion

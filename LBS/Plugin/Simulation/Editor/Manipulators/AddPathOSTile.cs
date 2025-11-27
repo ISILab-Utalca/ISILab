@@ -23,7 +23,7 @@ namespace ISILab.LBS.Manipulators
             get => behaviour.selectedToSet;
         }
 
-        protected override string IconGuid => null;
+        protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
         #endregion
 
         public AddPathOSTile() : base()
