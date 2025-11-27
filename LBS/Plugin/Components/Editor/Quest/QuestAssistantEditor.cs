@@ -46,7 +46,7 @@ namespace ISILab.LBS.Editor
         private Button _generateSuggestionsButton;
         private Button _removeSuggestionsButton;
         private VisualElement _lockedContextEntryContainer;
-        private LBSPanelTextIcon _noSuggestionPanel;
+        private LBSCustomLabelIcon _noSuggestionPanel;
         private LBSCustomUnsignedIntegerField _suggestionField;
         private IEnumerable<QuestNode> suggestions;
 
@@ -84,7 +84,7 @@ namespace ISILab.LBS.Editor
             _generateSuggestionsButton = this.Q<Button>(UIElementNames.GenerateSuggestionsButton);
             _removeSuggestionsButton = this.Q<Button>(UIElementNames.RemoveAllSuggestions);
             _autoConnectButton = this.Q<Button>(UIElementNames.ConnectAll);
-            _noSuggestionPanel = this.Q<LBSPanelTextIcon>(UIElementNames.NoSuggestionPanel);
+            _noSuggestionPanel = this.Q<LBSCustomLabelIcon>(UIElementNames.NoSuggestionPanel);
             _suggestionField = this.Q<LBSCustomUnsignedIntegerField>(UIElementNames.SuggestionField);
             _suggestionField.value = _assistant.SuggestionAmount;
             

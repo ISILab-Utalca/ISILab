@@ -1,29 +1,35 @@
 using ISILab.LBS.Modules;
 using LBS.Components;
+using System;
 using UnityEngine;
 
 namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationTileBehaviour : LBSBehaviour
+    public class PopulationTileGroupBehavior : LBSBehaviour
     {
         #region FIELDS
-        private BundleTileMap selectedTilemap;
+        private TileBundleGroup selectedTilemap;
         #endregion
 
-
         #region PROPERTIES
-        public BundleTileMap SelectedTilemap
+        public TileBundleGroup SelectedTilemap
         {
             get => selectedTilemap; 
-            set => selectedTilemap = value;
+            set 
+            {
+                selectedTilemap = value;
+                OnSelectedChanged?.Invoke(selectedTilemap);
+            }
         }
+
+        public Action<TileBundleGroup> OnSelectedChanged;
 
         #endregion
 
         #region CONSTRUCTORS
-        public PopulationTileBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
+        public PopulationTileGroupBehavior(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
@@ -46,12 +52,12 @@ namespace ISILab.LBS.Behaviours
 
         public override object Clone()
         {
-            return new PopulationTileBehaviour(this.IconGuid, this.Name, this.ColorTint);
+            return new PopulationTileGroupBehavior(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override bool Equals(object obj)
         {
-            var other = obj as PopulationBehaviour;
+            var other = obj as PopulationTileGroupBehavior;
 
             if (other == null) return false;
 

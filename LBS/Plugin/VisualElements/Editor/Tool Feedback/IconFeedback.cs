@@ -7,6 +7,8 @@ namespace ISILab.LBS.VisualElements
 {
     public class IconFeedback : Feedback
     {
+        private const float Alpha = 0.25f;
+
         public VectorImage Icon { get; set; }
 
         public IconFeedback() : base()
@@ -47,13 +49,14 @@ namespace ISILab.LBS.VisualElements
             {
                 points[i] = Vector2.Lerp(points[i], center, 0.2f);
             }
-            painter.DrawPolygon(points, new Color(1, 0, 0, 0.25f), new Color(1, 1, 1, 0.25f), 2.5f, true);
+            painter.DrawPolygon(points, new Color(currentColor.r, currentColor.g, currentColor.b, Alpha), new Color(1, 1, 1, 0.25f), 2.5f, true);
             if(Icon != null)
             {
                 Vector2 offset = Vector2.Lerp(startPosition, center, 0.425f);
                 mgc.DrawVectorImage(Icon, offset, Angle.Degrees(0), new Vector2(1.75f, 1.75f));
             }
         }
+
     }
 }
 

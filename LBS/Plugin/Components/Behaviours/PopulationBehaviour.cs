@@ -99,13 +99,17 @@ namespace ISILab.LBS.Behaviours
         {
 
         }
-        public void AddTileGroup(Vector2Int position, Bundle bundle) => AddTileGroup(position, new BundleData(bundle));
-        public void AddTileGroup(Vector2Int position, BundleData bundle)
+
+        public TileBundleGroup AddTileGroup(Vector2Int position, Bundle bundle) 
         {
-            if (!_bundleTileMap.ValidNewGroup(position, bundle, Vector2.right)) return;
-            
+            return AddTileGroup(position, new BundleData(bundle)); }
+        public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData) 
+        {
+
+            if (!_bundleTileMap.ValidNewGroup(position, bundleData, Vector2.right)) return null;
+
             //Create group
-            var group = _bundleTileMap.CreateGroup(position, bundle, Vector2.right);
+            TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, Vector2.right);
             RequestTilePaint(group);
             
             //Add all tiles from the group
@@ -113,6 +117,8 @@ namespace ISILab.LBS.Behaviours
             {
                 tileMap.AddTile(tile);
             }
+
+            return group;
         }
 
         public void AddTileGroup(Vector2Int position, TileBundleGroup expired)
@@ -151,13 +157,13 @@ namespace ISILab.LBS.Behaviours
             //RequestTilePaint(group);
         }
 
-        public void RemoveTileGroup(Vector2Int position)
+        public TileBundleGroup RemoveTileGroup(Vector2Int position)
         {
             //var tile = tileMap.GetTile(position);   // Is this supposed to do something?
-            var group = _bundleTileMap.GetGroup(position);
+            TileBundleGroup group = _bundleTileMap.GetGroup(position);
             
             //CHANGE FROM HERE
-            if (group == null) return;
+            if (group == null) return null;
             group.Removed();
             
             foreach (var gTile in group.TileGroup)
@@ -166,6 +172,8 @@ namespace ISILab.LBS.Behaviours
             }
             _bundleTileMap.RemoveGroup(group);
             RequestTileRemove(group);
+
+            return group;
         }
         public bool ValidNewGroup(Vector2Int position, Bundle bundle)
         {

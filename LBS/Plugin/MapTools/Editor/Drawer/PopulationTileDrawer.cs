@@ -15,15 +15,17 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Drawers
 {
-    [Drawer(typeof(PopulationTileBehaviour))]
+    [Drawer(typeof(PopulationTileGroupBehavior))]
     public class PopulationTileDrawer : Drawer
     {
+        public PopulationTileDrawer() { }
+
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
-            if (target is not PopulationTileBehaviour population) return;
-            var gf = new VisualElement();
-            view.AddElementToLayerContainer(population.OwnerLayer, this, gf as GraphElement);
+            if (target is not PopulationTileGroupBehavior population) return;
+          //  var gf = new VisualElement();
+          //  view.AddElementToLayerContainer(population.OwnerLayer, this, gf as GraphElement);
 
         }
 
@@ -39,7 +41,7 @@ namespace ISILab.LBS.Drawers
 
         public override void Update(object target, MainView view, Vector2 teselationSize)
         {
-            if (target is not PopulationTileBehaviour population) return;
+            if (target is not PopulationTileGroupBehavior population) return;
 
           //  PaintNewTiles(population, view);
           //  UpdateLoadedTiles(population, view);
