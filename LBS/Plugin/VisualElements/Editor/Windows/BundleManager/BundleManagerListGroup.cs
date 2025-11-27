@@ -84,13 +84,14 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             out ListView listView,
             string columnName,
             List<BundleManagerWindow.BundleContainer> bundles,
-            bool main = false
+            bool main = false,
+            float itemHeight = 32
         ) where T : VisualElement, IBundleElement, new()
         {
             listView = this.listView;
 
             listView.itemsSource = bundles;
-            listView.fixedItemHeight = 32;
+            listView.fixedItemHeight = itemHeight;
 
             var list = listView;
             listView.makeItem = () =>
@@ -100,6 +101,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             listView.bindItem = (item, i) =>
             {
                 Debug.Log("BIND ITEM");
+
                 T element = (T)item;
                 BundleManagerWindow.BundleContainer container = (BundleManagerWindow.BundleContainer)list.itemsSource[i];
                 element.SetBundleReference(container.GetMainBundle(), list, main);
@@ -107,7 +109,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 element.SetIconDisplay("Main", main);
                 element.SetIconDisplay("Warning", container.GetWarnings().Count > 0);
                 element.SetIconDisplay("Bundle", false);
-                element.SetIconDisplay("Select", true); // TODO: Handle condition
+                //element.SetIconDisplay("Select", true); // TODO: Handle condition
             };
 
             if(typeof(T) == typeof(BundleManagerElement))

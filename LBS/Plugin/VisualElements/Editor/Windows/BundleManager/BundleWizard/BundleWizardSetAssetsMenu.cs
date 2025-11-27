@@ -42,14 +42,9 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
         Bundle bundle = SetBundle(prefabs);
 
         bundleContainers.Add(new BundleManagerWindow.BundleContainer(bundle));
+
         bundleList.Rebuild();
         bundleList.RefreshItems();
-        var a =         bundleList.resolvedStyle.display;
-        var aa =        bundleList.resolvedStyle.opacity;
-        var aaa =       bundleList.resolvedStyle.visibility;
-        var aaaa =      bundleList.resolvedStyle.height;
-        var aaaaa =     bundleList.resolvedStyle.flexGrow;
-        //var aaaaaa =    bundleList.resolvedStyle.overflow;
 
         tempBundles.Add(bundle);
 
@@ -94,16 +89,17 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
             dragAndDropContainer = this.Q<TemplateContainer>();
             dragAndDropWindow = dragAndDropContainer.Q<VisualElement>("DragAndDrop");
             manipulator = new DragAndDropWindow.DragAndDropManipulator(dragAndDropContainer, GetObjects);
-
+            
             bundleListGroup = this.Q<BundleManagerListGroup>("NewBundles");
         }
         catch (System.Exception e) { Debug.LogException(e); }
 
-        bundleListGroup = new BundleManagerListGroup();
+        bundleListGroup = this.Q<BundleManagerListGroup>();
         bundleListGroup.SetBundleListViewItem<BundleWizardElement>(
             out bundleList,
             "NewBundles",
-            bundleContainers
+            bundleContainers,
+            itemHeight: 40
             );
     }
 
