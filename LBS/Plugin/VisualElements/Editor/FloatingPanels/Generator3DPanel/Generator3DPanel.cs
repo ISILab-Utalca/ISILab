@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Generators;
 using ISILab.LBS.Editor.Windows;

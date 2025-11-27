@@ -1,7 +1,5 @@
 using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
-
-using ISILab.LBS.Template;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using System;
@@ -17,11 +15,12 @@ using Debug = UnityEngine.Debug;
 using LBS.Components;
 using LBS.VisualElements;
 using ISILab.Extensions;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Internal.Editor;
 using ISILab.LBS.Macros;
 using ISILab.Commons.VisualElements.Editor;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 
 namespace ISILab.LBS.Editor.Windows{
 

@@ -7,6 +7,7 @@ using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using NUnit.Framework;
 using Unity.PerformanceTesting;

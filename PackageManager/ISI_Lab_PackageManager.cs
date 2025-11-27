@@ -5,7 +5,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Plugin.Internal;
 

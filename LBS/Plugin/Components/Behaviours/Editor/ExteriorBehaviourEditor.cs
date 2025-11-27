@@ -9,7 +9,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS;
 using LBS.Bundles;
 using LBS.Components;

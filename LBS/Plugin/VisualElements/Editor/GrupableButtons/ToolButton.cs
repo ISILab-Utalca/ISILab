@@ -3,7 +3,7 @@ using LBS;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using UnityEngine.UIElements;
 

@@ -1,7 +1,7 @@
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Bundles;

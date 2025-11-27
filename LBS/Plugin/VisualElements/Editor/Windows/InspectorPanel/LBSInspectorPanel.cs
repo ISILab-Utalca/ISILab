@@ -4,7 +4,7 @@ using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
-using ISILab.LBS.Template;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using LBS.VisualElements;

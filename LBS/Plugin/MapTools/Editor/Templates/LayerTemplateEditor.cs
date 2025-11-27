@@ -1,19 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.Extensions;
+using ISILab.LBS.Assistants;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Generators;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.MapTools.Generators;
+using LBS.Components;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Generators;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Assistants;
-using ISILab.LBS.Macros;
-using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.MapTools.Generators;
-using LBS.Components;
+using ISILab.LBS.Plugin.Core.Settings;
 
-namespace ISILab.LBS.Template.Editor
+namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 {
     [LBSCustomEditor("Layer template", typeof(LayerTemplate))]
     [CustomEditor(typeof(LayerTemplate))]
@@ -255,8 +257,8 @@ namespace ISILab.LBS.Template.Editor
                 layer.Name = "Layer Interior";
                 layer.iconGuid = "8c78cf0f5376fd846a188536ff3497ae";
 
-                AddObject<SchemaBehaviour>(layer, "Schema behaviour", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), Settings.LBSSettings.Instance.view.behavioursColor);
-                AddObject<HillClimbingAssistant>(layer, "HillClimbing", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), Settings.LBSSettings.Instance.view.assistantColor);
+                AddObject<SchemaBehaviour>(layer, "Schema behaviour", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
+                AddObject<HillClimbingAssistant>(layer, "HillClimbing", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
 
                 AddObject<SchemaRuleGenerator>(layer, "Schema Rule Generator", "", Color.clear);
                 AddObject<SchemaRuleGeneratorExterior>(layer, "Schema Rule Generator Exterior", "", Color.clear);
@@ -273,8 +275,8 @@ namespace ISILab.LBS.Template.Editor
                 layer.Name = "Layer Exterior";
                 layer.iconGuid = "02a644759487ae249bc3a20d019c8745";
 
-                AddObject<ExteriorBehaviour>(layer, "Exterior behaviour", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), Settings.LBSSettings.Instance.view.behavioursColor);
-                AddObject<AssistantWFC>(layer, "Assistant WFC", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), Settings.LBSSettings.Instance.view.assistantColor);
+                AddObject<ExteriorBehaviour>(layer, "Exterior behaviour", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
+                AddObject<AssistantWFC>(layer, "Assistant WFC", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<ExteriorRuleGenerator>(layer, "Exterior Rule Generator", "", Color.clear);
 
                 layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Exterior" };
@@ -289,8 +291,8 @@ namespace ISILab.LBS.Template.Editor
                 layer.Name = "Layer Population";
                 layer.iconGuid = "48f2011efc0f7b2449db9f824c895d9d";
 
-                AddObject<PopulationBehaviour>(layer, "Population Behavior", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), Settings.LBSSettings.Instance.view.behavioursColor);
-                AddObject<AssistantMapElite>(layer, "Map Elite - Genetic Algorithm", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), Settings.LBSSettings.Instance.view.assistantColor);
+                AddObject<PopulationBehaviour>(layer, "Population Behavior", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
+                AddObject<AssistantMapElite>(layer, "Map Elite - Genetic Algorithm", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<PopulationRuleGenerator>(layer, "Population Rule Generator", "", Color.clear);
 
                 layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Population" };
@@ -305,9 +307,9 @@ namespace ISILab.LBS.Template.Editor
                 layer.Name = "Layer Quest";
                 layer.iconGuid = "9fc8ac6f82a8b39458c73185d378ffbf";
 
-                AddObject<QuestBehaviour>(layer, "Quest Behavior", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), Settings.LBSSettings.Instance.view.behavioursColor);
-                AddObject<GrammarAssistant>(layer, "Grammar Assistant", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), Settings.LBSSettings.Instance.view.assistantColor);
-                AddObject<GrammarAssistant>(layer, "Quest Assistant", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), Settings.LBSSettings.Instance.view.assistantColor);
+                AddObject<QuestBehaviour>(layer, "Quest Behavior", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
+                AddObject<GrammarAssistant>(layer, "Grammar Assistant", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
+                AddObject<GrammarAssistant>(layer, "Quest Assistant", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<QuestRuleGenerator>(layer, "Quest Rule Generator", "", Color.clear);
 
                 layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Quest" };
@@ -322,8 +324,8 @@ namespace ISILab.LBS.Template.Editor
                 layer.Name = "Layer Simulation";
                 layer.iconGuid = "13f64883312513a41adeb7dec75a3a5f";
 
-                AddObject<PathOSBehaviour>(layer, "Simulation Behaviour", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), Settings.LBSSettings.Instance.view.behavioursColor);
-                AddObject<TestingAssistant>(layer, "Simulation Assistant", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), Settings.LBSSettings.Instance.view.assistantColor);
+                AddObject<PathOSBehaviour>(layer, "Simulation Behaviour", LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
+                AddObject<TestingAssistant>(layer, "Simulation Assistant", LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<PathOSRuleGenerator>(layer, "Simulation Rule Generator", "", Color.clear);
 
                 layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Simulation" };

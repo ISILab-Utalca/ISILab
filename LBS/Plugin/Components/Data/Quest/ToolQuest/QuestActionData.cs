@@ -6,7 +6,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Bundles;
 using LBS.Components;
 using Newtonsoft.Json;

@@ -1,7 +1,7 @@
 using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
 using LBS.Components;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,6 @@ using ISILab.Extensions;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Editor;
-using ISILab.LBS.Template;
 using LBS.VisualElements;
 using ISILab.LBS.Assistants;
 using UnityEngine.Assertions;
