@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ISI_Lab.LBS.Plugin.Components.Bundles;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
@@ -54,6 +55,10 @@ public partial class BundleWizardPopup: VisualElement
         backButton.clicked += Back;
         backButton.clicked += () => OnAnyButtonClicked(backButton);
 
+        var OKButton = this.Q<LBSCustomButton>("OK");
+        OKButton.clicked += OK;
+        OKButton.clicked += () => OnAnyButtonClicked(OKButton);
+
         var nextButton = this.Q<LBSCustomButton>("Next");
         nextButton.clicked += Next;
         nextButton.clicked += () => OnAnyButtonClicked(nextButton);
@@ -78,6 +83,13 @@ public partial class BundleWizardPopup: VisualElement
             breadcrumbs.PopItem();
             //CurrentWizardTab.Init();
             //OnTabChanged();
+        }
+
+        void OK()
+        {
+            CurrentWizardTab.Builder.TryBuild();
+            this.SetDisplay(false);
+            CleanUp();
         }
 
         void Next()
@@ -173,6 +185,29 @@ public class BundleBuilder
 
     public BundleBuilder() { }
 
+    public void TryBuild()
+    {
+        BundleFlags flags = BundleFlags.None;
+        switch (layerType)
+        {
+            case "Interior Layer":
+                flags = BundleFlags.Interior;
+                break;
+            case "Exterior Layer":
+                flags = BundleFlags.Exterior;
+                break;
+            case "Population Layer":
+                flags = BundleFlags.Population;
+                break;
+        }
+
+        Bundle newBundle = BundleMenuItem.CreateBundle(flags, bundleName);
+        for(int i = 0; i < newSubBundles.Count; i++)
+        {
+            newBundle.AddChild(newSubBundles[i]);
+        }
+    }
+
     public override string ToString()
     {
         string s = "> Bundle Name:\t" + bundleName + "\n";
@@ -192,9 +227,4 @@ public class BundleBuilder
 
         return s;
     }
-
-
-
-    
-    
 }
