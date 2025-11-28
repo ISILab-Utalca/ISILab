@@ -2,6 +2,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.VisualElements.Editor;
+using LBS.Bundles;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +10,7 @@ using UnityEngine.UIElements;
 
 public class TerrainConnectionGridEditorWindow : EditorWindow
 {
+    #region FIELDS
     public LBSTerrainConnectionGrid connectionGridTarget;
 
     //Tracking thingies
@@ -29,9 +31,16 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
     public LBSToolbarToggle fillTool;
     public LBSToolbarToggle eraserTool;
 
+    //Grids
+    public VisualElement gridsVE;
 
+    #endregion
+
+    #region PROPERTIES
     public Dictionary<int, UnityEngine.Color> ColorPalette => connectionGridTarget.FlagColorPalette;
+    #endregion
 
+    #region CONSTRUCTOR
     public void CreateGUI()
     {
         //Initialize connection grid if not initialized
@@ -52,6 +61,7 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         //Tools!
         brushTool = rootVisualElement.Q<LBSToolbarToggle>("BrushTool");
         brushTool.RegisterValueChangedCallback((evt) => { SwitchTools(brushTool, GridTerrainTool.Brush); });
+        brushTool.value = true;
         fillTool = rootVisualElement.Q<LBSToolbarToggle>("FillTool");
         fillTool.RegisterValueChangedCallback((evt) => { SwitchTools(fillTool, GridTerrainTool.Fill); });
         eraserTool = rootVisualElement.Q<LBSToolbarToggle>("EraserTool");
@@ -61,8 +71,16 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         gridTerrainTools.Add(eraserTool);
 
         //Icons!
+        gridsVE = rootVisualElement.Q<VisualElement>("GridsVE");
 
+        foreach (KeyValuePair<Asset, AssetConnectionGrid> _grid in connectionGridTarget.GridList)
+        {
+            gridsVE.Add(new AssetGridEditorWindow(_grid.Value));
+        }
     }
+    #endregion
+
+    #region METHODS
     void SwitchTools(LBSToolbarToggle button, GridTerrainTool _newTool)
     {
         foreach(LBSToolbarToggle otherButton in gridTerrainTools)
@@ -128,4 +146,5 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
             AddColorButton(item.Key, item.Value);
         }
     }
+    #endregion
 }

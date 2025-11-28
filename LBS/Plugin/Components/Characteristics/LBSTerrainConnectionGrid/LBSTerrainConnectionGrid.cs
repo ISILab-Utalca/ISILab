@@ -110,7 +110,7 @@ namespace ISILab.LBS.Characteristics
             {
                 if (!gridList.ContainsKey(asset))
                 {
-                    gridList.Add(asset, new AssetConnectionGrid(gridSize));
+                    gridList.Add(asset, new AssetConnectionGrid(gridSize, asset));
                 }
             }
             //Remove everything old
@@ -127,17 +127,20 @@ namespace ISILab.LBS.Characteristics
     public class AssetConnectionGrid
     {
         public int[] terrainFlag = new int[9];
+        public Asset assetReference;
 
         public int[] TerrainFlag
         {
             get => terrainFlag;
         }
+        public Asset AssetReference => assetReference;
 
-        public AssetConnectionGrid(int[] terrainFlag)
+        public AssetConnectionGrid(int[] terrainFlag, Asset assetRef)
         {
             this.terrainFlag = terrainFlag;
+            this.assetReference = assetRef;
         }
-        public AssetConnectionGrid(int q)
+        public AssetConnectionGrid(int q, Asset assetRef)
         {
             terrainFlag = new int[q];
             for(int i=0; i<q; i++)
@@ -171,6 +174,7 @@ namespace ISILab.LBS.Characteristics
         public override bool Equals (object obj)
         {
             var other = obj as AssetConnectionGrid;
+            if (!assetReference.Equals(other.assetReference)) return false;
             if (terrainFlag.Length != other.terrainFlag.Length) return false;
             for(int i=0; i<terrainFlag.Length;i++)
             {
