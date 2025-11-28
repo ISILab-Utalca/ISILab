@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Extensions;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -348,7 +349,15 @@ namespace ISILab.LBS.Modules
         bool? rotatable = null;
         string locationKey = null;
 
+        [SerializeField]
+        BundleTileMapAddons addons = new();
+
+
+
         #region PROPERTIES
+        public BundleTileMapAddons Addons => addons;
+
+
         [JsonIgnore]
         public List<LBSTile> TileGroup
         {

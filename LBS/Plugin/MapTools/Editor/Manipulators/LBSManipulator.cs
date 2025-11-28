@@ -419,7 +419,7 @@ namespace ISILab.LBS.Manipulators
             _objectType = provider == null ? typeof(Manipulator) : provider.GetType().BaseType;
         }
 
-        protected virtual void UpdateView() => DrawManager.Instance.RedrawLayer(LBSLayer);
+        protected virtual void UpdateView() => DrawManager.Instance.RedrawLayer(LBSMainWindow.Instance._selectedLayer);
 
         protected virtual void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) { }
         

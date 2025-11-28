@@ -17,6 +17,8 @@ namespace ISILab.LBS.Plugin.Internal
         public class TypeGroup
         {
             [SerializeField]
+            public Type typeref;
+            [SerializeField]
             public string type;
             [SerializeField]
             public List<ScriptableObject> items;
