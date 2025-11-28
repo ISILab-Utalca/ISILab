@@ -10,6 +10,7 @@ using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -308,12 +309,7 @@ namespace ISILab.LBS.Assistants
                 {
                     if (rect.Contains(t.Position))
                     {
-                        IEnumerable<LBSCharacteristic> characteristics = g.BundleData.Characteristics.Where(c => c is LBSTagsCharacteristic);
-
-                        if (characteristics.Count() == 0)
-                            continue;
-
-                        IEnumerable<LBSTag> tags = characteristics.Select(c => (c as LBSTagsCharacteristic).Value);
+                        var tags = LBSAssetMacro.GetTagsFromBundle(g.BundleData.Bundle);
 
                         bool flag = false;
                         foreach (LBSTag tag in tags)

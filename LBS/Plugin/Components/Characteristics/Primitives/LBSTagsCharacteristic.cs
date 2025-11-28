@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using ISILab.LBS.Components;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Macros;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Characteristics
 {
-    [System.Serializable]
-    [LBSCharacteristic("Tags", "")]
-    public class LBSTagsCharacteristic : LBSCharacteristic, ISerializationCallbackReceiver
+    [Serializable]
+    public class TagCharacteristicEntry
     {
-        public new static readonly bool unique = false;
-
         [SerializeField, JsonRequired]
         string tagName = "";
 
@@ -22,6 +22,7 @@ namespace ISILab.LBS.Characteristics
 
         [SerializeField, JsonRequired]
         protected string tagGUID = "";
+
 
         [JsonIgnore]
         public LBSTag Value
@@ -57,50 +58,101 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
-        public LBSTagsCharacteristic(LBSTag value)
+
+        [JsonIgnore]
+        public string TagName => tagName;
+
+        public TagCharacteristicEntry()
         {
-            //Debug.Log("CONSTRUCTOR 1 PARAMETRO INVOCADO [" + value + "]");
-            this.value = value;
-            if (value != null)
-                tagName = value.Label;
         }
+
+        public TagCharacteristicEntry(LBSTag value)
+        {
+            this.value = value;
+            tagGUID = LBSAssetMacro.GetGuidFromAsset(value);
+            UpdateName();
+        }
+
+        internal void UpdateName()
+        {
+            tagName = value.Label;
+        }
+    }
+
+    [System.Serializable]
+    [LBSCharacteristic("Tags", "")]
+    public class LBSTagsCharacteristic : LBSCharacteristic, ISerializationCallbackReceiver
+    {
+        public new static readonly bool unique = false;
+
+        List<TagCharacteristicEntry> tags = new();
+    
+        public List<TagCharacteristicEntry> Tags => tags;
+
+        public object Value { get; internal set; }
+
+        public LBSTagsCharacteristic(List<LBSTag> tags)
+        {
+            foreach (var tag in tags)
+            {
+                this.tags.Add(new TagCharacteristicEntry(tag));
+            }
+        }
+
 
         public LBSTagsCharacteristic()
         {
             //Debug.Log("CONSTRUCTOR SIN PARAMETROS INVOCADO [Value: " + value + ", TagName: " + tagName + "]");
-
             //Value = LBSAssetMacro.LoadAssetByGuid<LBSTag>(tagGUID);
-            if (value != null)
-                tagName = value.Label; ;
-            //this.value = null;
+          
+        }
+
+        public LBSTagsCharacteristic(LBSTag tag)
+        {
+            tags.Add(new TagCharacteristicEntry(tag));
         }
 
         public override object Clone()
         {
-            return new LBSTagsCharacteristic(this.value);
+            List<LBSTag> cloneTags = new();
+            foreach (var tagEntry in tags)
+            {
+                cloneTags.Add(tagEntry.Value);
+            }
+            return new LBSTagsCharacteristic(cloneTags);
         }
 
         public override bool Equals(object obj)
         {
-            if (obj == null)
+            if (obj == null || obj is not LBSTagsCharacteristic ch)
                 return false;
-            if (!(obj is LBSTagsCharacteristic))
+
+            if (ch.tags.Count != tags.Count)
                 return false;
-            var ch = (LBSTagsCharacteristic)obj;
-            //if((ch.value == null && value != null) || (ch.value != null && value == null))
-            //    return false;
-            //if (ch.value == null && value == null)
-            //    return true;
-            //return ch.value.Equals(value);
-            return object.Equals(ch.value, value);
-            //if (ch.value != this.value)
-            //    return false;
-            //return true;
+
+            foreach (var tagEntry in tags)
+            {
+                if (!ch.tags.Exists(t => t.Value == tagEntry.Value))
+                    return false;
+            }
+
+            return true;
+        }
+
+
+        public void AddTag(LBSTag tag)
+        {
+            tags.Add(new TagCharacteristicEntry(tag));
+        }
+
+        public void RemoveTag(LBSTag tag)
+        {
+            tags.RemoveAll(t => t.Value == tag);
         }
 
         public override string ToString()
         {
-            return tagName;
+            return tags.ToString();
         }
 
         public override int GetHashCode()
@@ -112,20 +164,25 @@ namespace ISILab.LBS.Characteristics
         {
             List<string> warnings = new List<string>();
 
-            if (value == null)
+            foreach (var tagEntry in tags)
             {
-                warnings.Add("The tag in LBSTagsCharacteristic is null.");
-            }
-            
+                if (tagEntry.Value == null)
+                {
+                    warnings.Add($"The tag '{tagEntry}' in LBSTagsCharacteristic is null.");
+                }
+            }            
             return warnings;
         }
 
         public void OnBeforeSerialize()
         {
             //Debug.Log("Before Deserialize");
-            var _ = TagGUID;
-            if(value != null)
-                tagName = value.label;
+            foreach(var tagEntry in tags)
+            {
+                var _ = tagEntry.TagGUID;
+                if (tagEntry.Value != null) tagEntry.UpdateName();
+            }
+      
         }
 
         public void OnAfterDeserialize()

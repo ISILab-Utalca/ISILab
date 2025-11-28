@@ -4,7 +4,7 @@ using System.Linq;
 using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
-
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
@@ -125,15 +125,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 currents = bundle.GetChildrenByPositioning(Positioning.Center);
             }
 
-            var tChar = currents.SelectMany(b => b.GetCharacteristics<LBSTagsCharacteristic>()).ToList();
-            var tags = tChar.Select(s => s.Value.Label).ToList();
+            List<string> tags = currents
+                .SelectMany(b => LBSAssetMacro.GetAllTagNames(b))
+                .ToList();
+
             tags.RemoveDuplicates();
 
             for (int i = 0; i < tags.Count; i++)
             {
-                var xx = currents.Where(b => b.GetCharacteristics<LBSTagsCharacteristic>().Any(c => c.Value.name == tags[i])).ToList();
+                var xx = currents.Where(b => LBSAssetMacro.BundleHasTag(b, tags[i])).ToList();
 
-                
                 // Get random bundle
                 var current = xx.Random();
 

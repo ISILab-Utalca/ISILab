@@ -16,7 +16,7 @@ namespace ISILab.LBS.Manipulators
     public class AddPopulationTile : LBSManipulator
     {
         private PopulationBehaviour _population;
-        private PopulationTileGroupBehavior _tileMapBehavior;
+        private TileGroupBehavior _tileMapBehavior;
         private readonly Feedback _previewFeedback;
 
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
@@ -59,7 +59,7 @@ namespace ISILab.LBS.Manipulators
             if(ToSet != null) 
                 (_previewFeedback as IconFeedback).Icon = ToSet.Icon;
 
-            _tileMapBehavior = layer.GetBehaviour<PopulationTileGroupBehavior>();
+            _tileMapBehavior = layer.GetBehaviour<TileGroupBehavior>();
         }
 
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)

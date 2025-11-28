@@ -1,23 +1,24 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.MapTools.Generators;
+using LBS.Bundles;
 using LBS.Components.TileMap;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Behaviours;
-using UnityEditor.UIElements;
-using LBS.Bundles;
-using UnityEditor;
 using Object = UnityEngine.Object;
-using System.Runtime.InteropServices;
-using ISILab.LBS.Plugin.MapTools.Generators;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Components.Bundles;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -167,8 +168,9 @@ namespace ISILab.LBS.VisualElements
                 else if(!newBundle)
                 {
                     //Blocks changing to an unavailable type
-                    List<LBSTagsCharacteristic> tags = lbsComponent.BundleTemp.GetCharacteristics<LBSTagsCharacteristic>();
-                    typeField.value = tags.Count > 0 ? TagToEnum(tags[0].Value) : StructureTags.None;
+        
+                    var tags = LBSAssetMacro.GetTagsFromBundle(lbsComponent.BundleTemp).ToList();
+                    typeField.value = tags.Count > 0 ? TagToEnum(tags[0]) : StructureTags.None;
 
                     if ((StructureTags)evtNewValue != StructureTags.None)   //Structures never have a None tag, so it'd be obvious
                     {
@@ -183,8 +185,13 @@ namespace ISILab.LBS.VisualElements
         public void SetFields(Bundle bundleRef)
         {
             //Set typeField to tag in characteristics if found
+            /*
             List<LBSTagsCharacteristic> tags = bundleRef.GetCharacteristics<LBSTagsCharacteristic>();
             typeField.value = tags.Count > 0 ? TagToEnum(tags[0].Value) : StructureTags.None;
+            */
+
+            var tags = LBSAssetMacro.GetTagsFromBundle(lbsComponent.BundleTemp).ToList();
+            typeField.value = tags.Count > 0 ? TagToEnum(tags[0]) : StructureTags.None;
 
             bundleField.value = bundleRef;
             MarkDirtyRepaint();

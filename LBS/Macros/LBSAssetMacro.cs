@@ -1,27 +1,27 @@
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
+using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
-
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Components;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Internal;
-using LBS.Components;
 
 
 namespace ISILab.LBS.Macros
 {
     public static class LBSAssetMacro
     {
-        
+
         private const string PLACEHOLDER_TEXTURE_GUID = "edcbfe04a88995d49aabd5bf8ee28e79";
         private const string PLACEHOLDER_UI_VECTOR_ICON_G_UID = "5aa5737462342b24c866198641cdaf08";
-        
+
         /// <summary>
         /// Loads an asset of type T from its GUID.
         /// </summary>
@@ -33,8 +33,8 @@ namespace ISILab.LBS.Macros
             string path = AssetDatabase.GUIDToAssetPath(_guid);
             return !string.IsNullOrEmpty(path) ? AssetDatabase.LoadAssetAtPath<T>(path) : null;
         }
-        
-        
+
+
         /// <summary>
         /// Retrieves the GUID of the given asset.
         /// </summary>
@@ -56,24 +56,86 @@ namespace ISILab.LBS.Macros
             var lbsTags = LBSAssetsStorage.Instance.Get<LBSTag>();
             return lbsTags.FirstOrDefault(lbsTag => lbsTag.Label == tag);
         }
-        
-        
+
+
         public static Texture2D LoadPlaceholderTexture()
         {
             return LoadAssetByGuid<Texture2D>(PLACEHOLDER_TEXTURE_GUID);
         }
-        
-        
+
+
         public static VectorImage LoadPlaceholderVectorImage()
         {
             return LoadAssetByGuid<VectorImage>(PLACEHOLDER_UI_VECTOR_ICON_G_UID);
         }
-        
+
+        public static IEnumerable<LBSTag> GetTagsFromBundle(Bundle bundle)
+        {
+            var characteristics = bundle.GetCharacteristics<LBSTagsCharacteristic>();
+            foreach (var ch in characteristics)
+            {
+                if (ch is LBSTagsCharacteristic tagChar)
+                {
+                    foreach (TagCharacteristicEntry entry in tagChar.Tags)
+                    {
+                        if (entry?.Value != null)
+                            yield return entry.Value;
+                    }
+                }
+            }
+        }
+
+        public static bool BundleHasTag(Bundle b, string tagName)
+        {
+            if (b == null || string.IsNullOrEmpty(tagName))
+                return false;
+
+            // Get all LBSTagsCharacteristic associated with the bundle
+            var tagCharacteristics = b.GetCharacteristics<LBSTagsCharacteristic>();
+            if (tagCharacteristics == null)
+                return false;
+
+            // Check whether any TagCharacteristicEntry matches the provided name
+            foreach (var ch in tagCharacteristics)
+            {
+                if (ch.Tags.Any(t => t.TagName == tagName))
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static List<string> GetAllTagNames(Bundle b)
+        {
+            List<string> result = new List<string>();
+
+            if (b == null)
+                return result;
+
+            var tagCharacteristics = b.GetCharacteristics<LBSTagsCharacteristic>();
+            if (tagCharacteristics == null)
+                return result;
+
+            foreach (var ch in tagCharacteristics)
+            {
+                if (ch.Tags == null)
+                    continue;
+
+                foreach (var entry in ch.Tags)
+                {
+                    if (entry?.Value != null)
+                        result.Add(entry.Value.Label);
+                }
+            }
+
+            return result;
+        }
+
     }
 
     public class LBSLayerHelper
     {
-        
+
         /// <summary>
         /// Retrieves an object of type T from the Behaviours, Assistants, or Modules list within the given layerChild's OwnerLayer.
         /// </summary>
@@ -103,7 +165,7 @@ namespace ISILab.LBS.Macros
 
             return null;
         }
-        
+
         /// <summary>
         /// Retrieves an object of type T from the Behaviours, Assistants, or Modules list within the provided layer.
         /// </summary>
@@ -166,10 +228,10 @@ namespace ISILab.LBS.Macros
         }
 
     }
-    
+
     public static class LBSVisualElementHelper
     {
-                
+
         /// <summary>
         /// Searches on the parents of a visual element until a parent of a given VisualElement class is found
         /// </summary>
@@ -187,6 +249,6 @@ namespace ISILab.LBS.Macros
             }
             return null;
         }
+
     }
-    
 }

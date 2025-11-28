@@ -32,7 +32,7 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS
         private TileBundleGroup _tileBundleGroup;
         private readonly LBSLayer _ownerLayer;
-        private readonly PopulationTileGroupBehavior _tileBehaviour;
+        private readonly TileGroupBehavior _tileBehaviour;
 
         private List<VisualElement> _arrows = new();
         private VisualElement _pivot;
@@ -51,7 +51,7 @@ namespace ISILab.LBS.VisualElements
  
             _tileBundleGroup = tile;
             _ownerLayer = ownerLayer;
-            _tileBehaviour = ownerLayer.GetBehaviour<PopulationTileGroupBehavior>();
+            _tileBehaviour = ownerLayer.GetBehaviour<TileGroupBehavior>();
             _tileBehaviour.OnSelectedChanged += (newTbg)=> Highlight(newTbg == _tileBundleGroup);
             InitializeVisuals(tile);
             SetupCallbacks();

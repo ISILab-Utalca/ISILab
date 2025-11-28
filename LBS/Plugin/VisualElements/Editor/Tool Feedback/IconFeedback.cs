@@ -54,7 +54,9 @@ namespace ISILab.LBS.VisualElements
             {
                 Vector2 offset = Vector2.Lerp(startPosition, center, 0.425f);
                 mgc.DrawVectorImage(Icon, offset, Angle.Degrees(0), new Vector2(1.75f, 1.75f));
+               
             }
+            
         }
 
     }

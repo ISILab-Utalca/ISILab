@@ -342,13 +342,13 @@ namespace ISILab.LBS.VisualElements.Editor
             var layer = GetSelectedLayer();
             if (layer != null)
             {
-                LBSInspectorPanel.ActivateDataTab();
+                LBSInspectorPanel.ActivateBehaviourTab();
                 _noSelectedLayerNotificator.style.display = DisplayStyle.None;
             }
             else
             {
                 _noSelectedLayerNotificator.style.display = DisplayStyle.Flex;
-                LBSInspectorPanel.Instance.SetSelectedTab(null);
+                LBSInspectorPanel.Instance.DeactivateTabs();
             }
         }
         #endregion

@@ -77,7 +77,7 @@ namespace ISILab.LBS.Manipulators
             }
 
             LBSLayer OwnerLayer = _population.OwnerLayer;
-            PopulationTileGroupBehavior poptb = OwnerLayer.GetBehaviour<PopulationTileGroupBehavior>();
+            TileGroupBehavior poptb = OwnerLayer.GetBehaviour<TileGroupBehavior>();
             if(poptb is not null)
             {
                 if (removed.Contains(poptb.SelectedTilemap)) 

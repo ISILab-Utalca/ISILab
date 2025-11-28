@@ -23,20 +23,7 @@ namespace ISILab.LBS.Editor
     {
         
         #region FIELDS
-        private static class UIElementNames
-        {
-            public const string VisualTree = "QuestAssistantEditor";
-            public const string LockedLayerContainer = "LockedLayerContainer";
-            public const string LayerList = "LayerList";
-            public const string SuggestionList = "SuggestionList";
-            public const string AddLayerButton = "AddLayerButton";
-            public const string GenerateSuggestionsButton = "GenerateSuggestions";
-            public const string ConnectAll = "ConnectAll";
-            public const string SuggestionField = "SuggestionField";
-            public const string NoSuggestionPanel = "NoSuggestionPanel";
-            public const string RemoveAllSuggestions = "RemoveSuggestions";
-        }
-
+   
         private QuestAssistant _assistant;
         private QuestGraph _questGraph;
         private ListView _layerList;
@@ -74,18 +61,18 @@ namespace ISILab.LBS.Editor
         protected sealed override VisualElement CreateVisualElement()
         {
             Clear();
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>(UIElementNames.VisualTree);
+            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestAssistantEditor");
             visualTree.CloneTree(this);
 
-            _lockedContextEntryContainer = this.Q<VisualElement>(UIElementNames.LockedLayerContainer);
-            _layerList = this.Q<ListView>(UIElementNames.LayerList);
-            _suggestionList = this.Q<ListView>(UIElementNames.SuggestionList);
-            _addLayerButton = this.Q<Button>(UIElementNames.AddLayerButton);
-            _generateSuggestionsButton = this.Q<Button>(UIElementNames.GenerateSuggestionsButton);
-            _removeSuggestionsButton = this.Q<Button>(UIElementNames.RemoveAllSuggestions);
-            _autoConnectButton = this.Q<Button>(UIElementNames.ConnectAll);
-            _noSuggestionPanel = this.Q<LBSCustomLabelIcon>(UIElementNames.NoSuggestionPanel);
-            _suggestionField = this.Q<LBSCustomUnsignedIntegerField>(UIElementNames.SuggestionField);
+            _lockedContextEntryContainer = this.Q<VisualElement>("LockedLayerContainer");
+            _layerList = this.Q<ListView>("LayerList");
+            _suggestionList = this.Q<ListView>("SuggestionList");
+            _addLayerButton = this.Q<Button>("AddLayerButton");
+            _generateSuggestionsButton = this.Q<Button>("GenerateSuggestions");
+            _removeSuggestionsButton = this.Q<Button>("RemoveSuggestions");
+            _autoConnectButton = this.Q<Button>("ConnectAll");
+            _noSuggestionPanel = this.Q<LBSCustomLabelIcon>("NoSuggestionPanel");
+            _suggestionField = this.Q<LBSCustomUnsignedIntegerField>("SuggestionField");
             _suggestionField.value = _assistant.SuggestionAmount;
             
             _suggestionField.RegisterValueChangedCallback(evt =>

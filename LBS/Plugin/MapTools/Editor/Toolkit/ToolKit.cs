@@ -114,7 +114,7 @@ namespace LBS.VisualElements
             LBSTool selectTool = new LBSTool(new SelectManipulator());
             ActivateTool(selectTool,layer);
             selectTool.Init(layer, this);
-            selectTool.OnSelect += LBSInspectorPanel.ActivateDataTab;
+            selectTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
         }
         
         public object GetActiveManipulator()

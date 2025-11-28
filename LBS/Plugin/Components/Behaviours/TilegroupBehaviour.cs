@@ -7,7 +7,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationTileGroupBehavior : LBSBehaviour
+    public class TileGroupBehavior : LBSBehaviour
     {
         #region FIELDS
         private TileBundleGroup selectedTilemap;
@@ -29,7 +29,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region CONSTRUCTORS
-        public PopulationTileGroupBehavior(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
+        public TileGroupBehavior(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
@@ -52,12 +52,12 @@ namespace ISILab.LBS.Behaviours
 
         public override object Clone()
         {
-            return new PopulationTileGroupBehavior(this.IconGuid, this.Name, this.ColorTint);
+            return new TileGroupBehavior(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override bool Equals(object obj)
         {
-            var other = obj as PopulationTileGroupBehavior;
+            var other = obj as TileGroupBehavior;
 
             if (other == null) return false;
 
