@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Data;
 using Newtonsoft.Json;
 using UnityEngine;
 
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
-
-using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
@@ -72,15 +71,15 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [JsonIgnore]
         public Bundle PressetInsideStyle
         {
-            get => LBSAssetMacro.LoadAssetByGuid<Bundle>(pressetInsideStyleGuid);
-            set => pressetInsideStyleGuid = LBSAssetMacro.GetGuidFromAsset(value);
+            get => AssetMacro.LoadAssetByGuid<Bundle>(pressetInsideStyleGuid);
+            set => pressetInsideStyleGuid = AssetMacro.GetGuidFromAsset(value);
         }
 
         [JsonIgnore]
         public Bundle PressetOutsideStyle
         {
-            get => LBSAssetMacro.LoadAssetByGuid<Bundle>(pressetOutsideStyleGuid);
-            set => pressetOutsideStyleGuid = LBSAssetMacro.GetGuidFromAsset(value);
+            get => AssetMacro.LoadAssetByGuid<Bundle>(pressetOutsideStyleGuid);
+            set => pressetOutsideStyleGuid = AssetMacro.GetGuidFromAsset(value);
         }
 
         [JsonIgnore]

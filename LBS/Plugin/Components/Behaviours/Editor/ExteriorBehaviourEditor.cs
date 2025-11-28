@@ -17,6 +17,7 @@ using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
@@ -45,7 +46,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
+        private VectorImage icon = AssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
         private SimplePallete connectionPallete;
         private LBSCustomObjectField bundleField;
         private WarningPanel warningPanel;
@@ -259,7 +260,7 @@ namespace ISILab.LBS.VisualElements
                 var identifier = option as LBSTag;
                 optionView.Label = identifier.Label;
                 optionView.Color = identifier.Color;
-                optionView.Icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(tileIconGuid);
+                optionView.Icon = AssetMacro.LoadAssetByGuid<VectorImage>(tileIconGuid);
                 // optionView.Icon = identifier.Icon;
             });
 

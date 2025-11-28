@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
@@ -51,7 +51,7 @@ namespace ISILab.LBS.Behaviours
             set
             {
                 targetBundleRef = value;
-                bundleRefGui = LBSAssetMacro.GetGuidFromAsset(value);
+                bundleRefGui = AssetMacro.GetGuidFromAsset(value);
             }
         }
 
@@ -122,7 +122,7 @@ namespace ISILab.LBS.Behaviours
             if (targetBundleRef is null && bundleRefGui is not null)
             {
                 // either loads the default guid or the saved guid field
-                targetBundleRef = LBSAssetMacro.LoadAssetByGuid<Bundle>(bundleRefGui);
+                targetBundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleRefGui);
             }
             
             return targetBundleRef;

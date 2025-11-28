@@ -6,7 +6,7 @@ using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Macros;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -62,7 +62,7 @@ namespace ISILab.LBS.Behaviours
             set
             {
                 bundleCollection = value;
-                bundleRefGui = LBSAssetMacro.GetGuidFromAsset(value);
+                bundleRefGui = AssetMacro.GetGuidFromAsset(value);
             }
         }
 
@@ -72,7 +72,7 @@ namespace ISILab.LBS.Behaviours
             set
             {
                 mainBundle = value;
-                bundleRefGuid = LBSAssetMacro.GetGuidFromAsset(value);
+                bundleRefGuid = AssetMacro.GetGuidFromAsset(value);
             }
         }
         
@@ -299,7 +299,7 @@ namespace ISILab.LBS.Behaviours
         {
             if (bundleCollection == null)
             {
-                bundleCollection = LBSAssetMacro.LoadAssetByGuid<BundleCollection>(bundleRefGui);
+                bundleCollection = AssetMacro.LoadAssetByGuid<BundleCollection>(bundleRefGui);
             }
 
             return bundleCollection;
@@ -309,7 +309,7 @@ namespace ISILab.LBS.Behaviours
         {
             if(mainBundle == null)
             {
-                mainBundle = LBSAssetMacro.LoadAssetByGuid<Bundle>(bundleRefGuid ?? DefaultBundleRefGuid);
+                mainBundle = AssetMacro.LoadAssetByGuid<Bundle>(bundleRefGuid ?? DefaultBundleRefGuid);
             }
 
             return mainBundle;

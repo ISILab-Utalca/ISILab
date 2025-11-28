@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using ISILab.Commons;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
@@ -1490,7 +1490,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public Bundle GetBundleRef()
         {
             // if null assign default
-            targetBundleRef ??= LBSAssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
+            targetBundleRef ??= AssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
             return targetBundleRef;
         }
         #endregion

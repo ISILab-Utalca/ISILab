@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
@@ -157,7 +158,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             var loadWeightsButton = this.Q<Button>("LoadWeights");
             loadWeightsButton.clicked += LoadWeights;
             currentPreset = this.Q<ObjectField>("CurrentPreset");
-            currentPreset.value = LBSAssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
+            currentPreset.value = AssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
             // Safe Generation Mode
             var safeModeToggle = this.Q<LBSCustomToggleField>("SafeMode");
             safeModeToggle.RegisterValueChangedCallback(evt =>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
@@ -167,7 +168,7 @@ namespace ISILab.LBS.Components
 
         public VectorImage GetIcon()
         {
-            return LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+            return AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
         }
         
         /// <summary>

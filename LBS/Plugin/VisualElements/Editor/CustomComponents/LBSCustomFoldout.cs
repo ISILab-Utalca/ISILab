@@ -1,3 +1,4 @@
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Macros;
 using UnityEngine;
 using UnityEditor.UIElements;
@@ -45,7 +46,7 @@ namespace ISILab.LBS.CustomComponents
             
             m_LeftIcon = new VisualElement();
             
-            m_LeftIcon.style.backgroundImage = LBSAssetMacro.LoadPlaceholderTexture();
+            m_LeftIcon.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
             
             Toggle mToggle = this.Q<Toggle>();
             mToggle.RemoveFromClassList(Toggle.ussClassName);
@@ -60,9 +61,9 @@ namespace ISILab.LBS.CustomComponents
             contentLabel.AddToClassList("unity-base-field__label");
             
             
-            arrowDownIcon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("b570a25de51f01c41bd82dbe5372bb3f");
-            arrowSideIcon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("83eafacbab9ab554299bc4d0f124d980");
-            dotsIcon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("4fc870f9e2f488d4bb2c1bffe1f5b751");
+            arrowDownIcon = AssetMacro.LoadAssetByGuid<VectorImage>("b570a25de51f01c41bd82dbe5372bb3f");
+            arrowSideIcon = AssetMacro.LoadAssetByGuid<VectorImage>("83eafacbab9ab554299bc4d0f124d980");
+            dotsIcon = AssetMacro.LoadAssetByGuid<VectorImage>("4fc870f9e2f488d4bb2c1bffe1f5b751");
             
 
             
@@ -80,7 +81,7 @@ namespace ISILab.LBS.CustomComponents
             }
             else
             {
-                arrowVisualElement.style.backgroundImage = LBSAssetMacro.LoadPlaceholderTexture();
+                arrowVisualElement.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
             }
             
             content.AddToClassList(FOLDOUT_CONTENT_PANEL);

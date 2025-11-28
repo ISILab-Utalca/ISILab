@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -107,8 +108,8 @@ public class BundleDirectionEditorWindow : EditorWindow
         LRDirectionDropdown = rootVisualElement.Q<LBSCustomDropdown>("LRDirectionDropdown"); //Lower Right
         LLDirectionDropdown = rootVisualElement.Q<LBSCustomDropdown>("LLDirectionDropdown"); //Lower Left
 
-        edgeFrame = LBSAssetMacro.LoadAssetByGuid<VectorImage>("533a887ccf1a0b444a147165d3fb6a6b");
-        vertexFrame = LBSAssetMacro.LoadAssetByGuid<VectorImage>("f0de0c827bb8a654e8cc48b71ca0b057");
+        edgeFrame = AssetMacro.LoadAssetByGuid<VectorImage>("533a887ccf1a0b444a147165d3fb6a6b");
+        vertexFrame = AssetMacro.LoadAssetByGuid<VectorImage>("f0de0c827bb8a654e8cc48b71ca0b057");
 
         directionTypeEnum = rootVisualElement.Q<LBSCustomEnumField>("DirectionTypeEnum");
         directionTypeEnum.RegisterValueChangedCallback(evt =>

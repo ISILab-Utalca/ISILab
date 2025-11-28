@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.AI.Grammar;
 using ISILab.Commons.JsonNet;
+using ISILab.DevTools.Macros;
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;
@@ -148,7 +149,7 @@ public class QuestBenchmarkReport
 
         if (_questGraph.Grammar == null)
         {
-            _questGraph.Grammar = LBSAssetMacro.LoadAssetByGuid<LBSGrammar>("63ab688b53411154db5edd0ec7171c42");
+            _questGraph.Grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>("63ab688b53411154db5edd0ec7171c42");
         }
 
         _questGraph.GraphNodes.Clear();

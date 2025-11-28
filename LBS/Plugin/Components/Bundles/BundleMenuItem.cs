@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Macros;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using UnityEditor;
@@ -144,7 +144,7 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
         {
             Bundle bundle = EditorUtility.InstanceIDToObject(instanceId) as Bundle;
             AssetDatabase.CreateAsset(bundle, AssetDatabase.GenerateUniqueAssetPath(pathName));
-            bundle.GUID = LBSAssetMacro.GetGuidFromAsset(bundle);
+            bundle.GUID = AssetMacro.GetGuidFromAsset(bundle);
             Debug.Log($"Created new Bundle: '{bundle.name}', '{bundle.GUID}'");
             AssetDatabase.Refresh();
         }

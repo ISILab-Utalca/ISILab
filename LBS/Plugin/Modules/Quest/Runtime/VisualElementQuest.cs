@@ -1,7 +1,7 @@
 using System;
 using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -59,23 +59,23 @@ namespace ISILab.LBS
             switch (_questNode.QuestState)
             {
                 case QuestState.Blocked:
-                    vecImage = LBSAssetMacro.LoadAssetByGuid<VectorImage>(ActiveIconGuid);
+                    vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(ActiveIconGuid);
                     color = Color.gray;
                     break;
 
                 case QuestState.Active:
-                    vecImage = LBSAssetMacro.LoadAssetByGuid<VectorImage>(ActiveIconGuid);
+                    vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(ActiveIconGuid);
                     color = Color.white;
                     break;
 
                 case QuestState.Completed:
-                    vecImage = LBSAssetMacro.LoadAssetByGuid<VectorImage>(CompletedIconGuid);
+                    vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(CompletedIconGuid);
                     color = LBSSettings.Instance.view.successColor;
                     closed = true;
                     break;
 
                 case QuestState.Failed:
-                    vecImage = LBSAssetMacro.LoadAssetByGuid<VectorImage>(FailedIconGuid);
+                    vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(FailedIconGuid);
                     color = LBSSettings.Instance.view.errorColor;
                     closed = true;
                     break;
@@ -89,8 +89,8 @@ namespace ISILab.LBS
             {
                 vecImage = questObjective.Trigger.OwnerBranchNode switch
                 {
-                    AndNode => LBSAssetMacro.LoadAssetByGuid<VectorImage>(AndIconGuid),
-                    OrNode => LBSAssetMacro.LoadAssetByGuid<VectorImage>(OrIconGuid),
+                    AndNode => AssetMacro.LoadAssetByGuid<VectorImage>(AndIconGuid),
+                    OrNode => AssetMacro.LoadAssetByGuid<VectorImage>(OrIconGuid),
                     _ => vecImage
                 };
             }

@@ -1,8 +1,8 @@
 // LBSInventory.cs
 using System;
 using System.Collections.Generic;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.MapTools.Generators;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using UnityEngine;
@@ -58,7 +58,7 @@ public class LBSInventory : MonoBehaviour
         // Can only equip items
         if (lbsGen.BundleRef.ElementFlag == Bundle.EElementFlag.Item)
         {
-            string guid = LBSAssetMacro.GetGuidFromAsset(lbsGen.BundleRef);
+            string guid = AssetMacro.GetGuidFromAsset(lbsGen.BundleRef);
 
             if (string.IsNullOrEmpty(guid))
             {

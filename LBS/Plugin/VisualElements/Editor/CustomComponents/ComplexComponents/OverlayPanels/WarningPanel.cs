@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -106,7 +107,7 @@ namespace ISILab.LBS.VisualElements
                     }
 
                     iconVisualElement.style.backgroundImage = new StyleBackground(
-                        Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>(
+                        AssetMacro.LoadAssetByGuid<VectorImage>(
                             iconGuids[currentWarningType]
                         ));
                 }
@@ -126,7 +127,7 @@ namespace ISILab.LBS.VisualElements
         public WarningPanel(string _text)
         {
             // Warning Panel UXML
-            VisualTreeAsset visualTree = Macros.LBSAssetMacro.LoadAssetByGuid<VisualTreeAsset>("65ad21365d671594a85cf837da5d8c84"); 
+            VisualTreeAsset visualTree = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("65ad21365d671594a85cf837da5d8c84"); 
             visualTree.CloneTree(this);
             
             this.externalBorder = this.Q<VisualElement>("ExternalBorder");

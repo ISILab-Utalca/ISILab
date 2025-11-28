@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Macros;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -60,12 +60,12 @@ namespace ISILab.LBS.Behaviours
         {
             get
             {
-                return icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                return icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
             }
             set
             {
                 icon = value;
-                string guid = LBSAssetMacro.GetGuidFromAsset(icon);
+                string guid = AssetMacro.GetGuidFromAsset(icon);
                 iconGuid = guid != string.Empty ? guid : LBSSettings.Instance.view.DebugVectorGUID;
             }
         }

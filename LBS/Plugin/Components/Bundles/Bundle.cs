@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles.Tools;
 using ISILab.LBS.Plugin.Internal;
 
@@ -158,18 +157,18 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             {
                 if (icon is not null)
                 {
-                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon); ;
+                    iconGuid = AssetMacro.GetGuidFromAsset(icon); ;
                 }
                 else
                 {
-                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                    icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
                 }
                 return icon;
             }
             set
             {
                 icon = value;
-                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+                iconGuid = AssetMacro.GetGuidFromAsset(icon);
             }
         }
 

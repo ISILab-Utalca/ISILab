@@ -15,6 +15,7 @@ using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using System.Resources;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Behaviours;
@@ -199,7 +200,7 @@ namespace ISILab.LBS.Behaviours.Editor
                 var area = (Zone)option;
                 optionView.Label = area.ID;
                 optionView.Color = area.Color;
-                optionView.Icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
+                optionView.Icon = AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
             });
 
             areaPallete.OnRepaint += () =>
@@ -293,11 +294,11 @@ namespace ISILab.LBS.Behaviours.Editor
 
         VectorImage GetOptionIcon(string label)
         {
-            if(label == "Empty") return LBSAssetMacro.LoadAssetByGuid<VectorImage>(emptyConnectionIconGuid);
-            if(label == "Wall") return LBSAssetMacro.LoadAssetByGuid<VectorImage>(wallConnectionIconGuid);
-            if(label == "Door") return LBSAssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
-            if(label == "Window") return LBSAssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
-            return LBSAssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
+            if(label == "Empty") return AssetMacro.LoadAssetByGuid<VectorImage>(emptyConnectionIconGuid);
+            if(label == "Wall") return AssetMacro.LoadAssetByGuid<VectorImage>(wallConnectionIconGuid);
+            if(label == "Door") return AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
+            if(label == "Window") return AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
+            return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
         }
         
         #endregion
