@@ -14,6 +14,7 @@ using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 
 namespace LBS.VisualElements

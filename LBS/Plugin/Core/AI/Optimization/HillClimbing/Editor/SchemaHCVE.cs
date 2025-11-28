@@ -4,6 +4,7 @@ using LBS.VisualElements;
 using System.Collections;
 using System.Collections.Generic;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using UnityEngine;
 using UnityEngine.UIElements;
 

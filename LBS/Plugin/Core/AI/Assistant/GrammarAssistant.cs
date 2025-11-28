@@ -8,6 +8,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;

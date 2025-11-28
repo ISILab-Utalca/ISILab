@@ -32,6 +32,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             foreach (var behaviour in layer.Behaviours)
             {
                 
+                
                 behaviour.OnGUI();
                 // invoke
             }

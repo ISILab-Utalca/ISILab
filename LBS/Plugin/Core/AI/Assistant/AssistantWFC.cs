@@ -9,6 +9,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.Core.Settings;

@@ -7,6 +7,7 @@ using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
 using Newtonsoft.Json;
 using UnityEngine;
