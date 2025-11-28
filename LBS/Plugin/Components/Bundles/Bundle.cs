@@ -173,7 +173,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             }
         }
 
-        public Color Color => color;
+        public Color Color
+        {
+            get => color;
+            set => color = value;
+        }
         public string Name => name;
         public List<Asset> Assets
         {

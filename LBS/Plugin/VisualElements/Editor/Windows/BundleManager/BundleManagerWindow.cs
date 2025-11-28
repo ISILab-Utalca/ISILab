@@ -15,7 +15,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
     public class BundleManagerWindow : EditorWindow
     {
@@ -483,7 +483,7 @@ namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                     _subBundlesCategory.ListGroup.TitleText = "Sub Bundles - " + bundle.GetMainBundle().name;
 
                     _subBundlesCategory.SetBundleListViewItem();
-                    _subBundlesCategory.List.RefreshItems();
+                    //_subBundlesCategory.List.RefreshItems();
                     _subBundlesCategory.SetExpandButtonSetting(Instance);
                 }
 

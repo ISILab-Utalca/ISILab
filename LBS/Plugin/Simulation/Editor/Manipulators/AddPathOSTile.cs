@@ -1,8 +1,6 @@
-using ISILab.AI.Optimization.Populations;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.VisualElements;
-using LBS.Bundles;
 using LBS.Components;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +8,6 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Manipulators
 {

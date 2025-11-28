@@ -164,9 +164,9 @@ public class BundleBuilder
     public string bundleName { get; set; }
     public string layerType { get; set; }
 
-    public List<GameObject> objects { get; private set; } = new();
-    public List<GameObject> models { get; private set; } = new();
-     
+    public List<List<GameObject>> objects { get; private set; } = new();
+    
+    public List<Bundle> tempBundles { get; private set; } = new();
     public List<Bundle> newSubBundles { get; private set; } = new();
      
     public List<LBSCharacteristic> characteristics { get; private set; } = new();
@@ -179,10 +179,7 @@ public class BundleBuilder
         s += "> Layer type:\t" + layerType + "\n\n";
 
         s += "> Objects:\n";
-        objects.ForEach(o => s += "\t" + o.ToString() + " | ");
-        s += "\n";
-        s += "> Models:\n";
-        models.ForEach(m => s += "\t" + m.ToString() + " | ");
+        objects.ForEach(obj => obj.ForEach(o => s += "\t" + o.ToString() + " | "));
         s += "\n\n";
 
         s += "> Sub Bundles:\n";

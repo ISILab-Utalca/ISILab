@@ -3,7 +3,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
 {
     [UxmlElement]
     public partial class BundleWizardElement : LBSComplexVisualElement, IBundleElement

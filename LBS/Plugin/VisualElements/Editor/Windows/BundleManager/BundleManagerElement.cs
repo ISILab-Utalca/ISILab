@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
     
     [UxmlElement]
