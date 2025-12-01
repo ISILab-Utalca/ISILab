@@ -12,11 +12,6 @@ namespace ISILab.LBS.Settings
     [CreateAssetMenu(menuName = "ISILab/LBS/Internal/LBS Settings", fileName = "LBS Settings")]
     public class LBSSettings : ScriptableObject
     {
-        
-        private const string USER_ASSET_FOLDER_NAME = "LBSUserContent";
-
-        private static string mainFolder = "Assets/isi-lab-unity-module";
-
         public static string assetName = "LBSDefaultSettings";
         
         #region SINGLETON
@@ -156,28 +151,28 @@ namespace ISILab.LBS.Settings
         public class Paths
         {
             // Controller Paths
-            public string settingsPath                  = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset";
-            public string storagePath                   = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset";
-            //public string pressetsPath                  = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
-            public string backUpPath                    = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
+            public string settingsPath                  = "Assets/ISILab/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset";
+            public string storagePath                   = "Assets/ISILab/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset";
+            //public string pressetsPath                = "Assets/ISILab/LBS/Presets/Assistants/DungeonPreset.asset";
+            public string backUpPath                    = "Assets/ISILab/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset";
                                                                   
             // Folders for user data storages                              
-            public string bundleFolderPath              = "Assets/isi-lab-unity-module/LBS/Data/Bundles";
-            public string tagFolderPath                 = "Assets/isi-lab-unity-module/LBS/Data/Tags";
-            public string meshFolderPath                = "Assets/isi-lab-unity-module/LBS/Data/Meshes";
+            public string bundleFolderPath              = "Assets/ISILab/LBS/Content/Bundles";
+            public string tagFolderPath                 = "Assets/ISILab/LBS/Content/Tags";
+            public string meshFolderPath                = "Assets/ISILab/LBS/Content/Meshes";
 
-            public string WFCpresetsFolderPath          = "Assets/isi-lab-unity-module/LBS/Data/Presets/WFC";
+            public string WFCpresetsFolderPath          = "Assets/ISILab/LBS/Content/Presets/WFC";
 
             // Folders extra storages                             
-            //public string iconPath                      = "Assets/isi-lab-unity-module/LBS/Plugin/Internal/Icons";
+            //public string iconPath                    = "Assets/ISILab/LBS/Plugin/Internal/Icons";
 
             // Folders presets                                    
-            public string layerPressetFolderPath        = "Assets/isi-lab-unity-module/LBS/Presets/Layers";
-            public string assistantPresetFolderPath     = "Assets/isi-lab-unity-module/LBS/Presets/Assistants";
-            //public string assistantOptimizerPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Optimizers";
-            //public string assistantEvaluatorPresetPath  = "Assets/isi-lab-unity-module/LBS/Presets/Evaluators";
-            //public string Generator3DPresetFolderPath   = "Assets/isi-lab-unity-module/LBS/Presets/Generators3D";
-            //public string bundlesPresetFolderPath       = "Assets/isi-lab-unity-module/LBS/Presets/Bundles";
+            public string layerPressetFolderPath        = "Assets/ISILab/LBS/Presets/Layers";
+            public string assistantPresetFolderPath     = "Assets/ISILab/LBS/Presets/Assistants";
+            //public string assistantOptimizerPresetPath= "Assets/ISILab/LBS/Presets/Optimizers";
+            //public string assistantEvaluatorPresetPath= "Assets/ISILab/LBS/Presets/Evaluators";
+            //public string Generator3DPresetFolderPath = "Assets/ISILab/LBS/Presets/Generators3D";
+            //public string bundlesPresetFolderPath     = "Assets/ISILab/LBS/Presets/Bundles";
 
             //public string savedMapsPresetPath = "Assets/ISI Lab/LBS/Presets/SavedMaps";
 
