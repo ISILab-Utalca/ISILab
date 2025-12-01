@@ -18,6 +18,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Macros;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -208,11 +209,10 @@ namespace ISILab.LBS.VisualElements
 
                 string tooltip = "Tags:";
 
-                var tags = b.Characteristics.Select(t => t as LBSTagsCharacteristic);
-                List<LBSTagsCharacteristic> validTags = tags.Where(t => t.Value != null).ToList();
-                if (validTags.Count > 0)
+                var tags = LBSAssetMacro.GetAllTagNames(b);
+                if (tags.Count > 0)
                 {
-                    validTags.ForEach(t => tooltip += "\n- " + t.Value.Label);
+                    tags.ForEach(t => tooltip += "\n- " + t);
                     //b.Characteristics.ForEach(c => tooltip += "\n- " + c?.ToString());//.GetType());
                 }
                 else

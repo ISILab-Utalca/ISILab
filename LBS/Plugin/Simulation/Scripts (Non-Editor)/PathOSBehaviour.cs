@@ -186,7 +186,7 @@ namespace ISILab.LBS.Behaviours
                 //bool playerTag = false;
                 for(int i = 0; i < characteristics.Count; i++)
                 {
-                    foreach(var ctag in characteristics[i].Tags)
+                    foreach(var ctag in characteristics[i].TagEntries)
                     {
                         tag = ctag.Value;
                         if (tag != null)

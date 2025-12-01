@@ -61,7 +61,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         public override bool Equals(object obj)
         {
-            var other = obj as SchemaRuleGenerator;
+            SchemaRuleGenerator other = obj as SchemaRuleGenerator;
 
             if (other == null) return false;
 
@@ -85,10 +85,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         public override List<Message> CheckViability(LBSLayer layer)
         {
-            var msgs = new List<Message>();
-            var zonesMod = layer.GetModule<SectorizedTileMapModule>();
+            List<Message> msgs = new List<Message>();
+            SectorizedTileMapModule zonesMod = layer.GetModule<SectorizedTileMapModule>();
 
-            foreach (var zone in zonesMod.Zones)
+            foreach (Zone zone in zonesMod.Zones)
             {
                 if (zone.OutsideStyles.Count <= 0)
                 {
@@ -119,8 +119,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private GameObject GenerateCenters(GameObject pivot, List<Bundle> bundles)
         {
             // Get "Center" bundles 
-            var currents = new List<Bundle>();
-            foreach (var bundle in bundles)
+            List<Bundle> currents = new List<Bundle>();
+            foreach (Bundle bundle in bundles)
             {
                 currents = bundle.GetChildrenByPositioning(Positioning.Center);
             }
@@ -133,16 +133,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             for (int i = 0; i < tags.Count; i++)
             {
-                var xx = currents.Where(b => LBSAssetMacro.BundleHasTag(b, tags[i])).ToList();
+                List<Bundle> xx = currents.Where(b => LBSAssetMacro.BundleHasTag(b, tags[i])).ToList();
 
                 // Get random bundle
-                var current = xx.Random();
+                Bundle current = xx.Random();
 
                 // Get random by weight
-                var pref = current.Assets.RandomRullete(a => a.probability).obj;
+                GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
 
                 // Create part
-                var obj = CreateObject(pref, pivot.transform);
+                GameObject obj = CreateObject(pref, pivot.transform);
                 
                 // Add ref component
                 LBSGenerated generatedComponent = obj.AddComponent<LBSGenerated>();
@@ -163,8 +163,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, List<string> connections)
         {
             // Get "Edge" bundles
-            var currents = new List<Bundle>();
-            foreach (var bundle in bundles)
+            List<Bundle> currents = new List<Bundle>();
+            foreach (Bundle bundle in bundles)
             {
                 currents = bundle.GetChildrenByPositioning(Positioning.Edge);
             }
@@ -172,21 +172,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             for (var i = 0; i < connections.Count; i++)
             {
                 // Get random bundle with respctive "connection tag"
-                var current = currents.Where(b => b.GetCharacteristics<LBSTagsCharacteristic>()
-                    .Any(c => c.Value.name == connections[i]))
-                    .ToList().Random();
+                Bundle current = LBSAssetMacro.GetRandomBundleWithTag(currents, connections[i]);
 
                 // check if current is valid
-                if (current == null)
-                {
-                    continue;
-                }
+                if (current == null) continue;
 
                 // Get random by weight
-                var pref = current.Assets.RandomRullete(a => a.probability).obj;
+                GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
 
                 // Create part
-                var obj = CreateObject(pref, pivot.transform);
+                GameObject obj = CreateObject(pref, pivot.transform);
 
                 // Set rotation orientation
                 if (i % 2 == 0)
@@ -217,43 +212,43 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns></returns>
         private GameObject GenerateCorners(GameObject pivot, List<Bundle> bundles, LBSTile tile)
         {
-            var currents = new List<Bundle>();
-            foreach (var bundle in bundles)
+            List<Bundle> currents = new List<Bundle>();
+            foreach (Bundle bundle in bundles)
             {
                 currents = bundle.GetChildrenByPositioning(Positioning.Corner);
             }
 
-            var current = currents.Random();
+            Bundle current = currents.Random();
 
-            var selfConnections = connectedTilesMod.GetConnections(tile);
+            List<string> selfConnections = connectedTilesMod.GetConnections(tile);
             for (int i = 0; i < Dirs.Count; i++)
             {
-                var d1 = Dirs[i];
-                var d2 = Dirs[(i + 1) % Dirs.Count];
+                Vector2Int d1 = Dirs[i];
+                Vector2Int d2 = Dirs[(i + 1) % Dirs.Count];
 
                 // if directions are NOT empty continue
                 if (!selfConnections[i].Equals("Empty") || !selfConnections[(i + 1)% Dirs.Count].Equals("Empty"))
                     continue;
 
-                var neigth = tilesMod.GetTileNeighbor(tile, d1);
-                var neigth2 = tilesMod.GetTileNeighbor(tile, d2);
+                LBSTile neigth = tilesMod.GetTileNeighbor(tile, d1);
+                LBSTile neigth2 = tilesMod.GetTileNeighbor(tile, d2);
 
                 // if neigths are null continue
                 if (neigth == null || neigth2 == null)
                     continue;
 
                 // Get neigth connections
-                var neigthConnections = connectedTilesMod.GetConnections(neigth);
-                var neigthConnections2 = connectedTilesMod.GetConnections(neigth2);
+                List<string> neigthConnections = connectedTilesMod.GetConnections(neigth);
+                List<string> neigthConnections2 = connectedTilesMod.GetConnections(neigth2);
 
                 if (neigthConnections[(i + 1) % Dirs.Count] != "Empty" || neigthConnections2[i] != "Empty")
                 {
                     // Get random by weight
-                    var pref = current.Assets.RandomRullete(a => a.probability).obj;
-                    var instance = CreateObject(pref, pivot.transform);
+                    GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
+                    GameObject instance = CreateObject(pref, pivot.transform);
 
                     // Set delta position
-                    var dir = Dirs[i] + Dirs[(i + 1) % Dirs.Count];
+                    Vector2Int dir = Dirs[i] + Dirs[(i + 1) % Dirs.Count];
                     instance.transform.position = new Vector3(
                         settings.scale.x / 2f * dir.x,
                         0,
@@ -286,14 +281,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             Init(layer, settings);
 
             // Get bundles
-            var allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
-            var rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
+            List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
+            List<Bundle> rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
 
             // Create pivot
-            var mainPivot = new GameObject("Schema");
+            GameObject mainPivot = new GameObject("Schema");
 
-            var tiles = new List<GameObject>();
-            foreach (var tile in tilesMod.Tiles)
+            List<GameObject> tiles = new List<GameObject>();
+            foreach (LBSTile tile in tilesMod.Tiles)
             {
                 if(tile == null) continue;
                 // Get zone
@@ -301,7 +296,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 if(zone == null) continue;
                 zone.AddPosition(tile.Position);
                 // Get bundle from current tile
-                var bundles = zone.GetInsideBundles();
+                List<Bundle> bundles = zone.GetInsideBundles();
 
                 if (bundles.Count <= 0)
                 {
@@ -311,19 +306,19 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 }
 
                 // Get connections
-                var connections = connectedTilesMod.GetConnections(tile);
+                List<string> connections = connectedTilesMod.GetConnections(tile);
 
                 //Generate tile
-                var tileObj = new GameObject(tile.Position.ToString());
+                GameObject tileObj = new GameObject(tile.Position.ToString());
 
                 // Add pref part to pivot
                 GenerateCenters(tileObj, bundles);
                 GenerateEdges(tileObj, bundles, connections);
                 GenerateCorners(tileObj, bundles, tile);
 
-                var basePos = settings.position;
-                var tilePos = new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.y);
-                var delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
+                Vector3 basePos = settings.position;
+                Vector3 tilePos = new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.y);
+                Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
                 // Set General position
                 tileObj.transform.position = basePos + tilePos - delta;
 
@@ -333,35 +328,35 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 tiles.Add(tileObj);
             }
 
-            var probes = new List<GameObject>();
-            var lightVolumes = new List<GameObject>();
-            foreach (var zone in zonesMod.Zones)
+            List<GameObject> probes = new List<GameObject>();
+            List<GameObject> lightVolumes = new List<GameObject>();
+            foreach (Zone zone in zonesMod.Zones)
             {
                 Vector2 zonePos = zonesMod.ZoneCentroid(zone);
-                var zoneSize = zone.GetSize() * settings.scale;
-                var basePos = settings.position;
-                var tilePos = new Vector3(zonePos.x * settings.scale.x, 0, zonePos.y * settings.scale.y);
-                var delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
-                var centerPos = basePos + tilePos - delta - Vector3.one;
+                Vector2 zoneSize = zone.GetSize() * settings.scale;
+                Vector3 basePos = settings.position;
+                Vector3 tilePos = new Vector3(zonePos.x * settings.scale.x, 0, zonePos.y * settings.scale.y);
+                Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
+                Vector3 centerPos = basePos + tilePos - delta - Vector3.one;
                 
                 if (settings.reflectionProbe)
                 {
                     // Set General position
-                    var probeObject = new GameObject("rf_" + zone.ID);
+                    GameObject probeObject = new GameObject("rf_" + zone.ID);
                     probeObject.AddComponent<ReflectionProbe>();
                     probeObject.transform.position = centerPos;
                     probes.Add(probeObject);
-                    
+
                     // Set size
-                    var rp = probeObject.GetComponent<ReflectionProbe>();
+                    ReflectionProbe rp = probeObject.GetComponent<ReflectionProbe>();
                     
                     rp.size = new Vector3(zoneSize.x, zoneSize.x, zoneSize.y);
                 }
 
                 if (settings.lightVolume)
                 {
-                    var lightObject = new GameObject("lv_" + zone.ID);
-                    var light = lightObject.AddComponent<LightProbeCubeGenerator>();
+                    GameObject lightObject = new GameObject("lv_" + zone.ID);
+                    LightProbeCubeGenerator light = lightObject.AddComponent<LightProbeCubeGenerator>();
                   //  lightObject.AddComponent<LightProbeGroup>();
                    // lightObject.AddComponent<BoxCollider>();
                
@@ -369,7 +364,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     lightObject.transform.position = centerPos;
                     lightVolumes.Add(lightObject);
 
-                    var boxCollider = lightObject.GetComponent<BoxCollider>();
+                    BoxCollider boxCollider = lightObject.GetComponent<BoxCollider>();
                     boxCollider.isTrigger = true;
                     boxCollider.size = new Vector3(zoneSize.x, zoneSize.x*0.5f, zoneSize.y);
                     
@@ -390,7 +385,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
             mainPivot.transform.position = new Vector3(x,y,z);
 
-            foreach ( var tile in tiles ) 
+            foreach (GameObject tile in tiles ) 
             {
                 tile.transform.parent = mainPivot.transform;
             }
@@ -404,7 +399,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 GameObject probePivot = new GameObject("ReflectionProbes");
                 probePivot.transform.position = new Vector3(px,py,pz);
-                foreach ( var probe in probes ) 
+                foreach (GameObject probe in probes ) 
                 {
                     probe.transform.parent = probePivot.transform;
                 }
@@ -420,7 +415,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 
                 GameObject lightVolPivot = new GameObject("LightVolumes");
                 lightVolPivot.transform.position = new Vector3(px,py,pz);
-                foreach ( var light in lightVolumes ) 
+                foreach (GameObject light in lightVolumes ) 
                 {
                     light.transform.parent = lightVolPivot.transform;
                 }
@@ -438,7 +433,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private GameObject CreateObject(GameObject pref, Transform pivot)
         {
 #if UNITY_EDITOR
-            var obj = PrefabUtility.InstantiatePrefab(pref, pivot) as GameObject;
+            GameObject obj = PrefabUtility.InstantiatePrefab(pref, pivot) as GameObject;
 #else
             var obj =  GameObject.Instantiate(pref, pivot);
 #endif

@@ -69,13 +69,13 @@ namespace ISILab.LBS.Characteristics
         public TagCharacteristicEntry(LBSTag value)
         {
             this.value = value;
-            tagGUID = LBSAssetMacro.GetGuidFromAsset(value);
-            UpdateName();
+            UpdateInfo();
         }
 
-        internal void UpdateName()
+        public void UpdateInfo()
         {
             tagName = value.Label;
+            tagGUID = LBSAssetMacro.GetGuidFromAsset(value);
         }
     }
 
@@ -85,17 +85,35 @@ namespace ISILab.LBS.Characteristics
     {
         public new static readonly bool unique = false;
 
-        List<TagCharacteristicEntry> tags = new();
-    
-        public List<TagCharacteristicEntry> Tags => tags;
+        List<TagCharacteristicEntry> tagEntries = new();
 
-        public object Value { get; internal set; }
+        public List<TagCharacteristicEntry> TagEntries
+        {
+            get => tagEntries;
+        }
+
+        public List<LBSTag> Tags
+        {
+            get
+            {
+                // only return valid entries
+                List<LBSTag> tags = new();
+                foreach (var entry in tagEntries)
+                {
+                    if (entry.Value is null) continue;
+                    tags.Add(entry.Value);
+                }
+                return tags;
+            }
+        }
+
+        public List<TagCharacteristicEntry> Value { get; internal set; }
 
         public LBSTagsCharacteristic(List<LBSTag> tags)
         {
             foreach (var tag in tags)
             {
-                this.tags.Add(new TagCharacteristicEntry(tag));
+                this.tagEntries.Add(new TagCharacteristicEntry(tag));
             }
         }
 
@@ -109,13 +127,13 @@ namespace ISILab.LBS.Characteristics
 
         public LBSTagsCharacteristic(LBSTag tag)
         {
-            tags.Add(new TagCharacteristicEntry(tag));
+            tagEntries.Add(new TagCharacteristicEntry(tag));
         }
 
         public override object Clone()
         {
             List<LBSTag> cloneTags = new();
-            foreach (var tagEntry in tags)
+            foreach (var tagEntry in tagEntries)
             {
                 cloneTags.Add(tagEntry.Value);
             }
@@ -127,12 +145,12 @@ namespace ISILab.LBS.Characteristics
             if (obj == null || obj is not LBSTagsCharacteristic ch)
                 return false;
 
-            if (ch.tags.Count != tags.Count)
+            if (ch.tagEntries.Count != tagEntries.Count)
                 return false;
 
-            foreach (var tagEntry in tags)
+            foreach (var tagEntry in tagEntries)
             {
-                if (!ch.tags.Exists(t => t.Value == tagEntry.Value))
+                if (!ch.tagEntries.Exists(t => t.Value == tagEntry.Value))
                     return false;
             }
 
@@ -142,17 +160,17 @@ namespace ISILab.LBS.Characteristics
 
         public void AddTag(LBSTag tag)
         {
-            tags.Add(new TagCharacteristicEntry(tag));
+            tagEntries.Add(new TagCharacteristicEntry(tag));
         }
 
         public void RemoveTag(LBSTag tag)
         {
-            tags.RemoveAll(t => t.Value == tag);
+            tagEntries.RemoveAll(t => t.Value == tag);
         }
 
         public override string ToString()
         {
-            return tags.ToString();
+            return tagEntries.ToString();
         }
 
         public override int GetHashCode()
@@ -164,7 +182,7 @@ namespace ISILab.LBS.Characteristics
         {
             List<string> warnings = new List<string>();
 
-            foreach (var tagEntry in tags)
+            foreach (var tagEntry in tagEntries)
             {
                 if (tagEntry.Value == null)
                 {
@@ -177,12 +195,35 @@ namespace ISILab.LBS.Characteristics
         public void OnBeforeSerialize()
         {
             //Debug.Log("Before Deserialize");
-            foreach(var tagEntry in tags)
+            /*
+            List<TagCharacteristicEntry> validEntries = new();
+            List<TagCharacteristicEntry> invalidEntries = new();
+            
+            // get valids
+            foreach (var entry in tagEntries)
             {
-                var _ = tagEntry.TagGUID;
-                if (tagEntry.Value != null) tagEntry.UpdateName();
+                if (entry.Value == null) invalidEntries.Add(entry);
             }
-      
+
+            // remove invalids
+            foreach (var invalid in invalidEntries)
+            {
+                tagEntries.Remove(invalid);
+            }
+
+
+            foreach (var tagEntry in tagEntries)
+            {
+                if (tagEntry.Value != null) tagEntry.UpdateInfo();
+            }
+            */
+
+            foreach (var tagEntry in tagEntries)
+            {
+                if (tagEntry.Value != null)
+                    tagEntry.UpdateInfo();
+            }
+
         }
 
         public void OnAfterDeserialize()

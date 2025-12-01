@@ -2,11 +2,8 @@ using ISILab.Commons.Utility;
 using ISILab.LBS.Editor;
 using LBS.Components.TileMap;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -14,6 +11,7 @@ namespace ISILab.LBS.VisualElements
     [LBSCustomEditor("BundleData", typeof(BundleData))]
     public class BundleDataEditor : LBSCustomEditor
     {
+        Dictionary<Type, Type> TypeToEditorMap = new();
 
         public override void SetInfo(object paramTarget)
         {
@@ -38,25 +36,34 @@ namespace ISILab.LBS.VisualElements
                 }
 
                 // Get type of element
-                var type = c.GetType();
+                Type type = c.GetType();
+                Type edtr = null;
 
-                // Get the editors of the selectable elements
-                var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
-                        .Where(t => t.Item2.Any(v => v.type == type)).ToList();
-
-                if (ves.Count <= 0)
+                if (TypeToEditorMap.TryGetValue(type, out var editor))
                 {
-                    // Add basic label if no have specific editor
-                    Add(new Label("'" + type + "' does not contain a visualization."));
-                    continue;
+                    edtr = editor;
+                }
+                else
+                {
+                    // Get the editors of the selectable elements
+                    var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
+                            .Where(t => t.Item2.Any(v => v.type == type)).ToList();
+
+                    if (ves.Count <= 0)
+                    {
+                        // Add basic label if no have specific editor
+                        Add(new Label("'" + type + "' does not contain a visualization."));
+                        continue;
+                    }
+
+                    // Get editor class
+                    edtr = ves.First().Item1;
+                    TypeToEditorMap.Add(type, edtr);
                 }
 
-                // Get editor class
-                var edtr = ves.First().Item1;
-
                 // Instantiate editor class
-                var ve = Activator.CreateInstance(edtr, new object[] { c }) as LBSCustomEditor;
-                Debug.Log(ve.GetType());
+                LBSCustomEditor ve = Activator.CreateInstance(edtr, new object[] { c }) as LBSCustomEditor;
+               // Debug.Log(ve.GetType());
                 Add(ve);
             }
 
