@@ -214,7 +214,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             _validatorList = rootVisualElement.Q<VisualElement>("BundleValidator").Q<ListView>();
             SetExpandButtonSetting("BundleValidator", _validatorList);
         }
-
+        
         /// <summary>
         /// Finds all bundles in project and sets their reference in the BundleContainer lists.
         /// </summary>

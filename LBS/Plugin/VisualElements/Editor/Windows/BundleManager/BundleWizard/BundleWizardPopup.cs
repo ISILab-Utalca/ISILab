@@ -6,8 +6,8 @@ using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
-using LBS.Bundles;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 
@@ -37,11 +37,17 @@ public partial class BundleWizardPopup: VisualElement
         get => currentStep; 
         set 
         { 
-            currentStep = value; if (tabView is not null) tabView.selectedTabIndex = value; 
+            currentStep = value;
+            if (tabView is not null) 
+                tabView.selectedTabIndex = value; 
         } 
     }
-    private string CurrentBreadcrumb { get => breadcrumbLabels[CurrentStep]; }
-    private IBundleWizardTab CurrentWizardTab { get => tabs[CurrentBreadcrumb] as IBundleWizardTab; }
+
+    private bool InFinalStep => CurrentStep == breadcrumbLabels.Length - 1;
+
+    private string CurrentBreadcrumb => breadcrumbLabels[CurrentStep]; 
+
+    private IBundleWizardTab CurrentWizardTab => tabs[CurrentBreadcrumb] as IBundleWizardTab;
     
     public BundleWizardPopup()
     {
@@ -51,10 +57,6 @@ public partial class BundleWizardPopup: VisualElement
         tabView = this.Q<LBSCustomTabView>("TabView");
         breadcrumbs = this.Q<LBSCustomBreadcrumbs>("WizardBreadcrumbs");
         
-        var backButton = this.Q<LBSCustomButton>("Back");
-        backButton.clicked += Back;
-        backButton.clicked += () => OnAnyButtonClicked(backButton);
-
         var OKButton = this.Q<LBSCustomButton>("OK");
         OKButton.clicked += OK;
         OKButton.clicked += () => OnAnyButtonClicked(OKButton);
@@ -62,6 +64,12 @@ public partial class BundleWizardPopup: VisualElement
         var nextButton = this.Q<LBSCustomButton>("Next");
         nextButton.clicked += Next;
         nextButton.clicked += () => OnAnyButtonClicked(nextButton);
+
+        ToggleNextButton(true);
+
+        var backButton = this.Q<LBSCustomButton>("Back");
+        backButton.clicked += Back;
+        backButton.clicked += () => OnAnyButtonClicked(backButton);
 
         var cancelButton = this.Q<LBSCustomButton>("Cancel");
         cancelButton.clicked += Cancel;
@@ -79,10 +87,11 @@ public partial class BundleWizardPopup: VisualElement
                 return;
             }
 
+            if (InFinalStep)
+                ToggleNextButton(true);
+
             CurrentStep--;
             breadcrumbs.PopItem();
-            //CurrentWizardTab.Init();
-            //OnTabChanged();
         }
 
         void OK()
@@ -98,13 +107,20 @@ public partial class BundleWizardPopup: VisualElement
             CurrentStep++;
             breadcrumbs.PushItem(CurrentBreadcrumb);
             CurrentWizardTab.Init();
-            //OnTabChanged();
+            if(InFinalStep)
+                ToggleNextButton(false);
         }
 
         void Cancel()
         {
             this.SetDisplay(false);
             CleanUp();
+        }
+
+        void ToggleNextButton(bool showNext)
+        {
+            nextButton.SetDisplay(showNext);
+            OKButton.SetDisplay(!showNext);
         }
 
         void OnAnyButtonClicked(Button button)
@@ -120,8 +136,9 @@ public partial class BundleWizardPopup: VisualElement
     {
 
         var tabNames = new[] { "SelectBundleTypeMenu", "SetAssetsMenu", "SetBundleMenu", "SetCharacteristicsMenu" };
+        Assert.IsTrue(breadcrumbLabels.Length == tabNames.Length);
         BundleBuilder builder = new BundleBuilder();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < tabNames.Length; i++)
         {
             VisualElement value = this.Q<VisualElement>(tabNames[i]);
             tabs.Add(breadcrumbLabels[i], value);
@@ -130,10 +147,6 @@ public partial class BundleWizardPopup: VisualElement
 
         breadcrumbs.PushItem(CurrentBreadcrumb);
         CurrentWizardTab.Init();
-        //OnTabChanged();
-
-        //var tab = this.Q<LBSCustomTabView>("TabView");
-        //Debug.Log(tab.DisplayTabs);
     }
 
     void OnTabChanged()
