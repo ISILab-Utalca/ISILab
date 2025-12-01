@@ -10,7 +10,7 @@ using ISILab.LBS.Settings;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;
 
-namespace ISILab.LBS.VisualElements
+namespace ISILab.LBS.VisualElements 
 {
     public abstract class QuestGraphNodeView : GraphElement
     {
@@ -46,9 +46,9 @@ namespace ISILab.LBS.VisualElements
         #region Mouse Events
         protected virtual void OnMouseDown(MouseDownEvent evt)
         {
-            if (Node == null) return;
             if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             
+            if (Node == null) return;
             if (evt.button == 0 && ToolKit.Instance.GetActiveManipulatorInstance() is SelectManipulator)
             {
                 LBSInspectorPanel.ActivateBehaviourTab();
@@ -62,11 +62,11 @@ namespace ISILab.LBS.VisualElements
 
         protected void OnMouseMove(MouseMoveEvent e)
         {
-            if(this != _selectedGraph) return;
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             
+            if(this != _selectedGraph) return;
             // only move the selected node
             if (Node == null) return;
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             if (e.pressedButtons != 1) return; // only while dragging
             if (!MainView.Instance.HasManipulator<SelectManipulator>()) return;
 
@@ -79,6 +79,7 @@ namespace ISILab.LBS.VisualElements
 
         protected virtual void OnMouseLeave(MouseLeaveEvent e) 
         {
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             if (Node == null) return;
             RestoreManipulator();
             OnMouseMove(MouseMoveEvent.GetPooled(e.mousePosition, e.button, e.clickCount, e.mouseDelta));
@@ -87,13 +88,21 @@ namespace ISILab.LBS.VisualElements
         
         protected void OnMouseUp(MouseUpEvent evt)
         {
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             RestoreManipulator();
             DrawManager.Instance.PickingModeRestoreAll();
             DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+            
+            /// avoid recall on assistant
+            Type activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance().GetType();
+            bool usingSelect = activeManipulator == typeof(SelectManipulator);
+            bool usingAdd = activeManipulator == typeof(AddGraphNode);
+            if (usingAdd || usingSelect) evt.StopImmediatePropagation();
         }
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)
         {
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             ShelfManipulator();
         }
         

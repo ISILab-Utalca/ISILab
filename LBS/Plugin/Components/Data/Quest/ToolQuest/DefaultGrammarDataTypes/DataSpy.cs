@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Settings;
 using LBS.Bundles;
 using LBS.Components;
@@ -9,7 +10,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataSpy : BaseQuestNodeData
+    public class DataSpy : QuestActionData
     {
         [SerializeField] public BundleGraph bundleToSpy;
         
@@ -27,7 +28,7 @@ namespace ISILab.LBS.Components
             color = LBSSettings.Instance.view.colorSpy;
         }
           
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataSpy spyData) return;
@@ -47,7 +48,7 @@ namespace ISILab.LBS.Components
             if (bundleToSpy.Valid())area = bundleToSpy.Area;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var spyOther =  other as DataSpy;
             if (spyOther is null) return false;

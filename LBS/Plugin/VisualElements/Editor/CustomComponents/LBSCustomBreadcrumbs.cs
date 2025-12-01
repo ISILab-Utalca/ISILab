@@ -12,27 +12,41 @@ namespace ISILab.LBS.CustomComponents
     public partial class LBSCustomBreadcrumbs : ToolbarBreadcrumbs
     {
 
-        string[] m_titles;
+        string[] mTitles;
+        private int mSelectSection = -1;
+        
+        public static event Action OnBreadcrumbClickEvent;
 
         [UxmlAttribute]
         public string[] SectionTitles
         {
-            get => m_titles;
+            get => mTitles;
             set
             {
-                m_titles = value;
+                mTitles = value;
                 DrawBreadcrumbsItems();
             }
         }
-        
-        public LBSCustomBreadcrumbs() : base()
+
+        [UxmlAttribute]
+        public int SelectSection
+        {
+            get => mSelectSection;
+            set
+            {
+                mSelectSection = value;
+                SelectAtIndex(mSelectSection);
+            }
+        }
+
+        public LBSCustomBreadcrumbs()
         {
             this.AddToClassList("lbs-breadcrumbs");
         }
 
-        public LBSCustomBreadcrumbs(List<string> _labelsToDisplay): base()
+        public LBSCustomBreadcrumbs(List<string> _labelsToDisplay): this()
         {
-            m_titles = _labelsToDisplay.ToArray();
+            mTitles = _labelsToDisplay.ToArray();
             DrawBreadcrumbsItems();
         }
 
@@ -41,11 +55,46 @@ namespace ISILab.LBS.CustomComponents
             if (this.childCount > 0) this.Clear();
             if (SectionTitles == null) return;
             
-            foreach (var title in SectionTitles)
+            for (int i = 0; i < SectionTitles.Length; i++)
             {
-                this.PushItem(title, null);
+                string title = SectionTitles[i];
+                this.PushItem(title, OnBreadcrumbClickEvent);
+            }
+        }
+        
+        
+        private void SelectAtIndex(int _index)
+        {
+            if (childCount == 0) return;
+            if (_index < 0 || _index >= this.childCount)
+            {
+                UnselectAll();
+                return;
             }
             
+            for (int i = 0; i < this.childCount; i++)
+            {
+                VisualElement breadcrumbsElement  = this.ElementAt(i);
+                if  (breadcrumbsElement == null) continue;
+                if (i == _index)
+                {
+                    breadcrumbsElement.AddToClassList("lbs-breadcrumb-item-selected");
+                }
+                else
+                {
+                    breadcrumbsElement.RemoveFromClassList("lbs-breadcrumb-item-selected");
+                }
+            }
+        }
+
+        private void UnselectAll()
+        {
+            for (int i = 0; i < this.childCount; i++)
+            {
+                VisualElement breadcrumbElement = this.ElementAt(i);
+                if (breadcrumbElement == null) continue;
+                breadcrumbElement.RemoveFromClassList("lbs-breadcrumb-item-selected");
+            }
         }
     }
 }

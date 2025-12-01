@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
 using ISILab.Commons.Utility.Editor;
 using UnityEngine.UIElements;
 using ISILab.LBS.CustomComponents.Events;
@@ -32,7 +32,7 @@ namespace ISILab.LBS.VisualElements
         
         #region ACTION EVENTS
         
-        public event Action<ChangeEvent<bool>> OnTogglePressed;
+        //public event Action<ChangeEvent<bool>> OnTogglePressed;
         
         #endregion
         
@@ -46,7 +46,6 @@ namespace ISILab.LBS.VisualElements
             layerToggle = this.Q<Toggle>("LayerToggle");
             gen3DToggle = this.Q<Toggle>("Gen3DToggle");
             plusToggle =  this.Q<Toggle>("PlusToggle");
-            
             
             layerDataTab = this.Q<Toggle>("LayerDataButton");
             assistantTab = this.Q<Toggle>("AssistantButton");

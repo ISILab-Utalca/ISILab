@@ -11,12 +11,12 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;
-using ISILab.Macros;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -36,7 +36,7 @@ namespace ISILab.LBS.Editor
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
         
-        private CancellationTokenSource _currentTaskCts;
+  
         #endregion
 
         #region VIEW
@@ -74,17 +74,20 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-            target = paramTarget as GrammarAssistant;
-            _assistant = LBSLayerHelper.GetObjectFromLayerChild<GrammarAssistant>(paramTarget);
-            _questBehaviour = LBSLayerHelper.GetObjectFromLayerChild<QuestBehaviour>(paramTarget);
 
-            if (_questBehaviour != null)
+            target = paramTarget;
+            _assistant = target as GrammarAssistant;
+
+            if(_questGraph is not null)
             {
-                _questGraph = _questBehaviour.Graph;
-                _questGraph.OnGraphNodeSelected += UpdatePanel;
+                if (_questGraph.Equals(_assistant._questGraph)) return;
             }
+       
+            _questGraph = _assistant._questGraph;
+            _questGraph.OnGraphNodeSelected -= UpdatePanel;
+            _questGraph.OnGraphNodeSelected += UpdatePanel;
 
-            UpdatePanel();
+           // UpdatePanel();
         }
 
         protected sealed override VisualElement CreateVisualElement()
@@ -114,6 +117,7 @@ namespace ISILab.LBS.Editor
 
         private void UpdatePanel(GraphNode selectedGraphNode = null)
         {
+            if (LBSMainWindow.Instance._selectedLayer != _questGraph.OwnerLayer) return;
             if (_questGraph is null) return;
 
             _grammarField.value = _questGraph.Grammar;
@@ -219,7 +223,7 @@ namespace ISILab.LBS.Editor
             return _questGraph.GetNodeAsQuest()?.QuestAction;
         }
 
-        private void SetBaseDataValues(BaseQuestNodeData data)
+        private void SetBaseDataValues(QuestActionData data)
         {
             if (data == null) return;
 

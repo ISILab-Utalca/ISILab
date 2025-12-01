@@ -2,7 +2,6 @@
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
-using ISILab.Macros;
 using LBS.Bundles;
 using System;
 using System.IO;
@@ -13,6 +12,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Internal;
 using ISILab.LBS;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.VisualElements;
 
 public class BundleDirectionEditorWindow : EditorWindow

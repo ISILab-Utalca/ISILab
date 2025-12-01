@@ -6,12 +6,14 @@ using LBS.Components;
 using System.Collections.Generic;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Editor.Windows;
-using ISILab.Macros;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using LBS.Components.TileMap;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Behaviours;
 
 namespace ISILab.LBS.Manipulators
 {

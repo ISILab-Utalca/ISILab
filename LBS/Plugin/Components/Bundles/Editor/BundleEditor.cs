@@ -11,6 +11,8 @@ using LBS.Bundles;
 using System;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.VisualElements;
+using System.Collections.Generic;
+using ISILab.LBS.Plugin.Components.Bundles;
 
 
 namespace ISILab.LBS.Bundles.Editor
@@ -322,19 +324,30 @@ namespace ISILab.LBS.Bundles.Editor
 
         bool CharacteristicUniquenessFilter(object obj)
         {
-            ;
             if (obj is not Type type) return false;
             if (type.BaseType != typeof(LBSCharacteristic)) return false;
 
-            if (LBSCharacteristic.IsUnique(type) && (target as Bundle).Characteristics.Any(ch => ch?.GetType() == type))
+            if (LBSCharacteristic.IsUnique(type) && (target as Bundle).HasCharacteristic(type))//Characteristics.Any(ch => ch?.GetType() == type))
                 return false;
             return true;
         }
 
+        bool CharacteristicExclusivenessFilter(object obj)
+        {
+            if (obj is not Type type) return false;
+            if (type.BaseType != typeof(LBSCharacteristic)) return false;
+
+            if(LBSCharacteristic.IsExclusive(type, out List<List<Type>> exclusiveGroups) && exclusiveGroups.Any(group => group.Any(t => (target as Bundle).HasCharacteristic(t))))
+                return false;
+            return true;
+        }
+
+        
+
         VisualElement MakeItem()
         {
             var bundle = target as Bundle;
-            var v = new DynamicFoldout(typeof(LBSCharacteristic), CharacteristicUniquenessFilter);
+            var v = new DynamicFoldout(typeof(LBSCharacteristic), CharacteristicUniquenessFilter, CharacteristicExclusivenessFilter);
             return v;
         }
 

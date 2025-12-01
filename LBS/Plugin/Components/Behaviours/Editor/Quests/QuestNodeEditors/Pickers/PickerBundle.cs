@@ -1,8 +1,10 @@
 using System;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
-using ISILab.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using LBS.VisualElements;
 using UnityEditor.UIElements;
@@ -15,7 +17,7 @@ namespace ISILab.LBS.VisualElements
     [UxmlElement]
     public partial class PickerBundle : PickerBase
     {
-        private readonly ObjectField _objectFieldBundle;
+        private readonly LBSCustomObjectField _objectFieldBundle;
         private readonly Button _buttonPickerTarget;
         private readonly TextField _labelLayer;
         private readonly VisualElement _warning;
@@ -41,7 +43,7 @@ namespace ISILab.LBS.VisualElements
 
             visualTree.CloneTree(this);
 
-            _objectFieldBundle = this.Q<ObjectField>("TargetFieldBundle");
+            _objectFieldBundle = this.Q<LBSCustomObjectField>("TargetFieldBundle");
             if (_objectFieldBundle == null)
             {
                 Debug.LogError("TargetFieldBundle not found in VisualElement_QuestTargetBundle.uxml");

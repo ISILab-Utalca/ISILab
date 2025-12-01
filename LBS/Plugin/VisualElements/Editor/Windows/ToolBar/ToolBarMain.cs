@@ -1,6 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using System;
-using ISI_Lab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
 using ISILab.LBS.CustomComponents;
 using UnityEditor;
 using UnityEngine.UIElements;
@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements.Editor
         public event Action<LoadedLevel> OnLevelChange;
         public event Action<LBSSettings.Interface.InterfaceTheme> OnThemeChanged;
         
-        public event Action OnProgressCompleted;
+        //public event Action OnProgressCompleted;
         public event Action OnProgressCancelled;
         
         #region  Visual Elements

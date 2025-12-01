@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Settings;
-using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Components;
 using UnityEngine;
@@ -11,7 +11,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataListen : BaseQuestNodeData
+    public class DataListen : QuestActionData
     {
         /// <summary>
         /// Character or objects that gets listened to
@@ -28,7 +28,7 @@ namespace ISILab.LBS.Components
             color = LBSSettings.Instance.view.colorListen;
         }
             
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataListen listenData) return;
@@ -46,7 +46,7 @@ namespace ISILab.LBS.Components
             if (bundleListenTo.Valid())area = bundleListenTo.Area;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var listenOther = other as DataListen;
             if(listenOther == null) return false;

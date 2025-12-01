@@ -10,7 +10,6 @@ using ISILab.LBS.Internal;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Settings;
-using ISILab.Macros;
 using LBS;
 using LBS.Bundles;
 using LBS.Components;
@@ -18,6 +17,9 @@ using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -26,7 +28,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("Exterior Behaviour", typeof(ExteriorBehaviour))]
-    public class ExteriorBehaviourEditor : LBSCustomEditor, IToolProvider
+    public class ExteriorBehaviourEditor : LBSCustomEditor, IToolProvider, IBundleFilter
     {
         #region FIELDS
         private ExteriorBehaviour exterior;
@@ -48,11 +50,11 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomObjectField bundleField;
         private WarningPanel warningPanel;
         private string tileIconGuid = "";
-
-        private static LBSButtonListFilter bundlePickerWindow;
         #endregion
 
         #region PROPERTIES
+        public LBSButtonListFilter BundlePickerWindow { get; set; }
+        
         private Color BHcolor => LBSSettings.Instance.view.behavioursColor;
 
         public ConnectedTileMapModule.ConnectedTileType GridType => exterior.GridType;
@@ -145,8 +147,8 @@ namespace ISILab.LBS.VisualElements
 
             bundleField.CustomFilter = pick =>
             {
-                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSDirectionedGroup>(includeChildren: true);
-                OpenFilterWindow(bundles, picked => pick(picked));
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
+                (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
             };
 
             // only updates the first bundle value change - fix pending
@@ -197,12 +199,10 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
 
-        private void OpenFilterWindow(List<Bundle> bundles, Action<Bundle> onPick)
+        public override void OnUnfocus()
         {
-            if (bundlePickerWindow)
-                bundlePickerWindow.Close();
-
-            LBSButtonListFilter.Show(bundles, picked => onPick(picked));
+            base.OnUnfocus();
+            (this as IBundleFilter).CloseFilterWindow();
         }
 
         private void SetConnectionPallete(Bundle bundle)

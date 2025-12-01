@@ -1,8 +1,9 @@
 // LBSInventory.cs
 using System;
 using System.Collections.Generic;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
-using ISILab.Macros;
+using ISILab.LBS.Plugin.MapTools.Generators;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
 using UnityEngine;
 
@@ -51,7 +52,7 @@ public class LBSInventory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var lbsGen = other.gameObject.GetComponent<LBSGenerated>();
+        LBSGenerated lbsGen = other.gameObject.GetComponent<LBSGenerated>();
         if (lbsGen == null || lbsGen.BundleRef == null) return;
 
         // Can only equip items

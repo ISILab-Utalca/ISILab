@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Internal;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -51,7 +52,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetConnections(string[] tags)
         {
-            var tts = LBSAssetsStorage.Instance.Get<LBSTag>();
+            List<LBSTag> tts = LBSAssetsStorage.Instance.Get<LBSTag>();
             Color invalidColor = Color.white;
             Color color = invalidColor;
             Dictionary<Color, int> ConnectionColors = new Dictionary<Color, int>();

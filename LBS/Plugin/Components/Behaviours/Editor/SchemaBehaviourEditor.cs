@@ -1,4 +1,5 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
@@ -7,13 +8,17 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using ISILab.Macros;
 using LBS;
 using LBS.Bundles;
+using LBS.Components;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using System.Resources;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -23,7 +28,7 @@ namespace ISILab.LBS.Behaviours.Editor
 {
 
     [LBSCustomEditor("Schema Behaviour", typeof(SchemaBehaviour))]
-    public class SchemaBehaviourEditor : LBSCustomEditor, IToolProvider
+    public class SchemaBehaviourEditor : LBSCustomEditor, IToolProvider, IBundleFilter
     {
 
         #region FIELDS
@@ -50,6 +55,8 @@ namespace ISILab.LBS.Behaviours.Editor
 
         #region PROPERTIES
         private Color BHcolor => LBSSettings.Instance.view.behavioursColor;
+
+        public LBSButtonListFilter BundlePickerWindow { get; set; }
         #endregion
 
         #region CONSTRUCTORS
@@ -110,20 +117,24 @@ namespace ISILab.LBS.Behaviours.Editor
             SetAreaPallete();
 
             // Inside Field
-            var insideField = this.Q<ObjectField>("InsideField");
+            var insideField = this.Q<LBSCustomObjectField>("InsideField");
             insideField.value = behaviour.PressetInsideStyle;
             insideField.RegisterValueChangedCallback(evt =>
             {
                 behaviour.PressetInsideStyle = evt.newValue as Bundle;
             });
+            insideField.UseCustomFilter = true;
+            insideField.CustomFilter = InteriorFilter;
 
             // Outside Field
-            var outsideField = this.Q<ObjectField>("OutsideField");
+            var outsideField = this.Q<LBSCustomObjectField>("OutsideField");
             outsideField.value = behaviour.PressetOutsideStyle;
             outsideField.RegisterValueChangedCallback(evt =>
             {
                 behaviour.PressetOutsideStyle = evt.newValue as Bundle;
             });
+            outsideField.UseCustomFilter = true;
+            outsideField.CustomFilter = InteriorFilter;
 
             // Connection Pallete
             connectionPallete = this.Q<SimplePallete>("ConnectionPallete");
@@ -144,6 +155,12 @@ namespace ISILab.LBS.Behaviours.Editor
             multiLayerConnectionsToggle.SetValueWithoutNotify(behaviour.MultiLayerConnections);
 
             return this;
+
+            void InteriorFilter(System.Action<Object> pick)
+            {
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainInteriorBundle>(includeChildren: true);
+                (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
+            }
         }
 
         private void SetAreaPallete()

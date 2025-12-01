@@ -8,6 +8,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Template;
 using UnityEditor;
 using UnityEngine;
@@ -169,7 +171,7 @@ namespace ISILab.LBS.VisualElements
         private void CreateBundle(Bundle parent)
         {
             var settings = LBSSettings.Instance;
-            var storage = LBSAssetsStorage.Instance;
+            LBSAssetsStorage storage = LBSAssetsStorage.Instance;
 
             var clone = pressetSelected.Clone() as Bundle;
             var name = Format.CheckNameFormat(targets.Select(b => b.Item1.name), pressetSelected.name);

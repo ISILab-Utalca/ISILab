@@ -4,28 +4,29 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Template;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using ISILab.Macros;
-using LBS.Components;
-using LBS.VisualElements;
 using System;
-
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using ISILab.Commons.VisualElements.Editor;
-using ISILab.Extensions;
-using ISILab.LBS.Manipulators;
-using ISILab.LBS.Settings;
+
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
-using ISILab.LBS.Internal.Editor;
+
+using LBS.Components;
+using LBS.VisualElements;
+using ISILab.Extensions;
+using ISILab.LBS.Settings;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Internal.Editor;
+using ISILab.LBS.Macros;
+using ISILab.Commons.VisualElements.Editor;
 
 namespace ISILab.LBS.Editor.Windows{
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public class LBSMainWindow : EditorWindow
+    public sealed class LBSMainWindow : EditorWindow
     {
         #region PROPERTIES
 
@@ -197,7 +198,7 @@ namespace ISILab.LBS.Editor.Windows{
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
         private static void ShowWindow()
         {
-            var window = GetWindow<LBSMainWindow>();
+            LBSMainWindow window = GetWindow<LBSMainWindow>();
             Texture icon = LBSAssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
             window.titleContent = new GUIContent("Level Builder", icon);
             window.minSize = new Vector2(800, 400);
@@ -205,7 +206,7 @@ namespace ISILab.LBS.Editor.Windows{
         
         
         #region METHODS
-        public virtual void CreateGUI()
+        public void CreateGUI()
         {
             Debug.Log("[Main Window] - CreateGUI");
             Init();

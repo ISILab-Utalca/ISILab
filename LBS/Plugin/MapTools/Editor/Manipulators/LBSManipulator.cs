@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
 using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.VisualElements;
-using ISILab.Macros;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -419,7 +419,7 @@ namespace ISILab.LBS.Manipulators
             _objectType = provider == null ? typeof(Manipulator) : provider.GetType().BaseType;
         }
 
-        protected virtual void UpdateView() => DrawManager.Instance.RedrawLayer(LBSLayer);
+        protected virtual void UpdateView() => DrawManager.Instance.RedrawLayer(LBSMainWindow.Instance._selectedLayer);
 
         protected virtual void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) { }
         

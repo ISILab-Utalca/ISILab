@@ -8,6 +8,7 @@ using LBS.Bundles;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;

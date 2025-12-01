@@ -8,14 +8,14 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Settings;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Generators;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Bundles;
 
-using LBS.Bundles;
 using LBS.Components;
 
 namespace ISILab.LBS.VisualElements.Editor

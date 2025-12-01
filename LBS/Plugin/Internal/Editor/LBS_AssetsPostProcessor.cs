@@ -6,13 +6,14 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace ISILab.LBS.Internal.Editor
+namespace ISILab.LBS.Plugin.Internal.Editor
 {
     public class LBS_AssetsPostProcessor : AssetPostprocessor
     {
         const string defaultSettingsGUID = "29abd09f3cff7644da7097258d0ae978";
         const string defaultStorageGUID = "5dacd13b749bccf469893489a5d0f94b";
 
+        
         public static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
             if (importedAssets.Contains(AssetDatabase.GUIDToAssetPath(defaultSettingsGUID)))
@@ -68,7 +69,7 @@ namespace ISILab.LBS.Internal.Editor
                     return;
             }
 
-            storage.CleanAllEmpties();
+            storage?.CleanAllEmpties();
 
             AssetDatabase.SaveAssets();
         }

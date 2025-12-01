@@ -11,11 +11,6 @@ namespace ISILab.LBS.VisualElements.Editor
     [UxmlElement]
     public partial class QuestHistoryEntry : VisualElement
     {
-        #region UXMLFACTORY
-        [UxmlElementAttribute]
-        public new class UxmlFactory { }
-        #endregion
-
         #region VIEW ELEMENTS
         /// <summary>
         /// Displays if the node is valid, or not

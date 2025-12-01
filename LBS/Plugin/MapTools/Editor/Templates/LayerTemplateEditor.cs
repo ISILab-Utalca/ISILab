@@ -8,7 +8,9 @@ using ISILab.Extensions;
 using ISILab.LBS.Generators;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Assistants;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using LBS.Components;
 
 namespace ISILab.LBS.Template.Editor
@@ -164,7 +166,7 @@ namespace ISILab.LBS.Template.Editor
         private void AddBehaviour(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, s_behaviourIcon, type.Name, Color.clear) is LBSBehaviour instance)
+            if (Activator.CreateInstance(type, LBSAssetMacro.GetGuidFromAsset(s_behaviourIcon), type.Name, Color.clear) is LBSBehaviour instance)
             {
                 Template.layer.AddBehaviour(instance);
             }
@@ -173,7 +175,7 @@ namespace ISILab.LBS.Template.Editor
         private void AddAssistant(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, s_assistantIcon, type.Name, Color.clear) is LBSAssistant instance)
+            if (Activator.CreateInstance(type, LBSAssetMacro.GetGuidFromAsset(s_assistantIcon), type.Name, Color.clear) is LBSAssistant instance)
             {
                 Template.layer.AddAssistant(instance);
             }

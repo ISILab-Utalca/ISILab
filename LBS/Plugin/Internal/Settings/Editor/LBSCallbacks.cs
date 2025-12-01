@@ -1,11 +1,18 @@
-using LBS.Bundles;
-using ISILab.LBS.Settings;
-using ISILab.LBS.Editor.Windows;
-using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions;
+
+using ISILab.LBS.Settings;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
+using ISILab.LBS.Plugin.Internal.Editor;
+using UnityEditor.Compilation;
+using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.Internal.Editor
 {
@@ -13,10 +20,11 @@ namespace ISILab.LBS.Internal.Editor
     public class LBSCallbacks
     {
         private static BackUp localBackUp;
+        private static Stopwatch stopwatch;
         static LBSCallbacks()
         {
             var onStart = SessionState.GetBool("start", true);
-            Debug.Log("On Start:" + onStart);
+            Debug.Log("[LBS Callbacks] - On Start:" + onStart);
             if (onStart)
             {
                 EditorApplication.update += OnStartEditor;
@@ -25,6 +33,9 @@ namespace ISILab.LBS.Internal.Editor
 
             AssemblyReloadEvents.afterAssemblyReload += OnAfterReloadScript;
             AssemblyReloadEvents.beforeAssemblyReload += OnBeforeReloadScript;
+
+            CompilationPipeline.compilationStarted += OnCompilationStarted;
+            CompilationPipeline.compilationFinished += OnCompilationEnded;
         }
 
         /// <summary>
@@ -43,7 +54,7 @@ namespace ISILab.LBS.Internal.Editor
         /// </summary>
         private static void OnBeforeReloadScript()
         {
-            Debug.Log("Before Reload Script");
+            Debug.Log("[LBS Callbacks] - Before Reload Script");
             SaveBackUp();
         }
 
@@ -52,7 +63,7 @@ namespace ISILab.LBS.Internal.Editor
         /// </summary>
         private static void OnAfterReloadScript()
         {
-            Debug.Log("After Reload Script");
+            Debug.Log("[LBS Callbacks] - After Reload Script");
             LoadBackUp();
             ReloadCurrentLevel();
         }
@@ -126,7 +137,7 @@ namespace ISILab.LBS.Internal.Editor
 
         public static void ReloadStorage()
         {
-            var storage = LBSAssetsStorage.Instance;
+            LBSAssetsStorage storage = LBSAssetsStorage.Instance;
             storage.SearchInProject();
         }
 
@@ -139,12 +150,30 @@ namespace ISILab.LBS.Internal.Editor
 
         public static void ReloadBundles()
         {
-            var storage = LBSAssetsStorage.Instance;
-            var bundles = storage.Get<Bundle>();
+            LBSAssetsStorage storage = LBSAssetsStorage.Instance;
+            Assert.IsNotNull(storage, "There no storage found!");
+            List<Bundle> bundles = storage.Get<Bundle>();
+            Assert.IsNotNull(bundles, "There no bundles in storage found!");
+            Assert.AreNotEqual(bundles?.Count, 0,   "There are no bundles!");
             foreach (var bundle in bundles)
             {
                 bundle.Reload();
             }
+        }
+        
+        private static void OnCompilationStarted(object _obj)
+        {
+            stopwatch = Stopwatch.StartNew();
+            Debug.Log("[LBS Callback] - Compilation started...");
+        }
+        
+        private static void OnCompilationEnded(object _obj)
+        {
+            stopwatch.Stop();
+            Debug.Log(
+                $"[LBS Callbacks] - Compilation finished in:" +
+                $"{stopwatch.ElapsedMilliseconds} ms" +
+                $" ({stopwatch.Elapsed.TotalSeconds:F2} sec)");
         }
 
     }

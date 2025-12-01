@@ -1,15 +1,15 @@
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
-using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.Serialization;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -25,7 +25,11 @@ namespace ISILab.LBS.Behaviours
 
         [SerializeField,JsonRequired]
         private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
-        
+
+        [SerializeField, JsonRequired]
+        private string bundleRefGuid = "668e6768d7619b3459df4f6378dfa3bb";
+        private string DefaultBundleRefGuid { get => "668e6768d7619b3459df4f6378dfa3bb"; }
+
         private HashSet<TileBundleGroup> _newRotations = new ();
         #endregion
 
@@ -35,7 +39,10 @@ namespace ISILab.LBS.Behaviours
         
         [SerializeField, JsonIgnore]
         private BundleCollection bundleCollection;
-        
+
+        [SerializeField, JsonIgnore]
+        private Bundle mainBundle;
+
         public string allFilter = "All";
         
         [FormerlySerializedAs("selectedTypetoSet")] [JsonIgnore]
@@ -56,6 +63,16 @@ namespace ISILab.LBS.Behaviours
             {
                 bundleCollection = value;
                 bundleRefGui = LBSAssetMacro.GetGuidFromAsset(value);
+            }
+        }
+
+        public Bundle MainBundle
+        {
+            get => GetMainBundle();
+            set
+            {
+                mainBundle = value;
+                bundleRefGuid = LBSAssetMacro.GetGuidFromAsset(value);
             }
         }
         
@@ -287,7 +304,16 @@ namespace ISILab.LBS.Behaviours
 
             return bundleCollection;
         }
-        
+
+        private Bundle GetMainBundle()
+        {
+            if(mainBundle == null)
+            {
+                mainBundle = LBSAssetMacro.LoadAssetByGuid<Bundle>(bundleRefGuid ?? DefaultBundleRefGuid);
+            }
+
+            return mainBundle;
+        }        
         
         /// <summary>
         /// Get all tileBundleGroups that were rotated since the last time they were retrieved.

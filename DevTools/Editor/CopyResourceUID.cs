@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ISI_Lab.DevTools.Editor
+namespace ISILab.DevTools.Editor
 {
     public class CopyResourceUID : MonoBehaviour
     {

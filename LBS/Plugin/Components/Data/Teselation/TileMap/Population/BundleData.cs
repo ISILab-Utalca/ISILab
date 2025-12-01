@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Internal;
-using ISILab.Macros;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
 using LBS.Bundles;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -25,6 +27,8 @@ namespace LBS.Components.TileMap // FIX: change namespace to ISILab.LBS.Bundle
 
         [SerializeField, SerializeReference]
         protected Bundle bundle;
+
+
         #endregion
 
         #region PROPERTIES

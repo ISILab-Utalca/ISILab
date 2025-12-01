@@ -72,6 +72,8 @@ public interface IAssistantThreadedEditor
         Assistant.OnTermination += HandleTermination;
 
         IATE.TaskBar.EnableProcess(true, Assistant.Name);
+
+        Debug.Log($"{Assistant.Name} Task started.");
     }
     
     private void HandleTermination(string log, LogType type)

@@ -15,10 +15,10 @@ namespace ISILab.Commons.Attributes
             return EditorGUI.GetPropertyHeight(property, label, true);
         }
 
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        public override void OnGUI(Rect _position, SerializedProperty _property, GUIContent _label)
         {
             GUI.enabled = false;
-            EditorGUI.PropertyField(position, property, label, true);
+            EditorGUI.PropertyField(_position, _property, _label, true);
             GUI.enabled = true;
         }
     }

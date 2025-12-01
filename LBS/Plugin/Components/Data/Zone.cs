@@ -1,14 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Internal;
-using LBS.Bundles;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
 using Newtonsoft.Json;
-using UnityEditor;
 using UnityEngine;
 
-namespace ISILab.LBS.Components
+namespace ISILab.LBS.Plugin.Components.Data
 {
 
     [System.Serializable]

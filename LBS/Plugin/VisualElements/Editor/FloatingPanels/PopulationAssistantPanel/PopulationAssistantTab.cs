@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
-using ISI_Lab.LBS.Plugin.MapTools.Generators3D;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using UnityEditor;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.AI.Categorization;

@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ISILab.LBS.Internal
+namespace ISILab.LBS.Plugin.Internal
 {
     [CreateAssetMenu(fileName = "New LBS Storage", menuName = "ISILab/LBS/Internal/AssetStorage")]
     public class LBSAssetsStorage : ScriptableObject
@@ -16,6 +16,8 @@ namespace ISILab.LBS.Internal
         [System.Serializable]
         public class TypeGroup
         {
+            [SerializeField]
+            public Type typeref;
             [SerializeField]
             public string type;
             [SerializeField]
@@ -91,23 +93,18 @@ namespace ISILab.LBS.Internal
 
         public List<T> Get<T>() where T : Object
         {
-            //CleanAllEmpties();
-            foreach (var group in groups)
+            List<T> result = new List<T>();
+            // return all objects of T type in groups
+            foreach (TypeGroup group in groups)
             {
-                if (group.type.Equals(typeof(T).FullName))
+                foreach (var item in group.items)
                 {
-                    return new List<T>(group.items.Cast<T>());
-                }
+                    if (item is T t) result.Add(t);
 
-                //Added, might be worth looking into if the method gives problems again.
-                //
-                if (group.type.Equals(typeof(T).Name))
-                {
-                    return new List<T>(group.items.Cast<T>());
                 }
             }
-            
-            return null;
+
+            return result;
         }
 
         

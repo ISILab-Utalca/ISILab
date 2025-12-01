@@ -139,7 +139,9 @@ namespace ISILab.LBS.VisualElements
             var quest = _behaviour?.OwnerLayer.GetModule<QuestGraph>();
             if (quest == null) return;
             if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
-            
+
+            List<ActionButton> instancedButtons = new();
+
             // Grammar actions
             List<ActionButton> actionButtons = new();
             foreach (string action in quest.Grammar.TerminalActions)
@@ -149,9 +151,12 @@ namespace ISILab.LBS.VisualElements
                     ToolKit.Instance.SetActive(typeof(AddGraphNode));
                     _behaviour.activeGraphNodeType = typeof(QuestNode);
                     _behaviour.ActionToSet = action;
-                    
+
+
                 });
-                
+
+                if (action == _behaviour.ActionToSet) actionButton.SetHighlight(true);
+
                 actionButtons.Add(actionButton);
                 _actionPallete.Add(actionButton);
             }
@@ -162,17 +167,22 @@ namespace ISILab.LBS.VisualElements
                 ToolKit.Instance.SetActive(typeof(AddGraphNode));
                 _behaviour.activeGraphNodeType = typeof(OrNode);
                 _behaviour.ActionToSet = string.Empty;
+
             });
             _conditionalPallete.Add(orButton);
             
+            if(_behaviour.activeGraphNodeType == typeof(OrNode)) orButton.SetHighlight(true);
+
             ActionButton andButton = new ActionButton("And", () =>
             {
                 ToolKit.Instance.SetActive(typeof(AddGraphNode));
                 _behaviour.activeGraphNodeType = typeof(AndNode);
                 _behaviour.ActionToSet = string.Empty;
+    
             });
             _conditionalPallete.Add(andButton);
 
+            if (_behaviour.activeGraphNodeType == typeof(AndNode)) andButton.SetHighlight(true);
         }
 
         private void ChangeGrammar(LBSGrammar grammar)

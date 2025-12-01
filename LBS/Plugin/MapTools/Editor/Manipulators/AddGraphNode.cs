@@ -45,6 +45,8 @@ namespace ISILab.LBS.Manipulators
 
             _questGraph.AddNewNode(_behaviour,endPosition);
             OnManipulationEnd.Invoke();
+            
+            e.StopImmediatePropagation();
         }
     }
 }

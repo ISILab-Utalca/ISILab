@@ -1,16 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Extensions;
-using ISILab.LBS.Components;
-using ISILab.LBS.Internal;
-using ISILab.LBS.Modules;
-using LBS.Bundles;
-using LBS.Components;
-using LBS.Components.TileMap;
+using ISILab.LBS.Plugin.Components.Data;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ISILab.LBS.Behaviours
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+
+using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+
+using LBS.Components;
+using LBS.Components.TileMap;
+
+namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
     [System.Serializable]
@@ -42,9 +47,9 @@ namespace ISILab.LBS.Behaviours
         private SectorizedTileMapModule areas => OwnerLayer.GetModule<SectorizedTileMapModule>();
 
         [SerializeField]
-        private string pressetInsideStyle = "Castle_Wooden";
+        private string pressetInsideStyleGuid = "c61b774ce5ee4c640b93988da7937edc";
         [SerializeField]
-        private string pressetOutsideStyle = "Castle_Brick";
+        private string pressetOutsideStyleGuid = "c0e28f3a70727474a81b860669e32870";
 
         [SerializeField]
         private bool multiLayerConnections = true;
@@ -67,15 +72,15 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public Bundle PressetInsideStyle
         {
-            get => LBSAssetsStorage.Instance.Get<Bundle>().Find(b => b.Name == pressetInsideStyle);
-            set => pressetInsideStyle = value.Name;
+            get => LBSAssetMacro.LoadAssetByGuid<Bundle>(pressetInsideStyleGuid);
+            set => pressetInsideStyleGuid = LBSAssetMacro.GetGuidFromAsset(value);
         }
 
         [JsonIgnore]
         public Bundle PressetOutsideStyle
         {
-            get => LBSAssetsStorage.Instance.Get<Bundle>().Find(b => b.Name == pressetOutsideStyle);
-            set => pressetOutsideStyle = value.Name;
+            get => LBSAssetMacro.LoadAssetByGuid<Bundle>(pressetOutsideStyleGuid);
+            set => pressetOutsideStyleGuid = LBSAssetMacro.GetGuidFromAsset(value);
         }
 
         [JsonIgnore]

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Settings;
 using LBS.Bundles;
 using LBS.Components;
@@ -11,7 +12,7 @@ namespace ISILab.LBS.Components
 {
     
     [Serializable]
-    public class DataStealth : BaseQuestNodeData
+    public class DataStealth : QuestActionData
     {
         [SerializeField]
         public Vector2Int objective = Vector2Int.zero;
@@ -33,7 +34,7 @@ namespace ISILab.LBS.Components
             bundlesObservers = new List<BundleGraph>();
         }
         
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataStealth stealthData) return;
@@ -51,7 +52,7 @@ namespace ISILab.LBS.Components
             ResizeToFitBundles(bundlesObservers);
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var stealthOther = other as DataStealth;
             if(stealthOther == null) return false;

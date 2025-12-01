@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Settings;
 using LBS.Bundles;
 using LBS.Components;
@@ -9,7 +10,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataGive : BaseQuestNodeData
+    public class DataGive : QuestActionData
     {
         [SerializeField] public BundleType bundleGive;
         /// <summary>
@@ -35,7 +36,7 @@ namespace ISILab.LBS.Components
             color = LBSSettings.Instance.view.colorGive;
         }
         
-        public override void Clone(BaseQuestNodeData data)
+        public override void Clone(QuestActionData data)
         {
             base.Clone(data);
             if (data is not DataGive giveData) return;
@@ -54,7 +55,7 @@ namespace ISILab.LBS.Components
             if (bundleGiveTo.Valid())  area = bundleGiveTo.Area;
         }
 
-        public override bool Equals(BaseQuestNodeData other)
+        public override bool Equals(QuestActionData other)
         {
             var giveOther = other as DataGive;
             if(giveOther == null) return false;

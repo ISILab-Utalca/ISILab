@@ -8,6 +8,7 @@ using ISILab.LBS.VisualElements.Editor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Editor.Windows;
 using LBS.Components.TileMap;
 using UnityEditor.Experimental.GraphView;

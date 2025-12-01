@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Settings;
-using ISILab.Macros;
 using LBS.Bundles;
 using LBS.Components;
 using UnityEngine;
@@ -11,7 +11,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class DataTake : BaseQuestNodeData
+    public class DataTake : QuestActionData
     {
        [SerializeField] public BundleGraph bundleToTake;
        private readonly HashSet<Bundle.EElementFlag> validToTakeTags = new()
@@ -25,7 +25,7 @@ namespace ISILab.LBS.Components
            color = LBSSettings.Instance.view.colorTake;
        }
        
-       public override void Clone(BaseQuestNodeData data)
+       public override void Clone(QuestActionData data)
        {
            base.Clone(data);
            if (data is not DataTake takeData) return;
@@ -43,7 +43,7 @@ namespace ISILab.LBS.Components
            if (bundleToTake.Valid()) area = bundleToTake.Area;
        }
 
-       public override bool Equals(BaseQuestNodeData other)
+       public override bool Equals(QuestActionData other)
        {
            var takeOther =  other as DataTake;
            if (takeOther is null) return false;

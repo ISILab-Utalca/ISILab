@@ -5,8 +5,7 @@ using UnityEditor;
 #endif
 
 using Object = UnityEngine.Object;
-namespace Nico.Tools
-
+namespace ISILab.DevTools.Editor
 {
     public static class CopyFullPath
     {

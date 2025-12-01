@@ -7,6 +7,7 @@ using LBS.Bundles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -42,7 +43,7 @@ public class LBSButtonListFilter : EditorWindow
         Init();
     }
 
-    public static void Show(List<Bundle> bundles, Action<Bundle> onPick)
+    public static LBSButtonListFilter Show(List<Bundle> bundles, Action<Bundle> onPick)
     {
         var win = CreateInstance<LBSButtonListFilter>();
         win._bundles = bundles ?? new List<Bundle>();
@@ -50,6 +51,7 @@ public class LBSButtonListFilter : EditorWindow
         win.titleContent = new GUIContent("Select Bundle");
 
         win.ShowUtility();
+        return win;
     }
 
     private void TestList()

@@ -1,32 +1,36 @@
+using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Settings;
+using ISILab.LBS.VisualElements.Editor;
 using LBS;
 using LBS.Bundles;
-using ISILab.LBS.Settings;
+using LBS.Components;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Commons.Utility.Editor;
-using ISILab.Extensions;
-using ISILab.LBS.VisualElements.Editor;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Characteristics;
 
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("PopulationBehaviour", typeof(PopulationBehaviour))]
-    public class PopulationBehaviourEditor : LBSCustomEditor, IToolProvider
+    public class PopulationBehaviourEditor : LBSCustomEditor, IToolProvider, IBundleFilter
     {
         #region FIELDS
 
         private PopulationBehaviour behaviour;
 
         private Dictionary<string, List<Bundle.EElementFlag>> displayChoices = new();
-        private BundleCollection _collection; 
+        private BundleCollection _collection;
+        private Bundle _mainBundle;
         private DropdownField type;
 
         private AddPopulationTile addPopulationTile;
@@ -39,10 +43,12 @@ namespace ISILab.LBS.VisualElements
         private VectorImage icon = Resources.Load<VectorImage>("Icons/Vectorial/Icon=Behavior");
         private SimplePallete bundlePallete;
         private WarningPanel warningPanel;
+
+        public LBSButtonListFilter BundlePickerWindow { get; set; }
         #endregion
-        
+
         #endregion
-        
+
         #region CONSTRUCTORS
         public PopulationBehaviourEditor(object target) : base(target)
         {
@@ -67,6 +73,7 @@ namespace ISILab.LBS.VisualElements
             };
             
             _collection = behaviour.BundleCollection;
+            _mainBundle = behaviour.MainBundle;
             behaviour.SelectedFilter = behaviour.allFilter;
             displayChoices.Add(behaviour.allFilter, allList);
             displayChoices.Add(nameof(Bundle.EElementFlag.Character), characterList);
@@ -87,6 +94,7 @@ namespace ISILab.LBS.VisualElements
             behaviour = paramTarget as PopulationBehaviour;
             if(behaviour == null) return;
             _collection = behaviour.BundleCollection;
+            _mainBundle = behaviour.MainBundle;
         }
 
         public void SetTools(ToolKit toolkit)
@@ -126,23 +134,38 @@ namespace ISILab.LBS.VisualElements
             // WarningPanel
             warningPanel = this.Q<WarningPanel>();
             
-            var collectionField = this.Q<ObjectField>("BundleCollection");
-            // only updates the first bundle value change - fix pending
-            collectionField.RegisterValueChangedCallback(evt =>
+            //var collectionField = this.Q<ObjectField>("BundleCollection");
+            //// only updates the first bundle value change - fix pending
+            //collectionField.RegisterValueChangedCallback(evt =>
+            //{
+            //    var collection = evt.newValue as BundleCollection;
+            //    collectionField.value = collection;
+            //    SetCollection(collection);
+            //    UpdateElementBundles();
+            //    
+            //});
+
+            var bundleField = this.Q<LBSCustomObjectField>("BundleField");
+            bundleField.RegisterValueChangedCallback(evt =>
             {
-                var collection = evt.newValue as BundleCollection;
-                collectionField.value = collection;
-                SetCollection(collection);
+                var bundle = evt.newValue as Bundle;
+                bundleField.value = bundle;
+                SetBundle(bundle);
                 UpdateElementBundles();
-                
             });
+            bundleField.UseCustomFilter = true;
+            bundleField.CustomFilter = pick =>
+            {
+                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainPopulationBundle>(includeChildren: true);
+                (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
+            };
             
             type =  this.Q<DropdownField>("Type");
             type.choices = displayChoices.Keys.ToArray().ToList();
             type.RegisterValueChangedCallback(evt =>
             {
-               var filter = evt.newValue;
-               behaviour.selectedTypeFilter = filter; 
+                var filter = evt.newValue;
+                behaviour.selectedTypeFilter = filter; 
                 UpdateElementBundles();
             });
 
@@ -155,7 +178,8 @@ namespace ISILab.LBS.VisualElements
             SetPallete();
             bundlePallete.Repaint();
             
-            collectionField.SetValueWithoutNotify(behaviour.BundleCollection);
+            //collectionField.SetValueWithoutNotify(behaviour.BundleCollection);
+            bundleField.SetValueWithoutNotify(behaviour.MainBundle);
             
             MarkDirtyRepaint();
             
@@ -176,6 +200,7 @@ namespace ISILab.LBS.VisualElements
             {
                 behaviour.selectedToSet = selected as Bundle;
                 behaviour.BundleCollection = _collection;
+                behaviour.MainBundle = _mainBundle;
              
                 ToolKit.Instance.SetActive(typeof(AddPopulationTile));
             };
@@ -203,7 +228,7 @@ namespace ISILab.LBS.VisualElements
             bundlePallete.OnRepaint += () =>
             {
                 bundlePallete.Selected = behaviour.selectedToSet;
-                bundlePallete.CollectionSelected = behaviour.BundleCollection;
+                //bundlePallete.CollectionSelected = behaviour.BundleCollection;
             };
             
             
@@ -212,7 +237,8 @@ namespace ISILab.LBS.VisualElements
 
         private void UpdateElementBundles()
         {
-            if (_collection == null)
+            //if (_collection == null)
+            if(_mainBundle == null)
             {
                 warningPanel.SetDisplay(true);
                 bundlePallete.DisplayContent(false);
@@ -222,7 +248,8 @@ namespace ISILab.LBS.VisualElements
             type.SetValueWithoutNotify(behaviour.SelectedFilter); 
             warningPanel.SetDisplay(false);
             bundlePallete.DisplayContent(true);
-            List<Bundle> bundles = _collection.Collection;
+            //List<Bundle> bundles = _collection.Collection;
+            List<Bundle> bundles = _mainBundle.ChildsBundles;
             List<Bundle> candidates = new();
             if (type.value == behaviour.allFilter)
             {
@@ -257,6 +284,7 @@ namespace ISILab.LBS.VisualElements
             
             // Save current selected options in layer
             behaviour.BundleCollection = _collection;
+            behaviour.MainBundle = _mainBundle;
             
             bundlePallete.Repaint();
         }
@@ -265,6 +293,18 @@ namespace ISILab.LBS.VisualElements
         {
             behaviour.BundleCollection = collection;
             _collection = collection;
+        }
+
+        private void SetBundle(Bundle bundle)
+        {
+            behaviour.MainBundle = bundle;
+            _mainBundle = bundle;
+        }
+
+        public override void OnUnfocus()
+        {
+            base.OnUnfocus();
+            (this as IBundleFilter).CloseFilterWindow();
         }
 
         #endregion

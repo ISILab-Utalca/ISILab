@@ -2,8 +2,7 @@ using LBS.Components;
 using LBS.Components.Graph;
 using Newtonsoft.Json;
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace ISILab.LBS.Template
@@ -34,6 +33,7 @@ namespace ISILab.LBS.Template
             if (layer == null) return;
             foreach (var behaviour in layer.Behaviours)
             {
+                
                 behaviour.OnGUI();
                 // invoke
             }

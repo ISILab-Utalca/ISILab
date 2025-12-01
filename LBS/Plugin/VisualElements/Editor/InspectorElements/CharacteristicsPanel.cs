@@ -10,6 +10,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS;
+using ISILab.LBS.Plugin.Components.Bundles;
 
 namespace ISILab.LBS.VisualElements
 {
