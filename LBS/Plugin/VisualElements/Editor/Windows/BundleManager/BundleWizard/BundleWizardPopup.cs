@@ -1,14 +1,15 @@
-using System;
-using System.Collections.Generic;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 
 [UxmlElement]
@@ -198,26 +199,45 @@ public class BundleBuilder
 
     public BundleBuilder() { }
 
-    public void TryBuild()
+    public void GetBundleConfiguration(ref Bundle bundle, string layerType)
     {
-        BundleFlags flags = BundleFlags.None;
         switch (layerType)
         {
             case "Interior Layer":
-                flags = BundleFlags.Interior;
+                bundle.LayerContentFlags    = BundleFlags.Interior;
+                bundle.Type                 = Bundle.TagType.Structural;
+                bundle.Color                = default;
                 break;
+
             case "Exterior Layer":
-                flags = BundleFlags.Exterior;
+                bundle.LayerContentFlags    = BundleFlags.Exterior;
+                bundle.Type                 = Bundle.TagType.Structural;
+                bundle.Color                = default;
                 break;
+
             case "Population Layer":
-                flags = BundleFlags.Population;
+                bundle.LayerContentFlags    = BundleFlags.Population;
+                bundle.Type                 = Bundle.TagType.Element;
+                bundle.Color                = new Color().RandomColorHSV();
+                break;
+
+            default:
+                bundle.LayerContentFlags    = default;
+                bundle.Type                 = default;
+                bundle.Color                = default;
                 break;
         }
+    }
 
-        Bundle newBundle = BundleMenuItem.CreateBundle(flags, bundleName);
+    public void TryBuild()
+    {
+        Bundle main = ScriptableObject.CreateInstance<Bundle>();
+        GetBundleConfiguration(ref main, layerType);
+        main = BundleMenuItem.CreateBundleWithInstance(main, bundleName);
         for(int i = 0; i < newSubBundles.Count; i++)
         {
-            newBundle.AddChild(newSubBundles[i]);
+            newSubBundles[i] = BundleMenuItem.CreateBundleWithInstance(newSubBundles[i], newSubBundles[i].BundleName);
+            main.AddChild(newSubBundles[i]);
         }
     }
 

@@ -57,24 +57,8 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
         prefabs.ForEach(pref => bundle.AddAsset(pref));
         bundle.BundleName = prefabs[0].name;
 
-        switch (Builder.layerType)
-        {
-            case "Interior Layer":
-                bundle.LayerContentFlags = BundleFlags.Interior;
-                bundle.Type = Bundle.TagType.Structural;
-                break;
-            case "Exterior Layer":
-                bundle.LayerContentFlags = BundleFlags.Exterior;
-                bundle.Type = Bundle.TagType.Structural;
-
-                break;
-            case "Population Layer":
-                bundle.LayerContentFlags = BundleFlags.Population;
-                bundle.Type = Bundle.TagType.Element;
-                bundle.Color = new Color().RandomColorHSV();
-                break;
-        }
-
+        Builder.GetBundleConfiguration(ref bundle, Builder.layerType);
+        
         return bundle;
     }
 

@@ -108,19 +108,23 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
         {
             Bundle obj = ScriptableObject.CreateInstance<Bundle>();
             obj.LayerContentFlags = flags;
+            return CreateBundleWithInstance(obj, baseName);
+        }
 
+        public static Bundle CreateBundleWithInstance(Bundle instance, string baseName = "New_Bundle")
+        {
             string name = baseName;
             int counter = 0;
             //string path = "Assets/" + name + ".asset";
-            string path = LBSSettings.Instance.paths.bundleFolderPath;
+            string path = LBSSettings.Instance.paths.bundleFolderPath + "/" + name + ".asset";
             while (AssetDatabase.AssetPathExists(path))
             {
                 counter++;
                 name = baseName + "_" + counter;
             }
-            
-            AssetDatabase.CreateAsset(obj, path);
-            return obj;
+
+            AssetDatabase.CreateAsset(instance, path);
+            return instance;
         }
 
         [System.Obsolete]
