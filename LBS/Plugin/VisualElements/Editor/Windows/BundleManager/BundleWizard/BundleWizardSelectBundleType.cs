@@ -4,63 +4,64 @@ using ISILab.LBS.CustomComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
-[UxmlElement]
-public partial class BundleWizardSelectBundleType : VisualElement, IBundleWizardTab
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
 {
-    private LBSCustomTextField nameField;
-    private LBSCustomRadioButtonGroup layersType;
-    
-    public BundleBuilder Builder { get; set; }
-
-
-    public BundleWizardSelectBundleType(): base()
+    [UxmlElement]
+    public partial class BundleWizardSelectBundleType : VisualElement, IBundleWizardTab
     {
+        private LBSCustomTextField nameField;
+        private LBSCustomRadioButtonGroup layersType;
 
-        nameField = new LBSCustomTextField("New Main Bundle’s Name: ");
-        nameField.value = "New Main Bundle";
-        nameField.RegisterCallback<BlurEvent>(e =>
+        public BundleBuilder Builder { get; set; }
+
+
+        public BundleWizardSelectBundleType() : base()
         {
-            nameField.value = nameField.value.Replace(' ', '_');
-        });
 
-        layersType = new LBSCustomRadioButtonGroup("Select the Layer for your new Main Bundle:", new List<string>()
+            nameField = new LBSCustomTextField("New Main Bundle’s Name: ");
+            nameField.value = "New Main Bundle";
+            nameField.RegisterCallback<BlurEvent>(e =>
+            {
+                nameField.value = nameField.value.Replace(' ', '_');
+            });
+
+            layersType = new LBSCustomRadioButtonGroup("Select the Layer for your new Main Bundle:", new List<string>()
         {
             "Interior Layer",
             "Exterior Layer",
             "Population Layer"
         });
-        this.Add(nameField);
-        this.Add(layersType);
-        
-        
-        
-        //nameField.RegisterValueChangedCallback(evt => )
-    }
+            this.Add(nameField);
+            this.Add(layersType);
 
-    public void Init()
-    {
-        //Debug.Log("Init: " + GetType().Name);
-        nameField.value = "";
-        //layersType.SelectChoice(0);
-        layersType.value = 0;
-        //Debug.Log("Radio button group value: " + layersType.value);
-        Debug.Log("Builder data:\n\n" + Builder.ToString());
-    }
 
-    public void Step()
-    {
-        Builder.bundleName = nameField.value;
-        Builder.layerType = layersType.choices.ToList()[layersType.value];
 
-    }
+            //nameField.RegisterValueChangedCallback(evt => )
+        }
 
-    public void Revert()
-    {
-        Builder.bundleName = "";
-        Builder.layerType = null;
-        Debug.Log("Builder data:\n\n" + Builder.ToString());
+        public void Init()
+        {
+            //Debug.Log("Init: " + GetType().Name);
+            nameField.value = "";
+            //layersType.SelectChoice(0);
+            layersType.value = 0;
+            //Debug.Log("Radio button group value: " + layersType.value);
+            Debug.Log("Builder data:\n\n" + Builder.ToString());
+        }
+
+        public void Step()
+        {
+            Builder.bundleName = nameField.value;
+            Builder.layerType = layersType.choices.ToList()[layersType.value];
+
+        }
+
+        public void Revert()
+        {
+            Builder.bundleName = "";
+            Builder.layerType = null;
+            Debug.Log("Builder data:\n\n" + Builder.ToString());
+        }
     }
 }
-
 

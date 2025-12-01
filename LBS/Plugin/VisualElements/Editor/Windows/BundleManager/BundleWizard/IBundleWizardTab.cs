@@ -1,9 +1,12 @@
-public interface IBundleWizardTab
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
 {
-    public BundleBuilder Builder { get; set; }
-    public void Init();
+    public interface IBundleWizardTab
+    {
+        public BundleBuilder Builder { get; set; }
+        public void Init();
 
-    public void Step();
+        public void Step();
 
-    public void Revert();
+        public void Revert();
+    }
 }

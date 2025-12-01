@@ -2,37 +2,40 @@ using ISILab.LBS.CustomComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
-[UxmlElement]
-public partial class BundleWizardSetCharacteristMenu : VisualElement, IBundleWizardTab
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
 {
-    private LBSCustomTextField nameField;
-    TabView tabView;
-    
-    public BundleBuilder Builder { get; set; }
-
-    public BundleWizardSetCharacteristMenu(): base()
+    [UxmlElement]
+    public partial class BundleWizardSetCharacteristMenu : VisualElement, IBundleWizardTab
     {
+        private LBSCustomTextField nameField;
+        TabView tabView;
 
-        nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
-        this.Add(nameField);
-        
-    }
+        public BundleBuilder Builder { get; set; }
 
-    public void Init()
-    {
-        //Debug.Log("Init: " + GetType().Name);
-        Debug.Log("Builder data:\n\n" + Builder.ToString());
-    }
+        public BundleWizardSetCharacteristMenu() : base()
+        {
 
-    public void Step()
-    {
-        //throw new System.NotImplementedException();
-    }
+            nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
+            this.Add(nameField);
 
-    public void Revert()
-    {
-        Debug.Log("Builder data:\n\n" + Builder.ToString());
-        //throw new System.NotImplementedException();
+        }
+
+        public void Init()
+        {
+            //Debug.Log("Init: " + GetType().Name);
+            Debug.Log("Builder data:\n\n" + Builder.ToString());
+        }
+
+        public void Step()
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        public void Revert()
+        {
+            Debug.Log("Builder data:\n\n" + Builder.ToString());
+            //throw new System.NotImplementedException();
+        }
     }
 }
+
