@@ -9,7 +9,6 @@ using ISILab.LBS.Internal;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
 using JetBrains.Annotations;
 using LBS.Bundles;
 using UnityEditor;
