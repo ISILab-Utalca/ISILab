@@ -37,17 +37,12 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             _nameField = this.Q<LBSCustomTextField>("NameField");
             _nameField.RegisterCallback<BlurEvent>(e =>
             {
+                _nameField.value = _nameField.value.Replace(' ', '_');
                 BundleRef.BundleName = _nameField.value;
                 Debug.Log($"{_listRef.itemsSource[Index]} {BundleRef.BundleName}");
             });
 
             _deleteButton = this.Q<LBSCustomButton>("DeleteButton");
-            //_deleteButton.clicked += () => 
-            //{
-            //    _listRef.itemsSource.RemoveAt(Index); 
-            //    _listRef.Rebuild();
-            //    _listRef.RefreshItems();
-            //};
 
             AddToClassList("lbs-list-item");
 

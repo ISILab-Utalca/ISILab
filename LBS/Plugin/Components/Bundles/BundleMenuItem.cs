@@ -121,7 +121,10 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
             {
                 counter++;
                 name = baseName + "_" + counter;
+                path = LBSSettings.Instance.paths.bundleFolderPath + "/" + name + ".asset";
             }
+
+            instance.BundleName = baseName;
 
             AssetDatabase.CreateAsset(instance, path);
             return instance;

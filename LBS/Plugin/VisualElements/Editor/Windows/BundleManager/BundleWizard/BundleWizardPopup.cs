@@ -15,12 +15,16 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 [UxmlElement]
 public partial class BundleWizardPopup: VisualElement
 {
-    private LBSCustomTabView tabView;
+    private readonly LBSCustomTabView tabView;
     
-    private LBSCustomBreadcrumbs breadcrumbs;
+    private readonly LBSCustomBreadcrumbs breadcrumbs;
+
+    private readonly LBSCustomButton OKButton;
+    private readonly LBSCustomButton nextButton;
+    private readonly LBSCustomButton backButton;
+    private readonly LBSCustomButton cancelButton;
 
     private int currentStep = 0;
-    private List<Tuple<string, Action>> breadcrumbSteps;
 
     private string[] breadcrumbLabels = new string []
     {
@@ -58,23 +62,23 @@ public partial class BundleWizardPopup: VisualElement
         tabView = this.Q<LBSCustomTabView>("TabView");
         breadcrumbs = this.Q<LBSCustomBreadcrumbs>("WizardBreadcrumbs");
         
-        var OKButton = this.Q<LBSCustomButton>("OK");
+        OKButton = this.Q<LBSCustomButton>("OK");
         OKButton.clicked += OK;
         OKButton.clicked += () => OnAnyButtonClicked(OKButton);
 
-        var nextButton = this.Q<LBSCustomButton>("Next");
+        nextButton = this.Q<LBSCustomButton>("Next");
         nextButton.clicked += Next;
         nextButton.clicked += () => OnAnyButtonClicked(nextButton);
 
-        ToggleNextButton(true);
-
-        var backButton = this.Q<LBSCustomButton>("Back");
+        backButton = this.Q<LBSCustomButton>("Back");
         backButton.clicked += Back;
         backButton.clicked += () => OnAnyButtonClicked(backButton);
 
-        var cancelButton = this.Q<LBSCustomButton>("Cancel");
+        cancelButton = this.Q<LBSCustomButton>("Cancel");
         cancelButton.clicked += Cancel;
         cancelButton.clicked += () => OnAnyButtonClicked(cancelButton);
+
+        ToggleNextButton(true);
 
         #region Local functions
 
@@ -88,8 +92,7 @@ public partial class BundleWizardPopup: VisualElement
                 return;
             }
 
-            if (InFinalStep)
-                ToggleNextButton(true);
+            CheckIfLeavingFinalStep();
 
             CurrentStep--;
             breadcrumbs.PopItem();
@@ -97,6 +100,7 @@ public partial class BundleWizardPopup: VisualElement
 
         void OK()
         {
+            CheckIfLeavingFinalStep();
             CurrentWizardTab.Builder.TryBuild();
             this.SetDisplay(false);
             CleanUp();
@@ -114,6 +118,7 @@ public partial class BundleWizardPopup: VisualElement
 
         void Cancel()
         {
+            CheckIfLeavingFinalStep();
             this.SetDisplay(false);
             CleanUp();
         }
@@ -122,6 +127,12 @@ public partial class BundleWizardPopup: VisualElement
         {
             nextButton.SetDisplay(showNext);
             OKButton.SetDisplay(!showNext);
+        }
+
+        void CheckIfLeavingFinalStep()
+        {
+            if (InFinalStep)
+                ToggleNextButton(true);
         }
 
         void OnAnyButtonClicked(Button button)
@@ -135,7 +146,6 @@ public partial class BundleWizardPopup: VisualElement
 
     public void Init()
     {
-
         var tabNames = new[] { "SelectBundleTypeMenu", "SetAssetsMenu", "SetBundleMenu", "SetCharacteristicsMenu" };
         Assert.IsTrue(breadcrumbLabels.Length == tabNames.Length);
         BundleBuilder builder = new BundleBuilder();

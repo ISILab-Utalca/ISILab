@@ -19,6 +19,11 @@ public partial class BundleWizardSelectBundleType : VisualElement, IBundleWizard
 
         nameField = new LBSCustomTextField("New Main Bundle’s Name: ");
         nameField.value = "New Main Bundle";
+        nameField.RegisterCallback<BlurEvent>(e =>
+        {
+            nameField.value = nameField.value.Replace(' ', '_');
+        });
+
         layersType = new LBSCustomRadioButtonGroup("Select the Layer for your new Main Bundle:", new List<string>()
         {
             "Interior Layer",
