@@ -58,7 +58,7 @@ namespace ISILab.LBS.VisualElements
 
                     Type assistantEditorType = ves.First().Item1;
                     if (assistantEditorType == null) continue;
-                    customEditor.Add(type, assistantEditorType);
+                    customEditor.Add(type, ves.First());
                 
                 }
             }
@@ -85,7 +85,7 @@ namespace ISILab.LBS.VisualElements
             {
                 currentAssistant = assistant;
 
-                Type editorType = customEditor.GetValueOrDefault(assistant.GetType());
+                Type editorType = customEditor.GetValueOrDefault(assistant.GetType()).Item1;
                 if(editorType == null) continue;
                 
                 LBSCustomEditor instance = Activator.CreateInstance(editorType, assistant) as LBSCustomEditor;

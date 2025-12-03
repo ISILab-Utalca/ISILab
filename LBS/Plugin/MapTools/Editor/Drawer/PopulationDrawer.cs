@@ -12,6 +12,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using LBS.Components;
 
 namespace ISILab.LBS.Drawers
 {
@@ -21,11 +22,14 @@ namespace ISILab.LBS.Drawers
         private Rect previousRect;
         private PopulationTileView lastHighlight = null;
 
+        public LBSLayer OwnerLayer { get; private set; }
+
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
             if (target is not PopulationBehaviour population) return;
 
+            OwnerLayer = population.OwnerLayer;
             PaintNewTiles(population, view);
             UpdateTilesRotation(population, view);
             //UpdateLoadedTiles(population, view);
@@ -226,12 +230,11 @@ namespace ISILab.LBS.Drawers
             }
 
             // Create new graph element for the tile
-            PopulationTileView tileView = new PopulationTileView(nTile);
+            PopulationTileView tileView = new PopulationTileView(nTile, OwnerLayer);
 
             UpdatePopulationTile(tileView, nTile, population);
 
-            tileView.Highlight(false);
-            return tileView;
+             return tileView;
         }
     }
 }

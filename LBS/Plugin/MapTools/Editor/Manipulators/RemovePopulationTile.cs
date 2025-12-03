@@ -66,15 +66,25 @@ namespace ISILab.LBS.Manipulators
 
             (Vector2Int min, Vector2Int max) corners = _population.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
+            List<TileBundleGroup> removed = new();
             for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
                     Vector2Int position = new Vector2Int(i, j);
-                    _population.RemoveTileGroup(position);
+                    removed.Add(_population.RemoveTileGroup(position));
                 }
             }
 
+            LBSLayer OwnerLayer = _population.OwnerLayer;
+            TileGroupBehavior poptb = OwnerLayer.GetBehaviour<TileGroupBehavior>();
+            if(poptb is not null)
+            {
+                if (removed.Contains(poptb.SelectedTilemap)) 
+                { 
+                    poptb.SelectedTilemap = null; 
+                }
+            }
             LoadedLevel level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Remove Element population");
@@ -84,7 +94,7 @@ namespace ISILab.LBS.Manipulators
                 EditorUtility.SetDirty(x);
             }
 
-            _population.OwnerLayer.OnChangeUpdate();
+            OwnerLayer.OnChangeUpdate();
             
             CleanPreviews();
         }

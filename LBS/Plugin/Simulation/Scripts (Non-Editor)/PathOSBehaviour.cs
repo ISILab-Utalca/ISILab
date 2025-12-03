@@ -186,24 +186,27 @@ namespace ISILab.LBS.Behaviours
                 //bool playerTag = false;
                 for(int i = 0; i < characteristics.Count; i++)
                 {
-                    tag = characteristics[i].Value;
-                    if(tag != null)
+                    foreach(var ctag in characteristics[i].TagEntries)
                     {
-                        if(tag.EntityType != EntityType.ET_NONE)
+                        tag = ctag.Value;
+                        if (tag != null)
                         {
-                            validTag = true;
-                            break;
-                        }
-                        else if(tag.Label.Equals("Player"))
-                        {
-                            //var pathOSTags = Bundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0]).ToList();
-                            //var agentTag = pathOSTags//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
-                            //    .FirstOrDefault(tag => tag.Value.Label.Equals("PathOSAgent"));
-                            //tag = agentTag//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
-                            //    .Value.ToLBSTag();
-                            
-                            validTag = true;
-                            break;
+                            if (tag.EntityType != EntityType.ET_NONE)
+                            {
+                                validTag = true;
+                                break;
+                            }
+                            else if (tag.Label.Equals("Player"))
+                            {
+                                //var pathOSTags = Bundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0]).ToList();
+                                //var agentTag = pathOSTags//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
+                                //    .FirstOrDefault(tag => tag.Value.Label.Equals("PathOSAgent"));
+                                //tag = agentTag//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
+                                //    .Value.ToLBSTag();
+
+                                validTag = true;
+                                break;
+                            }
                         }
                     }
                 }

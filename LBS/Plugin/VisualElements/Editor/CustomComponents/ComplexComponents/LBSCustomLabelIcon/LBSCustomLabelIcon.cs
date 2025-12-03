@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.CustomComponents
 {
     [UxmlElement]
-    public partial class LBSPanelTextIcon : VisualElement
+    public partial class LBSCustomLabelIcon : VisualElement
     {
         #region FIELDS
         private readonly Label _label;
@@ -15,12 +15,13 @@ namespace ISILab.LBS.CustomComponents
         private string _text;
         private VectorImage _iconImage;
         private float _opacity = 1f;
+        private Color _iconTint = Color.white;
         private FlexDirection _direction = FlexDirection.Row; // default
         #endregion
 
         #region PROPERTIES
         [UxmlAttribute]
-        public string text
+        public string Label
         {
             get => _text;
             set
@@ -32,7 +33,7 @@ namespace ISILab.LBS.CustomComponents
         }
 
         [UxmlAttribute]
-        public VectorImage icon
+        public VectorImage Icon
         {
             get => _iconImage;
             set
@@ -49,6 +50,18 @@ namespace ISILab.LBS.CustomComponents
         }
 
         [UxmlAttribute]
+        public Color IconTint
+        {
+            get => _iconTint;
+            set
+            {
+                _iconTint = value;
+                if (_iconElement != null)
+                    _iconElement.style.unityBackgroundImageTintColor = _iconTint;
+            }
+        }
+
+        [UxmlAttribute]
         public float Opacity
         {
             get => _opacity;
@@ -60,7 +73,7 @@ namespace ISILab.LBS.CustomComponents
         }
 
         [UxmlAttribute]
-        public FlexDirection direction
+        public FlexDirection Direction
         {
             get => _direction;
             set
@@ -72,9 +85,9 @@ namespace ISILab.LBS.CustomComponents
         #endregion
 
         #region METHODS
-        public LBSPanelTextIcon()
+        public LBSCustomLabelIcon()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSPanelTextIcon");
+            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSCustomLabelIcon");
             visualTree.CloneTree(this);
 
             _root = this.Q<VisualElement>("Root");
@@ -91,8 +104,9 @@ namespace ISILab.LBS.CustomComponents
 
             _iconElement.style.opacity = _opacity;
 
+            _iconElement.style.unityBackgroundImageTintColor = _iconTint;
             // Set initial flex direction
-            this.style.flexDirection = _direction;
+            style.flexDirection = _direction;
         }
         #endregion
     }

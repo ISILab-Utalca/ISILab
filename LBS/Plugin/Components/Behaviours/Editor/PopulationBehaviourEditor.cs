@@ -18,6 +18,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Macros;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -102,26 +103,23 @@ namespace ISILab.LBS.VisualElements
 
             addPopulationTile = new AddPopulationTile();
             var t1 = new LBSTool(addPopulationTile);
-            t1.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            
+
             removePopulationTile = new RemovePopulationTile();
             var t2 = new LBSTool(removePopulationTile);
-            t2.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
             
             rotatePopulationTile = new RotatePopulationTile();
             var t3 = new LBSTool(rotatePopulationTile);
-            t3.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            
+
             movePopulationTile = new MovePopulationTile();
             var t4 = new LBSTool(movePopulationTile);
-            t4.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
             
             addPopulationTile.SetRemover(removePopulationTile);
-            
-            toolkit.ActivateTool(t1,behaviour.OwnerLayer, behaviour);
-            toolkit.ActivateTool(t2,behaviour.OwnerLayer, behaviour);
-            toolkit.ActivateTool(t4,behaviour.OwnerLayer, behaviour);
-            toolkit.ActivateTool(t3,behaviour.OwnerLayer, behaviour);
+
+            foreach (LBSTool tool in new[] { t1, t2, t3, t4 })
+            {
+                tool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+                toolkit.ActivateTool(tool, behaviour.OwnerLayer, behaviour);
+            }
 
         }
 
@@ -211,11 +209,10 @@ namespace ISILab.LBS.VisualElements
 
                 string tooltip = "Tags:";
 
-                var tags = b.Characteristics.Select(t => t as LBSTagsCharacteristic);
-                List<LBSTagsCharacteristic> validTags = tags.Where(t => t.Value != null).ToList();
-                if (validTags.Count > 0)
+                var tags = LBSAssetMacro.GetAllTagNames(b);
+                if (tags.Count > 0)
                 {
-                    validTags.ForEach(t => tooltip += "\n- " + t.Value.Label);
+                    tags.ForEach(t => tooltip += "\n- " + t);
                     //b.Characteristics.ForEach(c => tooltip += "\n- " + c?.ToString());//.GetType());
                 }
                 else

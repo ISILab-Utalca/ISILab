@@ -11,6 +11,7 @@ using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Core.AI.Categorization;
@@ -310,12 +311,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 {
                     if (rect.Contains(t.Position))
                     {
-                        IEnumerable<LBSCharacteristic> characteristics = g.BundleData.Characteristics.Where(c => c is LBSTagsCharacteristic);
-
-                        if (characteristics.Count() == 0)
-                            continue;
-
-                        IEnumerable<LBSTag> tags = characteristics.Select(c => (c as LBSTagsCharacteristic).Value);
+                        var tags = LBSAssetMacro.GetTagsFromBundle(g.BundleData.Bundle);
 
                         bool flag = false;
                         foreach (LBSTag tag in tags)

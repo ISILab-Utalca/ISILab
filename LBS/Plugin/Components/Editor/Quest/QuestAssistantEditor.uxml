@@ -21,8 +21,8 @@
             <ui:Button text="Remove Suggestions" name="RemoveSuggestions" style="background-color: rgb(88, 106, 55);" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; align-self: stretch; align-content: flex-start; align-items: stretch;">
-            <ISILab.LBS.CustomComponents.LBSPanelTextIcon name="NoSuggestionPanel" icon="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/QuestIcons/Quest=Scroll.svg?fileID=7388822144124034973&amp;guid=d7b2c9af591bee4429f705ae7ae6abea&amp;type=3#Quest=Scroll" text="There are no suggestions. Click on Generate Suggestions" direction="Column" />
-            <ISILab.LBS.CustomComponents.LBSCustomListView name="SuggestionList" />
+            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon icon="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=ActionQuest.svg?fileID=7388822144124034973&amp;guid=1aca99945585da54f9a4bf6db1cc435a&amp;type=3#Icon=ActionQuest" label="No Suggestions available for this grammar" direction="RowReverse" name="NoSuggestionPanel" style="align-self: stretch; justify-content: flex-start; align-content: auto; align-items: auto; flex-grow: 0; flex-wrap: wrap;" />
+            <ISILab.LBS.CustomComponents.LBSCustomListView name="SuggestionList" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

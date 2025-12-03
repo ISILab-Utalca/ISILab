@@ -16,9 +16,9 @@ namespace ISILab.LBS.Manipulators
     public class AddPopulationTile : LBSManipulator
     {
         private PopulationBehaviour _population;
-
+        private TileGroupBehavior _tileMapBehavior;
         private readonly Feedback _previewFeedback;
-        private TileBundleGroup _selectedTile;
+
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
 
         private Bundle ToSet => _population.selectedToSet;
@@ -58,6 +58,8 @@ namespace ISILab.LBS.Manipulators
 
             if(ToSet != null) 
                 (_previewFeedback as IconFeedback).Icon = ToSet.Icon;
+
+            _tileMapBehavior = layer.GetBehaviour<TileGroupBehavior>();
         }
 
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
@@ -77,6 +79,7 @@ namespace ISILab.LBS.Manipulators
 
             var endPos = _population.OwnerLayer.ToFixedPosition(endPosition);
 
+            var _selectedTile = _tileMapBehavior.SelectedTilemap;
             // Dragging selected tile
             if (e.ctrlKey)
             {
@@ -118,12 +121,12 @@ namespace ISILab.LBS.Manipulators
             Undo.RegisterCompleteObjectUndo(level, "Add Element population");
 
             var corners = _population.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
-
+            TileBundleGroup newTileGroup = null;
             for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
-                    _population.AddTileGroup(new Vector2Int(i, j), ToSet);
+                    newTileGroup = _population.AddTileGroup(new Vector2Int(i, j), ToSet);
                 }
             }
 
@@ -132,6 +135,7 @@ namespace ISILab.LBS.Manipulators
                 EditorUtility.SetDirty(level);
             }
 
+            _tileMapBehavior.SelectedTilemap = newTileGroup;
             _population.OwnerLayer.OnChangeUpdate();
         }
 
@@ -141,7 +145,8 @@ namespace ISILab.LBS.Manipulators
             if (!e.ctrlKey) return;
             var tile = _population.GetTile(_population.OwnerLayer.ToFixedPosition(startPosition));
             if (tile == null) return;
-            _selectedTile = _population.GetTileGroup(tile.Position);
+
+            _tileMapBehavior.SelectedTilemap = _population.GetTileGroup(tile.Position);
         }
 
         // TODO Currently it completely bugs out whenever x or y are 0 in the grid space. why? wish i fucking knew
@@ -179,6 +184,7 @@ namespace ISILab.LBS.Manipulators
            _previewFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
             MainView.Instance.AddElement(_previewFeedback);
 
+            var _selectedTile = _tileMapBehavior.SelectedTilemap;
             bool valid;
             // dragging feedback
             if (e.ctrlKey && _selectedTile != null)
@@ -192,7 +198,9 @@ namespace ISILab.LBS.Manipulators
                 // undo the negative of topLeftCorner
                 valid = _population.ValidNewGroup(topLeftCorner, ToSet); 
             }
+
             _previewFeedback.ValidForInput(valid);
+          
             
             
         }

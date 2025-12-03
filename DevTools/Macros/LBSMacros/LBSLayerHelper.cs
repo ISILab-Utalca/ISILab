@@ -1,3 +1,11 @@
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Internal;
+using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +14,18 @@ using ISILab.LBS.Modules;
 using LBS.Components;
 using UnityEngine;
 
+using System.Reflection;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
+
 
 namespace ISILab.LBS.Macros
 { 
     public class LBSLayerHelper
     {
-        
+
         /// <summary>
         /// Retrieves an object of type T from the Behaviours, Assistants, or Modules list within the given layerChild's OwnerLayer.
         /// </summary>
@@ -21,7 +35,7 @@ namespace ISILab.LBS.Macros
         public static T GetObjectFromLayerChild<T>(object layerChild) where T : class
         {
             // Use reflection to get the OwnerLayer property
-            var ownerLayerProp = layerChild.GetType().GetProperty("OwnerLayer");
+            PropertyInfo ownerLayerProp = layerChild.GetType().GetProperty("OwnerLayer");
             if (ownerLayerProp == null) return null;
 
             var ownerLayer = ownerLayerProp.GetValue(layerChild);
@@ -30,7 +44,7 @@ namespace ISILab.LBS.Macros
             // Look for the T in Behaviours, Assistants, and Modules
             foreach (var listName in new[] { "Behaviours", "Assistants", "Modules" })
             {
-                var listProp = ownerLayer.GetType().GetProperty(listName);
+                PropertyInfo listProp = ownerLayer.GetType().GetProperty(listName);
                 if (listProp == null) continue;
 
                 var list = listProp.GetValue(ownerLayer) as IEnumerable<object>;
@@ -41,7 +55,7 @@ namespace ISILab.LBS.Macros
 
             return null;
         }
-        
+
         /// <summary>
         /// Retrieves an object of type T from the Behaviours, Assistants, or Modules list within the provided layer.
         /// </summary>
@@ -54,7 +68,7 @@ namespace ISILab.LBS.Macros
 
             foreach (var listName in new[] { "Behaviours", "Assistants", "Modules" })
             {
-                var listProp = layer.GetType().GetProperty(listName);
+                PropertyInfo listProp = layer.GetType().GetProperty(listName);
                 if (listProp == null) continue;
 
                 var list = listProp.GetValue(layer) as IEnumerable<object>;
@@ -67,14 +81,14 @@ namespace ISILab.LBS.Macros
         
         public static Tuple<LBSLayer, TileBundleGroup> GetBundleTileByPosition(Vector2Int TilePosition, List<LBSLayer> Layers)
         {
-            foreach (var layer in Layers)
+            foreach (LBSLayer layer in Layers)
             {
                 // Only check layers with a PopulationBehaviour
-                var population = layer.GetBehaviour<PopulationBehaviour>();
+                PopulationBehaviour population = layer.GetBehaviour<PopulationBehaviour>();
                 if (population == null)
                     continue;
 
-                var tileGroup = population.GetTileGroup(TilePosition);
+                TileBundleGroup tileGroup = population.GetTileGroup(TilePosition);
                 if (tileGroup != null)
                 {
                     return Tuple.Create(layer, tileGroup);
@@ -86,14 +100,14 @@ namespace ISILab.LBS.Macros
 
         public static Tuple<LBSLayer, TileBundleGroup> GetBundleTileByMouse(Vector2Int mousePosition, List<LBSLayer> Layers)
         {
-            foreach (var layer in Layers)
+            foreach (LBSLayer layer in Layers)
             {
                 // Only check layers with a PopulationBehaviour
-                var population = layer.GetBehaviour<PopulationBehaviour>();
+                PopulationBehaviour population = layer.GetBehaviour<PopulationBehaviour>();
                 if (population == null)
                     continue;
 
-                var tileGroup = population.GetTileGroup(population.OwnerLayer.ToFixedPosition(mousePosition));
+                TileBundleGroup tileGroup = population.GetTileGroup(population.OwnerLayer.ToFixedPosition(mousePosition));
                 if (tileGroup != null)
                 {
                     return Tuple.Create(layer, tileGroup);

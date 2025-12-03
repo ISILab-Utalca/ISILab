@@ -1,3 +1,4 @@
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
@@ -36,9 +37,9 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
             _current = LBSInspectorPanel.Instance.data;
-            
+
             // Get selectable elements
-            var selected = new List<object>();
+            List<object> selected = new List<object>();
             foreach (var module in LBSLayer.Modules)
             {
                 if (module is ISelectable selectable)
@@ -48,6 +49,7 @@ namespace ISILab.LBS.Manipulators
             }
 
             _current.SetSelectedVe(selected);
+            
         }
     }
 }

@@ -86,8 +86,8 @@ namespace ISILab.LBS.VisualElements
             assistants.InitCustomEditors(ref layersList);
             AddTab(AssistantsTab, assistants);
             
-            tabsGroup.OnChangeTab += SetSelectedTab; 
-            SetSelectedTab(DataTab);
+            tabsGroup.OnChangeTab += SetSelectedTab;
+            ActivateDataTab();
         }
 
         private void AddTab(string tab, LBSInspector element)
@@ -105,7 +105,7 @@ namespace ISILab.LBS.VisualElements
             
         }
 
-        public void SetSelectedTab(string name)
+        private void SetSelectedTab(string name)
         {
             ClearContent();
             if (VEs == null) return;
@@ -167,9 +167,9 @@ namespace ISILab.LBS.VisualElements
                 ActiveInspector = inspector;
                 ActiveInspector?.OnFocus?.Invoke();
             }
-            
+
             // by default we set the pallete tab
-            SetSelectedTab(BehavioursTab);
+            ActivateBehaviourTab();
         }
 
         public void Repaint()
@@ -199,7 +199,10 @@ namespace ISILab.LBS.VisualElements
             
             LBSInspectorPanel panel = Instance;
             panel.VEs.TryGetValue(tab, out LBSInspector ve);
-            if(ve == null) return;
+            if(ve == null) 
+            { 
+                return; 
+            }
            
             // Avoid reopening the same tab constantly
             ve.style.display = DisplayStyle.Flex;
@@ -229,6 +232,11 @@ namespace ISILab.LBS.VisualElements
                 mainView.AddContainer(layer);
             }
            
+        }
+
+        internal void DeactivateTabs()
+        {
+            SetSelectedTab(null);
         }
     }
 }

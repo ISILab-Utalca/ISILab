@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; align-self: stretch; justify-content: space-between;">
+        <ui:VisualElement name="NoContent" style="flex-grow: 1; flex-direction: row; max-height: 48px;">
+            <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/Vectorial/Icon=Important&apos;); -unity-background-scale-mode: scale-and-crop; background-size: 100% 100%; min-height: 36px; max-height: 36px; min-width: 36px; max-width: 36px; align-self: center; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px;" />
+            <ui:Label text="No tilemap is currently selected." style="align-self: center; padding-left: 12px; justify-content: space-between; align-content: stretch; align-items: stretch; flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Content" style="flex-grow: 1;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon text="Bundle Name" direction="Column" name="SelectedHeader" icon="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Logo/LBS.svg?fileID=7388822144124034973&amp;guid=12e384eee491b39459a9a6dd5e403595&amp;type=3#LBS" label="Selected Bundle: " style="align-self: stretch; justify-content: center; align-items: center;" />
+            <ui:VisualElement name="Tier" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomImage l-b-s-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=Add.svg?fileID=7388822144124034973&amp;guid=ad8d08a3d465b3a438016713ae2f99c5&amp;type=3#Icon=Add" />
+                <ISILab.LBS.CustomComponents.LBSCustomEnumField name="EnumTier" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Patrol" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomImage l-b-s-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=AddBrushWindow.svg?fileID=7388822144124034973&amp;guid=5b66071190800e84ca56304adc6b4e50&amp;type=3#Icon=AddBrushWindow" />
+                <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Triggers" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomImage l-b-s-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Manipulators/Icon=bRUSHtILE.svg?fileID=7388822144124034973&amp;guid=89525798f076a3d429d10aa953839948&amp;type=3#Icon=bRUSHtILE" />
+                <ISILab.LBS.CustomComponents.LBSCustomListView name="AddonsView" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

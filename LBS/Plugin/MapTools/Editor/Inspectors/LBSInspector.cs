@@ -39,7 +39,7 @@ namespace ISILab.LBS.VisualElements
         /// <summary>
         /// Dictionary for behaviour, assistants, it assumes each one only has 1 editor!
         /// </summary>
-        protected Dictionary<Type, Type> customEditor = new();
+        protected Dictionary<Type, Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> customEditor = new();
 
         protected Dictionary<InspectorInstance, VisualElement> activeEditor = new();
         
