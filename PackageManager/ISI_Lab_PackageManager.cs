@@ -12,7 +12,8 @@ using ISILab.LBS.Plugin.Internal;
 
 namespace ISILab
 {
-    [InitializeOnLoad]
+    //[InitializeOnLoad]
+    [System.Obsolete("Interface not suitable for Unity Asset Store packages.")]
     public class ISI_Lab_PackageManager : IPackageManagerExtension
     {
     const string defaultSettingsGUID = "29abd09f3cff7644da7097258d0ae978";

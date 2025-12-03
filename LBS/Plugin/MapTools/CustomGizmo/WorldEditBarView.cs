@@ -10,7 +10,6 @@ using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using UnityEditor.UIElements;
-using LBS.Bundles;
 using UnityEditor;
 using Object = UnityEngine.Object;
 using System.Runtime.InteropServices;
