@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -100,7 +101,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             };
             listView.bindItem = (item, i) =>
             {
-                Debug.Log("BIND ITEM");
+                //Debug.Log("BIND ITEM");
 
                 T element = (T)item;
                 BundleManagerWindow.BundleContainer container = (BundleManagerWindow.BundleContainer)list.itemsSource[i];
@@ -110,6 +111,22 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 element.SetIconDisplay("Warning", container.GetWarnings().Count > 0);
                 element.SetIconDisplay("Bundle", false);
                 //element.SetIconDisplay("Select", true); // TODO: Handle condition
+
+                if (element is BundleWizardElement wizElement)
+                {
+                    wizElement.Index = i; // Maybe add Index to IBundleElement to avoid this extra check?
+                    System.Action remove = () =>
+                    {
+                        //bundles.RemoveAt(i); // Apparently the callback is being called twice so using Remove instead ensures deleting only one element.
+                        bundles.Remove(container);
+                        EditorApplication.delayCall += () =>
+                        {
+                            list.Rebuild();
+                            list.RefreshItems();
+                        };
+                    };
+                    wizElement.SetRemoveCallback(remove);
+                }
             };
 
             if(typeof(T) == typeof(BundleManagerElement))

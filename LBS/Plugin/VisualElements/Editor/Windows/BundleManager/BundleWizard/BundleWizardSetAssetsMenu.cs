@@ -21,7 +21,7 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
     private List<BundleManagerWindow.BundleContainer> bundleContainers = new();
     private BundleManagerListGroup bundleListGroup;
 
-    private List<Bundle> tempBundles = new();
+    private List<Bundle> TempBundles => bundleContainers.Select(bc => bc.GetMainBundle()).ToList();
 
     //private List<GameObject> prefabs = new();
     //private List<GameObject> models = new();
@@ -46,8 +46,6 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
         bundleList.Rebuild();
         bundleList.RefreshItems();
 
-        tempBundles.Add(bundle);
-
         string s = "";
         prefabs.ForEach(o => s += AssetDatabase.GetAssetPath(o) + "\n");
         Debug.Log(s);
@@ -57,26 +55,10 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
     {
         Bundle bundle = ScriptableObject.CreateInstance<Bundle>();
         prefabs.ForEach(pref => bundle.AddAsset(pref));
-        bundle.BundleName = Builder.bundleName;
+        bundle.BundleName = prefabs[0].name;
 
-        switch (Builder.layerType)
-        {
-            case "Interior Layer":
-                bundle.LayerContentFlags = BundleFlags.Interior;
-                bundle.Type = Bundle.TagType.Structural;
-                break;
-            case "Exterior Layer":
-                bundle.LayerContentFlags = BundleFlags.Exterior;
-                bundle.Type = Bundle.TagType.Structural;
-
-                break;
-            case "Population Layer":
-                bundle.LayerContentFlags = BundleFlags.Population;
-                bundle.Type = Bundle.TagType.Element;
-                bundle.Color = new Color().RandomColorHSV();
-                break;
-        }
-
+        Builder.GetBundleConfiguration(ref bundle, Builder.layerType);
+        
         return bundle;
     }
 
@@ -93,7 +75,7 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
             bundleListGroup = this.Q<BundleManagerListGroup>("NewBundles");
         }
         catch (System.Exception e) { Debug.LogException(e); }
-
+        
         bundleListGroup = this.Q<BundleManagerListGroup>();
         bundleListGroup.SetBundleListViewItem<BundleWizardElement>(
             out bundleList,
@@ -106,13 +88,13 @@ public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
     public void Step()
     {
         //Builder.objects.Add(new List<GameObject>(prefabs));
-        Builder.tempBundles.AddRange(tempBundles);
-        Builder.newSubBundles.AddRange(tempBundles);
+        Builder.tempBundles.AddRange(TempBundles);
+        Builder.newSubBundles.AddRange(TempBundles);
     }
 
     public void Revert()
     {
-        tempBundles.Clear();
+        //tempBundles.Clear();
         bundleContainers.Clear();
 
         Builder.tempBundles.Clear();

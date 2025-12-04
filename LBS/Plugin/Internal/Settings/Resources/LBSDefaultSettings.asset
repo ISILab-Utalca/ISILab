@@ -16,12 +16,12 @@ MonoBehaviour:
     settingsPath: Assets/ISILab/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset
     storagePath: Assets/ISILab/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset
     backUpPath: Assets/ISILab/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset
-    bundleFolderPath: Assets/isi-lab-unity-module/LBS/Data/Bundles
-    tagFolderPath: Assets/isi-lab-unity-module/LBS/Data/Tags
-    meshFolderPath: Assets/isi-lab-unity-module/LBS/Data/Meshes
+    bundleFolderPath: Assets/ISILab/LBS/Content/Bundles
+    tagFolderPath: Assets/ISILab/LBS/Content/Tags
+    meshFolderPath: Assets/ISILab/LBS/Content/Meshes
     WFCpresetsFolderPath: Assets/isi-lab-unity-module/LBS/Data/Presets/WFC
     layerPressetFolderPath: Assets/isi-lab-unity-module/LBS/Presets/Layers
-    assistantPresetFolderPath: Assets/isi-lab-unity-module/LBS/Presets/Assistants
+    assistantPresetFolderPath: Assets/ISILab/LBS/Presets/Assistants
   general:
     zoomMax: 10
     zoomMin: 0.1
@@ -66,12 +66,12 @@ MonoBehaviour:
       name: New Layer
       rootParentName: Root_Parent
     rules:
-    - rid: 9117505087159402574
-    - rid: 9117505087159402575
+    - rid: 7723874652467757095
+    - rid: 7723874652467757096
   references:
     version: 2
     RefIds:
-    - rid: 9117505087159402574
+    - rid: 7723874652467757095
       type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:
         generator3D:
@@ -86,7 +86,7 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           rules: []
-    - rid: 9117505087159402575
+    - rid: 7723874652467757096
       type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:
         generator3D:
