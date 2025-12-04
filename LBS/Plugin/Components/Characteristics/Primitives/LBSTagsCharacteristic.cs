@@ -17,7 +17,7 @@ namespace ISILab.LBS.Characteristics
         [SerializeField, JsonRequired]
         string tagName = "";
 
-        [SerializeField, JsonRequired/*, JsonIgnore*/]
+        [SerializeField, SerializeReference, JsonRequired/*, JsonIgnore*/]
         protected LBSTag value;
 
         [SerializeField, JsonRequired]
@@ -85,6 +85,7 @@ namespace ISILab.LBS.Characteristics
     {
         public new static readonly bool unique = false;
 
+        [SerializeField]
         List<TagCharacteristicEntry> tagEntries = new();
 
         public List<TagCharacteristicEntry> TagEntries
