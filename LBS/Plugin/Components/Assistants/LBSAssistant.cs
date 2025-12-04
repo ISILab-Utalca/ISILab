@@ -14,7 +14,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
     public abstract class LBSAssistant : ICloneable
     {
         #region META-FIELDS
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         public bool visible = true;
         #endregion
 

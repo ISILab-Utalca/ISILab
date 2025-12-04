@@ -18,15 +18,15 @@ namespace ISILab.LBS.Behaviours
     public class PopulationBehaviour : LBSBehaviour
     {
         #region FIELDS
-        [SerializeField, JsonIgnore] 
+        [SerializeField, JsonIgnore, HideInInspector ] 
         private TileMapModule tileMap;
-        [SerializeField, JsonIgnore] 
+        [SerializeField, JsonIgnore, HideInInspector] 
         private BundleTileMap _bundleTileMap;
 
-        [SerializeField,JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
 
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         private string bundleRefGuid = "668e6768d7619b3459df4f6378dfa3bb";
         private string DefaultBundleRefGuid { get => "668e6768d7619b3459df4f6378dfa3bb"; }
 
@@ -34,18 +34,19 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region META-FIELDS
-        [JsonIgnore]
+        [JsonIgnore, HideInInspector]
         public Bundle selectedToSet;
         
-        [SerializeField, JsonIgnore]
+        [SerializeField, JsonIgnore, HideInInspector]
         private BundleCollection bundleCollection;
 
         [SerializeField, JsonIgnore]
         private Bundle mainBundle;
 
+        [HideInInspector]
         public string allFilter = "All";
         
-        [FormerlySerializedAs("selectedTypetoSet")] [JsonIgnore]
+        [FormerlySerializedAs("selectedTypetoSet")] [JsonIgnore, HideInInspector]
         public string selectedTypeFilter;
         #endregion
 

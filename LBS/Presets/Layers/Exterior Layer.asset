@@ -20,10 +20,19 @@ MonoBehaviour:
     iconGuid: 02a644759487ae249bc3a20d019c8745
     id: Exterior
     name: Layer Exterior
-    modules: []
-    behaviours: []
-    assistants: []
-    generatorRules: []
+    modules:
+    - rid: 7091613708652642304
+    - rid: 7091613708652642305
+    - rid: 7091613708652642306
+    - rid: 7091613708652642307
+    - rid: 7091613708652642308
+    - rid: 7091613708652642310
+    behaviours:
+    - rid: 7091613708766675053
+    assistants:
+    - rid: 7091613708766675054
+    generatorRules:
+    - rid: 7091613708766675058
     settings:
       useBundleSize: 0
       lightVolume: 0
@@ -37,4 +46,420 @@ MonoBehaviour:
     index: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7091613708652642304
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 7091613708652642305
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 7091613708652642306
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 7091613708652642307
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 7091613708652642308
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 7091613708652642309
+      type: {class: HillClimbingAssistant, ns: ISILab.LBS.Assistants, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0, g: 0, b: 0, a: 0}
+        name: HillClimbingAssistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 0}
+        visibleConstraints: 0
+        printClocks: 0
+    - rid: 7091613708652642310
+      type: {class: BundleTileMap, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: BundleTileMap
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        groups: []
+    - rid: 7091613708652642311
+      type: {class: PopulationBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+      data:
+        visible: 1
+        ownerLayerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708652642311
+          assistants:
+          - rid: 7091613708652642309
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0, g: 0, b: 0, a: 0}
+        name: PopulationBehaviour
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 0}
+        tileMap:
+          id: TileMapModule
+          ownerLayer:
+            visible: 1
+            blocked: 0
+            iconGuid: 02a644759487ae249bc3a20d019c8745
+            id: Exterior
+            name: Layer Exterior
+            modules:
+            - rid: 7091613708652642304
+            - rid: 7091613708652642305
+            - rid: 7091613708652642306
+            - rid: 7091613708652642307
+            - rid: 7091613708652642308
+            - rid: 7091613708652642310
+            behaviours:
+            - rid: 7091613708652642311
+            assistants:
+            - rid: 7091613708652642309
+            generatorRules: []
+            settings:
+              useBundleSize: 0
+              lightVolume: 0
+              reflectionProbe: 0
+              scale: {x: 2, y: 2}
+              resize: {x: 0, y: 0}
+              position: {x: 0, y: 0, z: 0}
+              replacePrevious: 1
+              name: DEFAULT
+              rootParentName: Root_Parent
+            index: 0
+          tiles: []
+        bundleRefGui: 3e607c0f80297b849a6ea0d7f98c73a3
+        bundleRefGuid: 668e6768d7619b3459df4f6378dfa3bb
+        selectedToSet: {fileID: 0}
+        bundleCollection: {fileID: 0}
+        mainBundle: {fileID: 0}
+        allFilter: All
+        selectedTypeFilter: 
+    - rid: 7091613708766675053
+      type: {class: ExteriorBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+      data:
+        visible: 1
+        ownerLayerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708766675053
+          assistants: []
+          generatorRules: []
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.5294118, g: 0.84313726, b: 0.9647059, a: 1}
+        name: ExteriorBehaviour
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
+        targetBundleRef: {fileID: 11400000, guid: 9d3dac0f9a486fd47866f815b4fefc29, type: 2}
+        bundleRefGui: 9d3dac0f9a486fd47866f815b4fefc29
+        identifierToSet: {fileID: 0}
+    - rid: 7091613708766675054
+      type: {class: AssistantWFC, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 7091613708652642304
+          - rid: 7091613708652642305
+          - rid: 7091613708652642306
+          - rid: 7091613708652642307
+          - rid: 7091613708652642308
+          - rid: 7091613708652642310
+          behaviours:
+          - rid: 7091613708766675053
+          assistants:
+          - rid: 7091613708766675054
+          generatorRules:
+          - rid: 7091613708766675058
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.7607843, g: 0.9607843, b: 0.4392157, a: 1}
+        name: Wave Function Collapse Assistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 7388822144124034973, guid: 2cf0d2907db06024190d079005239a75, type: 3}
+        overrideValues: 0
+        targetBundleRef: {fileID: 11400000, guid: 9d3dac0f9a486fd47866f815b4fefc29, type: 2}
+    - rid: 7091613708766675058
+      type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+      data:
+        generator3D:
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          rules: []

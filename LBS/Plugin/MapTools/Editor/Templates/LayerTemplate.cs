@@ -33,14 +33,14 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             {
                 
                 
-                behaviour.OnGUI();
+                behaviour?.OnGUI();
                 // invoke
             }
 
             foreach (var assistant in layer.Assistants)
             {
                 // invoke
-                assistant.OnGUI();
+                assistant?.OnGUI();
             }
         }
     }

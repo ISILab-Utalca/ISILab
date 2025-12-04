@@ -41,9 +41,9 @@ namespace ISILab.LBS.Assistants
         private List<Vector2Int> Dirs => Directions.Bidimencional.Edges;
 
         #region META-FIELDS
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         public bool visibleConstraints = false;
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         public bool printClocks = false;
         #endregion
 

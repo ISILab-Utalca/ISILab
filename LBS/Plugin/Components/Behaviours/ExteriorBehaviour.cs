@@ -21,7 +21,7 @@ namespace ISILab.LBS.Behaviours
     public class ExteriorBehaviour : LBSBehaviour
     {
         #region FIELDS
-        [JsonProperty, SerializeReference, SerializeField]
+        [JsonProperty, SerializeReference, SerializeField, HideInInspector]
         private Bundle targetBundleRef;
 
         /***
@@ -35,6 +35,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region META-FIELDS
+        [HideInInspector]
         public LBSTag identifierToSet;
         #endregion
 
@@ -97,8 +98,13 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public List<Vector2Int> Directions => Commons.Directions.Bidimencional.Edges;
         #endregion
-        
+
         #region CONSTRUCTORS
+
+        public ExteriorBehaviour(string iconGUID, string name, Color colorTint) : base(iconGUID, name, colorTint)
+        {
+     
+        }
 
         public ExteriorBehaviour(string iconGUID, string name, Color colorTint, Bundle targetBundleRef = null) : base(iconGUID, name, colorTint)
         {

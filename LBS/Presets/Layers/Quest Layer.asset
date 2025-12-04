@@ -26,8 +26,8 @@ MonoBehaviour:
     - rid: 8325711621806097963
     - rid: 1248747549014622362
     assistants:
-    - rid: 6751532724565573719
-    - rid: 1248747549014622363
+    - rid: 7091613708766675055
+    - rid: 7091613708766675056
     generatorRules:
     - rid: 7571179374700920913
     settings:
@@ -108,7 +108,7 @@ MonoBehaviour:
             rootParentName: Root_Parent
           index: 0
         colorTint: {r: 0.47058827, g: 1, b: 0.8313726, a: 1}
-        name: Quest Behaviour
+        name: Quest Actions
         iconGuid: 49b9448c876b36c4ba26740d7deae035
         icon: {fileID: 7388822144124034973, guid: 49b9448c876b36c4ba26740d7deae035, type: 3}
     - rid: 1248747549014622363
@@ -176,42 +176,6 @@ MonoBehaviour:
         questAction: null
         nodeType: 0
         questState: 0
-    - rid: 6751532724565573719
-      type: {class: QuestAssistant, ns: ISILab.LBS.Assistants, asm: LBS}
-      data:
-        visible: 1
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          modules:
-          - rid: 1248747549014622361
-          behaviours:
-          - rid: 8325711621806097963
-          - rid: 1248747549014622362
-          assistants:
-          - rid: 1248747549014622363
-          - rid: 6751532724565573719
-          generatorRules:
-          - rid: 1248747549014622364
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: Quest
-            rootParentName: Root_Parent
-          index: 0
-        colorTint: {r: 0.7607844, g: 0.96470594, b: 0.4431373, a: 1}
-        name: Quest Assistant
-        iconGuid: 92ac01a6fa4409a4bb0b2e7ba788c5b7
-        icon: {fileID: 7388822144124034973, guid: 92ac01a6fa4409a4bb0b2e7ba788c5b7, type: 3}
-        suggestionAmount: 3
     - rid: 6953538662824935526
       type: {class: QuestFlowBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
@@ -241,6 +205,77 @@ MonoBehaviour:
         name: Quest Flow
         iconGuid: 
         icon: {fileID: 7388822144124034973, guid: a919b94406bb9f5469d29bf56201e3f1, type: 3}
+    - rid: 7091613708766675055
+      type: {class: GrammarAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
+          id: Quest
+          name: Layer Quest
+          modules:
+          - rid: 1248747549014622361
+          behaviours:
+          - rid: 8325711621806097963
+          - rid: 1248747549014622362
+          assistants:
+          - rid: 7091613708766675055
+          - rid: 7091613708766675056
+          generatorRules:
+          - rid: 7571179374700920913
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Quest
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.7607843, g: 0.9607843, b: 0.4392157, a: 1}
+        name: Grammar Assistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 7388822144124034973, guid: 2cf0d2907db06024190d079005239a75, type: 3}
+    - rid: 7091613708766675056
+      type: {class: QuestAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
+          id: Quest
+          name: Layer Quest
+          modules:
+          - rid: 1248747549014622361
+          behaviours:
+          - rid: 8325711621806097963
+          - rid: 1248747549014622362
+          assistants:
+          - rid: 7091613708766675055
+          - rid: 7091613708766675056
+          generatorRules:
+          - rid: 7571179374700920913
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Quest
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.7607843, g: 0.9607843, b: 0.4392157, a: 1}
+        name: Quest Assistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 7388822144124034973, guid: 2cf0d2907db06024190d079005239a75, type: 3}
+        suggestionAmount: 3
     - rid: 7571179374700920913
       type: {class: QuestRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:
@@ -288,6 +323,6 @@ MonoBehaviour:
             rootParentName: Root_Parent
           index: 0
         colorTint: {r: 0.5294118, g: 0.8431373, b: 0.96470594, a: 1}
-        name: Selected Action Data Config
+        name: Node Data
         iconGuid: 8a9f4ea328526464085e24168d212ac9
         icon: {fileID: 7388822144124034973, guid: 8a9f4ea328526464085e24168d212ac9, type: 3}

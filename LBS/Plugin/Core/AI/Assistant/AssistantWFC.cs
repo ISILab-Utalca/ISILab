@@ -26,7 +26,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
     public class AssistantWFC : LBSAssistant, IAssistantThreaded
     {
         #region FIELDS
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         private bool overrideValues;
 
         [JsonProperty, SerializeReference, SerializeField, JsonRequired]
@@ -121,6 +121,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         #endregion
 
         #region CONSTRUCTORS
+
+        public AssistantWFC(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
+        {
+            SafeMode = true;
+            OnGUI();
+        }
 
         public AssistantWFC(string IconGuid, string name, Color colorTint, Bundle targetBundleRef = null) : base(IconGuid, name, colorTint)
         {

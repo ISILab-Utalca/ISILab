@@ -25,7 +25,8 @@ MonoBehaviour:
     - rid: 6598277183820005784
     behaviours:
     - rid: 6598277183820005785
-    assistants: []
+    assistants:
+    - rid: 7091613708766675057
     generatorRules:
     - rid: 7571179378973868406
     settings:
@@ -186,6 +187,42 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           rules: []
+    - rid: 7091613708766675057
+      type: {class: AssistantWFC, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: Layer Exterior
+          modules:
+          - rid: 6598277183820005783
+          - rid: 6598277183820005784
+          behaviours:
+          - rid: 6598277183820005785
+          assistants:
+          - rid: 7091613708766675057
+          generatorRules:
+          - rid: 7571179378973868406
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Exteriror
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.7607843, g: 0.9607843, b: 0.4392157, a: 1}
+        name: Wave Function Collapse Assistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 7388822144124034973, guid: 2cf0d2907db06024190d079005239a75, type: 3}
+        overrideValues: 0
+        targetBundleRef: {fileID: 11400000, guid: 9d3dac0f9a486fd47866f815b4fefc29, type: 2}
     - rid: 7571179378973868406
       type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:

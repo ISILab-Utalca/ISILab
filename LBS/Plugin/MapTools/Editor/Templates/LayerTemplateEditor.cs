@@ -173,6 +173,10 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             {
                 Template.layer.AddBehaviour(instance);
             }
+            else
+            {
+                Debug.LogError($"Failed to create instance of behaviour type: {type.Name}");
+            }
         }
 
         private void AddAssistant(Type type)
@@ -182,6 +186,10 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             {
                 Template.layer.AddAssistant(instance);
             }
+            else
+            {
+                Debug.LogError($"Failed to create instance of assistant type: {type.Name}");
+            }
         }
 
         private void AddGeneratorRule(Type type)
@@ -190,6 +198,10 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             if (Activator.CreateInstance(type) is LBSGeneratorRule instance)
             {
                 Template.layer.AddGeneratorRule(instance);
+            }
+            else
+            {
+                Debug.LogError($"Failed to create instance of gen rule type: {type.Name}");
             }
         }
         #endregion

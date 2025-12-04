@@ -14,7 +14,7 @@ namespace ISILab.LBS.Behaviours
     public abstract class  LBSBehaviour : ICloneable
     {
         #region META-FIELDS
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         public bool visible = true;
         #endregion
 

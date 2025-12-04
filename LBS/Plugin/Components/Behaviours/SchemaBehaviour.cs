@@ -45,12 +45,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [JsonIgnore]
         private SectorizedTileMapModule areas => OwnerLayer.GetModule<SectorizedTileMapModule>();
 
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private string pressetInsideStyleGuid = "c61b774ce5ee4c640b93988da7937edc";
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private string pressetOutsideStyleGuid = "c0e28f3a70727474a81b860669e32870";
 
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private bool multiLayerConnections = true;
         
         #endregion
@@ -63,7 +63,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             get => roomToSet; 
             set => roomToSet = value; 
         }
-        [JsonIgnore]
+        [JsonIgnore, HideInInspector]
         public string conectionToSet;
         #endregion
 
