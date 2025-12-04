@@ -97,10 +97,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         private BundleFlags layerContentFlags;
 
-        [SerializeField]
+        [SerializeField, Obsolete("Use layer content flags instead.")]
         private TagType type;
 
-        [SerializeField]
+        [SerializeReference, HideInInspector]
         private Positioning anchorPosition = Positioning.Center;
 
         [SerializeField]
@@ -109,7 +109,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         [SerializeField, HideInInspector] 
         private string iconGuid;
         
-        [SerializeReference]
+        [SerializeReference, HideInInspector]
         private VectorImage icon;
         
         [SerializeField]

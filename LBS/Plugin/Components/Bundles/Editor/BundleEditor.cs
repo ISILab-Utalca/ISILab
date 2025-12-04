@@ -48,7 +48,7 @@ namespace ISILab.LBS.Bundles.Editor
             }
     
             #region Icon
-            var iconProp = serializedObject.FindProperty("icon");
+            SerializedProperty iconProp = serializedObject.FindProperty("icon");
 
             if (iconProp != null)
             {
@@ -75,7 +75,32 @@ namespace ISILab.LBS.Bundles.Editor
                 });
             }
             #endregion
-            
+
+            #region INTERIOR PROPERTIES
+
+            SerializedProperty anchorProp = serializedObject.FindProperty("anchorPosition");
+            if(anchorProp != null)
+            {
+                var anchorField = new PropertyField(anchorProp);
+                anchorField.Bind(serializedObject);
+                root.Add(anchorField);
+
+                anchorField.TrackPropertyValue(anchorProp, prop =>
+                {
+                    if (bundle == null) return;
+                });
+            }
+
+            #endregion
+
+            #region EXTERIOR PROPERTIES
+
+
+
+            #endregion
+
+            #region POPULATION PROPERTIES
+
             // Element option
             if (bundle != null && bundle.Type == Bundle.TagType.Element)
             {
@@ -94,7 +119,9 @@ namespace ISILab.LBS.Bundles.Editor
                     root.Add(tileSizeField);
                 }
             }
-            
+
+            #endregion
+
             #region Characteristics
 
             characteristics = new ListView();
