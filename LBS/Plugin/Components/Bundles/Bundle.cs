@@ -93,17 +93,16 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         // Add a flags field
         [FormerlySerializedAs("flags")]
-        [SerializeField]
-
+        [SerializeReference, HideInInspector]
         private BundleFlags layerContentFlags;
 
-        [SerializeField, Obsolete("Use layer content flags instead.")]
+        [SerializeField, HideInInspector, Obsolete("Use layer content flags instead.")]
         private TagType type;
 
         [SerializeReference, HideInInspector]
         private Positioning anchorPosition = Positioning.Center;
 
-        [SerializeField]
+        [SerializeReference, HideInInspector]
         private Color color;
 
         [SerializeField, HideInInspector] 
@@ -130,7 +129,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         [SerializeField, HideInInspector]
         private List<Bundle> childsBundles = new List<Bundle>();
         
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private MicroGenTool microGenTool = new MicroGenTool();
 
         [SerializeField, HideInInspector]
@@ -158,7 +157,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             {
                 if (icon is not null)
                 {
-                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon); ;
+                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
                 }
                 else
                 {
@@ -198,6 +197,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public Positioning Positioning => anchorPosition;
 
+        [Obsolete("Use layer content flags instead.")]
         public TagType Type
         {
             get => type;
