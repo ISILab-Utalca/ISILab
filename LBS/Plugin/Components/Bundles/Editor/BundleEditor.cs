@@ -77,19 +77,25 @@ namespace ISILab.LBS.Bundles.Editor
             });
 
             #endregion
+
             bool hasSpecificSettings = false;
             bool interiorSettings   = false, 
                  exteriorSettings   = false,
-                 populationSettings = false;
+                 populationSettings = false,
+                 questSettings      = false,
+                 simulationSettings = false;
             if(bundle != null && bundle.ChildsBundles.Count == 0)
             {
                 interiorSettings = bundle.LayerContentFlags == BundleFlags.Interior;
                 exteriorSettings = bundle.LayerContentFlags == BundleFlags.Exterior;
                 populationSettings = bundle.LayerContentFlags == BundleFlags.Population;
+                questSettings = bundle.LayerContentFlags == BundleFlags.Quest;
+                simulationSettings = bundle.LayerContentFlags == BundleFlags.Simulation;
 
                 exteriorSettings = false; // (!!) Remove line if an exterior specific property is created
+                questSettings = false; // (!!) Remove line if a quest specific property is created
 
-                hasSpecificSettings = interiorSettings || exteriorSettings || populationSettings;
+                hasSpecificSettings = interiorSettings || exteriorSettings || populationSettings || questSettings || simulationSettings;
             }
 
             if (hasSpecificSettings)
@@ -98,27 +104,20 @@ namespace ISILab.LBS.Bundles.Editor
                 MakeTitle("Specific Settings");
             }
 
-            #region INTERIOR PROPERTIES
-
             if (interiorSettings)
                 SerializeProperty("anchorPosition");
-
-            #endregion
-
-            #region EXTERIOR PROPERTIES
 
             if (exteriorSettings)
                 ;
 
-            #endregion
-
-            #region POPULATION PROPERTIES
-
             if (populationSettings)
                 SerializeProperties("elementFlag", "tileSize");
 
+            if (questSettings)
+                ;
 
-            #endregion
+            if (simulationSettings)
+                SerializeProperties("entityType", "admissibleTypes");
 
 
             SerializeProperties("", "assets");
