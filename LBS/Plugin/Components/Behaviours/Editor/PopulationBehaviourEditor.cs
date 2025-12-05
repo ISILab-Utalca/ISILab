@@ -50,6 +50,7 @@ namespace ISILab.LBS.VisualElements
         #region CONSTRUCTORS
         public PopulationBehaviourEditor(object target) : base(target)
         {
+
             behaviour = target as PopulationBehaviour;
             if (behaviour is null) return;
             //_collection = load default collection
@@ -85,15 +86,20 @@ namespace ISILab.LBS.VisualElements
             CreateVisualElement();
         }
         #endregion
-        
+
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-            behaviour = paramTarget as PopulationBehaviour;
-            if(behaviour == null) return;
 
-             _collection = behaviour.BundleCollection;
+            behaviour = paramTarget as PopulationBehaviour;
+            if (behaviour == null) return;
+
+            _collection = behaviour.BundleCollection;
             _mainBundle = behaviour.MainBundle;
+            behaviour.OwnerLayer.OnChange += () =>
+            {
+                PopulationTileView.SelectedTile?.Highlight(false, true);
+            };
         }
 
         public void SetTools(ToolKit toolkit)

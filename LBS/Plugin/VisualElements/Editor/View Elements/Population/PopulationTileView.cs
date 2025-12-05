@@ -155,9 +155,12 @@ namespace ISILab.LBS.VisualElements
             _icon.style.backgroundImage = new StyleBackground(icon);
         }
 
-        public void Highlight(bool highlight)
+        public void Highlight(bool highlight, bool staticCall = false)
         {
-            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (!staticCall)
+            {
+                if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            }
 
             float backgroundAlpha = highlight ? 1f : defaultAlpha;
             var newColor = (new Color(_backgroundColor.value.r, _backgroundColor.value.g, _backgroundColor.value.b, backgroundAlpha));
