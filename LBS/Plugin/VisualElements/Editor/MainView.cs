@@ -1,6 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using LBS.Components;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;

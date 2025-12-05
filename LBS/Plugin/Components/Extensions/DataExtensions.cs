@@ -1,21 +1,20 @@
-using ISILab.LBS;
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.Extensions
+namespace ISILab.LBS.Plugin.Components.Extensions
 {
     public static class DataExtensions
     {
-        public static void RemoveEmptyLayers(this LBSLevelData data)
+        public static void RemoveEmptyLayers(this LBSLevelData _data)
         {
-            var x = 0;
-            var layers = data.Layers;
+            int x = 0;
+            var layers = _data.Layers;
             for (int i = layers.Count - 1; i >= 0; i--)
             {
                 if (layers[i] == null)
                 {
                     x++;
-                    data.RemoveAt(i);
+                    _data.RemoveAt(i);
                 }
             }
             Debug.Log("[ISI Lab]: Remove");

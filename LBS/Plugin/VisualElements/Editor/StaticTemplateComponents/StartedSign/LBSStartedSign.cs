@@ -1,7 +1,6 @@
-using ISILab.LBS.Macros;
+using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.UIElements.Experimental;
 
 
 [UxmlElement]
@@ -14,7 +13,7 @@ public partial class LBSStartedSign: VisualElement
     
     public LBSStartedSign()
     {
-        signPopup = LBSAssetMacro.LoadAssetByGuid<VisualTreeAsset>("2019cc78f8952b649a6004d15c450b71");
+        signPopup = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("2019cc78f8952b649a6004d15c450b71");
         signPopup.CloneTree(this);
         
         Label linkLabel = this.Query<Label>("Link");

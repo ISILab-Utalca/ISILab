@@ -1,4 +1,4 @@
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;

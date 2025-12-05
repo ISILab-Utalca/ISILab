@@ -1,7 +1,7 @@
 using ISILab.Commons.Attributes;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using ISILab.LBS.Macros;
+using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.UIElements;
 using PathOS;
@@ -45,7 +45,7 @@ namespace ISILab.LBS.Components
             {
                 if (icon == null)
                 {
-                    return LBSAssetMacro.LoadAssetByGuid<VectorImage>("d6f94a68988be8b45894b9f0e677e8d1");
+                    return AssetMacro.LoadAssetByGuid<VectorImage>("d6f94a68988be8b45894b9f0e677e8d1");
                 }
                 return icon;
             }

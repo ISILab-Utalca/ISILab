@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
 using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Internal;
@@ -96,7 +97,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         public static void ShowWindow()
         {
             BundleManagerWindow window = GetWindow<BundleManagerWindow>();
-            Texture icon = LBSAssetMacro.LoadAssetByGuid<Texture>("6351057aa17189c44902075c0b9353fd");
+            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("6351057aa17189c44902075c0b9353fd");
             window.titleContent = new GUIContent("Bundle Manager", icon);
         }
 
@@ -214,7 +215,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             _validatorList = rootVisualElement.Q<VisualElement>("BundleValidator").Q<ListView>();
             SetExpandButtonSetting("BundleValidator", _validatorList);
         }
-
+        
         /// <summary>
         /// Finds all bundles in project and sets their reference in the BundleContainer lists.
         /// </summary>

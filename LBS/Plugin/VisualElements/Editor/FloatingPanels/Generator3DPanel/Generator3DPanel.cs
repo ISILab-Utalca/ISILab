@@ -10,13 +10,14 @@ using System.Collections.Generic;
 
 using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Generators;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Bundles;
 
 using LBS.Components;
+using ISILab.LBS.Macros;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -378,7 +379,7 @@ namespace ISILab.LBS.VisualElements.Editor
             if (lbsGen != null)
             {
                 if (lbsGen.BundleRef.ElementFlag == Bundle.EElementFlag.Character) return;
-                if (lbsGen.HasLBSTag("NoBake")) return;
+                if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
             }
             
             obj.isStatic = true; 

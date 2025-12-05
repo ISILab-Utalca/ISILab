@@ -11,7 +11,6 @@ using UnityEngine.UIElements;
 using ISILab.LBS.Editor;
 using LBS.VisualElements;
 using UnityEngine.Assertions;
-using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -58,7 +57,7 @@ namespace ISILab.LBS.VisualElements
 
                     Type behaviourEditorType = ves.First().Item1;
                     if (behaviourEditorType == null) continue;
-                    customEditor.Add(type, behaviourEditorType);
+                    customEditor.Add(type, ves.First());
                 }
             }
         }
@@ -80,7 +79,7 @@ namespace ISILab.LBS.VisualElements
             // Add the tools into the toolkit and set the data of behaviour
             foreach (var behaviour in _target.Behaviours)
             {
-                Type editorType = customEditor.GetValueOrDefault(behaviour.GetType());
+                Type editorType = customEditor.GetValueOrDefault(behaviour.GetType()).Item1;
                 if(editorType == null) continue;
                 LBSCustomEditor instance = Activator.CreateInstance(editorType, behaviour) as LBSCustomEditor;
                 

@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
@@ -14,6 +14,7 @@ using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 
 namespace LBS.VisualElements
@@ -114,7 +115,7 @@ namespace LBS.VisualElements
             LBSTool selectTool = new LBSTool(new SelectManipulator());
             ActivateTool(selectTool,layer);
             selectTool.Init(layer, this);
-            selectTool.OnSelect += LBSInspectorPanel.ActivateDataTab;
+            selectTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
         }
         
         public object GetActiveManipulator()

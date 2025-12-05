@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
@@ -21,7 +21,7 @@ namespace ISILab.LBS.Behaviours
     public class ExteriorBehaviour : LBSBehaviour
     {
         #region FIELDS
-        [JsonProperty, SerializeReference, SerializeField]
+        [JsonProperty, SerializeReference, SerializeField, HideInInspector]
         private Bundle targetBundleRef;
 
         /***
@@ -35,6 +35,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region META-FIELDS
+        [HideInInspector]
         public LBSTag identifierToSet;
         #endregion
 
@@ -51,7 +52,7 @@ namespace ISILab.LBS.Behaviours
             set
             {
                 targetBundleRef = value;
-                bundleRefGui = LBSAssetMacro.GetGuidFromAsset(value);
+                bundleRefGui = AssetMacro.GetGuidFromAsset(value);
             }
         }
 
@@ -97,8 +98,13 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public List<Vector2Int> Directions => Commons.Directions.Bidimencional.Edges;
         #endregion
-        
+
         #region CONSTRUCTORS
+
+        public ExteriorBehaviour(string iconGUID, string name, Color colorTint) : base(iconGUID, name, colorTint)
+        {
+     
+        }
 
         public ExteriorBehaviour(string iconGUID, string name, Color colorTint, Bundle targetBundleRef = null) : base(iconGUID, name, colorTint)
         {
@@ -122,7 +128,7 @@ namespace ISILab.LBS.Behaviours
             if (targetBundleRef is null && bundleRefGui is not null)
             {
                 // either loads the default guid or the saved guid field
-                targetBundleRef = LBSAssetMacro.LoadAssetByGuid<Bundle>(bundleRefGui);
+                targetBundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleRefGui);
             }
             
             return targetBundleRef;

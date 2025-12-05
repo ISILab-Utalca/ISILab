@@ -93,21 +93,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 gameObject.AddComponent<Custom3dMeshGizmo>();
             }
         }
-        
-        public bool HasLBSTag(string _paraTag)
-        {
-            var characteristics = bundleRef.Characteristics;
-            foreach (var lbsChar in characteristics)
-            {
-                if (lbsChar is not LBSTagsCharacteristic lbsTagsCharacteristic) continue;
-                if (lbsTagsCharacteristic.Value == null) continue;
-                if (lbsTagsCharacteristic.Value.label != _paraTag) continue;
-                return true;
-            }
-
-            return false;
-        }
-        
+                
         #endregion
     }
 }

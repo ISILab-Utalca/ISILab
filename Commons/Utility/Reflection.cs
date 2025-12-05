@@ -186,6 +186,43 @@ namespace ISILab.Commons.Utility
             }
             return false;
         }
+
+        /// <summary>
+        /// Returns all classes in the AppDomain that implement the given interface type.
+        /// </summary>
+        public static List<Type> GetAllClassesWithInterface(Type interfaceType)
+        {
+            var result = new List<Type>();
+
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Type[] types;
+
+                try
+                {
+                    types = assembly.GetTypes();
+                }
+                catch (ReflectionTypeLoadException e)
+                {
+                    types = e.Types.Where(t => t != null).ToArray();
+                }
+
+                foreach (var type in types)
+                {
+                    if (type == null) continue;
+
+                    if (type.IsClass &&
+                        !type.IsAbstract &&
+                        interfaceType.IsAssignableFrom(type))
+                    {
+                        result.Add(type);
+                    }
+                }
+            }
+
+            return result;
+        }
+
     }
 }
 

@@ -20,6 +20,7 @@ namespace ISILab.LBS.VisualElements
         
         private readonly ModulesPanel modulesPanel;
         private readonly LayerInfoView layerInfoView;
+        Dictionary<Type, Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> moduleDictionaries = new ();
 
         #region CONSTRUCTORS
         public LBSLocalCurrent()
@@ -54,7 +55,7 @@ namespace ISILab.LBS.VisualElements
 
                     Type moduleEditorType = ves.First().Item1;
                     if (moduleEditorType == null) continue;
-                    customEditor.Add(type, moduleEditorType);
+                    customEditor.Add(type, ves.First());
                 }
             }
         }
@@ -92,7 +93,7 @@ namespace ISILab.LBS.VisualElements
         {
             contentPanel.Clear();
 
-            foreach (var obj in objs)
+            foreach (object obj in objs)
             {
                 // Check if obj is valid
                 if (obj == null)
@@ -102,21 +103,28 @@ namespace ISILab.LBS.VisualElements
                 }
 
                 // Get type of element
-                var type = obj.GetType();
+                Type type = obj.GetType();
+                Tuple<Type, IEnumerable<LBSCustomEditorAttribute>> Ve = null;
 
-                // Get the editors of the selectable elements
-                var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
-                        .Where(t => t.Item2.Any(v => v.type == type)).ToList();
-
-                if (ves.Count <= 0)
+                if (!moduleDictionaries.TryGetValue(type, out Ve))
                 {
-                    // Add basic label if no have specific editor
-                    contentPanel.Add(new Label("'" + type + "' does not contain a visualization."));
-                    continue;
+                    // Get the editors of the selectable elements
+                    List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
+                            .Where(t => t.Item2.Any(v => v.type == type)).ToList();
+
+                    if (ves.Count <= 0)
+                    {
+                        // Add basic label if no have specific editor
+                        contentPanel.Add(new Label("'" + type + "' does not contain a visualization."));
+                        continue;
+                    }
+
+                    Ve = ves.First();
+                    moduleDictionaries.Add(type, Ve);
                 }
 
                 // Get editor class
-                var editorType = ves.First().Item1;
+                Type editorType = Ve.Item1;
                 
                 // set target info on visual element
                 if (Activator.CreateInstance(editorType) is not LBSCustomEditor instance) continue;
@@ -125,7 +133,7 @@ namespace ISILab.LBS.VisualElements
                 ToolKit.Instance.SetTarget(instance);
 
                 // create content container
-                var container = new DataContent(instance, ves.First().Item2.First().name);
+                var container = new DataContent(instance, Ve.Item2.First().name);
                 contentPanel.Add(container);
                 
                 if (activeEditor is null) continue;

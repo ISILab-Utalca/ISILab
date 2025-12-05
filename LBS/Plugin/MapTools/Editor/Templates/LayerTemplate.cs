@@ -1,11 +1,9 @@
-using LBS.Components;
-using LBS.Components.Graph;
-using Newtonsoft.Json;
 using System;
-
+using LBS.Components;
+using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ISILab.LBS.Template
+namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 {
     [Serializable]
     [CreateAssetMenu(menuName = "ISILab/LBS/Layer Template")]
@@ -34,14 +32,15 @@ namespace ISILab.LBS.Template
             foreach (var behaviour in layer.Behaviours)
             {
                 
-                behaviour.OnGUI();
+                
+                behaviour?.OnGUI();
                 // invoke
             }
 
             foreach (var assistant in layer.Assistants)
             {
                 // invoke
-                assistant.OnGUI();
+                assistant?.OnGUI();
             }
         }
     }

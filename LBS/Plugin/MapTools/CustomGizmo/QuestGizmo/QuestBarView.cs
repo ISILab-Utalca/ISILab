@@ -1,8 +1,8 @@
 using ISILab.Commons.Utility.Editor;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -75,13 +75,13 @@ namespace ISILab.LBS.VisualElements
                 if (trigger.Node.NodeType == QuestNode.ENodeType.Start)
                 {
                     stepType.style.backgroundImage =
-                        new StyleBackground(LBSAssetMacro.LoadAssetByGuid<VectorImage>(StartIconGuid));
+                        new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(StartIconGuid));
                     previousContainer.style.display = DisplayStyle.None;
                 }
                 if(trigger.Node.NodeType == QuestNode.ENodeType.Goal)
                 {
                     stepType.style.backgroundImage =
-                        new StyleBackground(LBSAssetMacro.LoadAssetByGuid<VectorImage>(GoalIconGuid));
+                        new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(GoalIconGuid));
                     nextContainer.style.display = DisplayStyle.None;
                 }
             }

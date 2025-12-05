@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Macros;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -431,7 +431,7 @@ namespace ISILab.LBS.Modules
         {
             tileGroup = tiles;
             this.bData = bData;
-            guid = LBSAssetMacro.GetGuidFromAsset(bData.Bundle);
+            guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
             this.rotation = rotation;
         }
         public TileBundleGroup(Vector2 position, Vector2 size, BundleData bData, Vector2 rotation)
@@ -447,7 +447,7 @@ namespace ISILab.LBS.Modules
             }
             
             this.bData = bData;
-            guid = LBSAssetMacro.GetGuidFromAsset(bData.Bundle);
+            guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
             this.rotation = rotation;
         }
         #endregion

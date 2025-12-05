@@ -1,19 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using ISILab.LBS.Plugin.Components.Data;
 using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Generators;
-using ISILab.LBS.Plugin.Internal;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+using ISILab.LBS.Plugin.Internal;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -82,11 +83,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 var neig = tilesMod.GetTileNeighbor(tile, Dirs[i]);
                 if (neig != null)
                     continue;
-
+                Bundle current = null;
                 // Get random bundle with respctive "connection tag"
-                var current = currents.Where(b => b.GetCharacteristics<LBSTagsCharacteristic>()
-                .Any(c => c.Value.name == connections[i])).ToList().Random();
-
+                foreach (var curr in currents)
+                {
+                    current = LBSAssetMacro.BundleHasTag(curr, connections[i]) ? curr : null;
+                    if (current != null) break;
+                }
+         
                 // check if current is valid
                 if (current == null)
                 {

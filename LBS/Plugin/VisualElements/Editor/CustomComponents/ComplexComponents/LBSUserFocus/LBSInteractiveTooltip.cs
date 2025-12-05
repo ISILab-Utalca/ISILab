@@ -1,6 +1,6 @@
 using System;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
