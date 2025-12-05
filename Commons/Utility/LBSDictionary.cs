@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
-namespace ISI_Lab.Commons.Utility
+namespace ISILab.Commons.Utility
 {
     [Serializable]
     public class LBSDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver

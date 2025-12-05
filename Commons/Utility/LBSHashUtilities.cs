@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace ISI_Lab.Commons.Utility
+namespace ISILab.Commons.Utility
 {
     public static class LBSHashUtilities
     {

@@ -13,6 +13,7 @@ using ISILab.AI.Optimization.Selections;
 using ISILab.AI.Optimization.Terminations;
 using ISILab.AI.Wrappers;
 using ISILab.Commons;
+using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;

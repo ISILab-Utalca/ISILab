@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ISILab.Commons
+namespace ISILab.Commons.Interfaces
 {
     public interface IDrawable
     {

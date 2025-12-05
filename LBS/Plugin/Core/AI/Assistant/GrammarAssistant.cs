@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using ISILab.AI.Grammar;
+using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;

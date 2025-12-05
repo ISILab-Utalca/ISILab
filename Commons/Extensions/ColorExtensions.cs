@@ -1,11 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-
-
-namespace ISILab.Extensions
+namespace ISILab.Commons.Extensions
 {
     public static class ColorExtensions
     {

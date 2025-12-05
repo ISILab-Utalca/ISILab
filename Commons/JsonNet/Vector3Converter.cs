@@ -1,9 +1,7 @@
 using Newtonsoft.Json;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ISILab.JsonNet.Coverters
+namespace ISILab.Commons.JsonNet
 {
     public class Vector3Converter : JsonConverter
     {

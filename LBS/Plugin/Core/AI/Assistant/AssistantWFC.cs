@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using ISILab.Commons;
+using ISILab.Commons.Extensions;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Assistants;

@@ -5,6 +5,7 @@ using System.Threading;
 using Commons.Optimization.Evaluator;
 using ISILab.AI.Categorization;
 using ISILab.AI.Optimization;
+using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Assistants;

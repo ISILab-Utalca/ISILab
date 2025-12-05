@@ -5,6 +5,7 @@ using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Randomizations;
 using ISILab.AI.Optimization;
 using ISILab.Commons;
+using ISILab.Commons.Interfaces;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
 using LBS.Components.TileMap;

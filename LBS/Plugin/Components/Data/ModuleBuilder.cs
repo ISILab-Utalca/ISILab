@@ -5,6 +5,7 @@ using LBS.Components.TileMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.Commons.Extensions;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;

@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
 using Random = System.Random;
-using uRandom = UnityEngine.Random;
 
-namespace ISILab.Extensions
+namespace ISILab.Commons.Extensions
 {
     public static class CollectionsExtensions
     {
