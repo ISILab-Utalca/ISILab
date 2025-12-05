@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEngine;
 using UnityEngine.Serialization;
 

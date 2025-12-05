@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.Extensions;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 
 namespace ISILab.LBS.Manipulators
 {

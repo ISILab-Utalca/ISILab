@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using LBS.Components.TileMap;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 
 namespace ISILab.LBS.VisualElements
 {

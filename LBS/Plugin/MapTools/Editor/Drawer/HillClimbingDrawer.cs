@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components.TileMap;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;

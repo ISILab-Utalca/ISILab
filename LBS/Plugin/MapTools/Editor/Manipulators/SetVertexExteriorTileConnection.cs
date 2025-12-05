@@ -8,6 +8,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEditor;
 
 namespace ISILab.LBS.Manipulators

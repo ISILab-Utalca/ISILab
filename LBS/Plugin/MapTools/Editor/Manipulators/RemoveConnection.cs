@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using ISILab.Extensions;
 using UnityEngine.UIElements;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.VisualElements;
 using UnityEditor;
 

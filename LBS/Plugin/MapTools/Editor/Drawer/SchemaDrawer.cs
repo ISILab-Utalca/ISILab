@@ -12,6 +12,7 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.MemoryProfiler;
 using UnityEngine;

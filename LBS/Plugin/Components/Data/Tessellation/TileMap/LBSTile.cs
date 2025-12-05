@@ -1,24 +1,18 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using ISILab.LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-namespace LBS.Components.TileMap
+namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 {
-    [System.Serializable]
+    [Serializable]
     public class LBSTile : ICloneable
     {
         #region FIELDS
         [SerializeField, JsonRequired]
         public int x, y;
 
-        //NOTA: El tag estaba causando problemas con la serializacion. Puede que cause problemas a futuro.
-        //Si se necesita reimplementar, deber�a reimplementarse en ExteriorDrawer (el script que lo utiliza) y no en LBSTile.
-
-        //public LBSTag tag;
+        //NOTE: The tag was causing problems with serialization. It may cause problems in the future.
+        //If it needs to be reimplemented, it should be reimplemented in ExteriorDrawer (the script that uses it) and not in LBSTile.
         
         #endregion
 
@@ -33,17 +27,17 @@ namespace LBS.Components.TileMap
         #endregion
 
         #region CONSTRUCTORS
-        public LBSTile(Vector2 position)
+        public LBSTile(Vector2 _position)
         {
-            this.x = (int)position.x;
-            this.y = (int)position.y;
+            this.x = (int)_position.x;
+            this.y = (int)_position.y;
         }
         #endregion
 
         #region METHODS
-        public override bool Equals(object obj)
+        public override bool Equals(object _obj)
         {
-            var other = obj as LBSTile;
+            LBSTile other = (LBSTile)_obj;
 
             if (other == null) return false;
 

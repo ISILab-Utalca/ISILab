@@ -14,6 +14,7 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 
 namespace ISILab.LBS.Manipulators
 {

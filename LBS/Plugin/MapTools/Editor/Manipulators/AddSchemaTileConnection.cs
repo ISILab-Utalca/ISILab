@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;

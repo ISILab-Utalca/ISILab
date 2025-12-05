@@ -25,6 +25,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 
 namespace ISILab.LBS.Assistants

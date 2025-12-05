@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

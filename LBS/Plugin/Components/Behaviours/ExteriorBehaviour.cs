@@ -6,6 +6,7 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Bundles;
 using LBS.Components;
 using LBS.Components.TileMap;
