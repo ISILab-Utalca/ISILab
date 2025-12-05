@@ -49,14 +49,28 @@ namespace ISILab.LBS.Editor
             listView.showAddRemoveFooter = true;
             listView.selectionType = SelectionType.Single;
             listView.fixedItemHeight = 24;
+            listView.showBorder = true;
+            listView.reorderable = true;
+
+
 
             listView.makeItem = () =>
-            {
-                LBSCustomObjectField objectField = new LBSCustomObjectField();
-                objectField.objectType = typeof(LBSTag);
-                objectField.style.flexGrow = 1;
-  
-                return objectField;
+            { 
+                var field = new LBSCustomObjectField();
+                field.objectType = typeof(LBSTag);
+                field.style.flexGrow = 1;
+                field.style.paddingBottom = 1;
+                field.style.paddingLeft = 12;
+                field.style.paddingRight = 1;
+                field.style.paddingTop = 1;
+
+                field.style.marginBottom = 3;
+                field.style.marginLeft = 3;
+                field.style.marginRight = 3;
+                field.style.marginTop = 3;
+
+
+                return field;
             };
 
             listView.bindItem = (ve, index) =>
@@ -102,6 +116,7 @@ namespace ISILab.LBS.Editor
                     EditorUtility.SetDirty(TC.Owner);
                     listView.Rebuild();
                 }
+        
             };
 
 

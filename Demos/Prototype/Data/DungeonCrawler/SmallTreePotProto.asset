@@ -24,7 +24,6 @@ MonoBehaviour:
     probability: 1
   characteristics:
   - rid: 1134171596635245920
-  - rid: 1134171596635245922
   elementFlag: 512
   tileSize: {x: 1, y: 1}
   childsBundles: []
@@ -45,13 +44,10 @@ MonoBehaviour:
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 11400000}
-        tagName: Tree
-        value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
-        tagGUID: 0147d0d479179b04a8c825d8159e70ce
-    - rid: 1134171596635245922
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 11400000}
-        tagName: Collider
-        value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
-        tagGUID: 261af09a46f50a647b4fb33a0e989c66
+        tagEntries:
+        - tagName: Tree
+          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
+          tagGUID: 0147d0d479179b04a8c825d8159e70ce
+        - tagName: Collider
+          value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
+          tagGUID: 261af09a46f50a647b4fb33a0e989c66
