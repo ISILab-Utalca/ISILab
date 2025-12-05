@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -17,7 +18,7 @@ public class AssetGridTile : VisualElement
     //Can this be selected?
     private bool canHighlight = true;
     private int gridPosition;
-    private int colorValue;
+    private int colorValue = 0;
     #endregion
 
     #region PROPERTIES
@@ -37,8 +38,8 @@ public class AssetGridTile : VisualElement
     #region CONSTRUCTOR
     public AssetGridTile(int _gridPosition, int _colorValue = 0)
     {
-        this.gridPosition = _gridPosition;
-        this.colorValue = _colorValue;
+        gridPosition = _gridPosition;
+        colorValue = _colorValue;
 
         if (visualTree == null)
         {
@@ -50,6 +51,8 @@ public class AssetGridTile : VisualElement
         interactButton.RegisterCallback<ClickEvent>((evt) => OnTileClicked?.Invoke());
 
         colorMultiplier = this.Q<VisualElement>("ColorMultiplier");
+        colorMultiplier.style.visibility = colorValue != 0 ? Visibility.Visible : Visibility.Hidden;
+
         tileBorder = this.Q<VisualElement>("TileBorder");
         tileBorderHovered = this.Q<VisualElement>("TileBorderHovered");
 
@@ -72,6 +75,18 @@ public class AssetGridTile : VisualElement
     {
         tileBorder.visible = true;
         tileBorderHovered.visible = false;
+    }
+
+    public void ChangeValue(int newValue)
+    {
+        if (newValue == colorValue) return;
+        colorValue = newValue;
+        colorMultiplier.style.visibility = colorValue != 0 ? Visibility.Visible : Visibility.Hidden;
+        OnValueUpdated?.Invoke();
+    }
+    public void ChangeColor(Color color)
+    {
+        colorMultiplier.style.backgroundColor = color * new Color(1, 1, 1, 0.5f);
     }
     #endregion
 }
