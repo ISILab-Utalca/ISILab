@@ -4,7 +4,6 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using LBS.Bundles;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
