@@ -1,6 +1,7 @@
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using Newtonsoft.Json;
+using PathOS;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired]
         //private PathOSTag tag;
         private LBSTag tag;
+        [SerializeField, JsonRequired]
+        private EntityType entityType;
         // Booleanos para Event Tags
         [SerializeField, JsonRequired]
         private bool isDynamicTagObject = false;
@@ -31,13 +34,14 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSTile(PathOSBehaviour owner, int x, int y, LBSTag tag = null)
+        public PathOSTile(PathOSBehaviour owner, int x, int y, EntityType type, LBSTag tag = null)
         {
             this.owner = owner;
             this.x = x;
             this.y = y;
             obstacles = new PathOSObstacleConnections(isNull: true);
             dynamicTagTiles = new PathOSDynamicTagConnections(isNull: true);
+            entityType = type;
             if (tag != null) { this.tag = tag; }
         }
         #endregion
@@ -63,6 +67,7 @@ namespace ISILab.LBS.Modules
         public int Y { get { return y; } set { y = value; } }
         public Vector2Int Position { get { return new Vector2Int(x, y); } }
         public LBSTag Tag { get { return tag; } set { tag = value; } }
+        public EntityType EntityType { get => entityType; set => entityType = value; }
         public bool IsDynamicTagObject
         {
             get { return isDynamicTagObject; }

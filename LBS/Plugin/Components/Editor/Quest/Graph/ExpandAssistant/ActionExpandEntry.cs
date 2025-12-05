@@ -3,9 +3,10 @@ using UnityEngine.UIElements;
 
 using System;
 using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -67,7 +68,7 @@ namespace ISILab.LBS.VisualElements.Editor
             }
             
             _nodeTypeImage.style.backgroundSize = new StyleBackgroundSize(iconSize);
-            _nodeTypeImage.style.backgroundImage = new StyleBackground(LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconPath));
+            _nodeTypeImage.style.backgroundImage = new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(iconPath));
             _nodeTypeImage.style.unityBackgroundImageTintColor = backgroundColor;
             _nodeName.text = char.ToUpper(action[0]) + action[1..];
 

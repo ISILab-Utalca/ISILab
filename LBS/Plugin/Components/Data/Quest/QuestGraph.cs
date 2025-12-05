@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.AI.Grammar;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -77,7 +78,7 @@ namespace ISILab.LBS.Modules
                 _grammar = value;
                 if (_grammar == null) return;
 
-                grammarGuid = LBSAssetMacro.GetGuidFromAsset(value);
+                grammarGuid = AssetMacro.GetGuidFromAsset(value);
                 ValidateAllWithGrammar();
             }
         }
@@ -120,7 +121,7 @@ namespace ISILab.LBS.Modules
         public void LoadGrammar()
         {
             if (_grammar == null)
-                _grammar = LBSAssetMacro.LoadAssetByGuid<LBSGrammar>(grammarGuid);
+                _grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>(grammarGuid);
         }
 
         public void ValidateAllWithGrammar()

@@ -14,8 +14,8 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundl
     {
         GetVisualTreeForThis();
         
-        nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
-        this.Add(nameField);
+        //nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
+        //this.Add(nameField);
         
     }
 

@@ -56,7 +56,7 @@ namespace ISILab.LBS.VisualElements
             {
                 PathOSStorage.SimulationEntityData data = tile.Tag.Label.Equals("Player") ?
                     storage.agentData :
-                    storage.entityDataPool[tile.Tag.EntityType];
+                    storage.entityDataPool[tile.EntityType];
                 //SetColor(tile.Tag.Color);
                 //SetImage(tile.Tag.Icon);
                 SetColor(data.color);

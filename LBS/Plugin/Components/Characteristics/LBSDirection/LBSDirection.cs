@@ -88,14 +88,18 @@ namespace ISILab.LBS.Characteristics
 
         public void SetConnection(LBSTag tag, int index)
         {
-
+            if(connections.Count <= index)
+            {
+                Debug.LogError("[ISILab] Index out of Range ");
+                return;
+            }
             try
             {
                 connections[index] = tag.Label;
             }
             catch
             {
-                Debug.LogError("[ISILab] Index out of Range ");
+                Debug.LogError("[ISILab] LBSTag not found. The project's LBS Asset Storage may be outdated.");
                 return;
             }
         }

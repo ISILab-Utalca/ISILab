@@ -14,6 +14,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;

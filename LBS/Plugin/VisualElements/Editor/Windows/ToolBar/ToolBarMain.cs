@@ -5,7 +5,7 @@ using ISILab.LBS.CustomComponents;
 using UnityEditor;
 using UnityEngine.UIElements;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 
 namespace ISILab.LBS.VisualElements.Editor

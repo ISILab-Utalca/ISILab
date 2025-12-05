@@ -1,7 +1,7 @@
 using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
 using LBS.Components;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ using ISILab.Extensions;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Editor;
-using ISILab.LBS.Template;
 using LBS.VisualElements;
 using ISILab.LBS.Assistants;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using UnityEngine.Assertions;
 
 namespace ISILab.LBS.VisualElements
@@ -58,7 +58,7 @@ namespace ISILab.LBS.VisualElements
 
                     Type assistantEditorType = ves.First().Item1;
                     if (assistantEditorType == null) continue;
-                    customEditor.Add(type, assistantEditorType);
+                    customEditor.Add(type, ves.First());
                 
                 }
             }
@@ -85,7 +85,7 @@ namespace ISILab.LBS.VisualElements
             {
                 currentAssistant = assistant;
 
-                Type editorType = customEditor.GetValueOrDefault(assistant.GetType());
+                Type editorType = customEditor.GetValueOrDefault(assistant.GetType()).Item1;
                 if(editorType == null) continue;
                 
                 LBSCustomEditor instance = Activator.CreateInstance(editorType, assistant) as LBSCustomEditor;

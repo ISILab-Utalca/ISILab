@@ -1,15 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using ISILab.DevTools.Macros;
+using UnityEngine;
+using UnityEngine.Assertions;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
+
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles.Tools;
 using ISILab.LBS.Plugin.Internal;
 using PathOS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 
 namespace ISILab.LBS.Plugin.Components.Bundles
@@ -164,18 +166,18 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             {
                 if (icon is not null)
                 {
-                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+                    iconGuid = AssetMacro.GetGuidFromAsset(icon); ;
                 }
                 else
                 {
-                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                    icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
                 }
                 return icon;
             }
             set
             {
                 icon = value;
-                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+                iconGuid = AssetMacro.GetGuidFromAsset(icon);
             }
         }
 
@@ -495,13 +497,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         /// </summary>
         public bool GetHasTagCharacteristic(string label)
         {
-            foreach (var c in Characteristics)
-            {
-                var tag = c as LBSTagsCharacteristic;
-                if (tag != null && tag.Value != null && tag.Value.Label == label)
-                    return true;
-            }
-            return false;
+            return LBSAssetMacro.BundleHasTag(this, label);
         }
 
         /// <summary>
@@ -509,15 +505,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         /// </summary>
         public bool GetHasTagCharacteristic(List<string> labels)
         {
-            if (labels == null || labels.Count == 0)
-                return false;
+           foreach (var label in labels)
+           {
+               if (GetHasTagCharacteristic(label)) return true;
 
-            foreach (var c in Characteristics)
-            {
-                var tag = c as LBSTagsCharacteristic;
-                if (tag != null && tag.Value != null && labels.Contains(tag.Value.Label))
-                    return true;
-            }
+           }
             return false;
         }
 
@@ -526,25 +518,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         /// </summary>
         public bool GetHasAllTagCharacteristics(List<string> labels)
         {
-            if (labels == null || labels.Count == 0)
-                return false;
-
-            // collect all characteristic labels into a HashSet
-            HashSet<string> characteristicLabels = new HashSet<string>();
-            foreach (var c in Characteristics)
-            {
-                var tag = c as LBSTagsCharacteristic;
-                if (tag != null && tag.Value != null)
-                    characteristicLabels.Add(tag.Value.Label);
-            }
-
-            // check that every label is present
             foreach (var label in labels)
             {
-                if (!characteristicLabels.Contains(label))
-                    return false;
-            }
+                if (!GetHasTagCharacteristic(label)) return false;
 
+            }
             return true;
         }
         
@@ -590,31 +568,6 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             return false;
         }
 
-        
-        public bool GetHasAnyTagCharacteristics(List<string> labels)
-        {
-            if (labels == null || labels.Count == 0)
-                return false;
-
-            // collect all characteristic labels into a HashSet
-            HashSet<string> characteristicLabels = new HashSet<string>();
-            foreach (var c in Characteristics)
-            {
-                var tag = c as LBSTagsCharacteristic;
-                if (tag != null && tag.Value != null)
-                    characteristicLabels.Add(tag.Value.Label);
-            }
-
-            // check that it has at least one
-            foreach (var label in labels)
-            {
-                if (characteristicLabels.Contains(label))
-                    return true;
-            }
-
-            return false;
-        }
-
         public bool HasCharacteristic(Type t)
         {
             return Characteristics.Any(ch => ch?.GetType() == t);
@@ -629,6 +582,12 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         {
             OnAddChild = null;
             OnRemoveChild = null;
+        }
+
+        private void OnValidate()
+        {
+            if (entityType != EntityType.ET_NONE && !admissibleTypes.Contains(entityType))
+                admissibleTypes.Insert(0, entityType);
         }
         #endregion
 

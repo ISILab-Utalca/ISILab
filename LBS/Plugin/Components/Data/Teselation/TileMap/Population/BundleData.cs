@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Internal;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
 using LBS.Bundles;
@@ -57,7 +57,7 @@ namespace LBS.Components.TileMap // FIX: change namespace to ISILab.LBS.Bundle
             {
                 if (bundle == null)
                 {
-                    bundle = LBSAssetMacro.LoadAssetByGuid<Bundle>(GUID);
+                    bundle = AssetMacro.LoadAssetByGuid<Bundle>(GUID);
                     if (bundle == null)
                         bundle = LBSAssetsStorage.Instance.Get<Bundle>().Find(b => b.name == bundleName); // For compatibility
                 }

@@ -1,8 +1,9 @@
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using ISILab.Extensions;
 using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.Assistants;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using UnityEngine.UIElements;
 

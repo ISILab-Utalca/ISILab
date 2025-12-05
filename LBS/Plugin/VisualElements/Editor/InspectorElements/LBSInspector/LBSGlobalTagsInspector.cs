@@ -1,4 +1,4 @@
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +13,6 @@ using ISILab.Extensions;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Internal;
-using ISILab.LBS.Template;
 
 namespace ISILab.LBS.VisualElements
 {

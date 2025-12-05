@@ -8,7 +8,7 @@ using UnityEditor;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.AI.Categorization;
 using UnityEditor.UIElements;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using System.IO;
 using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
@@ -22,6 +22,7 @@ using ISILab.Extensions;
 using ISILab.AI.Categorization;
 using LBS.Components.TileMap;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using Debug = UnityEngine.Debug;
 

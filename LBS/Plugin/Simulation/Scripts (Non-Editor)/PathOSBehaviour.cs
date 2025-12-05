@@ -74,9 +74,9 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region METHODS
-        public void AddTile(LBSTag tag, int x, int y)
+        public void AddTile(LBSTag tag, int x, int y, EntityType type)
         {
-            var tile = new PathOSTile(this, x, y, tag);
+            var tile = new PathOSTile(this, x, y, type, tag);
 
             bool isElement = true;
             bool isEvent = false;
@@ -175,6 +175,7 @@ namespace ISILab.LBS.Behaviours
             foreach(TileBundleGroup group in groups)
             {
                 BundleData bundle = group.BundleData;
+                EntityType entityType = bundle.Bundle.EntityType;
                 var characteristics = bundle.Bundle.GetCharacteristics<LBSTagsCharacteristic>();
                 if(characteristics.Count == 0)
                 {
@@ -186,24 +187,27 @@ namespace ISILab.LBS.Behaviours
                 //bool playerTag = false;
                 for(int i = 0; i < characteristics.Count; i++)
                 {
-                    tag = characteristics[i].Value;
-                    if(tag != null)
+                    foreach(var ctag in characteristics[i].TagEntries)
                     {
-                        if(tag.EntityType != EntityType.ET_NONE)
+                        tag = ctag.Value;
+                        if (tag != null)
                         {
-                            validTag = true;
-                            break;
-                        }
-                        else if(tag.Label.Equals("Player"))
-                        {
-                            //var pathOSTags = Bundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0]).ToList();
-                            //var agentTag = pathOSTags//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
-                            //    .FirstOrDefault(tag => tag.Value.Label.Equals("PathOSAgent"));
-                            //tag = agentTag//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
-                            //    .Value.ToLBSTag();
-                            
-                            validTag = true;
-                            break;
+                            if (entityType != EntityType.ET_NONE)
+                            {
+                                validTag = true;
+                                break;
+                            }
+                            else if (tag.Label.Equals("Player"))
+                            {
+                                //var pathOSTags = Bundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0]).ToList();
+                                //var agentTag = pathOSTags//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
+                                //    .FirstOrDefault(tag => tag.Value.Label.Equals("PathOSAgent"));
+                                //tag = agentTag//pathOSBundles.Select(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0])
+                                //    .Value.ToLBSTag();
+
+                                validTag = true;
+                                break;
+                            }
                         }
                     }
                 }
@@ -217,7 +221,7 @@ namespace ISILab.LBS.Behaviours
                 foreach(LBSTile tile in group.TileGroup)
                 {
                     Vector2Int pos = tile.Position;
-                    AddTile(tag, pos.x, pos.y);
+                    AddTile(tag, pos.x, pos.y, entityType);
                 }
             }
         }

@@ -1,11 +1,14 @@
-using ISILab.LBS.Characteristics;
+﻿using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Internal;
-using System.Collections;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Internal;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Plugin.Internal;
-using UnityEditor.SceneManagement;
+using UnityEditor;
+using UnityEditor.MemoryProfiler;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,12 +17,15 @@ namespace ISILab.LBS.Editor
     [LBSCustomEditor("Tag identifier", typeof(LBSTagsCharacteristic))]
     public class LBSTagsCharEditor : LBSCustomEditor
     {
-        public DropdownField dropdownField;
+        private VisualElement root;
+        private DropdownField dropdownField;
+        private ListView listView;
 
-        public LBSTagsCharEditor()
-        {
-            CreateVisualElement();
-        }
+        private string LBSTagIcon = "d6f94a68988be8b45894b9f0e677e8d1";
+
+        private LBSTagsCharacteristic TC => target as LBSTagsCharacteristic;
+
+        public LBSTagsCharEditor() { }
 
         public LBSTagsCharEditor(object target) : base(target)
         {
@@ -29,38 +35,94 @@ namespace ISILab.LBS.Editor
 
         public override void SetInfo(object paramTarget)
         {
-            var tc = paramTarget as LBSTagsCharacteristic;
-            this.target = paramTarget;
-            var storage = LBSAssetsStorage.Instance;
+            target = paramTarget;
+            var tc = TC;
+            if (tc == null) return;
 
-
-            if (tc == null)
-                return;
-
-            //Debug.Log(tc.Value);
-
-            var tags = storage.Get<LBSTag>();
-            dropdownField.choices = tags.Select(t => t.Label).ToList();
-
-            if (tc.Value != null)
-            {
-                dropdownField.SetValueWithoutNotify(tc.Value.name);
-            }
-            
-            dropdownField.RegisterValueChangedCallback(e =>
-            {
-                var tag = tags.Find(t => t.name == e.newValue);
-                tc.Value = tag;
-            });
+            listView.itemsSource = tc.TagEntries;
+            listView.RefreshItems();
         }
 
         protected override VisualElement CreateVisualElement()
         {
-            dropdownField = new DropdownField("Value:");
-           
-            this.Add(dropdownField);
+            listView = new ListView();
+            listView.showAddRemoveFooter = true;
+            listView.selectionType = SelectionType.Single;
+            listView.fixedItemHeight = 24;
+            listView.showBorder = true;
+            listView.reorderable = true;
 
+
+
+            listView.makeItem = () =>
+            { 
+                var field = new LBSCustomObjectField();
+                field.objectType = typeof(LBSTag);
+                field.style.flexGrow = 1;
+                field.style.paddingBottom = 1;
+                field.style.paddingLeft = 12;
+                field.style.paddingRight = 1;
+                field.style.paddingTop = 1;
+
+                field.style.marginBottom = 3;
+                field.style.marginLeft = 3;
+                field.style.marginRight = 3;
+                field.style.marginTop = 3;
+
+
+                return field;
+            };
+
+            listView.bindItem = (ve, index) =>
+            {
+                LBSTagsCharacteristic tc = TC;
+                if (index < 0 || index >= tc.TagEntries.Count) return;
+
+                var entry = tc.TagEntries[index];
+                var field = ve as ObjectField;
+
+                // Remove previous callback to avoid duplicates
+                field.UnregisterValueChangedCallback(OnChanged);
+
+                field.SetValueWithoutNotify(entry.Value);
+
+                // Register again safely
+                field.RegisterValueChangedCallback(OnChanged);
+
+                void OnChanged(ChangeEvent<Object> evt)
+                {
+                    entry.Value = evt.newValue as LBSTag;
+                    entry.UpdateInfo();
+                    EditorUtility.SetDirty(TC.Owner);
+                }
+            };
+
+
+            listView.itemsSource = TC.TagEntries;
+
+            listView.onAdd = (list) =>
+            {
+                TC.TagEntries.Add(new TagCharacteristicEntry());
+                EditorUtility.SetDirty(TC.Owner);
+                listView.Rebuild();
+            };
+
+            listView.onRemove = (list) =>
+            {
+                int index = listView.selectedIndex;
+                if (index >= 0 && index < TC.TagEntries.Count)
+                {
+                    TC.TagEntries.RemoveAt(index);
+                    EditorUtility.SetDirty(TC.Owner);
+                    listView.Rebuild();
+                }
+        
+            };
+
+
+            this.Add(listView);
             return this;
         }
+
     }
 }

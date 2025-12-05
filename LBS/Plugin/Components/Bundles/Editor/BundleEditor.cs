@@ -1,18 +1,17 @@
 
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.VisualElements;
+using LBS.Bundles;
+using PathOS;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEngine;
-
-using ISILab.LBS.Characteristics;
-using UnityEngine.UIElements;
-
 using UnityEditor.UIElements;
-using LBS.Bundles;
-using System;
-using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.VisualElements;
-using System.Collections.Generic;
-using ISILab.LBS.Plugin.Components.Bundles;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 
 namespace ISILab.LBS.Bundles.Editor
@@ -86,11 +85,11 @@ namespace ISILab.LBS.Bundles.Editor
                  simulationSettings = false;
             if(bundle != null && bundle.ChildsBundles.Count == 0)
             {
-                interiorSettings = bundle.LayerContentFlags == BundleFlags.Interior;
-                exteriorSettings = bundle.LayerContentFlags == BundleFlags.Exterior;
-                populationSettings = bundle.LayerContentFlags == BundleFlags.Population;
-                questSettings = bundle.LayerContentFlags == BundleFlags.Quest;
-                simulationSettings = bundle.LayerContentFlags == BundleFlags.Simulation;
+                interiorSettings    = (bundle.LayerContentFlags & BundleFlags.Interior  ) == BundleFlags.Interior;
+                exteriorSettings    = (bundle.LayerContentFlags & BundleFlags.Exterior  ) == BundleFlags.Exterior;
+                populationSettings  = (bundle.LayerContentFlags & BundleFlags.Population) == BundleFlags.Population;
+                questSettings       = (bundle.LayerContentFlags & BundleFlags.Quest     ) == BundleFlags.Quest;
+                simulationSettings  = (bundle.LayerContentFlags & BundleFlags.Simulation) == BundleFlags.Simulation;
 
                 exteriorSettings = false; // (!!) Remove line if an exterior specific property is created
                 questSettings = false; // (!!) Remove line if a quest specific property is created
@@ -117,7 +116,14 @@ namespace ISILab.LBS.Bundles.Editor
                 ;
 
             if (simulationSettings)
-                SerializeProperties("entityType", "admissibleTypes");
+            {
+                SerializeProperty("entityType", prop =>
+                {
+                    if (bundle.EntityType != EntityType.ET_NONE && !bundle.AdmissibleEntityTypes.Contains(bundle.EntityType))
+                        bundle.AdmissibleEntityTypes.Insert(0, bundle.EntityType);
+                });
+                SerializeProperty("admissibleTypes");
+            }
 
 
             SerializeProperties("", "assets");

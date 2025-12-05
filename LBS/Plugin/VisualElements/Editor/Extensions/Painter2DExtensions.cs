@@ -16,6 +16,7 @@ namespace ISILab.Extensions
         /// <param name="stroke">The width of the stroke. Default value is 1.</param>
         public static void DrawHoleyShape(this Painter2D paint2D, List<List<Vector2>> points, Color color, Color border, float stroke = 1)
         {
+            
             paint2D.strokeColor = border;
             paint2D.fillColor = color;
             paint2D.BeginPath();

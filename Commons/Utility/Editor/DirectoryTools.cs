@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
 using System.IO;
 using System.Linq;
-using System;
+using UnityEditor;
+using UnityEditor.VersionControl;
+using UnityEngine;
 
 namespace ISILab.Commons.Utility.Editor
 {
@@ -17,18 +18,28 @@ namespace ISILab.Commons.Utility.Editor
             return r;
         }
 
-        public static T GetAssetByName<T>(string name)
+        public static T GetAssetByName<T>(string name, bool exactMatch = false)
         {
             string[] guids = AssetDatabase.FindAssets(name);
             object obj = null;
             foreach (var guid in guids)
             {
-                obj = AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), typeof(T));
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                obj = AssetDatabase.LoadAssetAtPath(path, typeof(T));
                 if (obj != null)
                 {
-                    break;
+                    if (exactMatch)
+                    {                 
+                        string fileName = Path.GetFileNameWithoutExtension(path);
+                        if (fileName == name) return (T)obj;
+                    }
+                    else
+                    {
+                        return (T)obj;
+                    }
                 }
             }
+            // null
             return (T)obj;
         }
 

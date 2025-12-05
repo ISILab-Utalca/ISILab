@@ -99,7 +99,7 @@ namespace ISILab.LBS.Characteristics
             gridSize = gSize;
             foreach(Asset asset in Assets)
             {
-                gridList[asset].terrainFlag = new int[gSize];
+                gridList[asset].TerrainFlag = new int[gSize];
             }
         }
 
@@ -111,7 +111,7 @@ namespace ISILab.LBS.Characteristics
             {
                 if (!gridList.ContainsKey(asset))
                 {
-                    gridList.Add(asset, new AssetConnectionGrid(gridSize));
+                    gridList.Add(asset, new AssetConnectionGrid(gridSize, asset));
                 }
             }
             //Remove everything old
@@ -126,25 +126,32 @@ namespace ISILab.LBS.Characteristics
     }
 
     public class AssetConnectionGrid
-    {
-        public int[] terrainFlag = new int[9];
+    { 
+        [SerializeField, JsonRequired]
+         private int[] terrainFlag = new int[9];
+        [SerializeField, JsonRequired]
+        private Asset assetReference;
 
         public int[] TerrainFlag
         {
             get => terrainFlag;
+            set => terrainFlag = value;
         }
+        public Asset AssetReference => assetReference;
 
-        public AssetConnectionGrid(int[] terrainFlag)
+        public AssetConnectionGrid(int[] terrainFlag, Asset assetReference)
         {
             this.terrainFlag = terrainFlag;
+            this.assetReference = assetReference;
         }
-        public AssetConnectionGrid(int q)
+        public AssetConnectionGrid(int q, Asset assetRef)
         {
             terrainFlag = new int[q];
             for(int i=0; i<q; i++)
             {
                 terrainFlag[i] = 0;
             }
+            assetReference = assetRef;
         }
 
         public int VectorToInt(Vector2 vector)
@@ -172,6 +179,7 @@ namespace ISILab.LBS.Characteristics
         public override bool Equals (object obj)
         {
             var other = obj as AssetConnectionGrid;
+            if (!assetReference.Equals(other.assetReference)) return false;
             if (terrainFlag.Length != other.terrainFlag.Length) return false;
             for(int i=0; i<terrainFlag.Length;i++)
             {

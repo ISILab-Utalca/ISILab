@@ -1,3 +1,4 @@
+using ISILab.DevTools.Macros;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using UnityEngine;
@@ -103,7 +104,7 @@ namespace ISILab.LBS.CustomComponents
             }
             else
             {
-                _toggleIconElement.style.backgroundImage = new StyleBackground(Macros.LBSAssetMacro.LoadPlaceholderTexture());
+                _toggleIconElement.style.backgroundImage = new StyleBackground(AssetMacro.LoadPlaceholderTexture());
             }
             this.Add(_toggleIconElement);   
             

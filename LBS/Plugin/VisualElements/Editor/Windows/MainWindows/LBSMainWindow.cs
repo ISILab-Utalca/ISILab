@@ -1,7 +1,5 @@
 using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
-
-using ISILab.LBS.Template;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using System;
@@ -17,11 +15,13 @@ using Debug = UnityEngine.Debug;
 using LBS.Components;
 using LBS.VisualElements;
 using ISILab.Extensions;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Internal.Editor;
 using ISILab.LBS.Macros;
 using ISILab.Commons.VisualElements.Editor;
+using ISILab.DevTools.Macros;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 
 namespace ISILab.LBS.Editor.Windows{
 
@@ -160,7 +160,7 @@ namespace ISILab.LBS.Editor.Windows{
 
             #region LOAD UI TREE
             //MainWindows UXML 
-            VisualTreeAsset visualTree = LBSAssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
+            VisualTreeAsset visualTree = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
             visualTree.CloneTree(rootVisualElement);
             #endregion
             
@@ -199,7 +199,7 @@ namespace ISILab.LBS.Editor.Windows{
         private static void ShowWindow()
         {
             LBSMainWindow window = GetWindow<LBSMainWindow>();
-            Texture icon = LBSAssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
+            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("e3db8d94c144db946ac8dd18f0bb7a9b");
             window.titleContent = new GUIContent("Level Builder", icon);
             window.minSize = new Vector2(800, 400);
         }
