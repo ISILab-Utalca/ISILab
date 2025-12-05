@@ -29,6 +29,8 @@ namespace ISILab.LBS.Drawers
             // Get behaviour
             if (target is not PopulationBehaviour population) return;
 
+            PopulationTileView.SelectedTile?.Highlight(false);
+
             OwnerLayer = population.OwnerLayer;
             PaintNewTiles(population, view);
             UpdateTilesRotation(population, view);

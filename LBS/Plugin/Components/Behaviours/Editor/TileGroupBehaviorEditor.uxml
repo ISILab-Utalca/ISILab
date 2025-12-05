@@ -5,18 +5,14 @@
             <ui:Label text="No tilemap is currently selected." style="align-self: center; padding-left: 12px; justify-content: space-between; align-content: stretch; align-items: stretch; flex-grow: 1;" />
         </ui:VisualElement>
         <ui:VisualElement name="Content" style="flex-grow: 1;">
-            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon text="Bundle Name" direction="Column" name="SelectedHeader" icon="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Logo/LBS.svg?fileID=7388822144124034973&amp;guid=12e384eee491b39459a9a6dd5e403595&amp;type=3#LBS" label="Selected Bundle: " style="align-self: stretch; justify-content: center; align-items: center;" />
-            <ui:VisualElement name="Tier" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomImage l-b-s-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=Add.svg?fileID=7388822144124034973&amp;guid=ad8d08a3d465b3a438016713ae2f99c5&amp;type=3#Icon=Add" />
-                <ISILab.LBS.CustomComponents.LBSCustomEnumField name="EnumTier" />
-            </ui:VisualElement>
+            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon text="Bundle Name" direction="Column" name="SelectedHeader" icon="project://database/Assets/ISILab/Commons/Assets2D/Resources/Icons/Vectorial/Logo/LBS.svg?fileID=7388822144124034973&amp;guid=12e384eee491b39459a9a6dd5e403595&amp;type=3#LBS" label="Selected Bundle: " style="align-self: stretch; justify-content: center; align-items: center;" />
             <ui:VisualElement name="Patrol" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomImage l-b-s-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=AddBrushWindow.svg?fileID=7388822144124034973&amp;guid=5b66071190800e84ca56304adc6b4e50&amp;type=3#Icon=AddBrushWindow" />
-                <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" />
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Components/Tags/PopulationTags/LBSTag_Patrol.asset?fileID=11400000&amp;guid=7d14522ccb3e27b469d6b129282c103c&amp;type=2#LBSTag_Patrol" enabled="false" label="Tag Behavior" />
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Loop patrol route" name="PatrolLoop" />
+                <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" header-title="Patrol Points" show-add-remove-footer="true" show-foldout-header="true" reorderable="true" show-border="true" />
             </ui:VisualElement>
             <ui:VisualElement name="Triggers" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomImage l-b-s-image="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Manipulators/Icon=bRUSHtILE.svg?fileID=7388822144124034973&amp;guid=89525798f076a3d429d10aa953839948&amp;type=3#Icon=bRUSHtILE" />
-                <ISILab.LBS.CustomComponents.LBSCustomListView name="AddonsView" />
+                <ISILab.LBS.CustomComponents.LBSCustomListView name="AddonsView" show-foldout-header="true" reorderable="false" show-add-remove-footer="true" header-title="Triggers" horizontal-scrolling="false" show-border="true" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

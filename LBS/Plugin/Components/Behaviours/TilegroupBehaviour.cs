@@ -21,6 +21,7 @@ namespace ISILab.LBS.Behaviours
             {
                 selectedTilemap = value;
                 OnSelectedChanged?.Invoke(selectedTilemap);
+                
             }
         }
 
@@ -42,7 +43,8 @@ namespace ISILab.LBS.Behaviours
         public override void OnAttachLayer(LBSLayer layer)
         {
             OwnerLayer = layer;
-
+            OwnerLayer.OnChange += ()=> SelectedTilemap = null;
+         
         }
 
         public override void OnDetachLayer(LBSLayer layer)

@@ -94,7 +94,8 @@ namespace ISILab.LBS.VisualElements
         {
             behaviour = paramTarget as PopulationBehaviour;
             if(behaviour == null) return;
-            _collection = behaviour.BundleCollection;
+
+             _collection = behaviour.BundleCollection;
             _mainBundle = behaviour.MainBundle;
         }
 

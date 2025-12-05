@@ -5,41 +5,53 @@ using UnityEngine;
 
 namespace ISILab.LBS.Modules
 {
+    [Serializable]
     public class BundleTileMapAddons : ICloneable
     {
-        TileTier tier;
-        List<TileTrigger> trigger = new();
-        TilePatrol patrol;
 
-        public BundleTileMapAddons(){}
+        [SerializeField]
+        public List<TileTrigger> trigger = new();
+        [SerializeField]
+        public TilePatrol patrol;
 
-        public BundleTileMapAddons(TileTier tier, List<TileTrigger> trigger, TilePatrol patrol)
+        public BundleTileMapAddons()
         {
+            patrol = new TilePatrol(new List<Vector2>());
+        }
 
-            this.tier = tier;
+        public BundleTileMapAddons(List<TileTrigger> trigger, TilePatrol patrol)
+        {
             this.trigger = trigger;
             this.patrol = patrol;
         }
 
         object ICloneable.Clone()
         {
-            return new BundleTileMapAddons(this.tier, this.trigger, this.patrol);
+            return new BundleTileMapAddons(
+                trigger.ToList(),                      
+                new TilePatrol(patrol.Points.ToList()) 
+            );
         }
+
     }
 
-    [Serializable]
-    public enum TileTier
-    {
-        Low,
-        Mid,
-        High
-    }
 
     [Serializable]
     public struct TilePatrol
     {
         [SerializeField]
-        public Vector3[] Points;
+        public bool Loop;
+
+        [SerializeField]
+        public List<Vector2> Points;
+
+        public TilePatrol(List<Vector2> points)
+        {
+            Loop = false;
+
+            Points = new();
+            Points = points;
+        }
     }
 
     #region TileTrigger

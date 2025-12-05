@@ -6,22 +6,19 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System;
 using ISILab.LBS.Editor.Windows;
 using LBS.Components;
 using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
-using LBS;
 using LBS.VisualElements;
 using ISILab.LBS.Manipulators;
-using ISILab.Extensions;
 
 namespace ISILab.LBS.VisualElements
 {
     public class PopulationTileView : GraphElement
     {
         #region CONSTANTS
-        static PopulationTileView SelectedTile;
+        public static PopulationTileView SelectedTile;
         private const float defaultAlpha = 0.75f;
         #endregion
 

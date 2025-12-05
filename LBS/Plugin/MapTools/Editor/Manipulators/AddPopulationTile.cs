@@ -137,6 +137,8 @@ namespace ISILab.LBS.Manipulators
 
             _tileMapBehavior.SelectedTilemap = newTileGroup;
             _population.OwnerLayer.OnChangeUpdate();
+
+            LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)

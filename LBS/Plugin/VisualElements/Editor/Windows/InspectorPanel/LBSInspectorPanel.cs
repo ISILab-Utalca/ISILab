@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Template;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
@@ -188,6 +190,23 @@ namespace ISILab.LBS.VisualElements
             }
             ToolKit.Instance.SetSeparators();
             if(manipulatorClass is not null) ToolKit.Instance.SetActive(manipulatorClass);
+        }
+
+        public void CallSelectableByPosition(LBSLayer layer, Vector2 position)
+        {
+            LBSLocalCurrent _current = Instance.data;
+
+            // Get selectable elements
+            List<object> selected = new List<object>();
+            foreach (var module in layer.Modules)
+            {
+                if (module is ISelectable selectable)
+                {
+                    selected.AddRange(selectable.GetSelected(position.ToInt()));
+                }
+            }
+
+            _current.SetSelectedVe(selected);
         }
         #endregion
 
