@@ -136,7 +136,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             return rules.OfType<T>().FirstOrDefault();
         }
-
+        [System.Obsolete("Unnecesary usage of obsolete class. Consider deleting this method or creating a new extension.")]
         public T GetRule<T>( List<LBSGeneratorRule> otherRules) where T : LBSGeneratorRule
         {
             return otherRules.OfType<T>().FirstOrDefault();

@@ -66,6 +66,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
         public General general = new General();
         public Interface view = new Interface();
         public Test test = new Test();
+        [System.Obsolete]
         public Generator3D generator = new Generator3D();
 
         public void ReplacePaths()
