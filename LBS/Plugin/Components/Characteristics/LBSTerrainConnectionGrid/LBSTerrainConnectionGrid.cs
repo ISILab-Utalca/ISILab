@@ -99,7 +99,7 @@ namespace ISILab.LBS.Characteristics
             gridSize = gSize;
             foreach(Asset asset in Assets)
             {
-                gridList[asset].terrainFlag = new int[gSize];
+                gridList[asset].TerrainFlag = new int[gSize];
             }
         }
 
@@ -126,20 +126,23 @@ namespace ISILab.LBS.Characteristics
     }
 
     public class AssetConnectionGrid
-    {
-        public int[] terrainFlag = new int[9];
-        public Asset assetReference;
+    { 
+        [SerializeField, JsonRequired]
+         private int[] terrainFlag = new int[9];
+        [SerializeField, JsonRequired]
+        private Asset assetReference;
 
         public int[] TerrainFlag
         {
             get => terrainFlag;
+            set => terrainFlag = value;
         }
         public Asset AssetReference => assetReference;
 
-        public AssetConnectionGrid(int[] terrainFlag, Asset assetRef)
+        public AssetConnectionGrid(int[] terrainFlag, Asset assetReference)
         {
             this.terrainFlag = terrainFlag;
-            this.assetReference = assetRef;
+            this.assetReference = assetReference;
         }
         public AssetConnectionGrid(int q, Asset assetRef)
         {
@@ -148,6 +151,7 @@ namespace ISILab.LBS.Characteristics
             {
                 terrainFlag[i] = 0;
             }
+            assetReference = assetRef;
         }
 
         public int VectorToInt(Vector2 vector)
