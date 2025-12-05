@@ -1,24 +1,30 @@
-using System;
-using System.Collections.Generic;
+using ISI_Lab.LBS.Plugin.Components.Bundles;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
-using LBS.Bundles;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 
 [UxmlElement]
 public partial class BundleWizardPopup: VisualElement
 {
-    private LBSCustomTabView tabView;
+    private readonly LBSCustomTabView tabView;
     
-    private LBSCustomBreadcrumbs breadcrumbs;
+    private readonly LBSCustomBreadcrumbs breadcrumbs;
+
+    private readonly LBSCustomButton OKButton;
+    private readonly LBSCustomButton nextButton;
+    private readonly LBSCustomButton backButton;
+    private readonly LBSCustomButton cancelButton;
 
     private int currentStep = 0;
-    private List<Tuple<string, Action>> breadcrumbSteps;
 
     private string[] breadcrumbLabels = new string []
     {
@@ -36,11 +42,17 @@ public partial class BundleWizardPopup: VisualElement
         get => currentStep; 
         set 
         { 
-            currentStep = value; if (tabView is not null) tabView.selectedTabIndex = value; 
+            currentStep = value;
+            if (tabView is not null) 
+                tabView.selectedTabIndex = value; 
         } 
     }
-    private string CurrentBreadcrumb { get => breadcrumbLabels[CurrentStep]; }
-    private IBundleWizardTab CurrentWizardTab { get => tabs[CurrentBreadcrumb] as IBundleWizardTab; }
+
+    private bool InFinalStep => CurrentStep == breadcrumbLabels.Length - 1;
+
+    private string CurrentBreadcrumb => breadcrumbLabels[CurrentStep]; 
+
+    private IBundleWizardTab CurrentWizardTab => tabs[CurrentBreadcrumb] as IBundleWizardTab;
     
     public BundleWizardPopup()
     {
@@ -50,17 +62,23 @@ public partial class BundleWizardPopup: VisualElement
         tabView = this.Q<LBSCustomTabView>("TabView");
         breadcrumbs = this.Q<LBSCustomBreadcrumbs>("WizardBreadcrumbs");
         
-        var backButton = this.Q<LBSCustomButton>("Back");
-        backButton.clicked += Back;
-        backButton.clicked += () => OnAnyButtonClicked(backButton);
+        OKButton = this.Q<LBSCustomButton>("OK");
+        OKButton.clicked += OK;
+        OKButton.clicked += () => OnAnyButtonClicked(OKButton);
 
-        var nextButton = this.Q<LBSCustomButton>("Next");
+        nextButton = this.Q<LBSCustomButton>("Next");
         nextButton.clicked += Next;
         nextButton.clicked += () => OnAnyButtonClicked(nextButton);
 
-        var cancelButton = this.Q<LBSCustomButton>("Cancel");
+        backButton = this.Q<LBSCustomButton>("Back");
+        backButton.clicked += Back;
+        backButton.clicked += () => OnAnyButtonClicked(backButton);
+
+        cancelButton = this.Q<LBSCustomButton>("Cancel");
         cancelButton.clicked += Cancel;
         cancelButton.clicked += () => OnAnyButtonClicked(cancelButton);
+
+        ToggleNextButton(true);
 
         #region Local functions
 
@@ -74,10 +92,18 @@ public partial class BundleWizardPopup: VisualElement
                 return;
             }
 
+            CheckIfLeavingFinalStep();
+
             CurrentStep--;
             breadcrumbs.PopItem();
-            //CurrentWizardTab.Init();
-            //OnTabChanged();
+        }
+
+        void OK()
+        {
+            CheckIfLeavingFinalStep();
+            CurrentWizardTab.Builder.TryBuild();
+            this.SetDisplay(false);
+            CleanUp();
         }
 
         void Next()
@@ -86,13 +112,27 @@ public partial class BundleWizardPopup: VisualElement
             CurrentStep++;
             breadcrumbs.PushItem(CurrentBreadcrumb);
             CurrentWizardTab.Init();
-            //OnTabChanged();
+            if(InFinalStep)
+                ToggleNextButton(false);
         }
 
         void Cancel()
         {
+            CheckIfLeavingFinalStep();
             this.SetDisplay(false);
             CleanUp();
+        }
+
+        void ToggleNextButton(bool showNext)
+        {
+            nextButton.SetDisplay(showNext);
+            OKButton.SetDisplay(!showNext);
+        }
+
+        void CheckIfLeavingFinalStep()
+        {
+            if (InFinalStep)
+                ToggleNextButton(true);
         }
 
         void OnAnyButtonClicked(Button button)
@@ -106,10 +146,10 @@ public partial class BundleWizardPopup: VisualElement
 
     public void Init()
     {
-
         var tabNames = new[] { "SelectBundleTypeMenu", "SetAssetsMenu", "SetBundleMenu", "SetCharacteristicsMenu" };
+        Assert.IsTrue(breadcrumbLabels.Length == tabNames.Length);
         BundleBuilder builder = new BundleBuilder();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < tabNames.Length; i++)
         {
             VisualElement value = this.Q<VisualElement>(tabNames[i]);
             tabs.Add(breadcrumbLabels[i], value);
@@ -118,10 +158,6 @@ public partial class BundleWizardPopup: VisualElement
 
         breadcrumbs.PushItem(CurrentBreadcrumb);
         CurrentWizardTab.Init();
-        //OnTabChanged();
-
-        //var tab = this.Q<LBSCustomTabView>("TabView");
-        //Debug.Log(tab.DisplayTabs);
     }
 
     void OnTabChanged()
@@ -173,6 +209,48 @@ public class BundleBuilder
 
     public BundleBuilder() { }
 
+    public void GetBundleConfiguration(ref Bundle bundle, string layerType)
+    {
+        switch (layerType)
+        {
+            case "Interior Layer":
+                bundle.LayerContentFlags    = BundleFlags.Interior;
+                bundle.Type                 = Bundle.TagType.Structural;
+                bundle.Color                = default;
+                break;
+
+            case "Exterior Layer":
+                bundle.LayerContentFlags    = BundleFlags.Exterior;
+                bundle.Type                 = Bundle.TagType.Structural;
+                bundle.Color                = default;
+                break;
+
+            case "Population Layer":
+                bundle.LayerContentFlags    = BundleFlags.Population;
+                bundle.Type                 = Bundle.TagType.Element;
+                bundle.Color                = new Color().RandomColorHSV();
+                break;
+
+            default:
+                bundle.LayerContentFlags    = default;
+                bundle.Type                 = default;
+                bundle.Color                = default;
+                break;
+        }
+    }
+
+    public void TryBuild()
+    {
+        Bundle main = ScriptableObject.CreateInstance<Bundle>();
+        GetBundleConfiguration(ref main, layerType);
+        main = BundleMenuItem.CreateBundleWithInstance(main, bundleName);
+        for(int i = 0; i < newSubBundles.Count; i++)
+        {
+            newSubBundles[i] = BundleMenuItem.CreateBundleWithInstance(newSubBundles[i], newSubBundles[i].BundleName);
+            main.AddChild(newSubBundles[i]);
+        }
+    }
+
     public override string ToString()
     {
         string s = "> Bundle Name:\t" + bundleName + "\n";
@@ -192,9 +270,4 @@ public class BundleBuilder
 
         return s;
     }
-
-
-
-    
-    
 }

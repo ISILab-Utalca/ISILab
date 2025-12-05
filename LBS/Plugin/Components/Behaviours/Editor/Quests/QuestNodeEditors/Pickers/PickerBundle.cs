@@ -1,5 +1,6 @@
 using System;
 using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Macros;
@@ -128,7 +129,7 @@ namespace ISILab.LBS.VisualElements
             var guid = layerTarget.GetGuid();
             if (!string.IsNullOrEmpty(guid))
             {
-                var bundle = LBSAssetMacro.LoadAssetByGuid<Bundle>(guid);
+                var bundle = AssetMacro.LoadAssetByGuid<Bundle>(guid);
                 _objectFieldBundle.value = bundle;
             }
             else

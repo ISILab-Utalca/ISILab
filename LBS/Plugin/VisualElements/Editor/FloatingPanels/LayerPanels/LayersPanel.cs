@@ -1,12 +1,12 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Template;
 using LBS.Components;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;

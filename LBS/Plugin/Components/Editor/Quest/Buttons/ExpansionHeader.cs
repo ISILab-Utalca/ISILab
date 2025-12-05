@@ -1,5 +1,5 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements

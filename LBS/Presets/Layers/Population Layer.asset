@@ -27,7 +27,7 @@ MonoBehaviour:
     - rid: 6598277744948937223
     - rid: 7571179441826562132
     assistants:
-    - rid: 6598277744948937224
+    - rid: 7091613708766675052
     generatorRules:
     - rid: 7571179378973868539
     settings:
@@ -170,7 +170,7 @@ MonoBehaviour:
         bundleRefGuid: 
         selectedToSet: {fileID: 0}
         bundleCollection: {fileID: 11400000, guid: 3e607c0f80297b849a6ea0d7f98c73a3, type: 2}
-        mainBundle: {fileID: 0}
+        mainBundle: {fileID: 11400000, guid: 668e6768d7619b3459df4f6378dfa3bb, type: 2}
         allFilter: 
         selectedTypeFilter: All
     - rid: 6598277744948937224
@@ -218,6 +218,42 @@ MonoBehaviour:
             name: DEFAULT
             rootParentName: Root_Parent
           rules: []
+    - rid: 7091613708766675052
+      type: {class: AssistantMapElite, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 48f2011efc0f7b2449db9f824c895d9d
+          id: Population
+          name: Layer Population
+          modules:
+          - rid: 6598277744948937221
+          - rid: 6598277744948937222
+          behaviours:
+          - rid: 6598277744948937223
+          - rid: 7571179441826562132
+          assistants:
+          - rid: 7091613708766675052
+          generatorRules:
+          - rid: 7571179378973868539
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Population
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.7607843, g: 0.9607843, b: 0.4392157, a: 1}
+        name: AssistantMapElite
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 7388822144124034973, guid: ad5ba0a0fa0cae04fa016955e6da3e36, type: 3}
+        toUpdate: []
     - rid: 7571179378973868539
       type: {class: PopulationRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:

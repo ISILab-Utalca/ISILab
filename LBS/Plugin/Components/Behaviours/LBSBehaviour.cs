@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Macros;
-using ISILab.LBS.Settings;
+using ISILab.DevTools.Macros;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -14,7 +14,7 @@ namespace ISILab.LBS.Behaviours
     public abstract class  LBSBehaviour : ICloneable
     {
         #region META-FIELDS
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, HideInInspector]
         public bool visible = true;
         #endregion
 
@@ -60,12 +60,12 @@ namespace ISILab.LBS.Behaviours
         {
             get
             {
-                return icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                return icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
             }
             set
             {
                 icon = value;
-                string guid = LBSAssetMacro.GetGuidFromAsset(icon);
+                string guid = AssetMacro.GetGuidFromAsset(icon);
                 iconGuid = guid != string.Empty ? guid : LBSSettings.Instance.view.DebugVectorGUID;
             }
         }

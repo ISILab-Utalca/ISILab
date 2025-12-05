@@ -1,7 +1,7 @@
 using LBS.Components;
 using LBS.VisualElements;
 using System;
-
+using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.Extensions;
@@ -154,7 +154,7 @@ namespace ISILab.LBS.Manipulators
         protected LBSManipulator()
         {
             if (IconGuid is "") return;
-            _icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(IconGuid);
+            _icon = AssetMacro.LoadAssetByGuid<VectorImage>(IconGuid);
         }    
         #endregion
 

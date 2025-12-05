@@ -2,7 +2,7 @@ using LBS.Components;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using LBS.Components.TileMap;
@@ -18,7 +18,7 @@ using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using ISILab.LBS.Plugin.Internal;
-using ISILab.LBS.Template;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 
 namespace ISILab.LBS.Tests
 {

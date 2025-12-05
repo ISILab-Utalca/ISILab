@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
@@ -93,23 +93,22 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         // Add a flags field
         [FormerlySerializedAs("flags")]
-        [SerializeField]
-
+        [SerializeReference, HideInInspector]
         private BundleFlags layerContentFlags;
 
-        [SerializeField]
+        [SerializeField, HideInInspector, Obsolete("Use layer content flags instead.")]
         private TagType type;
 
-        [SerializeField]
+        [SerializeReference, HideInInspector]
         private Positioning anchorPosition = Positioning.Center;
 
-        [SerializeField]
+        [SerializeReference, HideInInspector]
         private Color color;
 
         [SerializeField, HideInInspector] 
         private string iconGuid;
         
-        [SerializeReference]
+        [SerializeReference, HideInInspector]
         private VectorImage icon;
         
         [SerializeField]
@@ -130,7 +129,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         [SerializeField, HideInInspector]
         private List<Bundle> childsBundles = new List<Bundle>();
         
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private MicroGenTool microGenTool = new MicroGenTool();
 
         [SerializeField, HideInInspector]
@@ -158,18 +157,18 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             {
                 if (icon is not null)
                 {
-                    iconGuid = LBSAssetMacro.GetGuidFromAsset(icon); ;
+                    iconGuid = AssetMacro.GetGuidFromAsset(icon); ;
                 }
                 else
                 {
-                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                    icon = AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
                 }
                 return icon;
             }
             set
             {
                 icon = value;
-                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
+                iconGuid = AssetMacro.GetGuidFromAsset(icon);
             }
         }
 
@@ -198,6 +197,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public Positioning Positioning => anchorPosition;
 
+        [Obsolete("Use layer content flags instead.")]
         public TagType Type
         {
             get => type;

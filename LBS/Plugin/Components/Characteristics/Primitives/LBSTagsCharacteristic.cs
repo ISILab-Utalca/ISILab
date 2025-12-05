@@ -1,6 +1,8 @@
 using ISILab.LBS.Components;
+using System.Collections;
+using System.Collections.Generic;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Internal;
-using ISILab.LBS.Macros;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -31,7 +33,7 @@ namespace ISILab.LBS.Characteristics
             {
                 if (value == null)
                     //value = LBSAssetsStorage.Instance.Get<LBSTag>().Find(i => i.Label == tagName);
-                    value = LBSAssetMacro.LoadAssetByGuid<LBSTag>(tagGUID);
+                    value = AssetMacro.LoadAssetByGuid<LBSTag>(tagGUID);
                 return value;
             }
             set
@@ -49,7 +51,7 @@ namespace ISILab.LBS.Characteristics
                 string s = "";
                 if (string.IsNullOrEmpty(tagGUID))
                 {
-                    tagGUID = LBSAssetMacro.GetGuidFromAsset(value);
+                    tagGUID = AssetMacro.GetGuidFromAsset(value);
                     s += $"Null or Empty Tag GUID -> Calling GetGuidFromAsset( {value} )\n"; // Por alguna razon hay veces en que 'value' se muestra como Material??? Pero no pasa con bundles de population
                 }
                 s += $"Tag GUID = {tagGUID}";
@@ -75,7 +77,7 @@ namespace ISILab.LBS.Characteristics
         public void UpdateInfo()
         {
             tagName = value.Label;
-            tagGUID = LBSAssetMacro.GetGuidFromAsset(value);
+            tagGUID = AssetMacro.GetGuidFromAsset(value);
         }
     }
 

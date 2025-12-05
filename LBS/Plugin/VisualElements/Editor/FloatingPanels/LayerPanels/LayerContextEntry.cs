@@ -10,6 +10,7 @@ using LBS.Components;
 using ISILab.LBS.Behaviours;
 using System.Numerics;
 using System.Collections.Generic;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
@@ -80,7 +81,7 @@ namespace ISILab.LBS.VisualElements.Editor
         }
         private void SetIcon(string guid)
         {
-            VectorImage icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(guid);
+            VectorImage icon = AssetMacro.LoadAssetByGuid<VectorImage>(guid);
             layerImage.style.backgroundImage = new StyleBackground(icon);
         }
 

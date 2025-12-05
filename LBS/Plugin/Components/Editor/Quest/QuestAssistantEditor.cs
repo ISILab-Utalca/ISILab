@@ -13,6 +13,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using LBS.VisualElements;
 

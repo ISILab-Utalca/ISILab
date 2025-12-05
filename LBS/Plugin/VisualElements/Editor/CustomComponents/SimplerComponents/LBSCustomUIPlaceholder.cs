@@ -1,6 +1,5 @@
+using ISILab.DevTools.Macros;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Macros;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 
@@ -11,7 +10,7 @@ public partial class LBSCustomUIPlaceholder: VisualElement
     public LBSCustomUIPlaceholder()
     {
         Label nameLabel = new Label("Placeholder");
-        Image image = new LBSCustomImage(LBSAssetMacro.LoadPlaceholderVectorImage());
+        Image image = new LBSCustomImage(AssetMacro.LoadPlaceholderVectorImage());
         image.style.height = 16;
         image.style.width = 16;
         this.Add(nameLabel);

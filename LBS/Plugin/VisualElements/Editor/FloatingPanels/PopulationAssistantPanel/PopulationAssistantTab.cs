@@ -22,6 +22,7 @@ using ISILab.AI.Categorization;
 using LBS.Components.TileMap;
 using ISILab.LBS.Modules;
 using ISILab.Extensions;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 
 namespace ISILab.LBS.VisualElements.Editor
 {

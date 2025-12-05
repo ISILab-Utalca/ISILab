@@ -1,5 +1,6 @@
 ﻿using LBS.Components;
 using System.Collections;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using UnityEngine;
 using UnityEngine.UIElements;
 

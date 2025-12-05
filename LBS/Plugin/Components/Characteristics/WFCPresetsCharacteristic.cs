@@ -2,6 +2,7 @@ using ISILab.LBS.Assistants;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using UnityEditor;
 using UnityEngine;
 

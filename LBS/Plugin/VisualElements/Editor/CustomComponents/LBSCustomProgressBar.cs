@@ -1,3 +1,4 @@
+using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -97,7 +98,7 @@ namespace ISILab.LBS.CustomComponents
             
             icon = new VisualElement();
             icon.AddToClassList(STYLE_CLASS_NAME + "__icon");
-            icon.style.backgroundImage = new StyleBackground(Macros.LBSAssetMacro.LoadPlaceholderTexture());
+            icon.style.backgroundImage = new StyleBackground(AssetMacro.LoadPlaceholderTexture());
             icon.style.width = 16;
             icon.style.height = 16;
             topPanel.Add(icon);

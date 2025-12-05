@@ -1,6 +1,6 @@
 using System;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Settings;
+using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -24,7 +24,7 @@ namespace LBS.VisualElements
             pickingMode = PickingMode.Ignore;
             message.pickingMode = PickingMode.Ignore;
             icon.pickingMode = PickingMode.Ignore;
-            
+
             style.flexDirection = FlexDirection.Row;
             style.flexGrow = 1;
         }
@@ -65,6 +65,7 @@ namespace LBS.VisualElements
             icon.style.backgroundImage = new StyleBackground(setIcon);
             icon.style.unityBackgroundImageTintColor = setColor;
             message.text = inMessage;
+
         } 
     } 
 }

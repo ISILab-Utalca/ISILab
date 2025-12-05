@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Macros;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
@@ -107,19 +108,29 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
         {
             Bundle obj = ScriptableObject.CreateInstance<Bundle>();
             obj.LayerContentFlags = flags;
+            return CreateBundleWithInstance(obj, baseName);
+        }
 
+        public static Bundle CreateBundleWithInstance(Bundle instance, string baseName = "New_Bundle")
+        {
             string name = baseName;
             int counter = 0;
-            while (AssetDatabase.AssetPathExists("Assets/" + name + ".asset"))
+            //string path = "Assets/" + name + ".asset";
+            string path = LBSSettings.Instance.paths.bundleFolderPath + "/" + name + ".asset";
+            while (AssetDatabase.AssetPathExists(path))
             {
                 counter++;
                 name = baseName + "_" + counter;
+                path = LBSSettings.Instance.paths.bundleFolderPath + "/" + name + ".asset";
             }
-            
-            AssetDatabase.CreateAsset(obj, "Assets/" + name + ".asset");
-            return obj;
+
+            instance.BundleName = baseName;
+
+            AssetDatabase.CreateAsset(instance, path);
+            return instance;
         }
-        
+
+        [System.Obsolete]
         public static BundleCollection CreateBundleCollection(string baseName = "New_Collection")
         {
             BundleCollection obj = ScriptableObject.CreateInstance<BundleCollection>();
@@ -144,7 +155,7 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
         {
             Bundle bundle = EditorUtility.InstanceIDToObject(instanceId) as Bundle;
             AssetDatabase.CreateAsset(bundle, AssetDatabase.GenerateUniqueAssetPath(pathName));
-            bundle.GUID = LBSAssetMacro.GetGuidFromAsset(bundle);
+            bundle.GUID = AssetMacro.GetGuidFromAsset(bundle);
             Debug.Log($"Created new Bundle: '{bundle.name}', '{bundle.GUID}'");
             AssetDatabase.Refresh();
         }

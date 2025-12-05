@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -429,7 +430,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 if (lbsGenerated == null || lbsGenerated.BundleRef == null) continue;
                 if (lbsGenerated.LayerName != bundleGraph.GetLayerName()) continue; 
 
-                Bundle bundleRef = LBSAssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GetGuid());
+                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GetGuid());
                 if (lbsGenerated.BundleRef != bundleRef) continue;
 
                 assignAction?.Invoke(collider.gameObject);
@@ -462,7 +463,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (!uiGameObject) return;
             var questVisualTree = uiGameObject.AddComponent<QuestVisualTree>();
             var uiAsset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestVisualTree");
-            var panelSettings = LBSAssetMacro.LoadAssetByGuid<PanelSettings>("da6adae693698d3409943a20661e2031");
+            var panelSettings = AssetMacro.LoadAssetByGuid<PanelSettings>("da6adae693698d3409943a20661e2031");
 
             if (!uiAsset || !panelSettings) return;
 

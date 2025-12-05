@@ -1,7 +1,10 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.VisualElements.Editor;
+using LBS.Bundles;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +12,7 @@ using UnityEngine.UIElements;
 
 public class TerrainConnectionGridEditorWindow : EditorWindow
 {
+    #region FIELDS
     public LBSTerrainConnectionGrid connectionGridTarget;
 
     //Tracking thingies
@@ -29,9 +33,25 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
     public LBSToolbarToggle fillTool;
     public LBSToolbarToggle eraserTool;
 
+    //Grids
+    public VisualElement gridsVE;
 
+    //Zoom
+    private Slider previewScaleSlider;
+    private LBSCustomUnsignedIntegerField zoomScaleInt;
+    public float fovScale;
+
+    private List<AssetGridEditorWindow> editorWindows;
+
+    #endregion
+
+    #region PROPERTIES
     public Dictionary<int, UnityEngine.Color> ColorPalette => connectionGridTarget.FlagColorPalette;
+    #endregion
 
+    public Action SetFOVScale;
+
+    #region CONSTRUCTOR
     public void CreateGUI()
     {
         //Initialize connection grid if not initialized
@@ -52,6 +72,7 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         //Tools!
         brushTool = rootVisualElement.Q<LBSToolbarToggle>("BrushTool");
         brushTool.RegisterValueChangedCallback((evt) => { SwitchTools(brushTool, GridTerrainTool.Brush); });
+        brushTool.value = true;
         fillTool = rootVisualElement.Q<LBSToolbarToggle>("FillTool");
         fillTool.RegisterValueChangedCallback((evt) => { SwitchTools(fillTool, GridTerrainTool.Fill); });
         eraserTool = rootVisualElement.Q<LBSToolbarToggle>("EraserTool");
@@ -60,9 +81,34 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         gridTerrainTools.Add(fillTool);
         gridTerrainTools.Add(eraserTool);
 
-        //Icons!
+        //Zooming stuff!
+        previewScaleSlider = rootVisualElement.Q<Slider>("PreviewScaleSlider");
 
+        zoomScaleInt = rootVisualElement.Q<LBSCustomUnsignedIntegerField>("ZoomScaleInt");
+        fovScale = 1 + (zoomScaleInt.value * 0.1f);
+        zoomScaleInt.RegisterValueChangedCallback((evt) => {
+            if (evt.newValue != evt.previousValue)
+            {
+                fovScale = 1 + (evt.newValue * 0.1f);
+                SetFOVScale?.Invoke();
+            }
+        });
+
+        //Icons!
+        editorWindows = new List<AssetGridEditorWindow>();
+        gridsVE = rootVisualElement.Q<VisualElement>("GridsVE");
+
+        foreach (KeyValuePair<Asset, AssetConnectionGrid> _grid in connectionGridTarget.GridList)
+        {
+            var _newGridWindow = new AssetGridEditorWindow(_grid.Value, this);
+            SetFOVScale += _newGridWindow.UpdateFOVScale;
+            gridsVE.Add(_newGridWindow);
+            
+        }
     }
+    #endregion
+
+    #region METHODS
     void SwitchTools(LBSToolbarToggle button, GridTerrainTool _newTool)
     {
         foreach(LBSToolbarToggle otherButton in gridTerrainTools)
@@ -78,10 +124,10 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
     public void AddColorKey()
     {
         int _counter = ColorPalette.Count + 1;
-        Color _color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
+        Color _color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
         foreach (KeyValuePair<int, Color> item in ColorPalette)
         {
-            while(item.Value == _color) Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
+            while(item.Value == _color) UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
             if (item.Key == _counter) _counter++;
         }
         ColorPalette.Add(_counter, _color);
@@ -128,4 +174,5 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
             AddColorButton(item.Key, item.Value);
         }
     }
+    #endregion
 }

@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using LBS.Components;
 using System;
+using ISILab.DevTools.Macros;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Macros;
 using UnityEngine;
@@ -118,7 +119,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void SetIcon(string guid)
         {
-            var icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(guid);
+            var icon = AssetMacro.LoadAssetByGuid<VectorImage>(guid);
             _layerIcon.style.backgroundImage = new StyleBackground(icon);
         }
 

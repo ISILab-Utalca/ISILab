@@ -20,6 +20,7 @@ namespace ISILab.LBS.Bundles.Editor
     [CustomEditor(typeof(Bundle)), CanEditMultipleObjects]
     public class BundleEditor : UnityEditor.Editor
     {
+        ListView assets;
         ListView characteristics;
         ListView childBundles;
 
@@ -38,7 +39,7 @@ namespace ISILab.LBS.Bundles.Editor
         public override VisualElement CreateInspectorGUI()
         {
             var root = new VisualElement();
-            InspectorElement.FillDefaultInspector(root, this.serializedObject, this);
+            //InspectorElement.FillDefaultInspector(root, this.serializedObject, this);
             var bundle = target as Bundle;
 
             //Erase empty children
@@ -46,55 +47,82 @@ namespace ISILab.LBS.Bundles.Editor
             {
                 bundle.RemoveNullChildren();
             }
-    
-            #region Icon
-            var iconProp = serializedObject.FindProperty("icon");
 
-            if (iconProp != null)
+            #region COMMONS
+            MakeTitle("Common Settings");
+
+            SerializeProperty("layerContentFlags", prop =>
             {
-                var iconField = new PropertyField(iconProp);
-                iconField.Bind(serializedObject);
-                root.Add(iconField);
+                Selection.activeObject = null;
+                EditorApplication.delayCall += () => EditorApplication.delayCall += () => Selection.activeObject = bundle;
+            });
 
-                iconField.TrackPropertyValue(iconProp, prop =>
-                {
-                    var bundle = target as Bundle;
-                    if (bundle == null) return;
+            SerializeProperties("", "bundleName", "color");
+            SerializeProperty("icon", prop =>
+            {
+                var bundle = target as Bundle;
+                if (bundle == null) return;
 
-                    // Extract the new VectorImage reference from the serialized property
-                    var newIcon = prop.objectReferenceValue as VectorImage;
+                // Extract the new VectorImage reference from the serialized property
+                var newIcon = prop.objectReferenceValue as VectorImage;
 
-                    // Use your custom setter instead of modifying the field directly
-                    bundle.Icon = newIcon;
+                // Use your custom setter instead of modifying the field directly
+                bundle.Icon = newIcon;
 
-                    // Mark asset dirty to persist the change
-                    EditorUtility.SetDirty(bundle);
-                    root.MarkDirtyRepaint();
+                // Mark asset dirty to persist the change
+                EditorUtility.SetDirty(bundle);
+                root.MarkDirtyRepaint();
 
-                    Debug.Log($"[BundleEditor] Icon updated for '{bundle.name}' → {newIcon?.name ?? "null"}");
-                });
-            }
+                Debug.Log($"[BundleEditor] Icon updated for '{bundle.name}' → {newIcon?.name ?? "null"}");
+            });
+
             #endregion
-            
-            // Element option
-            if (bundle != null && bundle.Type == Bundle.TagType.Element)
+            bool hasSpecificSettings = false;
+            bool interiorSettings   = false, 
+                 exteriorSettings   = false,
+                 populationSettings = false;
+            if(bundle != null && bundle.ChildsBundles.Count == 0)
             {
-                SerializedProperty populationTypeProp = serializedObject.FindProperty("elementFlag");
-                if (populationTypeProp != null)
-                {
-                    PropertyField populationField = new PropertyField(populationTypeProp);
-                    populationField.Bind(serializedObject);
-                    root.Add(populationField);
-                }
-                SerializedProperty tileSizeProp = serializedObject.FindProperty("tileSize");
-                if (tileSizeProp != null)
-                {
-                    PropertyField tileSizeField = new PropertyField(tileSizeProp);
-                    tileSizeField.Bind(serializedObject);
-                    root.Add(tileSizeField);
-                }
+                interiorSettings = bundle.LayerContentFlags == BundleFlags.Interior;
+                exteriorSettings = bundle.LayerContentFlags == BundleFlags.Exterior;
+                populationSettings = bundle.LayerContentFlags == BundleFlags.Population;
+
+                exteriorSettings = false; // (!!) Remove line if an exterior specific property is created
+
+                hasSpecificSettings = interiorSettings || exteriorSettings || populationSettings;
             }
-            
+
+            if (hasSpecificSettings)
+            {
+                SerializeProperties("");
+                MakeTitle("Specific Settings");
+            }
+
+            #region INTERIOR PROPERTIES
+
+            if (interiorSettings)
+                SerializeProperty("anchorPosition");
+
+            #endregion
+
+            #region EXTERIOR PROPERTIES
+
+            if (exteriorSettings)
+                ;
+
+            #endregion
+
+            #region POPULATION PROPERTIES
+
+            if (populationSettings)
+                SerializeProperties("elementFlag", "tileSize");
+
+
+            #endregion
+
+
+            SerializeProperties("", "assets");
+
             #region Characteristics
 
             characteristics = new ListView();
@@ -249,6 +277,48 @@ namespace ISILab.LBS.Bundles.Editor
             #endregion
             
             return root;
+
+            void SerializeProperty(string name, Action<SerializedProperty> trackValueCallback = null)
+            {
+                SerializedProperty property = serializedObject.FindProperty(name);
+                if(property is not null)
+                {
+                    PropertyField field = new PropertyField(property);
+                    field.Bind(serializedObject);
+                    root.Add(field);
+
+                    if(trackValueCallback != null)
+                    {
+                        field.TrackPropertyValue(property, trackValueCallback);
+                    }
+                }
+            }
+
+            void SerializeProperties(params string[] names)
+            {
+                for(int i = 0; i < names.Length; i++)
+                {
+                    if (string.IsNullOrEmpty(names[i]))
+                    {
+                        var v = new VisualElement();
+                        v.style.height = 12;
+                        root.Add(v);
+                    }
+                    else
+                    {
+                        SerializeProperty(names[i]);
+                    }
+                }
+            }
+
+            void MakeTitle(string title)
+            {
+                var newTitle = new Label(title);
+                newTitle.style.fontSize = 13;
+                newTitle.style.unityFontStyleAndWeight = FontStyle.Bold;
+                newTitle.style.paddingBottom = newTitle.style.paddingTop = 5;
+                root.Add(newTitle);
+            }
         }
         
         private void ShowRemoveChildBundle(Bundle bundle)
