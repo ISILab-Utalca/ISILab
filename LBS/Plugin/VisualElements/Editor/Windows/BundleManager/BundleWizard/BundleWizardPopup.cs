@@ -1,18 +1,19 @@
+using System.Collections.Generic;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
+using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
-using System;
-using System.Collections.Generic;
-using ISILab.Commons.Extensions;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 
+namespace ISILab.LBS.Plugin.UI.Editor.Windows
+{
+    
 [UxmlElement]
 public partial class BundleWizardPopup: VisualElement
 {
@@ -271,4 +272,5 @@ public class BundleBuilder
 
         return s;
     }
+}
 }
