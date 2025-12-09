@@ -11,6 +11,7 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles.Tools;
 using ISILab.LBS.Plugin.Internal;
+using PathOS;
 
 
 namespace ISILab.LBS.Plugin.Components.Bundles
@@ -22,6 +23,8 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         Interior = 1 << 0,
         Exterior = 1 << 1,
         Population = 1 << 2,
+        Quest = 1 << 3,
+        Simulation = 1 << 4
     }
     
     [System.Serializable]
@@ -135,6 +138,12 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         [SerializeField, HideInInspector]
         private string guid;
 
+        // Simulation
+        [SerializeField, HideInInspector]
+        protected EntityType entityType = EntityType.ET_NONE;
+        [SerializeField, HideInInspector]
+        protected List<EntityType> admissibleTypes = new List<EntityType>();
+
         #endregion
 
         #region PROPERTIES
@@ -209,6 +218,19 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             get => guid;
             set => guid = value;
         }
+
+        public EntityType EntityType
+        {
+            get => entityType;
+            internal set // Quiza no deberia haber un setter, pero se usa en PathOSTag.ToLBSTag. No se si sirva de mucho pero lo dejare como internal por ahora
+            {
+                if (entityType == value) return;
+
+                entityType = value;
+            }
+        }
+
+        public List<EntityType> AdmissibleEntityTypes { get => admissibleTypes; }
 
         #endregion
 
@@ -560,6 +582,12 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         {
             OnAddChild = null;
             OnRemoveChild = null;
+        }
+
+        private void OnValidate()
+        {
+            if (entityType != EntityType.ET_NONE && !admissibleTypes.Contains(entityType))
+                admissibleTypes.Insert(0, entityType);
         }
         #endregion
 

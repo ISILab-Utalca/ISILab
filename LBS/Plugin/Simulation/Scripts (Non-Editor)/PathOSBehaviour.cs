@@ -75,9 +75,9 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region METHODS
-        public void AddTile(LBSTag tag, int x, int y)
+        public void AddTile(LBSTag tag, int x, int y, EntityType type)
         {
-            var tile = new PathOSTile(this, x, y, tag);
+            var tile = new PathOSTile(this, x, y, type, tag);
 
             bool isElement = true;
             bool isEvent = false;
@@ -176,6 +176,7 @@ namespace ISILab.LBS.Behaviours
             foreach(TileBundleGroup group in groups)
             {
                 BundleData bundle = group.BundleData;
+                EntityType entityType = bundle.Bundle.EntityType;
                 var characteristics = bundle.Bundle.GetCharacteristics<LBSTagsCharacteristic>();
                 if(characteristics.Count == 0)
                 {
@@ -192,7 +193,7 @@ namespace ISILab.LBS.Behaviours
                         tag = ctag.Value;
                         if (tag != null)
                         {
-                            if (tag.EntityType != EntityType.ET_NONE)
+                            if (entityType != EntityType.ET_NONE)
                             {
                                 validTag = true;
                                 break;
@@ -221,7 +222,7 @@ namespace ISILab.LBS.Behaviours
                 foreach(LBSTile tile in group.TileGroup)
                 {
                     Vector2Int pos = tile.Position;
-                    AddTile(tag, pos.x, pos.y);
+                    AddTile(tag, pos.x, pos.y, entityType);
                 }
             }
         }

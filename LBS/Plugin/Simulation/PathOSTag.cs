@@ -111,7 +111,7 @@ namespace ISILab.LBS.Components
             tag.Label = Label;
             //tag.Icon = Icon;
             tag.Color = Color;
-            tag.EntityType = EntityType;
+            //tag.EntityType = EntityType;
 
             return tag;
         }

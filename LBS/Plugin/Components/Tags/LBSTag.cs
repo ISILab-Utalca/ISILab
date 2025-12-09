@@ -19,12 +19,12 @@ namespace ISILab.LBS.Components
         protected VectorImage icon;
         [SerializeField]
         protected Color color;
-        [Header("Simulation")]
-        [Space]
-        [SerializeField]
-        protected EntityType defaultType = EntityType.ET_NONE;
-        [SerializeField]
-        protected List<EntityType> admissibleTypes = new List<EntityType>();
+        //[Header("Simulation")]
+        //[Space]
+        //[SerializeField]
+        //protected EntityType defaultType = EntityType.ET_NONE;
+        //[SerializeField]
+        //protected List<EntityType> admissibleTypes = new List<EntityType>();
         #endregion
 
         #region PROPERTIES
@@ -72,19 +72,19 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public EntityType EntityType
-        {
-            get => defaultType;
-            internal set // Quiza no deberia haber un setter, pero se usa en PathOSTag.ToLBSTag. No se si sirva de mucho pero lo dejare como internal por ahora
-            {
-                if(defaultType == value) return;
-
-                defaultType = value;
-                OnChangeEntityType?.Invoke(this);
-            }
-        }
-
-        public List<EntityType> AdmissibleEntityTypes { get => admissibleTypes; }
+        //public EntityType EntityType
+        //{
+        //    get => defaultType;
+        //    internal set // Quiza no deberia haber un setter, pero se usa en PathOSTag.ToLBSTag. No se si sirva de mucho pero lo dejare como internal por ahora
+        //    {
+        //        if(defaultType == value) return;
+        //
+        //        defaultType = value;
+        //        OnChangeEntityType?.Invoke(this);
+        //    }
+        //}
+        //
+        //public List<EntityType> AdmissibleEntityTypes { get => admissibleTypes; }
         #endregion
 
         #region EVENTS
@@ -123,9 +123,6 @@ namespace ISILab.LBS.Components
         private void OnValidate()
         {
             label = name;
-
-            if(defaultType != EntityType.ET_NONE && !admissibleTypes.Contains(defaultType))
-                admissibleTypes.Insert(0, defaultType);
         }
         #endregion
     }

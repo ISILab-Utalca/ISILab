@@ -156,7 +156,7 @@ namespace ISILab.LBS.Generators
                 if (tile.Tag.Label != "Wall")
                 {
                     //TODO: Cambiar currInstance por el elemento de Population que representa, cuando corresponda
-                    entitiesTemporaryReference.Add((tile, manager.AddLevelEntity(currInstance, tile.Tag.EntityType)));
+                    entitiesTemporaryReference.Add((tile, manager.AddLevelEntity(currInstance, tile.EntityType)));
                 }
             }
 
