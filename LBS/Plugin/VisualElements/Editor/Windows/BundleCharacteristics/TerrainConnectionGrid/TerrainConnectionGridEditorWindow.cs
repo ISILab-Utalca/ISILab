@@ -17,8 +17,8 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
     //Tracking thingies
     public int currentColor;
-    enum GridTerrainTool { Brush, Fill, Eraser };
-    GridTerrainTool activeTool;
+    public enum GridTerrainTool { Brush, Fill, Eraser };
+    private GridTerrainTool activeTool;
 
     //Color Buttons
     public LBSSelectableButton baseColorButton;
@@ -47,9 +47,13 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
     #region PROPERTIES
     public Dictionary<int, UnityEngine.Color> ColorPalette => connectionGridTarget.FlagColorPalette;
+    public GridTerrainTool ActiveTool => activeTool;
     #endregion
 
     public Action SetFOVScale;
+    public Action OnWindowClosed;
+    public Action OnColorRemoved;
+    public Action<float> OnScaleModify;
 
     #region CONSTRUCTOR
     public void CreateGUI()
@@ -67,7 +71,15 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         colorList = rootVisualElement.Q<VisualElement>("ColorListElemn");
         addColorButton = rootVisualElement.Q<LBSCustomButton>("AddColorButton");
         addColorButton.RegisterCallback<ClickEvent>((evt) => { AddColorKey(); });
+
+        //If the palette is empty I'll add a red button as a default. I think that makes things easier
+        if(ColorPalette.Count == 0)
+        {
+            ColorPalette.Add(1, Color.red);
+        }
         UpdateColorButtons();
+
+        colorButtons[0].OnExecute?.Invoke();
 
         //Tools!
         brushTool = rootVisualElement.Q<LBSToolbarToggle>("BrushTool");
@@ -83,6 +95,7 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
         //Zooming stuff!
         previewScaleSlider = rootVisualElement.Q<Slider>("PreviewScaleSlider");
+        previewScaleSlider.RegisterValueChangedCallback((evt)=> { OnScaleModify?.Invoke(evt.newValue);});
 
         zoomScaleInt = rootVisualElement.Q<LBSCustomUnsignedIntegerField>("ZoomScaleInt");
         fovScale = 1 + (zoomScaleInt.value * 0.1f);
@@ -102,9 +115,22 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         {
             var _newGridWindow = new AssetGridEditorWindow(_grid.Value, this);
             SetFOVScale += _newGridWindow.UpdateFOVScale;
+            OnScaleModify += (newValue) => {
+                _newGridWindow.style.scale = new Scale(new Vector2(newValue, newValue));
+                _newGridWindow.style.height = newValue * 128; 
+                _newGridWindow.style.width = newValue * 128; 
+            };
+            //128 * (previewScaleSlider.value);
+            OnWindowClosed += () => { _newGridWindow.OnRemove?.Invoke(); };
             gridsVE.Add(_newGridWindow);
             
         }
+        
+    }
+
+    private void OnDisable()
+    {
+        OnWindowClosed?.Invoke();
     }
     #endregion
 
@@ -139,6 +165,7 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         if (ColorPalette[key]!=null)
         {
             ColorPalette.Remove(key);
+            OnColorRemoved?.Invoke();
         }
     }
 
@@ -162,6 +189,9 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         colorList.Add(newButton);
         //...And to the button list
         colorButtons.Add(newButton);
+
+        //Also let's select it, because why not!
+        newButton.OnExecute?.Invoke();
     }
 
     public void UpdateColorButtons()

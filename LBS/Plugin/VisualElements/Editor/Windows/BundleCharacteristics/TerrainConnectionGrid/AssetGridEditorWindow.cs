@@ -3,6 +3,8 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Bundles;
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,6 +18,7 @@ public class AssetGridEditorWindow : VisualElement
 
     #region VISUAL ELEMENTS
     VisualElement thumbnail;
+    List<AssetGridTile> tiles = new List<AssetGridTile>();
     #endregion
 
     #region SQUARE PREVIEW ELEMENTS
@@ -32,11 +35,21 @@ public class AssetGridEditorWindow : VisualElement
     public AssetConnectionGrid AssetGrid => assetGrid;
     public VisualElement GridContainer => gridContainer;
     public Asset AssetReference => AssetGrid.AssetReference;
+    //For tool usage
     public TerrainConnectionGridEditorWindow WindowOwner => windowOwner;
     public float FOVScale => windowOwner.fovScale;
+    public TerrainConnectionGridEditorWindow.GridTerrainTool ActiveTool => WindowOwner.ActiveTool;
+    public int CurrentColorID => windowOwner.currentColor;
+    public Dictionary<int, Color> ColorPalette => WindowOwner.ColorPalette;
+    public Color CurrentColorValue => ColorPalette[CurrentColorID];
+    public int GridLength => AssetGrid.TerrainFlag.Length;
+    public int GridLengthSqr { get { return Mathf.RoundToInt(Mathf.Sqrt(GridLength)); } }
+
     #endregion
 
     #region EVENTS
+    public Action OnRemove;
+    public Action OnColorListModified;
     #endregion
 
     #region CONSTRUCTOR
@@ -51,7 +64,6 @@ public class AssetGridEditorWindow : VisualElement
         gridContainer = this.Q<VisualElement>("GridContainer");
         thumbnail = this.Q<VisualElement>("Thumbnail");
 
-
         Init();
     }
 
@@ -59,7 +71,7 @@ public class AssetGridEditorWindow : VisualElement
     {
         //Setting preview...
         //Code is sourced from BundleDirectionEditorWindow. Let's see how much it can be translated from it
-        renderTexture = new Texture2D(512, 512, TextureFormat.RGBA32, false);
+        renderTexture = new Texture2D(256, 256, TextureFormat.RGBA32, false);
         thumbnail.style.backgroundImage = new StyleBackground(renderTexture);
 
         prevRenderUtil = new PreviewRenderUtility();
@@ -69,20 +81,21 @@ public class AssetGridEditorWindow : VisualElement
         var _prefab = AssetReference.obj;
         if (_prefab != null)
         {
-            Debug.Log("prefab isn't null: " + _prefab.name);
             previewPrefab = prevRenderUtil.InstantiatePrefabInScene(_prefab);
             previewPrefab.transform.position = Vector3.zero;
         }
         EditorApplication.delayCall += StepPreview;
         
         SetGrid();
+
+        OnRemove += prevRenderUtil.Cleanup;
+        WindowOwner.OnColorRemoved += OnColorListModified;
     }
     #endregion
 
     #region METHODS
     public void SetGrid()
     {
-        
         int lngth = AssetGrid.TerrainFlag.Length;
         float _sqr = Mathf.Sqrt(lngth);
         if(_sqr - Mathf.RoundToInt(_sqr)!=0) { return; }
@@ -97,17 +110,34 @@ public class AssetGridEditorWindow : VisualElement
             
             for(int j=0; j<_sqr; j++)
             {
-                var _tile = new AssetGridTile((j + (i*Mathf.RoundToInt(_sqr))));
+                int pos = (j + (i * Mathf.RoundToInt(_sqr)));
+                var _tile = new AssetGridTile(pos, assetGrid.TerrainFlag[pos]);
                 _tile.AddToClassList("asset-grid-tile");
                 _tile.OnTileClicked += () => { UseToolOnTile(_tile); };
+                _tile.OnValueUpdated += () => {
+                    assetGrid.TerrainFlag[pos] = _tile.ColorValue;
+                    if (ColorPalette.ContainsKey(_tile.ColorValue))
+                    {
+                        _tile.ChangeColor(ColorPalette[_tile.ColorValue]);
+                    } else
+                    {
+                        _tile.ChangeValue(0);
+                    }
+                };
+                //I want to see if this will immediately erase the painted tiles of a color that has been removed
+                OnColorListModified += _tile.OnValueUpdated;
+
+                //Very rudimentary, but if it gets the job done...
+                _tile.OnValueUpdated?.Invoke();                
+
                 _row.Add(_tile);
+                tiles.Add(_tile);
             }
         }
     }
     
     public void UpdateFOVScale()
     {
-        Debug.Log("fov was updated to" + FOVScale);
         StepPreview();
     }
 
@@ -115,15 +145,75 @@ public class AssetGridEditorWindow : VisualElement
 
     public void UseToolOnTile(AssetGridTile tile)
     {
-        Debug.Log("using tile nº"+tile.GridPosition+", VALUE: "+tile.ColorValue);
-        Debug.Log("terrain flag value: " + assetGrid.TerrainFlag[tile.ColorValue]);
+        switch(ActiveTool)
+        {
+            case TerrainConnectionGridEditorWindow.GridTerrainTool.Brush:
+                BrushTool(tile);
+                break;
+            case TerrainConnectionGridEditorWindow.GridTerrainTool.Fill:
+                FillTool(tile);
+                break;
+            case TerrainConnectionGridEditorWindow.GridTerrainTool.Eraser:
+                EraserTool(tile);
+                break;
+        }
+    }
+
+    public void BrushTool(AssetGridTile tile)
+    {
+        tile.ChangeValue(CurrentColorID);
+    }
+    public void EraserTool(AssetGridTile tile)
+    {
+        tile.ChangeValue(0);
+    }
+    public void FillTool(AssetGridTile tile)
+    {
+        var _oldColor = tile.ColorValue;
+        tile.ChangeValue(CurrentColorID);
+        
+        //Now we propagate it by looking for anything with the same old color
+        
+        //right
+        if((tile.GridPosition%GridLengthSqr + 1) < GridLengthSqr)
+        {
+            if (tiles[tile.GridPosition + 1].ColorValue == _oldColor)
+            {
+                FillTool(tiles[tile.GridPosition + 1]);
+            }
+        }
+        //left
+        if ((tile.GridPosition % GridLengthSqr) - 1 > -1)
+        {
+            if (tiles[tile.GridPosition - 1].ColorValue == _oldColor)
+            {
+                FillTool(tiles[tile.GridPosition - 1]);
+            }
+        }
+        //up
+        if ((tile.GridPosition) - GridLengthSqr > -1)
+        {
+            if (tiles[tile.GridPosition - GridLengthSqr].ColorValue == _oldColor)
+            {
+                FillTool(tiles[tile.GridPosition - GridLengthSqr]);
+            }
+        }
+        //down
+        if ((tile.GridPosition) + GridLengthSqr < GridLength)
+        {
+            if (tiles[tile.GridPosition + GridLengthSqr].ColorValue == _oldColor)
+            {
+                FillTool(tiles[tile.GridPosition + GridLengthSqr]);
+            }
+        }
+
     }
 
     private void StepPreview()
     {
         prevRenderUtil.camera.backgroundColor = Color.red;
 
-        prevRenderUtil.BeginStaticPreview(new Rect(0, 0, 512, 512));
+        prevRenderUtil.BeginStaticPreview(new Rect(0, 0, 256, 256));
 
         prevRenderUtil.camera.transform.position = new Vector3(0, 10, 0);
         prevRenderUtil.camera.transform.rotation = Quaternion.Euler(90, 0, 0);
