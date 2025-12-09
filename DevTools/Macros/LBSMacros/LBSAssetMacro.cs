@@ -1,14 +1,15 @@
 
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Macros
@@ -153,6 +154,14 @@ namespace ISILab.LBS.Macros
             }
 
             return result;
+        }
+
+        public static string GetActiveSceneGUID()
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (!currentScene.isLoaded) return string.Empty;
+
+           return  AssetDatabase.AssetPathToGUID(currentScene.path);
         }
 
     }
