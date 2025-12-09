@@ -3,7 +3,6 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.VisualElements;
-using LBS.Bundles;
 using PathOS;
 using System;
 using System.Collections.Generic;
@@ -19,7 +18,6 @@ namespace ISILab.LBS.Bundles.Editor
     [CustomEditor(typeof(Bundle)), CanEditMultipleObjects]
     public class BundleEditor : UnityEditor.Editor
     {
-        ListView assets;
         ListView characteristics;
         ListView childBundles;
 
@@ -110,7 +108,7 @@ namespace ISILab.LBS.Bundles.Editor
                 ;
 
             if (populationSettings)
-                SerializeProperties("elementFlag", "tileSize");
+                SerializeProperties("elementFlag", "tileSize", "microGenTool");
 
             if (questSettings)
                 ;
