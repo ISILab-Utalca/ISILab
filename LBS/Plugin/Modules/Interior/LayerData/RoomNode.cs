@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using LBS.Components.Graph;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ISILab.LBS.Components
+namespace ISILab.LBS.Plugin.Modules.Interior.LayerData
 {
     [System.Serializable]
     public class RoomNode : LBSNode

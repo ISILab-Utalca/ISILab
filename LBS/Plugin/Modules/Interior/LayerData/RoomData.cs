@@ -1,15 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using ISILab.Commons.Extensions;
 using ISILab.Commons.JsonNet;
-using ISILab.Extensions;
-using ISILab.LBS;
+using ISILab.LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ISILab.LBS.Components
+namespace ISILab.LBS.Plugin.Modules.Interior.LayerData
 {
     [System.Serializable]
     public class RoomData : ICloneable
