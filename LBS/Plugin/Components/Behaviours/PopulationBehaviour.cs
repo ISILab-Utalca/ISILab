@@ -56,8 +56,18 @@ namespace ISILab.LBS.Behaviours
         public List<TileBundleGroup> Tilemap => _bundleTileMap is not null ? _bundleTileMap.Groups : new List<TileBundleGroup>();
 
         [JsonIgnore]
-        public BundleTileMap BundleTilemap => _bundleTileMap;
-        
+        public BundleTileMap BundleTilemap
+        {
+            get
+            {
+                return _bundleTileMap;
+            }
+            set
+            {
+                _bundleTileMap = value;
+            }
+        }
+
         public BundleCollection BundleCollection 
         {
             get => GetBundleCollection();

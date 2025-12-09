@@ -4,7 +4,6 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using LBS.Bundles;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +27,8 @@ namespace ISILab.LBS.Drawers
         {
             // Get behaviour
             if (target is not PopulationBehaviour population) return;
+
+            PopulationTileView.SelectedTile?.Highlight(false);
 
             OwnerLayer = population.OwnerLayer;
             PaintNewTiles(population, view);

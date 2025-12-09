@@ -6,22 +6,19 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System;
 using ISILab.LBS.Editor.Windows;
 using LBS.Components;
 using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
-using LBS;
 using LBS.VisualElements;
 using ISILab.LBS.Manipulators;
-using ISILab.Extensions;
 
 namespace ISILab.LBS.VisualElements
 {
     public class PopulationTileView : GraphElement
     {
         #region CONSTANTS
-        static PopulationTileView SelectedTile;
+        public static PopulationTileView SelectedTile;
         private const float defaultAlpha = 0.75f;
         #endregion
 
@@ -158,9 +155,12 @@ namespace ISILab.LBS.VisualElements
             _icon.style.backgroundImage = new StyleBackground(icon);
         }
 
-        public void Highlight(bool highlight)
+        public void Highlight(bool highlight, bool staticCall = false)
         {
-            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (!staticCall)
+            {
+                if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            }
 
             float backgroundAlpha = highlight ? 1f : defaultAlpha;
             var newColor = (new Color(_backgroundColor.value.r, _backgroundColor.value.g, _backgroundColor.value.b, backgroundAlpha));

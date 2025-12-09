@@ -36,20 +36,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
-            _current = LBSInspectorPanel.Instance.data;
-
-            // Get selectable elements
-            List<object> selected = new List<object>();
-            foreach (var module in LBSLayer.Modules)
-            {
-                if (module is ISelectable selectable)
-                {
-                    selected.AddRange(selectable.GetSelected(position));
-                }
-            }
-
-            _current.SetSelectedVe(selected);
-            
+            LBSInspectorPanel.Instance.CallSelectableByPosition(LBSLayer, position);            
         }
     }
 }

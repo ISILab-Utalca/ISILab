@@ -4,7 +4,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -24,24 +24,27 @@ namespace ISILab.LBS.VisualElements
 
         private LBSCustomLabelIcon SelectedHeader;
 
-        private VisualElement Tier;
         private VisualElement Patrol;
         private VisualElement Trigger;
 
         private ListView PatrolPointsView;
         private ListView AddonsView;
 
+        private LBSCustomToggleField PatrolLoop;
+
+        public VisualTreeAsset visualTree { get; private set; }
+
         #endregion
 
         #region CONSTRUCTORS
         public TileGroupBehaviorEditor(object target) : base(target)
         {
+   
             behaviour = target as TileGroupBehavior;
             if (behaviour is null) return;
-  
-            behaviour.OnSelectedChanged += UpdateTilebundle;
-            SetInfo(behaviour);
+
             CreateVisualElement();
+            SetInfo(behaviour);
         }
         #endregion
         
@@ -49,12 +52,21 @@ namespace ISILab.LBS.VisualElements
         public sealed override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as TileGroupBehavior;
+            behaviour.OnSelectedChanged += UpdateTilebundle;
+            behaviour.OnSelectedChanged += (tilemap) =>
+            {
+                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+            };
+            UpdateTilebundle(null);
         }
 
         protected sealed override VisualElement CreateVisualElement()
         {
-            
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TileGroupBehaviorEditor", true);
+            if(visualTree is null)
+            {
+                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TileGroupBehaviorEditor", true);
+            }
+          
             visualTree.CloneTree(this);
 
             NoContent = this.Q<VisualElement>("NoContent");
@@ -62,27 +74,117 @@ namespace ISILab.LBS.VisualElements
             
             SelectedHeader = this.Q<LBSCustomLabelIcon>("SelectedHeader");
 
-            Tier = this.Q<VisualElement>("Tier");
             Patrol = this.Q<VisualElement>("Patrol");
             Trigger = this.Q<VisualElement>("Triggers");
 
             AddonsView = this.Q<ListView>("AddonsView");
             PatrolPointsView = this.Q<ListView>("PatrolPointsView");
 
-            UpdateTilebundle(null);
-     
+            PatrolLoop = this.Q<LBSCustomToggleField>("PatrolLoop");
+            PatrolLoop.RegisterValueChangedCallback(evt => {
+                if (behaviour?.SelectedTilemap is null) return;
+                BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
+                TilePatrol patrol = addons.patrol;
+                patrol.Loop = evt.newValue;
+                PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
+            });
+                 
             return this;
         }
 
+        private void SetAddonsList()
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void UpdatePatrolList()
+        {
+
+            if(behaviour.SelectedTilemap is null)
+            {
+                PatrolPointsView.Clear();
+                PatrolLoop.SetValueWithoutNotify(false);
+                return;
+            }
+
+            BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
+            TilePatrol patrol = addons.patrol;
+
+            PatrolLoop.SetValueWithoutNotify(patrol.Loop);
+
+            PatrolPointsView.itemsSource = patrol.Points;
+
+            // Create new item
+            PatrolPointsView.makeItem = () =>
+            {
+                var vecField = new Vector2Field();
+                vecField.style.flexGrow = 1;
+                vecField.style.marginLeft = 4;
+                vecField.style.marginRight = 4;
+                vecField.style.justifyContent = Justify.Center;
+                vecField.style.alignItems = Align.Center;
+                return vecField;
+            };
+
+            // Bind item to patrol.Points[index]
+            PatrolPointsView.bindItem = (ve, index) =>
+            {
+                var vecField = ve as Vector2Field;
+                if (index < 0 || index >= patrol.Points.Count) return;
+
+                // Apply value without triggering callback
+                vecField.SetValueWithoutNotify(patrol.Points[index]);
+
+                // Register fresh callback
+                vecField.RegisterValueChangedCallback((_vector )=> 
+                {
+                    patrol.Points[index] = _vector.newValue;
+                 //   EditorUtility.SetDirty(behaviour);
+
+                    PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
+
+                });
+
+         
+            };
+
+            // Add new point
+            PatrolPointsView.onAdd = (list) =>
+            {
+                patrol.Points.Add(new Vector2(0, 0));
+                PatrolPointsView.Rebuild();
+                PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
+                //    EditorUtility.SetDirty(behaviour);
+            };
+
+            // Remove selected point
+            PatrolPointsView.onRemove = (list) =>
+            {
+                int index = PatrolPointsView.selectedIndex;
+                if (index < 0 || index >= patrol.Points.Count) return;
+
+                patrol.Points.RemoveAt(index);
+                PatrolPointsView.Rebuild();
+                PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
+                //    EditorUtility.SetDirty(behaviour);
+            };
+
+        }
+
+
         private void UpdateTilebundle(TileBundleGroup TileBundleGroup)
         {
+
+           
             // Set init options
-            if(TileBundleGroup is null)
+            if (TileBundleGroup is null)
             {
                 NoContent.style.display = DisplayStyle.Flex;
                 Content.style.display = DisplayStyle.None;
+    
                 return;
             }
+              
 
             NoContent.style.display = DisplayStyle.None;
             Content.style.display = DisplayStyle.Flex;
@@ -95,8 +197,9 @@ namespace ISILab.LBS.VisualElements
             Trigger.style.display = triggerDisplay;
             DisplayStyle patrolDisplay = bundle.GetHasTagCharacteristic("LBSTag_Patrol") ? DisplayStyle.Flex : DisplayStyle.None;
             Patrol.style.display = patrolDisplay;
-            DisplayStyle tierDisplay = bundle.GetHasTagCharacteristic("LBSTag_Tier") ? DisplayStyle.Flex : DisplayStyle.None;
-            Tier.style.display = tierDisplay;
+
+            UpdatePatrolList();
+
         }
 
         public override void OnUnfocus()

@@ -4,10 +4,8 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.VisualElements.Editor;
 using LBS;
 using LBS.Bundles;
 using LBS.Components;
@@ -15,7 +13,6 @@ using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Plugin.Components.Bundles;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Macros;
@@ -53,6 +50,7 @@ namespace ISILab.LBS.VisualElements
         #region CONSTRUCTORS
         public PopulationBehaviourEditor(object target) : base(target)
         {
+
             behaviour = target as PopulationBehaviour;
             if (behaviour is null) return;
             //_collection = load default collection
@@ -88,14 +86,20 @@ namespace ISILab.LBS.VisualElements
             CreateVisualElement();
         }
         #endregion
-        
+
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
+
             behaviour = paramTarget as PopulationBehaviour;
-            if(behaviour == null) return;
+            if (behaviour == null) return;
+
             _collection = behaviour.BundleCollection;
             _mainBundle = behaviour.MainBundle;
+            behaviour.OwnerLayer.OnChange += () =>
+            {
+                PopulationTileView.SelectedTile?.Highlight(false, true);
+            };
         }
 
         public void SetTools(ToolKit toolkit)
