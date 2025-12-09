@@ -8,6 +8,7 @@ using ISILab.LBS.Drawers;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS;
@@ -16,7 +17,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
+namespace ISILab.LBS.Editor
 {
     /// <summary>
     /// Reemplazar los VisualElements de Configuration y Content con PopulationAssistantWindow para permitirles ser una ventana independiente.
@@ -36,7 +37,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
         public AssistantMapEliteEditor(object target) : base(target)
         {
             Add(new PopulationAssistantTab(target as AssistantMapElite));
+
             SetInfo(target);
+            CreateVisualElement();
         }
 
         private void Run()
