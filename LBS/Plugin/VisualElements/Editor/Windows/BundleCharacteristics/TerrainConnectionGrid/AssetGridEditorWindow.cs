@@ -40,8 +40,7 @@ public class AssetGridEditorWindow : VisualElement
     public float FOVScale => windowOwner.fovScale;
     public TerrainConnectionGridEditorWindow.GridTerrainTool ActiveTool => WindowOwner.ActiveTool;
     public int CurrentColorID => windowOwner.currentColor;
-    public Dictionary<int, Color> ColorPalette => WindowOwner.ColorPalette;
-    public Color CurrentColorValue => ColorPalette[CurrentColorID];
+    public Dictionary<int, UnityEngine.Color> ColorPaletteKey => WindowOwner.ColorPaletteKey;
     public int GridLength => AssetGrid.TerrainFlag.Length;
     public int GridLengthSqr { get { return Mathf.RoundToInt(Mathf.Sqrt(GridLength)); } }
 
@@ -71,7 +70,7 @@ public class AssetGridEditorWindow : VisualElement
     {
         //Setting preview...
         //Code is sourced from BundleDirectionEditorWindow. Let's see how much it can be translated from it
-        renderTexture = new Texture2D(256, 256, TextureFormat.RGBA32, false);
+        renderTexture = new Texture2D(128, 128, TextureFormat.RGBA32, false);
         thumbnail.style.backgroundImage = new StyleBackground(renderTexture);
 
         prevRenderUtil = new PreviewRenderUtility();
@@ -115,15 +114,32 @@ public class AssetGridEditorWindow : VisualElement
                 _tile.AddToClassList("asset-grid-tile");
                 _tile.OnTileClicked += () => { UseToolOnTile(_tile); };
                 _tile.OnValueUpdated += () => {
-                    assetGrid.TerrainFlag[pos] = _tile.ColorValue;
-                    if (ColorPalette.ContainsKey(_tile.ColorValue))
+                    if(ColorPaletteKey.ContainsKey(_tile.ColorValue))
                     {
-                        _tile.ChangeColor(ColorPalette[_tile.ColorValue]);
-                    } else
+                        _tile.ChangeColor(ColorPaletteKey[_tile.ColorValue]);
+                    }
+                    else
                     {
+                        Debug.Log("changing value to 0");
                         _tile.ChangeValue(0);
                     }
                 };
+                _tile.OnValueSaved += () =>
+                {
+                    assetGrid.TerrainFlag[pos] = _tile.ColorValue;
+                };
+                _tile.OnValueReverted += () =>
+                {
+                    if (ColorPaletteKey.ContainsKey(assetGrid.TerrainFlag[pos]))
+                    {
+                        _tile.ChangeValue(assetGrid.TerrainFlag[pos]);
+                    } else
+                    {
+                        //TODO: Work on a way to be able to revert the colors and such.
+                        _tile.ChangeValue(0);
+                    }
+                };
+
                 //I want to see if this will immediately erase the painted tiles of a color that has been removed
                 OnColorListModified += _tile.OnValueUpdated;
 
@@ -156,6 +172,20 @@ public class AssetGridEditorWindow : VisualElement
             case TerrainConnectionGridEditorWindow.GridTerrainTool.Eraser:
                 EraserTool(tile);
                 break;
+        }
+    }
+    public void SaveChanges()
+    {
+        foreach(AssetGridTile tile in tiles)
+        {
+            tile.OnValueSaved?.Invoke();
+        }
+    }
+    public void RevertChanges()
+    {
+        foreach (AssetGridTile tile in tiles)
+        {
+            tile.OnValueReverted?.Invoke();
         }
     }
 
@@ -207,6 +237,14 @@ public class AssetGridEditorWindow : VisualElement
             }
         }
 
+    }
+
+    public void ClearGrid()
+    {
+        foreach (AssetGridTile __tile in tiles)
+        {
+            __tile.ChangeValue(0);
+        }
     }
 
     private void StepPreview()
