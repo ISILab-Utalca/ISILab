@@ -11,7 +11,7 @@ namespace ISILab.Commons
         /// A static class that provides predefined lists of 3D vectors
         /// representing centers, edges, and diagonals in a 3D space.
         /// </summary>
-        public static class Tridimencional
+        public static class Tridimensional
         {
             private static readonly List<Vector3Int> centers = new List<Vector3Int>()
         {

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Macros;
@@ -11,6 +7,11 @@ using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Bundles;
 using LBS.Components;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,7 +44,7 @@ namespace ISILab.LBS.Components
     /// </para>
     /// </summary>
     [Serializable]
-    public abstract class QuestActionData
+    public abstract class QuestActionData : ISerializationCallbackReceiver
     {
         #region FIELDS
 
@@ -58,8 +59,8 @@ namespace ISILab.LBS.Components
         [SerializeField] private List<UnityActionStored> registeredActions = new();
 
         [NonSerialized] private GameObject _target;
-        [SerializeField] private string targetName;
-        [SerializeField] private string sceneGuid;
+        [SerializeField] private string targetName = string.Empty;
+        [SerializeField] private string sceneGuid = string.Empty;
 
         // Icons
         protected const string LocationIcon = "efd5e48bd83c08d469fcc341c886b38b";
@@ -84,17 +85,12 @@ namespace ISILab.LBS.Components
         {
             get
             {
-                if (_target is null)
+                if (_target is not null) return _target;
+
+                if (LBSAssetMacro.GetActiveSceneGUID() == sceneGuid)
                 {
-                    Scene currentScene = SceneManager.GetActiveScene();
-                    if(!currentScene.isLoaded) return null;
-                    // Optional: ensure the stored scene GUID matches the currently open scene
-                    string currentSceneGuid = AssetDatabase.AssetPathToGUID(currentScene.path);
-                    if (currentSceneGuid == sceneGuid)
-                    {
-                        Target = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
-                            .FirstOrDefault(o => o.name == targetName);
-                    }
+                    Target = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
+                        .FirstOrDefault(o => o.name == targetName);
                 }
 
                 return _target;
@@ -103,8 +99,6 @@ namespace ISILab.LBS.Components
             {
                 if (value == null) return;
                 _target = value;
-                ResaveTargetValues()?.Invoke();
-
             }
         }
 
@@ -128,7 +122,6 @@ namespace ISILab.LBS.Components
 
         protected QuestActionData(QuestNode ownerNode, string tag)
         {
-            EditorApplication.quitting += ResaveTargetValues();
 
             this.ownerNode = ownerNode;
             this.tag = tag;
@@ -280,32 +273,22 @@ namespace ISILab.LBS.Components
         }
 
         #endregion
-        
-        #region ON COMPLETE TARGET SAVE
 
-        /// <summary>
-        /// Used to keep GameObject name + Scene GUID in sync before editor shutdown.
-        /// </summary>
-        private Action ResaveTargetValues()
+
+        public void OnBeforeSerialize()
         {
-            return () =>
+            if (Target is not null)
             {
-                if (Target != null)
-                {
-                    targetName = Target.name;
-                    SetSceneGuid(Target);
-                }
-            };
+                targetName = _target.name;
+                string scenePath = _target.scene.path;
+                sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
+            }
         }
 
-        private void SetSceneGuid(GameObject value)
+        public void OnAfterDeserialize()
         {
-            string scenePath = value.scene.path;
-            sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
+            //throw new NotImplementedException();
         }
-
-#endregion
-
         #endregion
     }
 

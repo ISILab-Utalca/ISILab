@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="settings"></param>
         /// <returns>returns a tuple of the generated game object containing all the content, as well as a
         /// string in case the game object is invalid(null)</returns>
-        public abstract Tuple<GameObject, string> Generate(LBSLayer layer, Generator3D.Settings settings);
+        public abstract Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings);
 
         /// <summary>
         /// Check if the layer is viable to be generated

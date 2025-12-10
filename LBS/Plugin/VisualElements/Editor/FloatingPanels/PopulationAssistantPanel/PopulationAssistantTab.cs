@@ -2,29 +2,16 @@ using ISILab.LBS.Editor.Windows;
 using UnityEngine;
 using UnityEngine.UIElements;
 using LBS.Components;
-
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using ISILab.LBS.Plugin.MapTools.Generators;
 using UnityEditor;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.AI.Categorization;
-using ISILab.LBS.Generators;
-using UnityEditor.UIElements;
-using Object = UnityEngine.Object;
-using ISILab.LBS.AI.Assistants.Editor;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using ISILab.AI.Categorization;
 using LBS.Components.TileMap;
-using ISILab.LBS.Modules;
 using ISILab.Extensions;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.VisualElements.Editor;
 
-namespace ISILab.LBS.VisualElements.Editor
+namespace ISILab.LBS.Editor
 {
     public class PopulationAssistantTab : VisualElement
     {

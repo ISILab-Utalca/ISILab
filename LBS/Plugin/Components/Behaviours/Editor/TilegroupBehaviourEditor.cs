@@ -119,8 +119,8 @@ namespace ISILab.LBS.VisualElements
             {
                 var vecField = new Vector2Field();
                 vecField.style.flexGrow = 1;
-                vecField.style.marginLeft = 4;
-                vecField.style.marginRight = 4;
+                vecField.style.marginLeft = 8;
+                vecField.style.marginRight = 0;
                 vecField.style.justifyContent = Justify.Center;
                 vecField.style.alignItems = Align.Center;
                 return vecField;

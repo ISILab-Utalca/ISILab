@@ -11,6 +11,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using ISILab.Extensions;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.LBS.Generators
@@ -61,7 +62,7 @@ namespace ISILab.LBS.Generators
         }
 
         // GABO TODO: TERMINARR
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, Generator3D.Settings settings)
+        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 #if UNITY_EDITOR
             PathOSStorage storage = PathOSStorage.Instance;
@@ -342,7 +343,7 @@ namespace ISILab.LBS.Generators
         }
 
         // [GABO DEBUG] Generador de prueba hecho originalmente para probar colocacion de elementos
-        private GameObject SimpleBoxGenerate(LBSLayer layer, Generator3D.Settings settings)
+        private GameObject SimpleBoxGenerate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Variables
             module = layer.GetModule<PathOSModule>();
