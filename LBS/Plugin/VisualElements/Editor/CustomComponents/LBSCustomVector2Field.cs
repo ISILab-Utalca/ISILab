@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.CustomComponents
 {
     [UxmlElement]
-    public partial class LBSCustomVector2Field: Vector2Field, ILBSField
+    public partial class LBSCustomVector2Field : Vector2Field
     {
         
         public static readonly string LBSClassName = "lbs-field";

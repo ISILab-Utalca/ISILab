@@ -26,8 +26,8 @@ namespace ISILab.LBS.Components
     /// <para><b>FOR LBS USER</b></para>
     /// 
     /// <para>
-    /// This class is meant to store data for terminal actions<c>string</c> declared in an
-    /// Scriptable Object<c>LBSGrammar</c>.
+    /// This class is meant to store data for terminal actions <c>string</c> declared in an
+    /// Scriptable Object <c>LBSGrammar</c>.
     /// If the grammar is modified (actions) or a new grammar is assigned, 
     /// new children of this class must be created.
     /// </para>

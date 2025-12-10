@@ -29,7 +29,7 @@ namespace ISILab.LBS.Editor
 
         public virtual void OnFocus() { }
         
-        public virtual void OnUnfocus() { Debug.Log("Unfocus."); }
+        public virtual void OnUnfocus() { /*Debug.Log("Unfocus.");*/ }
 
         public abstract void SetInfo(object paramTarget);
 

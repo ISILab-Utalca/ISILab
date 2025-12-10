@@ -17,20 +17,20 @@ namespace ISILab.LBS.VisualElements
     [UxmlElement]
     public partial class ComplexDropdown : VisualElement
     {
-        public class listElement
+        public class ListElement
         {
             public string name;
             public Texture2D icon;
             public Type type;
 
-            public listElement(string name, Texture2D icon, Type type)
+            public ListElement(string name, Texture2D icon, Type type)
             {
                 this.name = name;
                 this.icon = icon;
                 this.type = type;
             }
         }
-        public List<listElement> elements = new List<listElement>();
+        public List<ListElement> elements = new List<ListElement>();
 
         #region FIELDS
         private Type targetType = null;
@@ -72,14 +72,14 @@ namespace ISILab.LBS.VisualElements
             content.bindItem = (view, index) =>
             {
                 var field = view as ComplexDropdownElement;
-                var item = content.itemsSource[index] as listElement;
+                var item = content.itemsSource[index] as ListElement;
                 field.SetInfo(item.name, item.icon, false);
             };
 
             content.selectionChanged += (e) =>
             {
                 var index = content.selectedIndex;
-                var selected = content.itemsSource[index] as listElement;
+                var selected = content.itemsSource[index] as ListElement;
                 try
                 {
                     OnSelected?.Invoke(Activator.CreateInstance(selected.type));
@@ -95,18 +95,18 @@ namespace ISILab.LBS.VisualElements
             searchfield = this.Q<TextField>("Searchfield");
             searchfield.RegisterValueChangedCallback((e) =>
             {
-                Actualize(e.newValue);
+                UpdateDropdown(e.newValue);
             });
 
             searchfield.RegisterCallback<ChangeEvent<string>>((e) =>
             {
-                Actualize(e.newValue);
+                UpdateDropdown(e.newValue);
                 content.SetDisplay(true);
             });
 
             searchfield.RegisterCallback<FocusEvent>((e) =>
             {
-                Actualize(searchfield.value);
+                UpdateDropdown(searchfield.value);
                 content.SetDisplay(true);
             });
 
@@ -134,18 +134,18 @@ namespace ISILab.LBS.VisualElements
                     continue;
 
                 var att = atts[0] as LBSSearchAttribute;
-                elements.Add(new listElement(att.Name, att.Icon, tuple.Item1));
+                elements.Add(new ListElement(att.Name, att.Icon, tuple.Item1));
             }
         }
 
-        public void Actualize(string text)
+        public void UpdateDropdown(string text)
         {
             content.ClearClassList();
             content.makeItem = () => { return new ComplexDropdownElement(); };
             content.bindItem = (view, index) =>
             {
                 var field = view as ComplexDropdownElement;
-                var item = content.itemsSource[index] as listElement;
+                var item = content.itemsSource[index] as ListElement;
                 field.SetInfo(item.name, item.icon, false);
             };
 
