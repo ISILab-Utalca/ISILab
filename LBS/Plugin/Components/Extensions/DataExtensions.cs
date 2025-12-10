@@ -33,12 +33,12 @@ namespace ISILab.LBS.Plugin.Components.Extensions
             return true;
         }
 
-        public static void Move(this TiledArea area, Vector2Int value)
-        {
-            for (int i = 0; i < area.Tiles.Count; i++)
-            {
-                area.Tiles[i].Position += value;
-            }
-        }
+        // public static void Move(this TiledArea area, Vector2Int value)
+        // {
+        //     for (int i = 0; i < area.Tiles.Count; i++)
+        //     {
+        //         area.Tiles[i].Position += value;
+        //     }
+        // }
     }
 }
