@@ -201,6 +201,7 @@ public class BundleBuilder
 {
     public string bundleName { get; set; }
     public string layerType { get; set; }
+    public BundleFlags layerTypeFlag { get; set; }
 
     public List<List<GameObject>> objects { get; private set; } = new();
     
@@ -217,24 +218,28 @@ public class BundleBuilder
         {
             case "Interior Layer":
                 bundle.LayerContentFlags    = BundleFlags.Interior;
+                layerTypeFlag               = BundleFlags.Interior;
                 bundle.Type                 = Bundle.TagType.Structural;
                 bundle.Color                = default;
                 break;
 
             case "Exterior Layer":
                 bundle.LayerContentFlags    = BundleFlags.Exterior;
+                layerTypeFlag               = BundleFlags.Exterior;
                 bundle.Type                 = Bundle.TagType.Structural;
                 bundle.Color                = default;
                 break;
 
             case "Population Layer":
                 bundle.LayerContentFlags    = BundleFlags.Population;
+                layerTypeFlag               = BundleFlags.Population;
                 bundle.Type                 = Bundle.TagType.Element;
                 bundle.Color                = new Color().RandomColorHSV();
                 break;
 
             default:
                 bundle.LayerContentFlags    = default;
+                layerTypeFlag               = default;
                 bundle.Type                 = default;
                 bundle.Color                = default;
                 break;

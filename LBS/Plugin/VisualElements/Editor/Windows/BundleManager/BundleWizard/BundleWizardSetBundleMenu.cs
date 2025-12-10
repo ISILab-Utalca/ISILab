@@ -14,35 +14,21 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 [UxmlElement]
 public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundleWizardTab
 {
-    //SearchAllBundles() variables
     private List<Bundle> _allBundles = new();
-    private readonly List<BundleContainer> _mainBundles = new();
-    private List<BundleCategory> AllCategories
-    {
-        get => new List<BundleCategory>()
-            {
-                _interiorCategory,
-                _exteriorCategory,
-                _populationCategory,
-                _unassignedCategory,
-                _orphanBundlesCategory
-            };
-    }
-    private BundleCategory _interiorCategory = new();
-    private BundleCategory _exteriorCategory = new();
-    private BundleCategory _populationCategory = new();
-    private BundleCategory _unassignedCategory = new();
-    private BundleCategory _orphanBundlesCategory = new();
 
     private BundleFlags currentBundleFlags;
+
     private ListView listCurrent;
+    private ListView listSameLayerOrphan;
     private ListView listSameLayer;
     private ListView listNoLayer;
     private BundleManagerListGroup bundleListCurrent;
+    private BundleManagerListGroup bundleListSameLayerOrphan;
     private BundleManagerListGroup bundleListSameLayer;
     private BundleManagerListGroup bundleListNoLayer;
 
     private List<BundleManagerWindow.BundleContainer> bundleContainersCurrent = new();
+    private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayerOrphan = new();
     private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayer = new();
     private List<BundleManagerWindow.BundleContainer> bundleContainersNoLayer = new();
 
@@ -54,7 +40,7 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundl
     public BundleWizardSetBundleMenu() : base()
     {
         GetVisualTreeForThis();
-        
+
         //nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
         //this.Add(nameField);
     }
@@ -64,13 +50,23 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundl
         //Debug.Log("Init: " + GetType().Name);
         Debug.Log("Builder data:\n\n" + Builder.ToString());
 
+        currentBundleFlags = Builder.layerTypeFlag;
+
         SearchAllBundles();
+        AddCurrentBundles();
 
         bundleListCurrent = this.Q<BundleManagerListGroup>("CurrentBundles");
         bundleListCurrent.SetBundleListViewItem<BundleWizardElement>(
             out listCurrent,
             "CurrentBundles",
             bundleContainersCurrent,
+            itemHeight: 40
+            );
+        bundleListSameLayerOrphan = this.Q<BundleManagerListGroup>("SameLayerOrphanBundles");
+        bundleListSameLayerOrphan.SetBundleListViewItem<BundleWizardElement>(
+            out listSameLayerOrphan,
+            "SameLayerOrphanBundles",
+            bundleContainersSameLayerOrphan,
             itemHeight: 40
             );
         bundleListSameLayer = this.Q<BundleManagerListGroup>("SameLayerBundles");
@@ -87,46 +83,43 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundl
             bundleContainersNoLayer,
             itemHeight: 40
             );
+    }
 
-        /*
-        _interiorCategory.SetListGroup("Interior", window. rootVisualElement);
-        _exteriorCategory.SetListGroup("Exterior", rootVisualElement);
-        _populationCategory.SetListGroup("Population", rootVisualElement);
-        _unassignedCategory.SetListGroup("Unassigned", rootVisualElement);
-        _orphanBundlesCategory.SetListGroup("OrphanBundles", rootVisualElement);
-        */
-
-        /*
-        foreach (BundleCategory category in AllCategories)
+    private void AddCurrentBundles()
+    {
+        foreach (Bundle b in Builder.newSubBundles)
         {
-            // Setting MainBundle lists
-            category.SetBundleListViewItem();
-            // Setting Expand List Buttons
-            category.SetExpandButtonSetting(Instance);
+            bundleContainersCurrent.Add(new BundleManagerWindow.BundleContainer(b));
         }
-        */
     }
 
     private void SearchAllBundles()
     {
-        //Clear lists
+        //Clear list
         _allBundles.Clear();
-
-        _mainBundles.Clear();
-        foreach (BundleCategory category in AllCategories)
-        {
-            category.Bundles.Clear();
-        }
-
         _allBundles = LBSAssetsStorage.Instance.Get<Bundle>();
 
         // Normal bundles
         foreach (Bundle b in _allBundles)
         {
-            // deben haber 3 casos, current layer without parent, current layer with parent, and no layer
-            if (b.ChildsBundles.Count <= 0 && b.LayerContentFlags==currentBundleFlags)
+            
+            //same layer orphan bundles
+            if (b.ChildsBundles.Count <= 0 && (b.Parent() == null) &&
+               (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
+            {
+                bundleContainersSameLayerOrphan.Add(new BundleManagerWindow.BundleContainer(b));
+            }
+            //same layer bundles
+            else if (b.ChildsBundles.Count <= 0 && (b.Parent() != null) &&
+                (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
             {
                 bundleContainersSameLayer.Add(new BundleManagerWindow.BundleContainer(b));
+            }
+            //no layer bundles
+            else if (b.ChildsBundles.Count <= 0 &&
+                (b.LayerContentFlags & currentBundleFlags) == BundleFlags.None)
+            {
+                bundleContainersNoLayer.Add(new BundleManagerWindow.BundleContainer(b));
             }
         }
 
