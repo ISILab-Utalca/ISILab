@@ -6,6 +6,7 @@ using ISILab.LBS.Generators;
 using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using LBS.Bundles;
 using LBS.Components;
@@ -41,7 +42,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return base.GetHashCode();
         }
 
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, Generator3D.Settings settings)
+        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             //Get references
             var data = layer.GetModule<BundleTileMap>();

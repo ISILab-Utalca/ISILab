@@ -37,7 +37,7 @@ namespace LBS.Components
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
 
-        [SerializeField] private Generator3D.Settings settings = new();
+        [SerializeField] private LBSGenerator3DSettings settings = new();
 
         [SerializeField, JsonRequired] public int index;
 
@@ -58,7 +58,7 @@ namespace LBS.Components
         [JsonIgnore] public List<LBSAssistant> Assistants => new(assistants);
         [JsonIgnore] public List<LBSGeneratorRule> GeneratorRules => new(generatorRules);
 
-        [JsonIgnore] public Generator3D.Settings Settings { get => settings; set => settings = value; }
+        [JsonIgnore] public LBSGenerator3DSettings Settings { get => settings; set => settings = value; }
 
         [JsonIgnore]
         public Vector2Int TileSize

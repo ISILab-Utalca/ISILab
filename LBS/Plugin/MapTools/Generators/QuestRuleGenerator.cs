@@ -8,6 +8,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -53,7 +54,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="layer"> the quest layer that contains the quest nodes and edges</param>
         /// <param name="settings"> the settings of the generator</param>
         /// <returns></returns>
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, Generator3D.Settings settings)
+        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             
             var pivot = new GameObject(layer.ID);
@@ -103,7 +104,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return Tuple.Create<GameObject, string>(pivot, null);
         }
 
-        private void GenerateTriggers(Generator3D.Settings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+        private void GenerateTriggers(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
             foreach (var node in quest.GetQuestNodes())
             {
@@ -124,7 +125,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private static void GenerateTriggersPerNode(Generator3D.Settings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+        private static void GenerateTriggersPerNode(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
             // Map QuestNode -> Trigger GameObject
             Dictionary<QuestNode, GameObject> questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
@@ -146,7 +147,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             CreateBranchNodeComponents(quest, tracker, questNodeGameObjects);
         }
         
-        private static Dictionary<QuestNode, GameObject> CreateQuestNodeGameObjects(Generator3D.Settings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+        private static Dictionary<QuestNode, GameObject> CreateQuestNodeGameObjects(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
             var questNodeGameObjects = new Dictionary<QuestNode, GameObject>();
 
@@ -167,7 +168,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return questNodeGameObjects;
         }
         
-        private static GameObject CreateTriggerGameObject(Generator3D.Settings settings, GameObject pivot, QuestTracker tracker, QuestNode node, Type triggerType)
+        private static GameObject CreateTriggerGameObject(LBSGenerator3DSettings settings, GameObject pivot, QuestTracker tracker, QuestNode node, Type triggerType)
         {
             var go = new GameObject(node.ID) { transform = { parent = tracker.transform } };
             var trigger = (QuestTrigger)go.AddComponent(triggerType);
@@ -278,7 +279,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="basePos">the base position corresponds to the grid location</param>
         /// <param name="y">Pivot.y</param>
         /// <param name="delta">Rescale from graph size </param>
-        private static void FindPopulationObjects(QuestTrigger trigger, Generator3D.Settings settings, QuestNode node, Vector3 basePos, float y, Vector3 delta)
+        private static void FindPopulationObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, QuestNode node, Vector3 basePos, float y, Vector3 delta)
         {
             switch (node.Data)
             {
@@ -404,7 +405,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
       private static void AssignObjectByBundleGraph(
             QuestNode node,
             BundleGraph bundleGraph,
-            Generator3D.Settings settings,
+            LBSGenerator3DSettings settings,
             Vector3 basePos,
             float y,
             Vector3 delta,
@@ -440,7 +441,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GetGuid()}' found at position {scenePosition} for node {node.ID}");
         }
 
-        private static Vector3 GetScenePosition(Rect graphArea, Generator3D.Settings settings, Vector3 basePos, float y,
+        private static Vector3 GetScenePosition(Rect graphArea, LBSGenerator3DSettings settings, Vector3 basePos, float y,
             Vector3 delta)
         {
             var bundlePosX = graphArea.x * settings.scale.x;

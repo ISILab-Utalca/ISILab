@@ -11,6 +11,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 
 using LBS.Components;
@@ -41,7 +42,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         [JsonIgnore]
         private SectorizedTileMapModule zonesMod;
         [JsonIgnore]
-        private Generator3D.Settings settings;
+        private LBSGenerator3DSettings settings;
         #endregion
 
         #region PPROPERTIES
@@ -77,7 +78,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return base.GetHashCode();
         }
 
-        public void Init(LBSLayer layer, Generator3D.Settings settings)
+        public void Init(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             this.tilesMod = layer.GetModule<TileMapModule>();
             this.connectedTilesMod = layer.GetModule<ConnectedTileMapModule>();
@@ -277,7 +278,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="layer"></param>
         /// <param name="settings"></param>
         /// <returns></returns>
-        public override Tuple<GameObject,string> Generate(LBSLayer layer, Generator3D.Settings settings)
+        public override Tuple<GameObject,string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Init values
             Init(layer, settings);

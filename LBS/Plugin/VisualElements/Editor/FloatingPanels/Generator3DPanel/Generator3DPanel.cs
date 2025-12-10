@@ -44,7 +44,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region FIELDS
-        private Generator3D.Settings _settings;
+        private LBSGenerator3DSettings _settings;
         private LBSLayer _layer;
         #endregion
 
@@ -102,7 +102,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             _replacePrev = this.Q<LBSCustomToggleField>("Replace");
 
-            if (GeneratorSettings.settings != null)
+            if (GeneratorSettings != null)
             {
                 
                 _replacePrev.value = GeneratorSettings.settings.replacePrevious;
