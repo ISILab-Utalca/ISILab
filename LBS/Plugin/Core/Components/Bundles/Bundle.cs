@@ -132,7 +132,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         [SerializeField, HideInInspector]
         private List<Bundle> childsBundles = new List<Bundle>();
         
-        [SerializeField, HideInInspector]
+        [SerializeField]
         private MicroGenTool microGenTool = new MicroGenTool();
 
         [SerializeField, HideInInspector]
