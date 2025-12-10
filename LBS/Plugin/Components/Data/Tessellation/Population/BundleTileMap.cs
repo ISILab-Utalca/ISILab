@@ -460,7 +460,7 @@ namespace ISILab.LBS.Modules
         //Returns bundle size
         public Vector2Int GetBundleSize()
         {
-            if(bData.Bundle==null)
+            if(bData.Bundle==null && bData.Characteristics.Any())
             {
                 if (bData.Characteristics[0]?.Owner==null)
                 {

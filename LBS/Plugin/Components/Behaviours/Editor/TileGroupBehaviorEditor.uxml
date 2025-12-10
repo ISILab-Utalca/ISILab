@@ -8,7 +8,7 @@
             <ISILab.LBS.CustomComponents.LBSCustomLabelIcon text="Bundle Name" direction="Column" name="SelectedHeader" icon="project://database/Assets/ISILab/Commons/Assets2D/Resources/Icons/Vectorial/Logo/LBS.svg?fileID=7388822144124034973&amp;guid=12e384eee491b39459a9a6dd5e403595&amp;type=3#LBS" label="Selected Bundle: " style="align-self: stretch; justify-content: center; align-items: center;" />
             <ui:VisualElement name="Patrol" style="flex-grow: 1;">
                 <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Components/Tags/PopulationTags/LBSTag_Patrol.asset?fileID=11400000&amp;guid=7d14522ccb3e27b469d6b129282c103c&amp;type=2#LBSTag_Patrol" enabled="false" label="Tag Behavior" />
-                <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Loop patrol route" name="PatrolLoop" />
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Loop patrol route" name="PatrolLoop" tooltip="Once the last point is reached, the game object tries to move to the first point, instead of backtracking" />
                 <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" header-title="Patrol Points" show-add-remove-footer="true" show-foldout-header="true" reorderable="true" show-border="true" />
             </ui:VisualElement>
             <ui:VisualElement name="Triggers" style="flex-grow: 1;">
