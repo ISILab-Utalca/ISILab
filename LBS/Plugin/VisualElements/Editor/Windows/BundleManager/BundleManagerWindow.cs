@@ -21,7 +21,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
     public class BundleManagerWindow : EditorWindow
     {
-        class BundleCategory
+        public class BundleCategory
         {
             private readonly List<BundleContainer> _bundles = new();
             private ListView _list;
