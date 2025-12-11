@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.Plugin.Components.Bundles;
-using LBS.Bundles;
 using UnityEngine;
 
 [Serializable]

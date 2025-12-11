@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using LBS.Bundles;
-using System.Linq;
-using System.Drawing;
 using Newtonsoft.Json;
-using UnityEditor.MemoryProfiler;
 using ISILab.Extensions;
 using ISILab.LBS.Plugin.Components.Bundles;
 
@@ -18,7 +14,7 @@ namespace ISILab.LBS.Characteristics
         [SerializeField, JsonRequired]
         Dictionary<Asset, AssetConnectionGrid> gridList = new Dictionary<Asset, AssetConnectionGrid>();
         [SerializeField, JsonRequired]
-        Dictionary<int, UnityEngine.Color> flagColorPalette = new Dictionary<int, UnityEngine.Color>();
+        Dictionary<int, Color> flagColorPalette = new Dictionary<int, Color>();
         [SerializeField, JsonRequired]
         int gridSize = 9;
 

@@ -1,6 +1,5 @@
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
-using LBS.Bundles;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -37,9 +36,6 @@ namespace ISILab.LBS.Behaviours
         #region META-FIELDS
         [JsonIgnore, HideInInspector]
         public Bundle selectedToSet;
-        
-        [SerializeField, JsonIgnore, HideInInspector]
-        private BundleCollection bundleCollection;
 
         [SerializeField, JsonIgnore]
         private Bundle mainBundle;
@@ -65,16 +61,6 @@ namespace ISILab.LBS.Behaviours
             set
             {
                 _bundleTileMap = value;
-            }
-        }
-
-        public BundleCollection BundleCollection 
-        {
-            get => GetBundleCollection();
-            set
-            {
-                bundleCollection = value;
-                bundleRefGui = AssetMacro.GetGuidFromAsset(value);
             }
         }
 
@@ -313,16 +299,6 @@ namespace ISILab.LBS.Behaviours
         public override int GetHashCode()
         {
             return base.GetHashCode();
-        }
-
-        private BundleCollection GetBundleCollection()
-        {
-            if (bundleCollection == null)
-            {
-                bundleCollection = AssetMacro.LoadAssetByGuid<BundleCollection>(bundleRefGui);
-            }
-
-            return bundleCollection;
         }
 
         private Bundle GetMainBundle()

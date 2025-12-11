@@ -2,12 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons;
-using ISILab.LBS.Generators;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
-using LBS.Bundles;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -15,12 +12,12 @@ using Random = UnityEngine.Random;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
-    [System.Serializable]
+    [Serializable]
     public class PopulationRuleGenerator : LBSGeneratorRule // FIX: Change to a better name
     {
         public override List<Message> CheckViability(LBSLayer layer)
         {
-            throw new System.NotImplementedException(); // TODO: Implement CheckViability method
+            throw new NotImplementedException(); // TODO: Implement CheckViability method
         }
 
         public override object Clone()

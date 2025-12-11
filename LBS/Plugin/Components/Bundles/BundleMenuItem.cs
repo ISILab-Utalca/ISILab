@@ -3,7 +3,6 @@ using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
-using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
 
@@ -130,22 +129,6 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
             return instance;
         }
 
-        [System.Obsolete]
-        public static BundleCollection CreateBundleCollection(string baseName = "New_Collection")
-        {
-            BundleCollection obj = ScriptableObject.CreateInstance<BundleCollection>();
-
-            string name = baseName;
-            int counter = 0;
-            while (AssetDatabase.AssetPathExists("Assets/" + name + ".asset"))
-            {
-                counter++;
-                name = baseName + "_" + counter;
-            }
-            
-            AssetDatabase.CreateAsset(obj, "Assets/" + name + ".asset");
-            return obj;
-        }
         #endregion
     }
 

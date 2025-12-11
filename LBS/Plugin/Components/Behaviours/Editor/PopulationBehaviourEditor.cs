@@ -27,7 +27,6 @@ namespace ISILab.LBS.VisualElements
         private PopulationBehaviour behaviour;
 
         private Dictionary<string, List<Bundle.EElementFlag>> displayChoices = new();
-        private BundleCollection _collection;
         private Bundle _mainBundle;
         private DropdownField type;
 
@@ -71,7 +70,6 @@ namespace ISILab.LBS.VisualElements
                 Bundle.EElementFlag.Character
             };
             
-            _collection = behaviour.BundleCollection;
             _mainBundle = behaviour.MainBundle;
             behaviour.SelectedFilter = behaviour.allFilter;
             displayChoices.Add(behaviour.allFilter, allList);
@@ -94,7 +92,6 @@ namespace ISILab.LBS.VisualElements
             behaviour = paramTarget as PopulationBehaviour;
             if (behaviour == null) return;
 
-            _collection = behaviour.BundleCollection;
             _mainBundle = behaviour.MainBundle;
             behaviour.OwnerLayer.OnChange += () =>
             {
@@ -201,7 +198,6 @@ namespace ISILab.LBS.VisualElements
             bundlePallete.OnSelectOption += (selected) =>
             {
                 behaviour.selectedToSet = selected as Bundle;
-                behaviour.BundleCollection = _collection;
                 behaviour.MainBundle = _mainBundle;
              
                 ToolKit.Instance.SetActive(typeof(AddPopulationTile));
@@ -284,16 +280,9 @@ namespace ISILab.LBS.VisualElements
             });
             
             // Save current selected options in layer
-            behaviour.BundleCollection = _collection;
             behaviour.MainBundle = _mainBundle;
             
             bundlePallete.Repaint();
-        }
-
-        private void SetCollection(BundleCollection collection)
-        {
-            behaviour.BundleCollection = collection;
-            _collection = collection;
         }
 
         private void SetBundle(Bundle bundle)
