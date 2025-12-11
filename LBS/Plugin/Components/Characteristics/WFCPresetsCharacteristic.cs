@@ -9,7 +9,7 @@ using UnityEngine;
 namespace ISILab.LBS.Characteristics
 {
     [System.Serializable]
-    [LBSCharacteristic("WFC Presets", "")]
+    //[LBSCharacteristic("WFC Presets", "")]
     public class WFCPresetsCharacteristic : LBSCharacteristic
     {
         [SerializeField]

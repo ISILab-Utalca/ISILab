@@ -8,7 +8,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 namespace ISILab.LBS.Characteristics
 {
     [System.Serializable]
-    [LBSCharacteristic("Connection Grid", "")]
+    //[LBSCharacteristic("Connection Grid", "")]
     public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable
     {
         [SerializeField, JsonRequired]

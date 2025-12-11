@@ -11,7 +11,7 @@ namespace ISILab.LBS.Characteristics
     /// of the tile.
     /// </summary>
     [System.Serializable]
-    [LBSCharacteristicAttribute("Directioned Chance", "Define chances based on direction")]
+    //[LBSCharacteristicAttribute("Directioned Chance", "Define chances based on direction")]
 
     public class LBSDirectionedChance : LBSCharacteristic, ICloneable
     {

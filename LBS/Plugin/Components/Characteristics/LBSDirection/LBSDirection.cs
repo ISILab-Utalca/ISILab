@@ -13,7 +13,7 @@ using UnityEngine;
 namespace ISILab.LBS.Characteristics
 {
     [System.Serializable]
-    [LBSCharacteristic("Directions", "")]
+    //[LBSCharacteristic("Directions", "")]
     public class LBSDirection : LBSCharacteristic, ICloneable
     {
 

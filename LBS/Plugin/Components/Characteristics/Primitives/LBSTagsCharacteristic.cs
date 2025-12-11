@@ -80,7 +80,7 @@ namespace ISILab.LBS.Characteristics
     }
 
     [System.Serializable]
-    [LBSCharacteristic("Tags", "")]
+    //[LBSCharacteristic("Tags", "")]
     public class LBSTagsCharacteristic : LBSCharacteristic, ISerializationCallbackReceiver
     {
         public new static readonly bool unique = false;

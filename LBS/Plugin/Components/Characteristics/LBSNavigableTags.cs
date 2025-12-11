@@ -10,7 +10,7 @@ using UnityEngine;
 namespace ISILab.LBS.Characteristics
 {
     [System.Serializable]
-    [LBSCharacteristic("Navigable Tags", "")]
+    //[LBSCharacteristic("Navigable Tags", "")]
     public class LBSNavigableTags : LBSCharacteristic
     {
         [SerializeField]

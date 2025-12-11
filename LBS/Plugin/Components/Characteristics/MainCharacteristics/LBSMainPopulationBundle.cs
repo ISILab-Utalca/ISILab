@@ -1,7 +1,7 @@
 namespace ISILab.LBS.Characteristics
 {
     [System.Serializable]
-    [LBSCharacteristic("Main Population", "")]
+    //[LBSCharacteristic("Main Population", "")]
     public class LBSMainPopulationBundle : LBSCharacteristic
     {
         public LBSMainPopulationBundle() { }

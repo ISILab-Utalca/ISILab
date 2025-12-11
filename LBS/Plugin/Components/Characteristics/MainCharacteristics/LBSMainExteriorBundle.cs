@@ -1,7 +1,7 @@
 namespace ISILab.LBS.Characteristics
 {
     [System.Serializable]
-    [LBSCharacteristic("Main Exterior", "")]
+    //[LBSCharacteristic("Main Exterior", "")]
     public class LBSMainExteriorBundle : LBSCharacteristic
     {
         public LBSMainExteriorBundle() { }

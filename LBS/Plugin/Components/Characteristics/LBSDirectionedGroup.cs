@@ -10,7 +10,7 @@ using static ISILab.LBS.Modules.ConnectedTileMapModule;
 namespace ISILab.LBS.Characteristics
 {
     [System.Serializable]
-    [LBSCharacteristicAttribute("Connection group", "")]
+    //[LBSCharacteristicAttribute("Connection group", "")]
     public class LBSDirectionedGroup : LBSCharacteristic, ICloneable
     {
         #region SUB-STRUCTURE
