@@ -7,7 +7,6 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS;
-using LBS.Bundles;
 using LBS.Components;
 using LBS.VisualElements;
 using System.Collections.Generic;

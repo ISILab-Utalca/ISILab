@@ -4,19 +4,10 @@
 // ReSharper disable All
 
 using System;
-using System.Linq;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Components;
-using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.VisualElements.Editor;
-using LBS;
-using LBS.Bundles;
-using LBS.Components;
 using LBS.VisualElements;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 

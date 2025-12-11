@@ -5,7 +5,6 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using LBS.Bundles;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
