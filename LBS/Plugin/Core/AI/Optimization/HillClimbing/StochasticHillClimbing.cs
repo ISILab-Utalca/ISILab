@@ -10,7 +10,6 @@ using ISILab.AI.Optimization.Populations;
 using ISILab.AI.Optimization.Selections;
 using ISILab.AI.Optimization.Terminations;
 using LBS;
-using LBS.Components.Graph;
 using LBS.Components.TileMap;
 using UnityEditor;
 using UnityEngine;
