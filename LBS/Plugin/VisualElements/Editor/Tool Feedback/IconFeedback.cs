@@ -16,7 +16,7 @@ namespace ISILab.LBS.VisualElements
             EndOffset = TeselationSize;
         }
 
-        public override void ActualizePositions(Vector2Int p1, Vector2Int p2)
+        public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
         {
             startPosition = new Vector2Int(Mathf.Min(p1.x, p2.x), Mathf.Min(p1.y, p2.y));
             endPosition = new Vector2Int(Mathf.Max(p1.x, p2.x), Mathf.Max(p1.y, p2.y));
@@ -49,6 +49,7 @@ namespace ISILab.LBS.VisualElements
             {
                 points[i] = Vector2.Lerp(points[i], center, 0.2f);
             }
+
             painter.DrawPolygon(points, new Color(currentColor.r, currentColor.g, currentColor.b, Alpha), new Color(1, 1, 1, 0.25f), 2.5f, true);
             if(Icon != null)
             {

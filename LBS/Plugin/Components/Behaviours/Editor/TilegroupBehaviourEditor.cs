@@ -4,6 +4,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -81,25 +82,103 @@ namespace ISILab.LBS.VisualElements
             PatrolPointsView = this.Q<ListView>("PatrolPointsView");
 
             PatrolLoop = this.Q<LBSCustomToggleField>("PatrolLoop");
-            PatrolLoop.RegisterValueChangedCallback(evt => {
+            PatrolLoop.RegisterValueChangedCallback(evt =>
+            {
                 if (behaviour?.SelectedTilemap is null) return;
-                BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
-                TilePatrol patrol = addons.patrol;
-                patrol.Loop = evt.newValue;
-                PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
+                behaviour.SelectedTilemap.Addons.patrol.Loop = evt.newValue;
+                UpdateSelectedTilemap();
+
             });
                  
             return this;
         }
 
-        private void SetAddonsList()
+        private void UpdateSelectedTilemap()
         {
-            //throw new NotImplementedException();
+            PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
+            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
         }
 
-        private void UpdatePatrolList()
+        private void SetAddonsList()
         {
 
+            if (behaviour.SelectedTilemap is null)
+            {
+                AddonsView.Clear();
+                return;
+            }
+
+            BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
+            List<TileTrigger> triggers = addons.triggers;
+
+            AddonsView.itemsSource = triggers;
+
+            // Create new item
+            AddonsView.makeItem = () =>
+            {
+                TilegroupTriggerView entry = new TilegroupTriggerView();
+                entry.style.flexGrow = 1;
+                entry.style.marginLeft = 8;
+                entry.style.marginRight = 0;
+                entry.style.justifyContent = Justify.Center;
+                entry.style.alignItems = Align.Center;
+
+                UpdateSelectedTilemap();
+                return entry;
+            };
+
+            // Bind item
+            AddonsView.bindItem = (ve, index) =>
+            {
+                TilegroupTriggerView entry = ve as TilegroupTriggerView;
+                if (index < 0 || index >= triggers.Count) return;
+
+                entry.Trigger = triggers[index];
+
+                entry.OnTriggerTypeChanged = (newType) =>
+                {
+                    if(TileTrigger.GetType(triggers[index].GetType()) != newType) {
+
+                        // Replace old trigger with new one
+                        triggers[index] = TileTrigger.GetNewInstance(newType);
+
+                        // Update the visual element with the new trigger
+                        entry.Trigger = triggers[index];
+
+                        AddonsView.RefreshItem(index);
+                    }
+
+                    UpdateSelectedTilemap();
+
+          
+                };
+
+                UpdateSelectedTilemap();
+            };
+
+
+            // Add new point
+            AddonsView.onAdd = (list) =>
+            {
+                triggers.Add(TileTrigger.GetNewInstance(TileTriggerType.Box));
+                AddonsView.Rebuild();
+                UpdateSelectedTilemap();
+            };
+
+            // Remove selected point
+            AddonsView.onRemove = (list) =>
+            {
+                int index = AddonsView.selectedIndex;
+                if (index < 0 || index >= triggers.Count) return;
+
+                triggers.RemoveAt(index);
+                AddonsView.Rebuild();
+                UpdateSelectedTilemap();
+            };
+        }
+
+        private void SetPatrolList()
+        {
             if(behaviour.SelectedTilemap is null)
             {
                 PatrolPointsView.Clear();
@@ -109,10 +188,11 @@ namespace ISILab.LBS.VisualElements
 
             BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
             TilePatrol patrol = addons.patrol;
-
+            
             PatrolLoop.SetValueWithoutNotify(patrol.Loop);
 
             PatrolPointsView.itemsSource = patrol.Points;
+
 
             // Create new item
             PatrolPointsView.makeItem = () =>
@@ -123,6 +203,9 @@ namespace ISILab.LBS.VisualElements
                 vecField.style.marginRight = 0;
                 vecField.style.justifyContent = Justify.Center;
                 vecField.style.alignItems = Align.Center;
+
+                UpdateSelectedTilemap();
+
                 return vecField;
             };
 
@@ -139,13 +222,12 @@ namespace ISILab.LBS.VisualElements
                 vecField.RegisterValueChangedCallback((_vector )=> 
                 {
                     patrol.Points[index] = _vector.newValue;
-                 //   EditorUtility.SetDirty(behaviour);
-
-                    PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
+                    UpdateSelectedTilemap();
 
                 });
 
-         
+
+                UpdateSelectedTilemap();
             };
 
             // Add new point
@@ -153,8 +235,7 @@ namespace ISILab.LBS.VisualElements
             {
                 patrol.Points.Add(new Vector2(0, 0));
                 PatrolPointsView.Rebuild();
-                PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                //    EditorUtility.SetDirty(behaviour);
+                UpdateSelectedTilemap();
             };
 
             // Remove selected point
@@ -165,17 +246,13 @@ namespace ISILab.LBS.VisualElements
 
                 patrol.Points.RemoveAt(index);
                 PatrolPointsView.Rebuild();
-                PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                //    EditorUtility.SetDirty(behaviour);
+                UpdateSelectedTilemap();
             };
 
         }
 
-
         private void UpdateTilebundle(TileBundleGroup TileBundleGroup)
-        {
-
-           
+        {       
             // Set init options
             if (TileBundleGroup is null)
             {
@@ -198,7 +275,9 @@ namespace ISILab.LBS.VisualElements
             DisplayStyle patrolDisplay = bundle.GetHasTagCharacteristic("LBSTag_Patrol") ? DisplayStyle.Flex : DisplayStyle.None;
             Patrol.style.display = patrolDisplay;
 
-            UpdatePatrolList();
+       
+            SetPatrolList();
+            SetAddonsList();
 
         }
 

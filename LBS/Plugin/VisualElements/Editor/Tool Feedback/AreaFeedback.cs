@@ -46,7 +46,7 @@ namespace ISILab.LBS.VisualElements
             painter.DrawPolygon(points, fillColor, colorFill, borderThickness, true);
         }
 
-        public override void ActualizePositions(Vector2Int p1, Vector2Int p2)
+        public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
         {
             startPosition = new Vector2Int(Mathf.Min(p1.x, p2.x), Mathf.Min(p1.y, p2.y));
             endPosition = new Vector2Int(Mathf.Max(p1.x, p2.x), Mathf.Max(p1.y, p2.y));

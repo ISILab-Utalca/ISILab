@@ -1,3 +1,4 @@
+using ISILab.Commons.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace ISILab.LBS.Modules
     public class BundleTileMapAddons : ICloneable
     {
 
-        [SerializeField]
-        public List<TileTrigger> trigger = new();
+        [SerializeReference]
+        public List<TileTrigger> triggers = new();
         [SerializeField]
         public TilePatrol patrol;
 
@@ -21,14 +22,14 @@ namespace ISILab.LBS.Modules
 
         public BundleTileMapAddons(List<TileTrigger> trigger, TilePatrol patrol)
         {
-            this.trigger = trigger;
+            this.triggers = trigger;
             this.patrol = patrol;
         }
 
         object ICloneable.Clone()
         {
             return new BundleTileMapAddons(
-                trigger.ToList(),                      
+                triggers.ToList(),                      
                 new TilePatrol(patrol.Points.ToList()) 
             );
         }
@@ -60,38 +61,57 @@ namespace ISILab.LBS.Modules
     {
         Box,
         Circle,
-        Capsule,
-        Cone
+       // Capsule,
+       // Cone
     }
 
     [Serializable]
     public abstract class TileTrigger
     {
+        [SerializeField]
+        public Color areaColor;
+
+        [SerializeField]
+        public bool isVisible;
+
         private static readonly Dictionary<TileTriggerType, Type> TriggerTypes = new()
         {
             { TileTriggerType.Box,     typeof(TileBoxTrigger) },
-            { TileTriggerType.Circle,  typeof(TileCircleTrigger) },
-            { TileTriggerType.Capsule, typeof(TileCapsuleTrigger) },
-            { TileTriggerType.Cone,    typeof(TileConeTrigger) }
+            { TileTriggerType.Circle,  typeof(TileCircleTrigger) }
+           // { TileTriggerType.Capsule, typeof(TileCapsuleTrigger) },
+           // { TileTriggerType.Cone,    typeof(TileConeTrigger) }
         };
 
         public static TileTrigger GetNewInstance(TileTriggerType type)
         {
             if (TriggerTypes.TryGetValue(type, out var triggerType))
             {
-                return Activator.CreateInstance(triggerType) as TileTrigger;
+                TileTrigger instance = Activator.CreateInstance(triggerType) as TileTrigger;
+                instance.areaColor = new Color().RandomColorHSV();
+                instance.isVisible = true;
+                return instance;
+
             }
 
             return null;
         }
 
+
+        public static TileTriggerType GetType(Type triggerClass)
+        {
+            foreach(var entry in TriggerTypes)
+            {
+                if (entry.Value == triggerClass) return entry.Key;
+            }
+            return TileTriggerType.Circle;
+        }
     }
 
 
     [Serializable]
     public class TileBoxTrigger : TileTrigger
     {
-        public float Length;
+        [SerializeField] public float Length = 1;
         public TileBoxTrigger() 
         {
         }
@@ -99,7 +119,7 @@ namespace ISILab.LBS.Modules
     [Serializable]
     public class TileCircleTrigger : TileTrigger
     {
-        public float Radius;
+        [SerializeField] public float Radius = 1;
 
         public TileCircleTrigger()
         {
@@ -108,8 +128,8 @@ namespace ISILab.LBS.Modules
     [Serializable]
     public class TileCapsuleTrigger : TileTrigger
     {
-        public float Height;
-        public float Radius;
+        [SerializeField] public float Height;
+        [SerializeField] public float Radius;
 
         public TileCapsuleTrigger()
         {
@@ -118,8 +138,8 @@ namespace ISILab.LBS.Modules
     [Serializable]
     public class TileConeTrigger : TileTrigger
     {
-        public float Angle;
-        public float Range;
+        [SerializeField] public float Angle;
+        [SerializeField] public float Range;
 
         public TileConeTrigger()
         {

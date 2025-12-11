@@ -1,7 +1,4 @@
 using ISILab.Extensions;
-using ISILab.LBS.VisualElements.Editor;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -13,6 +10,7 @@ namespace ISILab.Commons.VisualElements
         private Color color = Color.white;
         private Vector2Int pos1 = new Vector2Int();
         private Vector2Int pos2 = new Vector2Int();
+        private Vector2 offset = new Vector2();
 
         public ConnectionFeedback()
         {
@@ -21,7 +19,7 @@ namespace ISILab.Commons.VisualElements
             generateVisualContent += OnGenerateVisualContent;
         }
 
-        public void Actualize(Color color, Vector2Int pos1, Vector2Int pos2)
+        public void UpdatePositions(Color color, Vector2Int pos1, Vector2Int pos2)
         {
             this.color = color;
             this.pos1 = pos1;
@@ -29,15 +27,20 @@ namespace ISILab.Commons.VisualElements
             MarkDirtyRepaint();
         }
 
+        internal void SetOffset(Vector2 offset)
+        {
+            this.offset = offset;
+        }
+
         void OnGenerateVisualContent(MeshGenerationContext mgc)
         {
             var painter = mgc.painter2D;
-
-            var fPos1 = Vector2.zero;
-            var fPos2 = pos2 - pos1;
-            painter.DrawLine(pos1, pos2, color, 3);
-            painter.DrawCircle(pos1, 10f, color);
-            painter.DrawCircle(pos2, 10f, color);
+            var fPos1 = pos1 + offset;
+            var fPos2 = pos2 + offset;
+            painter.DrawLine(fPos1, fPos2, color, 3);
+            painter.DrawCircle(fPos1, 10f, color);
+            painter.DrawCircle(fPos2, 10f, color);
+            
         }
     }
 }
