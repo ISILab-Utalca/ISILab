@@ -107,8 +107,8 @@ namespace ISILab.LBS.Editor.Windows{
         
         [UxmlAttribute]
         private SplitView splitView;
-        [UxmlAttribute]
-        private LayerInspector layerInspector;
+        //[UxmlAttribute]
+        //private LayerInspector layerInspector;
 
 
         #endregion
