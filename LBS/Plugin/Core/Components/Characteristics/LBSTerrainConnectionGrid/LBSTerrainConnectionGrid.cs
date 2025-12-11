@@ -15,10 +15,18 @@ namespace ISILab.LBS.Characteristics
     [LBSCharacteristic("Connection Grid", "")]
     public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable
     {
+        //Dictionary<Asset, AssetConnectionGrid> gridList = new Dictionary<Asset, AssetConnectionGrid>();
         [SerializeField, JsonRequired]
-        Dictionary<Asset, AssetConnectionGrid> gridList = new Dictionary<Asset, AssetConnectionGrid>();
+        List<AssetConnectionGrid> gridList = new List<AssetConnectionGrid>();
+
+        //Dictionary<int, UnityEngine.Color> flagColorPalette = new Dictionary<int, UnityEngine.Color>();
         [SerializeField, JsonRequired]
-        Dictionary<int, UnityEngine.Color> flagColorPalette = new Dictionary<int, UnityEngine.Color>();
+        //List<KeyValuePair<int, Color>> colorPalette = new List<KeyValuePair<int, UnityEngine.Color>>();
+        List<UnityEngine.Color> colorPalette = new List<UnityEngine.Color>();
+        [SerializeField, JsonRequired]
+        List<int> colorPaletteID = new List<int>();
+        //List<UnityEngine.Color> colorPalette = new List<UnityEngine.Color>();
+
         [SerializeField, JsonRequired]
         int gridSize = 9;
 
@@ -30,10 +38,11 @@ namespace ISILab.LBS.Characteristics
         }
 
         [JsonIgnore]
-        public Dictionary<Asset, AssetConnectionGrid> GridList => gridList;
+        public List<AssetConnectionGrid> GridList => gridList;
         public int GridSize => gridSize;
-        public Dictionary<int, UnityEngine.Color> FlagColorPalette => flagColorPalette;
-
+        [JsonIgnore]
+        public List<UnityEngine.Color> ColorPalette => colorPalette;
+        public List<int> ColorPaletteID => colorPaletteID;
         #endregion
 
         #region CONSTRUCTOR
@@ -47,11 +56,34 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region METHODS
+        public void AddColor(int id, UnityEngine.Color color)
+        {
+            if (ColorExists(id)) return;
+            colorPalette.Add(color);
+            colorPaletteID.Add(id);
+        }
+
+        public void RemoveColor(int id)
+        {
+            if (!ColorExists(id)) return;
+            colorPalette.Remove(FindColor(id));
+            colorPaletteID.Remove(id);
+        }
+
+        public bool ColorExists(int id)
+        {
+            return colorPaletteID.Any(c => c == id);
+        }
+
+        public UnityEngine.Color FindColor(int id)
+        {
+            return ColorPalette[colorPaletteID.IndexOf(id)];
+        }
+
         public override object Clone()
         {
             throw new NotImplementedException();
         }
-
         public override bool Equals(object obj)
         {
             var other = obj as LBSTerrainConnectionGrid;
@@ -63,11 +95,19 @@ namespace ISILab.LBS.Characteristics
             }
             for (int i = 0; i < Assets.Count; i++)
             {
-                if (Assets[i].Equals(other.Assets[i])) return false;
+                if (!Assets[i].Equals(other.Assets[i])) return false;
             }
-            foreach (Asset asset in Assets)
+            for(int i = 0; i < gridList.Count; i++)
             {
-                if (gridList[asset].Equals(other.gridList[asset])) return false;
+                if (!gridList[i].Equals(other.gridList[i])) return false;
+            }
+            for (int i = 0; i < colorPalette.Count; i++)
+            {
+                if (!colorPalette[i].Equals(other.colorPalette[i])) return false;
+            }
+            for (int i = 0; i < colorPaletteID.Count; i++)
+            {
+                if (!colorPaletteID[i].Equals(other.colorPaletteID[i])) return false;
             }
             return true;
         }
@@ -84,51 +124,57 @@ namespace ISILab.LBS.Characteristics
             }
             foreach(Asset asset in Assets)
             {
-                if (gridList?[asset] == null)
+                if (GetGrid(asset) == null)
                 {
                     warnings.Add("gridlist for " + asset + " is null.");
                 }
             }
-
             return warnings;
         }
         #endregion
-    
+        
+        public AssetConnectionGrid GetGrid(Asset asset)
+        {
+            return gridList.Find(c => c.AssetReference == asset);
+        }
+
         public void SetGridSize(int gSize)
         {
             gridSize = gSize;
-            foreach(Asset asset in Assets)
+            foreach(AssetConnectionGrid grid in gridList)
             {
-                gridList[asset].TerrainFlag = new int[gSize];
+                grid.TerrainFlag = new int[gSize];
             }
         }
 
         public void UpdateGridList()
         {
-            if (gridList == null) gridList = new Dictionary<Asset, AssetConnectionGrid>();
+            if (gridList == null) gridList = new List<AssetConnectionGrid>();
             //Add everything new
             foreach (Asset asset in Assets)
             {
-                if (!gridList.ContainsKey(asset))
+                if(GetGrid(asset)==null)
                 {
-                    gridList.Add(asset, new AssetConnectionGrid(gridSize, asset));
+                    gridList.Add(new AssetConnectionGrid(gridSize, asset));
+
                 }
             }
             //Remove everything old
-            foreach(KeyValuePair<Asset, AssetConnectionGrid> pair in gridList)
+            foreach(AssetConnectionGrid grid in gridList)
             {
-                if(!Assets.Contains(pair.Key))
+                if(!Assets.Contains(grid.AssetReference))
                 {
-                    gridList.Remove(pair.Key);
+                    gridList.Remove(grid);
                 }
             }
         }
     }
 
+    [System.Serializable]
     public class AssetConnectionGrid
     { 
         [SerializeField, JsonRequired]
-         private int[] terrainFlag = new int[9];
+        private int[] terrainFlag = new int[9];
         [SerializeField, JsonRequired]
         private Asset assetReference;
 
@@ -144,14 +190,14 @@ namespace ISILab.LBS.Characteristics
             this.terrainFlag = terrainFlag;
             this.assetReference = assetReference;
         }
-        public AssetConnectionGrid(int q, Asset assetRef)
+        public AssetConnectionGrid(int q, Asset assetReference)
         {
             terrainFlag = new int[q];
             for(int i=0; i<q; i++)
             {
                 terrainFlag[i] = 0;
             }
-            assetReference = assetRef;
+            this.assetReference = assetReference;
         }
 
         public int VectorToInt(Vector2 vector)

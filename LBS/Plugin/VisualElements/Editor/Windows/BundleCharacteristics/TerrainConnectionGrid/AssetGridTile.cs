@@ -33,10 +33,12 @@ public class AssetGridTile : VisualElement
     //Should change according to the tool
     public Action OnTileClicked;
     public Action OnValueUpdated;
+    public Action OnValueSaved;
+    public Action OnValueReverted;
     #endregion
 
     #region CONSTRUCTOR
-    public AssetGridTile(int _gridPosition, int _colorValue = 0)
+    public AssetGridTile(int _gridPosition, int _colorValue = -1)
     {
         gridPosition = _gridPosition;
         colorValue = _colorValue;
