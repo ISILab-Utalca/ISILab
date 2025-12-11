@@ -1,0 +1,235 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Newtonsoft.Json;
+using ISILab.Extensions;
+using ISILab.LBS.Plugin.Components.Bundles;
+
+namespace ISILab.LBS.Characteristics
+{
+    [System.Serializable]
+    //[LBSCharacteristic("Connection Grid", "")]
+    public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable
+    {
+        //Dictionary<Asset, AssetConnectionGrid> gridList = new Dictionary<Asset, AssetConnectionGrid>();
+        [SerializeField, JsonRequired]
+        List<AssetConnectionGrid> gridList = new List<AssetConnectionGrid>();
+
+        //Dictionary<int, UnityEngine.Color> flagColorPalette = new Dictionary<int, UnityEngine.Color>();
+        [SerializeField, JsonRequired]
+        //List<KeyValuePair<int, Color>> colorPalette = new List<KeyValuePair<int, UnityEngine.Color>>();
+        List<UnityEngine.Color> colorPalette = new List<UnityEngine.Color>();
+        [SerializeField, JsonRequired]
+        List<int> colorPaletteID = new List<int>();
+        //List<UnityEngine.Color> colorPalette = new List<UnityEngine.Color>();
+
+        [SerializeField, JsonRequired]
+        int gridSize = 9;
+
+        #region PROPERTIES
+        [JsonIgnore]
+        public List<Asset> Assets
+        {
+            get => Owner.Assets;
+        }
+
+        [JsonIgnore]
+        public List<AssetConnectionGrid> GridList => gridList;
+        public int GridSize => gridSize;
+        [JsonIgnore]
+        public List<UnityEngine.Color> ColorPalette => colorPalette;
+        public List<int> ColorPaletteID => colorPaletteID;
+        #endregion
+
+        #region CONSTRUCTOR
+        public LBSTerrainConnectionGrid(int gSize = 9) {
+            gridSize = gSize;
+        }
+
+        public LBSTerrainConnectionGrid() : base()
+        {
+        }
+        #endregion
+
+        #region METHODS
+        public void AddColor(int id, UnityEngine.Color color)
+        {
+            if (ColorExists(id)) return;
+            colorPalette.Add(color);
+            colorPaletteID.Add(id);
+        }
+
+        public void RemoveColor(int id)
+        {
+            if (!ColorExists(id)) return;
+            colorPalette.Remove(FindColor(id));
+            colorPaletteID.Remove(id);
+        }
+
+        public bool ColorExists(int id)
+        {
+            return colorPaletteID.Any(c => c == id);
+        }
+
+        public UnityEngine.Color FindColor(int id)
+        {
+            return ColorPalette[colorPaletteID.IndexOf(id)];
+        }
+
+        public override object Clone()
+        {
+            throw new NotImplementedException();
+        }
+        public override bool Equals(object obj)
+        {
+            var other = obj as LBSTerrainConnectionGrid;
+            if(other!=null)
+            {
+                if (this.Assets.Count != other.Assets.Count) return false;
+                if (this.gridSize != other.gridSize) return false;
+                if (this.gridList.Count != other.gridList.Count) return false;
+            }
+            for (int i = 0; i < Assets.Count; i++)
+            {
+                if (!Assets[i].Equals(other.Assets[i])) return false;
+            }
+            for(int i = 0; i < gridList.Count; i++)
+            {
+                if (!gridList[i].Equals(other.gridList[i])) return false;
+            }
+            for (int i = 0; i < colorPalette.Count; i++)
+            {
+                if (!colorPalette[i].Equals(other.colorPalette[i])) return false;
+            }
+            for (int i = 0; i < colorPaletteID.Count; i++)
+            {
+                if (!colorPaletteID[i].Equals(other.colorPaletteID[i])) return false;
+            }
+            return true;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        public override List<string> Validate()
+        {
+            List<string> warnings = new List<string>();
+            if (Assets.Count == 0) {
+                warnings.Add("Bundle contains no assets");
+                return warnings; 
+            }
+            foreach(Asset asset in Assets)
+            {
+                if (GetGrid(asset) == null)
+                {
+                    warnings.Add("gridlist for " + asset + " is null.");
+                }
+            }
+            return warnings;
+        }
+        #endregion
+        
+        public AssetConnectionGrid GetGrid(Asset asset)
+        {
+            return gridList.Find(c => c.AssetReference == asset);
+        }
+
+        public void SetGridSize(int gSize)
+        {
+            gridSize = gSize;
+            foreach(AssetConnectionGrid grid in gridList)
+            {
+                grid.TerrainFlag = new int[gSize];
+            }
+        }
+
+        public void UpdateGridList()
+        {
+            if (gridList == null) gridList = new List<AssetConnectionGrid>();
+            //Add everything new
+            foreach (Asset asset in Assets)
+            {
+                if(GetGrid(asset)==null)
+                {
+                    gridList.Add(new AssetConnectionGrid(gridSize, asset));
+
+                }
+            }
+            //Remove everything old
+            foreach(AssetConnectionGrid grid in gridList)
+            {
+                if(!Assets.Contains(grid.AssetReference))
+                {
+                    gridList.Remove(grid);
+                }
+            }
+        }
+    }
+
+    [System.Serializable]
+    public class AssetConnectionGrid
+    { 
+        [SerializeField, JsonRequired]
+        private int[] terrainFlag = new int[9];
+        [SerializeField, JsonRequired]
+        private Asset assetReference;
+
+        public int[] TerrainFlag
+        {
+            get => terrainFlag;
+            set => terrainFlag = value;
+        }
+        public Asset AssetReference => assetReference;
+
+        public AssetConnectionGrid(int[] terrainFlag, Asset assetReference)
+        {
+            this.terrainFlag = terrainFlag;
+            this.assetReference = assetReference;
+        }
+        public AssetConnectionGrid(int q, Asset assetReference)
+        {
+            terrainFlag = new int[q];
+            for(int i=0; i<q; i++)
+            {
+                terrainFlag[i] = 0;
+            }
+            this.assetReference = assetReference;
+        }
+
+        public int VectorToInt(Vector2 vector)
+        {
+            //If not a square, return
+            var lengthSqrt = Mathf.Sqrt(TerrainFlag.Length);
+            if (lengthSqrt != Mathf.RoundToInt(lengthSqrt))
+            {
+                throw new Exception("Terrain flag is not a square!");
+            }
+            //If over length, return
+            if ((vector.x * vector.y) > (terrainFlag.Length)) { return -1; }
+            var vecInt = vector.ToInt();
+
+            //This will likely explode in my face in the future and ONLY works if the terrain is a square. Oh well!
+            return vecInt.y * Mathf.RoundToInt(lengthSqrt) + vecInt.x;
+
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override bool Equals (object obj)
+        {
+            var other = obj as AssetConnectionGrid;
+            if (!assetReference.Equals(other.assetReference)) return false;
+            if (terrainFlag.Length != other.terrainFlag.Length) return false;
+            for(int i=0; i<terrainFlag.Length;i++)
+            {
+                if (terrainFlag[i] != other.terrainFlag[i]) return false;
+            }
+            return true;
+        }
+    }
+}
+

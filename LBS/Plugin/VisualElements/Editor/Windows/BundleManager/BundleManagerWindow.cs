@@ -10,6 +10,7 @@ using ISILab.LBS.Internal;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
+using ISILab.LBS.Plugin.UI.Editor.Windows;
 using JetBrains.Annotations;
 using LBS.Bundles;
 using UnityEditor;
@@ -20,7 +21,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
     public class BundleManagerWindow : EditorWindow
     {
-        class BundleCategory
+        public class BundleCategory
         {
             private readonly List<BundleContainer> _bundles = new();
             private ListView _list;
