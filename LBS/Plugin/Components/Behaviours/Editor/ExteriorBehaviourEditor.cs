@@ -35,7 +35,6 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS
         private ExteriorBehaviour exterior;
    
-        private List<LBSTagGroup> Groups;
         private object[] options;
 
         private AddExteriorTile addExteriorTile;

@@ -25,8 +25,8 @@ namespace Commons.Optimization.Evaluator
         string Tooltip { get; }
     }
 
-    public interface INameable
-    {
-        string GetName();
-    }
+    //public interface INameable
+    //{
+    //    string GetName();
+    //}
 }
