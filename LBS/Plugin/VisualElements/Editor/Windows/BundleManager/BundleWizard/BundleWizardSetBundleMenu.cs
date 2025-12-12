@@ -4,6 +4,7 @@ using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
 using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
 using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -51,6 +52,7 @@ public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundl
         Debug.Log("Builder data:\n\n" + Builder.ToString());
 
         currentBundleFlags = Builder.layerTypeFlag;
+        Console.WriteLine(currentBundleFlags.ToString());
 
         SearchAllBundles();
         AddCurrentBundles();
