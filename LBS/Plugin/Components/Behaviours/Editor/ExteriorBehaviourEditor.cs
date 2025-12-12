@@ -37,7 +37,7 @@ namespace ISILab.LBS.VisualElements
         private RemoveTileExterior removeTile;
         private SetExteriorTileConnection setConnection;
         private SetVertexExteriorTileConnection setVertexConnection;
-        private RemoveConnectionInArea removeConnectionInArea;
+        //private RemoveConnectionInArea removeConnectionInArea;
         #endregion
 
         #region VIEW FIELDS
