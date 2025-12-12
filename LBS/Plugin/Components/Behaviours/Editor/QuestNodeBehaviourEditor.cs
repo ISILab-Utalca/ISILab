@@ -9,6 +9,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Components.Data;
 using LBS;
 using LBS.VisualElements;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace ISILab.LBS.VisualElements
     {
         #region FIELDS
         private QuestNodeBehaviour _behaviour;
-        
+
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
         
@@ -145,12 +146,12 @@ namespace ISILab.LBS.VisualElements
 
             _onEventCompleteVe = this.Q<VisualElement>("EventComplete");
             _hooker = this.Q<LBSCustomEventHooker>("EventHooker");
+          
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
                 QuestActionData data = GetSelectedNodeData();
                 if (data is null) return;
-                data.Target = evt.newValue as GameObject;
-                _hooker.RefreshMethodList();
+                _hooker.Hooker = data.EventHooker;
             });
             _hooker.Selector.allowSceneObjects = true;
                      
@@ -212,8 +213,8 @@ namespace ISILab.LBS.VisualElements
             _onEventCompleteVe.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             
             // on complete related
-            _hooker.SetSelectorTarget(GetSelectedNodeData()?.Target);
-            _hooker.RefreshMethodList();
+            _hooker.Hooker = (GetSelectedNodeData()?.EventHooker);
+    
                 
             _instancedContent.Clear();
             
@@ -239,6 +240,7 @@ namespace ISILab.LBS.VisualElements
             {
                 SetBaseDataValues(node.Data);
             }
+
         }
         
         private void SetBaseDataValues(QuestActionData data)

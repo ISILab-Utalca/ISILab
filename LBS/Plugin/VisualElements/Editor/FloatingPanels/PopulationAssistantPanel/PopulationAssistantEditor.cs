@@ -6,7 +6,7 @@ using ISILab.LBS.Plugin.Core.AI.Assistant;
 //It's necessary for it to use the running commands for the algorithm, so it's here.
 namespace ISILab.LBS.AI.Assistants.Editor
 {
-    [LBSCustomEditor("Assistant Map Elite", typeof(AssistantMapElite))]
+    //[LBSCustomEditor("Assistant Map Elite", typeof(AssistantMapElite))]
     public class PopulationAssistantEditor : LBSCustomEditor
     {
 

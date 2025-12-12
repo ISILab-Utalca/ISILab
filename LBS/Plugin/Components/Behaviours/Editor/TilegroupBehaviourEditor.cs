@@ -1,5 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Modules;
@@ -137,17 +138,7 @@ namespace ISILab.LBS.VisualElements
 
                 entry.OnTriggerTypeChanged = (newType) =>
                 {
-                    if(TileTrigger.GetType(triggers[index].GetType()) != newType) {
-
-                        // Replace old trigger with new one
-                        triggers[index] = TileTrigger.GetNewInstance(newType);
-
-                        // Update the visual element with the new trigger
-                        entry.Trigger = triggers[index];
-
-                        AddonsView.RefreshItem(index);
-                    }
-
+                    triggers[index].Ttype = newType;
                     UpdateSelectedTilemap();
 
           
@@ -160,7 +151,7 @@ namespace ISILab.LBS.VisualElements
             // Add new point
             AddonsView.onAdd = (list) =>
             {
-                triggers.Add(TileTrigger.GetNewInstance(TileTriggerType.Box));
+                triggers.Add(new TileTrigger());
                 AddonsView.Rebuild();
                 UpdateSelectedTilemap();
             };

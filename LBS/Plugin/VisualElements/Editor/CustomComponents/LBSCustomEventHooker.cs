@@ -1,11 +1,14 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -16,30 +19,31 @@ namespace ISILab.LBS.CustomComponents
     public partial class LBSCustomEventHooker : VisualElement
     {
         #region VIEW FIELDS
-        private LBSCustomObjectField _gameObjectSelector;
-        private ListView _selectedMethodsList;
-        private ListView _availableMethodsList;
+        private static VisualTreeAsset visualTree;
+        private LBSCustomObjectField _targetField;
+        private ListView _selectedMethodsList = new();
+        private ListView _availableMethodsList = new();
         #endregion
 
         #region FIELDS
-        QuestActionData actionData;
+        LBSEventHooker hooker;
         private readonly List<(GameObject, Component, MethodInfo)> _availableMethods = new();
         #endregion
 
         #region PROPERTIES
         public LBSCustomObjectField Selector
         {
-            get => _gameObjectSelector;
-            set => _gameObjectSelector = value;
+            get => _targetField;
+            set => _targetField = value;
         }
 
-        public QuestActionData ActionData
+        public LBSEventHooker Hooker
         {
-            get => actionData;
-            set
+            get => hooker;
+            set 
             {
-                actionData = value;
-               //?? RefreshMethodList();
+                hooker = value;
+                ChangeTargetField(hooker?.Target);
             }
         }
 
@@ -49,33 +53,58 @@ namespace ISILab.LBS.CustomComponents
 
         public LBSCustomEventHooker()
         {
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("EventHooker");
+            if (visualTree is null) visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("EventHooker");
+
             visualTree.CloneTree(this);
 
-            _gameObjectSelector = this.Q<LBSCustomObjectField>("GameObjectSelector");
+            _targetField = this.Q<LBSCustomObjectField>("GameObjectSelector");
+            _targetField.RegisterValueChangedCallback(evt =>
+            {
+                GameObject obj = null;
+                if (evt.newValue is not null) obj = evt.newValue as GameObject;
+                ChangeTargetField(obj);
+            });
+        
+
+
             _availableMethodsList = this.Q<ListView>("AvailableMethodsList");
             _selectedMethodsList = this.Q<ListView>("SelectedMethodsList");
+            RefreshMethodList();
         }
+
+        private void ChangeTargetField(GameObject newTarget)
+        {
+            if (_targetField is null || hooker is null) return;
+
+            hooker.Target = newTarget;
+            _targetField.SetValueWithoutNotify(newTarget);
+
+            RefreshMethodList();
+        }
+
 
         internal void RefreshMethodList()
         {
+            if (visualTree is null) return;
             List<(GameObject, Component, MethodInfo)> selectedMethods = new();
-
-            GameObject gameObject = actionData?.Target;
 
             // reset on refresh
             _availableMethodsList.itemsSource = null;
             _selectedMethodsList.itemsSource = null;
             _availableMethodsList.Rebuild();
             _selectedMethodsList.Rebuild();
+            
+            _availableMethods.Clear();
+            _selectedMethodsList.Clear();
 
-            if (!gameObject) return;
+            var Target = hooker?.Target;
+
+            if (Target is null) return;
 
             #region Available Methods
 
-            _availableMethods.Clear();
-
-            foreach (MonoBehaviour comp in gameObject.GetComponents<MonoBehaviour>())
+      
+            foreach (MonoBehaviour comp in Target.GetComponents<MonoBehaviour>())
             {
                 if (comp == null) continue;
 
@@ -83,24 +112,24 @@ namespace ISILab.LBS.CustomComponents
                              BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly))
                 {
                     if (method.ReturnType == typeof(void) && !method.GetParameters().Any())
-                        _availableMethods.Add((gameObject, comp, method));
+                        _availableMethods.Add((Target, comp, method));
                 }
             }
 
             _availableMethodsList.itemsSource = _availableMethods;
-            _availableMethodsList.makeItem = () => new QuestMethodVisualElement();
+            _availableMethodsList.makeItem = () => new EventHookEntryView();
             _availableMethodsList.bindItem = (element, i) =>
             {
-                GetRegisteredMethods(actionData, selectedMethods);
+                GetRegisteredMethods(Hooker, selectedMethods);
 
                 if (i < 0 || i >= _availableMethods.Count)
                     return;
 
                 var availableMethod = _availableMethods[i];
-                QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
+                EventHookEntryView vm = (EventHookEntryView)element;
 
                 vm.SetEnabled(!selectedMethods.Contains(availableMethod));
-                vm.AddListener(availableMethod, actionData);
+                vm.AddListener(availableMethod, Hooker);
                 vm.Q<Button>().clicked += RefreshMethodList;
             };
 
@@ -109,17 +138,17 @@ namespace ISILab.LBS.CustomComponents
             #region Selected Methods
 
             selectedMethods.Clear();
-            GetRegisteredMethods(actionData, selectedMethods);
+            GetRegisteredMethods(hooker, selectedMethods);
 
             _selectedMethodsList.itemsSource = selectedMethods;
-            _selectedMethodsList.makeItem = () => new QuestMethodVisualElement();
+            _selectedMethodsList.makeItem = () => new EventHookEntryView();
             _selectedMethodsList.bindItem = (element, i) =>
             {
                 if (i < 0 || i >= selectedMethods.Count)
                     return;
 
-                QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
-                vm.RemoveListener(selectedMethods[i], actionData);
+                EventHookEntryView vm = (EventHookEntryView)element;
+                vm.RemoveListener(selectedMethods[i], hooker);
                 vm.Q<Button>().clicked += RefreshMethodList;
             };
 
@@ -135,12 +164,12 @@ namespace ISILab.LBS.CustomComponents
             Selector.value = target;
         }
 
-        private static void GetRegisteredMethods(QuestActionData actionData, List<(GameObject, Component, MethodInfo)> selectedMethods)
+        private static void GetRegisteredMethods(LBSEventHooker hooker, List<(GameObject, Component, MethodInfo)> selectedMethods)
         {
             selectedMethods.Clear();
-            foreach (UnityActionStored entry in actionData.RegisteredActions)
+            foreach (UnityActionStored entry in hooker.RegisteredActions)
             {
-                GameObject go = actionData.Target;
+                GameObject go = hooker.Target;
                 if (go is null || go.name != entry.objectName) continue;
 
                 foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())

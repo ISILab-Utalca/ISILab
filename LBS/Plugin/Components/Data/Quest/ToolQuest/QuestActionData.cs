@@ -4,21 +4,15 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
-using LBS.Bundles;
 using LBS.Components;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
+using ISILab.LBS.Plugin.Components.Data;
 
 namespace ISILab.LBS.Components
 {
@@ -44,7 +38,7 @@ namespace ISILab.LBS.Components
     /// </para>
     /// </summary>
     [Serializable]
-    public abstract class QuestActionData : ISerializationCallbackReceiver
+    public abstract class QuestActionData
     {
         #region FIELDS
 
@@ -56,11 +50,7 @@ namespace ISILab.LBS.Components
         [SerializeField, JsonRequired] protected Color color = LBSSettings.Instance.view.behavioursColor;
         [SerializeField, JsonRequired] protected string iconGuid = LocationIcon;
 
-        [SerializeField] private List<UnityActionStored> registeredActions = new();
-
-        [NonSerialized] private GameObject _target;
-        [SerializeField] private string targetName = string.Empty;
-        [SerializeField] private string sceneGuid = string.Empty;
+        [SerializeField] private LBSEventHooker _eventHooker;
 
         // Icons
         protected const string LocationIcon = "efd5e48bd83c08d469fcc341c886b38b";
@@ -72,36 +62,7 @@ namespace ISILab.LBS.Components
         
         #region PROPERTIES
 
-        public List<UnityActionStored> RegisteredActions
-        {
-            get
-            {
-                registeredActions ??= new List<UnityActionStored>();
-                return registeredActions;
-            }
-        }
-
-        public GameObject Target
-        {
-            get
-            {
-                if (_target is not null) return _target;
-
-                if (LBSAssetMacro.GetActiveSceneGUID() == sceneGuid)
-                {
-                    Target = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
-                        .FirstOrDefault(o => o.name == targetName);
-                }
-
-                return _target;
-            }
-            set
-            {
-                if (value == null) return;
-                _target = value;
-            }
-        }
-
+        public LBSEventHooker EventHooker => _eventHooker;
         public QuestNode OwnerNode => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;
         public LBSLayer Layer => Graph.OwnerLayer;
@@ -127,8 +88,8 @@ namespace ISILab.LBS.Components
             this.tag = tag;
 
             if (ownerNode?.Graph?.OwnerLayer == null) return;
-            
-            registeredActions = new List<UnityActionStored>();
+
+            _eventHooker = new LBSEventHooker();
 
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
@@ -145,8 +106,8 @@ namespace ISILab.LBS.Components
             ownerNode = data.ownerNode;
             tag = data.tag;
             area = data.area;
-            _target = data.Target;
-            registeredActions = data.registeredActions;
+            _eventHooker = data._eventHooker;
+
         }
 
         public virtual List<string> ReferencedLayerNames() => null;
@@ -275,20 +236,7 @@ namespace ISILab.LBS.Components
         #endregion
 
 
-        public void OnBeforeSerialize()
-        {
-            if (Target is not null)
-            {
-                targetName = _target.name;
-                string scenePath = _target.scene.path;
-                sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
-            }
-        }
-
-        public void OnAfterDeserialize()
-        {
-            //throw new NotImplementedException();
-        }
+   
         #endregion
     }
 

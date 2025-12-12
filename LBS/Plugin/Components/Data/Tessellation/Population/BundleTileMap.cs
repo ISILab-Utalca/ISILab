@@ -5,6 +5,7 @@ using ISILab.Commons.Extensions;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using LBS.Components.TileMap;

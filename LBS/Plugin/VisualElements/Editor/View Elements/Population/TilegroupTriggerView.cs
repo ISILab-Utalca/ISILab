@@ -62,10 +62,9 @@ namespace ISILab.LBS.VisualElements
             _hooker = this.Q<LBSCustomEventHooker>("EventHooker");
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
-                QuestActionData data = GetSelectedNodeData();
-                if (data is null) return;
-                data.Target = evt.newValue as GameObject;
-                _hooker.RefreshMethodList();
+                if (Trigger is null) return;
+                _hooker.Hooker = Trigger._eventHooker;
+             
             });
             _hooker.Selector.allowSceneObjects = true;
 
@@ -95,28 +94,16 @@ namespace ISILab.LBS.VisualElements
 
             TriggerType.RegisterValueChangedCallback(evt => 
             {
-                TileTriggerType newType = (TileTriggerType)evt.newValue;
+                trigger.Ttype = (TileTriggerType)evt.newValue;
                 OnTriggerTypeChanged?.Invoke((TileTriggerType)TriggerType.value);
             });
 
             Range.RegisterValueChangedCallback(evt => 
-            {                
-                if(trigger is TileBoxTrigger tbt)
-                {
-                    if(tbt.Length != evt.newValue)
-                    {
-                        tbt.Length = evt.newValue;
-                        UpdateTileByCurrentType();
-                    }          
-                }
-                else if (trigger is TileCircleTrigger tct)
-                {
-                    if (tct.Radius != evt.newValue)
-                    {
-                        tct.Radius = evt.newValue;
-                        UpdateTileByCurrentType();
-                    }                 
-                }
+            {
+                if (trigger.Range == evt.newValue) return;
+                trigger.Range = evt.newValue;
+                UpdateTileByCurrentType();
+
             });
 
         }
@@ -128,12 +115,12 @@ namespace ISILab.LBS.VisualElements
 
         private void UpdateByTrigger(TileTrigger trigger)
         {
-            TileTriggerType type = TileTrigger.GetType(trigger.GetType());
-            TriggerType.SetValueWithoutNotify(type);
             ColorField.SetValueWithoutNotify(trigger.areaColor);
             Visible.SetValueWithoutNotify(trigger.isVisible);
+            Range.SetValueWithoutNotify((uint)trigger.Range);
 
-            if (trigger is TileBoxTrigger tbt) Range.SetValueWithoutNotify((uint)tbt.Length);
+            if (Trigger is null) return;
+            _hooker.Hooker = Trigger._eventHooker;
         }
 
    

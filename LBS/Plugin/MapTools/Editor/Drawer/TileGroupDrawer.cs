@@ -1,6 +1,7 @@
 using ISILab.Commons.VisualElements;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -136,22 +137,14 @@ namespace ISILab.LBS.Drawers
             {
                 if (!trigger.isVisible) continue;
                 GraphElement shape = null;
-                var ttype = trigger.GetType();
-                if (trigger is TileBoxTrigger tbt)
+                switch(trigger.Ttype)
                 {
-                    shape = DrawBox(view, selected, trigger, tbt);
-                }
-                else if (trigger is TileCircleTrigger tct)
-                {
-                    shape = DrawCircle(view, selected, trigger, tct);
-                }
-                else if (trigger is TileCapsuleTrigger tcat)
-                {
-                    // draw box
-                }
-                else if (trigger is TileConeTrigger tcot)
-                {
-                    // draw box
+                    case TileTriggerType.Box:
+                        shape = DrawBox(view, selected, trigger);
+                        break;
+                    case TileTriggerType.Circle:
+                        shape = DrawCircle(view, selected, trigger);
+                        break;
                 }
 
                 view.AddElementToLayerContainer(_tgb.OwnerLayer, this, shape);
@@ -160,17 +153,17 @@ namespace ISILab.LBS.Drawers
 
         }
         
-        private GraphElement DrawBox(MainView view, TileBundleGroup selected, TileTrigger trigger, TileBoxTrigger tbt)
+        private GraphElement DrawBox(MainView view, TileBundleGroup selected, TileTrigger trigger)
         {
             var boxfeedback = new AreaFeedback();
             var startPosition = selected.AreaRect.position;
 
-            startPosition.x -= tbt.Length - 1;
-            startPosition.y += tbt.Length - 1;
+            startPosition.x -= trigger.Range - 1;
+            startPosition.y += trigger.Range - 1;
 
             var endPosition = selected.AreaRect.position;
-            endPosition.x += tbt.Length;
-            endPosition.y -= tbt.Length;
+            endPosition.x += trigger.Range;
+            endPosition.y -= trigger.Range;
 
             Vector2Int aCell = startPosition.ToInt();
             Vector2Int bCell = endPosition.ToInt();
@@ -183,7 +176,7 @@ namespace ISILab.LBS.Drawers
             return boxfeedback;
         }
 
-        private GraphElement DrawCircle(MainView view, TileBundleGroup selected, TileTrigger trigger, TileCircleTrigger tct)
+        private GraphElement DrawCircle(MainView view, TileBundleGroup selected, TileTrigger trigger)
         {
             Vector2 tileSize = _tgb.OwnerLayer.TileSize * LBSSettings.Instance.general.TileSize;
 
@@ -193,7 +186,7 @@ namespace ISILab.LBS.Drawers
 
             Vector2 worldCenter = worldTopLeft + tileSize / 2f;
 
-            float radiusPixels = tct.Radius * tileSize.x;
+            float radiusPixels = trigger.Range * tileSize.x;
             var circleFeedback = new CircleFeedback();
 
             circleFeedback.SetOffset(Vector2.zero);

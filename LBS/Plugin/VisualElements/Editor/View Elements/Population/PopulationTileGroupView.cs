@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
+using ISILab.LBS.Components;
 
 namespace ISILab.LBS.VisualElements
 {
