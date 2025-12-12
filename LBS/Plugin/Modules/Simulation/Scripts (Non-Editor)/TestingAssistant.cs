@@ -4,7 +4,7 @@ using ISILab.LBS.Plugin.Components.Behaviours;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Assistants
+namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
     public class TestingAssistant : LBSAssistant
     {

@@ -1,20 +1,16 @@
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Components;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
-
 using System.Collections.Generic;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Editor.Windows;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using LBS.Components.TileMap;
 using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 
 namespace ISILab.LBS.Manipulators
 {

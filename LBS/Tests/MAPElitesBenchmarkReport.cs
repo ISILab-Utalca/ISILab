@@ -2,7 +2,6 @@ using Commons.Optimization.Evaluator;
 using ISILab.AI.Categorization;
 using ISILab.Commons.JsonNet;   
 using ISILab.LBS.AI.Categorization;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using NUnit.Framework;

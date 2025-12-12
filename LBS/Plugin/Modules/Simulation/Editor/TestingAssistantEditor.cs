@@ -1,10 +1,9 @@
 ﻿using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using LBS.VisualElements;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 

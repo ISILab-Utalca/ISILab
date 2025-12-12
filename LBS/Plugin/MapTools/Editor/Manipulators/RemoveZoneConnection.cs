@@ -1,5 +1,5 @@
-using ISILab.LBS.Assistants;
 using LBS.Components;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using UnityEditor;
 using UnityEngine;

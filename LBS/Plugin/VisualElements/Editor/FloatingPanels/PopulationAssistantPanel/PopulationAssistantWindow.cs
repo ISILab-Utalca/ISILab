@@ -15,7 +15,6 @@ using ISILab.AI.Optimization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Drawers;
 using ISILab.Extensions;

@@ -4,12 +4,9 @@ using System.Linq;
 using ISILab.AI.Grammar;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
-using LBS.Components;
-using Newtonsoft.Json;
 using UnityEngine;
 
 namespace ISILab.LBS.Modules

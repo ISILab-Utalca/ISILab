@@ -1,12 +1,10 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.VisualElements;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
