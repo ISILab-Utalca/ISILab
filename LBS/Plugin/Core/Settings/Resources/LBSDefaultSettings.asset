@@ -59,35 +59,19 @@ MonoBehaviour:
       useBundleSize: 0
       lightVolume: 0
       reflectionProbe: 0
-      scale: {x: 2, y: 2}
+      scale: {x: 3, y: 3}
       resize: {x: 0, y: 0}
       position: {x: 0, y: 0, z: 0}
       replacePrevious: 1
       name: New Layer
       rootParentName: Root_Parent
     rules:
-    - rid: 1915065710045298804
-    - rid: 1915065710045298805
+    - rid: 4376682187039441422
   references:
     version: 2
     RefIds:
-    - rid: 1915065710045298804
-      type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
-      data:
-        generator3D:
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          rules: []
-    - rid: 1915065710045298805
-      type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+    - rid: 4376682187039441422
+      type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data:
         generator3D:
           settings:
