@@ -1,18 +1,14 @@
 using ISILab.Commons;
-using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor; // TODO: Search the reference to this namespace and remove it
-using LBS.Components.TileMap;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Internal;
 using UnityEditor.Experimental.GraphView;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
