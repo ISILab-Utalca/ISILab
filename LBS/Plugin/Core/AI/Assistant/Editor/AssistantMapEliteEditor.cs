@@ -37,7 +37,6 @@ namespace ISILab.LBS.Editor
         public AssistantMapEliteEditor(object target) : base(target)
         {
             Add(new PopulationAssistantTab(target as AssistantMapElite));
-
             SetInfo(target);
             CreateVisualElement();
         }
