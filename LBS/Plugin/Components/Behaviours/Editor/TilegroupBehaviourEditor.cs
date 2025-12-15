@@ -224,7 +224,7 @@ namespace ISILab.LBS.VisualElements
             // Add new point
             PatrolPointsView.onAdd = (list) =>
             {
-                patrol.Points.Add(new Vector2(0, 0));
+                patrol.Points.Add(behaviour.SelectedTilemap.GetBounds().position);
                 PatrolPointsView.Rebuild();
                 UpdateSelectedTilemap();
             };
