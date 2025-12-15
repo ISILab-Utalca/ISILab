@@ -1,67 +1,66 @@
-using ISILab.LBS;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Characteristics;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Behaviours;
 
-public class RemovePathOSTile : LBSManipulator
+namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
 {
-    #region FIELDS
-    PathOSBehaviour behaviour;
-
-    #endregion
-
-    #region PROPERTIES
-    protected override string IconGuid => "ce08b36a396edbf4394f7a4e641f253d";
-    #endregion
-
-    #region CONSTRUCTORS
-    public RemovePathOSTile() : base()
+    public class RemovePathOSTile : LBSManipulator
     {
-        Feedback = new AreaFeedback();
-        Feedback.fixToTeselation = true;
-    }
-    #endregion
+        #region FIELDS
+        PathOSBehaviour behaviour;
 
-    #region METHODS
-    public override void Init(LBSLayer layer, object provider)
-    {
-        base.Init(layer, provider);
+        #endregion
 
-        behaviour = provider as PathOSBehaviour;
-        Feedback.TeselationSize = layer.TileSize;
-        layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
-    }
+        #region PROPERTIES
+        protected override string IconGuid => "ce08b36a396edbf4394f7a4e641f253d";
+        #endregion
 
-    protected override void OnMouseUp(VisualElement target, Vector2Int endPosition, MouseUpEvent e)
-    {
-        //GABO TODO: ARREGLAR LOGICA UNDO
-        // Inicio logica UNDO
-        var x = LBSController.CurrentLevel;
-        EditorGUI.BeginChangeCheck();
-        Undo.RegisterCompleteObjectUndo(x, "Remove PathOS Tile");
-
-        // Remover PathOSTiles mediante PathOSBehaviour
-        var corners = behaviour.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
-        for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
+        #region CONSTRUCTORS
+        public RemovePathOSTile() : base()
         {
-            for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
+            Feedback = new AreaFeedback();
+            Feedback.fixToTeselation = true;
+        }
+        #endregion
+
+        #region METHODS
+        public override void Init(LBSLayer layer, object provider)
+        {
+            base.Init(layer, provider);
+
+            behaviour = provider as PathOSBehaviour;
+            Feedback.TeselationSize = layer.TileSize;
+            layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
+        }
+
+        protected override void OnMouseUp(VisualElement target, Vector2Int endPosition, MouseUpEvent e)
+        {
+            //GABO TODO: ARREGLAR LOGICA UNDO
+            // Inicio logica UNDO
+            var x = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(x, "Remove PathOS Tile");
+
+            // Remover PathOSTiles mediante PathOSBehaviour
+            var corners = behaviour.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+            for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
             {
-                behaviour.RemoveTile(i, j);
+                for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
+                {
+                    behaviour.RemoveTile(i, j);
+                }
+            }
+
+            // Final logica UNDO
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(x);
             }
         }
-
-        // Final logica UNDO
-        if (EditorGUI.EndChangeCheck())
-        {
-            EditorUtility.SetDirty(x);
-        }
+        #endregion
     }
-    #endregion
 }
