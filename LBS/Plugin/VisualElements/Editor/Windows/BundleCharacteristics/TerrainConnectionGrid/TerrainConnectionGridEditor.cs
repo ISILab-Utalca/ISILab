@@ -1,5 +1,6 @@
 ﻿using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Editor;

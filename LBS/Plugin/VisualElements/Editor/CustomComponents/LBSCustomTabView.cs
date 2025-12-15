@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 
-//namespace ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents
-//{
+namespace ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents
+{
     [UxmlElement]
     public partial class LBSCustomTabView : TabView
     {
@@ -36,5 +36,5 @@ using UnityEngine.UIElements;
             }
         }
     }
-//}
+}
 

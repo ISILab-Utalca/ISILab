@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleDirectionsWindows;
 using ISILab.Commons.Utility.Editor;
 using UnityEditor.UIElements;
 using ISILab.LBS.Components;
