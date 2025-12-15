@@ -4,6 +4,7 @@ using System.Linq;
 using ISILab.Commons;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using LBS.Components;

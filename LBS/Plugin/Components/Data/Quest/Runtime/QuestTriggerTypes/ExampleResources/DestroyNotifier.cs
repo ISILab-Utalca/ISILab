@@ -1,7 +1,7 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
 {
     public class DestroyNotifier : MonoBehaviour
     {

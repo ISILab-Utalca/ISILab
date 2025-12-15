@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class ExampleQuestCustomComplete : MonoBehaviour
+namespace ISILab.Demos.Quests
 {
-    public void Complete()
+    public class ExampleQuestCustomComplete : MonoBehaviour
     {
-        Debug.Log("Example Quest Complete");
-    }
+        public void Complete()
+        {
+            Debug.Log("Example Quest Complete");
+        }
     
-    public void CompleteSecond()
-    {
-        Debug.Log("Example Quest Complete 2");
+        public void CompleteSecond()
+        {
+            Debug.Log("Example Quest Complete 2");
+        }
     }
 }
