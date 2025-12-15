@@ -65,7 +65,9 @@ namespace ISILab.LBS.VisualElements
                 }
             };
 
+
             CreateVisualElement();
+            MapToCurrentPopulation();
         }
 
         public override void SetInfo(object target)
@@ -83,6 +85,7 @@ namespace ISILab.LBS.VisualElements
             mappingContent = this.Q<VisualElement>("SimulationMappingContent");
 
             autoMapToggle = this.Q<Toggle>("AutoMap");
+            /*
             autoMapToggle.RegisterValueChangedCallback(evt => 
             {
                 bool value = evt.newValue;
@@ -93,7 +96,7 @@ namespace ISILab.LBS.VisualElements
                 pathOS.ToggleAutoMap(value, populationLayers);
             });
             autoMapToggle.SetValueWithoutNotify(pathOS.AutoMap);
-
+            */
             var mapPopulButton = this.Q<Button>("MapPopulation");
             mapPopulButton.clicked += () => MapToCurrentPopulation();
 

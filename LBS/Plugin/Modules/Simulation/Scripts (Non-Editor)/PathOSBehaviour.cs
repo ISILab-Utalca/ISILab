@@ -148,18 +148,6 @@ namespace ISILab.LBS.Behaviours
             return module.GetTile(x, y);
         }
 
-        public void ToggleAutoMap(bool value, List<LBSLayer> populLayers)
-        {
-            Debug.Log($"Toggle Auto Map ({value})");
-            AutoMap = value;
-            foreach (LBSLayer layer in populLayers)
-            {
-                if (value)
-                    layer.OnChange += AutoMapCallback;
-                else layer.OnChange -= AutoMapCallback;
-            }
-        }
-
         public void MapToPopulation(List<TileBundleGroup> groups)
         {
             //string s = string.Empty;
@@ -244,6 +232,7 @@ namespace ISILab.LBS.Behaviours
         {
             OwnerLayer = layer;
             module = OwnerLayer.GetModule<PathOSModule>();
+            OwnerLayer.OnChange += AutoMapCallback;
         }
 
         public override void OnDetachLayer(LBSLayer layer)

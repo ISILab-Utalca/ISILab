@@ -25,9 +25,16 @@ namespace ISILab.LBS.Drawers
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             if (target is not TileGroupBehavior tgb) return;
-            _tgb = tgb;
-
-            SubscribeOnce();
+    
+            if(_tgb is null)
+            {
+                _tgb = tgb;
+                _tgb.OnSelectedChanged += _ =>
+                {
+                    PopulationTileGroupView.UpdateVisuals(null);
+                    view.ClearLayerComponentView(_tgb.OwnerLayer, this);
+                };
+            }
             view.ClearLayerComponentView(_tgb.OwnerLayer, this);
 
             if (LBSMainWindow.Instance._selectedLayer != _tgb.OwnerLayer)
@@ -36,18 +43,10 @@ namespace ISILab.LBS.Drawers
             var selected = _tgb.SelectedTilemap;
             if (selected == null) return;
 
+            PopulationTileView.SelectedTile?.Highlight(true);
             DrawGroupView(view, selected);
             DrawPatrol(view, selected);
             DrawTriggers(view, selected);
-        }
-
-        private void SubscribeOnce()
-        {
-            if (_subscribed) return;
-            _subscribed = true;
-
-            _tgb.OnSelectedChanged += _ =>
-                PopulationTileGroupView.UpdateVisuals(null);
         }
 
         private void DrawGroupView(MainView view, TileBundleGroup selected)
