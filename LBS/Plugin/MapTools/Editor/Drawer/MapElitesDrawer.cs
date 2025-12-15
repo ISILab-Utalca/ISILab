@@ -2,7 +2,6 @@ using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using ISILab.Extensions;
 using ISILab.LBS.VisualElements.Editor;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using UnityEngine.UIElements;
@@ -35,7 +34,7 @@ namespace ISILab.LBS.Drawers
             view.ClearLayerComponentView(assistant.OwnerLayer, this);
 
             _dotArea.SetPosition(Rect.zero);
-            _dotArea.UpdatePositions(start.ToInt(), end.ToInt());
+            _dotArea.ActualizePositions(start.ToInt(), end.ToInt());
             _dotArea.SetColor(LBSSettings.Instance.view.errorColor);
             _dotArea.layer = assistant.OwnerLayer.index;
 

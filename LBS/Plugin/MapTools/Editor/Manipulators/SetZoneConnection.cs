@@ -1,9 +1,9 @@
 using LBS.Components;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using UnityEditor;
 
 namespace ISILab.LBS.Manipulators

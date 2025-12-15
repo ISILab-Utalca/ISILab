@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
-using ISILab.LBS.Components;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -47,7 +46,6 @@ namespace ISILab.LBS.VisualElements
 
         static public void UpdateVisuals(TileBundleGroup tile)
         {
-
             if (_patrolIcon is null || _triggerIcon is null) 
             {
                 return;
@@ -60,9 +58,10 @@ namespace ISILab.LBS.VisualElements
             BundleTileMapAddons addons = tile.Addons;
             if (addons is null) return;
 
-            if(addons.triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
+            if(addons.trigger.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
             if (addons.patrol.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
 
+            
         }
 
         #endregion

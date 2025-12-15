@@ -1,5 +1,4 @@
 using System;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Editor.Windows;
 using LBS.Components;
 using System.Collections.Generic;

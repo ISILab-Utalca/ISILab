@@ -24,7 +24,6 @@ namespace ISILab.LBS.Macros
             }
             return null;
         }
-
     }
 }
 

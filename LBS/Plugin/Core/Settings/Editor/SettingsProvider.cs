@@ -172,7 +172,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
 
                     // Bundles folder
                     EditorGUILayout.BeginHorizontal();
-                    settings.paths.bundleFolderPath = EditorGUILayout.TextField("Bundles folder",
+                    settings.paths.bundleFolderPath = EditorGUILayout.TextField("Bundles Folder",
                         settings.paths.bundleFolderPath,
                         EditorStyles.textField,
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
@@ -180,7 +180,7 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
 
                     // Tag folder
                     EditorGUILayout.BeginHorizontal();
-                    settings.paths.tagFolderPath = EditorGUILayout.TextField("Tags folder",
+                    settings.paths.tagFolderPath = EditorGUILayout.TextField("Tags Folder",
                         settings.paths.tagFolderPath,
                         EditorStyles.textField,
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
@@ -194,7 +194,16 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
 
-                    // TODO: Presets folder
+                    EditorGUILayout.Space(5);
+
+                    // Presets folder
+
+                    EditorGUILayout.BeginHorizontal();
+                    settings.paths.WFCpresetsFolderPath = EditorGUILayout.TextField("WFC Presets Folder",
+                        settings.paths.WFCpresetsFolderPath,
+                        EditorStyles.textField,
+                        GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    EditorGUILayout.EndHorizontal();
 
                     // Set Default button
                     EditorGUILayout.BeginHorizontal();
@@ -202,9 +211,13 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                     if (GUILayout.Button("Set default", GUILayout.MaxWidth(120)))
                     {
                         var newSettings = new LBSSettings();
+
                         settings.paths.bundleFolderPath = newSettings.paths.bundleFolderPath;
                         settings.paths.tagFolderPath = newSettings.paths.tagFolderPath;
                         settings.paths.meshFolderPath = newSettings.paths.meshFolderPath;
+
+                        settings.paths.WFCpresetsFolderPath = newSettings.paths.WFCpresetsFolderPath;
+
                         EditorUtility.SetDirty(settings);
                     }
                     EditorGUILayout.EndHorizontal();

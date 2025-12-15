@@ -1,12 +1,9 @@
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.VisualElements;
-using LBS.Bundles;
 using LBS.Components;
-using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.VisualElements.Editor;
@@ -146,7 +143,7 @@ namespace ISILab.LBS.Manipulators
             firstPos.x *= -1;
             lastPos.x *= -1;
             
-            _dottedFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
+            _dottedFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
             MainView.Instance.AddElement(_dottedFeedback);
 
 
@@ -157,7 +154,7 @@ namespace ISILab.LBS.Manipulators
                 // undo the negative of topLeftCorner
                 valid = _population.ValidMoveGroup(-topLeftCorner, Selected); 
                 _dottedFeedback.ValidForInput(valid);
-                _iconFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
+                _iconFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
             }
             // adding feedback
             else

@@ -73,7 +73,7 @@ namespace ISILab.LBS.VisualElements
         #region CONSTRUCTORS
         public Feedback(Vector2Int p1, Vector2Int p2)
         {
-            this.UpdatePositions(p1, p2);
+            this.ActualizePositions(p1, p2);
 
             this.SetPosition(new Rect(startPosition, new Vector2(10, 10)));
             this.generateVisualContent += OnGenerateVisualContent;
@@ -81,7 +81,7 @@ namespace ISILab.LBS.VisualElements
 
         public Feedback()
         {
-            this.UpdatePositions(startPosition, endPosition);
+            this.ActualizePositions(startPosition, endPosition);
             this.SetPosition(new Rect(startPosition, new Vector2(10, 10)));
             this.generateVisualContent += OnGenerateVisualContent;
         }
@@ -102,7 +102,7 @@ namespace ISILab.LBS.VisualElements
 
         protected abstract void OnGenerateVisualContent(MeshGenerationContext mgc);
 
-        public abstract void UpdatePositions(Vector2Int p1, Vector2Int p2);
+        public abstract void ActualizePositions(Vector2Int p1, Vector2Int p2);
         #endregion
 
         public enum State

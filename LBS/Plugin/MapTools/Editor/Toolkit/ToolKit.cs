@@ -5,8 +5,6 @@ using System;
 using System.Linq;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;

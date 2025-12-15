@@ -12,7 +12,6 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 using LBS.Components;
-using ISILab.LBS.Editor.Windows;
 
 namespace ISILab.LBS.Drawers
 {
@@ -29,10 +28,9 @@ namespace ISILab.LBS.Drawers
             // Get behaviour
             if (target is not PopulationBehaviour population) return;
 
+            PopulationTileView.SelectedTile?.Highlight(false);
+
             OwnerLayer = population.OwnerLayer;
-
-            if (LBSMainWindow.Instance._selectedLayer != OwnerLayer) PopulationTileView.SelectedTile?.Highlight(false);
-
             PaintNewTiles(population, view);
             UpdateTilesRotation(population, view);
             //UpdateLoadedTiles(population, view);

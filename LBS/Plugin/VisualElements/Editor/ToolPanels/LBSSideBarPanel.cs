@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
 using ISILab.Commons.Utility.Editor;
 using UnityEngine.UIElements;
-using ISILab.LBS.CustomComponents.Events;
 using ISILab.LBS.Editor.Windows;
 
 namespace ISILab.LBS.VisualElements
@@ -27,7 +26,7 @@ namespace ISILab.LBS.VisualElements
         private VisualElement toggleButtonsGroup;
         
         #region EVENTS
-        public LBSBoolEvent toggleEvent; //Experimental!
+        //public LBSBoolEvent toggleEvent; //Experimental!
         #endregion
         
         #region ACTION EVENTS

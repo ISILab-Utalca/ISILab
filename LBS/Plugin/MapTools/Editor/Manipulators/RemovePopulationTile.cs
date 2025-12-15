@@ -5,7 +5,6 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
-using LBS.Bundles;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -160,7 +159,7 @@ namespace ISILab.LBS.Manipulators
                     if (lastPos.y < 0) lastPos.y += 99;
             
                     pf.ValidForInput(true);
-                    pf.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
+                    pf.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
                     previews.Add(pf);
                 
                 }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Components.Data;
 using Unity.Collections;
 using UnityEditor.Events;
 using UnityEngine;
@@ -105,9 +104,9 @@ namespace ISILab.LBS
             node = paramNode;
             nodeID = paramNode.ID;
 
-            foreach (UnityActionStored entry in paramNode.Data.EventHooker.RegisteredActions)
+            foreach (UnityActionStored entry in paramNode.Data.RegisteredActions)
             {
-                UnityAction completeAction = entry.MakeAction(paramNode.Data.EventHooker.Target);
+                UnityAction completeAction = entry.MakeAction(paramNode.Data.Target);
                 #if UNITY_EDITOR
                 if (completeAction != null)
                 {

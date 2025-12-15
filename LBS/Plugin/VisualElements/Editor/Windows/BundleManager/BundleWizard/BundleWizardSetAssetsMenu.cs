@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.UI.Editor.Windows;
 using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
 
 

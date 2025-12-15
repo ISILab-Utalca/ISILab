@@ -1,12 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Macros;
 using LBS.Components.TileMap;
 using UnityEngine;

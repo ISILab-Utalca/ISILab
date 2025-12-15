@@ -4,128 +4,24 @@ using System.Linq;
 using ISILab.Commons.Extensions;
 using ISILab.Commons.JsonNet;
 using ISILab.Extensions;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
-    [System.Serializable]
     public class Generator3D
     {
         
-        [System.Serializable]
-        public class Settings // TODO: Setting can be outside of the class to be used as general settings
-        {
-            [SerializeField] 
-            [JsonConverter(typeof(bool))]
-            public bool useBundleSize = false;
-            
-            [SerializeField] 
-            [JsonConverter(typeof(bool))]
-            public bool lightVolume = false;
-            
-            [SerializeField] 
-            [JsonConverter(typeof(bool))]
-            public bool reflectionProbe = false;
-            
-            [SerializeField]
-            [JsonConverter(typeof(Vector2Converter))]
-            public Vector2 scale = new Vector2(2, 2);
-
-            [SerializeField]
-            [JsonConverter(typeof(Vector2Converter))]
-            public Vector2 resize = new Vector2(0, 0);
-
-            [SerializeField]
-            [JsonConverter(typeof(Vector3Converter))]
-            public Vector3 position = new Vector3(0, 0, 0);
-
-            [SerializeField]
-            [JsonConverter(typeof(bool))]
-            public bool replacePrevious = true;
-
-            [SerializeField]
-            [HideInInspector]
-            public string name = "DEFAULT";
-            
-            [SerializeField]
-            public string rootParentName = "Root_Parent";
-
-            public override bool Equals(object obj)
-            {
-                var other = obj as Generator3D.Settings;
-
-                // check if other have the same type
-                if (other is not Generator3D.Settings) return false;
-
-                // check if scale is the same
-                if (!this.scale.Equals(other.scale)) return false;
-
-                // check if resize is the same
-                if (!this.resize.Equals(other.resize)) return false;
-
-                // check if position is the same
-                if (!this.position.Equals(other.position)) return false;
-
-                // check if name is the same
-                if (this.name != other.name) return false;
-
-                // check if rootParentName is the same
-                if (this.rootParentName != other.rootParentName) return false;
-
-                if (this.useBundleSize != other.useBundleSize) return false;
-
-                return true;
-            }
-
-            public override int GetHashCode()
-            {
-                return base.GetHashCode();
-            }
-
-            public override string ToString()
-            {
-                return base.ToString();
-            }
-        }  
-
         #region FIELDS
         [SerializeField]
-        public Settings settings = new Settings();
+        public LBSGenerator3DSettings settings = new LBSGenerator3DSettings();
 
         [JsonRequired, SerializeReference]
         private List<LBSGeneratorRule> rules = new List<LBSGeneratorRule>();
         #endregion
-
-        #region PROPERTIES
-        /*
-        public Vector2 Resize
-        {
-            get => resize;
-            set => resize = value;
-        }
-
-        public Vector2 Scale
-        {
-            get => scale;
-            set => scale = value;
-        }
-
-        public Vector3 Position
-        {
-            get => position;
-            set => position = value;
-        }
-
-        public string ObjName
-        {
-            get => objName;
-            set => objName = value;
-        }
-        */
-        #endregion
-
+        
         #region METHODS
         public void AddRule(LBSGeneratorRule rule)
         {
@@ -172,7 +68,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns>A tuple containing the game object and a list of messages |
         /// On successful generation: return gameObject, and empty list
         /// On failed generation: return gameObject and a list full of error message</returns>
-        public Tuple<GameObject, List<string>> Generate(LBSLayer layer,List<LBSGeneratorRule> rules, Settings settings)
+        public Tuple<GameObject, List<string>> Generate(LBSLayer layer,List<LBSGeneratorRule> rules, LBSGenerator3DSettings settings)
         {
             // each generation should have a message to indicate the reasons for failed generations
             List<string> messages = new List<string>();

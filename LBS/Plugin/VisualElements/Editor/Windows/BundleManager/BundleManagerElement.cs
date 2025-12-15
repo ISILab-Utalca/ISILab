@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
-using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,7 +14,6 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
     {
         // External references
         private Bundle _bundleRef;
-        private BundleCollection _bundleCollectionRef;
         private ListView _listRef;
         private Button _deleteButton;
         
@@ -59,27 +56,11 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         public void SetBundleReference(Bundle bundle, ListView list, bool mainBundle)
         {
             _bundleRef = bundle;
-            _bundleCollectionRef = null;
             
             _bundleName.text = bundle == null ? "Empty Bundle" : _bundleRef.name;
             
             _listRef = list;
             _isMainBundle = mainBundle;
-
-            if (bundle.Icon != null)
-            {
-                _bundleIcon.style.backgroundImage = new StyleBackground(bundle.Icon);   
-            }
-        }
-        public void SetRefs(BundleCollection bundle, ListView list)
-        {
-            _bundleRef = null;
-            _bundleCollectionRef = bundle;
-            
-            _bundleName.text = bundle == null ? "Empty Bundle Collection" : _bundleCollectionRef.name;
-            
-            _listRef = list;
-            _isMainBundle = true;
 
             if (bundle.Icon != null)
             {
@@ -94,10 +75,8 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 foreach (BundleManagerWindow.BundleContainer item in _listRef.itemsSource)
                 {
                     var bundle = item.GetMainBundle();
-                    var collection = item.GetMainCollection();
                     
-                    if ((bundle == null || !bundle.Equals(_bundleRef)) &&
-                        (collection == null || !collection.Equals(_bundleCollectionRef))) continue;
+                    if (bundle == null || !bundle.Equals(_bundleRef)) continue;
                     
                     _listRef.itemsSource.Remove(item);
                     break;

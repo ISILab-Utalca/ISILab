@@ -7,8 +7,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.Extensions;
-using ISILab.LBS.Assistants;
-using ISILab.LBS.Internal;
 using ISILab.LBS;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Internal;

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
@@ -6,12 +5,10 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Internal;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
+using ISILab.LBS.Plugin.UI.Editor.Windows;
 using JetBrains.Annotations;
-using LBS.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,7 +17,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 {
     public class BundleManagerWindow : EditorWindow
     {
-        class BundleCategory
+        public class BundleCategory
         {
             private readonly List<BundleContainer> _bundles = new();
             private ListView _list;
@@ -371,7 +368,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 Bundle mainBundle = bundleContainer.GetMainBundle();
 
                 // Case 1: Prefab in main bundle
-                if (!bundleContainer.IsCollection() && mainBundle.Assets.Count > 0)
+                if (mainBundle.Assets.Count > 0)
                 {
                     bundleContainer.AddWarning(
                         "Main bundle contains assets of their own; should have it as subBundle, or be one.");
@@ -441,18 +438,11 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
                 BundleManagerElement element = (BundleManagerElement)e;
                 BundleContainer container = (BundleContainer)view.itemsSource[i];
 
-                if (!container.IsCollection())
-                {
-                    element.SetBundleReference(container.GetMainBundle(), view, true);
-                }
-                else
-                {
-                    element.SetRefs(container.GetMainCollection(), view);
-                }
+                element.SetBundleReference(container.GetMainBundle(), view, true);
 
                 element.SetIconDisplay(BundleManagerElement.Icons.Main, main);
                 element.SetIconDisplay(BundleManagerElement.Icons.Warning, container.GetWarnings().Count > 0);
-                element.SetIconDisplay(BundleManagerElement.Icons.Bundle, !container.IsCollection());
+                element.SetIconDisplay(BundleManagerElement.Icons.Bundle, true);
             };
 
             SetBundleListViewSettings(ref listView, columnName, bundles, main);
@@ -500,14 +490,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
 
             listView.itemsChosen += _ =>
             {
-                if (!bundles[view.selectedIndex].IsCollection())
-                {
-                    Selection.activeObject = bundles[view.selectedIndex].GetMainBundle();
-                }
-                else
-                {
-                    Selection.activeObject = bundles[view.selectedIndex].GetMainCollection();
-                }
+                Selection.activeObject = bundles[view.selectedIndex].GetMainBundle();
             };
         }
 
@@ -559,32 +542,19 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         /// <param name="columnName">Name of the VisualElement in window that contains the specific Button.</param>
         /// <param name="flags">The flag that will be assigned to the new Bundle.</param>
         /// <param name="orphan"></param>
-        /// <param name="isCollection"></param>
-        private void SetCreateBundleButtonSetting(string columnName, BundleFlags flags, bool orphan = false, bool isCollection = false)
+        private void SetCreateBundleButtonSetting(string columnName, BundleFlags flags, bool orphan = false)
         {
             var button = rootVisualElement.Q<VisualElement>(columnName).Q<Button>("NewBundleButton");
 
             button.clickable.clicked += () =>
             {
-                if (isCollection)
+                var bundle = BundleMenuItem.CreateBundle(flags);
+
+                if (!orphan)
                 {
-                    var collection = BundleMenuItem.CreateBundleCollection();
-                    
-                    if (!orphan)
-                    {
-                        collection.Collection.Add(BundleMenuItem.CreateBundle(flags, "New_SubBundle"));   
-                    }
+                    bundle.AddChild(BundleMenuItem.CreateBundle(flags, "New_SubBundle"));
                 }
-                else
-                {
-                    var bundle = BundleMenuItem.CreateBundle(flags);
-                    
-                    if (!orphan)
-                    {
-                        bundle.AddChild(BundleMenuItem.CreateBundle(flags, "New_SubBundle"));   
-                    }
-                }
-                
+
                 RefreshBundles();
             };
         }
@@ -602,20 +572,10 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             {
                 var parentContainer = selection.GetSelectedBundle();
                 if (parentContainer == null) return;
-                
-                if (!parentContainer.IsCollection())
-                {
-                    var bundleParent = parentContainer.GetMainBundle();
-                    var bundle = BundleMenuItem.CreateBundle(bundleParent.LayerContentFlags, "New_SubBundle");
-                    bundleParent.AddChild(bundle);
-                    
-                }
-                else
-                {
-                    var collectionParent = parentContainer.GetMainCollection();
-                    var bundle = BundleMenuItem.CreateBundle(BundleFlags.None, "New_SubBundle");
-                    collectionParent.Collection.Add(bundle);
-                }
+
+                var bundleParent = parentContainer.GetMainBundle();
+                var bundle = BundleMenuItem.CreateBundle(bundleParent.LayerContentFlags, "New_SubBundle");
+                bundleParent.AddChild(bundle);
                 
                 //POSIBLE SOLUCIÓN? MonoBehaviour.Invoke("RefreshSubBundleList", 0);
             };
@@ -677,26 +637,12 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
         {
             private readonly Bundle _main;
             
-            [System.Obsolete]
-            private readonly BundleCollection _collection;
-            
             private readonly List<BundleContainer> _subBundles;
             private readonly List<string> _warnings;
 
             public BundleContainer(Bundle main, List<BundleContainer> subBundles = null)
             {
                 _main = main;
-                _collection = null;
-                
-                _subBundles = subBundles;
-                _warnings = new List<string>();
-            }
-            
-            
-            public BundleContainer(BundleCollection collection, List<BundleContainer> subBundles = null)
-            {
-                _main = null;
-                _collection = collection;
                 
                 _subBundles = subBundles;
                 _warnings = new List<string>();
@@ -705,12 +651,6 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             public Bundle GetMainBundle()
             {
                 return _main;
-            }
-
-            [System.Obsolete]
-            public BundleCollection GetMainCollection()
-            {
-                return _collection;
             }
             
             public List<BundleContainer> GetSubBundles()
@@ -731,12 +671,6 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
             public void ClearWarnings()
             {
                 _warnings.Clear();
-            }
-
-            [System.Obsolete]
-            public bool IsCollection()
-            {
-                return _collection != null;
             }
 
             public override string ToString()

@@ -6,13 +6,15 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Plugin.Components.Data;
+using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Components
 {
@@ -21,8 +23,8 @@ namespace ISILab.LBS.Components
     /// <para><b>FOR LBS USER</b></para>
     /// 
     /// <para>
-    /// This class is meant to store data for terminal actions<c>string</c> declared in an
-    /// Scriptable Object<c>LBSGrammar</c>.
+    /// This class is meant to store data for terminal actions <c>string</c> declared in an
+    /// Scriptable Object <c>LBSGrammar</c>.
     /// If the grammar is modified (actions) or a new grammar is assigned, 
     /// new children of this class must be created.
     /// </para>
@@ -38,7 +40,7 @@ namespace ISILab.LBS.Components
     /// </para>
     /// </summary>
     [Serializable]
-    public abstract class QuestActionData
+    public abstract class QuestActionData : ISerializationCallbackReceiver
     {
         #region FIELDS
 
@@ -50,7 +52,11 @@ namespace ISILab.LBS.Components
         [SerializeField, JsonRequired] protected Color color = LBSSettings.Instance.view.behavioursColor;
         [SerializeField, JsonRequired] protected string iconGuid = LocationIcon;
 
-        [SerializeField] private LBSEventHooker _eventHooker;
+        [SerializeField] private List<UnityActionStored> registeredActions = new();
+
+        [NonSerialized] private GameObject _target;
+        [SerializeField] private string targetName = string.Empty;
+        [SerializeField] private string sceneGuid = string.Empty;
 
         // Icons
         protected const string LocationIcon = "efd5e48bd83c08d469fcc341c886b38b";
@@ -62,7 +68,36 @@ namespace ISILab.LBS.Components
         
         #region PROPERTIES
 
-        public LBSEventHooker EventHooker => _eventHooker;
+        public List<UnityActionStored> RegisteredActions
+        {
+            get
+            {
+                registeredActions ??= new List<UnityActionStored>();
+                return registeredActions;
+            }
+        }
+
+        public GameObject Target
+        {
+            get
+            {
+                if (_target is not null) return _target;
+
+                if (LBSAssetMacro.GetActiveSceneGUID() == sceneGuid)
+                {
+                    Target = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
+                        .FirstOrDefault(o => o.name == targetName);
+                }
+
+                return _target;
+            }
+            set
+            {
+                if (value == null) return;
+                _target = value;
+            }
+        }
+
         public QuestNode OwnerNode => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;
         public LBSLayer Layer => Graph.OwnerLayer;
@@ -88,8 +123,8 @@ namespace ISILab.LBS.Components
             this.tag = tag;
 
             if (ownerNode?.Graph?.OwnerLayer == null) return;
-
-            _eventHooker = new LBSEventHooker();
+            
+            registeredActions = new List<UnityActionStored>();
 
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
@@ -106,8 +141,8 @@ namespace ISILab.LBS.Components
             ownerNode = data.ownerNode;
             tag = data.tag;
             area = data.area;
-            _eventHooker = data._eventHooker;
-
+            _target = data.Target;
+            registeredActions = data.registeredActions;
         }
 
         public virtual List<string> ReferencedLayerNames() => null;
@@ -236,7 +271,20 @@ namespace ISILab.LBS.Components
         #endregion
 
 
-   
+        public void OnBeforeSerialize()
+        {
+            if (Target is not null)
+            {
+                targetName = _target.name;
+                string scenePath = _target.scene.path;
+                sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
+            }
+        }
+
+        public void OnAfterDeserialize()
+        {
+            //throw new NotImplementedException();
+        }
         #endregion
     }
 

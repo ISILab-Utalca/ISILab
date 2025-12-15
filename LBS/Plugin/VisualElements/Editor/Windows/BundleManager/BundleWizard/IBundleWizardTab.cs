@@ -1,3 +1,5 @@
+using ISILab.LBS.Plugin.UI.Editor.Windows;
+
 public interface IBundleWizardTab
 {
     public BundleBuilder Builder { get; set; }

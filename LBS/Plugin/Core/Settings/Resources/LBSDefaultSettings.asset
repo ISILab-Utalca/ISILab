@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: LBSDefaultSettings
   m_EditorClassIdentifier: 
   paths:
-    settingsPath: Assets/ISILab/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset
+    settingsPath: Assets/ISILab/LBS/Plugin/Core/Settings/Resources/LBSDefaultSettings.asset
     storagePath: Assets/ISILab/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset
     backUpPath: Assets/ISILab/LBS/Plugin/Internal/Resources/BackUp/LBSBackUp.asset
     bundleFolderPath: Assets/ISILab/LBS/Content/Bundles
     tagFolderPath: Assets/ISILab/LBS/Content/Tags
     meshFolderPath: Assets/ISILab/LBS/Content/Meshes
-    WFCpresetsFolderPath: Assets/isi-lab-unity-module/LBS/Data/Presets/WFC
+    WFCpresetsFolderPath: Assets/ISILab/LBS/Content/Presets/WFC
     layerPressetFolderPath: Assets/isi-lab-unity-module/LBS/Presets/Layers
     assistantPresetFolderPath: Assets/ISILab/LBS/Presets/Assistants
   general:
@@ -54,50 +54,3 @@ MonoBehaviour:
     DebugVectorGUID: 4fc870f9e2f488d4bb2c1bffe1f5b751
   test:
     TestFolderPath: Assets/ISI Lab/LBS/Editor/Tests/Tests-JSON
-  generator:
-    settings:
-      useBundleSize: 0
-      lightVolume: 0
-      reflectionProbe: 0
-      scale: {x: 2, y: 2}
-      resize: {x: 0, y: 0}
-      position: {x: 0, y: 0, z: 0}
-      replacePrevious: 1
-      name: New Layer 1
-      rootParentName: Root_Parent
-    rules:
-    - rid: 4863180741417107627
-    - rid: 4863180741417107628
-  references:
-    version: 2
-    RefIds:
-    - rid: 4863180741417107627
-      type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
-      data:
-        generator3D:
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          rules: []
-    - rid: 4863180741417107628
-      type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
-      data:
-        generator3D:
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          rules: []

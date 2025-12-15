@@ -1,7 +1,7 @@
 using ISILab.Extensions;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
@@ -11,7 +11,6 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using LBS.Components.TileMap;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -311,7 +310,7 @@ namespace ISILab.LBS.Drawers
 
             // Set values to first doted area
             c1.SetPosition(new Rect(center, new Vector2(10, 10)));
-            c1.UpdatePositions((maxV1 * size * tileSize).ToInt(), (maxV2 * size * tileSize).ToInt());
+            c1.ActualizePositions((maxV1 * size * tileSize).ToInt(), (maxV2 * size * tileSize).ToInt());
             c1.SetColor(Color.red);
 
             // Get points from second dotted area
@@ -323,7 +322,7 @@ namespace ISILab.LBS.Drawers
 
             // Set value to second dotted area
             c2.SetPosition(new Rect(center, new Vector2(10, 10)));
-            c2.UpdatePositions((minV1 * size * tileSize).ToInt(), (minV2 * size * tileSize).ToInt());
+            c2.ActualizePositions((minV1 * size * tileSize).ToInt(), (minV2 * size * tileSize).ToInt());
             c2.SetColor(Color.blue);
 
             // add constraint to list
@@ -359,7 +358,7 @@ namespace ISILab.LBS.Drawers
             
             // Set values
             a1.SetPosition(new Rect(center, new Vector2(10, 10)));
-            a1.UpdatePositions((maxV1 * size * tileSize).ToInt(), (maxV2 * size * tileSize).ToInt());
+            a1.ActualizePositions((maxV1 * size * tileSize).ToInt(), (maxV2 * size * tileSize).ToInt());
             a1.SetColor(Color.red);
             
             // -------- Second dotted area --------
@@ -369,7 +368,7 @@ namespace ISILab.LBS.Drawers
 
             // Set value to second dotted area
             a2.SetPosition(new Rect(center, new Vector2(10, 10)));
-            a2.UpdatePositions((minV1 * size * tileSize).ToInt(), (minV2 * size * tileSize).ToInt());
+            a2.ActualizePositions((minV1 * size * tileSize).ToInt(), (minV2 * size * tileSize).ToInt());
             a2.SetColor(Color.blue);
         }
 

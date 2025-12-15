@@ -1,27 +1,20 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
-using ISILab.LBS.VisualElements.Editor;
 using LBS;
-using LBS.Bundles;
 using LBS.Components;
 using LBS.VisualElements;
 using System.Collections.Generic;
-using System.Linq;
-using System.Resources;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Data;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 

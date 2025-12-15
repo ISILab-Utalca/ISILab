@@ -1,9 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.VisualElements.Editor;
-using LBS.Bundles;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -28,7 +26,7 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
     //Tools
     public List<LBSToolbarToggle> gridTerrainTools = new List<LBSToolbarToggle>();
-    
+
     public LBSToolbarToggle brushTool;
     public LBSToolbarToggle fillTool;
     public LBSToolbarToggle eraserTool;
@@ -41,12 +39,28 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
     private LBSCustomUnsignedIntegerField zoomScaleInt;
     public float fovScale;
 
+    //Buttons
+    private Button clearButton;
+    private Button revertButton;
+    private Button saveButton;
+
     private List<AssetGridEditorWindow> editorWindows;
 
     #endregion
 
     #region PROPERTIES
-    public Dictionary<int, UnityEngine.Color> ColorPalette => connectionGridTarget.FlagColorPalette;
+    public Dictionary<int, Color> ColorPaletteKey
+    {
+        get
+        {
+            var dict = new Dictionary<int, Color>();
+            for(int i=0; i<connectionGridTarget.ColorPalette.Count; i++)
+            {
+                dict.Add(connectionGridTarget.ColorPaletteID[i], connectionGridTarget.ColorPalette[i]);
+            }
+            return dict;
+        }
+    }
     public GridTerrainTool ActiveTool => activeTool;
     #endregion
 
@@ -73,9 +87,9 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         addColorButton.RegisterCallback<ClickEvent>((evt) => { AddColorKey(); });
 
         //If the palette is empty I'll add a red button as a default. I think that makes things easier
-        if(ColorPalette.Count == 0)
+        if(ColorPaletteKey.Count == 0)
         {
-            ColorPalette.Add(1, Color.red);
+            connectionGridTarget.AddColor(1, Color.red);
         }
         UpdateColorButtons();
 
@@ -107,25 +121,45 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
             }
         });
 
+        //Revert button!
+        revertButton = rootVisualElement.Q<Button>("RevertButton");
+        //Clear button!
+        clearButton = rootVisualElement.Q<Button>("ClearButton");
+        //Save button!
+        saveButton = rootVisualElement.Q<Button>("SaveButton");
+
         //Icons!
         editorWindows = new List<AssetGridEditorWindow>();
         gridsVE = rootVisualElement.Q<VisualElement>("GridsVE");
 
-        foreach (KeyValuePair<Asset, AssetConnectionGrid> _grid in connectionGridTarget.GridList)
+        foreach (AssetConnectionGrid _grid in connectionGridTarget.GridList)
         {
-            var _newGridWindow = new AssetGridEditorWindow(_grid.Value, this);
+            var _newGridWindow = new AssetGridEditorWindow(_grid, this);
             SetFOVScale += _newGridWindow.UpdateFOVScale;
             OnScaleModify += (newValue) => {
-                _newGridWindow.style.scale = new Scale(new Vector2(newValue, newValue));
+                //_newGridWindow.style.scale = new Scale(new Vector2(newValue, newValue));
                 _newGridWindow.style.height = newValue * 128; 
-                _newGridWindow.style.width = newValue * 128; 
+                _newGridWindow.style.width = newValue * 128;
+                _newGridWindow.MarkDirtyRepaint();
             };
+
+            //Button interaction
+            clearButton.clicked += () => { _newGridWindow.ClearGrid(); };
+            saveButton.clicked += () => { _newGridWindow.SaveChanges(); };
+            revertButton.clicked += () => { _newGridWindow.RevertChanges(); };
             //128 * (previewScaleSlider.value);
             OnWindowClosed += () => { _newGridWindow.OnRemove?.Invoke(); };
             gridsVE.Add(_newGridWindow);
             
         }
-        
+
+        saveButton.clicked += () => {
+            EditorUtility.SetDirty(connectionGridTarget.Owner);
+            AssetDatabase.SaveAssets();
+        };
+
+        //Because otherwise everything breaks lol
+        OnScaleModify?.Invoke(previewScaleSlider.value);
     }
 
     private void OnDisable()
@@ -149,23 +183,26 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
     public void AddColorKey()
     {
-        int _counter = ColorPalette.Count + 1;
+        int _counter = ColorPaletteKey.Count + 1;
         Color _color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
-        foreach (KeyValuePair<int, Color> item in ColorPalette)
+        foreach (KeyValuePair<int, Color> item in ColorPaletteKey)
         {
-            while(item.Value == _color) UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
+            while (item.Value == _color) UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
             if (item.Key == _counter) _counter++;
         }
-        ColorPalette.Add(_counter, _color);
+
+        connectionGridTarget.AddColor(_counter, _color);
         AddColorButton(_counter, _color);
     }
 
     public void RemoveColorKey(int key)
     {
-        if (ColorPalette[key]!=null)
+        if (ColorPaletteKey[key]!=null)
         {
-            ColorPalette.Remove(key);
+            Debug.Log("removing color with ID " + key);
+            connectionGridTarget.RemoveColor(key);
             OnColorRemoved?.Invoke();
+            return;
         }
     }
 
@@ -199,9 +236,9 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
         colorList.Clear();
         colorButtons.Clear();
 
-        foreach (KeyValuePair<int, Color> item in ColorPalette)
+        foreach (KeyValuePair<int, UnityEngine.Color> pair in ColorPaletteKey)
         {
-            AddColorButton(item.Key, item.Value);
+            AddColorButton(pair.Key, pair.Value);
         }
     }
     #endregion

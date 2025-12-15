@@ -8,8 +8,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.AI.Categorization.Editor;
-using ISILab.LBS.Assistants;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Internal;
 

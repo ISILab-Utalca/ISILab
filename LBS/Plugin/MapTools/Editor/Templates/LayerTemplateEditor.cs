@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Generators;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.MapTools.Generators;
@@ -276,7 +274,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 AddObject<SchemaRuleGenerator>(layer, "Schema Rule Generator", "", Color.clear);
                 AddObject<SchemaRuleGeneratorExterior>(layer, "Schema Rule Generator Exterior", "", Color.clear);
 
-                layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Interior" };
+                layer.Settings = new LBSGenerator3DSettings { scale = new Vector2Int(2, 2), name = "Interior" };
             });
         }
 
@@ -292,7 +290,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 AddObject<AssistantWFC>(layer, "Assistant WFC", AssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<ExteriorRuleGenerator>(layer, "Exterior Rule Generator", "", Color.clear);
 
-                layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Exterior" };
+                layer.Settings = new LBSGenerator3DSettings { scale = new Vector2Int(2, 2), name = "Exterior" };
             });
         }
 
@@ -308,7 +306,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 AddObject<AssistantMapElite>(layer, "Map Elite - Genetic Algorithm", AssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<PopulationRuleGenerator>(layer, "Population Rule Generator", "", Color.clear);
 
-                layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Population" };
+                layer.Settings = new LBSGenerator3DSettings { scale = new Vector2Int(2, 2), name = "Population" };
             });
         }
 
@@ -325,7 +323,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 AddObject<GrammarAssistant>(layer, "Quest Assistant", AssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<QuestRuleGenerator>(layer, "Quest Rule Generator", "", Color.clear);
 
-                layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Quest" };
+                layer.Settings = new LBSGenerator3DSettings { scale = new Vector2Int(2, 2), name = "Quest" };
             });
         }
 
@@ -341,7 +339,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 AddObject<TestingAssistant>(layer, "Simulation Assistant", AssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<PathOSRuleGenerator>(layer, "Simulation Rule Generator", "", Color.clear);
 
-                layer.Settings = new Generator3D.Settings { scale = new Vector2Int(2, 2), name = "Simulation" };
+                layer.Settings = new LBSGenerator3DSettings { scale = new Vector2Int(2, 2), name = "Simulation" };
             });
         }
 

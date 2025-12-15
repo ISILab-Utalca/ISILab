@@ -27,9 +27,8 @@ using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
 
-namespace ISILab.LBS.Assistants
+namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
     [Serializable]
     [RequieredModule(
@@ -411,7 +410,7 @@ namespace ISILab.LBS.Assistants
             var termination = new FitnessStagnationTermination(1);
             var evaluator = new WeightedEvaluator(new Tuple<IEvaluator, float>[]
             {
-            new Tuple<IEvaluator, float> (new AdjacenciesEvaluator(layer), 4f),
+            new Tuple<IEvaluator, float> (new AdjacenciesEvaluator(layer), .4f),
             new Tuple<IEvaluator, float> (new AreasEvaluator(layer), 0.15f),
             new Tuple<IEvaluator, float> (new EmptySpaceEvaluator(layer), 0.35f),
                 //new System.Tuple<IEvaluator, float> (new RoomCutEvaluator(layer), 1f),

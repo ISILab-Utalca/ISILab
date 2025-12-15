@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ISILab.LBS.Plugin.Components.Data
+namespace ISILab.LBS.Components
 {
     /// <summary>
     /// Meant to store necessary data to create Unity Actions.

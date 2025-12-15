@@ -1,18 +1,16 @@
-using ISILab.Commons.Extensions;
-using ISILab.LBS.Plugin.Components.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace ISILab.LBS.Components
+namespace ISILab.LBS.Modules
 {
     [Serializable]
     public class BundleTileMapAddons : ICloneable
     {
 
-        [SerializeReference]
-        public List<TileTrigger> triggers = new();
+        [SerializeField]
+        public List<TileTrigger> trigger = new();
         [SerializeField]
         public TilePatrol patrol;
 
@@ -23,14 +21,14 @@ namespace ISILab.LBS.Components
 
         public BundleTileMapAddons(List<TileTrigger> trigger, TilePatrol patrol)
         {
-            this.triggers = trigger;
+            this.trigger = trigger;
             this.patrol = patrol;
         }
 
         object ICloneable.Clone()
         {
             return new BundleTileMapAddons(
-                triggers.ToList(),                      
+                trigger.ToList(),                      
                 new TilePatrol(patrol.Points.ToList()) 
             );
         }
@@ -61,37 +59,69 @@ namespace ISILab.LBS.Components
     public enum TileTriggerType
     {
         Box,
-        Circle
+        Circle,
+        Capsule,
+        Cone
     }
 
     [Serializable]
-    public class TileTrigger : ISerializationCallbackReceiver
+    public abstract class TileTrigger
     {
-        [SerializeField] public Color areaColor;
-
-        [SerializeField] public bool isVisible;
-
-        [SerializeField] public float Range;
-
-        [SerializeField] public TileTriggerType Ttype;
-
-        [SerializeField] public LBSEventHooker _eventHooker;
-
-        public TileTrigger()
+        private static readonly Dictionary<TileTriggerType, Type> TriggerTypes = new()
         {
-            areaColor = Color.white;
-            isVisible = true;
-            Range = 1;
-            Ttype = TileTriggerType.Box;
-            _eventHooker = new LBSEventHooker();
+            { TileTriggerType.Box,     typeof(TileBoxTrigger) },
+            { TileTriggerType.Circle,  typeof(TileCircleTrigger) },
+            { TileTriggerType.Capsule, typeof(TileCapsuleTrigger) },
+            { TileTriggerType.Cone,    typeof(TileConeTrigger) }
+        };
+
+        public static TileTrigger GetNewInstance(TileTriggerType type)
+        {
+            if (TriggerTypes.TryGetValue(type, out var triggerType))
+            {
+                return Activator.CreateInstance(triggerType) as TileTrigger;
+            }
+
+            return null;
         }
 
-        public void OnAfterDeserialize()
-        {
-            _eventHooker ??= new LBSEventHooker();
-        }
+    }
 
-        public void OnBeforeSerialize()
+
+    [Serializable]
+    public class TileBoxTrigger : TileTrigger
+    {
+        public float Length;
+        public TileBoxTrigger() 
+        {
+        }
+    }
+    [Serializable]
+    public class TileCircleTrigger : TileTrigger
+    {
+        public float Radius;
+
+        public TileCircleTrigger()
+        {
+        }
+    }
+    [Serializable]
+    public class TileCapsuleTrigger : TileTrigger
+    {
+        public float Height;
+        public float Radius;
+
+        public TileCapsuleTrigger()
+        {
+        }
+    }
+    [Serializable]
+    public class TileConeTrigger : TileTrigger
+    {
+        public float Angle;
+        public float Range;
+
+        public TileConeTrigger()
         {
         }
     }

@@ -5,11 +5,10 @@ using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
-using LBS.Bundles;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -39,7 +38,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
 
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, Generator3D.Settings settings)
+        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 
             var bundles = LBSAssetsStorage.Instance.Get<Bundle>();

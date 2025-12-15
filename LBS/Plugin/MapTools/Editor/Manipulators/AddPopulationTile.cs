@@ -1,7 +1,6 @@
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.VisualElements;
-using LBS.Bundles;
 using LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
@@ -130,15 +129,15 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
-
-            _population.OwnerLayer.OnChangeUpdate();
-            _tileMapBehavior.SelectedTilemap = newTileGroup;
-            LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
-
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(level);
             }
+
+            _tileMapBehavior.SelectedTilemap = newTileGroup;
+            _population.OwnerLayer.OnChangeUpdate();
+
+            LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -183,7 +182,7 @@ namespace ISILab.LBS.Manipulators
             if (firstPos.y < 0) firstPos.y += 99;
             if (lastPos.y < 0) lastPos.y += 99;
             
-           _previewFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
+           _previewFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
             MainView.Instance.AddElement(_previewFeedback);
 
             var _selectedTile = _tileMapBehavior.SelectedTilemap;

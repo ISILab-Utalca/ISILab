@@ -6,24 +6,19 @@ using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Internal;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS;
-using LBS.Bundles;
 using LBS.Components;
 using LBS.VisualElements;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Extensions;
 using ISILab.DevTools.Macros;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -35,7 +30,6 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS
         private ExteriorBehaviour exterior;
    
-        private List<LBSTagGroup> Groups;
         private object[] options;
 
         private AddExteriorTile addExteriorTile;
@@ -43,7 +37,7 @@ namespace ISILab.LBS.VisualElements
         private RemoveTileExterior removeTile;
         private SetExteriorTileConnection setConnection;
         private SetVertexExteriorTileConnection setVertexConnection;
-        private RemoveConnectionInArea removeConnectionInArea;
+        //private RemoveConnectionInArea removeConnectionInArea;
         #endregion
 
         #region VIEW FIELDS

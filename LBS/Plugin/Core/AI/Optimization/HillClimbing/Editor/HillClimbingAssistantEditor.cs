@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
@@ -11,6 +10,7 @@ using ISILab.LBS.Editor.Windows;
 
 using LBS;
 using LBS.Components;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;
