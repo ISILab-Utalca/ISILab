@@ -25,7 +25,7 @@ MonoBehaviour:
     behaviours:
     - rid: 1134172181454913764
     assistants:
-    - rid: 1134172181454913765
+    - rid: 7236886929103650895
     generatorRules:
     - rid: 1134172181454913766
     settings:
@@ -42,6 +42,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 1134172181454913763
       type: {class: PathOSModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:
@@ -101,9 +103,10 @@ MonoBehaviour:
             name: Testing
             rootParentName: Root_Parent
           index: 0
-        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
         colorTint: {r: 0.5294118, g: 0.84313726, b: 0.9647059, a: 1}
         name: Simulation Layer's Palette
+        iconGuid: 
+        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
         module:
           rid: 1134172181454913763
         selectedToSet: {fileID: 0}
@@ -142,8 +145,25 @@ MonoBehaviour:
         name: Simulation Assistant
     - rid: 1134172181454913766
       type: {class: PathOSRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
+      data: 
+    - rid: 7236886929103650895
+      type: {class: TestingAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:
-        generator3D:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 13f64883312513a41adeb7dec75a3a5f
+          id: Simulation
+          name: Layer Simulation
+          modules:
+          - rid: 1134172181454913763
+          behaviours:
+          - rid: 1134172181454913764
+          assistants:
+          - rid: 7236886929103650895
+          generatorRules:
+          - rid: 1134172181454913766
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -152,6 +172,10 @@ MonoBehaviour:
             resize: {x: 0, y: 0}
             position: {x: 0, y: 0, z: 0}
             replacePrevious: 1
-            name: DEFAULT
+            name: Testing
             rootParentName: Root_Parent
-          rules: []
+          index: 0
+        colorTint: {r: 0, g: 0, b: 0, a: 0}
+        name: TestingAssistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 0}

@@ -71,7 +71,7 @@ namespace ISILab.LBS.Characteristics
         public void UpdateInfo()
         {
             tagName = value.Label;
-            tagGUID = AssetMacro.GetGuidFromAsset(value);
+            //tagGUID = AssetMacro.GetGuidFromAsset(value);
         }
     }
 
