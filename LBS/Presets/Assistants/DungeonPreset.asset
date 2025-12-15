@@ -22,125 +22,145 @@ MonoBehaviour:
     yEvaluator:
       rid: 109437998171947023
     optimizer:
-      rid: 8454501502191403727
+      rid: 7236886930071748628
     changedSample: 
-  maskType: ISILab.LBS.Behaviours.ExteriorBehaviour
+  maskType: ISILab.LBS.Behaviours.PopulationBehaviour
   blackList:
   - {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 109437862091948700
-      type: {class: ExhaustiveMoveGene, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        range: 10
-    - rid: 109437997703240688
-      type: {class: WeightedMutation, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        mutation:
-          rid: 8454501502191403887
-        weight: 0.2
-    - rid: 109437997703240689
-      type: {class: WeightedMutation, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        mutation:
-          rid: 8454501502191403891
-        weight: 1
-    - rid: 109437997703240690
-      type: {class: WeightedMutation, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        mutation:
-          rid: 109437862091948700
-        weight: 0.2
-    - rid: 109437998171947020
-      type: {class: DCSafeArea, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        playerCharacteristic:
-          rid: 8832571802615283988
-        enemiesCharacteristic:
-          rid: 8832571802615283989
     - rid: 109437998171947023
       type: {class: DCExploration, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         playerCharacteristic:
-          rid: 8832571802615283986
+          rid: 7236886930663154835
         colliderCharacteristic:
-          rid: 8832571802615283987
+          rid: 7236886930663154836
     - rid: 1134171638846456690
       type: {class: DCResourceSafety, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         playerCharacteristic:
-          rid: 8832571802615283985
-    - rid: 8454501502191403727
-      type: {class: GeneticAlgorithm, ns: ISILab.AI.Optimization, asm: LBS}
+          rid: 7236886930663154834
+    - rid: 7236886930071748628
+      type: {class: GeneticAlgorithm, ns: ISILab.LBS.Plugin.Core.AI.Optimization, asm: LBS}
       data:
         population:
-          rid: 8454501502191403728
+          rid: 7236886930071748629
         evaluator:
-          rid: 109437998171947020
+          rid: 7236886930071748633
         selection:
-          rid: 8454501502191403729
+          rid: 7236886930071748630
         termination:
-          rid: 8454501502191403730
+          rid: 7236886930071748631
         crossover:
-          rid: 8454501502191403731
+          rid: 7236886930071748632
         mutation:
-          rid: 8454501502191403732
+          rid: 7236886930352242909
         crossoverProbability: 1
         mutationProbability: 0.05
-    - rid: 8454501502191403728
+    - rid: 7236886930071748629
       type: {class: Population, ns: ISILab.AI.Optimization.Populations, asm: LBS}
       data: 
-    - rid: 8454501502191403729
+    - rid: 7236886930071748630
       type: {class: TournamentSelection, ns: ISILab.AI.Optimization.Selections, asm: LBS}
       data:
         m_minNumberChromosomes: 2
-    - rid: 8454501502191403730
+    - rid: 7236886930071748631
       type: {class: GenerationNumberTermination, ns: ISILab.AI.Optimization.Terminations, asm: LBS}
       data: 
-    - rid: 8454501502191403731
+    - rid: 7236886930071748632
       type: {class: AreaCrossover, ns: ISILab.AI.Categorization, asm: LBS}
       data: 
-    - rid: 8454501502191403732
+    - rid: 7236886930071748633
+      type: {class: DCSafeArea, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        playerCharacteristic:
+          rid: 7236886930663154837
+        enemiesCharacteristic:
+          rid: 7236886930663154838
+    - rid: 7236886930352242909
       type: {class: RoulleteWheelMutation, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         mutations:
-        - rid: 8454501502191403897
-        - rid: 109437997703240688
-        - rid: 109437997703240689
-        - rid: 109437997703240690
-    - rid: 8454501502191403883
+        - rid: 7236886930352242927
+        - rid: 7236886930352242926
+        - rid: 7236886930352242928
+        - rid: 7236886930352242929
+    - rid: 7236886930352242913
       type: {class: ExhaustiveAddGene, ns: ISILab.AI.Categorization, asm: LBS}
       data: 
-    - rid: 8454501502191403887
+    - rid: 7236886930352242917
+      type: {class: ExhaustiveMoveGene, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        range: 5
+    - rid: 7236886930352242923
       type: {class: ExhaustiveRemoveGene, ns: ISILab.AI.Categorization, asm: LBS}
       data: 
-    - rid: 8454501502191403891
+    - rid: 7236886930352242925
       type: {class: ExhaustiveSwapGene, ns: ISILab.AI.Categorization, asm: LBS}
       data: 
-    - rid: 8454501502191403897
+    - rid: 7236886930352242926
       type: {class: WeightedMutation, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         mutation:
-          rid: 8454501502191403883
+          rid: 7236886930352242917
+        weight: 0.4
+    - rid: 7236886930352242927
+      type: {class: WeightedMutation, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        mutation:
+          rid: 7236886930352242913
         weight: 0.2
-    - rid: 8832571802615283985
+    - rid: 7236886930352242928
+      type: {class: WeightedMutation, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        mutation:
+          rid: 7236886930352242923
+        weight: 0.2
+    - rid: 7236886930352242929
+      type: {class: WeightedMutation, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        mutation:
+          rid: 7236886930352242925
+        weight: 0.2
+    - rid: 7236886930663154834
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
-    - rid: 8832571802615283986
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 
+    - rid: 7236886930663154835
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
-    - rid: 8832571802615283987
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 
+    - rid: 7236886930663154836
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
-    - rid: 8832571802615283988
+        tagEntries:
+        - tagName: Collider
+          value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
+          tagGUID: 
+    - rid: 7236886930663154837
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
-    - rid: 8832571802615283989
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 
+    - rid: 7236886930663154838
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
+        tagEntries:
+        - tagName: Enemies
+          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
+          tagGUID: 

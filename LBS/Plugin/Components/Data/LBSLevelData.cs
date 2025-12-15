@@ -1,16 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using ISILab.LBS.AI.Categorization;
-using ISILab.LBS.Assistants;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Generators;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace ISILab.LBS
 {

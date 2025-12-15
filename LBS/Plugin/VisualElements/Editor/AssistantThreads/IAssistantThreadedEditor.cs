@@ -1,6 +1,5 @@
 using System;
 using System.Threading;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.VisualElements.Editor;

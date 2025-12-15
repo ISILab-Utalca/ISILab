@@ -90,17 +90,5 @@ namespace ISILab.Extensions
                     return default;
             }
         }
-
-        public static T FindParentOfType<T>(this VisualElement element) where T : VisualElement
-        {
-            var current = element;
-            while (current != null)
-            {
-                if (current is T target)
-                    return target;
-                current = current.parent;
-            }
-            return null;
-        }
     }
 }

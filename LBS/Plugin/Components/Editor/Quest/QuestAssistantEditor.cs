@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.VisualElements.Editor;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;

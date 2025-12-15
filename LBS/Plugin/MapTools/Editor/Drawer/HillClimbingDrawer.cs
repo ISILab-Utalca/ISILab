@@ -1,7 +1,7 @@
 using ISILab.Extensions;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
@@ -11,7 +11,6 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using LBS.Components.TileMap;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
