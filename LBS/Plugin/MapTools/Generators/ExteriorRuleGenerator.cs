@@ -64,10 +64,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // Get modules
             var mapMod = layer.GetModule<TileMapModule>();
             var connctMod = layer.GetModule<ConnectedTileMapModule>();
-            
             var tiles = new List<GameObject>();
+            
+            //So this is where I'm working on a little thing so the characteristic that chooses the tiles could be chosen.
+            //Otherwise, it just keeps mapMod.Tiles as a default and randomizes the whole thing
+            //This may take a bit, though! -Alice
+            
+            //Default!
+            var chosenTiles = mapMod.Tiles;
 
-            foreach (var tile in mapMod.Tiles)
+            foreach (var tile in chosenTiles)
             {
                 // Get connection
                 var tileConnection = connctMod.GetConnections(tile);
@@ -75,7 +81,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 var pair = GetBundle(selected, tileConnection.ToArray());
                 //pair.owner = bundle;
                 var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
-
+                
                 if(pref == null)
                 {
  

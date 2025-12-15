@@ -1,4 +1,5 @@
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using UnityEngine;
 
 namespace ISILab.LBS
