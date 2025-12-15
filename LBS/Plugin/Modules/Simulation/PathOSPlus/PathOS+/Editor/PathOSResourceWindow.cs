@@ -8,21 +8,25 @@ PathOSResourceWindow.cs
 (Atiya Nova) 2021
  */
 
-public class PathOSResourceWindow : EditorWindow
+namespace PathOS
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PathOSResourceWindow : EditorWindow
     {
+        // Start is called before the first frame update
+        void Start()
+        {
 
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
 
-    }
+        }
 
-    public void OnWindowOpen()
-    {
+        public void OnWindowOpen()
+        {
+        }
     }
 }
+

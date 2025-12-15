@@ -6,32 +6,35 @@ using UnityEngine;
 OGSingleton.cs
 OGSingleton (c) Ominous Games 2018
 */
-
-public class OGSingleton<T> : MonoBehaviour where T : MonoBehaviour
+namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
 {
-    private static T instanceRef;
-    private static object lockRef = new object();
-
-    public static T instance
+    public class OGSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        get
-        {
-            lock(lockRef)
-            {
-                if (FindObjectsOfType(typeof(T)).Length > 1)
-                    Debug.LogError(string.Format("Multiple instances of {0} found!", typeof(T)));
+        private static T instanceRef;
+        private static object lockRef = new object();
 
-                if (null == instanceRef)
+        public static T instance
+        {
+            get
+            {
+                lock (lockRef)
                 {
-                    instanceRef = (T)FindObjectOfType(typeof(T));
+                    if (FindObjectsOfType(typeof(T)).Length > 1)
+                        Debug.LogError(string.Format("Multiple instances of {0} found!", typeof(T)));
 
                     if (null == instanceRef)
-                        Debug.LogError(string.Format("No instance of {0} found, " +
-                            "but something is trying to access it!", typeof(T)));
-                }
+                    {
+                        instanceRef = (T)FindObjectOfType(typeof(T));
 
-                return instanceRef;
+                        if (null == instanceRef)
+                            Debug.LogError(string.Format("No instance of {0} found, " +
+                                "but something is trying to access it!", typeof(T)));
+                    }
+
+                    return instanceRef;
+                }
             }
         }
     }
+
 }

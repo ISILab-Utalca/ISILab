@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomPropertyDrawer(typeof(PathOSDisplayNameAttribute))]
-public class DisplayNameDrawer : PropertyDrawer
+namespace PathOS
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(PathOSDisplayNameAttribute))]
+    public class DisplayNameDrawer : PropertyDrawer
     {
-        label.text = (attribute as PathOSDisplayNameAttribute).displayName;
-        EditorGUI.PropertyField(position, property, label);
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            label.text = (attribute as PathOSDisplayNameAttribute).displayName;
+            EditorGUI.PropertyField(position, property, label);
+        }
     }
 }
+

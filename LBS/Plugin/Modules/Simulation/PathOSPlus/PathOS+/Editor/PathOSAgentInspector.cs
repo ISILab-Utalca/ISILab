@@ -10,170 +10,173 @@ using PathOS;
 PathOSAgentInspector.cs 
 PathOSAgentInspector (c) Nine Penguins (Samantha Stahlke) 2018
 */
-
-[CustomEditor(typeof(PathOSAgent))]
-public class PathOSAgentInspector : Editor
+namespace PathOS
 {
-    private PathOSAgent agent;
-    private SerializedObject serial;
-
-    private GUIStyle foldoutStyle = GUIStyle.none;
-    private GUIStyle boldStyle = GUIStyle.none;
-
-    private SerializedProperty experienceScale;
-    private SerializedProperty timeScale;
-    private SerializedProperty heuristicList;
-
-    private bool showPlayerCharacteristics = true;
-
-    private SerializedProperty freezeAgent;
-
-    private bool showNavCharacteristics = false;
-
-    private SerializedProperty exploreDegrees;
-    private SerializedProperty invisibleExploreDegrees;
-    private SerializedProperty lookDegrees;
-    private SerializedProperty visitThreshold;
-    private SerializedProperty exploreThreshold;
-    private SerializedProperty exploreTargetMargin;
-
-    private Dictionary<Heuristic, string> heuristicLabels;
-
-    private List<string> profileNames = new List<string>();
-    private int profileIndex = 0;
-
-    private void OnEnable()
+    [CustomEditor(typeof(PathOSAgent))]
+    public class PathOSAgentInspector : Editor
     {
-        //target = GameObject.FindWithTag("PathOSAgent");
-        agent = (PathOSAgent)target;
-        serial = new SerializedObject(agent);
+        private PathOSAgent agent;
+        private SerializedObject serial;
 
-        timeScale = serial.FindProperty("timeScale");
-        experienceScale = serial.FindProperty("experienceScale");
-        heuristicList = serial.FindProperty("heuristicScales");
+        private GUIStyle foldoutStyle = GUIStyle.none;
+        private GUIStyle boldStyle = GUIStyle.none;
 
-        freezeAgent = serial.FindProperty("freezeAgent");
+        private SerializedProperty experienceScale;
+        private SerializedProperty timeScale;
+        private SerializedProperty heuristicList;
 
-        exploreDegrees = serial.FindProperty("exploreDegrees");
-        invisibleExploreDegrees = serial.FindProperty("invisibleExploreDegrees");
-        lookDegrees = serial.FindProperty("lookDegrees");
-        visitThreshold = serial.FindProperty("visitThreshold");
-        exploreThreshold = serial.FindProperty("exploreThreshold");
-        exploreTargetMargin = serial.FindProperty("exploreTargetMargin");
+        private bool showPlayerCharacteristics = true;
 
-        agent.RefreshHeuristicList();
+        private SerializedProperty freezeAgent;
 
-        heuristicLabels = new Dictionary<Heuristic, string>();
+        private bool showNavCharacteristics = false;
 
-        foreach(HeuristicScale curScale in agent.heuristicScales)
+        private SerializedProperty exploreDegrees;
+        private SerializedProperty invisibleExploreDegrees;
+        private SerializedProperty lookDegrees;
+        private SerializedProperty visitThreshold;
+        private SerializedProperty exploreThreshold;
+        private SerializedProperty exploreTargetMargin;
+
+        private Dictionary<Heuristic, string> heuristicLabels;
+
+        private List<string> profileNames = new List<string>();
+        private int profileIndex = 0;
+
+        private void OnEnable()
         {
-            string label = curScale.heuristic.ToString();
+            //target = GameObject.FindWithTag("PathOSAgent");
+            agent = (PathOSAgent)target;
+            serial = new SerializedObject(agent);
 
-            label = label.Substring(0, 1).ToUpper() + label.Substring(1).ToLower();
-            heuristicLabels.Add(curScale.heuristic, label);
-        }
+            timeScale = serial.FindProperty("timeScale");
+            experienceScale = serial.FindProperty("experienceScale");
+            heuristicList = serial.FindProperty("heuristicScales");
 
-        if(null == PathOSProfileWindow.profiles)
-            PathOSProfileWindow.ReadPrefsData();
-    }
+            freezeAgent = serial.FindProperty("freezeAgent");
 
-    public override void OnInspectorGUI()
-    {
-        serial.Update();
+            exploreDegrees = serial.FindProperty("exploreDegrees");
+            invisibleExploreDegrees = serial.FindProperty("invisibleExploreDegrees");
+            lookDegrees = serial.FindProperty("lookDegrees");
+            visitThreshold = serial.FindProperty("visitThreshold");
+            exploreThreshold = serial.FindProperty("exploreThreshold");
+            exploreTargetMargin = serial.FindProperty("exploreTargetMargin");
 
+            agent.RefreshHeuristicList();
 
+            heuristicLabels = new Dictionary<Heuristic, string>();
 
-        //Placed here since Unity seems to have issues with having these 
-        //styles initialized on enable sometimes.
-        foldoutStyle = EditorStyles.foldout;
-        foldoutStyle.fontStyle = FontStyle.Bold;
-
-        EditorGUILayout.LabelField("General", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(timeScale);
-        EditorGUILayout.PropertyField(freezeAgent);
-
-        showPlayerCharacteristics = EditorGUILayout.Foldout(
-            showPlayerCharacteristics, "Player Characteristics", foldoutStyle);
-       
-        if(showPlayerCharacteristics)
-        {
-            EditorGUILayout.PropertyField(experienceScale);
-
-            for (int i = 0; i < agent.heuristicScales.Count; ++i)
+            foreach (HeuristicScale curScale in agent.heuristicScales)
             {
-                agent.heuristicScales[i].scale = EditorGUILayout.Slider(
-                     heuristicLabels[agent.heuristicScales[i].heuristic],
-                     agent.heuristicScales[i].scale, 0.0f, 1.0f);
+                string label = curScale.heuristic.ToString();
+
+                label = label.Substring(0, 1).ToUpper() + label.Substring(1).ToLower();
+                heuristicLabels.Add(curScale.heuristic, label);
             }
-
-            boldStyle = EditorStyles.boldLabel;
-            EditorGUILayout.LabelField("Load Values from Profile", boldStyle);
-
-            profileNames.Clear();
 
             if (null == PathOSProfileWindow.profiles)
                 PathOSProfileWindow.ReadPrefsData();
-  
-            for(int i = 0; i < PathOSProfileWindow.profiles.Count; ++i)
+        }
+
+        public override void OnInspectorGUI()
+        {
+            serial.Update();
+
+
+
+            //Placed here since Unity seems to have issues with having these 
+            //styles initialized on enable sometimes.
+            foldoutStyle = EditorStyles.foldout;
+            foldoutStyle.fontStyle = FontStyle.Bold;
+
+            EditorGUILayout.LabelField("General", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(timeScale);
+            EditorGUILayout.PropertyField(freezeAgent);
+
+            showPlayerCharacteristics = EditorGUILayout.Foldout(
+                showPlayerCharacteristics, "Player Characteristics", foldoutStyle);
+
+            if (showPlayerCharacteristics)
             {
-                profileNames.Add(PathOSProfileWindow.profiles[i].name);
-            }
+                EditorGUILayout.PropertyField(experienceScale);
 
-            if (profileNames.Count == 0)
-                profileNames.Add("--");
-
-            EditorGUILayout.BeginHorizontal();
-
-            profileIndex = EditorGUILayout.Popup(profileIndex, profileNames.ToArray());
-
-            if(GUILayout.Button("Apply Profile") 
-                && profileIndex < PathOSProfileWindow.profiles.Count)
-            {
-                AgentProfile profile = PathOSProfileWindow.profiles[profileIndex];
-
-                Dictionary<Heuristic, HeuristicRange> ranges = new Dictionary<Heuristic, HeuristicRange>();
-
-                for(int i = 0; i < profile.heuristicRanges.Count; ++i)
+                for (int i = 0; i < agent.heuristicScales.Count; ++i)
                 {
-                    ranges.Add(profile.heuristicRanges[i].heuristic,
-                        profile.heuristicRanges[i]);
+                    agent.heuristicScales[i].scale = EditorGUILayout.Slider(
+                         heuristicLabels[agent.heuristicScales[i].heuristic],
+                         agent.heuristicScales[i].scale, 0.0f, 1.0f);
                 }
 
-                Undo.RecordObject(agent, "Apply Agent Profile");
-                for(int i = 0; i < agent.heuristicScales.Count; ++i)
+                boldStyle = EditorStyles.boldLabel;
+                EditorGUILayout.LabelField("Load Values from Profile", boldStyle);
+
+                profileNames.Clear();
+
+                if (null == PathOSProfileWindow.profiles)
+                    PathOSProfileWindow.ReadPrefsData();
+
+                for (int i = 0; i < PathOSProfileWindow.profiles.Count; ++i)
                 {
-                    if(ranges.ContainsKey(agent.heuristicScales[i].heuristic))
+                    profileNames.Add(PathOSProfileWindow.profiles[i].name);
+                }
+
+                if (profileNames.Count == 0)
+                    profileNames.Add("--");
+
+                EditorGUILayout.BeginHorizontal();
+
+                profileIndex = EditorGUILayout.Popup(profileIndex, profileNames.ToArray());
+
+                if (GUILayout.Button("Apply Profile")
+                    && profileIndex < PathOSProfileWindow.profiles.Count)
+                {
+                    AgentProfile profile = PathOSProfileWindow.profiles[profileIndex];
+
+                    Dictionary<Heuristic, HeuristicRange> ranges = new Dictionary<Heuristic, HeuristicRange>();
+
+                    for (int i = 0; i < profile.heuristicRanges.Count; ++i)
                     {
-                        HeuristicRange hr = ranges[agent.heuristicScales[i].heuristic];
-                        agent.heuristicScales[i].scale = Random.Range(hr.range.min, hr.range.max);
+                        ranges.Add(profile.heuristicRanges[i].heuristic,
+                            profile.heuristicRanges[i]);
                     }
+
+                    Undo.RecordObject(agent, "Apply Agent Profile");
+                    for (int i = 0; i < agent.heuristicScales.Count; ++i)
+                    {
+                        if (ranges.ContainsKey(agent.heuristicScales[i].heuristic))
+                        {
+                            HeuristicRange hr = ranges[agent.heuristicScales[i].heuristic];
+                            agent.heuristicScales[i].scale = Random.Range(hr.range.min, hr.range.max);
+                        }
+                    }
+
+                    agent.experienceScale = Random.Range(profile.expRange.min, profile.expRange.max);
                 }
 
-                agent.experienceScale = Random.Range(profile.expRange.min, profile.expRange.max);
+                EditorGUILayout.EndHorizontal();
             }
 
-            EditorGUILayout.EndHorizontal();
-        }
+            showNavCharacteristics = EditorGUILayout.Foldout(
+                showNavCharacteristics, "Navigation", foldoutStyle);
 
-        showNavCharacteristics = EditorGUILayout.Foldout(
-            showNavCharacteristics, "Navigation", foldoutStyle);
+            if (showNavCharacteristics)
+            {
+                EditorGUILayout.PropertyField(exploreDegrees);
+                EditorGUILayout.PropertyField(invisibleExploreDegrees);
+                EditorGUILayout.PropertyField(lookDegrees);
+                EditorGUILayout.PropertyField(visitThreshold);
+                EditorGUILayout.PropertyField(exploreThreshold);
+                EditorGUILayout.PropertyField(exploreTargetMargin);
+            }
 
-        if(showNavCharacteristics)
-        {
-            EditorGUILayout.PropertyField(exploreDegrees);
-            EditorGUILayout.PropertyField(invisibleExploreDegrees);
-            EditorGUILayout.PropertyField(lookDegrees);
-            EditorGUILayout.PropertyField(visitThreshold);
-            EditorGUILayout.PropertyField(exploreThreshold);
-            EditorGUILayout.PropertyField(exploreTargetMargin);
-        }
-        
-        serial.ApplyModifiedProperties();
+            serial.ApplyModifiedProperties();
 
-        if (GUI.changed && !EditorApplication.isPlaying)
-        {
-            EditorUtility.SetDirty(agent);
-            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+            if (GUI.changed && !EditorApplication.isPlaying)
+            {
+                EditorUtility.SetDirty(agent);
+                EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+            }
         }
     }
 }
+

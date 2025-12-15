@@ -7,12 +7,16 @@ NPGUI.cs
 NPGUI (c) Nine Penguins (Samantha Stahlke) 2018
 */
 
-public class NPGUI : MonoBehaviour 
+namespace NinePenguins
 {
-    public static GUILayoutOption[] microBtn =
+    public class NPGUI : MonoBehaviour
     {
+        public static GUILayoutOption[] microBtn =
+        {
         GUILayout.MaxWidth(16),
         GUILayout.MaxHeight(16)
     };
 
+    }
 }
+

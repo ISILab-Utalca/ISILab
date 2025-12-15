@@ -637,64 +637,66 @@ namespace BgTools.PlayerPrefsEditor
         }
 #endif
     }
-}
 
-public class MySearchField : SearchField
-{
-    public enum SearchModePreferencesEditorWindow { Key, Value }
-
-    public SearchModePreferencesEditorWindow SearchMode { get; private set; }
-
-    public Action DropdownSelectionDelegate;
-
-    public new string OnGUI(
-        Rect rect,
-        string text,
-        GUIStyle style,
-        GUIStyle cancelButtonStyle,
-        GUIStyle emptyCancelButtonStyle)
+    public class MySearchField : SearchField
     {
-        style.padding.left = 17;
-        Rect ContextMenuRect = new Rect(rect.x, rect.y, 10, rect.height);
+        public enum SearchModePreferencesEditorWindow { Key, Value }
 
-        // Add interactive area
-        EditorGUIUtility.AddCursorRect(ContextMenuRect, MouseCursor.Text);
-        if (Event.current.type == EventType.MouseDown && ContextMenuRect.Contains(Event.current.mousePosition))
+        public SearchModePreferencesEditorWindow SearchMode { get; private set; }
+
+        public Action DropdownSelectionDelegate;
+
+        public new string OnGUI(
+            Rect rect,
+            string text,
+            GUIStyle style,
+            GUIStyle cancelButtonStyle,
+            GUIStyle emptyCancelButtonStyle)
         {
-            void OnDropdownSelection(object parameter)
+            style.padding.left = 17;
+            Rect ContextMenuRect = new Rect(rect.x, rect.y, 10, rect.height);
+
+            // Add interactive area
+            EditorGUIUtility.AddCursorRect(ContextMenuRect, MouseCursor.Text);
+            if (Event.current.type == EventType.MouseDown && ContextMenuRect.Contains(Event.current.mousePosition))
             {
-                SearchMode = (SearchModePreferencesEditorWindow) Enum.Parse(typeof(SearchModePreferencesEditorWindow), parameter.ToString());
-                DropdownSelectionDelegate();
+                void OnDropdownSelection(object parameter)
+                {
+                    SearchMode = (SearchModePreferencesEditorWindow)Enum.Parse(typeof(SearchModePreferencesEditorWindow), parameter.ToString());
+                    DropdownSelectionDelegate();
+                }
+
+                GenericMenu menu = new GenericMenu();
+                foreach (SearchModePreferencesEditorWindow EnumIt in Enum.GetValues(typeof(SearchModePreferencesEditorWindow)))
+                {
+                    String EnumName = Enum.GetName(typeof(SearchModePreferencesEditorWindow), EnumIt);
+                    menu.AddItem(new GUIContent(EnumName), SearchMode == EnumIt, OnDropdownSelection, EnumName);
+                }
+
+                menu.DropDown(rect);
             }
 
-            GenericMenu menu = new GenericMenu();
-            foreach(SearchModePreferencesEditorWindow EnumIt in Enum.GetValues(typeof(SearchModePreferencesEditorWindow)))
+            // Render original search field
+            String result = base.OnGUI(rect, text, style, cancelButtonStyle, emptyCancelButtonStyle);
+
+            // Render additional images
+            GUIStyle ContexMenuOverlayStyle = GUIStyle.none;
+            ContexMenuOverlayStyle.contentOffset = new Vector2(9, 5);
+            GUI.Box(new Rect(rect.x, rect.y, 5, 5), EditorGUIUtility.IconContent("d_ProfilerTimelineDigDownArrow@2x"), ContexMenuOverlayStyle);
+
+            if (!HasFocus() && String.IsNullOrEmpty(text))
             {
-                String EnumName = Enum.GetName(typeof(SearchModePreferencesEditorWindow), EnumIt);
-                menu.AddItem(new GUIContent(EnumName), SearchMode == EnumIt, OnDropdownSelection, EnumName);
+                GUI.enabled = false;
+                GUI.Label(new Rect(rect.x + 14, rect.y, 40, rect.height), Enum.GetName(typeof(SearchModePreferencesEditorWindow), SearchMode));
+                GUI.enabled = true;
             }
-
-            menu.DropDown(rect);
+            ContexMenuOverlayStyle.contentOffset = new Vector2();
+            return result;
         }
 
-        // Render original search field
-        String result = base.OnGUI(rect, text, style, cancelButtonStyle, emptyCancelButtonStyle);
-
-        // Render additional images
-        GUIStyle ContexMenuOverlayStyle = GUIStyle.none;
-        ContexMenuOverlayStyle.contentOffset = new Vector2(9, 5);
-        GUI.Box(new Rect(rect.x, rect.y, 5, 5), EditorGUIUtility.IconContent("d_ProfilerTimelineDigDownArrow@2x"), ContexMenuOverlayStyle);
-
-        if (!HasFocus() && String.IsNullOrEmpty(text))
-        {
-            GUI.enabled = false;
-            GUI.Label(new Rect(rect.x + 14, rect.y, 40, rect.height), Enum.GetName(typeof(SearchModePreferencesEditorWindow), SearchMode));
-            GUI.enabled = true;
-        }
-        ContexMenuOverlayStyle.contentOffset = new Vector2();
-        return result;
+        public new string OnToolbarGUI(string text, params GUILayoutOption[] options) => this.OnToolbarGUI(GUILayoutUtility.GetRect(29f, 200f, 18f, 18f, EditorStyles.toolbarSearchField, options), text);
+        public new string OnToolbarGUI(Rect rect, string text) => this.OnGUI(rect, text, EditorStyles.toolbarSearchField, EditorStyles.toolbarButton, EditorStyles.toolbarButton);
     }
-
-    public new string OnToolbarGUI(string text, params GUILayoutOption[] options) => this.OnToolbarGUI(GUILayoutUtility.GetRect(29f, 200f, 18f, 18f, EditorStyles.toolbarSearchField, options), text);
-    public new string OnToolbarGUI(Rect rect, string text) => this.OnGUI(rect, text, EditorStyles.toolbarSearchField, EditorStyles.toolbarButton, EditorStyles.toolbarButton);
 }
+
+

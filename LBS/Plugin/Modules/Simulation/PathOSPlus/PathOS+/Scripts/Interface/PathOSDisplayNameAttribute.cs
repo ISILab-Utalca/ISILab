@@ -8,13 +8,16 @@ PathOSDisplayNameAttribute.cs
 PathOSDisplayNameAttribute (c) Gabriel Balassa 2024
 */
 
-
-public class PathOSDisplayNameAttribute : PropertyAttribute
+namespace PathOS
 {
-    public string displayName { get; private set; }
-
-    public PathOSDisplayNameAttribute(string displayName)
+    public class PathOSDisplayNameAttribute : PropertyAttribute
     {
-        this.displayName = displayName;
+        public string displayName { get; private set; }
+
+        public PathOSDisplayNameAttribute(string displayName)
+        {
+            this.displayName = displayName;
+        }
     }
 }
+

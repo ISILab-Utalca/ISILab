@@ -9,46 +9,50 @@ CollectibleAnimator (c) Nine Penguins (Samantha Stahlke) 2019
 Simple animator for PathOS user demo.
 */
 
-public class CollectibleAnimator : MonoBehaviour
+namespace PathOS
 {
-    public float ySpinSpeed = 0.0f;
-    public float yOscillateSpeed = 0.0f;
-    public float yOscillateMagnitude = 0.0f;
-    public AnimationCurve yOscillateCurve;
-
-    private float yMin, yMax;
-    private bool reverse = false;
-    private float oscillateTimer = 0.0f;
-    private float oscillateTime;
-
-    private Vector3 pos;
-
-    void Start()
+    public class CollectibleAnimator : MonoBehaviour
     {
-        yMin = transform.position.y - 0.5f * yOscillateMagnitude;
-        yMax = transform.position.y + 0.5f * yOscillateMagnitude;
+        public float ySpinSpeed = 0.0f;
+        public float yOscillateSpeed = 0.0f;
+        public float yOscillateMagnitude = 0.0f;
+        public AnimationCurve yOscillateCurve;
 
-        oscillateTime = 1.0f / yOscillateSpeed;
-        pos = transform.position;
-    }
+        private float yMin, yMax;
+        private bool reverse = false;
+        private float oscillateTimer = 0.0f;
+        private float oscillateTime;
 
-    void Update()
-    {
-        oscillateTimer += Time.deltaTime;
+        private Vector3 pos;
 
-        while(oscillateTimer > oscillateTime)
+        void Start()
         {
-            reverse = !reverse;
-            oscillateTimer -= oscillateTime;
+            yMin = transform.position.y - 0.5f * yOscillateMagnitude;
+            yMax = transform.position.y + 0.5f * yOscillateMagnitude;
+
+            oscillateTime = 1.0f / yOscillateSpeed;
+            pos = transform.position;
         }
 
-        pos.y = Mathf.Lerp(
-            (reverse) ? yMax : yMin,
-            (reverse) ? yMin : yMax,
-            yOscillateCurve.Evaluate(oscillateTimer / oscillateTime));
+        void Update()
+        {
+            oscillateTimer += Time.deltaTime;
 
-        transform.position = pos;
+            while (oscillateTimer > oscillateTime)
+            {
+                reverse = !reverse;
+                oscillateTimer -= oscillateTime;
+            }
 
-        transform.Rotate(Vector3.up, ySpinSpeed * Time.deltaTime, Space.World);  
+            pos.y = Mathf.Lerp(
+                (reverse) ? yMax : yMin,
+                (reverse) ? yMin : yMax,
+                yOscillateCurve.Evaluate(oscillateTimer / oscillateTime));
+
+            transform.position = pos;
+
+            transform.Rotate(Vector3.up, ySpinSpeed * Time.deltaTime, Space.World);
+        }
     }
+
 }

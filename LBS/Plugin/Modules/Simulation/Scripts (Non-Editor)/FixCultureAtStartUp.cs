@@ -4,12 +4,16 @@ using System.Globalization;
 using UnityEditor;
 using UnityEngine;
 
-[InitializeOnLoad]
-public static class FixCultureAtStartUp
+namespace ISILab.LBS.Plugin.Modules.Simulation
 {
-    static FixCultureAtStartUp()
+    [InitializeOnLoad]
+    public static class FixCultureAtStartUp
     {
-        // Busca arreglar problemas de parseo, como floats usando coma en vez de punto.
-        CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+        static FixCultureAtStartUp()
+        {
+            // Busca arreglar problemas de parseo, como floats usando coma en vez de punto.
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+        }
     }
 }
+

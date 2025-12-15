@@ -1,178 +1,182 @@
-﻿using System.Collections;
+﻿using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
+using PathOS;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 /*
 OGLogManager.cs
 OGLogManager (c) Ominous Games 2018 Atiya Nova 2021
 */
-
-public class OGLogManager : OGSingleton<OGLogManager> 
+namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
 {
-    //Editor flags for manipulation during batching.
-    public const string directoryOverrideId = "OGLogDirectoryOverride";
-    public const string overrideFlagId = "OGLogOverrideFlag";
-    public const string fileIndexId = "OGLogFileIndex";
-
-    //Whether logging should be enabled.
-    public bool enableLogging = false;
-    
-    //Specify directory/filename.
-    public string logDirectory = "--";
-    public string logFilePrefix = "agent";
-
-    //Sample rate (for position/orientation data).
-    [Range(0.1f, 60.0f)]
-    [Tooltip("How often position/orientation should be recorded (per second)")]
-    public float sampleRate = 2.0f;
-    public float sampleTime { get; set; }
-
-    private List<GameObject> logObjects = new List<GameObject>();
-    private Dictionary<int, OGLogger> loggers = new Dictionary<int, OGLogger>();
-
-    public enum LogItemType
+    public class OGLogManager : OGSingleton<OGLogManager>
     {
-        POSITION = 0,
-        INTERACTION,
-        HEADER
-    };
+        //Editor flags for manipulation during batching.
+        public const string directoryOverrideId = "OGLogDirectoryOverride";
+        public const string overrideFlagId = "OGLogOverrideFlag";
+        public const string fileIndexId = "OGLogFileIndex";
 
-    //Queried by loggers for timestamps.
-    public float gameTimer { get; set; }
+        //Whether logging should be enabled.
+        public bool enableLogging = false;
 
-    private void Awake()
-	{
+        //Specify directory/filename.
+        public string logDirectory = "--";
+        public string logFilePrefix = "agent";
 
-        if(!LogDirectoryValid())
+        //Sample rate (for position/orientation data).
+        [Range(0.1f, 60.0f)]
+        [Tooltip("How often position/orientation should be recorded (per second)")]
+        public float sampleRate = 2.0f;
+        public float sampleTime { get; set; }
+
+        private List<GameObject> logObjects = new List<GameObject>();
+        private Dictionary<int, OGLogger> loggers = new Dictionary<int, OGLogger>();
+
+        public enum LogItemType
         {
-            // GABO: LogError commented out due to possibility of not wanting logs
-            //Debug.LogError("Log manager has no valid directory set! Logs will not " +
-            //    "be recorded.\n Log manager needs a directory on this computer " +
-            //    "outside of the Assets folder.");
+            POSITION = 0,
+            INTERACTION,
+            HEADER
+        };
 
-            return;
-        }
+        //Queried by loggers for timestamps.
+        public float gameTimer { get; set; }
 
-        //This might cause bugs! Look into it!
-        if (!enableLogging) return;
-
-        bool forceDirectoryOverride = PlayerPrefs.GetInt(overrideFlagId) != 0;
-
-        if(forceDirectoryOverride)
+        private void Awake()
         {
-            logDirectory += "/" + PlayerPrefs.GetString(directoryOverrideId) + "/";
 
-            if (!Directory.Exists(logDirectory))
-                Directory.CreateDirectory(logDirectory);
-        }
-        else
-        {
-            //Create a unique folder inside the logging directory
-            //with the current timestamp.
-            logDirectory += "/" + PathOS.UI.GetFormattedTimestamp() + "/";
-
-            if (!Directory.Exists(logDirectory))
-                Directory.CreateDirectory(logDirectory);
-            else
+            if (!LogDirectoryValid())
             {
-                Debug.LogWarning("A log folder with this timestamp " +
-                    "already exists in the specified directory! Logs will " +
-                    "not be written.");
+                // GABO: LogError commented out due to possibility of not wanting logs
+                //Debug.LogError("Log manager has no valid directory set! Logs will not " +
+                //    "be recorded.\n Log manager needs a directory on this computer " +
+                //    "outside of the Assets folder.");
 
                 return;
             }
-        }
-        
-        foreach(PathOSAgent agent in FindObjectsOfType<PathOSAgent>())
-        {
-            logObjects.Add(agent.gameObject);
-        }
 
-        //Calculate the sampling time for our logger.
-        sampleTime = 1.0f / sampleRate;
+            //This might cause bugs! Look into it!
+            if (!enableLogging) return;
 
-        //File index for numbering logs.
-        int fileIndex = (forceDirectoryOverride) ? 
-            PlayerPrefs.GetInt(fileIndexId, 0) : 0;
+            bool forceDirectoryOverride = PlayerPrefs.GetInt(overrideFlagId) != 0;
 
-        //Create loggers for each of the needed objects.
-        for (int i = logObjects.Count - 1; i >= 0; --i)
-        {
-            if(null == logObjects[i])
+            if (forceDirectoryOverride)
             {
-                logObjects.RemoveAt(i);
-                continue;
+                logDirectory += "/" + PlayerPrefs.GetString(directoryOverrideId) + "/";
+
+                if (!Directory.Exists(logDirectory))
+                    Directory.CreateDirectory(logDirectory);
+            }
+            else
+            {
+                //Create a unique folder inside the logging directory
+                //with the current timestamp.
+                logDirectory += "/" + PathOS.UI.GetFormattedTimestamp() + "/";
+
+                if (!Directory.Exists(logDirectory))
+                    Directory.CreateDirectory(logDirectory);
+                else
+                {
+                    Debug.LogWarning("A log folder with this timestamp " +
+                        "already exists in the specified directory! Logs will " +
+                        "not be written.");
+
+                    return;
+                }
             }
 
-            OGLogger logger = logObjects[i].AddComponent<OGLogger>();
+            foreach (PathOSAgent agent in FindObjectsOfType<PathOSAgent>())
+            {
+                logObjects.Add(agent.gameObject);
+            }
 
-            string filename = logFilePrefix + "-" + fileIndex.ToString() + ".csv";
-            logger.InitStream(logDirectory + filename);
+            //Calculate the sampling time for our logger.
+            sampleTime = 1.0f / sampleRate;
 
-            logger.WriteHeader("SAMPLE," + sampleRate);
+            //File index for numbering logs.
+            int fileIndex = (forceDirectoryOverride) ?
+                PlayerPrefs.GetInt(fileIndexId, 0) : 0;
 
-            loggers.Add(logObjects[i].GetInstanceID(), logger);
+            //Create loggers for each of the needed objects.
+            for (int i = logObjects.Count - 1; i >= 0; --i)
+            {
+                if (null == logObjects[i])
+                {
+                    logObjects.RemoveAt(i);
+                    continue;
+                }
 
-            ++fileIndex;
+                OGLogger logger = logObjects[i].AddComponent<OGLogger>();
+
+                string filename = logFilePrefix + "-" + fileIndex.ToString() + ".csv";
+                logger.InitStream(logDirectory + filename);
+
+                logger.WriteHeader("SAMPLE," + sampleRate);
+
+                loggers.Add(logObjects[i].GetInstanceID(), logger);
+
+                ++fileIndex;
+            }
+
+            PlayerPrefs.SetInt(fileIndexId, fileIndex);
+            PlayerPrefs.Save();
+
+            gameTimer = 0.0f;
         }
 
-        PlayerPrefs.SetInt(fileIndexId, fileIndex);
-        PlayerPrefs.Save();
-
-        gameTimer = 0.0f;
-	}
-
-    private void Update()
-    {
-        gameTimer += Time.deltaTime;
-    }
-
-    public bool LogDirectoryValid()
-    {
-        return Directory.Exists(logDirectory)
-            && !logDirectory.StartsWith(Application.dataPath);
-    }
-
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.SetInt(overrideFlagId, 0);
-
-        if(loggers.Count > 0 && enableLogging)
-            print("Wrote agent logs to " + logDirectory);
-
-        //Clean up after ourselves.
-        foreach (KeyValuePair<int, OGLogger> logPair in loggers)
+        private void Update()
         {
-            logPair.Value.DisposeStream();
+            gameTimer += Time.deltaTime;
         }
 
-        loggers.Clear();
-    }
-
-    //Hook for writing headers/metadata.
-    public void WriteHeader(GameObject caller, string header)
-    {
-        if(enableLogging)
+        public bool LogDirectoryValid()
         {
-            int instanceID = caller.GetInstanceID();
-
-            if (loggers.ContainsKey(instanceID))
-                loggers[instanceID].WriteHeader(header);
+            return Directory.Exists(logDirectory)
+                && !logDirectory.StartsWith(Application.dataPath);
         }
-    }
 
-    //Hook for interaction/visiting objects.
-    public void FireInteractionEvent(GameObject caller, GameObject interacted)
-    {
-        if(enableLogging)
+        private void OnApplicationQuit()
         {
-            int instanceID = caller.GetInstanceID();
+            PlayerPrefs.SetInt(overrideFlagId, 0);
 
-            if (loggers.ContainsKey(instanceID))
-                loggers[instanceID].LogInteraction(interacted.name, interacted.transform);
+            if (loggers.Count > 0 && enableLogging)
+                print("Wrote agent logs to " + logDirectory);
+
+            //Clean up after ourselves.
+            foreach (KeyValuePair<int, OGLogger> logPair in loggers)
+            {
+                logPair.Value.DisposeStream();
+            }
+
+            loggers.Clear();
+        }
+
+        //Hook for writing headers/metadata.
+        public void WriteHeader(GameObject caller, string header)
+        {
+            if (enableLogging)
+            {
+                int instanceID = caller.GetInstanceID();
+
+                if (loggers.ContainsKey(instanceID))
+                    loggers[instanceID].WriteHeader(header);
+            }
+        }
+
+        //Hook for interaction/visiting objects.
+        public void FireInteractionEvent(GameObject caller, GameObject interacted)
+        {
+            if (enableLogging)
+            {
+                int instanceID = caller.GetInstanceID();
+
+                if (loggers.ContainsKey(instanceID))
+                    loggers[instanceID].LogInteraction(interacted.name, interacted.transform);
+            }
         }
     }
 }
+

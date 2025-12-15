@@ -12,6 +12,7 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators;
+using PathOS;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;

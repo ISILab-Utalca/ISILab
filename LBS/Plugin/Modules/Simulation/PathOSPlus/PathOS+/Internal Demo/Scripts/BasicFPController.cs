@@ -9,73 +9,76 @@ BasicFPController (c) Nine Penguins (Samantha Stahlke) 2019
 Simple camera and character controller for PathOS user demo.
 */
 
-public class BasicFPController : MonoBehaviour
+namespace PathOS
 {
-    public Camera cam;
-    public bool invertY = true;
-    public float speed = 8.0f;
-    public float minPitch = -30.0f;
-    public float maxPitch = 20.0f;
-    public float camSpeed = 3.5f;
-
-    private float yFac = 1.0f;
-    private float pitch = 0.0f;
-    private bool cursorLocked = false;
-
-    void Start()
+    public class BasicFPController : MonoBehaviour
     {
-        yFac = (invertY) ? -1.0f : 1.0f;
-        ToggleCursor();
-    }
+        public Camera cam;
+        public bool invertY = true;
+        public float speed = 8.0f;
+        public float minPitch = -30.0f;
+        public float maxPitch = 20.0f;
+        public float camSpeed = 3.5f;
 
-    void Update()
-    {
-        Vector3 forward = transform.forward;
-        forward.y = 0.0f;
-        forward.Normalize();
+        private float yFac = 1.0f;
+        private float pitch = 0.0f;
+        private bool cursorLocked = false;
 
-        Vector3 right = transform.right;
-        right.y = 0.0f;
-        right.Normalize();
-
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        input.Normalize();
-
-        transform.position += input.z * forward * speed * Time.deltaTime;
-        transform.position += input.x * right * speed * Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            ToggleCursor();
-
-        //Only control the camera if the user has locked the cursor.
-        if (cursorLocked)
+        void Start()
         {
-            Vector3 mouse = new Vector3(Input.GetAxis("Mouse X"),
-            yFac * Input.GetAxis("Mouse Y"), 0.0f);
-
-            mouse.Normalize();
-
-            transform.Rotate(Vector3.up, mouse.x * camSpeed);
-            pitch += mouse.y * camSpeed;
-
-            if (pitch < minPitch)
-                pitch = minPitch;
-
-            else if (pitch > maxPitch)
-                pitch = maxPitch;
-
-            Vector3 euler = Vector3.zero;
-            euler.x = pitch;
-            cam.transform.localEulerAngles = euler;
+            yFac = (invertY) ? -1.0f : 1.0f;
+            ToggleCursor();
         }
-        
-    }
 
-    void ToggleCursor()
-    {
-        cursorLocked = !cursorLocked;
+        void Update()
+        {
+            Vector3 forward = transform.forward;
+            forward.y = 0.0f;
+            forward.Normalize();
 
-        Cursor.visible = !cursorLocked;
-        Cursor.lockState = (cursorLocked) ? CursorLockMode.Locked : CursorLockMode.None;
+            Vector3 right = transform.right;
+            right.y = 0.0f;
+            right.Normalize();
+
+            Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            input.Normalize();
+
+            transform.position += input.z * forward * speed * Time.deltaTime;
+            transform.position += input.x * right * speed * Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+                ToggleCursor();
+
+            //Only control the camera if the user has locked the cursor.
+            if (cursorLocked)
+            {
+                Vector3 mouse = new Vector3(Input.GetAxis("Mouse X"),
+                yFac * Input.GetAxis("Mouse Y"), 0.0f);
+
+                mouse.Normalize();
+
+                transform.Rotate(Vector3.up, mouse.x * camSpeed);
+                pitch += mouse.y * camSpeed;
+
+                if (pitch < minPitch)
+                    pitch = minPitch;
+
+                else if (pitch > maxPitch)
+                    pitch = maxPitch;
+
+                Vector3 euler = Vector3.zero;
+                euler.x = pitch;
+                cam.transform.localEulerAngles = euler;
+            }
+
+        }
+
+        void ToggleCursor()
+        {
+            cursorLocked = !cursorLocked;
+
+            Cursor.visible = !cursorLocked;
+            Cursor.lockState = (cursorLocked) ? CursorLockMode.Locked : CursorLockMode.None;
+        }
     }
 }
