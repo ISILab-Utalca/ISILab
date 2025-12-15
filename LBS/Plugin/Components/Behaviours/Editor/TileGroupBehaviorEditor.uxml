@@ -12,7 +12,7 @@
                 <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" header-title="Patrol Points" show-add-remove-footer="true" show-foldout-header="true" reorderable="true" show-border="true" />
             </ui:VisualElement>
             <ui:VisualElement name="Triggers" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomListView name="AddonsView" show-foldout-header="true" reorderable="false" show-add-remove-footer="true" header-title="Triggers" horizontal-scrolling="false" show-border="true" />
+                <ISILab.LBS.CustomComponents.LBSCustomListView name="AddonsView" show-foldout-header="true" reorderable="false" show-add-remove-footer="true" header-title="Triggers" horizontal-scrolling="false" show-border="true" virtualization-method="DynamicHeight" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

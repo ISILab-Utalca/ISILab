@@ -39,7 +39,7 @@ namespace ISILab.LBS.VisualElements
             _pickerBundleGiveTarget.ClearPicker();
             _pickerBundleGiveTarget.OnClicked += () =>
             {
-                AssignPickerData().OnBundlePicked = (layer,tilebundle) =>
+                AssignPickerData().OnBundlePicked = (layer, tilebundle) =>
                 {
                     NodeData.bundleGive = new BundleType(layer, tilebundle);
                     _pickerBundleGiveTarget.SetEditorLayerTarget(NodeData.bundleGive);
@@ -54,7 +54,7 @@ namespace ISILab.LBS.VisualElements
                 AssignPickerData().OnBundlePicked = (layer, tilebundle) =>
                 {
                     NodeData.bundleGiveTo = new BundleGraph(NodeData, layer, tilebundle);
-                    if(layer!=null)  _pickerBundleGiveReceiver.SetEditorLayerTarget(NodeData.bundleGiveTo);
+                    if (layer != null) _pickerBundleGiveReceiver.SetEditorLayerTarget(NodeData.bundleGiveTo);
                 };
             };
             _pickerBundleGiveReceiver.SetEditorLayerTarget(NodeData.bundleGiveTo);

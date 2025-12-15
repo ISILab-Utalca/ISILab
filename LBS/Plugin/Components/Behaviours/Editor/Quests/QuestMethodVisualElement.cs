@@ -5,6 +5,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Plugin.Components.Data;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -27,8 +28,8 @@ namespace ISILab.LBS.VisualElements
             {
                 // during generation we must check that this event is still valid scene wise
                 UnityActionStored entryKey = new(methodInfo);
-                if(actionData.RegisteredActions.Contains(entryKey)) return;
-                actionData.RegisteredActions.Add(entryKey);
+                if(actionData.EventHooker.RegisteredActions.Contains(entryKey)) return;
+                actionData.EventHooker.RegisteredActions.Add(entryKey);
 
             };
         }
@@ -40,14 +41,14 @@ namespace ISILab.LBS.VisualElements
             _button.clicked += () =>
             {
                 UnityActionStored entryKey = new(methodInfo);
-                foreach (UnityActionStored t in actionData.RegisteredActions.ToList())
+                foreach (UnityActionStored t in actionData.EventHooker.RegisteredActions.ToList())
                 {
                     UnityActionStored entry = t;
                     if (entry.componentName == comp.GetType().Name &&
                         entry.methodName == method.Name &&
                         entry.objectName == target.name)
                     {
-                        actionData.RegisteredActions.Remove(entryKey);
+                        actionData.EventHooker.RegisteredActions.Remove(entryKey);
                     }
                 }
             };

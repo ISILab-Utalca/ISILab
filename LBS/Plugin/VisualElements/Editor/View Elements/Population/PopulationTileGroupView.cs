@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
+using ISILab.LBS.Components;
 
 namespace ISILab.LBS.VisualElements
 {
     public class PopulationTileGroupView : GraphElement
     {
-        
+
         #region STATIC
         private static VisualTreeAsset view;
         #endregion
@@ -46,7 +47,8 @@ namespace ISILab.LBS.VisualElements
 
         static public void UpdateVisuals(TileBundleGroup tile)
         {
-            if (_patrolIcon is null || _triggerIcon is null) 
+
+            if (_patrolIcon is null || _triggerIcon is null)
             {
                 return;
             }
@@ -58,17 +60,16 @@ namespace ISILab.LBS.VisualElements
             BundleTileMapAddons addons = tile.Addons;
             if (addons is null) return;
 
-            if(addons.trigger.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
+            if (addons.triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
             if (addons.patrol.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
 
-            
         }
 
         #endregion
 
 
         #region VISUAL CONTROL
-      
+
 
         public void SetPivot(Vector2 pivot)
         {

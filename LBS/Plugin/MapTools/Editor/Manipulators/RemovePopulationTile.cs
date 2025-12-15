@@ -159,7 +159,7 @@ namespace ISILab.LBS.Manipulators
                     if (lastPos.y < 0) lastPos.y += 99;
             
                     pf.ValidForInput(true);
-                    pf.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
+                    pf.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
                     previews.Add(pf);
                 
                 }

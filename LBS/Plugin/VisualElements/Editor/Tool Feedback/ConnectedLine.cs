@@ -25,7 +25,7 @@ namespace ISILab.LBS.VisualElements
             painter.DrawCircle(endPosition, 16, currentColor);
         }
 
-        public override void ActualizePositions(Vector2Int p1, Vector2Int p2)
+        public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
         {
             startPosition = p1;
             endPosition = p2;
@@ -52,7 +52,7 @@ namespace ISILab.LBS.VisualElements
 
         public bool useVertices = false;
 
-        public override void ActualizePositions(Vector2Int p1, Vector2Int p2)
+        public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
         {
             startPosition = p1;
             endPosition = p2;
@@ -69,7 +69,7 @@ namespace ISILab.LBS.VisualElements
                 startPosition = CalcFixTeselation(startPosition + offset);
                 endPosition = CalcFixTeselation(endPosition + offset);
                 cornerPoint = CalcFixTeselation(cornerPoint + offset);
-                                                                    
+
                 startPosition = (startPosition * TeselationSize) + TeselationSize.Multiply(0.5f) - offset;
                 endPosition = (endPosition * TeselationSize) + TeselationSize.Multiply(0.5f) - offset;
                 cornerPoint = (cornerPoint * TeselationSize) + TeselationSize.Multiply(0.5f) - offset;

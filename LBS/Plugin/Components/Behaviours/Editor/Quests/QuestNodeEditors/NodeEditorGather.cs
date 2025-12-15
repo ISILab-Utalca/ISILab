@@ -23,7 +23,7 @@ namespace ISILab.LBS.VisualElements
                 );
 
             _gatherAmount = this.Q<LBSCustomUnsignedIntegerField>("GatherAmount");
-            
+
             _gatherAmount.RegisterValueChangedCallback(evt =>
             {
                 _gatherAmount.SetValueWithoutNotify((uint)evt.newValue);

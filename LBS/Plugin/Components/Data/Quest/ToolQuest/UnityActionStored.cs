@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ISILab.LBS.Components
+namespace ISILab.LBS.Plugin.Components.Data
 {
     /// <summary>
     /// Meant to store necessary data to create Unity Actions.
@@ -27,13 +27,13 @@ namespace ISILab.LBS.Components
             foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())
             {
                 if (comp == null || comp.GetType().Name != componentName) continue;
-                
+
                 var methods = comp.GetType().GetMethods(
                     BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
 
                 foreach (MethodInfo method in methods)
                 {
-                    if(method.Name != methodName) continue;
+                    if (method.Name != methodName) continue;
                     // Must be public void
                     if (method.ReturnType != typeof(void)) continue;
                     if (method.GetParameters().Length != 0) continue;
@@ -46,16 +46,16 @@ namespace ISILab.LBS.Components
             return null;
         }
 
-        
+
         public UnityActionStored((GameObject, Component, MethodInfo) actionInfo)
         {
             (GameObject target, Component comp, MethodInfo method) = actionInfo;
-            
+
             objectName = target.name;
             componentName = comp.GetType().Name;
             methodName = method.Name;
         }
-        
+
         public bool Equals(UnityActionStored other)
         {
             return objectName == other.objectName && componentName == other.componentName && methodName == other.methodName;

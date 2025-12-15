@@ -5,6 +5,7 @@ using ISILab.Commons.Extensions;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -460,7 +461,9 @@ namespace ISILab.LBS.Modules
         //Returns bundle size
         public Vector2Int GetBundleSize()
         {
-            if(bData.Bundle==null && bData.Characteristics.Any())
+            if (bData is null || bData.Bundle is null) return Vector2Int.zero;
+
+            if (bData.Bundle==null && bData.Characteristics.Any())
             {
                 if (bData.Characteristics[0]?.Owner==null)
                 {
@@ -469,6 +472,7 @@ namespace ISILab.LBS.Modules
                 }
                 return bData.Characteristics[0].Owner.TileSize;
             }
+
             return bData.Bundle.TileSize;
         }
 

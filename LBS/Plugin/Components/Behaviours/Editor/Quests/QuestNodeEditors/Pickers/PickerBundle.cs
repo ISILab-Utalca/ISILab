@@ -3,9 +3,11 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.VisualElements;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
@@ -22,7 +24,7 @@ namespace ISILab.LBS.VisualElements
         private readonly VisualElement _layerDisplay;
         private readonly VisualElement _positionDisplay;
         private readonly Vector2IntField _position;
-        
+
         public Action OnClicked;
         private readonly Action<Bundle> _onBundleChanged = null;
 
@@ -69,13 +71,13 @@ namespace ISILab.LBS.VisualElements
 
             _warning = this.Q<VisualElement>("Warning");
             _warning.tooltip = "Data Information Missing. Correct nulls and non-assigned values";
-            
-            
+
+
             _labelLayer = this.Q<TextField>("Layer");
             _layerDisplay = this.Q<VisualElement>("LayerDisplay");
             _position = this.Q<Vector2IntField>("Position");
             _positionDisplay = this.Q<VisualElement>("HorizontalPosition");
-            
+
             DefaultValues();
         }
 
@@ -109,10 +111,10 @@ namespace ISILab.LBS.VisualElements
 
             _objectFieldBundle.labelElement.text = paramLabel + suffix;
             _objectFieldBundle.SetEnabled(!graphOnly);
-            
+
             _layerDisplay.style.display = graphOnly ? DisplayStyle.Flex : DisplayStyle.None;
             _positionDisplay.style.display = graphOnly ? DisplayStyle.Flex : DisplayStyle.None;
-            
+
             tooltip = paramTooltip;
         }
 
@@ -133,30 +135,30 @@ namespace ISILab.LBS.VisualElements
             {
                 DefaultValues();
             }
-            
+
             // display danger if invalid
             _warning.style.display = layerTarget.Valid() ? DisplayStyle.None : DisplayStyle.Flex;
-            
+
             _layerDisplay.style.display = DisplayStyle.None;
             if (layerTarget is not BundleGraph bg) return;
-            
-            
+
+
             var layer = layerTarget.GetLayer();
-            if(layer != null)
+            if (layer != null)
             {
                 _layerDisplay.style.display = DisplayStyle.Flex;
                 _labelLayer.value = layer.Name;
                 _position.value = bg.Position;
-                
+
                 layer.OnChangeName += () =>
                 {
                     _labelLayer.value = layer.Name;
                     _position.value = bg.Position;
                 };
-                
-            
+
+
             }
-  
+
         }
 
         private void DefaultValues()
@@ -176,6 +178,6 @@ namespace ISILab.LBS.VisualElements
 
         #endregion
 
-        
+
     }
 }

@@ -9,6 +9,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Components.Data;
 using LBS;
 using LBS.VisualElements;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace ISILab.LBS.VisualElements
     {
         #region FIELDS
         private QuestNodeBehaviour _behaviour;
-        
+
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
         
@@ -42,7 +43,7 @@ namespace ISILab.LBS.VisualElements
             { typeof(DataListen), typeof(NodeEditorListen) }
         };
         
-        private readonly List<(GameObject, Component, MethodInfo)> _availableMethods = new();
+
         #endregion
         
         #region VIEW FIELDS
@@ -66,13 +67,10 @@ namespace ISILab.LBS.VisualElements
         private PickerVector2Int _targetPosition;
         private RectField _area;
         private VisualElement _selectedNodePanel;
-        private LBSCustomObjectField _gameObjectSelector;
-        private IMGUIContainer _imguiContainer;
-        
-        private ListView _selectedMethodsList;
-        private ListView _availableMethodsList;
-        private VisualElement _onEventCompleteVe;
 
+        private VisualElement _onEventCompleteVe;
+        private LBSCustomEventHooker _hooker;
+ 
         #endregion
         
         #region CONSTRUCTORS
@@ -147,118 +145,25 @@ namespace ISILab.LBS.VisualElements
             _area.RegisterValueChangedCallback(evt => SetNodeDataArea(evt.newValue));
 
             _onEventCompleteVe = this.Q<VisualElement>("EventComplete");
-            _gameObjectSelector = this.Q<LBSCustomObjectField>("GameObjectSelector");
-            _gameObjectSelector.RegisterValueChangedCallback(evt =>
+            _hooker = this.Q<LBSCustomEventHooker>("EventHooker");
+          
+            _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
                 QuestActionData data = GetSelectedNodeData();
                 if (data is null) return;
-                data.Target = evt.newValue as GameObject;
-                RefreshMethodList();
+                _hooker.Hooker = data.EventHooker;
             });
-            _gameObjectSelector.allowSceneObjects = true;
-          
-            _availableMethodsList = this.Q<ListView>("AvailableMethodsList");
-            _selectedMethodsList = this.Q<ListView>("SelectedMethodsList");
-            
+            _hooker.Selector.allowSceneObjects = true;
+                     
             // No node when instanced
-            _noNodeSelectedPanel.style.display = DisplayStyle.Flex;    
-            
-            RefreshMethodList();
+            _noNodeSelectedPanel.style.display = DisplayStyle.Flex;
+
+            _hooker.RefreshMethodList();
             
             return this;
         }
         
-        private void RefreshMethodList()
-        {
-            List<(GameObject, Component, MethodInfo)> selectedMethods = new();
 
-            QuestActionData actionData = GetSelectedNodeData();
-            GameObject gameObject = actionData?.Target;
-
-            // reset on refresh
-            _availableMethodsList.itemsSource = null;
-            _selectedMethodsList.itemsSource = null;
-            _availableMethodsList.Rebuild();
-            _selectedMethodsList.Rebuild();
-            
-            if (!gameObject) return;
-            
-            #region Available Methods
-
-            _availableMethods.Clear();
-
-            foreach (MonoBehaviour comp in gameObject.GetComponents<MonoBehaviour>())
-            {
-                if (comp == null) continue;
-
-                foreach (MethodInfo method in comp.GetType().GetMethods(
-                             BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly))
-                {
-                    if (method.ReturnType == typeof(void) && !method.GetParameters().Any())
-                        _availableMethods.Add((gameObject, comp, method));
-                }
-            }
-
-            _availableMethodsList.itemsSource = _availableMethods;
-            _availableMethodsList.makeItem = () => new QuestMethodVisualElement();
-            _availableMethodsList.bindItem = (element, i) =>
-            {
-                GetRegisteredMethods(actionData, selectedMethods);
-
-                if (i < 0 || i >= _availableMethods.Count)
-                    return;
-
-                var availableMethod = _availableMethods[i];
-                QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
-
-                vm.SetEnabled(!selectedMethods.Contains(availableMethod));
-                vm.AddListener(availableMethod, actionData);
-                vm.Q<Button>().clicked += RefreshMethodList;
-            };
-
-            #endregion
-            
-            #region Selected Methods
-
-            selectedMethods.Clear();
-            GetRegisteredMethods(actionData, selectedMethods);
-
-            _selectedMethodsList.itemsSource = selectedMethods;
-            _selectedMethodsList.makeItem = () => new QuestMethodVisualElement();
-            _selectedMethodsList.bindItem = (element, i) =>
-            {
-                if (i < 0 || i >= selectedMethods.Count)
-                    return;
-
-                QuestMethodVisualElement vm = (QuestMethodVisualElement)element;
-                vm.RemoveListener(selectedMethods[i], actionData);
-                vm.Q<Button>().clicked += RefreshMethodList;
-            };
-
-            #endregion
-            
-            // rebuild both at the end
-            _availableMethodsList.Rebuild();
-            _selectedMethodsList.Rebuild();
-        }
-
-
-        private static void GetRegisteredMethods(QuestActionData actionData, List<(GameObject, Component, MethodInfo)> selectedMethods)
-        {
-            selectedMethods.Clear();
-            foreach (UnityActionStored entry in actionData.RegisteredActions)
-            {
-                GameObject go = actionData.Target;
-                if(go is null || go.name != entry.objectName) continue;
-                
-                foreach (MonoBehaviour comp in go.GetComponents<MonoBehaviour>())
-                {
-                    if (comp == null || comp.GetType().Name != entry.componentName) continue;
-                    MethodInfo method = comp.GetType().GetMethod(entry.methodName);
-                    selectedMethods.Add((go, comp, method));
-                }
-            }
-        }
 
         private QuestActionData GetSelectedNodeData()
         {
@@ -308,8 +213,8 @@ namespace ISILab.LBS.VisualElements
             _onEventCompleteVe.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             
             // on complete related
-            _gameObjectSelector.value = GetSelectedNodeData()?.Target;
-            RefreshMethodList();
+            _hooker.Hooker = (GetSelectedNodeData()?.EventHooker);
+    
                 
             _instancedContent.Clear();
             
@@ -335,6 +240,7 @@ namespace ISILab.LBS.VisualElements
             {
                 SetBaseDataValues(node.Data);
             }
+
         }
         
         private void SetBaseDataValues(QuestActionData data)

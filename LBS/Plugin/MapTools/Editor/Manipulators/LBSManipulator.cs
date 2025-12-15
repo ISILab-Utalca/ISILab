@@ -224,7 +224,7 @@ namespace ISILab.LBS.Manipulators
             
             UpdateFeedbackColor();
             MainView.Instance.AddElement(Feedback);
-            Feedback.ActualizePositions(_startClickPosition, _startClickPosition);
+            Feedback.UpdatePositions(_startClickPosition, _startClickPosition);
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace ISILab.LBS.Manipulators
             if (!_started) return;
 
             UpdateFeedbackColor();
-            Feedback.ActualizePositions(_startClickPosition, _moveClickPosition);
+            Feedback.UpdatePositions(_startClickPosition, _moveClickPosition);
         }
         
         /// <summary>

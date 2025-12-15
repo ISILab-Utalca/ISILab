@@ -38,7 +38,7 @@ namespace ISILab.LBS.VisualElements
                 tilePicker.OnClicked = () =>
                 {
                     var pickerManipulator = AssignPickerData();
-                    pickerManipulator.OnBundlePicked = (layer,tileBundle) =>
+                    pickerManipulator.OnBundlePicked = (layer, tileBundle) =>
                     {
                         bundleGraph = new BundleGraph(NodeData, layer, tileBundle);
                         tilePicker.SetEditorLayerTarget(bundleGraph);
@@ -50,15 +50,15 @@ namespace ISILab.LBS.VisualElements
             _killList.itemsRemoved += (_) =>
             {
                 _killList.Rebuild();
-                
+
                 // Delay Redraw because Unity reconstructs the list and it gets updated on the next tick
                 _killList.schedule.Execute(() =>
                 {
                     DrawManager.Instance.RedrawLayer(LBSMainWindow.Instance._selectedLayer);
-                }).ExecuteLater(1); 
-                
+                }).ExecuteLater(1);
+
             };
-            
+
             _killList.Rebuild();
         }
 

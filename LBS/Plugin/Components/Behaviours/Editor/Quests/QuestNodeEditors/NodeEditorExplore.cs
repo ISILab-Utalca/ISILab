@@ -30,16 +30,16 @@ namespace ISILab.LBS.VisualElements
         {
             if (data is not DataExplore de) return;
             _currentData = de;
-            
+
             // Unregister previous to avoid stacking calls
             if (_onToggleChanged != null)
                 _useRandomPoint.UnregisterValueChangedCallback(_onToggleChanged);
             if (_onSubareasChanged != null)
                 _subareas.UnregisterValueChangedCallback(_onSubareasChanged);
-            
+
             SetToggleCallback();
             SetSubareaCallback();
-            
+
             _useRandomPoint.SetValueWithoutNotify(_currentData.findRandomPosition);
             _subareas.SetValueWithoutNotify(_currentData.subdivisions);
 

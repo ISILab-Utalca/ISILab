@@ -21,7 +21,7 @@ namespace ISILab.LBS.VisualElements
 
             _pickerBundleGive = this.Q<PickerBundle>("ExchangeGiveTarget");
             _pickerBundleGive.SetInfo("Object to give", "The bundle type the player must give at the location.");
-            
+
             _pickerBundleReceive = this.Q<PickerBundle>("ExchangeReceiveTarget");
             _pickerBundleReceive.SetInfo("Object to receive", "The bundle type the player will receive.");
 
@@ -29,15 +29,15 @@ namespace ISILab.LBS.VisualElements
             _requiredAmount.RegisterValueChangedCallback(evt =>
             {
                 _requiredAmount.SetValueWithoutNotify(evt.newValue);
-                if(NodeData is not null) NodeData.requiredAmount = (int)evt.newValue;
+                if (NodeData is not null) NodeData.requiredAmount = (int)evt.newValue;
             });
-            
-            _receiveAmount =  this.Q<LBSCustomUnsignedIntegerField>("ExchangeReceiveAmount");
+
+            _receiveAmount = this.Q<LBSCustomUnsignedIntegerField>("ExchangeReceiveAmount");
             _receiveAmount.RegisterValueChangedCallback(evt =>
-                {
-                    _receiveAmount.SetValueWithoutNotify(evt.newValue);
-                    if(NodeData is not null) NodeData.receiveAmount = (int)evt.newValue;
-                });
+            {
+                _receiveAmount.SetValueWithoutNotify(evt.newValue);
+                if (NodeData is not null) NodeData.receiveAmount = (int)evt.newValue;
+            });
         }
 
         protected override void OnDataAssigned()
@@ -51,7 +51,7 @@ namespace ISILab.LBS.VisualElements
             _pickerBundleGive.ClearPicker();
             _pickerBundleGive.OnClicked += () =>
             {
-                AssignPickerData().OnBundlePicked = (layer,tileBundle) =>
+                AssignPickerData().OnBundlePicked = (layer, tileBundle) =>
                 {
                     NodeData.bundleGiveType = new BundleType(layer, tileBundle);
                     _pickerBundleGive.SetEditorLayerTarget(NodeData.bundleGiveType);
@@ -63,14 +63,14 @@ namespace ISILab.LBS.VisualElements
             _pickerBundleReceive.ClearPicker();
             _pickerBundleReceive.OnClicked += () =>
             {
-                AssignPickerData().OnBundlePicked = (layer,tileBundle) =>
+                AssignPickerData().OnBundlePicked = (layer, tileBundle) =>
                 {
                     NodeData.bundleReceiveType = new BundleType(layer, tileBundle);
                     _pickerBundleReceive.SetEditorLayerTarget(NodeData.bundleReceiveType);
                 };
             };
             _pickerBundleReceive.SetEditorLayerTarget(NodeData.bundleReceiveType);
-            
+
             _requiredAmount.SetValueWithoutNotify((uint)NodeData.requiredAmount);
             _receiveAmount.SetValueWithoutNotify((uint)NodeData.receiveAmount);
         }

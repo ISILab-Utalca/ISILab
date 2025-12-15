@@ -41,7 +41,7 @@ namespace ISILab.LBS.Manipulators
             base.OnKeyDown(e);
             if (e.ctrlKey) LBSMainWindow.WarningManipulator("(CTRL) Dragging selected tile");
         }
-        
+
         protected override void OnKeyUp(KeyUpEvent e)
         {
             LBSMainWindow.WarningManipulator();
@@ -50,12 +50,12 @@ namespace ISILab.LBS.Manipulators
         public override void Init(LBSLayer layer, object provider = null)
         {
             base.Init(layer, provider);
-            
+
             _population = provider as PopulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
 
-            if(ToSet != null) 
+            if (ToSet != null)
                 (_previewFeedback as IconFeedback).Icon = ToSet.Icon;
 
             _tileMapBehavior = layer.GetBehaviour<TileGroupBehavior>();
@@ -129,15 +129,15 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
+
+            _population.OwnerLayer.OnChangeUpdate();
+            _tileMapBehavior.SelectedTilemap = newTileGroup;
+            LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
+
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(level);
             }
-
-            _tileMapBehavior.SelectedTilemap = newTileGroup;
-            _population.OwnerLayer.OnChangeUpdate();
-
-            LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -163,17 +163,17 @@ namespace ISILab.LBS.Manipulators
 
             var topLeftCorner = _population.OwnerLayer.ToFixedPosition(endPosition);
             var bottomRightCorner = topLeftCorner;
-            
+
             // Set corner by tile size
             Vector2Int offset = Vector2Int.zero;
-            
-            if(ToSet.TileSize.x > 1) offset.x += ToSet.TileSize.x - 1;
-            if(ToSet.TileSize.y > 1) offset.y -= ToSet.TileSize.y - 1;
+
+            if (ToSet.TileSize.x > 1) offset.x += ToSet.TileSize.x - 1;
+            if (ToSet.TileSize.y > 1) offset.y -= ToSet.TileSize.y - 1;
 
             // grid to local position
             var firstPos = _population.OwnerLayer.FixedToPosition(topLeftCorner, true);
             var lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner + offset, true);
- 
+
             /* negative numbers in the FixedToPosition get clamped on negatives, jumping to the next lowest value.
              example: coordinate -100 instead draws on -200
              */
@@ -181,8 +181,8 @@ namespace ISILab.LBS.Manipulators
             if (lastPos.x < 0) lastPos.x += 99;
             if (firstPos.y < 0) firstPos.y += 99;
             if (lastPos.y < 0) lastPos.y += 99;
-            
-           _previewFeedback.ActualizePositions(firstPos.ToInt(), lastPos.ToInt());
+
+            _previewFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
             MainView.Instance.AddElement(_previewFeedback);
 
             var _selectedTile = _tileMapBehavior.SelectedTilemap;
@@ -191,19 +191,19 @@ namespace ISILab.LBS.Manipulators
             if (e.ctrlKey && _selectedTile != null)
             {
                 // undo the negative of topLeftCorner
-                valid = _population.ValidMoveGroup(topLeftCorner, _selectedTile); 
+                valid = _population.ValidMoveGroup(topLeftCorner, _selectedTile);
             }
             // adding feedback
             else
             {
                 // undo the negative of topLeftCorner
-                valid = _population.ValidNewGroup(topLeftCorner, ToSet); 
+                valid = _population.ValidNewGroup(topLeftCorner, ToSet);
             }
 
             _previewFeedback.ValidForInput(valid);
-          
-            
-            
+
+
+
         }
     }
 }

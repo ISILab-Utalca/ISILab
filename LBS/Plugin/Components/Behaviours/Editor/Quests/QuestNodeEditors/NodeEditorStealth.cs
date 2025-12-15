@@ -49,12 +49,12 @@ namespace ISILab.LBS.VisualElements
             _observerList.itemsRemoved += (_) =>
             {
                 _observerList.Rebuild();
-                
+
                 // Delay Redraw because Unity reconstructs the list and it gets updated on the next tick
                 _observerList.schedule.Execute(() =>
                 {
                     DrawManager.Instance.RedrawLayer(LBSMainWindow.Instance._selectedLayer);
-                }).ExecuteLater(1); 
+                }).ExecuteLater(1);
             };
 
             _observerList.Rebuild();
@@ -82,10 +82,11 @@ namespace ISILab.LBS.VisualElements
                 pickerManipulator.OnBundlePicked = (layer, tileBundle) =>
                 {
                     bundleGraph = new BundleGraph(NodeData, layer, tileBundle);
-                    if(layer!=null) tilePicker.SetEditorLayerTarget(bundleGraph);
+                    if (layer != null) tilePicker.SetEditorLayerTarget(bundleGraph);
                     NodeData.bundlesObservers[index] = bundleGraph;
                 };
             };
         }
     }
 }
+

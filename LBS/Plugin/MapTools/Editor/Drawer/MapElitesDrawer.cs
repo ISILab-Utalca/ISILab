@@ -34,7 +34,7 @@ namespace ISILab.LBS.Drawers
             view.ClearLayerComponentView(assistant.OwnerLayer, this);
 
             _dotArea.SetPosition(Rect.zero);
-            _dotArea.ActualizePositions(start.ToInt(), end.ToInt());
+            _dotArea.UpdatePositions(start.ToInt(), end.ToInt());
             _dotArea.SetColor(LBSSettings.Instance.view.errorColor);
             _dotArea.layer = assistant.OwnerLayer.index;
 

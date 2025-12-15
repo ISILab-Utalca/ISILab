@@ -17,7 +17,7 @@ namespace ISILab.LBS.VisualElements
         /// <param name="button"></param>
         protected void ActivateButton(Button button)
         {
-            if(_activeButton is not null) 
+            if (_activeButton is not null)
             {
                 _activeButton.style.backgroundColor = _color; // deactivate previous
             }
