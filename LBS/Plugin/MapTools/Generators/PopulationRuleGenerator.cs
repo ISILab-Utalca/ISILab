@@ -17,6 +17,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     [Serializable]
     public class PopulationRuleGenerator : LBSGeneratorRule // FIX: Change to a better name
     {
+        public PopulationRuleGenerator() : base() { }
+        // For template construction
+        public PopulationRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
+
         public override List<Message> CheckViability(LBSLayer layer)
         {
             throw new NotImplementedException(); // TODO: Implement CheckViability method

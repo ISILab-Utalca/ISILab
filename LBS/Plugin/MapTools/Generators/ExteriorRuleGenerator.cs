@@ -15,8 +15,13 @@ using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
-    public class ExteriorRuleGenerator : LBSGeneratorRule 
+    public class ExteriorRuleGenerator : LBSGeneratorRule
     {
+        public ExteriorRuleGenerator() : base() { }
+        // For template construction
+        public ExteriorRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
+
+
         private Tuple<LBSDirection, int> GetBundle(LBSDirectionedGroup group, string[] conections)
         {
             // Get connections

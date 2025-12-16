@@ -21,13 +21,13 @@ MonoBehaviour:
     id: Simulation
     name: Layer Simulation
     modules:
-    - rid: 1134172181454913763
+    - rid: 7236886957738688594
     behaviours:
-    - rid: 1134172181454913764
+    - rid: 7236886957738688595
     assistants:
-    - rid: 7236886929103650895
+    - rid: 7236886957738688596
     generatorRules:
-    - rid: 1134172181454913766
+    - rid: 7236886957738688597
     settings:
       useBundleSize: 0
       lightVolume: 0
@@ -36,32 +36,30 @@ MonoBehaviour:
       resize: {x: 0, y: 0}
       position: {x: 0, y: 0, z: 0}
       replacePrevious: 1
-      name: Testing
+      name: Simulation
       rootParentName: Root_Parent
     index: 0
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 1134172181454913763
-      type: {class: PathOSModule, ns: ISILab.LBS.Modules, asm: LBS}
+    - rid: 7236886957738688594
+      type: {class: PathOSModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: PathOSModule
         ownerLayer:
           visible: 1
           blocked: 0
-          iconGuid: Assets/ISI Lab/LBS/GABO/Resources/Icons/TinyIconPathOSModule16x16.png
-          id: Testing
-          name: Layer Testing
+          iconGuid: 13f64883312513a41adeb7dec75a3a5f
+          id: Simulation
+          name: Layer Simulation
           modules:
-          - rid: 1134172181454913763
+          - rid: 7236886957738688594
           behaviours:
-          - rid: 1134172181454913764
+          - rid: 7236886957738688595
           assistants:
-          - rid: 1134172181454913765
+          - rid: 7236886957738688596
           generatorRules:
-          - rid: 1134172181454913766
+          - rid: 7236886957738688597
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -70,28 +68,28 @@ MonoBehaviour:
             resize: {x: 0, y: 0}
             position: {x: 0, y: 0, z: 0}
             replacePrevious: 1
-            name: Testing
+            name: Simulation
             rootParentName: Root_Parent
           index: 0
         tiles: []
-    - rid: 1134172181454913764
+    - rid: 7236886957738688595
       type: {class: PathOSBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
         visible: 1
         ownerLayerLayer:
           visible: 1
           blocked: 0
-          iconGuid: Assets/ISI Lab/LBS/GABO/Resources/Icons/TinyIconPathOSModule16x16.png
-          id: Testing
-          name: Layer Testing
+          iconGuid: 13f64883312513a41adeb7dec75a3a5f
+          id: Simulation
+          name: Layer Simulation
           modules:
-          - rid: 1134172181454913763
+          - rid: 7236886957738688594
           behaviours:
-          - rid: 1134172181454913764
+          - rid: 7236886957738688595
           assistants:
-          - rid: 1134172181454913765
+          - rid: 7236886957738688596
           generatorRules:
-          - rid: 1134172181454913766
+          - rid: 7236886957738688597
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -100,53 +98,18 @@ MonoBehaviour:
             resize: {x: 0, y: 0}
             position: {x: 0, y: 0, z: 0}
             replacePrevious: 1
-            name: Testing
+            name: Simulation
             rootParentName: Root_Parent
           index: 0
-        colorTint: {r: 0.5294118, g: 0.84313726, b: 0.9647059, a: 1}
-        name: Simulation Layer's Palette
-        iconGuid: 
-        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
+        colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+        name: Simulation Behaviour
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 0}
         module:
-          rid: 1134172181454913763
+          rid: 7236886957738688594
         selectedToSet: {fileID: 0}
         pathOSBundles: []
-    - rid: 1134172181454913765
-      type: {class: TestingAssistant, ns: ISILab.LBS.Assistants, asm: LBS}
-      data:
-        visible: 1
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: Assets/ISI Lab/LBS/GABO/Resources/Icons/TinyIconPathOSModule16x16.png
-          id: Testing
-          name: Layer Testing
-          modules:
-          - rid: 1134172181454913763
-          behaviours:
-          - rid: 1134172181454913764
-          assistants:
-          - rid: 1134172181454913765
-          generatorRules:
-          - rid: 1134172181454913766
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: Testing
-            rootParentName: Root_Parent
-          index: 0
-        icon: {fileID: 7388822144124034973, guid: ad8feef201665454ca79e31b7d798ac3, type: 3}
-        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
-        name: Simulation Assistant
-    - rid: 1134172181454913766
-      type: {class: PathOSRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
-      data: 
-    - rid: 7236886929103650895
+    - rid: 7236886957738688596
       type: {class: TestingAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:
         visible: 1
@@ -157,13 +120,13 @@ MonoBehaviour:
           id: Simulation
           name: Layer Simulation
           modules:
-          - rid: 1134172181454913763
+          - rid: 7236886957738688594
           behaviours:
-          - rid: 1134172181454913764
+          - rid: 7236886957738688595
           assistants:
-          - rid: 7236886929103650895
+          - rid: 7236886957738688596
           generatorRules:
-          - rid: 1134172181454913766
+          - rid: 7236886957738688597
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -172,10 +135,13 @@ MonoBehaviour:
             resize: {x: 0, y: 0}
             position: {x: 0, y: 0, z: 0}
             replacePrevious: 1
-            name: Testing
+            name: Simulation
             rootParentName: Root_Parent
           index: 0
-        colorTint: {r: 0, g: 0, b: 0, a: 0}
-        name: TestingAssistant
+        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
+        name: Simulation Assistant
         iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 0}
+    - rid: 7236886957738688597
+      type: {class: PathOSRuleGenerator, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
+      data: 

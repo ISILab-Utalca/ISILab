@@ -48,6 +48,11 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         GameObject wallPrefab;
         #endregion
 
+        public PathOSRuleGenerator() : base() { }
+
+        // For template construction
+        public PathOSRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
+
         #region METHODS
         public override List<Message> CheckViability(LBSLayer layer)
         {

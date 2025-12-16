@@ -34,7 +34,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             remove => _onLayerRequired -= value;
         }
 
-        
+        public QuestRuleGenerator() : base() { }
+        // For template construction
+        public QuestRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
+
         public override List<Message> CheckViability(LBSLayer layer)
         {
             throw new NotImplementedException();

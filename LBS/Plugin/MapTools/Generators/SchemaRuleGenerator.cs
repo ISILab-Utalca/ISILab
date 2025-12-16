@@ -49,6 +49,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region CONSTRUCTORS
         public SchemaRuleGenerator() { }
+
+        // For template construction
+        public SchemaRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
+
         #endregion
 
         #region METHODS

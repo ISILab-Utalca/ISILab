@@ -47,9 +47,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region CONSTRUCTORS
         public SchemaRuleGeneratorExterior() { }
+
+        // For template construction
+        public SchemaRuleGeneratorExterior(string IconGuid, string name, Color colorTint) : base() { }
         #endregion
 
-        
+
         public void Init(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             this.tilesMod = layer.GetModule<TileMapModule>();
