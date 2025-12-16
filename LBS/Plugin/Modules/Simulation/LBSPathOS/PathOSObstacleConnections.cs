@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ISILab.LBS.Components
 {
-    // Conexiones entre un PathOSTile de tipo DynamicObstacleTrigger y los
+    // Connexions entre un PathOSTile de tipo DynamicObstacleTrigger y los
     // respectivos DynamicObstacleObject que afecta.
     [System.Serializable]
     public class PathOSObstacleConnections

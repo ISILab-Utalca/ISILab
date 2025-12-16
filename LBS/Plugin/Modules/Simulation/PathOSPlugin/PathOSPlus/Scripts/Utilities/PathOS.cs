@@ -1,5 +1,4 @@
-﻿using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
+﻿using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
 using Malee.Editor;
 using System.Collections;
 using System.Collections.Generic;

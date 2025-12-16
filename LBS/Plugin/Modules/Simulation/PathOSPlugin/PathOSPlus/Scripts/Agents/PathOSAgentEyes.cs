@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using PathOS;
-using ISILab.LBS.Components; // GABO: Added to use PathOSObstacleConnections.Category
+using PathOS; 
+
 
 /*
 PathOSAgentEyes.cs 
