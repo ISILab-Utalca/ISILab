@@ -1,22 +1,17 @@
 using ISILab.Commons;
-using ISILab.Extensions;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
+using ISILab.Commons.Extensions;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
-using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using LBS.Components;
-using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Commons.Extensions;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using ISILab.LBS.Plugin.Core.Settings;
 using UnityEditor;
 using UnityEngine;
 

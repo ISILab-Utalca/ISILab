@@ -25,11 +25,11 @@ MonoBehaviour:
     - rid: 7571179374700920922
     - rid: 7571179374700920924
     - rid: 7571179374700920925
-    - rid: 7571179378660343912
+    - rid: 7236886954275243345
     behaviours:
     - rid: 7571179378660343913
     assistants:
-    - rid: 7236886929103650894
+    - rid: 7236886954275243346
     generatorRules:
     - rid: 7571179378973868154
     - rid: 7571179378973868224
@@ -49,7 +49,43 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 7236886929103650894
+    - rid: 7236886954275243345
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          modules:
+          - rid: 7571179374700920921
+          - rid: 7571179374700920922
+          - rid: 7571179374700920924
+          - rid: 7571179374700920925
+          - rid: 7236886954275243345
+          behaviours:
+          - rid: 7571179378660343913
+          assistants:
+          - rid: 7236886954275243346
+          generatorRules:
+          - rid: 7571179378973868154
+          - rid: 7571179378973868224
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: DEFAULT
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 7236886954275243346
       type: {class: HillClimbingAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:
         visible: 1
@@ -64,11 +100,11 @@ MonoBehaviour:
           - rid: 7571179374700920922
           - rid: 7571179374700920924
           - rid: 7571179374700920925
-          - rid: 7571179378660343912
+          - rid: 7236886954275243345
           behaviours:
           - rid: 7571179378660343913
           assistants:
-          - rid: 7236886929103650894
+          - rid: 7236886954275243346
           generatorRules:
           - rid: 7571179378973868154
           - rid: 7571179378973868224

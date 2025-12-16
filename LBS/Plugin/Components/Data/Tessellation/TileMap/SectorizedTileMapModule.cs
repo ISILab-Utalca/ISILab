@@ -1,22 +1,15 @@
 using ISILab.Commons;
 using ISILab.Extensions;
-
 using ISILab.LBS.Components;
-
-using LBS.Components.TileMap;
+using ISILab.LBS.Modules;
 using Newtonsoft.Json;
 using System;
-
 using System.Collections.Generic;
-
 using System.Linq;
-using ISILab.LBS.Plugin.Components.Data;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEngine;
 
 
-namespace ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap
+namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 {
     [System.Serializable]
     public class SectorizedTileMapModule : LBSModule, ISelectable

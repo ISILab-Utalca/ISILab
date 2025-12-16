@@ -13,7 +13,6 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;

@@ -1,18 +1,10 @@
 ﻿using Commons.Optimization.Evaluator;
-using ISILab.AI.Optimization;
 using ISILab.AI.Wrappers;
-using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
-using LBS.Components;
-using LBS.Components.TileMap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using UnityEngine;
-using UnityEngine.UIElements;
+using LBS.Components;
+using System.Collections.Generic;
 
 namespace ISILab.AI.Optimization
 {

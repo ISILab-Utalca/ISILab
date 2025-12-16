@@ -1,23 +1,14 @@
+using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using LBS.Components;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-
-using System;
-using System.Linq;
-using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.AI.Categorization;
-//using Palmmedia.ReportGenerator.Core.Parser.Analysis;
-using LBS.Components;
-using ISILab.LBS.Behaviours;
-using System.Numerics;
-using System.Collections.Generic;
-using ISILab.DevTools.Macros;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
-using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using LBS.Components.TileMap;
 
 namespace ISILab.LBS.VisualElements.Editor
 {

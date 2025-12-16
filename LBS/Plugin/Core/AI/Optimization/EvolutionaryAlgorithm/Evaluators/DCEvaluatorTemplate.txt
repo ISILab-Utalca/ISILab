@@ -1,10 +1,13 @@
 using Commons.Optimization.Evaluator;
-using ISILab.AI.Categorization;
 using ISILab.AI.Optimization;
+using ISILab.Commons;
+using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
-using ISILab.Macros;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
 using System.Collections.Generic;
@@ -66,7 +69,7 @@ namespace ISILab.AI.Categorization
                     continue;
                 if (genes[i] is not null)
                 {
-                    if (genes[i].Characteristics.Contains(defaultCharacteristic))
+                    if (genes[i].HasTag(defaultCharacteristic.FirstTag()))
                     {
                         defaultCharacteristicIndex = i;
                         break;

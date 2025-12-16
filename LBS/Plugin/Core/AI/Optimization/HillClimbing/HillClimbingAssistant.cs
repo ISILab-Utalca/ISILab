@@ -1,12 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Commons.Optimization.Evaluator;
-using ISILab.LBS.Plugin.Components.Data;
 using ISILab.AI.Optimization;
 using ISILab.AI.Optimization.Populations;
 using ISILab.AI.Optimization.Selections;
@@ -17,16 +9,19 @@ using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
-using LBS.Components;
-using LBS.Components.TileMap;
-using Newtonsoft.Json;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.UIElements;
-using Debug = UnityEngine.Debug;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using LBS.Components;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {

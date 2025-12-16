@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,9 @@ using ISILab.LBS;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
-using ISILab.LBS.Plugin.MapTools.Generators;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Assertions;

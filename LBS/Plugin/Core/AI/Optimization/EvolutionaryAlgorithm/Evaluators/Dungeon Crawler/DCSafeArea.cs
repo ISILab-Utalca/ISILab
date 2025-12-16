@@ -1,18 +1,15 @@
 ﻿using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
-using ISILab.Commons;
+using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
-using ISILab.LBS.Modules;
-using LBS.Components;
-using LBS.Components.TileMap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Data;
-using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using LBS.Components;
+using LBS.Components.TileMap;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ISILab.AI.Categorization
@@ -50,7 +47,7 @@ namespace ISILab.AI.Categorization
 
             if (chrom == null)
             {
-                throw new Exception("Wrong Chromosome Type");
+                throw new System.Exception("Wrong Chromosome Type");
             }
             if (chrom.IsEmpty())
             {
@@ -72,12 +69,11 @@ namespace ISILab.AI.Categorization
                     continue;
                 if (genes[i] != null)
                 {
-                    var geneChars = genes[i].Characteristics;
-                    if (geneChars.Contains(playerCharacteristic))
+                    if (genes[i].HasTag(playerCharacteristic.FirstTag()))
                     {
                         playersInd.Add(i);
                     }
-                    else if(geneChars.Contains(enemiesCharacteristic))
+                    else if (genes[i].HasTag(enemiesCharacteristic.FirstTag()))
                     {
                         enemiesInd.Add(i);
                     }

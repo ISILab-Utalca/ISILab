@@ -127,6 +127,11 @@ namespace ISILab.LBS.Characteristics
             tagEntries.Add(new TagCharacteristicEntry(tag));
         }
 
+        public LBSTag this[int index]
+        {
+            get => tagEntries[index].Value;
+        }
+
         public override object Clone()
         {
             List<LBSTag> cloneTags = new();
@@ -163,6 +168,11 @@ namespace ISILab.LBS.Characteristics
         public void RemoveTag(LBSTag tag)
         {
             tagEntries.RemoveAll(t => t.Value == tag);
+        }
+
+        public bool HasTag(LBSTag tag)
+        {
+            return tagEntries.Exists(t => t.Value == tag);
         }
 
         public override string ToString()

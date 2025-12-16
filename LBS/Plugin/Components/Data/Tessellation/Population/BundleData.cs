@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
 using Newtonsoft.Json;
@@ -114,6 +115,11 @@ namespace LBS.Components.TileMap // FIX: change namespace to ISILab.LBS.Bundle
         {
             var type = typeof(T);
             return (T)characteristics.Find(c => c.GetType() == type);
+        }
+
+        public bool HasTag(LBSTag tag)
+        {
+            return characteristics.Select(ch => ch as LBSTagsCharacteristic).Any(tch => tch.HasTag(tag));
         }
 
         public override int GetHashCode()
