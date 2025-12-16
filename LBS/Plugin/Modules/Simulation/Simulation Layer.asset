@@ -21,13 +21,13 @@ MonoBehaviour:
     id: Simulation
     name: Layer Simulation
     modules:
-    - rid: 7236886955694227547
+    - rid: 1134172181454913763
     behaviours:
     - rid: 1134172181454913764
     assistants:
-    - rid: 7236886955694227548
+    - rid: 7236886929103650895
     generatorRules:
-    - rid: 7236886955694227546
+    - rid: 1134172181454913766
     settings:
       useBundleSize: 0
       lightVolume: 0
@@ -145,40 +145,8 @@ MonoBehaviour:
         name: Simulation Assistant
     - rid: 1134172181454913766
       type: {class: PathOSRuleGenerator, ns: ISILab.LBS.Generators, asm: LBS}
-    - rid: 7236886955694227546
-      type: {class: PathOSRuleGenerator, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data: 
-    - rid: 7236886955694227547
-      type: {class: PathOSModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
-      data:
-        id: PathOSModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          modules:
-          - rid: 7236886955694227547
-          behaviours:
-          - rid: 1134172181454913764
-          assistants:
-          - rid: 7236886955694227548
-          generatorRules:
-          - rid: 7236886955694227546
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: Testing
-            rootParentName: Root_Parent
-          index: 0
-        tiles: []
-    - rid: 7236886955694227548
+    - rid: 7236886929103650895
       type: {class: TestingAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:
         visible: 1
@@ -189,13 +157,13 @@ MonoBehaviour:
           id: Simulation
           name: Layer Simulation
           modules:
-          - rid: 7236886955694227547
+          - rid: 1134172181454913763
           behaviours:
           - rid: 1134172181454913764
           assistants:
-          - rid: 7236886955694227548
+          - rid: 7236886929103650895
           generatorRules:
-          - rid: 7236886955694227546
+          - rid: 1134172181454913766
           settings:
             useBundleSize: 0
             lightVolume: 0
