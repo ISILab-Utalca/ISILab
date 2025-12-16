@@ -1,12 +1,14 @@
-﻿using LBS.Components;
+﻿using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
+using LBS.Components;
 using PathOS;
 using System.Collections;
-using ISILab.LBS.Plugin.Components.Behaviours;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
+    [RequieredModule(typeof(PathOSModule))]
     public class TestingAssistant : LBSAssistant
     {
         private PathOSWindow pathOSOriginalWindow;
