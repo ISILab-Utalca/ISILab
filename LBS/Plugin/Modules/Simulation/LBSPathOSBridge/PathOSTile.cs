@@ -1,13 +1,13 @@
+using System;
+using System.Collections.Generic;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using Newtonsoft.Json;
 using PathOS;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 // GABO TODO: FALTA VER COMO TRATAR ELEMENT TAGS Y EVENT TAGS.
-namespace ISILab.LBS.Modules
+namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     [System.Serializable]
     public class PathOSTile
@@ -28,7 +28,7 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired]
         private bool isDynamicObstacleObject = false;
         [SerializeField]
-        private PathOSObstacleConnections obstacles;
+        private LBSPathOSObstacleConnections obstacles;
         [SerializeField]
         private PathOSDynamicTagConnections dynamicTagTiles;
         #endregion
@@ -39,7 +39,7 @@ namespace ISILab.LBS.Modules
             this.owner = owner;
             this.x = x;
             this.y = y;
-            obstacles = new PathOSObstacleConnections(isNull: true);
+            obstacles = new LBSPathOSObstacleConnections(isNull: true);
             dynamicTagTiles = new PathOSDynamicTagConnections(isNull: true);
             entityType = type;
             if (tag != null) { this.tag = tag; }
@@ -138,7 +138,7 @@ namespace ISILab.LBS.Modules
                 }
                 else
                 {
-                    obstacles = new PathOSObstacleConnections(isNull: true);
+                    obstacles = new LBSPathOSObstacleConnections(isNull: true);
                 }
 
                 // Eventos de conversion y reversion (solo si cambio es no redundante)
@@ -149,7 +149,7 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region METHODS
-        public List<(PathOSTile, PathOSObstacleConnections.Category)> GetObstacles()
+        public List<(PathOSTile, LBSPathOSObstacleConnections.Category)> GetObstacles()
         {
             // Chequeo de existencia.
             if (obstacles.IsNull) return new(); // Devuelve lista vacia
@@ -165,13 +165,13 @@ namespace ISILab.LBS.Modules
         public (PathOSTile, PathOSObstacleConnections.Category)? GetObstacle(int x, int y)
         {
             if (obstacles.IsNull) { return null; }
-            return obstacles.GetObstacle(x, y);
+            return ((PathOSTile, PathOSObstacleConnections.Category)?)obstacles.GetObstacle(x, y);
         }
 
         public (PathOSTile, PathOSObstacleConnections.Category)? GetObstacle(PathOSTile tile)
         {
             if (obstacles.IsNull) { return null; }
-            return obstacles.GetObstacle(tile);
+            return obstacles.GetObstacle(tile) as (PathOSTile, PathOSObstacleConnections.Category)?;
         }
         // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
         public (PathOSTile, PathOSTag)? GetDynamicTag(int x, int y)
@@ -186,7 +186,7 @@ namespace ISILab.LBS.Modules
             return dynamicTagTiles.GetDynamicTag(tile);
         }
 
-        public void AddObstacle(PathOSTile obstacleTile, PathOSObstacleConnections.Category category)
+        public void AddObstacle(PathOSTile obstacleTile, LBSPathOSObstacleConnections.Category category)
         {
             // Chequeo de Condiciones
             if (obstacleTile == null) { Debug.LogWarning("Tile obstaculo es nulo!"); return; }

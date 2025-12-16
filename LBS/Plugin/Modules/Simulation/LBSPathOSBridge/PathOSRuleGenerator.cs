@@ -1,20 +1,18 @@
-using ISILab.LBS.Components;
-using ISILab.LBS.Modules;
-using LBS.Components;
-using Unity.AI.Navigation;
-using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Extensions;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.MapTools.Generators;
+using LBS.Components;
+using PathOS;
+using Unity.AI.Navigation;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using ISILab.Extensions;
-using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.Plugin.MapTools.Generators;
 
-namespace ISILab.LBS.Generators
+namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     public class PathOSRuleGenerator : LBSGeneratorRule
     {
@@ -171,12 +169,12 @@ namespace ISILab.LBS.Generators
                         if (obstaclePair.Item1.Tag.Label != "Wall")
                         {
                             var otherEntityPair = entitiesTemporaryReference.Find(otherPair => otherPair.Item1 == obstaclePair.Item1);
-                            entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(otherEntityPair.Item2.objectRef, obstaclePair.Item2));
+                            //entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(otherEntityPair.Item2.objectRef, obstaclePair.Item2));
                         }
                         else
                         {
                             var wallPair = lastGenerationWalls.Find(wallPair => wallPair.Item1 == obstaclePair.Item1);
-                            entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(wallPair.Item2, obstaclePair.Item2));
+                            //entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(wallPair.Item2, obstaclePair.Item2));
                         }
                     }
                 }

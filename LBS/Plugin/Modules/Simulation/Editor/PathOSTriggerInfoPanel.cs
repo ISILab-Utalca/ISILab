@@ -3,6 +3,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using System.Collections;
 using System.Collections.Generic;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using UnityEngine;
 using UnityEngine.UIElements;
 

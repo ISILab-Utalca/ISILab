@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 
-namespace ISILab.LBS.Manipulators
+namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
 {
     public class AddClosedObstacle : AddObstacle
     {
@@ -12,7 +11,7 @@ namespace ISILab.LBS.Manipulators
 
         public override void AddObstacleAction()
         {
-            triggerTile.AddObstacle(obstacleTile, Components.PathOSObstacleConnections.Category.CLOSE);
+            triggerTile.AddObstacle(obstacleTile, LBSPathOSObstacleConnections.Category.CLOSE);
         }
     }
 

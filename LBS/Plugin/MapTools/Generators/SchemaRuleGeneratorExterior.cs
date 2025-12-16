@@ -2,7 +2,6 @@ using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
-using ISILab.LBS.Generators;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;

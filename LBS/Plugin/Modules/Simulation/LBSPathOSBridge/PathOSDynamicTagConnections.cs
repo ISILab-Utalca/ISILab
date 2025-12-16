@@ -1,11 +1,8 @@
-using ISILab.LBS.Components;
-using ISILab.LBS.Modules;
-using System;
 using System.Collections.Generic;
+using ISILab.LBS.Components;
 using UnityEngine;
-using static ISILab.LBS.Components.PathOSObstacleConnections;
 
-namespace ISILab.LBS.Components
+namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     [System.Serializable]
     // Conexiones entre un PathOSTile de tipo DynamicTagTrigger y los

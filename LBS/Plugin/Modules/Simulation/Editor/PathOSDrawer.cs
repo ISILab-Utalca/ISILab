@@ -6,6 +6,7 @@ using ISILab.LBS.VisualElements.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using UnityEngine.UIElements;
 using ISILab.LBS.VisualElements.Editor;
 

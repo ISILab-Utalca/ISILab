@@ -1,10 +1,12 @@
-using ISILab.LBS.Components;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using Newtonsoft.Json;
+using PathOS;
 using UnityEngine;
 
-namespace ISILab.LBS.Modules
+namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     //GABO TODO: Agregar funciones y fields necesarios para obstacles y Dynamic Tags
     [System.Serializable]

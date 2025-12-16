@@ -1,36 +1,26 @@
-using ISILab.LBS.Modules;
-using System;
 using System.Collections.Generic;
+using ISILab.LBS.Modules;
+using PathOS;
 using UnityEngine;
 
-namespace ISILab.LBS.Components
+namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     // Connexions entre un PathOSTile de tipo DynamicObstacleTrigger y los
     // respectivos DynamicObstacleObject que afecta.
     [System.Serializable]
-    public class PathOSObstacleConnections
+    public class LBSPathOSObstacleConnections: PathOSObstacleConnections
     {
-        #region ENUMS
-        [System.Serializable]
-        public enum Category
-        {
-            None,
-            OPEN,
-            CLOSE
-        }
-        #endregion
 
         #region FIELDS
         [SerializeField, SerializeReference]
         private PathOSTile obstacleTriggerTile;
         [SerializeField]
         private List<(PathOSTile, Category)> obstacles = new();
-        [SerializeField]
-        public bool IsNull = false;
+
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSObstacleConnections(PathOSTile trigger, List<(PathOSTile, Category)> obs)
+        public LBSPathOSObstacleConnections(PathOSTile trigger, List<(PathOSTile, Category)> obs)
         {
             // Obstacle tile check
             foreach (var obstacle in obs)
@@ -45,13 +35,8 @@ namespace ISILab.LBS.Components
             obstacleTriggerTile = trigger;
             this.obstacles = obs;
         }
-        // "NULL" Constructor: Represents a "null" connections object. Prevents serialization problems
-        // with Unity by replacing traditional "null" value.
-        public PathOSObstacleConnections(bool isNull)
-        {
-            if (!isNull) { Debug.LogError("Null constructor should always set 'isNull' as true!"); }
-            this.IsNull = true;
-        }
+        
+        public LBSPathOSObstacleConnections(bool isNull):  base(isNull) { }
         #endregion
 
         #region PROPERTIES

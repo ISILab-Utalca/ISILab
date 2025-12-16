@@ -11,6 +11,7 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Internal;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using UnityEngine;
 using UnityEngine.UIElements;
 
