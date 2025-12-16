@@ -2,89 +2,92 @@ using PathOS;
 using ISILab.Commons.Utility;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Modules
 {
+    [System.Serializable]
+    public struct SimulationEntityData
+    {
+        public VectorImage image;
+
+        public SimulationEntityData(VectorImage image)
+        {
+            this.image = image;;
+        }
+    }
+
+    public enum TierEntity
+    {
+        None,
+        Low,
+        Med,
+        High
+    }
+
     [CreateAssetMenu(fileName = "PathOSStorage", menuName = "ISILab/LBS/PathOS/PathOSStorage")]
     public class PathOSStorage : ScriptableObject
     {
         #region FIELDS
+
+
+        [System.NonSerialized]
+        private static PathOSStorage instance;
+
         public PathOSAgent agentPrefab;
         public PathOSManager managerPrefab;
         public PathOSWorldCamera worldCameraPrefab;
         public ScreenshotManager screenshotCameraPrefab;
 
-        [System.Serializable]
-        public struct SimulationEntityData
-        {
-            //public EntityType entityType;
-            public Texture2D image;
-            public Color color;
-
-            public SimulationEntityData(/*EntityType type, */Texture2D img, Color col)
-            {
-                //entityType = type;
-                image = img;
-                color = col;
-            }
-        }
-
         public SimulationEntityData agentData;
 
-        public LBSDictionary<EntityType, SimulationEntityData> entityDataPool = new LBSDictionary<EntityType, SimulationEntityData>();
-         
-        //public LBSDictionary<EntityType, Texture2D> entitySpritePool = new LBSDictionary<EntityType, Texture2D>();
-        
+        public LBSDictionary<EntityType, SimulationEntityData> entityDataPool = new();
         #endregion
 
-        //#region SINGLETON
-        [System.NonSerialized]
-        private static PathOSStorage instance;
+        #region PROPERTIES
 
         public static PathOSStorage Instance
         {
             get
             {
-                if (instance == null)
-                {
-                    instance = Resources.Load<PathOSStorage>("PathOSStorage");
-                }
+                if (instance == null) instance = Resources.Load<PathOSStorage>("PathOSStorage");                    
                 return instance;
             }
         }
-        //#endregion
+
+        #endregion
 
         #region METHODS
 
 
-        public Texture2D GetEntityImage(EntityType entity) => entityDataPool[entity].image;
-        public Color GetEntityColor(EntityType entity) => entityDataPool[entity].color;
+        public VectorImage GetEntityImage(EntityType entity) => entityDataPool[entity].image;
 
-        private void Awake()
+        public static TierEntity GetTier(EntityType type)
         {
-            //instance = this;
-            if (instance == null)
-            {
-                instance = Resources.Load<PathOSStorage>("PathOSStorage");
-            }
-            else
-            {
-                instance = this;
-            }
+            string name = type.ToString();
+
+            if (name.Contains("_LOW"))
+                return TierEntity.Low;
+
+            if (name.Contains("_MED"))
+                return TierEntity.Med;
+
+            if (name.Contains("_HIGH"))
+                return TierEntity.High;
+
+            return TierEntity.None;
         }
 
-        private void OnEnable()
+
+        private void Awake() => AssignSingleton();
+
+        private void AssignSingleton()
         {
-            //instance = this;
-            if (instance == null)
-            {
-                instance = Resources.Load<PathOSStorage>("PathOSStorage");
-            }
-            else
-            {
-                instance = this;
-            }
+            if (instance == null) instance = Resources.Load<PathOSStorage>("PathOSStorage");
+            else instance = this;
         }
+
+        private void OnEnable() => AssignSingleton();
 
         private void OnDisable()
         {
