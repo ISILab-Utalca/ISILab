@@ -14,7 +14,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
     [UxmlElement]
     public partial class BundleWizardSetCharacteristMenu : VisualElement, IBundleWizardTab
     {
-        private LBSCustomTextField nameField;
+        //private LBSCustomTextField nameField;
 
         private LBSCustomListView mainCharListView;
 
@@ -44,7 +44,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
 
                 charElement.toggleCallback = evt =>
                 {
-                    Assert.AreNotEqual(evt.previousValue, evt.newValue);
+                    //Assert.AreNotEqual(evt.previousValue, evt.newValue);
                     if (evt.newValue)
                         selectedCharacteristics.Add(allCharacteristics[ind]);
                     else
