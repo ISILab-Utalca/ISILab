@@ -11,7 +11,9 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
         private Toggle toggle;
         private Label charLabel;
 
+        private int index;
         public EventCallback<ChangeEvent<bool>> toggleCallback;
+
 
         public Toggle Toggle
         {
@@ -24,6 +26,17 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             get => charLabel;
             private set => charLabel = value;
         }
+
+        //public int Index
+        //{
+        //    get => index;
+        //    set 
+        //    {
+        //        if(index != value) 
+        //            Debug.LogWarning("Element " + CharLabel.text + " changed index: " + index + " -> " + value);
+        //        index = value;
+        //    }
+        //}
 
         public BundleWizardCharacteristicElement() : base()
         {
@@ -43,6 +56,12 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
         {
             Toggle.UnregisterValueChangedCallback(toggleCallback);
         }
+
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj is not BundleWizardCharacteristicElement other) return false;
+        //    return index == other.index;
+        //}
     }
 }
 

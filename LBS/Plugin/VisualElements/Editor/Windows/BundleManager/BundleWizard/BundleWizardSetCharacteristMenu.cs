@@ -27,7 +27,6 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
         {
             //nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
             //this.Add(nameField);
-
             allCharacteristics = new List<Type>(Reflection.GetAllSubClassOf<LBSCharacteristic>());
             selectedCharacteristics = new HashSet<Type>();
 
@@ -37,7 +36,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             mainCharListView.makeItem = () => new BundleWizardCharacteristicElement();
             mainCharListView.bindItem = (item, i) =>
             {
-                int ind = i;
+
                 var charElement = item as BundleWizardCharacteristicElement;
                 //charElement.CharLabel.text = (mainCharListView.itemsSource[i] as Type).Name;
                 charElement.CharLabel.text = allCharacteristics[i].Name;
@@ -46,9 +45,9 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
                 {
                     //Assert.AreNotEqual(evt.previousValue, evt.newValue);
                     if (evt.newValue)
-                        selectedCharacteristics.Add(allCharacteristics[ind]);
+                        selectedCharacteristics.Add(allCharacteristics[i]);
                     else
-                        selectedCharacteristics.Remove(allCharacteristics[ind]);
+                        selectedCharacteristics.Remove(allCharacteristics[i]);
                     string s = "Characteristics List:\n";
                     foreach (var cha in selectedCharacteristics)
                         s += "- " + cha.Name + "\n";
@@ -56,6 +55,8 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
                 };
 
                 charElement.EnableToggleCallback();
+
+                charElement.Toggle.SetValueWithoutNotify(selectedCharacteristics.Contains(allCharacteristics[i]));
             };
             mainCharListView.unbindItem = (item, i) =>
             {
@@ -73,14 +74,13 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
 
         public void Step()
         {
-            //throw new System.NotImplementedException();
+            Builder.characteristics.AddRange(selectedCharacteristics);
         }
 
         public void Revert()
         {
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
-            //throw new System.NotImplementedException();
+            //Debug.Log("Builder data:\n\n" + Builder.ToString());
+            selectedCharacteristics.Clear();
         }
     }
 }
-
