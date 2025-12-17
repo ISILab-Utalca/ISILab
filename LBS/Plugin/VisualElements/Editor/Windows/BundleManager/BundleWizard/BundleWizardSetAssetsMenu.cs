@@ -1,5 +1,3 @@
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
-using ISILab.Extensions;
 using Samples.Editor.General;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +7,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
 
 namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
 {

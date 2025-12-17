@@ -20,7 +20,7 @@ namespace ISILab.LBS.CustomComponents
         public VisualTreeAsset GetVisualTreeForThis()
         {
             VisualTreeAsset vta = DirectoryTools.GetAssetByName<VisualTreeAsset>(GetType().Name);
-            Debug.Log(GetType().Name);
+            //Debug.Log(GetType().Name);
             if (vta == null)
             {
                 throw new WarningException("No VisualTreeAsset found");
