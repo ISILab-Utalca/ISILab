@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Components.Data
 {
+
     [Serializable]
     public class LBSEventHooker : ISerializationCallbackReceiver
     {
@@ -26,7 +27,6 @@ namespace ISILab.LBS.Plugin.Components.Data
                 return registeredActions;
             }
         }
-
 
         public GameObject Target
         {

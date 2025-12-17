@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.VisualElements;
 using System;
@@ -23,10 +24,12 @@ namespace ISILab.LBS.CustomComponents
         private LBSCustomObjectField _targetField;
         private ListView _selectedMethodsList = new();
         private ListView _availableMethodsList = new();
+    
         #endregion
 
         #region FIELDS
         LBSEventHooker hooker;
+        private Enum defaultEnum = TriggerActivationMode.OnEnter;
         private readonly List<(GameObject, Component, MethodInfo)> _availableMethods = new();
         #endregion
 
@@ -47,6 +50,7 @@ namespace ISILab.LBS.CustomComponents
             }
         }
 
+     
         #endregion
 
 
@@ -64,8 +68,7 @@ namespace ISILab.LBS.CustomComponents
                 if (evt.newValue is not null) obj = evt.newValue as GameObject;
                 ChangeTargetField(obj);
             });
-        
-
+ 
 
             _availableMethodsList = this.Q<ListView>("AvailableMethodsList");
             _selectedMethodsList = this.Q<ListView>("SelectedMethodsList");
@@ -157,11 +160,6 @@ namespace ISILab.LBS.CustomComponents
             // rebuild both at the end
             _availableMethodsList.Rebuild();
             _selectedMethodsList.Rebuild();
-        }
-
-        internal void SetSelectorTarget(GameObject target)
-        {
-            Selector.value = target;
         }
 
         private static void GetRegisteredMethods(LBSEventHooker hooker, List<(GameObject, Component, MethodInfo)> selectedMethods)

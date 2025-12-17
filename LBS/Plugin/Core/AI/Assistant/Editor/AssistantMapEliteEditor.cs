@@ -96,6 +96,7 @@ namespace ISILab.LBS.Editor
 
         protected override VisualElement CreateVisualElement()
         {
+            return this;
             var ve = new VisualElement();
             config = new MAPEliteConfiguration();
             content = new MAPEliteContent(assistant);

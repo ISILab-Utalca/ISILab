@@ -8,6 +8,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static ISILab.LBS.Plugin.Core.Settings.LBSSettings;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -27,12 +28,15 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomLabelIcon SelectedHeader;
 
         private VisualElement Patrol;
-        private VisualElement Trigger;
-
+        private VisualElement TriggersArea;
+        private VisualElement Interact;
         private ListView PatrolPointsView;
+        private VisualElement Destroyed;
         private ListView AddonsView;
 
         private LBSCustomToggleField PatrolLoop;
+        private LBSCustomEventHooker InteractHook;
+        private LBSCustomEventHooker DestroyedHook;
 
         public VisualTreeAsset visualTree { get; private set; }
 
@@ -54,10 +58,11 @@ namespace ISILab.LBS.VisualElements
         public sealed override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as TileGroupBehavior;
-            behaviour.OnSelectedChanged += UpdateTilebundle;
+//            behaviour.OnSelectedChanged += UpdateTilebundle;
             behaviour.OnSelectedChanged += (tilemap) =>
             {
                 DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                UpdateTilebundle(tilemap);
             };
             UpdateTilebundle(null);
         }
@@ -77,7 +82,12 @@ namespace ISILab.LBS.VisualElements
             SelectedHeader = this.Q<LBSCustomLabelIcon>("SelectedHeader");
 
             Patrol = this.Q<VisualElement>("Patrol");
-            Trigger = this.Q<VisualElement>("Triggers");
+            TriggersArea = this.Q<VisualElement>("Triggers");
+            Interact = this.Q<VisualElement>("Interact");
+            Destroyed = this.Q<VisualElement>("Destroyed");
+
+            InteractHook = this.Q<LBSCustomEventHooker>("InteractHook");
+            DestroyedHook = this.Q<LBSCustomEventHooker>("DestroyedHook");
 
             AddonsView = this.Q<ListView>("AddonsView");
             PatrolPointsView = this.Q<ListView>("PatrolPointsView");
@@ -86,7 +96,7 @@ namespace ISILab.LBS.VisualElements
             PatrolLoop.RegisterValueChangedCallback(evt =>
             {
                 if (behaviour?.SelectedTilemap is null) return;
-                behaviour.SelectedTilemap.Addons.patrol.Loop = evt.newValue;
+                behaviour.SelectedTilemap.Addons.Patrol.SetLoop(evt.newValue);
                 UpdateSelectedTilemap();
 
             });
@@ -110,7 +120,7 @@ namespace ISILab.LBS.VisualElements
             }
 
             BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
-            List<TileTrigger> triggers = addons.triggers;
+            List<TileTrigger> triggers = addons.Triggers;
 
             AddonsView.itemsSource = triggers;
 
@@ -178,7 +188,7 @@ namespace ISILab.LBS.VisualElements
             }
 
             BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
-            TilePatrol patrol = addons.patrol;
+            TilePatrol patrol = addons.Patrol;
 
             PatrolLoop.SetValueWithoutNotify(patrol.Loop);
 
@@ -261,14 +271,21 @@ namespace ISILab.LBS.VisualElements
 
             Bundle bundle = TileBundleGroup.BundleData.Bundle;
 
-            DisplayStyle triggerDisplay = bundle.GetHasTagCharacteristic("LBSTag_Triggers") ? DisplayStyle.Flex : DisplayStyle.None;
-            Trigger.style.display = triggerDisplay;
-            DisplayStyle patrolDisplay = bundle.GetHasTagCharacteristic("LBSTag_Patrol") ? DisplayStyle.Flex : DisplayStyle.None;
+            DisplayStyle triggerDisplay = bundle.GetHasTagCharacteristic("TriggerArea") ? DisplayStyle.Flex : DisplayStyle.None;
+            TriggersArea.style.display = triggerDisplay;
+            Debug.Log(triggerDisplay);
+            DisplayStyle patrolDisplay = bundle.GetHasTagCharacteristic("Patrol") ? DisplayStyle.Flex : DisplayStyle.None;
             Patrol.style.display = patrolDisplay;
+            DisplayStyle interactDisplay = bundle.GetHasTagCharacteristic("Interactable") ? DisplayStyle.Flex : DisplayStyle.None;
+            Interact.style.display = interactDisplay;
+            DisplayStyle destroyedDisplay = bundle.GetHasTagCharacteristic("Destructible") ? DisplayStyle.Flex : DisplayStyle.None;
+            Destroyed.style.display = destroyedDisplay;
 
 
             SetPatrolList();
             SetAddonsList();
+            InteractHook.Hooker = TileBundleGroup.Addons.Interact;
+            DestroyedHook.Hooker = TileBundleGroup.Addons.Destroyed;
 
         }
 

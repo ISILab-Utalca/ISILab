@@ -58,8 +58,7 @@ namespace ISILab.LBS
 
         public event Action<QuestTrigger> OnTriggerCompleted;
 
-        [SerializeField, SerializeReference]
-        public UnityEvent onCompleteEvent = new();
+        public LBSGeneratedEventHook eventHooker;
 
         #endregion
 
@@ -104,19 +103,8 @@ namespace ISILab.LBS
         {
             node = paramNode;
             nodeID = paramNode.ID;
-
-            foreach (UnityActionStored entry in paramNode.Data.EventHooker.RegisteredActions)
-            {
-                UnityAction completeAction = entry.MakeAction(paramNode.Data.EventHooker.Target);
-                #if UNITY_EDITOR
-                if (completeAction != null)
-                {
-                    UnityEventTools.AddPersistentListener(onCompleteEvent, completeAction);
-                }
-                #else
-                onCompleteEvent.AddListener(entry.MakeAction(paramNode.Data.Target));
-                #endif
-            }
+            eventHooker.AssignEvents(paramNode.Data.EventHooker);
+         
         }
 
         /// <summary>
@@ -164,7 +152,8 @@ namespace ISILab.LBS
         private void Completed()
         {
             isCompleted = true;
-            onCompleteEvent?.Invoke();
+            eventHooker.BroadcastOnComplete();
+  
             
             if (node is not null) 
                 node.QuestState = QuestState.Completed;
