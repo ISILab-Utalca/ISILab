@@ -64,7 +64,7 @@ namespace ISILab.LBS.VisualElements
                 DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
                 UpdateTilebundle(tilemap);
             };
-            UpdateTilebundle(null);
+            UpdateTilebundle(behaviour.SelectedTilemap);
         }
 
         protected sealed override VisualElement CreateVisualElement()
@@ -134,7 +134,7 @@ namespace ISILab.LBS.VisualElements
                 entry.style.justifyContent = Justify.Center;
                 entry.style.alignItems = Align.Center;
 
-                UpdateSelectedTilemap();
+              //  UpdateSelectedTilemap();
                 return entry;
             };
 
@@ -150,11 +150,9 @@ namespace ISILab.LBS.VisualElements
                 {
                     triggers[index].Ttype = newType;
                     UpdateSelectedTilemap();
-
-
                 };
 
-                UpdateSelectedTilemap();
+                //UpdateSelectedTilemap();
             };
 
 
@@ -205,7 +203,7 @@ namespace ISILab.LBS.VisualElements
                 vecField.style.justifyContent = Justify.Center;
                 vecField.style.alignItems = Align.Center;
 
-                UpdateSelectedTilemap();
+                //UpdateSelectedTilemap();
 
                 return vecField;
             };
@@ -228,7 +226,7 @@ namespace ISILab.LBS.VisualElements
                 });
 
 
-                UpdateSelectedTilemap();
+               // UpdateSelectedTilemap();
             };
 
             // Add new point
@@ -270,10 +268,9 @@ namespace ISILab.LBS.VisualElements
             SelectedHeader.Label = TileBundleGroup.BundleData.BundleName;
 
             Bundle bundle = TileBundleGroup.BundleData.Bundle;
-
+         
             DisplayStyle triggerDisplay = bundle.GetHasTagCharacteristic("TriggerArea") ? DisplayStyle.Flex : DisplayStyle.None;
             TriggersArea.style.display = triggerDisplay;
-            Debug.Log(triggerDisplay);
             DisplayStyle patrolDisplay = bundle.GetHasTagCharacteristic("Patrol") ? DisplayStyle.Flex : DisplayStyle.None;
             Patrol.style.display = patrolDisplay;
             DisplayStyle interactDisplay = bundle.GetHasTagCharacteristic("Interactable") ? DisplayStyle.Flex : DisplayStyle.None;
