@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
