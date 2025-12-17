@@ -11,6 +11,8 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
         private Toggle toggle;
         private Label charLabel;
 
+        public EventCallback<ChangeEvent<bool>> toggleCallback;
+
         public Toggle Toggle
         {
             get => toggle;
@@ -30,6 +32,16 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             toggle = this.Q<Toggle>();
             charLabel = this.Q<Label>();
 
+        }
+
+        public void EnableToggleCallback()
+        {
+            Toggle.RegisterValueChangedCallback(toggleCallback);
+        }
+
+        public void DisableToggleCallback()
+        {
+            Toggle.UnregisterValueChangedCallback(toggleCallback);
         }
     }
 }

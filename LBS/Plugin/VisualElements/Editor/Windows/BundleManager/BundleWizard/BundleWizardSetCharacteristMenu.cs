@@ -6,6 +6,7 @@ using ISILab.LBS.Plugin.UI.Editor.Windows;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
@@ -13,7 +14,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
     [UxmlElement]
     public partial class BundleWizardSetCharacteristMenu : VisualElement, IBundleWizardTab
     {
-        private LBSCustomTextField nameField;
+        //private LBSCustomTextField nameField;
 
         private LBSCustomListView mainCharListView;
 
@@ -30,38 +31,38 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             allCharacteristics = new List<Type>(Reflection.GetAllSubClassOf<LBSCharacteristic>());
             selectedCharacteristics = new HashSet<Type>();
 
-            int iterator = 0;
 
             mainCharListView = new LBSCustomListView();
             mainCharListView.itemsSource = allCharacteristics;
             mainCharListView.makeItem = () => new BundleWizardCharacteristicElement();
             mainCharListView.bindItem = (item, i) =>
             {
-                iterator = i;
+                int ind = i;
                 var charElement = item as BundleWizardCharacteristicElement;
                 //charElement.CharLabel.text = (mainCharListView.itemsSource[i] as Type).Name;
                 charElement.CharLabel.text = allCharacteristics[i].Name;
 
-                charElement.Toggle.RegisterValueChangedCallback(ToggleCallback);
+                charElement.toggleCallback = evt =>
+                {
+                    //Assert.AreNotEqual(evt.previousValue, evt.newValue);
+                    if (evt.newValue)
+                        selectedCharacteristics.Add(allCharacteristics[ind]);
+                    else
+                        selectedCharacteristics.Remove(allCharacteristics[ind]);
+                    string s = "Characteristics List:\n";
+                    foreach (var cha in selectedCharacteristics)
+                        s += "- " + cha.Name + "\n";
+                    Debug.Log(s);
+                };
+
+                charElement.EnableToggleCallback();
             };
             mainCharListView.unbindItem = (item, i) =>
             {
-                (item as BundleWizardCharacteristicElement).Toggle.UnregisterValueChangedCallback(ToggleCallback);
+                (item as BundleWizardCharacteristicElement).DisableToggleCallback();
             };
 
             Add(mainCharListView);
-
-            void ToggleCallback(ChangeEvent<bool> evt)
-            {
-                if (evt.newValue)
-                    selectedCharacteristics.Add(allCharacteristics[iterator]);
-                else
-                    selectedCharacteristics.Remove(allCharacteristics[iterator]);
-                string s = "Characteristics List:\n";
-                foreach (var cha in selectedCharacteristics)
-                    s += "- " + cha.Name + "\n";
-                Debug.Log(s);
-            }
         }
 
         public void Init()
