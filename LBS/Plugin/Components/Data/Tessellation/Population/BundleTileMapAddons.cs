@@ -101,7 +101,7 @@ namespace ISILab.LBS.Components
 
         [SerializeField] public TileTriggerType Ttype;
 
-        [SerializeField] public LBSEventHooker _eventHooker;
+        [SerializeReference] public LBSEventHooker _eventHooker;
 
         public TileTrigger()
         {
