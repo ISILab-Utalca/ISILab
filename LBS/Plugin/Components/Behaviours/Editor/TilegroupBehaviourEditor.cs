@@ -58,10 +58,11 @@ namespace ISILab.LBS.VisualElements
         public sealed override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as TileGroupBehavior;
-            behaviour.OnSelectedChanged += UpdateTilebundle;
+//            behaviour.OnSelectedChanged += UpdateTilebundle;
             behaviour.OnSelectedChanged += (tilemap) =>
             {
                 DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                UpdateTilebundle(tilemap);
             };
             UpdateTilebundle(null);
         }
