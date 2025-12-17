@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Behaviours;
-using ISILab.LBS.Generators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;

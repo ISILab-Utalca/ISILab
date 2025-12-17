@@ -328,8 +328,9 @@ namespace ISILab.LBS.VisualElements.Editor
             { 
                 _selectedLayer.OnChangeUpdate(); 
             }
+
             _selectedLayer = layer;
-            _selectedLayer.OnChangeUpdate();
+            _selectedLayer?.OnChangeUpdate();
             OnSelectLayer?.Invoke(layer);
         }
 

@@ -13,6 +13,7 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using UnityEngine;
 
 namespace ISILab.AI.Categorization

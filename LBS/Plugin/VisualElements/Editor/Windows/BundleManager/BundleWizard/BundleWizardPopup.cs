@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
 using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility.Editor;
@@ -6,9 +5,13 @@ using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows
@@ -114,7 +117,9 @@ public partial class BundleWizardPopup: VisualElement
             CurrentStep++;
             breadcrumbs.PushItem(CurrentBreadcrumb);
             CurrentWizardTab.Init();
-            if(InFinalStep)
+            if (currentStep == 1)
+                CurrentWizardTab.Builder.SaveBundleFlag();
+            if (InFinalStep)
                 ToggleNextButton(false);
         }
 
@@ -218,28 +223,24 @@ public class BundleBuilder
         {
             case "Interior Layer":
                 bundle.LayerContentFlags    = BundleFlags.Interior;
-                layerTypeFlag               = BundleFlags.Interior;
                 bundle.Type                 = Bundle.TagType.Structural;
                 bundle.Color                = default;
                 break;
 
             case "Exterior Layer":
                 bundle.LayerContentFlags    = BundleFlags.Exterior;
-                layerTypeFlag               = BundleFlags.Exterior;
                 bundle.Type                 = Bundle.TagType.Structural;
                 bundle.Color                = default;
                 break;
 
             case "Population Layer":
                 bundle.LayerContentFlags    = BundleFlags.Population;
-                layerTypeFlag               = BundleFlags.Population;
                 bundle.Type                 = Bundle.TagType.Element;
                 bundle.Color                = new Color().RandomColorHSV();
                 break;
 
             default:
                 bundle.LayerContentFlags    = default;
-                layerTypeFlag               = default;
                 bundle.Type                 = default;
                 bundle.Color                = default;
                 break;
@@ -276,6 +277,28 @@ public class BundleBuilder
         s += "\n\n";
 
         return s;
+    }
+
+    public void SaveBundleFlag()
+    {
+        switch (layerType)
+        {
+            case "Interior Layer":
+                layerTypeFlag = BundleFlags.Interior;
+                break;
+
+            case "Exterior Layer":
+                layerTypeFlag = BundleFlags.Exterior;
+                break;
+
+            case "Population Layer":
+                layerTypeFlag = BundleFlags.Population;
+                break;
+
+            default:
+                layerTypeFlag = default;
+                break;
+        }
     }
 }
 }

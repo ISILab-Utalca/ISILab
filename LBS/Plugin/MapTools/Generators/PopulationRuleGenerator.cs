@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons;
+using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using LBS.Components;
@@ -127,6 +130,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 go.transform.position += current.GetMicroGenTool().MicroPosVector(go.transform, scale, r);
 
                 //Add components
+                if (current.GetHasTagCharacteristic("Trigger"))
+                {
+                    LBSGeneratedPatrol patrol = go.AddComponent<LBSGeneratedPatrol>();
+                    patrol.AssignPoints(group.Addons.Patrol.Points);
+                }
+                if (current.GetHasTagCharacteristic("Patrol"))
+                {
+                    LBSGeneratedEventHook eventHookComponent = go.AddComponent<LBSGeneratedEventHook>();
+                    eventHookComponent.AssignTriggerEvents(group.Addons.Triggers);
+                }
+                
                 LBSGenerated generatedComponent = go.AddComponent<LBSGenerated>();
                 generatedComponent.BundleRef = current;
                 generatedComponent.LayerName = layer.Name;

@@ -351,11 +351,11 @@ namespace ISILab.LBS.Modules
         [SerializeField]
         BundleTileMapAddons addons = new();
 
-
-
         #region PROPERTIES
-        public BundleTileMapAddons Addons => addons;
-
+        public BundleTileMapAddons Addons
+        {
+            get => addons; set => addons = value;
+        }
 
         [JsonIgnore]
         public List<LBSTile> TileGroup

@@ -4,6 +4,7 @@ using ISILab.LBS.Modules;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -36,7 +37,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSObstacleView(PathOSTile triggerTile, PathOSTile obstacleTile, PathOSObstacleConnections.Category category)
+        public PathOSObstacleView(PathOSTile triggerTile, PathOSTile obstacleTile, LBSPathOSObstacleConnections.Category category)
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PathOSObstacleView");
             visualTree.CloneTree(this);
@@ -52,7 +53,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region METHODS
-        private void SetFields(PathOSTile triggerTile, PathOSTile obstacleTile, PathOSObstacleConnections.Category category)
+        private void SetFields(PathOSTile triggerTile, PathOSTile obstacleTile, LBSPathOSObstacleConnections.Category category)
         {
             // Obstacle object+trigger tile check
             if (!obstacleTile.IsDynamicObstacleObject) { Debug.LogWarning("PathOSObstacleView.SetFields(): Tile dada no es obstaculo!"); return; }

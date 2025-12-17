@@ -20,6 +20,8 @@ namespace ISILab.LBS.VisualElements
         LBSCustomToggleField Visible;
 
         ColorField ColorField;
+
+        LBSCustomEnumField _modeSelector;
         #endregion
 
         #region FIELDS
@@ -69,7 +71,13 @@ namespace ISILab.LBS.VisualElements
             _hooker.Selector.allowSceneObjects = true;
 
             Range = this.Q<LBSCustomUnsignedIntegerField>("Range");
- 
+
+            _modeSelector = this.Q<LBSCustomEnumField>("ModeSelector");
+            _modeSelector.RegisterValueChangedCallback(evt =>
+            {
+                if (trigger is null) return;
+                trigger.activationMode = (TriggerActivationMode)evt.newValue;
+            });
             Visible = this.Q<LBSCustomToggleField>("Visible");
             ColorField = this.Q<ColorField>("Color");
             RegisterCallbacks();

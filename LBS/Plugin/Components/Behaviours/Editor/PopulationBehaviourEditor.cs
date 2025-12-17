@@ -6,6 +6,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using LBS;
 using LBS.Components;
 using LBS.VisualElements;
@@ -250,14 +251,14 @@ namespace ISILab.LBS.VisualElements
             if (type.value == behaviour.allFilter)
             {
                 candidates = bundles
-                    .Where(b => b.Type == Bundle.TagType.Element).ToList();
+                    .Where(b => b.LayerContentFlags.HasFlag(BundleFlags.Population)).ToList();
             }
             else
             {
                 Bundle.EElementFlag filter = displayChoices[type.value][0];
                 HashSet<Bundle.EElementFlag> tags = new HashSet<Bundle.EElementFlag>() { filter};
                 candidates = bundles
-                    .Where(b => b.Type == Bundle.TagType.Element && b.HasAnyFlag(tags)) // get the bundle type at the filter index
+                    .Where(b => b.LayerContentFlags.HasFlag(BundleFlags.Population) && b.HasAnyFlag(tags)) // get the bundle type at the filter index
                     .ToList();
             }
             bundlePallete.ShowGroups = false;

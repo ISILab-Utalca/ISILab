@@ -4,7 +4,6 @@ using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
-using ISILab.LBS.Generators;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.MapTools.Generators;
@@ -13,6 +12,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 
 namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 {

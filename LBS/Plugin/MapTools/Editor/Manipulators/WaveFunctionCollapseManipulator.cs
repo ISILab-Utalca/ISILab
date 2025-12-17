@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using ISILab.LBS.VisualElements.Editor;
 using UnityEditor;
 using UnityEngine;

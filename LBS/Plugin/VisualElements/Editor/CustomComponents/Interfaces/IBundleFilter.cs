@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 
-public interface IBundleFilter
+namespace ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
 {
-    public LBSButtonListFilter BundlePickerWindow { get; set; }
-
-    public void OpenFilterWindow(List<Bundle> bundles, Action<Bundle> onPick)
+    public interface IBundleFilter
     {
-        CloseFilterWindow();
+        public LBSButtonListFilter BundlePickerWindow { get; set; }
 
-        BundlePickerWindow = LBSButtonListFilter.Show(bundles, picked => onPick(picked));
-    }
+        public void OpenFilterWindow(List<Bundle> bundles, Action<Bundle> onPick)
+        {
+            CloseFilterWindow();
 
-    public void CloseFilterWindow()
-    {
-        if (BundlePickerWindow)
-            BundlePickerWindow.Close();
+            BundlePickerWindow = LBSButtonListFilter.Show(bundles, picked => onPick(picked));
+        }
+
+        public void CloseFilterWindow()
+        {
+            if (BundlePickerWindow)
+                BundlePickerWindow.Close();
+        }
     }
 }
+

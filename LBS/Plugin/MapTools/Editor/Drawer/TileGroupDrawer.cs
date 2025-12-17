@@ -64,10 +64,11 @@ namespace ISILab.LBS.Drawers
 
         private void DrawPatrol(MainView view, TileBundleGroup selected)
         {
-            var pts = selected.Addons.patrol.Points;
+            var patrol = selected.Addons.Patrol;
+            var pts = patrol.Points;
             if (pts.Count <= 1) return;
 
-            if (selected.Addons.patrol.Loop)
+            if (patrol.Loop)
                 DrawConnection(view, pts.Last(), pts.First());
             for (int i = 0; i < pts.Count - 1; i++)
                 DrawConnection(view, pts[i], pts[i + 1], i);
@@ -132,7 +133,7 @@ namespace ISILab.LBS.Drawers
 
         private void DrawTriggers(MainView view, TileBundleGroup selected)
         {
-            foreach (TileTrigger trigger in selected.Addons.triggers)
+            foreach (TileTrigger trigger in selected.Addons.Triggers)
             {
                 if (!trigger.isVisible) continue;
                 GraphElement shape = null;

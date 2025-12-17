@@ -5,90 +5,95 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class AssetGridTile : VisualElement
+
+namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
 {
-    static VisualTreeAsset visualTree;
-    #region FIELDS
-    //VEs
-    LBSCustomButton interactButton;
-    VisualElement colorMultiplier;
-    VisualElement tileBorder;
-    VisualElement tileBorderHovered;
-
-    //Can this be selected?
-    private bool canHighlight = true;
-    private int gridPosition;
-    private int colorValue = 0;
-    #endregion
-
-    #region PROPERTIES
-    public VisualElement ColorMultiplier => colorMultiplier;
-    //Represents its position on the grid from 0 to its limit
-    public int GridPosition => gridPosition;
-    //Represents the color value it stores
-    public int ColorValue => colorValue; 
-    #endregion
-
-    #region EVENTS
-    //Should change according to the tool
-    public Action OnTileClicked;
-    public Action OnValueUpdated;
-    public Action OnValueSaved;
-    public Action OnValueReverted;
-    #endregion
-
-    #region CONSTRUCTOR
-    public AssetGridTile(int _gridPosition, int _colorValue = -1)
+    public class AssetGridTile : VisualElement
     {
-        gridPosition = _gridPosition;
-        colorValue = _colorValue;
+        static VisualTreeAsset visualTree;
+        #region FIELDS
+        //VEs
+        LBSCustomButton interactButton;
+        VisualElement colorMultiplier;
+        VisualElement tileBorder;
+        VisualElement tileBorderHovered;
 
-        if (visualTree == null)
+        //Can this be selected?
+        private bool canHighlight = true;
+        private int gridPosition;
+        private int colorValue = 0;
+        #endregion
+
+        #region PROPERTIES
+        public VisualElement ColorMultiplier => colorMultiplier;
+        //Represents its position on the grid from 0 to its limit
+        public int GridPosition => gridPosition;
+        //Represents the color value it stores
+        public int ColorValue => colorValue;
+        #endregion
+
+        #region EVENTS
+        //Should change according to the tool
+        public Action OnTileClicked;
+        public Action OnValueUpdated;
+        public Action OnValueSaved;
+        public Action OnValueReverted;
+        #endregion
+
+        #region CONSTRUCTOR
+        public AssetGridTile(int _gridPosition, int _colorValue = -1)
         {
-            visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("AssetGridTile");
+            gridPosition = _gridPosition;
+            colorValue = _colorValue;
+
+            if (visualTree == null)
+            {
+                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("AssetGridTile");
+            }
+            visualTree.CloneTree(this);
+
+            interactButton = this.Q<LBSCustomButton>("InteractButton");
+            interactButton.RegisterCallback<ClickEvent>((evt) => OnTileClicked?.Invoke());
+
+            colorMultiplier = this.Q<VisualElement>("ColorMultiplier");
+            colorMultiplier.style.visibility = colorValue != 0 ? Visibility.Visible : Visibility.Hidden;
+
+            tileBorder = this.Q<VisualElement>("TileBorder");
+            tileBorderHovered = this.Q<VisualElement>("TileBorderHovered");
+
+            RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
+            RegisterCallback<MouseEnterEvent>(OnMouseEnter);
         }
-        visualTree.CloneTree(this);
+        #endregion
 
-        interactButton = this.Q<LBSCustomButton>("InteractButton");
-        interactButton.RegisterCallback<ClickEvent>((evt) => OnTileClicked?.Invoke());
-
-        colorMultiplier = this.Q<VisualElement>("ColorMultiplier");
-        colorMultiplier.style.visibility = colorValue != 0 ? Visibility.Visible : Visibility.Hidden;
-
-        tileBorder = this.Q<VisualElement>("TileBorder");
-        tileBorderHovered = this.Q<VisualElement>("TileBorderHovered");
-
-        RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
-        RegisterCallback<MouseEnterEvent>(OnMouseEnter);
-    }
-    #endregion
-
-    #region METHODS
-    public void OnMouseEnter(MouseEnterEvent evt)
-    {
-        if(canHighlight)
+        #region METHODS
+        public void OnMouseEnter(MouseEnterEvent evt)
         {
-            tileBorder.visible = false;
-            tileBorderHovered.visible = true;
+            if (canHighlight)
+            {
+                tileBorder.visible = false;
+                tileBorderHovered.visible = true;
+            }
         }
-    }
 
-    public void OnMouseLeave(MouseLeaveEvent evt)
-    {
-        tileBorder.visible = true;
-        tileBorderHovered.visible = false;
-    }
+        public void OnMouseLeave(MouseLeaveEvent evt)
+        {
+            tileBorder.visible = true;
+            tileBorderHovered.visible = false;
+        }
 
-    public void ChangeValue(int newValue)
-    {
-        if (newValue == colorValue) return;
-        colorValue = newValue;
-        colorMultiplier.style.visibility = colorValue != 0 ? Visibility.Visible : Visibility.Hidden;
-        OnValueUpdated?.Invoke();
+        public void ChangeValue(int newValue)
+        {
+            if (newValue == colorValue) return;
+            colorValue = newValue;
+            colorMultiplier.style.visibility = colorValue != 0 ? Visibility.Visible : Visibility.Hidden;
+            OnValueUpdated?.Invoke();
+        }
+        public void ChangeColor(Color color)
+        {
+            colorMultiplier.style.backgroundColor = color * new Color(1, 1, 1, 0.5f);
+        }
+        #endregion
     }
-    public void ChangeColor(Color color)
-    {
-        colorMultiplier.style.backgroundColor = color * new Color(1, 1, 1, 0.5f);
-    }
-    #endregion
 }
+

@@ -3,20 +3,23 @@ using ISILab.LBS.CustomComponents;
 using UnityEngine.UIElements;
 
 
-
-[UxmlElement]
-public partial class LBSCustomUIPlaceholder: VisualElement
+namespace ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.SimplerComponents
 {
-    public LBSCustomUIPlaceholder()
+    [UxmlElement]
+    public partial class LBSCustomUIPlaceholder : VisualElement
     {
-        Label nameLabel = new Label("Placeholder");
-        Image image = new LBSCustomImage(AssetMacro.LoadPlaceholderVectorImage());
-        image.style.height = 16;
-        image.style.width = 16;
-        this.Add(nameLabel);
-        this.Add(image);
-        this.style.flexDirection = FlexDirection.Column;
-        this.style.flexGrow = 1;
-        this.style.alignItems = Align.Center;
+        public LBSCustomUIPlaceholder()
+        {
+            Label nameLabel = new Label("Placeholder");
+            Image image = new LBSCustomImage(AssetMacro.LoadPlaceholderVectorImage());
+            image.style.height = 16;
+            image.style.width = 16;
+            this.Add(nameLabel);
+            this.Add(image);
+            this.style.flexDirection = FlexDirection.Column;
+            this.style.flexGrow = 1;
+            this.style.alignItems = Align.Center;
+        }
     }
 }
+

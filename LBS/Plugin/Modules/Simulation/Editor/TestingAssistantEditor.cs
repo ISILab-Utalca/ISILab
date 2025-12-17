@@ -4,6 +4,7 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using LBS.VisualElements;
+using PathOS;
 using UnityEngine;
 using UnityEngine.UIElements;
 

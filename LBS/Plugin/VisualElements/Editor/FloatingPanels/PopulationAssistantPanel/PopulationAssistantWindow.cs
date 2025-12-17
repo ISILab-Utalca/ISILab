@@ -9,6 +9,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.AI.Categorization;
 using UnityEditor.UIElements;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using System.IO;
 using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;

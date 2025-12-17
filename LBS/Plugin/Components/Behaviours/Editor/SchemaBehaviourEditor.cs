@@ -5,6 +5,7 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements;
 using LBS;
 using LBS.Components;

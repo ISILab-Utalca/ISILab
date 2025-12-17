@@ -2,27 +2,30 @@ using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
-[UxmlElement]
-public partial class LBSStartedSign: VisualElement
+namespace ISILab.LBS.Plugin.VisualElements.Editor.StaticTemplateComponents.StartedSign
 {
-    private const string URL = "https://isilab-utalca.github.io/isilab-website/documentation/tutorials/lbs/getting_started"; 
-    
-    private VisualTreeAsset signPopup;
-
-    
-    public LBSStartedSign()
+    [UxmlElement]
+    public partial class LBSStartedSign : VisualElement
     {
-        signPopup = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("2019cc78f8952b649a6004d15c450b71");
-        signPopup.CloneTree(this);
-        
-        Label linkLabel = this.Query<Label>("Link");
-        linkLabel.RegisterCallback<PointerUpEvent>(onHyperlinkClicked);
-    }
+        private const string URL = "https://isilab-utalca.github.io/isilab-website/documentation/tutorials/lbs/getting_started";
 
-    private void onHyperlinkClicked(PointerUpEvent _evt)
-    {
-        Application.OpenURL(URL);
+        private VisualTreeAsset signPopup;
+
+
+        public LBSStartedSign()
+        {
+            signPopup = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("2019cc78f8952b649a6004d15c450b71");
+            signPopup.CloneTree(this);
+
+            Label linkLabel = this.Query<Label>("Link");
+            linkLabel.RegisterCallback<PointerUpEvent>(onHyperlinkClicked);
+        }
+
+        private void onHyperlinkClicked(PointerUpEvent _evt)
+        {
+            Application.OpenURL(URL);
+        }
+
     }
-    
 }
+
