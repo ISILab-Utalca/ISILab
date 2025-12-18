@@ -9,6 +9,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
 using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.VisualElements;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Manipulators
 {

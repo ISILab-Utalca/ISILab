@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using ISILab.LBS.Editor.Windows;
 using UnityEngine;
 using UnityEngine.UIElements;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace LBS
 {

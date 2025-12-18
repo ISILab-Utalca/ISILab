@@ -22,6 +22,7 @@ using ISILab.LBS.Macros;
 using ISILab.Commons.VisualElements.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Editor.Windows{
 
@@ -599,6 +600,10 @@ namespace ISILab.LBS.Editor.Windows{
                     rootVisualElement.ClearClassList();
                     rootVisualElement.AddToClassList("alt");
                     //Repaint();
+                    break;
+                case LBSSettings.Interface.InterfaceTheme.Darker:
+                    rootVisualElement.ClearClassList();
+                    rootVisualElement.AddToClassList("darker");
                     break;
                 default:
                     break;

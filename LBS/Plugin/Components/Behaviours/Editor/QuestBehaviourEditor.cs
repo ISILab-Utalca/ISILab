@@ -15,6 +15,7 @@ using ISILab.LBS.VisualElements.Editor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.VisualElements
 {

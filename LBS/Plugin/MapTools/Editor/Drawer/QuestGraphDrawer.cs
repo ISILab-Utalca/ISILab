@@ -10,6 +10,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers.Editor
 {

@@ -5,6 +5,7 @@ using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using UnityEngine.UIElements;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
 {

@@ -14,6 +14,7 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
 {

@@ -7,6 +7,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.VisualElements.Editor;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Manipulators
 {

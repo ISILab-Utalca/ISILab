@@ -1,15 +1,15 @@
-using ISILab.Commons.Utility.Editor;
-using LBS.Components;
-using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.VisualElements;
+using LBS.Components;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
-namespace ISILab.LBS.VisualElements.Editor
+namespace ISILab.LBS.Plugin.UI.Editor
 {
     /// <summary>
     /// Stores visual GraphElements associated with logical components (keys), grouped by layer.

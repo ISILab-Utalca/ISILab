@@ -185,7 +185,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
         [Serializable]
         public class Interface
         {
-            public enum InterfaceTheme {Dark, Light, Alt}
+            public enum InterfaceTheme {Dark, Light, Alt, Darker}
             
             [SerializeField]
             public InterfaceTheme LBSTheme = InterfaceTheme.Dark;
