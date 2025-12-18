@@ -46,15 +46,26 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             nameField.value = "";
             //layersType.SelectChoice(0);
             layersType.value = 0;
+
+            nameField.Focus();
+
             //Debug.Log("Radio button group value: " + layersType.value);
             Debug.Log("Builder data:\n\n" + Builder.ToString());
         }
 
         public void Step()
         {
+            string choiceName = layersType.choices.ToList()[layersType.value];
+            if (string.IsNullOrEmpty(nameField.value))
+                nameField.value = $"New{choiceName.Split()[0]}MainBundle";
             Builder.bundleName = nameField.value;
-            Builder.layerType = layersType.choices.ToList()[layersType.value];
+            Builder.layerType = choiceName;
 
+        }
+
+        public void StepBack()
+        {
+            nameField.Focus();
         }
 
         public void Revert()

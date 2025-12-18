@@ -41,11 +41,16 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
                 //charElement.CharLabel.text = (mainCharListView.itemsSource[i] as Type).Name;
                 charElement.CharLabel.text = allCharacteristics[i].Name;
 
+                bool exclusiveChar = LBSCharacteristic.IsExclusive(allCharacteristics[i], out List<List<Type>> exclusivenessGroups);
+
                 charElement.toggleCallback = evt =>
                 {
                     //Assert.AreNotEqual(evt.previousValue, evt.newValue);
                     if (evt.newValue)
+                    {
                         selectedCharacteristics.Add(allCharacteristics[i]);
+                        // TODO: Uncheck all incompatible toggles
+                    }
                     else
                         selectedCharacteristics.Remove(allCharacteristics[i]);
                     string s = "Characteristics List:\n";
@@ -75,6 +80,11 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
         public void Step()
         {
             Builder.characteristics.AddRange(selectedCharacteristics);
+        }
+
+        public void StepBack()
+        {
+
         }
 
         public void Revert()

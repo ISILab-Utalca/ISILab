@@ -101,6 +101,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 
                 CurrentStep--;
                 breadcrumbs.PopItem();
+
+                CurrentWizardTab.StepBack();
             }
 
             void OK()
@@ -191,6 +193,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             {
                 while (CurrentStep > 0)
                 {
+                    CurrentWizardTab.Revert();
                     CurrentStep--;
                     breadcrumbs.PopItem();
                 }
