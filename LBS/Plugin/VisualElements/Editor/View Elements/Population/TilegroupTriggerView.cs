@@ -123,9 +123,11 @@ namespace ISILab.LBS.VisualElements
 
         private void UpdateByTrigger(TileTrigger trigger)
         {
+            TriggerType.SetValueWithoutNotify(trigger.Ttype);
             ColorField.SetValueWithoutNotify(trigger.areaColor);
             Visible.SetValueWithoutNotify(trigger.isVisible);
             Range.SetValueWithoutNotify((uint)trigger.Range);
+            _modeSelector.SetValueWithoutNotify(trigger.activationMode);
 
             if (Trigger is null) return;
             _hooker.Hooker = Trigger._eventHooker;
