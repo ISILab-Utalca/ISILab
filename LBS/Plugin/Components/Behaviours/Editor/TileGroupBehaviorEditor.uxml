@@ -7,12 +7,21 @@
         <ui:VisualElement name="Content" style="flex-grow: 1;">
             <ISILab.LBS.CustomComponents.LBSCustomLabelIcon text="Bundle Name" direction="Column" name="SelectedHeader" icon="project://database/Assets/ISILab/Commons/Assets2D/Resources/Icons/Vectorial/Logo/LBS.svg?fileID=7388822144124034973&amp;guid=12e384eee491b39459a9a6dd5e403595&amp;type=3#LBS" label="Selected Bundle: " style="align-self: stretch; justify-content: center; align-items: center;" />
             <ui:VisualElement name="Patrol" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Components/Tags/PopulationTags/LBSTag_Patrol.asset?fileID=11400000&amp;guid=7d14522ccb3e27b469d6b129282c103c&amp;type=2#LBSTag_Patrol" enabled="false" label="Tag Behavior" />
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Patrol.asset?fileID=11400000&amp;guid=7d14522ccb3e27b469d6b129282c103c&amp;type=2#Patrol" enabled="false" label="Tag Behavior" />
                 <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Loop patrol route" name="PatrolLoop" tooltip="Once the last point is reached, the game object tries to move to the first point, instead of backtracking" />
                 <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" header-title="Patrol Points" show-add-remove-footer="true" show-foldout-header="true" reorderable="true" show-border="true" />
             </ui:VisualElement>
             <ui:VisualElement name="Triggers" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/TriggerArea.asset?fileID=11400000&amp;guid=1a444632a5be67d42a25143941fa7abe&amp;type=2#TriggerArea" enabled="false" label="Tag Behavior" />
                 <ISILab.LBS.CustomComponents.LBSCustomListView name="AddonsView" show-foldout-header="true" reorderable="false" show-add-remove-footer="true" header-title="Triggers" horizontal-scrolling="false" show-border="true" virtualization-method="DynamicHeight" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Interact" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Interactable.asset?fileID=11400000&amp;guid=376131f09fdb7594e9a321361fd3f0e3&amp;type=2#Interactable" enabled="false" label="Tag Behavior" />
+                <ISILab.LBS.CustomComponents.LBSCustomEventHooker name="InteractHook" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Destroyed" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Destructible.asset?fileID=11400000&amp;guid=22465a8ab20fd9d4884efb2f61803db4&amp;type=2#Destructible" enabled="false" label="Tag Behavior" />
+                <ISILab.LBS.CustomComponents.LBSCustomEventHooker name="DestroyedHook" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

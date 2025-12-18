@@ -1,9 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Modules;
-using System.Collections;
-using System.Collections.Generic;
 using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
-//using System.Drawing;
+using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -14,12 +12,19 @@ namespace ISILab.LBS.VisualElements
     {
 
         #region FIELDS
+
+        string TierLowGuid = "ea89544be79a4924388045079405084d";
+        string TierMedGuid = "f2dcad360ed296c4f824a3a2f77cdfc3";
+        string TierHighGuid = "c2490f3c8ed54d04c8ad91c90c969e39";
+
         #endregion
 
         #region FIELDS VIEW
         private static VisualTreeAsset view;
 
+        VisualElement background;
         VisualElement elementTag;
+        VisualElement tier;
 
         VisualElement dynamicTagObject;
         VisualElement dynamicTagTrigger;
@@ -36,8 +41,9 @@ namespace ISILab.LBS.VisualElements
             }
             view.CloneTree(this);
 
-
+            background = this.Q<VisualElement>("Background");
             elementTag = this.Q<VisualElement>("ElementTag");
+            tier = this.Q<VisualElement>("TierElement");
             dynamicTagObject = this.Q<VisualElement>("DynamicTagObject");
             dynamicTagTrigger = this.Q<VisualElement>("DynamicTagTrigger");
             dynamicObstacleObject = this.Q<VisualElement>("DynamicObstacleObject");
@@ -51,15 +57,39 @@ namespace ISILab.LBS.VisualElements
                     storage.agentData :
                     storage.entityDataPool[tile.EntityType];
                 SetImage(data.image);
+                SetColor(data.color);
             }
             SetEvents(tile);
+
+
+            switch (PathOSStorage.GetTier(tile.EntityType))
+            {
+                case TierEntity.None:
+                    tier.style.display = DisplayStyle.None; break;
+                case TierEntity.Low:
+                    tier.style.backgroundImage = new StyleBackground(Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>(TierLowGuid)); break;
+                case TierEntity.Med:
+                    tier.style.backgroundImage = new StyleBackground(Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>(TierMedGuid)); break;
+                case TierEntity.High:
+                    tier.style.backgroundImage = new StyleBackground(Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>(TierHighGuid)); break;
+
+
+            }
+
         }
+
+
         #endregion
 
         #region METHODS
         public void SetImage(VectorImage image)
         {
             elementTag.style.backgroundImage = new StyleBackground(image);
+        }
+
+        private void SetColor(object color)
+        {
+            background.style.backgroundColor = (Color)color;
         }
 
         public void SetEvents(PathOSTile tile)

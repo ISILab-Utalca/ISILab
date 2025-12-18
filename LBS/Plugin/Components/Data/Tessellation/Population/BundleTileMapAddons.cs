@@ -11,10 +11,25 @@ namespace ISILab.LBS.Components
     public class BundleTileMapAddons : ICloneable
     {
 
+        #region FIELDS
         [SerializeReference]
-        public List<TileTrigger> triggers = new();
+        private List<TileTrigger> triggers = new();
         [SerializeField]
-        public TilePatrol patrol;
+        private TilePatrol patrol;
+        [SerializeReference]
+        private LBSEventHooker interact = new();
+        [SerializeReference]
+        private LBSEventHooker destroyed = new();
+        #endregion
+
+        #region PROPERTIES
+        public List<TileTrigger> Triggers { get => triggers; set => triggers = value; }
+        public TilePatrol Patrol { get => patrol; set => patrol = value; }
+        public LBSEventHooker Interact { get => interact; set => interact = value; }
+        public LBSEventHooker Destroyed { get => destroyed; set => destroyed = value; }
+
+        #endregion
+
 
         public BundleTileMapAddons()
         {
@@ -54,9 +69,18 @@ namespace ISILab.LBS.Components
             Points = new();
             Points = points;
         }
+
+        public void SetLoop(bool newValue) => Loop = newValue;
     }
 
     #region TileTrigger
+
+    public enum TriggerActivationMode
+    {
+        OnEnter,
+        OnExit,
+        OnStay
+    }
 
     public enum TileTriggerType
     {
@@ -73,9 +97,11 @@ namespace ISILab.LBS.Components
 
         [SerializeField] public float Range;
 
+        [SerializeField] public TriggerActivationMode activationMode = TriggerActivationMode.OnEnter;
+
         [SerializeField] public TileTriggerType Ttype;
 
-        [SerializeField] public LBSEventHooker _eventHooker;
+        [SerializeReference] public LBSEventHooker _eventHooker;
 
         public TileTrigger()
         {

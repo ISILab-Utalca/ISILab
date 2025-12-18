@@ -11,13 +11,15 @@ namespace ISILab.LBS.VisualElements
     public partial class EventHookEntryView : VisualElement
     {
         private readonly LBSCustomButton _button;
-        
+
+
         public EventHookEntryView()
         {
             Clear();
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("EventHookEntryView");
             visualTree.CloneTree(this);
             _button = this.Q<LBSCustomButton>("Button");
+
         }
 
         public void AddListener((GameObject, Component, MethodInfo) methodInfo, LBSEventHooker hooker)

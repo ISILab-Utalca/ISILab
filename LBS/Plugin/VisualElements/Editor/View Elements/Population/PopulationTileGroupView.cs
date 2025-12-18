@@ -60,8 +60,9 @@ namespace ISILab.LBS.VisualElements
             BundleTileMapAddons addons = tile.Addons;
             if (addons is null) return;
 
-            if (addons.triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
-            if (addons.patrol.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
+
+            if (addons.Triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
+            if (addons.Patrol.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
 
         }
 

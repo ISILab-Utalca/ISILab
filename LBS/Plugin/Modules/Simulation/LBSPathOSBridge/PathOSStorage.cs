@@ -10,10 +10,12 @@ namespace ISILab.LBS.Modules
     public struct SimulationEntityData
     {
         public VectorImage image;
+        public Color color;
 
-        public SimulationEntityData(VectorImage image)
+        public SimulationEntityData(VectorImage image, Color color)
         {
-            this.image = image;;
+            this.image = image;
+            this.color = color;
         }
     }
 
