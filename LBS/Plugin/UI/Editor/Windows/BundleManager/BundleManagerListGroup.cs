@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
 using UnityEditor;
-using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard;
 
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 {
 
     [UxmlElement]

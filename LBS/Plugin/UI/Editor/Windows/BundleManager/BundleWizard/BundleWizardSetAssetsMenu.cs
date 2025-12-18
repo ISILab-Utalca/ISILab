@@ -1,14 +1,13 @@
-using Samples.Editor.General;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Extensions;
+using ISILab.LBS.Plugin.Components.Bundles;
+using Samples.Editor.General;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.UI.Editor.Windows;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
     [UxmlElement]
     public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
@@ -77,7 +76,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             catch (System.Exception e) { Debug.LogException(e); }
 
             bundleListGroup = this.Q<BundleManagerListGroup>();
-            bundleListGroup.SetBundleListViewItem<BundleWizardElement>(
+            bundleListGroup.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out bundleList,
                 "NewBundles",
                 bundleContainers,

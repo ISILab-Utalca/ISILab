@@ -1,15 +1,12 @@
+using System;
+using System.Collections.Generic;
 using ISILab.Commons.Utility;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.Internal;
-using ISILab.LBS.Plugin.UI.Editor.Windows;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
     [UxmlElement]
     public partial class BundleWizardSetCharacteristMenu : VisualElement, IBundleWizardTab

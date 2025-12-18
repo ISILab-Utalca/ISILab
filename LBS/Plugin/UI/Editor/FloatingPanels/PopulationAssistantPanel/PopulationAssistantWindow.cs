@@ -529,7 +529,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #region IAssistantThreadedEditor
         public CancellationToken CancelToken { get; set; }
         public CancellationTokenSource CancellationTokenSource { get; set; }
-        public ToolBarMain TaskBar { get; set; }
+        public Plugin.UI.Editor.Windows.ToolBar.ToolBarMain TaskBar { get; set; }
         void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
         {
             EditorApplication.delayCall += () =>

@@ -1,18 +1,12 @@
+using System;
+using System.Collections.Generic;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
-using ISILab.LBS.Plugin.UI.Editor.Windows;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleManagerWindow;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
     [UxmlElement]
     public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundleWizardTab
@@ -60,28 +54,28 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             AddCurrentBundles();
 
             bundleListCurrent = this.Q<BundleManagerListGroup>("CurrentBundles");
-            bundleListCurrent.SetBundleListViewItem<BundleWizardElement>(
+            bundleListCurrent.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listCurrent,
                 "CurrentBundles",
                 bundleContainersCurrent,
                 itemHeight: 40
                 );
             bundleListSameLayerOrphan = this.Q<BundleManagerListGroup>("SameLayerOrphanBundles");
-            bundleListSameLayerOrphan.SetBundleListViewItem<BundleWizardElement>(
+            bundleListSameLayerOrphan.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listSameLayerOrphan,
                 "SameLayerOrphanBundles",
                 bundleContainersSameLayerOrphan,
                 itemHeight: 40
                 );
             bundleListSameLayer = this.Q<BundleManagerListGroup>("SameLayerBundles");
-            bundleListSameLayer.SetBundleListViewItem<BundleWizardElement>(
+            bundleListSameLayer.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listSameLayer,
                 "SameLayerBundles",
                 bundleContainersSameLayer,
                 itemHeight: 40
                 );
             bundleListNoLayer = this.Q<BundleManagerListGroup>("NoLayerBundles");
-            bundleListNoLayer.SetBundleListViewItem<BundleWizardElement>(
+            bundleListNoLayer.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listNoLayer,
                 "NoLayerBundles",
                 bundleContainersNoLayer,

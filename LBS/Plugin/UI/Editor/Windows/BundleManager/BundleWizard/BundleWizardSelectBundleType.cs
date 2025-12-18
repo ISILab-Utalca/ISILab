@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.UI.Editor.Windows;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
     [UxmlElement]
     public partial class BundleWizardSelectBundleType : VisualElement, IBundleWizardTab

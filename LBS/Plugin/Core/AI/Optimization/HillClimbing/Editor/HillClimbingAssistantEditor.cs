@@ -19,6 +19,7 @@ using LBS.VisualElements;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.VisualElements
 {

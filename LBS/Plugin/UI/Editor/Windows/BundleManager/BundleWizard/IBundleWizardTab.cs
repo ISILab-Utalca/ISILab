@@ -1,6 +1,4 @@
-using ISILab.LBS.Plugin.UI.Editor.Windows;
-
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
     public interface IBundleWizardTab
     {

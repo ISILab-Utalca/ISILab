@@ -22,7 +22,9 @@ using ISILab.LBS.Macros;
 using ISILab.Commons.VisualElements.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
+using LBSSideBarPanel = ISILab.LBS.Plugin.UI.Editor.Panel.LBSSideBarPanel;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.Editor.Windows{
 

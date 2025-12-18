@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
 using ISILab.Commons.Utility.Editor;
-using UnityEngine.UIElements;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager;
+using UnityEngine.UIElements;
 
-namespace ISILab.LBS.VisualElements
+namespace ISILab.LBS.Plugin.UI.Editor.Panel
 {
     [UxmlElement]
     public partial class LBSSideBarPanel: VisualElement

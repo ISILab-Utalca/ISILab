@@ -16,6 +16,7 @@ using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using LBS.Components;
 using LBS.VisualElements;
+using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.Editor
 {

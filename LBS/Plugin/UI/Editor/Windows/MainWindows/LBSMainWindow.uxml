@@ -6,7 +6,7 @@
             <ui:VisualElement name="HelpOverlayAnchor" style="flex-grow: 1; position: absolute; height: 26px; width: 30px; top: 32px; left: 72px;" />
         </ISILab.LBS.Plugin.UI.Editor.MainView>
     </ui:VisualElement>
-    <ISILab.LBS.VisualElements.Editor.ToolBarMain name="ToolBar" style="height: 24px; border-bottom-color: rgb(36, 36, 36); border-bottom-width: 1px; max-height: 24px; min-height: 24px; -unity-background-scale-mode: scale-to-fit; flex-shrink: 0;" />
+    <ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain name="ToolBar" style="height: 24px; border-bottom-color: rgb(36, 36, 36); border-bottom-width: 1px; max-height: 24px; min-height: 24px; -unity-background-scale-mode: scale-to-fit; flex-shrink: 0;" />
     <ISILab.Commons.VisualElements.Editor.SplitView picking-mode="Ignore" fixed-pane-index="1" fixed-pane-initial-dimension="400" name="SplitView" style="justify-content: space-around; align-self: stretch; flex-direction: row-reverse; flex-wrap: wrap; align-items: flex-end;">
         <ui:VisualElement picking-mode="Ignore" name="Workspace" style="flex-grow: 1; display: flex; flex-shrink: 1; align-self: stretch; justify-content: space-around; align-items: stretch; flex-wrap: nowrap;">
             <ISILab.LBS.Plugin.VisualElements.Editor.StaticTemplateComponents.StartedSign.LBSStartedSign name="NoLayerSign" style="position: absolute; right: 0; bottom: 0; top: 0; left: 0; align-items: center; justify-content: center;" />
@@ -53,7 +53,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ISILab.LBS.VisualElements.LBSSideBarPanel />
+            <ISILab.LBS.Plugin.UI.Editor.Panel.LBSSideBarPanel />
             <ui:VisualElement name="Shadow" style="width: 5px; max-width: 5px; min-width: 5px; background-image: url(&quot;project://database/Assets/ISILab/Commons/Assets2D/Fade.png?fileID=2800000&amp;guid=a49e354fa998c454e9115ce30c3cba6d&amp;type=3#Fade&quot;); -unity-background-image-tint-color: rgba(2, 2, 2, 0.2); background-color: rgba(0, 0, 0, 0); display: none;" />
         </ui:VisualElement>
     </ISILab.Commons.VisualElements.Editor.SplitView>

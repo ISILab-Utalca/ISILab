@@ -1,10 +1,9 @@
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
-using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWizard
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
     [UxmlElement]
     public partial class BundleWizardElement : LBSComplexVisualElement, IBundleElement

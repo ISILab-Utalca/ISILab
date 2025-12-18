@@ -7,13 +7,12 @@ using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
-using ISILab.LBS.Plugin.UI.Editor.Windows;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 {
     public class BundleManagerWindow : EditorWindow
     {

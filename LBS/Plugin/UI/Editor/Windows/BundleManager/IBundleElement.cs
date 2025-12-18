@@ -1,7 +1,7 @@
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 {
     public interface IBundleElement
     {

@@ -1,14 +1,14 @@
-using ISILab.Commons.Utility.Editor;
 using System;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager;
+using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
-using UnityEditor;
-using UnityEngine.UIElements;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-namespace ISILab.LBS.VisualElements.Editor
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
 {
     [UxmlElement]
     public partial class ToolBarMain : VisualElement

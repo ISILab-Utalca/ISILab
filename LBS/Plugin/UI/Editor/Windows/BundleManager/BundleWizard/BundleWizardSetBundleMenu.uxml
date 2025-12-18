@@ -4,14 +4,14 @@
             <ui:VisualElement name="Content" style="flex-grow: 1; flex-direction: row; justify-content: flex-start; align-self: stretch;">
                 <ui:VisualElement name="ColumnSubBundle" style="flex-grow: 1; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; max-width: 50%; background-size: 25% 100%; width: 25%; min-width: 10%;">
                     <ui:ScrollView>
-                        <ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleManagerListGroup name="CurrentBundles" title-text="Current Bundles" />
+                        <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup name="CurrentBundles" title-text="Current Bundles" />
                     </ui:ScrollView>
                 </ui:VisualElement>
                 <ui:VisualElement name="ColumnMain" style="flex-grow: 1; background-size: 25% 100%; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; max-width: 50%; min-width: 10%; width: 25%;">
                     <ui:ScrollView>
-                        <ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleManagerListGroup title-text="Same Layer Orphan Bundles" name="SameLayerOrphanBundles" />
-                        <ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleManagerListGroup title-text="Same Layer Bundles" name="SameLayerBundles" />
-                        <ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleManagerListGroup title-text="No Layer Bundles" name="NoLayerBundles" />
+                        <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup title-text="Same Layer Orphan Bundles" name="SameLayerOrphanBundles" />
+                        <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup title-text="Same Layer Bundles" name="SameLayerBundles" />
+                        <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup title-text="No Layer Bundles" name="NoLayerBundles" />
                     </ui:ScrollView>
                 </ui:VisualElement>
             </ui:VisualElement>
