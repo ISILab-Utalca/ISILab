@@ -120,7 +120,6 @@ public class AssetGridEditorWindow : VisualElement
                     }
                     else
                     {
-                        Debug.Log("changing value to 0");
                         _tile.ChangeValue(0);
                     }
                 };

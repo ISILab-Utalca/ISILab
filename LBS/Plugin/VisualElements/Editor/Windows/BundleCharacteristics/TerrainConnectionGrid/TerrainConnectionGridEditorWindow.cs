@@ -139,6 +139,7 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
 
         foreach (AssetConnectionGrid _grid in connectionGridTarget.GridList)
         {
+            //Debug.Log(_grid.AssetReference.obj);
             var _newGridWindow = new AssetGridEditorWindow(_grid, this);
             SetFOVScale += _newGridWindow.UpdateFOVScale;
             OnScaleModify += (newValue) => {
@@ -222,7 +223,6 @@ public class TerrainConnectionGridEditorWindow : EditorWindow
             foreach(LBSSelectableButton button in colorButtons) { button.ToggleButtonSelected(false); }
             newButton.ToggleButtonSelected(true);
             currentColor = newButton.Data;
-            Debug.Log("current color: " + currentColor);
         };
         //this is meant to pick the color from colorButtons btw!
         newButton.OnRemove += () => { colorButtons.Remove(newButton); RemoveColorKey(newButton.Data); };
