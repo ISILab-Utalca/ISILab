@@ -1,4 +1,4 @@
-@import url("project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Styles/LBSStyleVariables.uss?fileID=7433441132597879392&guid=85a69280ec227ab48bb86c136d9591fe&type=3#LBSStyleVariables");
+@import url("project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSStyleVariables.uss?fileID=7433441132597879392&guid=85a69280ec227ab48bb86c136d9591fe&type=3#LBSStyleVariables");
 :root {
 }
 
@@ -161,26 +161,11 @@ Label {
 }
 
 .lbs-tool-button-toggle {
-    border-left-color: rgba(0, 0, 0, 0.6);
-    border-right-color: rgba(0, 0, 0, 0.6);
-    border-top-color: rgba(0, 0, 0, 0.6);
-    border-bottom-color: rgba(0, 0, 0, 0.6);
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 1px;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
     height: 30px;
-    background-image: url("project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Fade%201.png?fileID=2800000&guid=c86acac07209fcc41a17cab77404a8b9&type=3#Fade 1");
-    -unity-background-image-tint-color: rgba(0, 0, 0, 0.1);
-    font-size: 18px;
     background-color: var(--lbs-selectable-gray-color);
     -unity-text-align: middle-center;
     align-self: stretch;
@@ -330,11 +315,7 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-tab-button {
-    height: 40px;
-    margin-left: 5px;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 5px;
+    background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
     background-image: none;
     flex-shrink: 1;
     flex-grow: 0;
@@ -342,101 +323,24 @@ Toggle > .lbs-default-icon {
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
-    background-color: var(--lbs-selectable-gray-color);
+    background-color: rgb(47, 47, 47);
     width: auto;
     white-space: nowrap;
     -unity-background-scale-mode: scale-to-fit;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 1px;
+    margin: 1px;
     flex-wrap: nowrap;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 4px;
-    border-left-color: var(--lbs-dark-overlay-color);
-    border-right-color: var(--lbs-dark-overlay-color);
-    border-top-color: var(--lbs-dark-overlay-color);
-    border-bottom-color: var(--lbs-dark-overlay-color);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
+    border-radius: var(--lbs-frame-border-radius, var(--lbs-default-frame-border-radius));
+    border-color: var(--lbs-white-overlay-color, var(--lbs-default-white-overlay-color));
+    border-width: 1px;
 }
 
 .lbs-tab-button:selected {
-    height: 40px;
-    margin-left: 5px;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 5px;
-    background-image: none;
-    flex-shrink: 1;
-    flex-grow: 0;
-    align-self: stretch;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    background-color: var(--lbs-selection-dark-blue-color);
-    width: auto;
-    white-space: nowrap;
-    -unity-background-scale-mode: scale-to-fit;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    flex-wrap: nowrap;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 4px;
-    border-left-color: rgba(255, 255, 255, 0.2);
-    border-right-color: rgba(255, 255, 255, 0.2);
-    border-top-color: rgba(255, 255, 255, 0.2);
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
+    
 }
 
 .lbs-tab-button:active {
-    height: 40px;
-    margin-left: 5px;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 5px;
-    background-image: none;
-    flex-shrink: 1;
-    flex-grow: 0;
-    align-self: stretch;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    background-color: rgb(255, 255, 255);
-    width: auto;
-    white-space: nowrap;
-    -unity-background-scale-mode: scale-to-fit;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    flex-wrap: nowrap;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 4px;
-    border-left-color: rgb(255, 255, 255);
-    border-right-color: rgb(255, 255, 255);
-    border-top-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-    color: rgba(255, 255, 255, 0);
-    -unity-background-image-tint-color: rgb(255, 255, 255);
+
 }
 
 .lbs-tab-button:hover {
@@ -1048,42 +952,6 @@ Toggle > .lbs-default-icon {
     align-self: stretch;
     align-items: center;
     justify-content: center;
-}
-
-.lbs-tab-button {
-    height: 40px;
-    margin-left: 5px;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 5px;
-    background-image: none;
-    flex-shrink: 1;
-    flex-grow: 0;
-    align-self: stretch;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    background-color: rgb(47, 47, 47);
-    width: auto;
-    white-space: nowrap;
-    -unity-background-scale-mode: scale-to-fit;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    flex-wrap: nowrap;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 4px;
-    border-left-color: rgba(255, 255, 255, 0.2);
-    border-right-color: rgba(255, 255, 255, 0.2);
-    border-top-color: rgba(255, 255, 255, 0.2);
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
 }
 
 .lbs-tutorial-tab-button-act > VisualElement {
