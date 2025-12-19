@@ -1,48 +1,34 @@
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Components;
-using UnityEditor;
-using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     public class QuestObjective
     {
-        private QuestTrigger objectiveTrigger;
+        //private QuestTrigger objectiveTrigger;
         private QuestTrigger trigger;
-        private bool inBranch;
-        
+       // private bool inBranch;
         
         private Dictionary<QuestTriggerBranch, List<QuestTrigger>> subObjectives = new();
-
         public QuestTrigger Trigger => trigger;
-           
-            
-        public QuestObjective(QuestTrigger trigger)
-        {
-            this.trigger = trigger;
-        }
-            
-        public List<QuestTrigger> GetSubObjectives(QuestTriggerBranch triggerBranch)
-        {
-            return  subObjectives.GetValueOrDefault(triggerBranch);
-        }
 
-        public List<QuestTriggerBranch> GetBranches()
-        {
-            return subObjectives.Keys.ToList();
-        }
+
+        public QuestObjective(QuestTrigger trigger) => this.trigger = trigger;
+
+        public List<QuestTrigger> GetSubObjectives(QuestTriggerBranch triggerBranch) => subObjectives.GetValueOrDefault(triggerBranch);
+
+        public List<QuestTriggerBranch> GetBranches() => subObjectives.Keys.ToList();
 
         public void SetSubobjectives(QuestTriggerBranch triggerBranch)
         {
-            if (triggerBranch is null) return;
+            if (triggerBranch == null) return;
                 
-            List<QuestTrigger> triggers = new List<QuestTrigger>();
+            List<QuestTrigger> triggers = new();
 
             foreach (var go in triggerBranch.ChildObjects)
             {
                 var triggerComp = go.GetComponent<QuestTrigger>();
-                if (triggerComp is not null)
+                if (triggerComp != null)
                 {
                     triggers.Add(triggerComp);
                     // assign to the trigger the branch node it belongs to

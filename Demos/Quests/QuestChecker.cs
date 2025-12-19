@@ -1,7 +1,7 @@
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using ISILab.LBS;
+using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.Runtime.Examples
 {       
@@ -9,15 +9,13 @@ namespace ISILab.Runtime.Examples
     /// Utility class meant to use in case quest wants to be advanced manually
     /// </summary>
     [ExecuteAlways]
+    [RequireComponent(typeof(QuestTrigger))] //?????
     public class QuestChecker : MonoBehaviour
     {
         public bool completeQuest;
         private QuestTrigger quest;
 
-        private void Awake()
-        {
-            quest = GetComponent<QuestTrigger>();
-        }
+        private void Awake() => quest = GetComponent<QuestTrigger>();
 
         private void ApplyCompletionState()
         {

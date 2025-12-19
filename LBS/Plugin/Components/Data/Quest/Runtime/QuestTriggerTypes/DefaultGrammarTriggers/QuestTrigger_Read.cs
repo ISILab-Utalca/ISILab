@@ -1,7 +1,7 @@
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("read")]
     public class QuestTriggerRead : QuestTrigger
@@ -13,10 +13,10 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(readData);
+            SetData(readData);
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override void SetData(QuestActionData data)
         {
             readData = (DataRead)data;
             GenericObjectiveTrigger objectiveTrigger = objectToRead.AddComponent<GenericObjectiveTrigger>();
@@ -27,9 +27,10 @@ namespace ISILab.LBS
         {
             if (!IsPlayer(other)) return;
             // Use the "objectToRead" reference to start an interaction
-            // CheckComplete();
+            TryComplete();
         }
-            
+
+        protected override bool CanComplete() => true;
     }
 
 }

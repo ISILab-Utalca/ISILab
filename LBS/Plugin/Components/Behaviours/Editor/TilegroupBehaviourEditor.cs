@@ -5,6 +5,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -87,7 +88,10 @@ namespace ISILab.LBS.VisualElements
             Destroyed = this.Q<VisualElement>("Destroyed");
 
             InteractHook = this.Q<LBSCustomEventHooker>("InteractHook");
+            InteractHook.EventType = LBSEventType.Interact;
             DestroyedHook = this.Q<LBSCustomEventHooker>("DestroyedHook");
+            DestroyedHook.EventType = LBSEventType.Destroy;
+
 
             AddonsView = this.Q<ListView>("AddonsView");
             PatrolPointsView = this.Q<ListView>("PatrolPointsView");

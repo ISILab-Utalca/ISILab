@@ -84,6 +84,16 @@ namespace ISILab.LBS.Plugin.Components.Data
 
         }
 
+        public void EventTypeChanged(LBSEventType eventType)
+        {
+            for (int i = 0; i < RegisteredActions.Count; i++)
+            {
+                UnityActionStored unityAction = RegisteredActions[i];
+                unityAction.eventType = eventType;
+                RegisteredActions[i] = unityAction;
+            }
+        }
+
 
         #endregion
     }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [Serializable]
     public class QuestTracker : MonoBehaviour

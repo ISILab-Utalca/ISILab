@@ -2,7 +2,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("take")]
     public class QuestTriggerTake : QuestTrigger
@@ -16,10 +16,10 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataTake);
+            SetData(dataTake);
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override void SetData(QuestActionData data)
         {
             dataTake = (DataTake)data;
             if (objectToTake is not null)
@@ -40,14 +40,27 @@ namespace ISILab.LBS
             _playerInventory = other.gameObject.GetComponent<LBSInventory>();
             if (_playerInventory is not null)
             {
-                _playerInventory.OnItemAdded += (itemGuid, quantity) =>
-                {
-                    if (dataTake.bundleToTake.GetGuid() == itemGuid)
-                    {
-                        // auto check to complete
-                        CheckComplete();
-                    }
-                };
+                _playerInventory.OnItemAdded += OnItemAdded;
+                
+            }
+        }
+
+        private void OnItemAdded(string itemGuid, int quantity)
+        {
+            if (dataTake.bundleToTake.GetGuid() == itemGuid)
+            {
+                // auto check to complete
+                TryComplete();
+            }
+        }
+
+        protected override bool CanComplete() => true;
+
+        private void OnDestroy()
+        {
+            if (_playerInventory is not null)
+            {
+                _playerInventory.OnItemAdded -= OnItemAdded;
             }
         }
     }

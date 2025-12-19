@@ -1,8 +1,7 @@
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using UnityEngine;
-
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("gather")]
     public class QuestTriggerGather : QuestTrigger
@@ -16,10 +15,10 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataGather);
+            SetData(dataGather);
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override void SetData(QuestActionData data)
         {
             dataGather = (DataGather) data;
             _bundleGuid = dataGather.bundleGatherType.GetGuid();
@@ -35,7 +34,7 @@ namespace ISILab.LBS
                 {
                     if (itemGuid == _bundleGuid)
                     {
-                        CheckComplete();
+                        TryComplete();
                     }
                 };
             }

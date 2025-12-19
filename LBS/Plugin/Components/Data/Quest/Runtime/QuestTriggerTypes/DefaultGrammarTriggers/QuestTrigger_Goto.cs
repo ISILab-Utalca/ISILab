@@ -1,7 +1,7 @@
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("go to")]
     public class QuestTriggerGoTo : QuestTrigger
@@ -12,21 +12,19 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataGoto);
+            SetData(dataGoto);
         }
 
-        public override void SetUniqueData(QuestActionData data)
-        {
-            dataGoto =  (DataGoto)data;
-        }
+        protected override void SetData(QuestActionData data) => dataGoto = (DataGoto)data;
 
         protected override void OnTriggerEnter(Collider other) 
         {
             if (!IsPlayer(other))return;
             
-            CheckComplete();
+            TryComplete();
         }
-            
+
+        protected override bool CanComplete() => true;
     }
 
 }

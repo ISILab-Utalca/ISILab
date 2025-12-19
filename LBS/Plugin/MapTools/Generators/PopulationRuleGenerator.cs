@@ -7,6 +7,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using LBS.Components;
@@ -35,7 +36,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         public override bool Equals(object obj)
         {
-            var other = obj as PopulationRuleGenerator;
+            PopulationRuleGenerator other = obj as PopulationRuleGenerator;
 
             if (other == null) return false;
 
@@ -49,29 +50,29 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             //Get references
-            var data = layer.GetModule<BundleTileMap>();
-            var bundles = LBSAssetsStorage.Instance.Get<Bundle>();
-            var scale = settings.scale;
+            BundleTileMap data = layer.GetModule<BundleTileMap>();
+            List<Bundle> bundles = LBSAssetsStorage.Instance.Get<Bundle>();
+            Vector2 scale = settings.scale;
 
             //Create container objects
-            var parent = new GameObject("Types");
+            GameObject parent = new GameObject("Types");
 
-            var parentEntity = new GameObject("Entity");
-            var parentObject = new GameObject("Object");
-            var parentInteractable = new GameObject("Interactable");
-            var parentArea = new GameObject("Area");
-            var parentProp = new GameObject("Prop");
-            var parentMisc = new GameObject("Misc");
+            GameObject parentEntity = new GameObject("Entity");
+            GameObject parentObject = new GameObject("Object");
+            GameObject parentInteractable = new GameObject("Interactable");
+            GameObject parentTrigger = new GameObject("Trigger");
+            GameObject parentProp = new GameObject("Prop");
+            GameObject parentMisc = new GameObject("Misc");
 
-            var groups = data.Groups;
-            var objects = new Dictionary<GameObject, Bundle.EElementFlag>();
+            List<TileBundleGroup> groups = data.Groups;
+            Dictionary<GameObject, Bundle.EElementFlag> objects = new Dictionary<GameObject, Bundle.EElementFlag>();
 
             foreach (TileBundleGroup group in groups)
             {
                 //Get tile positions
                 Vector2 centerposition = Vector2.zero;
                 List<Vector2Int> positions = new List<Vector2Int>();
-                foreach (var tile in group.TileGroup)
+                foreach (LBSTile tile in group.TileGroup)
                 {
                     // get interpolated center
                     positions!.Add(tile.Position);
@@ -80,7 +81,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 int sumX = 0;
                 int sumY = 0;
 
-                foreach (var pos in positions)
+                foreach (Vector2Int pos in positions)
                 {
                     sumX += pos.x;
                     sumY += pos.y;
@@ -89,7 +90,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 //Get bundle
                 Bundle current = null;
-                foreach (var b in bundles)
+                foreach (Bundle b in bundles)
                 {
                     var id = b.name;
 
@@ -99,7 +100,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 if (current == null) continue;
 
                 //Get asset from bundle
-                var pref = current.Assets[Random.Range(0, current.Assets.Count)];
+                Asset pref = current.Assets[Random.Range(0, current.Assets.Count)];
                 if (pref == null)
                 {
                     Debug.LogError("Null reference in asset: " + current.Name);
@@ -107,14 +108,19 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 }
 
                 //Instantiate prefab
+                GameObject go;
+
 #if UNITY_EDITOR
-                var go = PrefabUtility.InstantiatePrefab(pref.obj) as GameObject;
+          
+                go = PrefabUtility.InstantiatePrefab(pref.obj) as GameObject;
 #else
                 var go = GameObject.Instantiate(pref.obj);
 #endif
-                if (go == null)
+                if (go == null && current.GetHasTagCharacteristic("TriggerArea")) go = new GameObject(current.Name);
+
+                else if (go == null)
                 {
-                    Debug.LogError("Could not find prefab for: " + current.Name);
+                    Debug.LogError("Could not find prefab for: " + current.Name);             
                     continue;
                 }
 
@@ -134,18 +140,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 go.transform.position += current.GetMicroGenTool().MicroPosVector(go.transform, scale, r);
 
                 //Add components
-                if (current.GetHasTagCharacteristic("Trigger"))
-                {
-                    LBSGeneratedPatrol patrol = go.AddComponent<LBSGeneratedPatrol>();
-                    patrol.AssignPoints(group.Addons.Patrol.Points);
-                }
-                if (current.GetHasTagCharacteristic("Patrol"))
-                {
-                    LBSGeneratedEventHook eventHookComponent = go.AddComponent<LBSGeneratedEventHook>();
-                    eventHookComponent.AssignTriggerEvents(group.Addons.Triggers);
-                }
-                
-                LBSGenerated generatedComponent = go.AddComponent<LBSGenerated>();
+                LBSGeneratedPopulation generatedComponent = go.AddComponent<LBSGeneratedPopulation>();
+                generatedComponent.Addons = group.Addons;
                 generatedComponent.BundleRef = current;
                 generatedComponent.LayerName = layer.Name;
                 objects.Add(go, current.ElementFlag);
@@ -162,12 +158,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var z = objects.Keys.Average(o => o.transform.position.z);
             parent.transform.position = new Vector3(x, y, z);
 
-            foreach (var obj in objects)
+            foreach (KeyValuePair<GameObject, Bundle.EElementFlag> obj in objects)
             {
-                var go = obj.Key;
-                var flag = obj.Value;
+                GameObject go = obj.Key;
+                Bundle.EElementFlag flag = obj.Value;
 
-                var parentTransform = GetParentForFlag(flag);
+                Transform parentTransform = GetParentForFlag(flag);
                 go.transform.SetParent(parentTransform);
 
                 // continue your existing logic
@@ -177,7 +173,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             parentEntity.transform.SetParent(parent.transform);
             parentObject.transform.SetParent(parent.transform);
             parentInteractable.transform.SetParent(parent.transform);
-            parentArea.transform.SetParent(parent.transform);
+            parentTrigger.transform.SetParent(parent.transform);
             parentProp.transform.SetParent(parent.transform);
 
             parentMisc.transform.SetParent(parent.transform);
@@ -191,7 +187,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 if ((flag & Bundle.EElementFlag.Character) != 0) return parentEntity.transform;
                 if ((flag & Bundle.EElementFlag.Item) != 0) return parentObject.transform;
                 if ((flag & Bundle.EElementFlag.Interactable) != 0) return parentInteractable.transform;
-                if ((flag & Bundle.EElementFlag.Trigger) != 0) return parentArea.transform;
+                if ((flag & Bundle.EElementFlag.Trigger) != 0) return parentTrigger.transform;
                 if ((flag & Bundle.EElementFlag.Prop) != 0) return parentProp.transform;
                 if ((flag & Bundle.EElementFlag.Misc) != 0) return parentMisc.transform;
 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("stealth")]
     public class QuestTriggerStealth : QuestTrigger
@@ -22,10 +22,10 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataStealth);
+            SetData(dataStealth);
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override void SetData(QuestActionData data)
         {
             dataStealth = (DataStealth)data;
             
@@ -59,19 +59,13 @@ namespace ISILab.LBS
             if (IsPlayer(other)) _stealthDetected = false;
         }
 
-        public void OnPlayerDetected()
-        {
-            _stealthDetected = true;
-        }
+        public void OnPlayerDetected() => _stealthDetected = true;
 
         /// <summary>
         /// Complete if non detectable
         /// </summary>
         /// <returns></returns>
-        protected override bool CanComplete()
-        {
-            return _stealthDetected == false;
-        }
+        protected override bool CanComplete() => _stealthDetected == false;
     }
 
     [RequireComponent(typeof(SphereCollider))]

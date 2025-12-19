@@ -6,12 +6,12 @@ namespace ISILab.Demos.Quests
     {
         public void Complete()
         {
-            Debug.Log("Example Quest Complete");
+            Debug.Log("1 COMPLETE");
         }
     
         public void CompleteSecond()
         {
-            Debug.Log("Example Quest Complete 2");
+            Debug.Log("2 COMPLETE");
         }
     }
 }

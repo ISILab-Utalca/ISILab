@@ -1,7 +1,7 @@
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("spy")]
     public class QuestTriggerSpy : QuestTrigger
@@ -13,10 +13,12 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataSpy);
+            SetData(dataSpy);
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override bool CanComplete() => true;
+
+        protected override void SetData(QuestActionData data)
         {
             dataSpy = (DataSpy)data;
             
@@ -76,7 +78,7 @@ namespace ISILab.LBS
             _withinSeconds += Time.deltaTime;
             if (_withinSeconds >= _withinRequiredSeconds)
             {
-                _questTrigger.CheckComplete();
+                _questTrigger.TryComplete();
                 enabled = false;
             }
         }

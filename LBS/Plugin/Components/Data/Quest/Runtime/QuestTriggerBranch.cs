@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Components;
 using UnityEngine;
-
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     /// <summary>
     /// Represents a branching condition in the quest system.

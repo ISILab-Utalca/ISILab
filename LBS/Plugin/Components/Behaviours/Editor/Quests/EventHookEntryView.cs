@@ -22,32 +22,33 @@ namespace ISILab.LBS.VisualElements
 
         }
 
-        public void AddListener((GameObject, Component, MethodInfo) methodInfo, LBSEventHooker hooker)
+        public void AddListener((GameObject, Component, MethodInfo, LBSEventType) methodInfo, LBSEventHooker hooker)
         {
             _button.text = $"{methodInfo.Item3.Name}";
             _button.clicked += () =>
             {
                 // during generation we must check that this event is still valid scene wise
-                UnityActionStored entryKey = new(methodInfo);
+                UnityActionStored entryKey = new UnityActionStored(methodInfo);
                 if(hooker.RegisteredActions.Contains(entryKey)) return;
                 hooker.RegisteredActions.Add(entryKey);
 
             };
         }
         
-        public void RemoveListener((GameObject, Component, MethodInfo) methodInfo, LBSEventHooker hooker)
+        public void RemoveListener((GameObject, Component, MethodInfo, LBSEventType) methodInfo, LBSEventHooker hooker)
         {
-            (GameObject target, Component comp, MethodInfo method) = methodInfo;
+            (GameObject target, Component comp, MethodInfo method, LBSEventType eventType) = methodInfo;
             _button.text = $"{method.Name}";
             _button.clicked += () =>
             {
-                UnityActionStored entryKey = new(methodInfo);
+                UnityActionStored entryKey = new UnityActionStored(methodInfo);
                 foreach (UnityActionStored t in hooker.RegisteredActions.ToList())
                 {
                     UnityActionStored entry = t;
                     if (entry.componentName == comp.GetType().Name &&
                         entry.methodName == method.Name &&
-                        entry.objectName == target.name)
+                        entry.objectName == target.name && 
+                        entry.eventType == t.eventType)
                     {
                         hooker.RegisteredActions.Remove(entryKey);
                     }

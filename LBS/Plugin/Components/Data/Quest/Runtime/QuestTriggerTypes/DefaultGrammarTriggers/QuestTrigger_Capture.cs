@@ -1,7 +1,7 @@
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("capture")]
     public class QuestTriggerCapture : QuestTrigger
@@ -16,22 +16,15 @@ namespace ISILab.LBS
             SetTypedData(dataCapture);
         }
 
-        public override void SetUniqueData(QuestActionData data)
-        {
-            dataCapture = (DataCapture)data;
-        }
-
-        protected override void OnTriggerEnter(Collider other) 
-        {
-            
-        }
+        protected override void SetData(QuestActionData data) => dataCapture = (DataCapture)data;
 
         protected void OnTriggerStay(Collider other)
         {
             if (!IsPlayer(other)) return;
-            
+
+            TryComplete();
             ActiveCaptureTime += Time.deltaTime;
-            if(ActiveCaptureTime > dataCapture.captureTime) CheckComplete();
+ 
         }
 
         protected void OnTriggerExit(Collider other)
@@ -40,11 +33,9 @@ namespace ISILab.LBS
             
             if (dataCapture.resetTimeOnExit) ActiveCaptureTime = 0f;
         }
-        
-        public void SetTypedData(DataCapture data)
-        {
-            dataCapture = data;
-        }
+
+        public void SetTypedData(DataCapture data) => dataCapture = data;
+        protected override bool CanComplete() => ActiveCaptureTime > dataCapture.captureTime;
     }
 
 }
