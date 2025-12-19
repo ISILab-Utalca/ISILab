@@ -89,10 +89,19 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             //Builder.objects.Add(new List<GameObject>(prefabs));
             Builder.tempBundles.AddRange(TempBundles);
             Builder.newSubBundles.AddRange(TempBundles);
+
+            //manipulator.target = null;
+        }
+
+        public void StepBack()
+        {
+            
         }
 
         public void Revert()
         {
+            manipulator.target = null;
+
             //tempBundles.Clear();
             bundleContainers.Clear();
 

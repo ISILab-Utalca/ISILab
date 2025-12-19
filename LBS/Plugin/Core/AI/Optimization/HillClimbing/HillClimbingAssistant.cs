@@ -21,6 +21,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
@@ -47,8 +48,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         [JsonIgnore, NonSerialized]
         private HillClimbing hillClimbing;
 
-        [JsonIgnore, NonSerialized]
-        private LBSLayer layer;
+        //[JsonIgnore, NonSerialized]
+        //private LBSLayer layer;
 
         private List<Zone> _prevZones;
         private Dictionary<Zone, ConstraintPair> _pairRefs = new();
@@ -104,6 +105,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public void Execute(Action<float> onProgress = null, CancellationToken token = default)
         {
+            CreateHillClimbing();
+            //hillClimbing.Termination = new FitnessStagnationTermination(1);
+            //hillClimbing.Population = new Population(1, 100, new OptimizableModules(OwnerLayer.Modules));
+
             var clock = new Stopwatch();
 
             Debug.Log("HillClimbing start!");
@@ -141,7 +146,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             log = "HillClimbing cancelled";
             type = LogType.Error;
-            
+
+            CreateHillClimbing();
+            //hillClimbing.Termination = new FitnessStagnationTermination(1);
+            //hillClimbing.Population = new Population(1, 100, new OptimizableModules(OwnerLayer.Modules));
+
             var clock = new Stopwatch();
 
             Debug.Log("HillClimbing one step, start!");
@@ -397,24 +406,28 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             };
 
-            // Set first population
-            var adam = new OptimizableModules(layer.Modules);
+            CreateHillClimbing();
+
+        }
+
+        private void CreateHillClimbing()
+        {
+            var adam = new OptimizableModules(OwnerLayer.Modules);
 
 
             var selection = new EliteSelection();
             var termination = new FitnessStagnationTermination(1);
             var evaluator = new WeightedEvaluator(new Tuple<IEvaluator, float>[]
             {
-            new Tuple<IEvaluator, float> (new AdjacenciesEvaluator(layer), .4f),
-            new Tuple<IEvaluator, float> (new AreasEvaluator(layer), 0.15f),
-            new Tuple<IEvaluator, float> (new EmptySpaceEvaluator(layer), 0.35f),
+            new Tuple<IEvaluator, float> (new AdjacenciesEvaluator(OwnerLayer), .4f),
+            new Tuple<IEvaluator, float> (new AreasEvaluator(OwnerLayer), 0.15f),
+            new Tuple<IEvaluator, float> (new EmptySpaceEvaluator(OwnerLayer), 0.35f),
                 //new System.Tuple<IEvaluator, float> (new RoomCutEvaluator(layer), 1f),
                 //new System.Tuple<IEvaluator, float> (new StretchEvaluator(), 0.1f),
             });
             var population = new Population(1, 100, adam); // agregar parametros
 
             hillClimbing = new HillClimbing(population, evaluator, selection, GetNeighbors, termination);
-
         }
 
         private StochasticHillClimbing InitStochastic(LBSLayer layer)

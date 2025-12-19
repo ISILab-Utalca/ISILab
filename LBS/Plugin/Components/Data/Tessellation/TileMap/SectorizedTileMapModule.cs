@@ -714,6 +714,12 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             var clone = new SectorizedTileMapModule(zones, pairs, this.id);
             clone.ZonesProximity = this.ZonesProximity;
             clone.SelectedZones = this.SelectedZones;
+
+            clone.OnAddPair = this.OnAddPair;
+            clone.OnAddZone = this.OnAddZone;
+            clone.OnRemovePair = this.OnRemovePair;
+            clone.OnRemoveZone = this.OnRemoveZone;
+
             return clone;
         }
 

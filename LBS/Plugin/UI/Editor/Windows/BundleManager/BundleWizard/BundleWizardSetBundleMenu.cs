@@ -129,6 +129,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             //throw new System.NotImplementedException();
         }
 
+        public void StepBack()
+        {
+
+        }
+
         public void Revert()
         {
             Debug.Log("Builder data:\n\n" + Builder.ToString());
