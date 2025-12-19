@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
 {

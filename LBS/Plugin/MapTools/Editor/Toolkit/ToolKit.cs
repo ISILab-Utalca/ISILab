@@ -14,6 +14,7 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
+using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace LBS.VisualElements
 {
