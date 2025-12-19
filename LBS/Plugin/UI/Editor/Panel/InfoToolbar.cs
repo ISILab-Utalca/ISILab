@@ -1,13 +1,9 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
-using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEditor.UIElements;
-using UnityEditor.VersionControl;
 
-
-namespace ISILab.LBS.VisualElements.Editor
+namespace ISILab.LBS.Plugin.UI.Editor.Panel
 {
     [UxmlElement]
     public partial class InfoToolbar: VisualElement
@@ -38,9 +34,8 @@ namespace ISILab.LBS.VisualElements.Editor
             VisualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("InfoToolbar");
             VisualTree.CloneTree(this);
             
-            this.name = "InfoToolbar";
-            this.AddToClassList("lbs-toolbar");
-            this.AddToClassList("horizontal");
+            this.name = "InfoToolbarWidget";
+            this.AddToClassList("lbs-widget");
 
             clearNotificationButton = this.Q<LBSToolbarButton>("CleanNotificationsButton");
             disableNotificationButton = this.Q<LBSToolbarButton>("DisableNotificationsButton");
