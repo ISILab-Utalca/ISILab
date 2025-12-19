@@ -5,6 +5,7 @@ using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
@@ -21,6 +22,8 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
         private List<Type> allCharacteristics;
         private HashSet<Type> selectedCharacteristics;
 
+        private Dictionary<Type, BundleWizardCharacteristicElement> elements = new();
+
         public BundleBuilder Builder { get; set; }
 
         public BundleWizardSetCharacteristMenu() : base()
@@ -36,8 +39,9 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
             mainCharListView.makeItem = () => new BundleWizardCharacteristicElement();
             mainCharListView.bindItem = (item, i) =>
             {
-
                 var charElement = item as BundleWizardCharacteristicElement;
+                if (!elements.ContainsKey(allCharacteristics[i]))
+                    elements.Add(allCharacteristics[i], charElement);
                 //charElement.CharLabel.text = (mainCharListView.itemsSource[i] as Type).Name;
                 charElement.CharLabel.text = allCharacteristics[i].Name;
 
@@ -49,7 +53,15 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleManager.BundleWi
                     if (evt.newValue)
                     {
                         selectedCharacteristics.Add(allCharacteristics[i]);
-                        // TODO: Uncheck all incompatible toggles
+                        // Uncheck all incompatible toggles
+                        if (exclusiveChar)
+                        {
+                            foreach (Type excluded in exclusivenessGroups.SelectMany(g => g).Except(new[] { allCharacteristics[i] }))
+                            {
+                                elements[excluded].Toggle.SetValueWithoutNotify(false);
+                                selectedCharacteristics.Remove(excluded);
+                            }
+                        }
                     }
                     else
                         selectedCharacteristics.Remove(allCharacteristics[i]);
