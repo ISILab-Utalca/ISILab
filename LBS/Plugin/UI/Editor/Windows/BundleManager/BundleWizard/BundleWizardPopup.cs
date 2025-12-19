@@ -16,7 +16,9 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows
 {
-    
+    /// <summary>
+    /// Provides a quick way for bundle creation and basic configuration. Displayed as a pop-up in the Bundle Manager window.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardPopup: VisualElement
     {
@@ -30,8 +32,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
         private readonly LBSCustomButton cancelButton;
 
         private int currentStep = 0;
-
-        private string[] breadcrumbLabels = new string []
+        /// <summary>
+        /// Visible names for each Wizard tab.
+        /// </summary>
+        private readonly string[] breadcrumbLabels = new string []
         {
             "New Main Bundle",
             "Convert Prefabs",
@@ -39,6 +43,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             "Add Characteristics"
         };
 
+        /// <summary>
+        /// Wizard tabs as visual elements. Uses breadcrumbs labels as keys.
+        /// </summary>
         private Dictionary<string, VisualElement> tabs = new Dictionary<string, VisualElement>();
     
 
@@ -53,12 +60,24 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             } 
         }
 
+        /// <summary>
+        /// Is the Wizard on the last tab?
+        /// </summary>
         private bool InFinalStep => CurrentStep == breadcrumbLabels.Length - 1;
 
+        /// <summary>
+        /// Current tab's breadcrumb name.
+        /// </summary>
         private string CurrentBreadcrumb => breadcrumbLabels[CurrentStep]; 
 
+        /// <summary>
+        /// Current tab as an interface.
+        /// </summary>
         private IBundleWizardTab CurrentWizardTab => tabs[CurrentBreadcrumb] as IBundleWizardTab;
     
+        /// <summary>
+        /// Called when the Bundle Manager window is created.
+        /// </summary>
         public BundleWizardPopup()
         {
             VisualTreeAsset vta = DirectoryTools.GetAssetByName<VisualTreeAsset>(nameof(BundleWizardPopup));
@@ -154,10 +173,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             #endregion
         }
 
+        /// <summary>
+        /// Called when 'New Main Bundle' option is selected from the Bundle Manager.
+        /// </summary>
         public void Init()
         {
+            // Names of each tab visual element in PopUp UXML file
             var tabNames = new[] { "SelectBundleTypeMenu", "SetAssetsMenu", "SetBundleMenu", "SetCharacteristicsMenu" };
+            // There is the same number of  display names and names visual element.
             Assert.IsTrue(breadcrumbLabels.Length == tabNames.Length);
+
+            // The Bundle Builder is created and its reference is assigned to each Wizard tab.
             BundleBuilder builder = new BundleBuilder();
             for (int i = 0; i < tabNames.Length; i++)
             {
@@ -170,23 +196,25 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             CurrentWizardTab.Init();
         }
 
-        void OnTabChanged()
-        {
-            return;
-            foreach (VisualElement tab in tabs.Values)
-            {
-                tab.SetDisplay(false);
-            }
-            tabs[CurrentBreadcrumb].SetDisplay(true);
+        //void OnTabChanged()
+        //{
+        //    foreach (VisualElement tab in tabs.Values)
+        //    {
+        //        tab.SetDisplay(false);
+        //    }
+        //    tabs[CurrentBreadcrumb].SetDisplay(true);
+        //    
+        //    string s = "Tabs Display:\n\n";
+        //    foreach (VisualElement tab in tabs.Values)
+        //    {
+        //        s += tab.GetDisplay() + "\n";
+        //    }
+        //    Debug.Log(s);
+        //}
 
-            string s = "Tabs Display:\n\n";
-            foreach (VisualElement tab in tabs.Values)
-            {
-                s += tab.GetDisplay() + "\n";
-            }
-            Debug.Log(s);
-        }
-
+        /// <summary>
+        /// Cleans up the Wizard when its closed.
+        /// </summary>
         void CleanUp()
         {
             try
@@ -206,6 +234,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
         }
     }
 
+    /// <summary>
+    /// Class meant to collect data entered by the user through the Wizard, and create a main bundle asset.
+    /// </summary>
     public class BundleBuilder
     {
         public string bundleName { get; set; }
@@ -221,6 +252,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 
         public BundleBuilder() { }
 
+        /// <summary>
+        /// Sets base bundle parameters based on the selected layer type.
+        /// </summary>
+        /// <param name="bundle"> Reference of the bundle whose parameters are setted. </param>
+        /// <param name="layerType"> Layer type selected for the bundle. </param>
         public void GetBundleConfiguration(ref Bundle bundle, string layerType)
         {
             switch (layerType)
@@ -251,6 +287,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             }
         }
 
+        /// <summary>
+        /// Creates a main bundle asset and its children, assigning their corresponding assets and characteristics.
+        /// </summary>
         public void TryBuild()
         {
             Bundle main = ScriptableObject.CreateInstance<Bundle>();

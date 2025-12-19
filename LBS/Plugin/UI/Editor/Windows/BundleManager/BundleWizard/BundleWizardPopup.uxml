@@ -4,7 +4,7 @@
     <ui:VisualElement name="Overlay" style="flex-grow: 1; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.24); position: absolute; right: 0; left: 0; bottom: 1px; top: 0;" />
     <ui:VisualElement name="VisualElement" class="lbs_popup" style="flex-grow: 1; padding-left: 12px; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; margin-top: 72px; margin-right: 72px; margin-bottom: 72px; margin-left: 72px;">
         <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," enabled="false" style="height: 20px; opacity: 1; min-height: 20px; max-height: 20px;" />
-        <ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.LBSCustomTabView name="TabView" display-tabs="true" style="flex-grow: 1; display: flex; overflow: hidden;">
+        <ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.LBSCustomTabView name="TabView" display-tabs="false" style="flex-grow: 1; display: flex; overflow: hidden;">
             <ui:Tab label="1 - New Main Bundle" closeable="false" name="Step1" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
                 <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSelectBundleType name="SelectBundleTypeMenu" class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
             </ui:Tab>
