@@ -2,7 +2,6 @@
     --lbs-light-red-color: rgb(254, 118, 105);
     --lbs-selection-dark-red-color: rgb(200, 92, 82);
     
-    
     --lbs-light-green-color: rgb(194, 246, 100);
     --lbs-selection-dark-green-color: rgb(118, 151, 67);
     
@@ -25,19 +24,19 @@
     --lbs-default-selectable-gray-color: rgb(72,72,72);
     --lbs-default-selectable-hover-color: rgb(88,88,88);
     
-    --lbs-border-white-overlay-color: rgba(255, 255, 255, 0.2);
-    --lbs-dark-overlay-color: rgba(0, 0, 0, 0.2);
+    --lbs-default-white-overlay-color: rgba(255, 255, 255, 0.2);
+    --lbs-default-dark-overlay-color: rgba(0, 0, 0, 0.2);
     
     --lbs-selection-neutral-blue-color: rgb(54, 123, 245);
     --lbs-selection-focus-blue-color: rgb(44,93,135);
     --lbs-selection-dark-blue-color: rgb(24, 55, 110);
     
-    
     --lbs-quest-teal-color: rgb(0,255,174);
     --lbs-quest-rose-color: rgb(207,32,80);
     --lbs-quest-purple-color: rgb(151,71,255);
-}
 
+    --lbs-default-frame-border-radius: 3px
+}
 
 .dark {
     --lbs-icon-color: rgb(210,210,210);
@@ -50,6 +49,9 @@
 
     --lbs-selectable-gray-color: rgb(72,72,72);
     --lbs-selectable-hover-color: rgb(88,88,88);
+
+    --lbs-white-overlay-color: var(--lbs-default-white-overlay-color);
+    --lbs-dark-overlay-color: var(--lbs-default-dark-overlay-color);
 
     --graph-thin-line-color: rgba(196, 196, 196, 0.02);
     --graph-thick-line-color: rgba(196, 196, 196, 0.1);
@@ -74,6 +76,9 @@
 
     --lbs-selectable-gray-color: rgb(42,48,60);
     --lbs-selectable-hover-color: rgb(80,88,108);
+
+    --lbs-white-overlay-color: var(--lbs-default-white-overlay-color);
+    --lbs-dark-overlay-color: var(--lbs-default-dark-overlay-color);
 
     --graph-thin-line-color: rgba(196, 202, 208, 0.02);
     --graph-thick-line-color: rgba(196, 202, 208, 0.1);
@@ -102,8 +107,8 @@
     --graph-thick-line-color: rgba(20, 20, 20, 0.1);
 
     /*invert default color*/
-    --lbs-dark-overlay-color: rgba(255, 255, 255, 0.3);
-    --lbs-border-white-overlay-color: rgba(0, 0, 0, 0.2);
+    --lbs-white-overlay-color: var(--lbs-default-dark-overlay-color);
+    --lbs-dark-overlay-color: var(--lbs-default-white-overlay-color);
     
     --lbs-selection-neutral-blue-color: rgb(54, 123, 245);
     --lbs-selection-dark-blue-color: rgb(54, 123, 245);
@@ -125,8 +130,10 @@
 
     --lbs-selectable-gray-color: rgb(36,37,38);
     --lbs-selectable-hover-color: rgb(54,55,56);
-    
 
+    --lbs-white-overlay-color: rgba(255, 255, 255, 0.4);
+    --lbs-dark-overlay-color: rgba(255, 255, 255, 0.1);
+    
     --graph-thin-line-color: rgba(196, 202, 208, 0.02);
     --graph-thick-line-color: rgba(196, 202, 208, 0.1);
 
@@ -136,7 +143,12 @@
     --lbs-main-blue-color: var(--lbs-selection-neutral-blue-color);
     --lbs-main-yellow-color: var(--lbs-light-yellow-color);
     --lbs-main-green-color: var(--lbs-light-green-color);
+    
+    --lbs-frame-border-radius: 0px;
 }
+
+
+/*useful styles for general cases*/
 
 
 .horizontal{
