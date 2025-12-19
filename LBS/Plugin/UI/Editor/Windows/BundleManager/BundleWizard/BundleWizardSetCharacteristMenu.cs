@@ -9,6 +9,9 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
+    /// <summary>
+    /// Bundle Wizard tab for choosing characteristics.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardSetCharacteristMenu : VisualElement, IBundleWizardTab
     {
@@ -19,6 +22,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         private List<Type> allCharacteristics;
         private HashSet<Type> selectedCharacteristics;
 
+        /// <summary>
+        /// Dictionary containing every characteristic element displayed, accessed through a characteristic type.
+        /// </summary>
         private Dictionary<Type, BundleWizardCharacteristicElement> elements = new();
 
         public BundleBuilder Builder { get; set; }

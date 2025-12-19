@@ -12,12 +12,13 @@ using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager;
 
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows
 {
     /// <summary>
-    /// Provides a quick way for bundle creation and basic configuration. Displayed as a pop-up in the Bundle Manager window.
+    /// Provides a quick way for <see cref="Bundle"/> creation and basic configuration. Displayed as a pop-up in the <see cref="BundleManagerWindow"/>.
     /// </summary>
     [UxmlElement]
     public partial class BundleWizardPopup: VisualElement
@@ -235,7 +236,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
     }
 
     /// <summary>
-    /// Class meant to collect data entered by the user through the Wizard, and create a main bundle asset.
+    /// Class meant to collect data entered by the user through the Wizard, and create a main <see cref="Bundle"/> asset.
     /// </summary>
     public class BundleBuilder
     {
@@ -288,7 +289,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
         }
 
         /// <summary>
-        /// Creates a main bundle asset and its children, assigning their corresponding assets and characteristics.
+        /// Creates a main <see cref="Bundle"/> asset and its children, assigning their corresponding assets and characteristics.
         /// </summary>
         public void TryBuild()
         {

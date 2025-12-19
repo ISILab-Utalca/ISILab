@@ -9,6 +9,9 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
+    /// <summary>
+    /// Bundle Wizard tab for dragging prefabs from the project to create child bundles.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
     {
@@ -34,6 +37,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         }
 
+        /// <summary>
+        /// Callback that retrieves Objects to be used as Assets for a new Bundle.
+        /// </summary>
+        /// <param name="objects"> Objects passed by a provider (e.g., <see cref="DragAndDropWindow.DragAndDropManipulator"/>) </param>
         private void GetObjects(List<Object> objects)
         {
             var prefabs = new List<GameObject>(objects.Select(o => o as GameObject)).RemoveEmpties();
@@ -50,6 +57,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             Debug.Log(s);
         }
 
+        /// <summary>
+        /// Creates a child bundle instance, sets its Assets and do basic configuration.
+        /// </summary>
+        /// <param name="prefabs"> Prefabs to add as bundle assets. </param>
+        /// <returns> The configured bundle instance. </returns>
         private Bundle SetBundle(List<GameObject> prefabs)
         {
             Bundle bundle = ScriptableObject.CreateInstance<Bundle>();

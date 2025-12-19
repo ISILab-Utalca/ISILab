@@ -5,6 +5,10 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
+    /// <summary>
+    /// <b>For <see cref="BundleWizardPopup"/> exclusive use.</b><br />
+    /// Visual element representing a child <see cref="Bundle"/> that can be renamed and selected or deselected.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardElement : LBSComplexVisualElement, IBundleElement
     {
