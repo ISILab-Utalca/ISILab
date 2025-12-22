@@ -189,6 +189,9 @@ namespace ISILab.LBS.Characteristics
         {
             List<string> warnings = new List<string>();
 
+            if (tagEntries is null || tagEntries.Count == 0)
+                warnings.Add($"LBSTagsCharacteristic is empty.");
+
             foreach (var tagEntry in tagEntries)
             {
                 if (tagEntry.Value == null)
