@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
-    <ISILab.LBS.CustomComponents.LBSToolbar name="ExtraToolsBar" class="vertical darker" style="width: 40px;">
+    <ISILab.LBS.CustomComponents.LBSToolbar name="ExtraToolsBar" class="vertical" style="width: 40px;">
         <ui:VisualElement name="Separator" style="flex-grow: 0; border-bottom-width: 1px; height: 8px; background-color: rgb(72, 72, 72); border-bottom-color: rgb(35, 35, 35);" />
         <ui:VisualElement name="FloatingPanelButtonContainer" style="flex-grow: 0; flex-direction: column-reverse; justify-content: flex-end;">
             <ui:Toggle value="false" focusable="true" name="Gen3DToggle" tooltip="3D Generator Panel " class="lbs-tool-button-toggle" style="flex-direction: row; height: 40px; background-image: none;">

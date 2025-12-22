@@ -323,7 +323,6 @@ Toggle > .lbs-default-icon {
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
-    background-color: rgb(47, 47, 47);
     width: auto;
     white-space: nowrap;
     -unity-background-scale-mode: scale-to-fit;
@@ -335,6 +334,10 @@ Toggle > .lbs-default-icon {
     border-width: 1px;
 }
 
+.lbs-tab-button:hover {
+    background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
+}
+
 .lbs-tab-button:selected {
     
 }
@@ -343,41 +346,6 @@ Toggle > .lbs-default-icon {
 
 }
 
-.lbs-tab-button:hover {
-    height: 40px;
-    margin-left: 5px;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 5px;
-    background-image: none;
-    flex-shrink: 1;
-    flex-grow: 0;
-    align-self: stretch;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    background-color: rgb(87, 87, 87);
-    width: auto;
-    white-space: nowrap;
-    -unity-background-scale-mode: scale-to-fit;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    flex-wrap: nowrap;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 4px;
-    border-left-color: rgba(255, 255, 255, 0.2);
-    border-right-color: rgba(255, 255, 255, 0.2);
-    border-top-color: rgba(255, 255, 255, 0.2);
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-}
 
 .lbs-tab-button > VisualElement {
     height: 24px;
