@@ -154,9 +154,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private void Complete()
         {
             isCompleted = true;
-            eventHooker.BroadcastOnComplete();
+            if (eventHooker != null) eventHooker.BroadcastEvent(Components.Data.LBSEventType.Complete);
 
-            node.QuestState = QuestState.Completed;
+            if(node != null) node.QuestState = QuestState.Completed;
 
             gameObject.SetActive(false);
             OnTriggerCompleted?.Invoke(this);

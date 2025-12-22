@@ -55,22 +55,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private void OnTriggerEnter(Collider other)
         {
             if (GenEventHook != null && ActivationMode == TriggerActivationMode.OnEnter)
-            { 
-                GenEventHook.BroadcastOnEnter(); 
+            {
+                GenEventHook.BroadcastEvent(Components.Data.LBSEventType.TriggerEnter);
             }
         }
         private void OnTriggerExit(Collider other)
         {
             if (GenEventHook != null && ActivationMode == TriggerActivationMode.OnExit)
-            { 
-                GenEventHook.BroadcastOnExit(); 
+            {
+                GenEventHook.BroadcastEvent(Components.Data.LBSEventType.TriggerExit);
             }
         }
         private void OnTriggerStay(Collider other)
         {
             if (GenEventHook != null && ActivationMode == TriggerActivationMode.OnStay)
-            { 
-                GenEventHook.BroadcastOnStay(); 
+            {
+                GenEventHook.BroadcastEvent(Components.Data.LBSEventType.TriggerStay);
             }
         }
         #endregion

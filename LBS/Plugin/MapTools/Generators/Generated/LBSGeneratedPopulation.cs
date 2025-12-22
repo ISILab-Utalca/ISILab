@@ -66,7 +66,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // set triggers first
             foreach (TileTrigger triggerArea in addons.Triggers)
             {
-                GameObject child = new GameObject();
+                GameObject child = new GameObject("ChildTrigger");
                 Collider collider;
 
                 if (triggerArea.Ttype == TileTriggerType.Box)
@@ -85,10 +85,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 collider.isTrigger = true;
 
                 child.transform.SetParent(gameObject.transform);
+                child.transform.position = gameObject.transform.position;
+
                 LBSTriggerHandler handler = child.AddComponent<LBSTriggerHandler>();
                 handler.Hooker = triggerArea._eventHooker;
                 handler.ActivationMode = triggerArea.activationMode;
-        
+              
             }
 
             GenEventHooker.AssignEvents(addons.Interact);
@@ -98,11 +100,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private void OnDestroy()
         {
             //Destroy(gameObject);
-            if (GenEventHooker != null) GenEventHooker.BroadcastOnDeathEvent();
+            if (GenEventHooker != null) GenEventHooker.BroadcastEvent(Components.Data.LBSEventType.Destroy);
         }
         public void Interact()
         {
-            if (GenEventHooker != null) GenEventHooker.BroadcastOnInteractEvent();
+            if (GenEventHooker != null) GenEventHooker.BroadcastEvent(Components.Data.LBSEventType.Interact);
         }
         #endregion
     }
