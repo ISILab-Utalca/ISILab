@@ -1,15 +1,15 @@
+using System;
+using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid;
 using ISILab.LBS.VisualElements.Editor;
-using System;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 {
     public class TerrainConnectionGridEditorWindow : EditorWindow
     {
@@ -57,7 +57,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
             get
             {
                 var dict = new Dictionary<int, Color>();
-                for (int i = 0; i < connectionGridTarget.ColorPalette.Count; i++)
+                for(int i=0; i<connectionGridTarget.ColorPalette.Count; i++)
                 {
                     dict.Add(connectionGridTarget.ColorPaletteID[i], connectionGridTarget.ColorPalette[i]);
                 }
@@ -76,7 +76,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         public void CreateGUI()
         {
             //Initialize connection grid if not initialized
-            if (connectionGridTarget.GridList == null || connectionGridTarget.GridList.Count != connectionGridTarget.Assets.Count)
+            if(connectionGridTarget.GridList == null || connectionGridTarget.GridList.Count!=connectionGridTarget.Assets.Count)
             {
                 connectionGridTarget.UpdateGridList();
             }
@@ -90,7 +90,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
             addColorButton.RegisterCallback<ClickEvent>((evt) => { AddColorKey(); });
 
             //If the palette is empty I'll add a red button as a default. I think that makes things easier
-            if (ColorPaletteKey.Count == 0)
+            if(ColorPaletteKey.Count == 0)
             {
                 connectionGridTarget.AddColor(1, Color.red);
             }
@@ -112,7 +112,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
 
             //Zooming stuff!
             previewScaleSlider = rootVisualElement.Q<Slider>("PreviewScaleSlider");
-            previewScaleSlider.RegisterValueChangedCallback((evt) => { OnScaleModify?.Invoke(evt.newValue); });
+            previewScaleSlider.RegisterValueChangedCallback((evt)=> { OnScaleModify?.Invoke(evt.newValue);});
 
             zoomScaleInt = rootVisualElement.Q<LBSCustomUnsignedIntegerField>("ZoomScaleInt");
             fovScale = 1 + (zoomScaleInt.value * 0.1f);
@@ -137,11 +137,12 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
 
             foreach (AssetConnectionGrid _grid in connectionGridTarget.GridList)
             {
+                //Debug.Log(_grid.AssetReference.obj);
                 var _newGridWindow = new AssetGridEditorWindow(_grid, this);
                 SetFOVScale += _newGridWindow.UpdateFOVScale;
                 OnScaleModify += (newValue) => {
                     //_newGridWindow.style.scale = new Scale(new Vector2(newValue, newValue));
-                    _newGridWindow.style.height = newValue * 128;
+                    _newGridWindow.style.height = newValue * 128; 
                     _newGridWindow.style.width = newValue * 128;
                     _newGridWindow.MarkDirtyRepaint();
                 };
@@ -153,7 +154,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
                 //128 * (previewScaleSlider.value);
                 OnWindowClosed += () => { _newGridWindow.OnRemove?.Invoke(); };
                 gridsVE.Add(_newGridWindow);
-
+            
             }
 
             saveButton.clicked += () => {
@@ -174,9 +175,9 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         #region METHODS
         void SwitchTools(LBSToolbarToggle button, GridTerrainTool _newTool)
         {
-            foreach (LBSToolbarToggle otherButton in gridTerrainTools)
+            foreach(LBSToolbarToggle otherButton in gridTerrainTools)
             {
-                if (otherButton != button)
+                if(otherButton!=button)
                 {
                     otherButton.SetValueWithoutNotify(false);
                 }
@@ -200,7 +201,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
 
         public void RemoveColorKey(int key)
         {
-            if (ColorPaletteKey[key] != null)
+            if (ColorPaletteKey[key]!=null)
             {
                 Debug.Log("removing color with ID " + key);
                 connectionGridTarget.RemoveColor(key);
@@ -216,11 +217,10 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
             newButton.Data = key;
 
             //Add button functionality
-            newButton.OnExecute += () => {
-                foreach (LBSSelectableButton button in colorButtons) { button.ToggleButtonSelected(false); }
+            newButton.OnExecute += () => { 
+                foreach(LBSSelectableButton button in colorButtons) { button.ToggleButtonSelected(false); }
                 newButton.ToggleButtonSelected(true);
                 currentColor = newButton.Data;
-                Debug.Log("current color: " + currentColor);
             };
             //this is meant to pick the color from colorButtons btw!
             newButton.OnRemove += () => { colorButtons.Remove(newButton); RemoveColorKey(newButton.Data); };
@@ -246,5 +246,4 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         }
         #endregion
     }
-
 }

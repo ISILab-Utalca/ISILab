@@ -1,11 +1,10 @@
 ﻿using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid;
+using ISILab.LBS.Editor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Editor;
 
-namespace ISILab.LBS.VisualElements
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
 {
     [LBSCustomEditor("Weights", typeof(LBSTerrainConnectionGrid))]
     public class TerrainConnectionGridEditor : LBSCustomEditor

@@ -1,13 +1,14 @@
+using System;
+using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Plugin.Components.Bundles;
-using System;
-using System.Collections.Generic;
+using ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 {
     public class AssetGridEditorWindow : VisualElement
     {
@@ -84,7 +85,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
                 previewPrefab.transform.position = Vector3.zero;
             }
             EditorApplication.delayCall += StepPreview;
-
+        
             SetGrid();
 
             OnRemove += prevRenderUtil.Cleanup;
@@ -97,30 +98,29 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         {
             int lngth = AssetGrid.TerrainFlag.Length;
             float _sqr = Mathf.Sqrt(lngth);
-            if (_sqr - Mathf.RoundToInt(_sqr) != 0) { return; }
+            if(_sqr - Mathf.RoundToInt(_sqr)!=0) { return; }
 
             //sqr is the length of the rows and columns alike, so we proceed
-            for (int i = 0; i < _sqr; i++)
+            for(int i=0; i<_sqr; i++)
             {
                 var _row = new VisualElement();
                 _row.style.flexDirection = FlexDirection.Row;
                 _row.style.flexGrow = 1;
                 gridContainer.Add(_row);
-
-                for (int j = 0; j < _sqr; j++)
+            
+                for(int j=0; j<_sqr; j++)
                 {
                     int pos = (j + (i * Mathf.RoundToInt(_sqr)));
                     var _tile = new AssetGridTile(pos, assetGrid.TerrainFlag[pos]);
                     _tile.AddToClassList("asset-grid-tile");
                     _tile.OnTileClicked += () => { UseToolOnTile(_tile); };
                     _tile.OnValueUpdated += () => {
-                        if (ColorPaletteKey.ContainsKey(_tile.ColorValue))
+                        if(ColorPaletteKey.ContainsKey(_tile.ColorValue))
                         {
                             _tile.ChangeColor(ColorPaletteKey[_tile.ColorValue]);
                         }
                         else
                         {
-                            Debug.Log("changing value to 0");
                             _tile.ChangeValue(0);
                         }
                     };
@@ -133,8 +133,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
                         if (ColorPaletteKey.ContainsKey(assetGrid.TerrainFlag[pos]))
                         {
                             _tile.ChangeValue(assetGrid.TerrainFlag[pos]);
-                        }
-                        else
+                        } else
                         {
                             //TODO: Work on a way to be able to revert the colors and such.
                             _tile.ChangeValue(0);
@@ -145,14 +144,14 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
                     OnColorListModified += _tile.OnValueUpdated;
 
                     //Very rudimentary, but if it gets the job done...
-                    _tile.OnValueUpdated?.Invoke();
+                    _tile.OnValueUpdated?.Invoke();                
 
                     _row.Add(_tile);
                     tiles.Add(_tile);
                 }
             }
         }
-
+    
         public void UpdateFOVScale()
         {
             StepPreview();
@@ -162,7 +161,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
 
         public void UseToolOnTile(AssetGridTile tile)
         {
-            switch (ActiveTool)
+            switch(ActiveTool)
             {
                 case TerrainConnectionGridEditorWindow.GridTerrainTool.Brush:
                     BrushTool(tile);
@@ -177,7 +176,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         }
         public void SaveChanges()
         {
-            foreach (AssetGridTile tile in tiles)
+            foreach(AssetGridTile tile in tiles)
             {
                 tile.OnValueSaved?.Invoke();
             }
@@ -202,11 +201,11 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         {
             var _oldColor = tile.ColorValue;
             tile.ChangeValue(CurrentColorID);
-
+        
             //Now we propagate it by looking for anything with the same old color
-
+        
             //right
-            if ((tile.GridPosition % GridLengthSqr + 1) < GridLengthSqr)
+            if((tile.GridPosition%GridLengthSqr + 1) < GridLengthSqr)
             {
                 if (tiles[tile.GridPosition + 1].ColorValue == _oldColor)
                 {
@@ -272,4 +271,3 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         }
     }
 }
-

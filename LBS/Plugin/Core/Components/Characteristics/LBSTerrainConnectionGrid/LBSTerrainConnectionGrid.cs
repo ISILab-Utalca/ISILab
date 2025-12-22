@@ -5,6 +5,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using ISILab.Extensions;
 using ISILab.LBS.Plugin.Components.Bundles;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Characteristics
 {
@@ -135,6 +136,11 @@ namespace ISILab.LBS.Characteristics
             return gridList.Find(c => c.AssetReference == asset);
         }
 
+        public AssetConnectionGrid GetGrid(GameObject obj)
+        {
+            return gridList.Find(c => c.AssetReference.obj == obj);
+        }
+
         public void SetGridSize(int gSize)
         {
             gridSize = gSize;
@@ -181,6 +187,8 @@ namespace ISILab.LBS.Characteristics
             set => terrainFlag = value;
         }
         public Asset AssetReference => assetReference;
+        public int GridSize => terrainFlag.Length;
+        public int BorderSize => Mathf.RoundToInt(Mathf.Sqrt(terrainFlag.Length));
 
         public AssetConnectionGrid(int[] terrainFlag, Asset assetReference)
         {
@@ -207,12 +215,21 @@ namespace ISILab.LBS.Characteristics
             }
             //If over length, return
             if ((vector.x * vector.y) > (terrainFlag.Length)) { return -1; }
+            
+            //Make into int
             var vecInt = vector.ToInt();
 
             //This will likely explode in my face in the future and ONLY works if the terrain is a square. Oh well!
-            return vecInt.y * Mathf.RoundToInt(lengthSqrt) + vecInt.x;
-
+            return vecInt.x + (vecInt.y * Mathf.RoundToInt(lengthSqrt));
         }
+
+        public int FlagFromVector(Vector2 vec)
+        {
+            var vecInt = vec.ToInt();
+            if((vec.x * vec.y) > GridSize) return 0;
+            return terrainFlag[((vecInt.y * BorderSize) + vecInt.x)];
+        }
+        public int FlagFromVector(int x, int y) => FlagFromVector(new Vector2(x, y));
 
         public override int GetHashCode()
         {
