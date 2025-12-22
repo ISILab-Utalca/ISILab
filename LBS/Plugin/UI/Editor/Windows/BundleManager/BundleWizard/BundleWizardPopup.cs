@@ -249,7 +249,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
         public List<Bundle> tempBundles { get; private set; } = new();
         public List<Bundle> newSubBundles { get; private set; } = new();
      
-        public List<Type> characteristics { get; private set; } = new();
+        public List<Type> mainCharacteristics { get; private set; } = new();
+        public List<Type> childrenCharacteristics { get; private set; } = new();
 
         public BundleBuilder() { }
 
@@ -296,13 +297,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             Bundle main = ScriptableObject.CreateInstance<Bundle>();
             GetBundleConfiguration(ref main, layerType);
             main = BundleMenuItem.CreateBundleWithInstance(main, bundleName);
-            for(int i = 0; i < characteristics.Count; i++)
+            for(int i = 0; i < mainCharacteristics.Count; i++)
             {
-                main.AddCharacteristic(Activator.CreateInstance(characteristics[i]) as LBSCharacteristic);
+                main.AddCharacteristic(Activator.CreateInstance(mainCharacteristics[i]) as LBSCharacteristic);
             }
             for(int i = 0; i < newSubBundles.Count; i++)
             {
                 newSubBundles[i] = BundleMenuItem.CreateBundleWithInstance(newSubBundles[i], newSubBundles[i].BundleName);
+                for(int j = 0; j < childrenCharacteristics.Count; j++)
+                {
+                    newSubBundles[i].AddCharacteristic(Activator.CreateInstance(childrenCharacteristics[j]) as LBSCharacteristic);
+                }
                 main.AddChild(newSubBundles[i]);
             }
         }
@@ -320,8 +325,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             newSubBundles.ForEach(sb => s += "\t" + sb.BundleName + " | ");
             s += "\n\n";
 
-            s += "> Characteristics:\n";
-            characteristics.ForEach(c => s += "\t" + c.Name + " | ");
+            s += "> Main Characteristics:\n";
+            mainCharacteristics.ForEach(c => s += "\t" + c.Name + " | ");
+            s += "\n\n";
+
+            s += "> Children Characteristics:\n";
+            childrenCharacteristics.ForEach(c => s += "\t" + c.Name + " | ");
             s += "\n\n";
 
             return s;

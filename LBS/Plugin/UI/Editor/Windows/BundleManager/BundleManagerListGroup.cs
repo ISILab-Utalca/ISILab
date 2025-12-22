@@ -94,10 +94,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             listView.fixedItemHeight = itemHeight;
 
             var list = listView;
-            listView.makeItem = () =>
-            {
-                return new T();
-            };
+            listView.makeItem = () => new T();
             listView.bindItem = (item, i) =>
             {
                 //Debug.Log("BIND ITEM");
@@ -133,6 +130,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                 if(BundleManagerWindow.Instance)
                     BundleManagerWindow.Instance.SetBundleListViewSettings(ref listView, columnName, bundles, main);
             }
+        }
+
+        public void GetListViewRef(out LBSCustomListView listView)
+        {
+            listView = this.listView;
         }
     }
 }

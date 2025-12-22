@@ -632,6 +632,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             }
         }
         #endregion
+
+        /// <summary>
+        /// Class containing a <see cref="Bundle"/> and its children.
+        /// </summary>
         public class BundleContainer
         {
             private readonly Bundle _main;

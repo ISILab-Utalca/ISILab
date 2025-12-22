@@ -24,7 +24,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         public void StepBack();
         /// <summary>
         /// Called when the tab is <b>hidden</b> after using the <b>'Back'</b> button, or when the pop-up is closed. <br />
-        /// Meant to clean the current step data and the Builder data before returning to the previous step.
+        /// Meant to clean the current step data and the Builder data before returning to the previous step. <br />
+        /// <i> You should use this to undo any modifications to the Builder made in <see cref="Step"/>. </i>
         /// </summary>
         public void Revert();
     }

@@ -88,7 +88,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             catch (System.Exception e) { Debug.LogException(e); }
 
             bundleListGroup = this.Q<BundleManagerListGroup>();
-            bundleListGroup.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
+            bundleListGroup.SetBundleListViewItem<BundleWizardElement>(
                 out bundleList,
                 "NewBundles",
                 bundleContainers,
