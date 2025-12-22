@@ -8,6 +8,9 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
+    /// <summary>
+    /// Bundle Wizard tab for choosing additional existent bundles from the project to use as child bundles.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardSetBundleMenu : LBSComplexVisualElement, IBundleWizardTab
     {

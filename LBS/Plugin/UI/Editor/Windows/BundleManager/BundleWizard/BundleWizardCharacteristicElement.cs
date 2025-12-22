@@ -1,13 +1,16 @@
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
+    /// <summary>
+    /// <b>For <see cref="BundleWizardSetCharacteristMenu"/> exclusive use.</b><br />
+    /// Visual element for choosing a single <see cref="LBSCharacteristic"/>.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardCharacteristicElement : LBSComplexVisualElement
     {
-
         private Toggle toggle;
         private Label charLabel;
 
@@ -47,11 +50,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         }
 
+        /// <summary>
+        /// Registers <see cref="toggleCallback"/> to <see cref="Toggle"/>.
+        /// </summary>
         public void EnableToggleCallback()
         {
             Toggle.RegisterValueChangedCallback(toggleCallback);
         }
 
+        /// <summary>
+        /// Unregisters <see cref="toggleCallback"/> from <see cref="Toggle"/>.
+        /// </summary>
         public void DisableToggleCallback()
         {
             Toggle.UnregisterValueChangedCallback(toggleCallback);

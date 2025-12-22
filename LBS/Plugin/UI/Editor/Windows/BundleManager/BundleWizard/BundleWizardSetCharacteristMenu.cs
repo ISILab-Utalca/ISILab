@@ -1,13 +1,17 @@
-using System;
-using System.Collections.Generic;
 using ISILab.Commons.Utility;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
+    /// <summary>
+    /// Bundle Wizard tab for choosing characteristics.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardSetCharacteristMenu : VisualElement, IBundleWizardTab
     {
@@ -17,6 +21,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         private List<Type> allCharacteristics;
         private HashSet<Type> selectedCharacteristics;
+
+        /// <summary>
+        /// Dictionary containing every characteristic element displayed, accessed through a characteristic type.
+        /// </summary>
+        private Dictionary<Type, BundleWizardCharacteristicElement> elements = new();
 
         public BundleBuilder Builder { get; set; }
 
@@ -33,8 +42,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             mainCharListView.makeItem = () => new BundleWizardCharacteristicElement();
             mainCharListView.bindItem = (item, i) =>
             {
-
                 var charElement = item as BundleWizardCharacteristicElement;
+                if (!elements.ContainsKey(allCharacteristics[i]))
+                    elements.Add(allCharacteristics[i], charElement);
                 //charElement.CharLabel.text = (mainCharListView.itemsSource[i] as Type).Name;
                 charElement.CharLabel.text = allCharacteristics[i].Name;
 
@@ -46,7 +56,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                     if (evt.newValue)
                     {
                         selectedCharacteristics.Add(allCharacteristics[i]);
-                        // TODO: Uncheck all incompatible toggles
+                        // Uncheck all incompatible toggles
+                        if (exclusiveChar)
+                        {
+                            foreach (Type excluded in exclusivenessGroups.SelectMany(g => g).Except(new[] { allCharacteristics[i] }))
+                            {
+                                elements[excluded].Toggle.SetValueWithoutNotify(false);
+                                selectedCharacteristics.Remove(excluded);
+                            }
+                        }
                     }
                     else
                         selectedCharacteristics.Remove(allCharacteristics[i]);

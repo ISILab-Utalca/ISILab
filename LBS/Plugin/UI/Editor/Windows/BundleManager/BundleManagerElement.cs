@@ -8,7 +8,10 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 {
-    
+    /// <summary>
+    /// <b>For <see cref="BundleManagerWindow"/> exclusive use.</b><br />
+    /// Visual element representing a <see cref="Bundle"/> that exists in the project.
+    /// </summary>
     [UxmlElement]
     public partial class BundleManagerElement : VisualElement, IBundleElement
     {

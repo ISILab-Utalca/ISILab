@@ -1,11 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
+    /// <summary>
+    /// Bundle Wizard tab for naming the new main <see cref="Bundle"/> and choosing a layer type.
+    /// </summary>
     [UxmlElement]
     public partial class BundleWizardSelectBundleType : VisualElement, IBundleWizardTab
     {
@@ -14,7 +18,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public BundleBuilder Builder { get; set; }
 
-
+        
         public BundleWizardSelectBundleType() : base()
         {
 
