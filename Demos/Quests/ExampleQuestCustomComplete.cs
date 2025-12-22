@@ -13,5 +13,15 @@ namespace ISILab.Demos.Quests
         {
             Debug.Log("2 COMPLETE");
         }
+
+        public void CompleteThird()
+        {
+            Debug.Log("3 COMPLETE");
+        }
+
+        public void CompleteFourth()
+        {
+            Debug.Log("4 COMPLETE");
+        }
     }
 }

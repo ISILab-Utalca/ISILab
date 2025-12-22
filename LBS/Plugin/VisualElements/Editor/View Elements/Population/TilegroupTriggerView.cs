@@ -65,6 +65,7 @@ namespace ISILab.LBS.VisualElements
             ef.dataSourceType = typeof(TileTriggerType);
 
             _hooker = this.Q<LBSCustomEventHooker>("EventHooker");
+            _hooker.AllowChangeTriggerEnable = true;
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
                 if (Trigger is null) return;

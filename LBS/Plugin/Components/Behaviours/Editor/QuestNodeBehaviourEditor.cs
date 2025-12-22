@@ -147,6 +147,7 @@ namespace ISILab.LBS.VisualElements
             _onEventCompleteVe = this.Q<VisualElement>("EventComplete");
             _hooker = this.Q<LBSCustomEventHooker>("EventHooker");
             _hooker.EventType = LBSEventType.Complete;
+            _hooker.AllowChangeTriggerEnable = false;
             // cant change complete mode
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
@@ -155,6 +156,7 @@ namespace ISILab.LBS.VisualElements
                 _hooker.Hooker = data.EventHooker;
             });
             _hooker.Selector.allowSceneObjects = true;
+
                      
             // No node when instanced
             _noNodeSelectedPanel.style.display = DisplayStyle.Flex;

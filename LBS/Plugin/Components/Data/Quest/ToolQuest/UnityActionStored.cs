@@ -32,7 +32,8 @@ namespace ISILab.LBS.Plugin.Components.Data
         public string methodName;
         [SerializeField]
         public LBSEventType eventType;
-
+        [SerializeField]
+        public bool TriggerOnce;
 
         public UnityAction MakeAction(GameObject go)
         {
@@ -61,14 +62,15 @@ namespace ISILab.LBS.Plugin.Components.Data
         }
 
 
-        public UnityActionStored((GameObject, Component, MethodInfo, LBSEventType) actionInfo)
+        public UnityActionStored((GameObject, Component, MethodInfo, LBSEventType, bool) actionInfo)
         {
-            (GameObject target, Component comp, MethodInfo method, LBSEventType eventType) = actionInfo;
+            (GameObject target, Component comp, MethodInfo method, LBSEventType eventType, bool triggerOnce) = actionInfo;
 
             objectName = target.name;
             componentName = comp.GetType().Name;
             methodName = method.Name;
             this.eventType = eventType;
+            this.TriggerOnce = triggerOnce;
         }
 
         public bool Equals(UnityActionStored other)
