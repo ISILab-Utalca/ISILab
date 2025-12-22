@@ -1,7 +1,7 @@
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("listen")]
     public class QuestTriggerListen : QuestTrigger
@@ -13,22 +13,21 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataListen);
+            SetData(dataListen);
         }
 
-        public override void SetUniqueData(QuestActionData data)
-        {
-            dataListen = (DataListen)data;
-        }
+        protected override void SetData(QuestActionData data) => dataListen = (DataListen)data;
 
         protected override void OnTriggerEnter(Collider other)
         {
             if (!IsPlayer(other)) return;
-            
-            // Use the "objectToListen" reference to start a dialogue
-            CheckComplete();
+
+            // Use the "objectToListen" reference to start a dialogue.
+            // Call TryComplete() when the listening action is done.
+
         }
-        
+
+        protected override bool CanComplete() => true;
     }
 
 }

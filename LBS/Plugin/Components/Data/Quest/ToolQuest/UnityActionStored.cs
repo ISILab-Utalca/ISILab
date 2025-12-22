@@ -5,6 +5,18 @@ using UnityEngine.Events;
 
 namespace ISILab.LBS.Plugin.Components.Data
 {
+
+    public enum LBSEventType
+    {
+        Unassigned, // default value throws exception 
+        TriggerEnter,
+        TriggerExit,
+        TriggerStay,
+        Interact,
+        Destroy,
+        Complete
+    }
+
     /// <summary>
     /// Meant to store necessary data to create Unity Actions.
     /// Has function to generate a UnityAction
@@ -18,6 +30,8 @@ namespace ISILab.LBS.Plugin.Components.Data
         public string componentName;
         [SerializeField]
         public string methodName;
+        [SerializeField]
+        public LBSEventType eventType;
 
 
         public UnityAction MakeAction(GameObject go)
@@ -47,18 +61,19 @@ namespace ISILab.LBS.Plugin.Components.Data
         }
 
 
-        public UnityActionStored((GameObject, Component, MethodInfo) actionInfo)
+        public UnityActionStored((GameObject, Component, MethodInfo, LBSEventType) actionInfo)
         {
-            (GameObject target, Component comp, MethodInfo method) = actionInfo;
+            (GameObject target, Component comp, MethodInfo method, LBSEventType eventType) = actionInfo;
 
             objectName = target.name;
             componentName = comp.GetType().Name;
             methodName = method.Name;
+            this.eventType = eventType;
         }
 
         public bool Equals(UnityActionStored other)
         {
-            return objectName == other.objectName && componentName == other.componentName && methodName == other.methodName;
+            return objectName == other.objectName && componentName == other.componentName && methodName == other.methodName && eventType == other.eventType;
         }
 
         public override bool Equals(object obj)
@@ -68,7 +83,7 @@ namespace ISILab.LBS.Plugin.Components.Data
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(objectName, componentName, methodName);
+            return HashCode.Combine(objectName, componentName, methodName, eventType);
         }
     }
 }

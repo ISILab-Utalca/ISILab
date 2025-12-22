@@ -28,7 +28,8 @@ namespace ISILab.LBS.CustomComponents
 
         #region FIELDS
         LBSEventHooker hooker;
-        private Enum defaultEnum = TriggerActivationMode.OnEnter;
+        // This field is set via code only (not exposed to visual elements)
+        private LBSEventType eventType = LBSEventType.Unassigned;
         private readonly List<(GameObject, Component, MethodInfo)> _availableMethods = new();
         #endregion
 
@@ -49,7 +50,18 @@ namespace ISILab.LBS.CustomComponents
             }
         }
 
-     
+        public LBSEventType EventType
+        {
+            get => (LBSEventType)eventType;
+            set
+            {
+                eventType = value;
+                // assuming unity actions already exists we ought to update them as well
+                hooker?.EventTypeChanged(eventType);
+           
+            }
+        }
+
         #endregion
 
 
@@ -127,11 +139,13 @@ namespace ISILab.LBS.CustomComponents
                 if (i < 0 || i >= _availableMethods.Count)
                     return;
 
-                var availableMethod = _availableMethods[i];
+                (GameObject, Component, MethodInfo) availableMethod = _availableMethods[i];
                 EventHookEntryView vm = (EventHookEntryView)element;
 
                 vm.SetEnabled(!selectedMethods.Contains(availableMethod));
-                vm.AddListener(availableMethod, Hooker);
+
+                (GameObject, Component, MethodInfo, LBSEventType) listenerMethod = (availableMethod.Item1, availableMethod.Item2, availableMethod.Item3, eventType);
+                vm.AddListener(listenerMethod, Hooker);
                 vm.Q<Button>().clicked += RefreshMethodList;
             };
 
@@ -150,7 +164,9 @@ namespace ISILab.LBS.CustomComponents
                     return;
 
                 EventHookEntryView vm = (EventHookEntryView)element;
-                vm.RemoveListener(selectedMethods[i], hooker);
+                var selectedMethod = selectedMethods[i];
+                (GameObject, Component, MethodInfo, LBSEventType) listenerMethod = (selectedMethod.Item1, selectedMethod.Item2, selectedMethod.Item3, eventType);
+                vm.RemoveListener(listenerMethod, hooker);
                 vm.Q<Button>().clicked += RefreshMethodList;
             };
 

@@ -1,7 +1,7 @@
 using ISILab.LBS.Components;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("explore")]
     public class QuestTriggerExplore : QuestTrigger
@@ -28,7 +28,7 @@ namespace ISILab.LBS
             }
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override void SetData(QuestActionData data)
         {
             
             dataExplore = (DataExplore)data;
@@ -93,7 +93,7 @@ namespace ISILab.LBS
         {
             if (IsPlayer(other))
             {
-                CheckComplete();
+                TryComplete();
             }
         }
 

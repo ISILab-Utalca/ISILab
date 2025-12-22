@@ -1,6 +1,4 @@
-using ISILab.LBS.Characteristics;
 using ISILab.LBS.Plugin.Components.Bundles;
-
 using UnityEditor;
 using UnityEngine;
 using ISILab.LBS.Plugin.MapTools.CustomGizmo;

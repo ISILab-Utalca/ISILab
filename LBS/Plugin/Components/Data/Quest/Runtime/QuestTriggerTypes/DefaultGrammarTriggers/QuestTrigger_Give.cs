@@ -2,7 +2,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     [QuestNodeActionTag("give")]
     public class QuestTriggerGive : QuestTrigger
@@ -20,10 +20,10 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataGive);
+            SetData(dataGive);
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override void SetData(QuestActionData data)
         {
             dataGive = (DataGive)data;
             _giveObjectType = dataGive.bundleGive.GetGuid();
@@ -39,13 +39,10 @@ namespace ISILab.LBS
         private void OnTriggerStay(Collider other)
         {
             if (_playerInventory is null) return;
-            CheckComplete();
+            TryComplete();
         }
 
-        protected override bool CanComplete()
-        {
-            return !_playerInventory.HasType(_giveObjectType);
-        }
+        protected override bool CanComplete() => !_playerInventory.HasType(_giveObjectType);
     }
 
 }

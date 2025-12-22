@@ -15,6 +15,7 @@ using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 
 using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
+using ISILab.LBS.VisualElements;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -188,7 +189,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             go.transform.position = settings.position + new Vector3(x, y, z);
 
             // Assign data
-            trigger.SetData(node);
             FindPopulationObjects(trigger, settings, node, settings.position, y, new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
 
             if (!node.Data.IsValid())
@@ -198,7 +198,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 return null;
             }
 
-            trigger.SetUniqueData(node.Data);
+            trigger.SetNode(node);
+
+
             // all are active in the scene, on play they are activated in order
             go.SetActive(true);
             return go;

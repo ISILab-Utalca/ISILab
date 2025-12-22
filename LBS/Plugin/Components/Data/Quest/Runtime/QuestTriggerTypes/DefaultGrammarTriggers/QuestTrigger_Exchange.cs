@@ -2,12 +2,11 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using UnityEngine;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     
-    
     /*
-        Feel free to implement your own give and receive logic, but this example works under the implication of having an inventory
+        RECOMMENDED: implement your own give and receive logic, but this example works under the implication of having an inventory
         of class LbsInventory.
     */
     
@@ -28,10 +27,10 @@ namespace ISILab.LBS
         public override void Init()
         {
             base.Init();
-            SetUniqueData(dataExchange);
+            SetData(dataExchange);
         }
 
-        public override void SetUniqueData(QuestActionData data)
+        protected override void SetData(QuestActionData data)
         {
             dataExchange =  (DataExchange)data;
             _giveType = dataExchange.bundleGiveType.GetGuid();
@@ -46,19 +45,15 @@ namespace ISILab.LBS
             ReceiveObjects();
             return true;
         }
-        
-        private void ReceiveObjects()
-        {
-            _playerInventory.AddItems(_receiveType, dataExchange.receiveAmount);
-          
-        }
+
+        private void ReceiveObjects() => _playerInventory.AddItems(_receiveType, dataExchange.receiveAmount);
 
         protected override void OnTriggerEnter(Collider other) 
         {
             if (!IsPlayer(other)) return;
             _playerInventory = other.gameObject.GetComponent<LBSInventory>();
 
-            CheckComplete();
+            TryComplete();
         }
             
     }

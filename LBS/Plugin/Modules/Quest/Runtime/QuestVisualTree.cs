@@ -1,8 +1,9 @@
+using ISILab.LBS.Plugin.MapTools.Generators;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.VisualElements
 {
     public class QuestVisualTree : MonoBehaviour
     {

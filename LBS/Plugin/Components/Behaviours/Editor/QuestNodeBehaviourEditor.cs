@@ -146,7 +146,7 @@ namespace ISILab.LBS.VisualElements
 
             _onEventCompleteVe = this.Q<VisualElement>("EventComplete");
             _hooker = this.Q<LBSCustomEventHooker>("EventHooker");
-          
+            _hooker.EventType = LBSEventType.Complete;
             // cant change complete mode
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {

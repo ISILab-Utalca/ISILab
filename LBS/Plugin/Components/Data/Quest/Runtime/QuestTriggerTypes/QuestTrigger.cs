@@ -1,18 +1,15 @@
+using ISILab.LBS.Components;
 using System;
 using System.Collections.Generic;
-using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Components.Data;
 using Unity.Collections;
-using UnityEditor.Events;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
 
     [DisallowMultipleComponent]
     [Serializable]
-    public class QuestTrigger : MonoBehaviour
+    public abstract class QuestTrigger : MonoBehaviour
     {
 
         #region FIELDS
@@ -29,6 +26,8 @@ namespace ISILab.LBS
         protected bool isCompleted;
        
         private List<GraphNode> _destinations = new();
+
+        private LBSGeneratedEventHook eventHooker;
 
         #endregion
 
@@ -58,12 +57,17 @@ namespace ISILab.LBS
 
         public event Action<QuestTrigger> OnTriggerCompleted;
 
-        public LBSGeneratedEventHook eventHooker;
-
         #endregion
 
 
-        #region INITIALIZATION
+        #region METHODS
+
+        private void Awake()
+        {
+            eventHooker ??= gameObject.AddComponent<LBSGeneratedEventHook>();
+        }
+
+        #region SET UP
 
         protected void EnsureCollider()
         {
@@ -83,15 +87,10 @@ namespace ISILab.LBS
             EnsureCollider();
         }
 
-        #endregion
-
-
-        #region DATA SETUP
-
         /// <summary>
         /// Replace and cast the incoming parameter to the required data type
         /// </summary>
-        public virtual void SetUniqueData(QuestActionData data)
+        protected virtual void SetData(QuestActionData data)
         {
             throw new NotImplementedException();
         }
@@ -99,12 +98,14 @@ namespace ISILab.LBS
         /// <summary>
         /// Always call base from overwrites as base sets the ID that quest observer uses on start 
         /// </summary>
-        public void SetData(QuestNode paramNode)
+        public void SetNode(QuestNode paramNode)
         {
             node = paramNode;
             nodeID = paramNode.ID;
+            eventHooker ??= gameObject.AddComponent<LBSGeneratedEventHook>();
             eventHooker.AssignEvents(paramNode.Data.EventHooker);
-         
+            SetData(node.Data);
+
         }
 
         /// <summary>
@@ -128,35 +129,34 @@ namespace ISILab.LBS
 
         protected virtual void OnTriggerEnter(Collider other)
         {
-            CheckComplete();
+            if(IsPlayer(other)) TryComplete();
         }
 
-        public static bool IsPlayer(Collider other)  { return other.CompareTag("Player"); }
-        protected static bool IsPlayer(GameObject other)  { return other.CompareTag("Player"); }
+        public static bool IsPlayer(Collider other) { return other.CompareTag("Player"); }
 
         /// <summary>
         /// TRUE by default. Implement your own complete conditions
         /// </summary>
-        protected virtual bool CanComplete()
+        protected abstract bool CanComplete();
+
+        /// <summary>
+        /// Checks if the trigger can be completed. Returns true if it is completed successfully
+        /// </summary>
+        public bool TryComplete()
         {
-            return true; 
+            bool canComplete = CanComplete();
+            if (!isActiveAndEnabled || !canComplete) return false;
+        
+            Complete();
+            return true;
         }
 
-        public void CheckComplete()
-        {
-            if (!isActiveAndEnabled) return;
-            if (!CanComplete()) return;
-            Completed();
-        }
-
-        private void Completed()
+        private void Complete()
         {
             isCompleted = true;
             eventHooker.BroadcastOnComplete();
-  
-            
-            if (node is not null) 
-                node.QuestState = QuestState.Completed;
+
+            node.QuestState = QuestState.Completed;
 
             gameObject.SetActive(false);
             OnTriggerCompleted?.Invoke(this);
@@ -165,52 +165,15 @@ namespace ISILab.LBS
         #endregion
 
 
-        #region EDITOR
-
 #if UNITY_EDITOR
         /// <summary>
         /// Right click the cog icon in the inspector of the Script
         /// </summary>
         [ContextMenu("Force Complete")]
-        private void ForceComplete()
-        {
-            Completed();
-        }
+        private void ForceComplete() => Complete();
 #endif
 
-        #endregion
-    }
-
-
-    #region GENERIC OBJECTIVE TRIGGER
-
-    /// <summary>
-    /// Generic class to add box collider to a gameObject.
-    /// </summary>
-    [RequireComponent(typeof(BoxCollider))]
-    public class GenericObjectiveTrigger : MonoBehaviour
-    {
-        private QuestTrigger _questTrigger;
-        private const float SizeFactor = 1f;
-
-        public void Setup(QuestTrigger trigger)
-        {
-            _questTrigger = trigger;
-    
-            BoxCollider boxCollider = GetComponent<BoxCollider>() ?? gameObject.AddComponent<BoxCollider>();
-    
-            boxCollider.isTrigger = true;
-            boxCollider.size = Vector3.one * SizeFactor; 
-            boxCollider.center = Vector3.zero;
-        }
-    
-        protected void OnTriggerEnter(Collider other)
-        {
-            if (QuestTrigger.IsPlayer(other)) 
-                _questTrigger.CheckComplete();
-        }
     }
 
     #endregion
-
 }

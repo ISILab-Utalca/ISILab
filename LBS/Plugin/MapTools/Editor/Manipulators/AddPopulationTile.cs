@@ -97,7 +97,9 @@ namespace ISILab.LBS.Manipulators
                 foreach (var lbsTile in _selectedTile.TileGroup)
                 {
                     lbsTile.Position += offset;
+
                 }
+                DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
                 return;
             }
 
@@ -193,6 +195,7 @@ namespace ISILab.LBS.Manipulators
             {
                 // undo the negative of topLeftCorner
                 valid = _population.ValidMoveGroup(topLeftCorner, _selectedTile);
+                
             }
             // adding feedback
             else

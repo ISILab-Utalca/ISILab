@@ -6,7 +6,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     /// <summary>
     /// Visual Element used to indicate a single quest objective
