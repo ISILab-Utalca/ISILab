@@ -1,4 +1,4 @@
-using ISILab.Commons.Utility;
+    using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
@@ -22,6 +22,7 @@ using ISILab.LBS.Macros;
 using ISILab.Commons.VisualElements.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
+using ISILab.LBS.Plugin.UI.Editor.Windows;
 using InfoToolbar = ISILab.LBS.Plugin.UI.Editor.Panel.InfoToolbar;
 using LBSSideBarPanel = ISILab.LBS.Plugin.UI.Editor.Panel.LBSSideBarPanel;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
@@ -30,7 +31,7 @@ using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 namespace ISILab.LBS.Editor.Windows{
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public sealed class LBSMainWindow : EditorWindow
+    public sealed class LBSMainWindow : ThemeableWindow
     {
         #region PROPERTIES
 
@@ -584,35 +585,6 @@ namespace ISILab.LBS.Editor.Windows{
             helpOverlay.style.display = helpOverlay.style.display == DisplayStyle.None ?  DisplayStyle.Flex : DisplayStyle.None;
         }
         #endregion
-        
-        public void ChangeTheme(LBSSettings.Interface.InterfaceTheme _newTheme)
-        {
-            switch (_newTheme)
-            {
-                case  LBSSettings.Interface.InterfaceTheme.Light:
-                    rootVisualElement.ClearClassList();
-                    rootVisualElement.AddToClassList("light");
-                    //Repaint();
-                    break;
-                case  LBSSettings.Interface.InterfaceTheme.Dark:
-                    rootVisualElement.ClearClassList();
-                    rootVisualElement.AddToClassList("dark");
-                    //Repaint();
-                    break;
-                case LBSSettings.Interface.InterfaceTheme.Alt:
-                    rootVisualElement.ClearClassList();
-                    rootVisualElement.AddToClassList("alt");
-                    //Repaint();
-                    break;
-                case LBSSettings.Interface.InterfaceTheme.Darker:
-                    rootVisualElement.ClearClassList();
-                    rootVisualElement.AddToClassList("darker");
-                    break;
-                default:
-                    break;
-            }
-        }
-        
     }
 
 }

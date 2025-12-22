@@ -6,6 +6,7 @@ using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using JetBrains.Annotations;
 using UnityEditor;
@@ -14,7 +15,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 {
-    public class BundleManagerWindow : EditorWindow
+    public class BundleManagerWindow : ThemeableWindow
     {
         public class BundleCategory
         {
@@ -191,6 +192,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                 wizard.Init();
                 wizard.SetDisplay(true);
             };
+            ChangeTheme(LBSSettings.Instance.view.LBSTheme);
         }
 
         #region BOTTOM PANEL / GLOBAL FUNCTIONS
