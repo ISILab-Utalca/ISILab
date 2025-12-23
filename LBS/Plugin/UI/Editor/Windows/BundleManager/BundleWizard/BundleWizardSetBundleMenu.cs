@@ -26,7 +26,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         private BundleManagerListGroup bundleListSameLayerOrphan;
         private BundleManagerListGroup bundleListSameLayer;
         private BundleManagerListGroup bundleListNoLayer;
-
         private List<BundleManagerWindow.BundleContainer> bundleContainersCurrent = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayerOrphan = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayer = new();
@@ -34,6 +33,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         private LBSCustomTextField nameField;
         TabView tabView;
+
+        VisualElement rootVisualElement;
 
         public BundleBuilder Builder { get; set; }
 
@@ -56,6 +57,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             SearchAllBundles();
             AddCurrentBundles();
 
+            rootVisualElement = panel.visualTree;
+
+                //BundleList Current Bundles to be added through BundleWizard
             bundleListCurrent = this.Q<BundleManagerListGroup>("CurrentBundles");
             bundleListCurrent.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listCurrent,
@@ -63,27 +67,40 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 bundleContainersCurrent,
                 itemHeight: 40
                 );
+            bundleListCurrent.SetExpandButtonSetting(rootVisualElement, "CurrentBundles", listCurrent);
+            
+                //BundleList Orphan (Same Layer)
             bundleListSameLayerOrphan = this.Q<BundleManagerListGroup>("SameLayerOrphanBundles");
             bundleListSameLayerOrphan.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listSameLayerOrphan,
                 "SameLayerOrphanBundles",
                 bundleContainersSameLayerOrphan,
-                itemHeight: 40
+                itemHeight: 40,
+                deleteIconBool: false
                 );
+            bundleListSameLayerOrphan.SetExpandButtonSetting(rootVisualElement, "SameLayerOrphanBundles", listSameLayerOrphan);
+            
+                //BundleList Same Layer
             bundleListSameLayer = this.Q<BundleManagerListGroup>("SameLayerBundles");
             bundleListSameLayer.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listSameLayer,
                 "SameLayerBundles",
                 bundleContainersSameLayer,
-                itemHeight: 40
+                itemHeight: 40,
+                deleteIconBool: false
                 );
+            bundleListSameLayer.SetExpandButtonSetting(rootVisualElement, "SameLayerBundles", listSameLayer, false);
+            
+                //BundleList No Layer
             bundleListNoLayer = this.Q<BundleManagerListGroup>("NoLayerBundles");
             bundleListNoLayer.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listNoLayer,
                 "NoLayerBundles",
                 bundleContainersNoLayer,
-                itemHeight: 40
+                itemHeight: 40,
+                deleteIconBool: false
                 );
+            bundleListNoLayer.SetExpandButtonSetting(rootVisualElement, "NoLayerBundles", listNoLayer, false);
         }
 
         private void AddCurrentBundles()

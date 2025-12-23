@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard;
-
+using ISILab.Extensions;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 {
@@ -85,7 +85,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             string columnName,
             List<BundleManagerWindow.BundleContainer> bundles,
             bool main = false,
-            float itemHeight = 32
+            float itemHeight = 32,
+            bool deleteIconBool = true
         ) where T : VisualElement, IBundleElement, new()
         {
             listView = this.listView;
@@ -122,6 +123,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                         };
                     };
                     wizElement.SetRemoveCallback(remove);
+
+                    if(!deleteIconBool)wizElement.RemoveDeleteIcon();
+
                 }
             };
 
@@ -136,6 +140,26 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
         {
             listView = this.listView;
         }
+
+        public void SetExpandButtonSetting(VisualElement rootVisualElement, string columnName, ListView list, bool expanded = true)
+        {
+            var button = rootVisualElement.Q<VisualElement>(columnName).Q<Button>("ExpandButton");
+
+            button.clickable.clicked += () =>
+            {
+                list.SetDisplay(!list.GetDisplay());
+                button.iconImage = Background.FromVectorImage(list.GetDisplay() ? arrowDownIcon : arrowSideIcon);
+            };
+
+            //      These lines determine if the list is initialized as expanded or not depending if the layer has content
+            //list.SetDisplay(list.itemsSource is not null && list.itemsSource.Count > 0);
+            //button.iconImage = Background.FromVectorImage(list.GetDisplay() ? arrowDownIcon : arrowSideIcon);
+            //      A fixed approach is prefered in this case
+
+            list.SetDisplay(expanded);
+            button.iconImage = Background.FromVectorImage(expanded ? arrowDownIcon : arrowSideIcon);
+        }
+
     }
 }
 
