@@ -123,11 +123,19 @@ namespace ISILab.LBS.VisualElements
 
             // Obtener Bundles PathOS
             List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>();
-            List<Bundle> pathOSBundles = allBundles.Where(
+            List<Bundle> tempOSBundles = allBundles.Where(
                 b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>().Count > 0).ToList();
 
             // Si no hay PathOS Bundles, abortar.
-            if (pathOSBundles.Count == 0) { return; }
+            if (tempOSBundles.Count == 0) { return; }
+
+            List<Bundle> pathOSBundles = new List<Bundle>();
+
+            foreach (Bundle bundle in tempOSBundles) 
+            {
+                if (bundle.LayerContentFlags.HasFlag(BundleFlags.Simulation)) pathOSBundles.Add(bundle);
+            
+            }
 
             // Generalizacion de Bundles a "object" (ej.: Para usar en el objeto pallete, y los option views)
             var options = new object[pathOSBundles.Count];
@@ -173,7 +181,7 @@ namespace ISILab.LBS.VisualElements
             bundlePallete.SetOptions(options, (optionView, option) =>
             {
                 var bundle = (Bundle)option;
-                optionView.Label = bundle.name;
+                optionView.Label = "";//bundle.name;
                 optionView.Color = bundle.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0].Value.Color;
                 optionView.Icon = bundle.Icon;
             });

@@ -20,7 +20,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
         #region FIELDS
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private List<TriggerOnceEntry> triggerOnceList = new();
 
         // To store the bundle data
