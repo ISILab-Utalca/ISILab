@@ -145,19 +145,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
         {
             var button = rootVisualElement.Q<VisualElement>(columnName).Q<Button>("ExpandButton");
 
-            button.clickable.clicked += () =>
+            button.clickable = new Clickable(() =>
             {
-                list.SetDisplay(!list.GetDisplay());
-                button.iconImage = Background.FromVectorImage(list.GetDisplay() ? arrowDownIcon : arrowSideIcon);
-            };
+                bool newState = !list.GetDisplay();
+                list.SetDisplay(newState);
+                button.iconImage = Background.FromVectorImage(newState ? arrowDownIcon : arrowSideIcon);
+            });
 
-            //      These lines determine if the list is initialized as expanded or not depending if the layer has content
-            //list.SetDisplay(list.itemsSource is not null && list.itemsSource.Count > 0);
-            //button.iconImage = Background.FromVectorImage(list.GetDisplay() ? arrowDownIcon : arrowSideIcon);
-            //      A fixed approach is prefered in this case
-
-            list.SetDisplay(expanded);
-            button.iconImage = Background.FromVectorImage(expanded ? arrowDownIcon : arrowSideIcon);
+            list.SetDisplay(list.itemsSource is not null && list.itemsSource.Count > 0 && expanded);
+            button.iconImage = Background.FromVectorImage(list.GetDisplay() ? arrowDownIcon : arrowSideIcon);
         }
 
     }

@@ -75,6 +75,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void Init()
         {
+            
+
             //Debug.Log("Init: " + GetType().Name);
             Debug.Log("Builder data:\n\n" + Builder.ToString());
             try
@@ -107,7 +109,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void StepBack()
         {
-            
+            //bundleContainers.Clear();
+            //TempBundles.Clear();
+            Builder.tempBundles.Clear();
+            Builder.newSubBundles.Clear();
         }
 
         public void Revert()
