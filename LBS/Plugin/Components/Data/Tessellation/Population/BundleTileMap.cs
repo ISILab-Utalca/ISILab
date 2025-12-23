@@ -426,12 +426,14 @@ namespace ISILab.LBS.Modules
             set => locationKey = value;
         }
 
-        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation)
+        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, BundleTileMapAddons addons = null)
         {
             tileGroup = tiles;
             this.bData = bData;
             guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
             this.rotation = rotation;
+            if (addons is not null)
+                this.Addons = addons;
         }
         public TileBundleGroup(Vector2 position, Vector2 size, BundleData bData, Vector2 rotation)
         {
@@ -533,7 +535,7 @@ namespace ISILab.LBS.Modules
 
         public object Clone()
         {
-            return new TileBundleGroup(tileGroup.Clone(), bData.Clone() as BundleData, rotation);
+            return new TileBundleGroup(tileGroup.Clone(), bData.Clone() as BundleData, rotation, (Addons as ICloneable).Clone() as BundleTileMapAddons);
         }
 
         public override bool Equals(object obj)
