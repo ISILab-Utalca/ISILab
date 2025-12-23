@@ -4,16 +4,16 @@
 
 Label {
     font-size: 13px;
-    color: var(--lbs-default-text-color);
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
 }
 
 .lbs Label {
     padding-right: 21px;
-    color: var(--lbs-default-text-color);
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
 }
 
 .lbs-label {
-    color: var(--lbs-default-text-color);
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
     -unity-text-align: middle-left;
 }
 
