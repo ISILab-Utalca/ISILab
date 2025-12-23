@@ -19,7 +19,7 @@ namespace LBS.Components
     [Serializable]
     public class LBSLayer : ICloneable
     {
-        #region meta-fields
+        #region Meta Fields
         [SerializeField, JsonRequired, HideInInspector] private bool visible = true;
         [SerializeField, JsonRequired, HideInInspector] private bool blocked;
         [SerializeField, JsonRequired] public string iconGuid = "915dd173939598c43ab48bbec50425e8";
@@ -37,7 +37,6 @@ namespace LBS.Components
         [SerializeField] private LBSGenerator3DSettings settings = new();
 
         [SerializeField, JsonRequired] public int index;
-
         #endregion
         
         #region Properties
