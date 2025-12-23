@@ -17,7 +17,7 @@ namespace ISILab.LBS.Manipulators
     public abstract class AddObstacle : LBSManipulator
     {
         #region FIELDS
-        PathOSBehaviour behaviour;
+        SimulationBehaviour behaviour;
         protected PathOSTile triggerTile;
         protected PathOSTile obstacleTile;
         #endregion
@@ -39,7 +39,7 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, provider);
 
-            behaviour = provider as PathOSBehaviour;
+            behaviour = provider as SimulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
         }

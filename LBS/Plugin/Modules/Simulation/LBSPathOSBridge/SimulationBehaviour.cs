@@ -19,7 +19,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(PathOSModule))]
-    public class PathOSBehaviour : LBSBehaviour
+    public class SimulationBehaviour : LBSBehaviour
     {
         #region FIELDS
         [SerializeField, SerializeReference, JsonRequired] // GABO TODO: Deberia ir o no JsonIgnore?????? De todas maneras hay error de serialziacion (queda nulo)
@@ -72,7 +72,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
+        public SimulationBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
@@ -226,7 +226,7 @@ namespace ISILab.LBS.Behaviours
 
         public override object Clone()
         {
-            return new PathOSBehaviour(this.IconGuid, this.Name, this.ColorTint);
+            return new SimulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override void OnAttachLayer(LBSLayer layer)
@@ -249,7 +249,7 @@ namespace ISILab.LBS.Behaviours
 
         public override bool Equals(object obj)
         {
-            var other = obj as PathOSBehaviour;
+            var other = obj as SimulationBehaviour;
 
             if (other == null) return false;
 

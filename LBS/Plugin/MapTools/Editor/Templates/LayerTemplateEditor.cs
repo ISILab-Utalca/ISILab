@@ -335,8 +335,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 layer.Name = "Layer Simulation";
                 layer.iconGuid = "13f64883312513a41adeb7dec75a3a5f";
 
-                AddObject<PathOSBehaviour>(layer, "Simulation Behaviour", AssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
-                AddObject<TestingAssistant>(layer, "Simulation Assistant", AssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
+                AddObject<SimulationBehaviour>(layer, "Simulation Behaviour", AssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
+                AddObject<SimulationAssistant>(layer, "Simulation Assistant", AssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
                 AddObject<PathOSRuleGenerator>(layer, "Simulation Rule Generator", "", Color.clear);
 
                 layer.Settings = new LBSGenerator3DSettings { scale = new Vector2Int(2, 2), name = "Simulation" };

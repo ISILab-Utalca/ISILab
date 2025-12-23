@@ -11,7 +11,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
     public class RemovePathOSTile : LBSManipulator
     {
         #region FIELDS
-        PathOSBehaviour behaviour;
+        SimulationBehaviour behaviour;
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
         {
             base.Init(layer, provider);
 
-            behaviour = provider as PathOSBehaviour;
+            behaviour = provider as SimulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
         }

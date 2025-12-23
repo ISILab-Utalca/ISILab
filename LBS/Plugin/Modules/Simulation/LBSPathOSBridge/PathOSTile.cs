@@ -14,7 +14,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
     {
         #region FIELDS
         [SerializeField, SerializeReference, JsonRequired]
-        private PathOSBehaviour owner;
+        private SimulationBehaviour owner;
         [SerializeField, JsonRequired]
         private int x, y;
         [SerializeField, JsonRequired]
@@ -34,7 +34,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSTile(PathOSBehaviour owner, int x, int y, EntityType type, LBSTag tag = null)
+        public PathOSTile(SimulationBehaviour owner, int x, int y, EntityType type, LBSTag tag = null)
         {
             this.owner = owner;
             this.x = x;
@@ -62,7 +62,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region PROPERTIES
-        public PathOSBehaviour Owner { get { return owner; } set { Owner = value; } }
+        public SimulationBehaviour Owner { get { return owner; } set { Owner = value; } }
         public int X { get { return x; } set { x = value; } }
         public int Y { get { return y; } set { y = value; } }
         public Vector2Int Position { get { return new Vector2Int(x, y); } }

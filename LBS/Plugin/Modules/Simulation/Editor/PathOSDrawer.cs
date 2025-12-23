@@ -14,17 +14,17 @@ using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
 {
-    [Drawer(typeof(PathOSBehaviour))]
+    [Drawer(typeof(SimulationBehaviour))]
     public class PathOSDrawer : Drawer
     {
-        PathOSBehaviour behaviour;
+        SimulationBehaviour behaviour;
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
       
             if (behaviour is null)
             {
-                behaviour = target as PathOSBehaviour;
+                behaviour = target as SimulationBehaviour;
                 behaviour.OwnerLayer.OnChange += () =>
                 {
                  //   PopulationTileGroupView.UpdateVisuals(null);
@@ -46,7 +46,7 @@ namespace ISILab.LBS.Drawers
             */
         }
 
-        private void PaintNewTiles(PathOSBehaviour behaviour, Vector2 teselationSize, MainView view)
+        private void PaintNewTiles(SimulationBehaviour behaviour, Vector2 teselationSize, MainView view)
         {
             foreach(PathOSTile tile in behaviour.RetrieveNewTiles())
             {
@@ -59,7 +59,7 @@ namespace ISILab.LBS.Drawers
             }
         }
 
-        private void UpdateLoadedTiles(PathOSBehaviour behaviour, Vector2 teselationSize, MainView view)
+        private void UpdateLoadedTiles(SimulationBehaviour behaviour, Vector2 teselationSize, MainView view)
         {
             behaviour.Keys.RemoveWhere(item => item == null);
 
@@ -87,7 +87,7 @@ namespace ISILab.LBS.Drawers
             }
         }
 
-        private void LoadAllTiles(PathOSBehaviour behaviour, Vector2 teselationSize, MainView view)
+        private void LoadAllTiles(SimulationBehaviour behaviour, Vector2 teselationSize, MainView view)
         {
             foreach (PathOSTile tile in behaviour.Tiles)
             {
@@ -105,7 +105,7 @@ namespace ISILab.LBS.Drawers
 
         public override void HideVisuals(object target, MainView view)
         {
-            if (target is not PathOSBehaviour behaviour) return;
+            if (target is not SimulationBehaviour behaviour) return;
             foreach(PathOSTile tile in behaviour.Keys)
             {
                 if (tile == null) continue;
@@ -120,7 +120,7 @@ namespace ISILab.LBS.Drawers
 
         public override void ShowVisuals(object target, MainView view)
         {
-            if (target is not PathOSBehaviour behaviour) return;
+            if (target is not SimulationBehaviour behaviour) return;
             foreach(PathOSTile tile in behaviour.Keys)
             {
                 if (tile == null) continue;

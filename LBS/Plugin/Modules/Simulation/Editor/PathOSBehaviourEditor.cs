@@ -19,7 +19,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("PathOSBehaviour", typeof(PathOSBehaviour))]
+    [LBSCustomEditor("PathOSBehaviour", typeof(SimulationBehaviour))]
     public class PathOSBehaviourEditor : LBSCustomEditor, IToolProvider
     {
        #region FIELDS
@@ -28,7 +28,7 @@ namespace ISILab.LBS.VisualElements
         // PathOS Original Inspector
         private PathOSWindow pathOSOriginalWindow;
         // Target (PathOSBehaviour)
-        private PathOSBehaviour pathOS;
+        private SimulationBehaviour pathOS;
         // Manipulators
         AddPathOSTile addPathOSTile;
         RemovePathOSTile removePathOSTile;
@@ -54,7 +54,7 @@ namespace ISILab.LBS.VisualElements
         #region METHODS
         public PathOSBehaviourEditor(object target) : base(target)
         {
-            pathOS = target as PathOSBehaviour;
+            pathOS = target as SimulationBehaviour;
             Debug.Log("BEHAVIOUR CONSTRUCTED");
             pathOS.AutoMapCallback = MapToCurrentPopulation;
             pathOS.RemoveAutoMapCallbacks = () =>
@@ -74,7 +74,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetInfo(object target)
         {
-            pathOS = target as PathOSBehaviour;
+            pathOS = target as SimulationBehaviour;
         }
 
         protected override VisualElement CreateVisualElement()
