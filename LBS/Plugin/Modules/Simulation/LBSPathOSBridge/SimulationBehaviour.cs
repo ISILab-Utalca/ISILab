@@ -42,7 +42,7 @@ namespace ISILab.LBS.Behaviours
             {
                 if(pathOSBundles == null || pathOSBundles.Count == 0)
                     pathOSBundles = LBSAssetsStorage.Instance.Get<Bundle>()
-                        .Where(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>().Count > 0).ToList();
+                        .Where(b => b.GetCharacteristics<LBSSimulationTagsCharacteristic>().Count > 0).ToList();
                 return pathOSBundles;
             }
         }

@@ -342,8 +342,8 @@ namespace PathOS
     public class EntityObstaclePair
     {
         public GameObject entityObjectRef = null;
-        public PathOSObstacleConnections.Category connectionType = PathOSObstacleConnections.Category.None;
-        public EntityObstaclePair(GameObject entity, PathOSObstacleConnections.Category connectionType)
+        public SimulationObstacleConnections.Category connectionType = SimulationObstacleConnections.Category.None;
+        public EntityObstaclePair(GameObject entity, SimulationObstacleConnections.Category connectionType)
         {
             this.entityObjectRef = entity;
             this.connectionType = connectionType;

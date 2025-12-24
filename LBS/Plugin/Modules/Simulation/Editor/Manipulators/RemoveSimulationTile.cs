@@ -8,7 +8,7 @@ using ISILab.LBS.Behaviours;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
 {
-    public class RemovePathOSTile : LBSManipulator
+    public class RemoveSimulationTile : LBSManipulator
     {
         #region FIELDS
         SimulationBehaviour behaviour;
@@ -20,7 +20,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
         #endregion
 
         #region CONSTRUCTORS
-        public RemovePathOSTile() : base()
+        public RemoveSimulationTile() : base()
         {
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;

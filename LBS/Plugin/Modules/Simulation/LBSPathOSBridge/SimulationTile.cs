@@ -28,9 +28,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         [SerializeField, JsonRequired]
         private bool isDynamicObstacleObject = false;
         [SerializeField]
-        private LBSPathOSObstacleConnections obstacles;
+        private LBSSimualtionObstacleConnections obstacles;
         [SerializeField]
-        private PathOSDynamicTagConnections dynamicTagTiles;
+        private SimulationDynamicTagConnections dynamicTagTiles;
         #endregion
 
         #region CONSTRUCTORS
@@ -39,8 +39,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             this.owner = owner;
             this.x = x;
             this.y = y;
-            obstacles = new LBSPathOSObstacleConnections(isNull: true);
-            dynamicTagTiles = new PathOSDynamicTagConnections(isNull: true);
+            obstacles = new LBSSimualtionObstacleConnections(isNull: true);
+            dynamicTagTiles = new SimulationDynamicTagConnections(isNull: true);
             entityType = type;
             if (tag != null) { this.tag = tag; }
         }
@@ -113,7 +113,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 }
                 else
                 {
-                    dynamicTagTiles = new PathOSDynamicTagConnections(isNull: true);
+                    dynamicTagTiles = new SimulationDynamicTagConnections(isNull: true);
                 }
 
                 // Eventos de conversion y reversion (solo si cambio es no redundante)
@@ -138,7 +138,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 }
                 else
                 {
-                    obstacles = new LBSPathOSObstacleConnections(isNull: true);
+                    obstacles = new LBSSimualtionObstacleConnections(isNull: true);
                 }
 
                 // Eventos de conversion y reversion (solo si cambio es no redundante)
@@ -149,7 +149,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region METHODS
-        public List<(SimulationTile, LBSPathOSObstacleConnections.Category)> GetObstacles()
+        public List<(SimulationTile, LBSSimualtionObstacleConnections.Category)> GetObstacles()
         {
             // Chequeo de existencia.
             if (obstacles.IsNull) return new(); // Devuelve lista vacia
@@ -157,36 +157,36 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             return obstacles.Obstacles;
         }
         // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver VACIO similarmente a GetObstacles
-        public List<(SimulationTile, PathOSTag)> GetDynamicTags()
+        public List<(SimulationTile, SimulationTag)> GetDynamicTags()
         {
             return dynamicTagTiles.DynamicTagObjects;
         }
 
-        public (SimulationTile, PathOSObstacleConnections.Category)? GetObstacle(int x, int y)
+        public (SimulationTile, SimulationObstacleConnections.Category)? GetObstacle(int x, int y)
         {
             if (obstacles.IsNull) { return null; }
-            return ((SimulationTile, PathOSObstacleConnections.Category)?)obstacles.GetObstacle(x, y);
+            return ((SimulationTile, SimulationObstacleConnections.Category)?)obstacles.GetObstacle(x, y);
         }
 
-        public (SimulationTile, PathOSObstacleConnections.Category)? GetObstacle(SimulationTile tile)
+        public (SimulationTile, SimulationObstacleConnections.Category)? GetObstacle(SimulationTile tile)
         {
             if (obstacles.IsNull) { return null; }
-            return obstacles.GetObstacle(tile) as (SimulationTile, PathOSObstacleConnections.Category)?;
+            return obstacles.GetObstacle(tile) as (SimulationTile, SimulationObstacleConnections.Category)?;
         }
         // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
-        public (SimulationTile, PathOSTag)? GetDynamicTag(int x, int y)
+        public (SimulationTile, SimulationTag)? GetDynamicTag(int x, int y)
         {
             if (dynamicTagTiles.IsNull) { return null; }
             return dynamicTagTiles.GetDynamicTag(x, y);
         }
         // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
-        public (SimulationTile, PathOSTag)? GetDynamicTag(SimulationTile tile)
+        public (SimulationTile, SimulationTag)? GetDynamicTag(SimulationTile tile)
         {
             if (dynamicTagTiles.IsNull) { return null; }
             return dynamicTagTiles.GetDynamicTag(tile);
         }
 
-        public void AddObstacle(SimulationTile obstacleTile, LBSPathOSObstacleConnections.Category category)
+        public void AddObstacle(SimulationTile obstacleTile, LBSSimualtionObstacleConnections.Category category)
         {
             // Chequeo de Condiciones
             if (obstacleTile == null) { Debug.LogWarning("Tile obstaculo es nulo!"); return; }
@@ -227,7 +227,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             OnRemoveObstacle?.Invoke();
         }
 
-        public void AddDynamicTag(SimulationTile tagTile, PathOSTag tag)
+        public void AddDynamicTag(SimulationTile tagTile, SimulationTag tag)
         {
             // Chequeo de Condiciones
             if (tagTile == null) { Debug.LogWarning("Tag tile es nulo!"); return; }

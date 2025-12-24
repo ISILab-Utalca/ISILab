@@ -58,7 +58,7 @@ namespace ISILab.LBS.VisualElements
 
             foreach(var obstacle in obstacles)
             {
-                PathOSObstacleView newView = new(tile, obstacle.Item1, obstacle.Item2);
+                SimulationObstacleView newView = new(tile, obstacle.Item1, obstacle.Item2);
                 obstacleList.Add(newView);
             }
         }

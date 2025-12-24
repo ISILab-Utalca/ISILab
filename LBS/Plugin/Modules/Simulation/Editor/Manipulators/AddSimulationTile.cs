@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
-    public class AddPathOSTile : LBSManipulator
+    public class AddSimulationTile : LBSManipulator
     {
         #region FIELDS
         SimulationBehaviour behaviour;
@@ -26,7 +26,7 @@ namespace ISILab.LBS.Manipulators
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
         #endregion
 
-        public AddPathOSTile() : base()
+        public AddSimulationTile() : base()
         {
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
@@ -61,7 +61,7 @@ namespace ISILab.LBS.Manipulators
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
-                    behaviour.AddTile(ToSet.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0].Value.ToLBSTag(), i, j, ToSet.EntityType);
+                    behaviour.AddTile(ToSet.GetCharacteristics<LBSSimulationTagsCharacteristic>()[0].Value.ToLBSTag(), i, j, ToSet.EntityType);
                     //behaviour.AddTile(ToSet.GetCharacteristics<LBSTagsCharacteristic>()[0].Value, i, j);
                 }
             }

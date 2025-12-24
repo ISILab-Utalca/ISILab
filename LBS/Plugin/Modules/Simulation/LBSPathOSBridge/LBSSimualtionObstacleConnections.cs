@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
-    // Connexions entre un PathOSTile de tipo DynamicObstacleTrigger y los
+    // Connexions entre un SimulationTile de tipo DynamicObstacleTrigger y los
     // respectivos DynamicObstacleObject que afecta.
     [System.Serializable]
-    public class LBSPathOSObstacleConnections: PathOSObstacleConnections
+    public class LBSSimualtionObstacleConnections : SimulationObstacleConnections
     {
 
         #region FIELDS
@@ -20,14 +20,14 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region CONSTRUCTORS
-        public LBSPathOSObstacleConnections(SimulationTile trigger, List<(SimulationTile, Category)> obs)
+        public LBSSimualtionObstacleConnections(SimulationTile trigger, List<(SimulationTile, Category)> obs)
         {
             // Obstacle tile check
             foreach (var obstacle in obs)
             {
                 if (!obstacle.Item1.IsDynamicObstacleObject)
                 {
-                    Debug.LogWarning("PathOSObstacleConnection: Lista tiene tile no-obstaculo!");
+                    Debug.LogWarning("SimualtionObstacleConnection: Lista tiene tile no-obstaculo!");
                 }
                 return;
             }
@@ -36,7 +36,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             this.obstacles = obs;
         }
         
-        public LBSPathOSObstacleConnections(bool isNull):  base(isNull) { }
+        public LBSSimualtionObstacleConnections(bool isNull):  base(isNull) { }
         #endregion
 
         #region PROPERTIES

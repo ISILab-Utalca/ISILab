@@ -464,7 +464,7 @@ namespace PathOS
             foreach (EntityObstaclePair connectedObject in entity.dynamicObstacles)
             {
                 // CLOSE: Make object visible
-                if (connectedObject.connectionType == PathOSObstacleConnections.Category.CLOSE)
+                if (connectedObject.connectionType == SimulationObstacleConnections.Category.CLOSE)
                 {
                     // Walls
                     if (connectedObject.entityObjectRef.name == "WallPrefab")
@@ -479,7 +479,7 @@ namespace PathOS
                     }
                 }
                 // OPEN: Make object invisible
-                else if (connectedObject.connectionType == PathOSObstacleConnections.Category.OPEN)
+                else if (connectedObject.connectionType == SimulationObstacleConnections.Category.OPEN)
                 {
                     // Walls
                     if (connectedObject.entityObjectRef.name == "WallPrefab")

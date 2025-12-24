@@ -15,7 +15,7 @@ using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 namespace ISILab.LBS.Drawers
 {
     [Drawer(typeof(SimulationBehaviour))]
-    public class PathOSDrawer : Drawer
+    public class SimulationDrawer : Drawer
     {
         SimulationBehaviour behaviour;
 
