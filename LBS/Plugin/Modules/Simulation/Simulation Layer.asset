@@ -21,13 +21,13 @@ MonoBehaviour:
     id: Simulation
     name: Layer Simulation
     modules:
-    - rid: 7236887118311326363
+    - rid: 7236887134041539658
     behaviours:
-    - rid: 7236887118311326364
+    - rid: 7236887134041539659
     assistants:
-    - rid: 7236887118311326365
+    - rid: 7236887134041539660
     generatorRules:
-    - rid: 7236887118311326366
+    - rid: 7236887134041539661
     settings:
       useBundleSize: 0
       lightVolume: 0
@@ -42,10 +42,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7236887118311326363
-      type: {class: PathOSModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
+    - rid: 7236887134041539658
+      type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
-        id: PathOSModule
+        id: SimulationModule
         ownerLayer:
           visible: 1
           blocked: 0
@@ -53,13 +53,13 @@ MonoBehaviour:
           id: Simulation
           name: Layer Simulation
           modules:
-          - rid: 7236887118311326363
+          - rid: 7236887134041539658
           behaviours:
-          - rid: 7236887118311326364
+          - rid: 7236887134041539659
           assistants:
-          - rid: 7236887118311326365
+          - rid: 7236887134041539660
           generatorRules:
-          - rid: 7236887118311326366
+          - rid: 7236887134041539661
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
             rootParentName: Root_Parent
           index: 0
         tiles: []
-    - rid: 7236887118311326364
+    - rid: 7236887134041539659
       type: {class: SimulationBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
         visible: 1
@@ -83,13 +83,13 @@ MonoBehaviour:
           id: Simulation
           name: Layer Simulation
           modules:
-          - rid: 7236887118311326363
+          - rid: 7236887134041539658
           behaviours:
-          - rid: 7236887118311326364
+          - rid: 7236887134041539659
           assistants:
-          - rid: 7236887118311326365
+          - rid: 7236887134041539660
           generatorRules:
-          - rid: 7236887118311326366
+          - rid: 7236887134041539661
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -106,10 +106,10 @@ MonoBehaviour:
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
         module:
-          rid: 7236887118311326363
+          rid: 7236887134041539658
         selectedToSet: {fileID: 0}
         pathOSBundles: []
-    - rid: 7236887118311326365
+    - rid: 7236887134041539660
       type: {class: SimulationAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:
         visible: 1
@@ -120,13 +120,13 @@ MonoBehaviour:
           id: Simulation
           name: Layer Simulation
           modules:
-          - rid: 7236887118311326363
+          - rid: 7236887134041539658
           behaviours:
-          - rid: 7236887118311326364
+          - rid: 7236887134041539659
           assistants:
-          - rid: 7236887118311326365
+          - rid: 7236887134041539660
           generatorRules:
-          - rid: 7236887118311326366
+          - rid: 7236887134041539661
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -142,6 +142,6 @@ MonoBehaviour:
         name: Simulation Assistant
         iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 0}
-    - rid: 7236887118311326366
-      type: {class: PathOSRuleGenerator, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
+    - rid: 7236887134041539661
+      type: {class: SimulationRuleGenerator, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data: 

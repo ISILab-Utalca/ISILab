@@ -11,15 +11,15 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
     {
         #region FIELDS
         [SerializeField, SerializeReference]
-        private PathOSTile tagTriggerTile;
+        private SimulationTile tagTriggerTile;
         [SerializeField]
-        private List<(PathOSTile, PathOSTag)> dynamicTagObjects = new();
+        private List<(SimulationTile, PathOSTag)> dynamicTagObjects = new();
         [SerializeField]
         public bool IsNull = false;
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSDynamicTagConnections(PathOSTile trigger, List<(PathOSTile, PathOSTag)> dynamicTagObjs)
+        public PathOSDynamicTagConnections(SimulationTile trigger, List<(SimulationTile, PathOSTag)> dynamicTagObjs)
         {
             // Dynamic Tag Object check
             foreach (var dynamicTagObject in dynamicTagObjs)
@@ -44,25 +44,25 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region PROPERTIES
-        public PathOSTile TagTriggerTile { get => tagTriggerTile; set => tagTriggerTile = value; }
-        public List<(PathOSTile, PathOSTag)> DynamicTagObjects { get => dynamicTagObjects; set => dynamicTagObjects = value; }
+        public SimulationTile TagTriggerTile { get => tagTriggerTile; set => tagTriggerTile = value; }
+        public List<(SimulationTile, PathOSTag)> DynamicTagObjects { get => dynamicTagObjects; set => dynamicTagObjects = value; }
         #endregion
 
         #region METHODS
-        public (PathOSTile, PathOSTag)? GetDynamicTag(int x, int y)
+        public (SimulationTile, PathOSTag)? GetDynamicTag(int x, int y)
         {
             var o = dynamicTagObjects.Find(o => o.Item1.Position == new Vector2Int(x, y));
             if (o == (null, null)) { return null; }
             return o;
         }
-        public (PathOSTile, PathOSTag)? GetDynamicTag(PathOSTile tile)
+        public (SimulationTile, PathOSTag)? GetDynamicTag(SimulationTile tile)
         {
             var o = dynamicTagObjects.Find(t => t.Item1 == tile);
             if (o == (null, null)) { return null; }
             return o;
         }
 
-        public void AddDynamicTag(PathOSTile tagTile, PathOSTag tag)
+        public void AddDynamicTag(SimulationTile tagTile, PathOSTag tag)
         {
             // Tile tipo "tag" check
             if (!tagTile.IsDynamicTagObject)
@@ -101,7 +101,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             s += "DynamicTagObjects asociados:\n";
             foreach (var dynamicTag in dynamicTagObjects)
             {
-                PathOSTile currTile = dynamicTag.Item1;
+                SimulationTile currTile = dynamicTag.Item1;
                 s += $"{currTile.Tag.Label} {currTile.Position} {dynamicTag.Item2.Label}\n";
             }
             return s;

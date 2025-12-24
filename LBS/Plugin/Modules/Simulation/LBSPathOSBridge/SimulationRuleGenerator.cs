@@ -14,17 +14,17 @@ using UnityEngine.AI;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
-    public class PathOSRuleGenerator : LBSGeneratorRule
+    public class SimulationRuleGenerator : LBSGeneratorRule
     {
         #region FIELDS
-        PathOSModule module;
-        List<PathOSTile> tiles;
+        SimulationModule module;
+        List<SimulationTile> tiles;
         GameObject parent;
         GameObject levelMarkupContainer; // Contiene objetos marcados de PathOS
         GameObject wallsContainer; // Contiene los objetos muro
         Vector2 scale;
         // Referencias a muros colocados en ultima generacion
-        List<(PathOSTile, GameObject)> lastGenerationWalls;
+        List<(SimulationTile, GameObject)> lastGenerationWalls;
         // Referencia al PathOSManager instanciado
         PathOSManager manager;
         // Ventana de PathOS+
@@ -48,10 +48,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         GameObject wallPrefab;
         #endregion
 
-        public PathOSRuleGenerator() : base() { }
+        public SimulationRuleGenerator() : base() { }
 
         // For template construction
-        public PathOSRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
+        public SimulationRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
 
         #region METHODS
         public override List<Message> CheckViability(LBSLayer layer)
@@ -61,7 +61,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
         public override object Clone()
         {
-            return new PathOSRuleGenerator();
+            return new SimulationRuleGenerator();
         }
 
         // GABO TODO: TERMINARR
@@ -77,7 +77,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             elementPrefab = Resources.Load<GameObject>("Prefabs/ElementPrefab");
             wallPrefab = Resources.Load<GameObject>("Prefabs/WallPrefab");
             // Variables
-            module = layer.GetModule<PathOSModule>();
+            module = layer.GetModule<SimulationModule>();
             tiles = module.GetTiles();
             scale = settings.scale;
             // Se reinicia lista de muros antigua
@@ -94,7 +94,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             wallsContainer.transform.SetParent(parent.transform);
             // Referencia temporal a entidades creadas con su tile correspondiente
             // (ej.: Para agregarles sus obstaculos dinamicos post-instanciacion)
-            List<(PathOSTile, LevelEntity)> entitiesTemporaryReference = new();
+            List<(SimulationTile, LevelEntity)> entitiesTemporaryReference = new();
             // Lista de GameObjects a retornar
             List<GameObject> boxes = new List<GameObject>();
 
@@ -105,7 +105,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
             // Instanciacion de tags
             manager = managerGameObject.GetComponent<PathOSManager>();
-            foreach (PathOSTile tile in tiles)
+            foreach (SimulationTile tile in tiles)
             {
                 // Si el tile es de agente, instanciar prefab.
                 GameObject currInstance;
@@ -349,7 +349,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         private GameObject SimpleBoxGenerate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Variables
-            module = layer.GetModule<PathOSModule>();
+            module = layer.GetModule<SimulationModule>();
             tiles = module.GetTiles();
             scale = settings.scale;
             // Objeto contenedor padre
@@ -359,7 +359,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             // GameObject List
             List<GameObject> boxes = new List<GameObject>();
 
-            foreach (PathOSTile tile in tiles)
+            foreach (SimulationTile tile in tiles)
             {
                 // Instanciar prefab
 #if UNITY_EDITOR

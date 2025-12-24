@@ -10,7 +10,7 @@ using UnityEngine;
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     [System.Serializable]
-    public class PathOSTile
+    public class SimulationTile
     {
         #region FIELDS
         [SerializeField, SerializeReference, JsonRequired]
@@ -34,7 +34,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSTile(SimulationBehaviour owner, int x, int y, EntityType type, LBSTag tag = null)
+        public SimulationTile(SimulationBehaviour owner, int x, int y, EntityType type, LBSTag tag = null)
         {
             this.owner = owner;
             this.x = x;
@@ -149,7 +149,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region METHODS
-        public List<(PathOSTile, LBSPathOSObstacleConnections.Category)> GetObstacles()
+        public List<(SimulationTile, LBSPathOSObstacleConnections.Category)> GetObstacles()
         {
             // Chequeo de existencia.
             if (obstacles.IsNull) return new(); // Devuelve lista vacia
@@ -157,36 +157,36 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             return obstacles.Obstacles;
         }
         // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver VACIO similarmente a GetObstacles
-        public List<(PathOSTile, PathOSTag)> GetDynamicTags()
+        public List<(SimulationTile, PathOSTag)> GetDynamicTags()
         {
             return dynamicTagTiles.DynamicTagObjects;
         }
 
-        public (PathOSTile, PathOSObstacleConnections.Category)? GetObstacle(int x, int y)
+        public (SimulationTile, PathOSObstacleConnections.Category)? GetObstacle(int x, int y)
         {
             if (obstacles.IsNull) { return null; }
-            return ((PathOSTile, PathOSObstacleConnections.Category)?)obstacles.GetObstacle(x, y);
+            return ((SimulationTile, PathOSObstacleConnections.Category)?)obstacles.GetObstacle(x, y);
         }
 
-        public (PathOSTile, PathOSObstacleConnections.Category)? GetObstacle(PathOSTile tile)
+        public (SimulationTile, PathOSObstacleConnections.Category)? GetObstacle(SimulationTile tile)
         {
             if (obstacles.IsNull) { return null; }
-            return obstacles.GetObstacle(tile) as (PathOSTile, PathOSObstacleConnections.Category)?;
+            return obstacles.GetObstacle(tile) as (SimulationTile, PathOSObstacleConnections.Category)?;
         }
         // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
-        public (PathOSTile, PathOSTag)? GetDynamicTag(int x, int y)
+        public (SimulationTile, PathOSTag)? GetDynamicTag(int x, int y)
         {
             if (dynamicTagTiles.IsNull) { return null; }
             return dynamicTagTiles.GetDynamicTag(x, y);
         }
         // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
-        public (PathOSTile, PathOSTag)? GetDynamicTag(PathOSTile tile)
+        public (SimulationTile, PathOSTag)? GetDynamicTag(SimulationTile tile)
         {
             if (dynamicTagTiles.IsNull) { return null; }
             return dynamicTagTiles.GetDynamicTag(tile);
         }
 
-        public void AddObstacle(PathOSTile obstacleTile, LBSPathOSObstacleConnections.Category category)
+        public void AddObstacle(SimulationTile obstacleTile, LBSPathOSObstacleConnections.Category category)
         {
             // Chequeo de Condiciones
             if (obstacleTile == null) { Debug.LogWarning("Tile obstaculo es nulo!"); return; }
@@ -203,7 +203,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         // *NOTA*: Segundo parametro indica si revisar condicion "IsDynamicObstacleObject".
         // Usado en "PathOSModule.CleanAllObstacleConnectionsTo" ya que su invocacion por suscripcion es
         // posterior al seteo de la propiedad en "False".
-        public void RemoveObstacle(PathOSTile obstacleTile, bool checkIfObstacleObjectProperty = true)
+        public void RemoveObstacle(SimulationTile obstacleTile, bool checkIfObstacleObjectProperty = true)
         {
             // Chequeo de Condiciones
             if (obstacleTile == null) { Debug.LogWarning("Tile obstaculo es nulo!"); return; }
@@ -227,7 +227,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             OnRemoveObstacle?.Invoke();
         }
 
-        public void AddDynamicTag(PathOSTile tagTile, PathOSTag tag)
+        public void AddDynamicTag(SimulationTile tagTile, PathOSTag tag)
         {
             // Chequeo de Condiciones
             if (tagTile == null) { Debug.LogWarning("Tag tile es nulo!"); return; }
@@ -244,7 +244,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         // *NOTA*: Segundo parametro indica si revisar condicion "IsDynamicTagObject".
         // Usado en "PathOSModule.CleanAllDynamicTagConnectionsTo" ya que su invocacion por suscripcion es
         // posterior al seteo de la propiedad en "False".
-        public void RemoveDynamicTag(PathOSTile tagTile, bool checkIfDynamicTagObjectProperty = true)
+        public void RemoveDynamicTag(SimulationTile tagTile, bool checkIfDynamicTagObjectProperty = true)
         {
             // Chequeos
             if (tagTile == null) { Debug.LogWarning("Tag tile es nulo!"); return; }
@@ -270,7 +270,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
         public override bool Equals(object obj)
         {
-            if (obj is not PathOSTile other) return false;
+            if (obj is not SimulationTile other) return false;
 
             if (!other.owner.Equals(owner)) return false;
 

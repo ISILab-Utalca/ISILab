@@ -10,7 +10,7 @@ using ISILab.LBS.VisualElements.Editor;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("PathOSTile", typeof(PathOSTile))]
+    [LBSCustomEditor("PathOSTile", typeof(SimulationTile))]
     public class PathOSTileEditor : LBSCustomEditor
     {
         public override void SetInfo(object target)
@@ -18,14 +18,14 @@ namespace ISILab.LBS.VisualElements
             this.target = target;// as PathOSTile; //<------- Es necesario castearlo desde object....?
 
             // Eventos que activan "Repaint" (*NOTA*: [-=] antes de [+=] evita repetir hooks)
-            var castedTarget = target as PathOSTile;
+            var castedTarget = target as SimulationTile;
             // - Al producirse cambios en el mapa
-            castedTarget.Owner.OnAddTile -= (PathOSModule m, PathOSTile t) => Repaint();
-            castedTarget.Owner.OnAddTile += (PathOSModule m, PathOSTile t) => Repaint();
-            castedTarget.Owner.OnApplyEventTile -= (PathOSModule m, PathOSTile t) => Repaint();
-            castedTarget.Owner.OnApplyEventTile += (PathOSModule m, PathOSTile t) => Repaint();
-            castedTarget.Owner.OnRemoveTile -= (PathOSModule m, PathOSTile t) => Repaint();
-            castedTarget.Owner.OnRemoveTile += (PathOSModule m, PathOSTile t) => Repaint();
+            castedTarget.Owner.OnAddTile -= (SimulationModule m, SimulationTile t) => Repaint();
+            castedTarget.Owner.OnAddTile += (SimulationModule m, SimulationTile t) => Repaint();
+            castedTarget.Owner.OnApplyEventTile -= (SimulationModule m, SimulationTile t) => Repaint();
+            castedTarget.Owner.OnApplyEventTile += (SimulationModule m, SimulationTile t) => Repaint();
+            castedTarget.Owner.OnRemoveTile -= (SimulationModule m, SimulationTile t) => Repaint();
+            castedTarget.Owner.OnRemoveTile += (SimulationModule m, SimulationTile t) => Repaint();
             // - Al agregar un obstaculo al tile
             castedTarget.OnAddObstacle -= Repaint;
             castedTarget.OnAddObstacle += Repaint;
@@ -65,7 +65,7 @@ namespace ISILab.LBS.VisualElements
         //GABO TODO: TERMINAR
         protected override VisualElement CreateVisualElement()
         {
-            var castedTarget = target as PathOSTile;
+            var castedTarget = target as SimulationTile;
             var panel = new PathOSTriggerInfoPanel();
 
             // Actualizar panel con informacion del tile

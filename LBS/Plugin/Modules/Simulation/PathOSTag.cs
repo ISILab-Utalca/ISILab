@@ -10,7 +10,7 @@ namespace ISILab.LBS.Components
     [System.Serializable]
     public class PathOSTag : ScriptableObject
     {
-        public enum PathOSCategory
+        public enum SimulationCategory
         {
             ElementTag,
             EventTag,
@@ -26,7 +26,7 @@ namespace ISILab.LBS.Components
         [SerializeField]
         protected Color color;
         [SerializeField]
-        protected PathOSCategory category;
+        protected SimulationCategory category;
         #endregion
 
         #region PROPERTIES
@@ -82,7 +82,7 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public PathOSCategory Category
+        public SimulationCategory Category
         {
             get => category;
             set

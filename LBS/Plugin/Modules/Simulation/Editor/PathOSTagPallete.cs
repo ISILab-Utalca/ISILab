@@ -166,11 +166,11 @@ namespace ISILab.LBS.VisualElements
                 if (castedOption != null)
                 {
                     var t = castedOption.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0].Value;
-                    if (t.Category == PathOSTag.PathOSCategory.ElementTag)
+                    if (t.Category == PathOSTag.SimulationCategory.ElementTag)
                     {
                         contentElements.Add(view);
                     }
-                    else if (t.Category == PathOSTag.PathOSCategory.EventTag)
+                    else if (t.Category == PathOSTag.SimulationCategory.EventTag)
                     {
                         contentEvents.Add(view);
                     }

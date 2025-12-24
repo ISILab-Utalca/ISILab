@@ -33,7 +33,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSTileView(PathOSTile tile)
+        public PathOSTileView(SimulationTile tile)
         {
             if (view == null)
             {
@@ -93,7 +93,7 @@ namespace ISILab.LBS.VisualElements
             background.style.backgroundColor = new StyleColor(color);
         }
 
-        public void SetEvents(PathOSTile tile)
+        public void SetEvents(SimulationTile tile)
         {
 
             if (tile == null) { Debug.LogWarning("PathOSTileView.SetEvents(): Tile nulo!"); return; }

@@ -337,7 +337,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
                 AddObject<SimulationBehaviour>(layer, "Simulation Behaviour", AssetMacro.GetGuidFromAsset(s_behaviourIcon), LBSSettings.Instance.view.behavioursColor);
                 AddObject<SimulationAssistant>(layer, "Simulation Assistant", AssetMacro.GetGuidFromAsset(s_assistantIcon), LBSSettings.Instance.view.assistantColor);
-                AddObject<PathOSRuleGenerator>(layer, "Simulation Rule Generator", "", Color.clear);
+                AddObject<SimulationRuleGenerator>(layer, "Simulation Rule Generator", "", Color.clear);
 
                 layer.Settings = new LBSGenerator3DSettings { scale = new Vector2Int(2, 2), name = "Simulation" };
             });

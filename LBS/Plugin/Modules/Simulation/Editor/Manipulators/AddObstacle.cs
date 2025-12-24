@@ -18,8 +18,8 @@ namespace ISILab.LBS.Manipulators
     {
         #region FIELDS
         SimulationBehaviour behaviour;
-        protected PathOSTile triggerTile;
-        protected PathOSTile obstacleTile;
+        protected SimulationTile triggerTile;
+        protected SimulationTile obstacleTile;
         #endregion
 
         #region PROPERTIES

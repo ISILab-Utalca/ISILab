@@ -13,14 +13,14 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
         #region FIELDS
         [SerializeField, SerializeReference]
-        private PathOSTile obstacleTriggerTile;
+        private SimulationTile obstacleTriggerTile;
         [SerializeField]
-        private List<(PathOSTile, Category)> obstacles = new();
+        private List<(SimulationTile, Category)> obstacles = new();
 
         #endregion
 
         #region CONSTRUCTORS
-        public LBSPathOSObstacleConnections(PathOSTile trigger, List<(PathOSTile, Category)> obs)
+        public LBSPathOSObstacleConnections(SimulationTile trigger, List<(SimulationTile, Category)> obs)
         {
             // Obstacle tile check
             foreach (var obstacle in obs)
@@ -40,26 +40,26 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region PROPERTIES
-        public PathOSTile ObstacleTriggertile { get => obstacleTriggerTile; set => obstacleTriggerTile = value; }
-        public List<(PathOSTile, Category)> Obstacles { get => obstacles; set => obstacles = value; }
+        public SimulationTile ObstacleTriggertile { get => obstacleTriggerTile; set => obstacleTriggerTile = value; }
+        public List<(SimulationTile, Category)> Obstacles { get => obstacles; set => obstacles = value; }
         #endregion
 
         #region METHODS
-        public (PathOSTile, Category)? GetObstacle(int x, int y)
+        public (SimulationTile, Category)? GetObstacle(int x, int y)
         {
             var o = obstacles?.Find(o => o.Item1.Position == new Vector2Int(x, y));
             if (o == (null, Category.None)) { return null; }
             return o;
         }
 
-        public (PathOSTile, Category)? GetObstacle(PathOSTile tile)
+        public (SimulationTile, Category)? GetObstacle(SimulationTile tile)
         {
             var o = obstacles?.Find(o => o.Item1 == tile);
             if (o == (null, Category.None)) { return null; }
             return o;
         }
 
-        public void AddObstacle(PathOSTile obstacleTile, Category category)
+        public void AddObstacle(SimulationTile obstacleTile, Category category)
         {
             // Tile tipo "obstaculo" check
             if (!obstacleTile.IsDynamicObstacleObject)
@@ -98,7 +98,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             s += "DynamicObstacleObjects asociados:\n";
             foreach(var obstacle in obstacles)
             {
-                PathOSTile currTile = obstacle.Item1;
+                SimulationTile currTile = obstacle.Item1;
                 s += $"{currTile.Tag.Label} {currTile.Position} {obstacle.Item2.ToString()}\n";
             }
             return s;

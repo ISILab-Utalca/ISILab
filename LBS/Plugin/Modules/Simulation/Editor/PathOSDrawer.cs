@@ -48,7 +48,7 @@ namespace ISILab.LBS.Drawers
 
         private void PaintNewTiles(SimulationBehaviour behaviour, Vector2 teselationSize, MainView view)
         {
-            foreach(PathOSTile tile in behaviour.RetrieveNewTiles())
+            foreach(SimulationTile tile in behaviour.RetrieveNewTiles())
             {
                 var tView = new PathOSTileView(tile);
                 Vector2 pos = new Vector2(tile.X, -tile.Y);
@@ -65,7 +65,7 @@ namespace ISILab.LBS.Drawers
 
             foreach(object obj in behaviour.Keys)
             {
-                if (obj is not PathOSTile tile) continue;
+                if (obj is not SimulationTile tile) continue;
 
                 List<GraphElement> elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile);
                 if (elements == null) continue;
@@ -89,7 +89,7 @@ namespace ISILab.LBS.Drawers
 
         private void LoadAllTiles(SimulationBehaviour behaviour, Vector2 teselationSize, MainView view)
         {
-            foreach (PathOSTile tile in behaviour.Tiles)
+            foreach (SimulationTile tile in behaviour.Tiles)
             {
                 var tView = new PathOSTileView(tile);
                 //var size = behaviour.OwnerLayer.TileSize * LBSSettings.Instance.general.TileSize;
@@ -106,7 +106,7 @@ namespace ISILab.LBS.Drawers
         public override void HideVisuals(object target, MainView view)
         {
             if (target is not SimulationBehaviour behaviour) return;
-            foreach(PathOSTile tile in behaviour.Keys)
+            foreach(SimulationTile tile in behaviour.Keys)
             {
                 if (tile == null) continue;
 
@@ -121,7 +121,7 @@ namespace ISILab.LBS.Drawers
         public override void ShowVisuals(object target, MainView view)
         {
             if (target is not SimulationBehaviour behaviour) return;
-            foreach(PathOSTile tile in behaviour.Keys)
+            foreach(SimulationTile tile in behaviour.Keys)
             {
                 if (tile == null) continue;
 

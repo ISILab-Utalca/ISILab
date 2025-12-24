@@ -42,13 +42,13 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region METHODS
-        public void Refresh(PathOSTile tile)  
+        public void Refresh(SimulationTile tile)  
         {
             nameLabel.text = $"{tile.X} x {tile.Y}";
             RefreshObstacles(tile);
         }
 
-        public void RefreshObstacles(PathOSTile tile)
+        public void RefreshObstacles(SimulationTile tile)
         {
             // Clear old obstacles
             ClearObstacles();
