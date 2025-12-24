@@ -18,12 +18,12 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
-    [RequieredModule(typeof(PathOSModule))]
-    public class PathOSBehaviour : LBSBehaviour
+    [RequieredModule(typeof(SimulationModule))]
+    public class SimulationBehaviour : LBSBehaviour
     {
         #region FIELDS
         [SerializeField, SerializeReference, JsonRequired] // GABO TODO: Deberia ir o no JsonIgnore?????? De todas maneras hay error de serialziacion (queda nulo)
-        private PathOSModule module;
+        private SimulationModule module;
         #endregion
 
         #region META-FIELDS
@@ -34,7 +34,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region PROPERTIES
-        public List<PathOSTile> Tiles { get { return module.GetTiles(); } private set { } }
+        public List<SimulationTile> Tiles { get { return module.GetTiles(); } private set { } }
 
         public List<Bundle> Bundles
         {
@@ -42,7 +42,7 @@ namespace ISILab.LBS.Behaviours
             {
                 if(pathOSBundles == null || pathOSBundles.Count == 0)
                     pathOSBundles = LBSAssetsStorage.Instance.Get<Bundle>()
-                        .Where(b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>().Count > 0).ToList();
+                        .Where(b => b.GetCharacteristics<LBSSimulationTagsCharacteristic>().Count > 0).ToList();
                 return pathOSBundles;
             }
         }
@@ -51,17 +51,17 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region EVENTS
-        public event Action<PathOSModule, PathOSTile> OnAddTile
+        public event Action<SimulationModule, SimulationTile> OnAddTile
         {
             add { module.OnAddTile += value; }
             remove { module.OnAddTile -= value; }
         }
-        public event Action<PathOSModule, PathOSTile> OnApplyEventTile
+        public event Action<SimulationModule, SimulationTile> OnApplyEventTile
         {
             add { module.OnApplyEventTile += value; }
             remove { module.OnApplyEventTile -= value; }
         }
-        public event Action<PathOSModule, PathOSTile> OnRemoveTile
+        public event Action<SimulationModule, SimulationTile> OnRemoveTile
         {
             add { module.OnRemoveTile += value; }
             remove { module.OnRemoveTile -= value; }
@@ -72,13 +72,13 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
+        public SimulationBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
         public void AddTile(LBSTag tag, int x, int y, EntityType type)
         {
-            var tile = new PathOSTile(this, x, y, type, tag);
+            var tile = new SimulationTile(this, x, y, type, tag);
 
             bool isElement = true;
             bool isEvent = false;
@@ -100,7 +100,7 @@ namespace ISILab.LBS.Behaviours
                 //    }
                 //}
 
-                PathOSTile old = module.GetTile(tile.X, tile.Y);
+                SimulationTile old = module.GetTile(tile.X, tile.Y);
                 //PathOSTile old = module.GetTile(tile);
                 if (old != null) 
                 {
@@ -113,7 +113,7 @@ namespace ISILab.LBS.Behaviours
             //else if (tag.Category == PathOSTag.PathOSCategory.EventTag)
             else if(isEvent)
             {
-                PathOSTile oldTile = module.GetTile(x, y);
+                SimulationTile oldTile = module.GetTile(x, y);
                 // El tile de agente no puede recibir eventos
                 if (oldTile != null && oldTile.Tag.Label == "PathOSAgent") { return; }
                 // Un tile de muro no puede recibir tags de Trigger
@@ -138,13 +138,13 @@ namespace ISILab.LBS.Behaviours
             RequestTileRemove(t);
         }
 
-        public void RemoveTile(PathOSTile t)
+        public void RemoveTile(SimulationTile t)
         {
             module.RemoveTile(t);
             RequestTileRemove(t);
         }
 
-        public PathOSTile GetTile(int x, int y)
+        public SimulationTile GetTile(int x, int y)
         {
             return module.GetTile(x, y);
         }
@@ -226,13 +226,13 @@ namespace ISILab.LBS.Behaviours
 
         public override object Clone()
         {
-            return new PathOSBehaviour(this.IconGuid, this.Name, this.ColorTint);
+            return new SimulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override void OnAttachLayer(LBSLayer layer)
         {
             OwnerLayer = layer;
-            module = OwnerLayer.GetModule<PathOSModule>();
+            module = OwnerLayer.GetModule<SimulationModule>();
             OwnerLayer.OnChange += AutoMapCallback;
         }
 
@@ -249,7 +249,7 @@ namespace ISILab.LBS.Behaviours
 
         public override bool Equals(object obj)
         {
-            var other = obj as PathOSBehaviour;
+            var other = obj as SimulationBehaviour;
 
             if (other == null) return false;
 

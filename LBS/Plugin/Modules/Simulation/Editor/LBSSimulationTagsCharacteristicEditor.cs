@@ -6,17 +6,17 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Editor
 {
-    [LBSCustomEditor("PathOSTag Identifier", typeof(LBSPathOSTagsCharacteristic))]
-    public class LBSPathOSTagsCharacteristicEditor : LBSCustomEditor
+    [LBSCustomEditor("PathOSTag Identifier", typeof(LBSSimulationTagsCharacteristic))]
+    public class LBSSimulationTagsCharacteristicEditor : LBSCustomEditor
     {
         public DropdownField dropdownField;
 
-        public LBSPathOSTagsCharacteristicEditor()
+        public LBSSimulationTagsCharacteristicEditor()
         {
             CreateVisualElement();
         }
 
-        public LBSPathOSTagsCharacteristicEditor(object target) : base(target)
+        public LBSSimulationTagsCharacteristicEditor(object target) : base(target)
         {
             CreateVisualElement();
             SetInfo(target);
@@ -24,14 +24,14 @@ namespace ISILab.LBS.Editor
 
         public override void SetInfo(object target)
         {
-            var potc = target as LBSPathOSTagsCharacteristic;
+            var potc = target as LBSSimulationTagsCharacteristic;
             this.target = target;
             var storage = LBSAssetsStorage.Instance;
 
             if (potc == null)
                 return;
 
-            var pathOSTags = storage.Get<PathOSTag>();
+            var pathOSTags = storage.Get<SimulationTag>();
             dropdownField.choices = pathOSTags.Select(t => t.Label).ToList();
 
             if (potc.Value != null)

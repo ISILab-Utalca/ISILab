@@ -175,9 +175,9 @@ namespace ISILab.LBS.VisualElements.Editor
             var layers = new List<LBSLayer>(mw.GetLayers());
             layers.Sort((l1, l2) =>
             {
-                const string testing = "Testing";
-                bool l1IsTesting = l1.ID.Equals(testing),
-                    l2IsTesting = l2.ID.Equals(testing);
+                const string Simulation = "Simulation";
+                bool l1IsTesting = l1.ID.Equals(Simulation),
+                    l2IsTesting = l2.ID.Equals(Simulation);
 
                 if (l1IsTesting && !l2IsTesting) return 1;
                 if(!l1IsTesting && l2IsTesting) return -1;

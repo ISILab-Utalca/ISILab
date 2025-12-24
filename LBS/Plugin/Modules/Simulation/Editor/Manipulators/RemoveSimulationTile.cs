@@ -8,10 +8,10 @@ using ISILab.LBS.Behaviours;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
 {
-    public class RemovePathOSTile : LBSManipulator
+    public class RemoveSimulationTile : LBSManipulator
     {
         #region FIELDS
-        PathOSBehaviour behaviour;
+        SimulationBehaviour behaviour;
 
         #endregion
 
@@ -20,7 +20,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
         #endregion
 
         #region CONSTRUCTORS
-        public RemovePathOSTile() : base()
+        public RemoveSimulationTile() : base()
         {
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
@@ -32,7 +32,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
         {
             base.Init(layer, provider);
 
-            behaviour = provider as PathOSBehaviour;
+            behaviour = provider as SimulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
         }

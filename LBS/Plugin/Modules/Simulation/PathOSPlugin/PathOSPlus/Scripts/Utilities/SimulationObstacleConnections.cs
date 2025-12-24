@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace PathOS
 {
-    // Connexions entre un PathOSTile de tipo DynamicObstacleTrigger y los
+    // Connexions entre un SimulationTile de tipo DynamicObstacleTrigger y los
     // respectivos DynamicObstacleObject que afecta.
     
     [System.Serializable]
-    public  class PathOSObstacleConnections
+    public class SimulationObstacleConnections
     {
         #region ENUMS
         [System.Serializable]
@@ -25,13 +25,13 @@ namespace PathOS
         public bool IsNull = false;
 
         #region CONSTRUCTORS
-        public PathOSObstacleConnections()
+        public SimulationObstacleConnections()
         {
 
         }
         // "NULL" Constructor: Represents a "null" connections object. Prevents serialization problems
         // with Unity by replacing traditional "null" value.
-        public PathOSObstacleConnections(bool isNull):  this()
+        public SimulationObstacleConnections(bool isNull):  this()
         {
             if (!isNull) { Debug.LogError("Null constructor should always set 'isNull' as true!"); }
             this.IsNull = true;

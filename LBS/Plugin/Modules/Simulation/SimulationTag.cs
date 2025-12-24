@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace ISILab.LBS.Components
 {
-    [CreateAssetMenu(fileName = "NewID", menuName = "ISILab/LBS/PathOS/PathOSTag")]
+    [CreateAssetMenu(fileName = "NewID", menuName = "ISILab/LBS/Simulation/SimulationTag")]
     [System.Serializable]
-    public class PathOSTag : ScriptableObject
+    public class SimulationTag : ScriptableObject
     {
-        public enum PathOSCategory
+        public enum SimulationCategory
         {
             ElementTag,
             EventTag,
@@ -26,7 +26,7 @@ namespace ISILab.LBS.Components
         [SerializeField]
         protected Color color;
         [SerializeField]
-        protected PathOSCategory category;
+        protected SimulationCategory category;
         #endregion
 
         #region PROPERTIES
@@ -82,7 +82,7 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public PathOSCategory Category
+        public SimulationCategory Category
         {
             get => category;
             set
@@ -95,7 +95,7 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region EVENTS
-        public delegate void PathOSTagEvent(PathOSTag tag);
+        public delegate void PathOSTagEvent(SimulationTag tag);
         public PathOSTagEvent OnChangeText;
         public PathOSTagEvent OnChangeEntityType;
         public PathOSTagEvent OnChangeColor;
@@ -124,7 +124,7 @@ namespace ISILab.LBS.Components
 
         public override bool Equals(object obj)
         {
-            var other = obj as PathOSTag;
+            var other = obj as SimulationTag;
             if (other == null) return false;
             if (this.label != other.label) return false;
             if (this.color != other.color) return false;

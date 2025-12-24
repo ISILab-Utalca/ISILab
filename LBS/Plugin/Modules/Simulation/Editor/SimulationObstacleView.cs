@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 //GABO TODO: TERMINAR
 namespace ISILab.LBS.VisualElements
 {
-    public class PathOSObstacleView : VisualElement
+    public class SimulationObstacleView : VisualElement
     {
 
         #region FIELDS
@@ -37,7 +37,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSObstacleView(PathOSTile triggerTile, PathOSTile obstacleTile, LBSPathOSObstacleConnections.Category category)
+        public SimulationObstacleView(SimulationTile triggerTile, SimulationTile obstacleTile, LBSSimualtionObstacleConnections.Category category)
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PathOSObstacleView");
             visualTree.CloneTree(this);
@@ -53,7 +53,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region METHODS
-        private void SetFields(PathOSTile triggerTile, PathOSTile obstacleTile, LBSPathOSObstacleConnections.Category category)
+        private void SetFields(SimulationTile triggerTile, SimulationTile obstacleTile, LBSSimualtionObstacleConnections.Category category)
         {
             // Obstacle object+trigger tile check
             if (!obstacleTile.IsDynamicObstacleObject) { Debug.LogWarning("PathOSObstacleView.SetFields(): Tile dada no es obstaculo!"); return; }

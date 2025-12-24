@@ -17,10 +17,10 @@ namespace ISILab.LBS.VisualElements
         //public new class UxmlFactory : UxmlFactory<PathOSTagPallete, UxmlTraits> { }
         #endregion
 
-        private PathOSOptionView[] optionViews;
+        private SimulationOptionView[] optionViews;
         private object[] options;
         private object selected;
-        private Action<PathOSOptionView, object> onSetView;
+        private Action<SimulationOptionView, object> onSetView;
 
         #region FIELDS VIEW
         private VisualElement contentElements;
@@ -124,7 +124,7 @@ namespace ISILab.LBS.VisualElements
 
         }
 
-        public void SetOptions(object[] options, Action<PathOSOptionView, object> onSetView)
+        public void SetOptions(object[] options, Action<SimulationOptionView, object> onSetView)
         {
             this.options = options;
             this.onSetView = onSetView;
@@ -150,13 +150,13 @@ namespace ISILab.LBS.VisualElements
             contentElements.Clear();
             contentEvents.Clear();
 
-            this.optionViews = new PathOSOptionView[options.Length];
+            this.optionViews = new SimulationOptionView[options.Length];
 
             // Se agregan opciones a contenedores
             for (int i = 0; i < options.Length; i++)
             {
                 var option = options[i];
-                var view = new PathOSOptionView(option, OnInternalSelectOption, onSetView);
+                var view = new SimulationOptionView(option, OnInternalSelectOption, onSetView);
                 view.tooltip = OnSetTooltip?.Invoke(option);
                 optionViews[i] = view;
 
@@ -165,12 +165,12 @@ namespace ISILab.LBS.VisualElements
                 Bundle castedOption = option as Bundle;
                 if (castedOption != null)
                 {
-                    var t = castedOption.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0].Value;
-                    if (t.Category == PathOSTag.PathOSCategory.ElementTag)
+                    var t = castedOption.GetCharacteristics<LBSSimulationTagsCharacteristic>()[0].Value;
+                    if (t.Category == SimulationTag.SimulationCategory.ElementTag)
                     {
                         contentElements.Add(view);
                     }
-                    else if (t.Category == PathOSTag.PathOSCategory.EventTag)
+                    else if (t.Category == SimulationTag.SimulationCategory.EventTag)
                     {
                         contentEvents.Add(view);
                     }

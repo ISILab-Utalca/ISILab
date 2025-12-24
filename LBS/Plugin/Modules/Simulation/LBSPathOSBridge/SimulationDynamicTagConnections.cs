@@ -5,21 +5,21 @@ using UnityEngine;
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     [System.Serializable]
-    // Conexiones entre un PathOSTile de tipo DynamicTagTrigger y los
-    // respectivos DynamicTagObject que transforma (asignandoles un nuevo PathOSTag)
-    public class PathOSDynamicTagConnections
+    // Conexiones entre un SimulationTile de tipo DynamicTagTrigger y los
+    // respectivos DynamicTagObject que transforma (asignandoles un nuevo SimulationTag)
+    public class SimulationDynamicTagConnections
     {
         #region FIELDS
         [SerializeField, SerializeReference]
-        private PathOSTile tagTriggerTile;
+        private SimulationTile tagTriggerTile;
         [SerializeField]
-        private List<(PathOSTile, PathOSTag)> dynamicTagObjects = new();
+        private List<(SimulationTile, SimulationTag)> dynamicTagObjects = new();
         [SerializeField]
         public bool IsNull = false;
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSDynamicTagConnections(PathOSTile trigger, List<(PathOSTile, PathOSTag)> dynamicTagObjs)
+        public SimulationDynamicTagConnections(SimulationTile trigger, List<(SimulationTile, SimulationTag)> dynamicTagObjs)
         {
             // Dynamic Tag Object check
             foreach (var dynamicTagObject in dynamicTagObjs)
@@ -36,7 +36,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         }
         // "NULL" Constructor: Represents a "null" connections object. Prevents serialization problems
         // with Unity by replacing traditional "null" value.
-        public PathOSDynamicTagConnections(bool isNull)
+        public SimulationDynamicTagConnections(bool isNull)
         {
             if (!isNull) { Debug.LogError("Null constructor should always set 'isNull' as true!"); }
             this.IsNull = true;
@@ -44,25 +44,25 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region PROPERTIES
-        public PathOSTile TagTriggerTile { get => tagTriggerTile; set => tagTriggerTile = value; }
-        public List<(PathOSTile, PathOSTag)> DynamicTagObjects { get => dynamicTagObjects; set => dynamicTagObjects = value; }
+        public SimulationTile TagTriggerTile { get => tagTriggerTile; set => tagTriggerTile = value; }
+        public List<(SimulationTile, SimulationTag)> DynamicTagObjects { get => dynamicTagObjects; set => dynamicTagObjects = value; }
         #endregion
 
         #region METHODS
-        public (PathOSTile, PathOSTag)? GetDynamicTag(int x, int y)
+        public (SimulationTile, SimulationTag)? GetDynamicTag(int x, int y)
         {
             var o = dynamicTagObjects.Find(o => o.Item1.Position == new Vector2Int(x, y));
             if (o == (null, null)) { return null; }
             return o;
         }
-        public (PathOSTile, PathOSTag)? GetDynamicTag(PathOSTile tile)
+        public (SimulationTile, SimulationTag)? GetDynamicTag(SimulationTile tile)
         {
             var o = dynamicTagObjects.Find(t => t.Item1 == tile);
             if (o == (null, null)) { return null; }
             return o;
         }
 
-        public void AddDynamicTag(PathOSTile tagTile, PathOSTag tag)
+        public void AddDynamicTag(SimulationTile tagTile, SimulationTag tag)
         {
             // Tile tipo "tag" check
             if (!tagTile.IsDynamicTagObject)
@@ -101,7 +101,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             s += "DynamicTagObjects asociados:\n";
             foreach (var dynamicTag in dynamicTagObjects)
             {
-                PathOSTile currTile = dynamicTag.Item1;
+                SimulationTile currTile = dynamicTag.Item1;
                 s += $"{currTile.Tag.Label} {currTile.Position} {dynamicTag.Item2.Label}\n";
             }
             return s;

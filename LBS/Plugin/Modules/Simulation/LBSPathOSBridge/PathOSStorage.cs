@@ -27,7 +27,7 @@ namespace ISILab.LBS.Modules
         High
     }
 
-    [CreateAssetMenu(fileName = "PathOSStorage", menuName = "ISILab/LBS/PathOS/PathOSStorage")]
+    [CreateAssetMenu(fileName = "PathOSStorage", menuName = "ISILab/LBS/Simulation/PathOSStorage")]
     public class PathOSStorage : ScriptableObject
     {
         #region FIELDS

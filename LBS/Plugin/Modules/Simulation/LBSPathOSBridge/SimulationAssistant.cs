@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
-    public class TestingAssistant : LBSAssistant
+    public class SimulationAssistant : LBSAssistant
     {
         private PathOSWindow pathOSOriginalWindow;
 
@@ -15,13 +15,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public PathOSWindow PathOSOriginalWindow { get => pathOSOriginalWindow; set => pathOSOriginalWindow = value; }
 
-        public TestingAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
+        public SimulationAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
 
         public override object Clone()
         {
-            return new TestingAssistant(IconGuid, Name, ColorTint);
+            return new SimulationAssistant(IconGuid, Name, ColorTint);
         }
 
         public override void OnGUI()
@@ -38,7 +38,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public override bool Equals(object obj)
         {
-            if(obj is not TestingAssistant other) return false;
+            if(obj is not SimulationAssistant other) return false;
 
             if(!Equals(Name, other.Name)) return false;
 

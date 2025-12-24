@@ -10,22 +10,22 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     //GABO TODO: Agregar funciones y fields necesarios para obstacles y Dynamic Tags
     [System.Serializable]
-    public class PathOSModule : LBSModule, ISelectable
+    public class SimulationModule : LBSModule, ISelectable
     {
         #region FIELDS
         [SerializeField, JsonRequired, SerializeReference]
-        private List<PathOSTile> tiles = new List<PathOSTile>();
+        private List<SimulationTile> tiles = new List<SimulationTile>();
         #endregion
 
         #region EVENTS
-        public event Action<PathOSModule, PathOSTile> OnAddTile;
-        public event Action<PathOSModule, PathOSTile> OnApplyEventTile;
-        public event Action<PathOSModule, PathOSTile> OnRemoveTile;
+        public event Action<SimulationModule, SimulationTile> OnAddTile;
+        public event Action<SimulationModule, SimulationTile> OnApplyEventTile;
+        public event Action<SimulationModule, SimulationTile> OnRemoveTile;
         #endregion
 
         #region METHODS
 
-        public void AddTile(PathOSTile tile)
+        public void AddTile(SimulationTile tile)
         {
             // Chequeo nulo
             if (tile == null) { Debug.LogWarning("PathOSModule.AddTile(): Tile nulo!"); return; }
@@ -50,7 +50,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         }
 
         // Para aplicar Event Tiles sobre un tile existente.
-        public bool ApplyEventTile(PathOSTile eventTile)
+        public bool ApplyEventTile(SimulationTile eventTile)
         {
             // Chequeo nulo
             if (eventTile == null) { Debug.LogWarning("PathOSModule.ApplyEventTile(): Tile nulo!"); return false; }
@@ -92,7 +92,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             return true;
         }
 
-        public void RemoveTile(PathOSTile tile)
+        public void RemoveTile(SimulationTile tile)
         {
             // Chequeo nulo
             if (tile == null) { return; }// Debug.LogWarning("PathOSModule.RemoveTile(): Tile nulo!"); return; }
@@ -121,23 +121,23 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             }
         }
 
-        public PathOSTile GetTile(int x, int y)
+        public SimulationTile GetTile(int x, int y)
         {
             return tiles.Find(t => t.X == x && t.Y == y);
         }
-        public PathOSTile GetTile(PathOSTile tile)
+        public SimulationTile GetTile(SimulationTile tile)
         {
             return tiles.Find(t => Equals(t, tile));
         }
 
-        public List<PathOSTile> GetTiles()
+        public List<SimulationTile> GetTiles()
         {
             return tiles;
         }
 
-        public void CleanAllObstacleConnectionsTo(PathOSTile tile)
+        public void CleanAllObstacleConnectionsTo(SimulationTile tile)
         {
-            PathOSTile tileToClean = tiles.Find(t => t == tile);
+            SimulationTile tileToClean = tiles.Find(t => t == tile);
             if (tileToClean == null) { Debug.LogWarning("Tile no encontrado en modulo!"); return; }
             {
                 foreach(var otherTile in tiles)
@@ -147,9 +147,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             }
         }
 
-        public void CleanAllDynamicTagConnectionsTo(PathOSTile tile)
+        public void CleanAllDynamicTagConnectionsTo(SimulationTile tile)
         {
-            PathOSTile tileToClean = tiles.Find(t => t == tile);
+            SimulationTile tileToClean = tiles.Find(t => t == tile);
             if (tileToClean == null) { Debug.LogWarning("Tile no encontrado en modulo!"); return; }
             {
                 foreach (var otherTile in tiles)
@@ -168,7 +168,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         public override object Clone()
         {
             //Debug.Log("Ejecutando PathOSModule.Clone()");
-            var clone = new PathOSModule();
+            var clone = new SimulationModule();
             return clone;
         }
 
@@ -181,7 +181,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         public List<object> GetSelected(Vector2Int position)
         {
             var pos = OwnerLayer.ToFixedPosition(position);
-            PathOSTile tile = GetTile(pos.x, pos.y);
+            SimulationTile tile = GetTile(pos.x, pos.y);
             var r = new List<object>();
             if (tile != null) { r.Add(tile); }
 

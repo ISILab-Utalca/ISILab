@@ -9,7 +9,7 @@ using ISILab.Extensions;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class PathOSOptionView : VisualElement
+    public class SimulationOptionView : VisualElement
     {
         private Color selected = new Color(1,1,1,0.1f);
         private Color nonSelected = new Color(1, 1, 1, 0f);
@@ -22,7 +22,7 @@ namespace ISILab.LBS.VisualElements
         public object target;
 
         public Action<object> OnSelect;
-        private Action<PathOSOptionView, object> OnSetView;
+        private Action<SimulationOptionView, object> OnSetView;
 
         #region PROPERTIES
         public object Target
@@ -51,7 +51,7 @@ namespace ISILab.LBS.VisualElements
         }
         #endregion
 
-        public PathOSOptionView(object target, Action<object> onSelect, Action<PathOSOptionView, object> onSetView)
+        public SimulationOptionView(object target, Action<object> onSelect, Action<SimulationOptionView, object> onSetView)
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PathOSOptionView");
             visualTree.CloneTree(this);

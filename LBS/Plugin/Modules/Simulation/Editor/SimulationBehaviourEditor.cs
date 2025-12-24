@@ -19,8 +19,8 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("PathOSBehaviour", typeof(PathOSBehaviour))]
-    public class PathOSBehaviourEditor : LBSCustomEditor, IToolProvider
+    [LBSCustomEditor("SimulationBehaviour", typeof(SimulationBehaviour))]
+    public class SimulationBehaviourEditor : LBSCustomEditor, IToolProvider
     {
        #region FIELDS
         // Palletes
@@ -28,10 +28,10 @@ namespace ISILab.LBS.VisualElements
         // PathOS Original Inspector
         private PathOSWindow pathOSOriginalWindow;
         // Target (PathOSBehaviour)
-        private PathOSBehaviour pathOS;
+        private SimulationBehaviour pathOS;
         // Manipulators
-        AddPathOSTile addPathOSTile;
-        RemovePathOSTile removePathOSTile;
+        AddSimulationTile addPathOSTile;
+        RemoveSimulationTile removePathOSTile;
         AddClosedObstacle addClosedObstacle;
         AddOpenedObstacle addOpenedObstacle;
 
@@ -52,9 +52,9 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region METHODS
-        public PathOSBehaviourEditor(object target) : base(target)
+        public SimulationBehaviourEditor(object target) : base(target)
         {
-            pathOS = target as PathOSBehaviour;
+            pathOS = target as SimulationBehaviour;
             Debug.Log("BEHAVIOUR CONSTRUCTED");
             pathOS.AutoMapCallback = MapToCurrentPopulation;
             pathOS.RemoveAutoMapCallbacks = () =>
@@ -74,7 +74,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetInfo(object target)
         {
-            pathOS = target as PathOSBehaviour;
+            pathOS = target as SimulationBehaviour;
         }
 
         protected override VisualElement CreateVisualElement()
@@ -124,7 +124,7 @@ namespace ISILab.LBS.VisualElements
             // Obtener Bundles PathOS
             List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>();
             List<Bundle> tempOSBundles = allBundles.Where(
-                b => b.GetCharacteristics<LBSPathOSTagsCharacteristic>().Count > 0).ToList();
+                b => b.GetCharacteristics<LBSSimulationTagsCharacteristic>().Count > 0).ToList();
 
             // Si no hay PathOS Bundles, abortar.
             if (tempOSBundles.Count == 0) { return; }
@@ -151,7 +151,7 @@ namespace ISILab.LBS.VisualElements
             bundlePallete.OnSelectOption += (selected) =>
             {
                 pathOS.selectedToSet = selected as Bundle;
-                ToolKit.Instance.SetActive(typeof(AddPathOSTile));
+                ToolKit.Instance.SetActive(typeof(AddSimulationTile));
             };
 
             // OnAdd option event
@@ -182,7 +182,7 @@ namespace ISILab.LBS.VisualElements
             {
                 var bundle = (Bundle)option;
                 optionView.Label = "";//bundle.name;
-                optionView.Color = bundle.GetCharacteristics<LBSPathOSTagsCharacteristic>()[0].Value.Color;
+                optionView.Color = bundle.GetCharacteristics<LBSSimulationTagsCharacteristic>()[0].Value.Color;
                 optionView.Icon = bundle.Icon;
             });
 
@@ -194,10 +194,10 @@ namespace ISILab.LBS.VisualElements
         public void SetTools(ToolKit toolkit)
         {
     
-            addPathOSTile = new AddPathOSTile();
+            addPathOSTile = new AddSimulationTile();
             var t1 = new LBSTool(addPathOSTile);
 
-            removePathOSTile = new RemovePathOSTile();
+            removePathOSTile = new RemoveSimulationTile();
             var t2 = new LBSTool(removePathOSTile);         
 
       
