@@ -84,12 +84,13 @@ namespace ISILab.LBS.VisualElements
         #region METHODS
         public void SetImage(VectorImage image)
         {
+            background.style.display = image is null ? DisplayStyle.None : DisplayStyle.Flex;
             elementTag.style.backgroundImage = new StyleBackground(image);
         }
 
-        private void SetColor(object color)
+        private void SetColor(Color color)
         {
-            background.style.backgroundColor = (Color)color;
+            background.style.backgroundColor = new StyleColor(color);
         }
 
         public void SetEvents(PathOSTile tile)
