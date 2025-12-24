@@ -91,6 +91,7 @@ namespace ISILab.LBS.VisualElements
         private void SetColor(Color color)
         {
             background.style.backgroundColor = new StyleColor(color);
+            Debug.Log(color);
         }
 
         public void SetEvents(SimulationTile tile)

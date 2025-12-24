@@ -37,7 +37,10 @@ namespace ISILab.LBS.VisualElements
 
         public string Label
         {
-            set => label.text = value;
+            set
+            {
+                //label.text = value;
+            }
         }
 
         public VectorImage Icon
@@ -57,7 +60,7 @@ namespace ISILab.LBS.VisualElements
             visualTree.CloneTree(this);
 
             // Init View
-            this.label = this.Q<Label>();
+           // this.label = this.Q<Label>();
             this.icon = this.Q<VisualElement>("Icon");
             this.border = this.Q<VisualElement>("Border");
             this.button = this.Q<Button>();
@@ -74,6 +77,7 @@ namespace ISILab.LBS.VisualElements
 
             this.OnSetView = onSetView;
             OnSetView?.Invoke(this, target);
+            SetSelected(false);
         }
 
         public void SetSelected(bool value)
@@ -85,7 +89,7 @@ namespace ISILab.LBS.VisualElements
             }
             else
             {
-                border.SetBorder(nonSelected, 0);
+                border.SetBorder(nonSelected, 3);
                 border.style.backgroundColor = nonSelected;
             }
         }
