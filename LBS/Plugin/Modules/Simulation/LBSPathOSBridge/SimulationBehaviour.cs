@@ -78,7 +78,7 @@ namespace ISILab.LBS.Behaviours
         #region METHODS
         public void AddTile(LBSTag tag, int x, int y, EntityType type)
         {
-            var tile = new SimulationTile(this, x, y, type, tag);
+            SimulationTile tile = new SimulationTile(this, x, y, type, tag);
 
             bool isElement = true;
             bool isEvent = false;
@@ -107,6 +107,7 @@ namespace ISILab.LBS.Behaviours
                     RequestTileRemove(old);
                 }
                 module.AddTile(tile);
+                
                 RequestTilePaint(tile);
             }
             // Tags de eventos

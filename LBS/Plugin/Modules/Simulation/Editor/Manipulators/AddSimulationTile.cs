@@ -66,6 +66,7 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
+           
             // Final logica UNDO
             if (EditorGUI.EndChangeCheck())
             {

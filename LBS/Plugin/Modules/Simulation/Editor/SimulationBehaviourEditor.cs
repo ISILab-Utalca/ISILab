@@ -138,7 +138,7 @@ namespace ISILab.LBS.VisualElements
             }
 
             // Generalizacion de Bundles a "object" (ej.: Para usar en el objeto pallete, y los option views)
-            var options = new object[pathOSBundles.Count];
+            object[] options = new object[pathOSBundles.Count];
             for (int i = 0; i < pathOSBundles.Count; i++)
             {
                 options[i] = pathOSBundles[i];
@@ -180,10 +180,11 @@ namespace ISILab.LBS.VisualElements
             // Init options para el Pallete mismo
             bundlePallete.SetOptions(options, (optionView, option) =>
             {
-                var bundle = (Bundle)option;
+                Bundle bundle = (Bundle)option;
                 optionView.Label = "";//bundle.name;
-                optionView.Color = bundle.GetCharacteristics<LBSSimulationTagsCharacteristic>()[0].Value.Color;
+                optionView.Color = bundle.Color;
                 optionView.Icon = bundle.Icon;
+                
             });
 
             bundlePallete.OnRepaint += () => { bundlePallete.Selected = pathOS.selectedToSet; };
@@ -196,11 +197,13 @@ namespace ISILab.LBS.VisualElements
     
             addPathOSTile = new AddSimulationTile();
             var t1 = new LBSTool(addPathOSTile);
+ 
 
             removePathOSTile = new RemoveSimulationTile();
-            var t2 = new LBSTool(removePathOSTile);         
+            var t2 = new LBSTool(removePathOSTile);    
 
-      
+            addPathOSTile.SetRemover(removePathOSTile);
+
             addClosedObstacle = new AddClosedObstacle();
             var t3 = new LBSTool(addClosedObstacle);
 
