@@ -10,8 +10,9 @@ using ISILab.LBS.VisualElements.Editor;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("PathOSTile", typeof(SimulationTile))]
-    public class PathOSTileEditor : LBSCustomEditor
+    [System.Obsolete("Suspicion of obsolescense.")]
+    [LBSCustomEditor("SimulationTile", typeof(SimulationTile))]
+    public class SimulationTileEditor : LBSCustomEditor
     {
         public override void SetInfo(object target)
         {
@@ -66,7 +67,7 @@ namespace ISILab.LBS.VisualElements
         protected override VisualElement CreateVisualElement()
         {
             var castedTarget = target as SimulationTile;
-            var panel = new PathOSTriggerInfoPanel();
+            var panel = new SimulationTriggerInfoPanel();
 
             // Actualizar panel con informacion del tile
             panel.Refresh(castedTarget);

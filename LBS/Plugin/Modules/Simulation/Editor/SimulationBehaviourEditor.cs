@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements
     {
        #region FIELDS
         // Palletes
-        private PathOSTagPallete bundlePallete;
+        private SimulationTagPallete bundlePallete;
         // PathOS Original Inspector
         private PathOSWindow pathOSOriginalWindow;
         // Target (PathOSBehaviour)
@@ -107,7 +107,7 @@ namespace ISILab.LBS.VisualElements
 
             // Add and set Tag Pallete
 
-            bundlePallete = new PathOSTagPallete();
+            bundlePallete = new SimulationTagPallete();
             Add(bundlePallete);
             bundlePallete.SetName("[LEGACY] PathOS+ Tags");
             SetBundlePallete();
