@@ -50,7 +50,7 @@ namespace ISILab.LBS.Drawers
         {
             foreach(SimulationTile tile in behaviour.RetrieveNewTiles())
             {
-                var tView = new PathOSTileView(tile);
+                var tView = new SimulationTileView(tile);
                 Vector2 pos = new Vector2(tile.X, -tile.Y);
                 Vector2 size = DefaultSize * teselationSize;
                 tView.SetPosition(new Rect(pos * size, size));
@@ -72,7 +72,7 @@ namespace ISILab.LBS.Drawers
 
                 foreach(GraphElement element in elements)
                 {
-                    var tView = (PathOSTileView) element;
+                    var tView = (SimulationTileView) element;
 
                     if(tView == null) continue;
                     if(!tView.visible) continue;
@@ -91,7 +91,7 @@ namespace ISILab.LBS.Drawers
         {
             foreach (SimulationTile tile in behaviour.Tiles)
             {
-                var tView = new PathOSTileView(tile);
+                var tView = new SimulationTileView(tile);
                 //var size = behaviour.OwnerLayer.TileSize * LBSSettings.Instance.general.TileSize;
                 Vector2 pos = new Vector2(tile.X, -tile.Y);
                 Vector2 size = DefaultSize * teselationSize;

@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class PathOSTileView : GraphElement
+    public class SimulationTileView : GraphElement
     {
 
         #region FIELDS
@@ -33,7 +33,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSTileView(SimulationTile tile)
+        public SimulationTileView(SimulationTile tile)
         {
             if (view == null)
             {
@@ -97,8 +97,8 @@ namespace ISILab.LBS.VisualElements
         public void SetEvents(SimulationTile tile)
         {
 
-            if (tile == null) { Debug.LogWarning("PathOSTileView.SetEvents(): Tile nulo!"); return; }
-            if (tile.Tag == null) { Debug.LogWarning("PathOSTileView.SetEvents(): Tile tiene tag nulo!"); }
+            if (tile == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile nulo!"); return; }
+            if (tile.Tag == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile tiene tag nulo!"); }
 
             dynamicTagObject.style.display = tile.IsDynamicTagObject ? DisplayStyle.Flex : DisplayStyle.None;
             dynamicTagTrigger.style.display = tile.IsDynamicTagTrigger ? DisplayStyle.Flex : DisplayStyle.None;

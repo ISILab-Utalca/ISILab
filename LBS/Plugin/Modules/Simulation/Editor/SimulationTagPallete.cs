@@ -11,7 +11,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 namespace ISILab.LBS.VisualElements
 {
     [UxmlElement]
-    public partial class PathOSTagPallete : VisualElement
+    public partial class SimulationTagPallete : VisualElement
     {
         #region FACTORY
         //public new class UxmlFactory : UxmlFactory<PathOSTagPallete, UxmlTraits> { }
@@ -74,7 +74,7 @@ namespace ISILab.LBS.VisualElements
 
 
         #region CONSTRUCTORS
-        public PathOSTagPallete()
+        public SimulationTagPallete()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PathOSTagPallete");
             visualTree.CloneTree(this);

@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [UxmlElement]
-    public partial class PathOSTriggerInfoPanel : VisualElement
+    public partial class SimulationTriggerInfoPanel : VisualElement
     {
         #region FACTORY
         //public new class UxmlFactory : UxmlFactory<PathOSTriggerInfoPanel, UxmlTraits> { }
@@ -27,7 +27,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public PathOSTriggerInfoPanel()
+        public SimulationTriggerInfoPanel()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PathOSTriggerInfoPanel");
             visualTree.CloneTree(this);
