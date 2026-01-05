@@ -51,22 +51,20 @@ Label {
 }
 
 .lbs-default-icon {
-    -unity-background-image-tint-color: var(--unity-colors-default-text);
+    -unity-background-image-tint-color: var(--lbs-icon-color, var(--lbs-default-icon-color));
     width: 32px;
     height: 32px;
     max-width: 32px;
     max-height: 32px;
     min-width: 12px;
     min-height: 12px;
-    background-color: rgba(0, 0, 0, 0);
     align-self: center;
     flex-direction: column;
     -unity-background-scale-mode: scale-to-fit;
-    display: flex;
 }
 
 .lbs-default-container-panel {
-    background-color: var(--lbs-base-solid-gray-color);
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
     border-left-color: var(--lbs-dark-overlay-color);
     border-right-color: var(--lbs-dark-overlay-color);
     border-top-color: var(--lbs-dark-overlay-color);
@@ -75,14 +73,8 @@ Label {
     border-right-width: 1px;
     border-top-width: 1px;
     border-bottom-width: 1px;
-    border-top-left-radius: var(--unity-metrics-default-border_radius);
-    border-bottom-left-radius: var(--unity-metrics-default-border_radius);
-    border-top-right-radius: var(--unity-metrics-default-border_radius);
-    border-bottom-right-radius: var(--unity-metrics-default-border_radius);
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    border-radius: 0;
+    padding: 3px;
     margin-bottom: 6px;
 }
 
@@ -339,13 +331,10 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-tab-button:selected {
-    
 }
 
 .lbs-tab-button:active {
-
 }
-
 
 .lbs-tab-button > VisualElement {
     height: 24px;
@@ -409,7 +398,7 @@ Toggle > .lbs-default-icon {
     margin-top: 0;
 }
 
-.lbs_inspectorshow {
+.lbs-inspector__show {
     flex-grow: 1;
     background-color: rgba(0, 0, 0, 0);
     flex-direction: column-reverse;
@@ -418,11 +407,17 @@ Toggle > .lbs-default-icon {
     align-self: stretch;
     justify-content: space-around;
     display: flex;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     transition-timing-function: ease;
 }
 
-.lbs_inspectorshow > LBSInspectorPanel {
+.lbs-inspector-tabs {
+    background-color: var(--lbs-darker-solid-gray-color, var(--lbs-default-darker-solid-gray-color));
+    align-self: stretch;
+    flex-direction: row;
+}
+
+.lbs-inspector__show > LBSInspectorPanel {
     flex-grow: 1;
     background-color: rgba(0, 0, 0, 0);
     flex-direction: column;
@@ -432,26 +427,18 @@ Toggle > .lbs-default-icon {
     justify-content: space-around;
     display: flex;
     flex-wrap: nowrap;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
-.lbs_inspectorshow > VisualElement {
-    flex-grow: 0;
-    background-color: rgb(47, 47, 47);
-    flex-direction: row;
-    width: auto;
-    align-items: stretch;
-    align-self: stretch;
-    justify-content: space-around;
-    display: flex;
+.lbs-inspector__show > .lbs-inspector-tabs {
     min-height: auto;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
     min-width: 100%;
 }
 
-.lbs_inspectorhide {
+.lbs-inspector__hide {
     flex-grow: 0;
     background-color: rgba(0, 0, 0, 0);
     flex-direction: column-reverse;
@@ -464,7 +451,7 @@ Toggle > .lbs-default-icon {
     transition-timing-function: ease;
 }
 
-.lbs_inspectorhide > LBSInspectorPanel {
+.lbs-inspector__hide > LBSInspectorPanel {
     flex-grow: 1;
     background-color: rgba(0, 0, 0, 0);
     flex-direction: column;
@@ -475,24 +462,19 @@ Toggle > .lbs-default-icon {
     display: none;
     right: auto;
     left: 400px;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
-.lbs_inspectorhide > VisualElement {
+.lbs_inspector__hide > .lbs-inspector-tabs {
     flex-grow: 1;
-    background-color: rgb(47, 47, 47);
     flex-direction: row;
-    width: 32px;
-    align-items: stretch;
-    align-self: stretch;
     justify-content: space-between;
     display: flex;
     min-height: auto;
     transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
-    min-width: 32px;
-    max-width: 32px;
+
 }
 
 .lbs_ToolButton > VisualElement {
@@ -1262,7 +1244,6 @@ Toggle > .lbs-default-icon {
     border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
 }
 
-
 .lbs-panel {
     padding-left: 2px;
     padding-top: 2px;
@@ -1281,10 +1262,7 @@ Toggle > .lbs-default-icon {
 
 .lbs-base-panel {
     background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
-    border-bottom-color: var(--lbs-dark-overlay-color);
-    border-top-color: var(--lbs-dark-overlay-color);
-    border-left-color: var(--lbs-dark-overlay-color);
-    border-right-color: var(--lbs-dark-overlay-color);
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     border-width: 1px;
 }
 
@@ -1471,8 +1449,8 @@ Toggle > .lbs-default-icon {
 
 .lbs-toolbar {
     border-width: 1px 1px 1px 1px;
-    border-color: var(--lbs-dark-overlay-color);
-    background-color: var(--lbs-base-solid-gray-color);
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
     height: var(--height);
     width: var(--width);
 }

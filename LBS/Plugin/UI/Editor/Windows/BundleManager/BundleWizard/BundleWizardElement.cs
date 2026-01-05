@@ -91,6 +91,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         {
             _deleteButton.clicked += removeCallback;
         }
+
+        public void RemoveDeleteIcon()
+        {
+            _deleteButton.visible = false;
+        }
     }
 }
 
