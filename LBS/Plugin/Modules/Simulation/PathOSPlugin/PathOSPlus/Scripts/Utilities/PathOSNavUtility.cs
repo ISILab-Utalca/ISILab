@@ -1,10 +1,7 @@
 ﻿using NinePenguins;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.Networking.UnityWebRequest;
 
 /*
 PathOSNavUtility.cs 
@@ -311,6 +308,85 @@ namespace PathOS
                     return NavmeshMapCode.NM_DNE;
             }
 
+            public void RayMemoryMap(Ray ray, float maxDistance, out NavmeshMemoryMapperCastHit hit, bool fillSeen = false, bool raycast = true)
+            {
+                if (raycast)
+                {
+                    RaycastMemoryMap(ray.origin, ray.direction, maxDistance, out hit, fillSeen);
+                }
+                else
+                {
+                    PointMemoryMap(ray, maxDistance, out hit, fillSeen);
+                }
+            }
+
+            public void PointMemoryMap(Ray ray, float maxDistance, out NavmeshMemoryMapperCastHit hit, bool fillSeen = false)
+            {
+                Vector3 point = ray.origin;
+
+                Vector3 d = ray.direction;
+                d.Normalize();
+
+                //What is our sampling distance?
+                //Depending on the angle between the direction and the grid lines,
+                //this will fluctuate - we effectively want to sample so 
+                //we'll hit in one-tile increments.
+                //This could be improved later to be less approximate and hit
+                //every tile the ray would cross.
+                float theta = Vector3.Angle(Vector3.forward, d);
+                theta = Mathf.Abs(theta);
+
+                //Debug.Log(string.Format("Theta: {0:0.000}", theta));
+
+                theta -= (int)(theta / 90.0f) * 90.0f;
+
+                if (theta > 45.0f)
+                    theta = 90.0f - theta;
+
+                //Debug.Log(string.Format("Clamped Theta: {0:0.000}", theta));
+
+                float sampleDistance = sampleGridSize / Mathf.Cos(Mathf.Deg2Rad * theta);
+                //Debug.Log(string.Format("Grid Size: {0:0.000}, Sampling distance: {1:0.000}", sampleGridSize, sampleDistance));
+
+                d = sampleDistance * d;
+
+                int numUnexplored = 0, totalSampled = 0;
+                float totalDistance = 0.0f;
+                int obstacleCount = 0;
+                NavmeshMapCode sample = NavmeshMapCode.NM_DNE;
+
+                for (int i = 1; (i * sampleDistance) < maxDistance && i < maxCastSamples; ++i)
+                {
+                    if((i+1) * sampleDistance > maxDistance)
+                    {
+                        sample = SampleMap(point);
+
+                        if (sample == NavmeshMapCode.NM_UNKNOWN)
+                            ++numUnexplored;
+                        else if (sample == NavmeshMapCode.NM_OBSTACLE)
+                            ++obstacleCount;
+                        //Stop if we reach the edge of the grid or we've crossed more than 
+                        //one obstacle tile (avoid mistaking corners for walls).
+                        else if (sample == NavmeshMapCode.NM_DNE || obstacleCount > 1)
+                            break;
+
+                        //Fill in sight information, if applicable.
+                        if (fillSeen)
+                            Fill(point, NavmeshMapCode.NM_SEEN);
+
+                        ++totalSampled;
+                    }
+                    
+                    point += d;
+
+                    totalDistance += sampleDistance;
+                }
+
+                hit.numUnexplored = numUnexplored;
+                hit.distance = totalDistance;
+                hit.portionUnexplored = (totalSampled > 0) ? (float)numUnexplored / (float)totalSampled : 0.0f;
+            }
+
             //In-progress memory raycast.
             //Right now the distance will be an estimation of the straight-line distance 
             //traversable in that direction, and unexplored tiles will stop being counted
@@ -320,7 +396,7 @@ namespace PathOS
             {
                 Vector3 point = origin;
 
-                Vector3 d = new Vector3(dir.x, 0.0f, dir.z);
+                Vector3 d = new Vector3(dir.x, dir.y/*0.0f*/, dir.z);
                 d.Normalize();
 
                 //What is our sampling distance?
@@ -617,8 +693,8 @@ namespace PathOS
             private bool Walkable(int x, int z)
             {
                 if (x < 0 || z < 0
-                    || x > visitedGrid.GetLength(0)
-                    || z > visitedGrid.GetLength(1))
+                    || x >= visitedGrid.GetLength(0)
+                    || z >= visitedGrid.GetLength(1))
                     return false;
 
                 return visitedGrid[x, z] != NavmeshMapCode.NM_UNKNOWN

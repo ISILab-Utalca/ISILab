@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using PathOS; 
 
 
 /*
@@ -62,6 +61,8 @@ namespace PathOS
         // GABO: List of invisible walls (to this agent)
         public List<GameObject> invisibleWalls { get; private set; }
 
+        Quaternion fixedRotation;
+
         void Awake()
         {
             agent = GetComponent<PathOSAgent>();
@@ -71,6 +72,11 @@ namespace PathOS
 
             if (null == manager)
                 manager = PathOSManager.instance;
+
+            Vector3 target = cam.transform.position;
+            cam.transform.Translate(Vector3.up * 10);
+            cam.transform.LookAt(target);
+            fixedRotation = cam.transform.rotation;
 
             for (int i = 0; i < manager.levelEntities.Count; ++i)
             {
@@ -95,6 +101,8 @@ namespace PathOS
 
         void Update()
         {
+            //cam.transform.rotation = fixedRotation;
+
             perceptionTimer += Time.deltaTime;
 
             //Visual processing update.
@@ -116,7 +124,7 @@ namespace PathOS
             visible.Clear();
 
             Vector3 camForwardXZ = cam.transform.forward;
-            camForwardXZ.y = 0.0f;
+            //camForwardXZ.y = 0.0f;
 
             for (int i = 0; i < perceptionInfo.Count; ++i)
             {
@@ -125,7 +133,7 @@ namespace PathOS
                 Vector3 entityPos = entity.entityRef.objectRef.transform.position;
 
                 Vector3 entityVecXZ = entityPos - cam.transform.position;
-                entityVecXZ.y = 0.0f;
+                //entityVecXZ.y = 0.0f;
 
                 bool wasVisible = entity.visible;
 
@@ -139,6 +147,13 @@ namespace PathOS
                     && GeometryUtility.TestPlanesAABB(frustum, entity.entityRef.bounds)
                     && entity.entityRef.SizeVisibilityCheck(cam, visSizeThreshold)
                     && RaycastVisibilityCheck(entity.entityRef.bounds, entityPos); // GABO: Modified to ignore invisible walls.
+
+                /// SEBA NOTES
+                /// 1. is not invisible
+                /// 2. is in front
+                /// 3. is in frustum
+                /// 4. is sized enough
+                /// 5. no obstacles in view
 
                 if (wasVisible != entity.visible)
                 {
@@ -178,6 +193,8 @@ namespace PathOS
             }
 
             perceptionTimer = 0.0f;
+
+            Debug.LogWarning(visible.Count);
         }
 
         //Uses an AABB and given position as nine points for checking
@@ -206,7 +223,7 @@ namespace PathOS
                 }
             }
 
-            if (!Physics.Raycast(pos, ray.normalized, ray.magnitude, ~LayerMask.GetMask("Ignore Raycast")))
+            if (!Physics.Raycast(pos, ray.normalized, out RaycastHit hit, ray.magnitude, ~LayerMask.GetMask("Ignore Raycast")))
             {
                 // GABO: We return invisible walls (and children) to their original layer
                 foreach (GameObject wall in invisibleWalls)
@@ -276,26 +293,51 @@ namespace PathOS
         //This should be updated eventually to do a more sophisticated check accounting
         //for *apparent* distance - i.e., by adding a couple of physics raycasts from the 
         //camera.
-        public NavMeshHit ExploreVisibilityCheck(Vector3 origin, Vector3 dir)
+        public NavMeshHit ExploreVisibilityCheck(Vector3 origin, Vector3 dir, out bool result)
         {
+            Vector3 position = origin;
+            float distance = 0.0f;
+            //bool result;
+
             NavMeshHit hit = new NavMeshHit();
-            bool result = NavMesh.Raycast(origin,
-                origin + dir.normalized * navmeshCastDistance + Vector3.up * navmeshCastHeight,
-                out hit, NavMesh.AllAreas);
+
+            //result = NavMesh.Raycast(origin,
+            //    origin + dir.normalized * navmeshCastDistance/* + Vector3.up * navmeshCastHeight*/,
+            //    out hit, NavMesh.AllAreas);
+            //position = hit.position;
+            //distance = hit.distance;
 
 
-            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode =
-                (result) ?
-                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE :
-                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+            result = Physics.Raycast(origin, dir, out RaycastHit raycastHit, navmeshCastDistance);
+            position = raycastHit.point;
+            distance = raycastHit.distance; // No retorna esta distancia, sino la de hit.
+            if (result)
+            {
+                result = NavMesh.SamplePosition(raycastHit.point, out hit, 1, NavMesh.AllAreas);
+                if (result)
+                {
+                    position = hit.position;
+                    distance = Vector3.Distance(origin, position);
+                }
+            }
 
-            agent.memory.memoryMap.Fill(hit.position, fillCode);
+            if (!result)
+            {
+                hit.distance = distance;
+                hit.position = position;
+            }
+
+            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode = PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+            //(result) ?
+            //    PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE :
+            //    PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+
+            agent.memory.memoryMap.Fill(position, fillCode);
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.memory.memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
-                out memHit, true);
+            agent.memory.memoryMap.RayMemoryMap(new Ray(origin, dir), distance, out memHit, true, false); // No mapea 1 a 1, sino a lo largo, en lineas.
 
             return hit;
         }

@@ -5,8 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using PathOS;
-using System.Linq;
 
 /*
 PathOSAgent.cs 
@@ -281,6 +279,11 @@ namespace PathOS
             return navAgent.transform.position;
         }
 
+        public Vector3 GetEyesPosition()
+        {
+            return eyes.cam.transform.position;
+        }
+
         public void RecalibratePath()
         {
             navAgent.ResetPath();
@@ -391,9 +394,12 @@ namespace PathOS
             EntityMemory currentGoalMemory = null;
 
             //Used in the calculation of exploration directions.
-            Vector3 XZForward = transform.forward;
-            XZForward.y = 0.0f;
-            XZForward.Normalize();
+            Vector3 eyesForward = eyes.cam.transform.forward;//transform.forward;
+            //XZForward.y = 0.0f;
+            //XZForward.Normalize();
+
+            Vector3 yRotationAxis = eyes.cam.transform.up;
+            Vector3 xRotationAxis = eyes.cam.transform.right;
 
             //Optimization: Score current goal first to reduce
             //extra computation, since the current goal receives a score bonus.
@@ -413,14 +419,14 @@ namespace PathOS
             }
             else
             {
-                Vector3 goalForward = currentDest.pos - GetPosition();
-                goalForward.y = 0.0f;
+                Vector3 goalForward = currentDest.pos - GetEyesPosition();
+                //goalForward.y = 0.0f;
 
                 if (goalForward.sqrMagnitude > 0.1f)
                 {
                     goalForward.Normalize();
-                    bool goalVisible = Mathf.Abs(Vector3.Angle(XZForward, goalForward)) < (eyes.XFOV() * 0.5f);
-                    ScoreExploreDirection(GetPosition(), goalForward, goalVisible, ref maxScore,
+                    bool goalVisible = Mathf.Abs(Vector3.Angle(eyesForward, goalForward)) < (eyes.XFOV() * 0.5f); // FP. Generalizar.
+                    ScoreExploreDirection(GetEyesPosition(), goalForward, goalVisible, ref maxScore,
                         true, currentDest.pos);
                 }
             }
@@ -446,28 +452,42 @@ namespace PathOS
             float halfX = eyes.XFOV() * 0.5f;
             int steps = (int)(halfX / exploreDegrees);
 
-            ScoreExploreDirection(GetPosition(), XZForward, true, ref maxScore);
+            float halfY = eyes.cam.fieldOfView * 0.5f;
+            int stepsY = (int)(halfY / exploreDegrees);
 
-            for (int i = 1; i <= steps; ++i)
+            for(int j = 0; j <= stepsY; ++j)
             {
-                ScoreExploreDirection(GetPosition(), Quaternion.AngleAxis(i * exploreDegrees, Vector3.up) * XZForward,
-                    true, ref maxScore);
-                ScoreExploreDirection(GetPosition(), Quaternion.AngleAxis(i * -exploreDegrees, Vector3.up) * XZForward,
-                    true, ref maxScore);
+                Vector3 XRotated = Quaternion.AngleAxis(j * exploreDegrees, xRotationAxis) * eyesForward;
+                Vector3 negXRotated = Quaternion.AngleAxis(j * -exploreDegrees, xRotationAxis) * eyesForward;
+
+                ScoreExploreDirection(GetEyesPosition(), XRotated, true, ref maxScore);
+
+                for (int i = 1; i <= steps; ++i)
+                {
+                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * exploreDegrees, yRotationAxis) * XRotated,
+                        true, ref maxScore);
+                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * -exploreDegrees, yRotationAxis) * XRotated,
+                        true, ref maxScore);
+
+                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * exploreDegrees, yRotationAxis) * negXRotated,
+                        true, ref maxScore);
+                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * -exploreDegrees, yRotationAxis) * negXRotated,
+                        true, ref maxScore);
+                }
             }
 
             //Behind the agent (from memory).
-            Vector3 XZBack = -XZForward;
+            Vector3 XZBack = -eyesForward;
 
-            ScoreExploreDirection(GetPosition(), XZBack, false, ref maxScore);
+            ScoreExploreDirection(GetEyesPosition(), XZBack, false, ref maxScore);
             halfX = (360.0f - eyes.XFOV()) * 0.5f;
             steps = (int)(halfX / invisibleExploreDegrees);
 
             for (int i = 1; i <= steps; ++i)
             {
-                ScoreExploreDirection(GetPosition(), Quaternion.AngleAxis(i * invisibleExploreDegrees, Vector3.up) * XZBack,
+                ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * invisibleExploreDegrees, yRotationAxis) * XZBack,
                     false, ref maxScore);
-                ScoreExploreDirection(GetPosition(), Quaternion.AngleAxis(i * -invisibleExploreDegrees, Vector3.up) * XZBack,
+                ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * -invisibleExploreDegrees, yRotationAxis) * XZBack,
                     false, ref maxScore);
             }
 
@@ -690,9 +710,9 @@ namespace PathOS
                 if (visible)
                 {
                     //Grab the "extent" of the direction on the navmesh from the perceptual system.
-                    NavMeshHit hit = eyes.ExploreVisibilityCheck(GetPosition(), dir);
-                    distance = hit.distance;
-                    newTarget = hit.position;
+                    NavMeshHit hit = eyes.ExploreVisibilityCheck(GetEyesPosition(), dir, out bool result);
+                    distance = result ? hit.distance : 0;
+                    newTarget = result ? hit.position : GetPosition();
                 }
                 else
                 {
@@ -743,16 +763,15 @@ namespace PathOS
                 //If we're originating from where we stand, target the "end" point.
                 //Else, target the "start" point, and the agent will re-assess its 
                 //options when it gets there.
-                if (Vector3.SqrMagnitude(origin - GetPosition())
+                if (Vector3.SqrMagnitude(origin - GetEyesPosition())
                     < PathOS.Constants.Navigation.EXPLORE_PATH_POS_THRESHOLD_FAC
                     * exploreThreshold)
                     newDest.pos = newTarget;
                 else
-                    newDest.pos = origin;
+                    newDest.pos = GetPosition();//origin;
 
                 newDest.accurate = true;
                 newDest.entity = null;
-
                 destList.Add(newDest);
             }
 
