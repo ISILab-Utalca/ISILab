@@ -7,52 +7,26 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-
     [UxmlElement]
     public partial class ActionButton : VisualElement
     {
-
-        UnityEngine.Color HighlightColor = LBSSettings.Instance.view.newToolkitSelected;
-        UnityEngine.Color NormalColor = LBSSettings.Instance.view.toolkitNormal;
-
-        static ActionButton selectedButton;
-
-        string ActionText;
-        private  Button _button;
+        public LBSToolbarToggle _toggle;
 
         public  ActionButton()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ActionButton");
             visualTree.CloneTree(this);
-            _button = this.Q<LBSCustomButton>("Button");
+            _toggle = this.Q<LBSToolbarToggle>("ActionToggle");
         }
 
         public ActionButton(string text, Action action) : this()
         {
-           
-            ActionText = text;
-            _button.text = char.ToUpper(text[0]) + text.Substring(1);
-            _button.clicked += action;
-            _button.clicked += () =>
+            _toggle.label = char.ToUpper(text[0]) + text.Substring(1);
+            _toggle.RegisterCallback<ClickEvent>(evt =>
             {
-                SetHighlight(true);
-                selectedButton = this;
-            };
+                action?.Invoke();
+                _toggle.SetValueWithoutNotify(true);
+            });
         }
-
-        public void SetHighlight(bool isSelected)
-        {
-   
-            if (selectedButton != null && selectedButton != this)
-            {
-                selectedButton._button.SetBackgroundColor(NormalColor);
-            }
-
-            var color = isSelected ? HighlightColor : NormalColor;
-            _button.SetBackgroundColor(color);
-
-            selectedButton = isSelected ? this : null;
-        }
-
     }
 }
