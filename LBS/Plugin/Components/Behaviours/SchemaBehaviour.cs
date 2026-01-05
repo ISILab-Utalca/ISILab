@@ -30,7 +30,10 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             "Empty", // for clearing a wall
             "Wall", // default wall connection 
             "Door", // within wall connection
-            "Window" // within wall connection
+            "Window", // within wall connection
+            "LockedDoor", // within wall connection. Opened by key
+            "BlockedDoor" // within wall connection. Opened by trigger
+
         };
         
         #endregion

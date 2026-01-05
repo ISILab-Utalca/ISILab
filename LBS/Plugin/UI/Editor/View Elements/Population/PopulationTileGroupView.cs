@@ -18,6 +18,7 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS
         private readonly TileGroupBehavior _tileBehaviour;
 
+        static private VisualElement _dropIcon;
         static private VisualElement _patrolIcon;
         static private VisualElement _triggerIcon;
 
@@ -41,7 +42,7 @@ namespace ISILab.LBS.VisualElements
 
             _triggerIcon = this.Q<VisualElement>("TriggerIcon");
             _patrolIcon = this.Q<VisualElement>("PatrolIcon");
-
+            _dropIcon = this.Q<VisualElement>("DropIcon");
 
         }
 
@@ -53,6 +54,7 @@ namespace ISILab.LBS.VisualElements
                 return;
             }
 
+            _dropIcon.style.display = DisplayStyle.None;
             _patrolIcon.style.display = DisplayStyle.None;
             _triggerIcon.style.display = DisplayStyle.None;
 
@@ -60,7 +62,11 @@ namespace ISILab.LBS.VisualElements
             BundleTileMapAddons addons = tile.Addons;
             if (addons is null) return;
 
-
+            if (addons.OnDestroyDrop is not null) 
+            {
+                _dropIcon.style.backgroundImage = new StyleBackground(addons.OnDestroyDrop.Icon);
+                _dropIcon.style.display = DisplayStyle.Flex; 
+            }
             if (addons.Triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
             if (addons.Patrol.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
 

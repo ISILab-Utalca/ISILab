@@ -41,6 +41,8 @@ namespace ISILab.LBS.Behaviours.Editor
         private SimplePallete areaPallete;
         private SimplePallete connectionPallete;
         private string zoneIconGuid = "76bf813a38668ce439887addd209058c";
+        private string lockedDoorIconGuid = "f79cf4ba5777aab4a884bca201ff0278";
+        private string blockedDoorIconGuid = "8e1818e3f49414e4997ecc63e331999f";
         private string windowConnectionIconGuid = "c0d00de1d82858c4b9d772a012caf67d";
         private string doorConnectionIconGuid = "cd77d8067cf8b6b44ab23da9a62173c0";
         private string wallConnectionIconGuid = "b29ab5d90498432409a5fb48f6be7bd5";
@@ -292,6 +294,8 @@ namespace ISILab.LBS.Behaviours.Editor
             if(label == "Wall") return AssetMacro.LoadAssetByGuid<VectorImage>(wallConnectionIconGuid);
             if(label == "Door") return AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
             if(label == "Window") return AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
+            if (label == "LockedDoor") return AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
+            if (label == "BlockedDoor") return AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
             return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
         }
         

@@ -1,20 +1,22 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
+using LBS.Components;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static ISILab.LBS.Plugin.Core.Settings.LBSSettings;
 
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("TileGroupBehavior", typeof(TileGroupBehavior))]
-    public class TileGroupBehaviorEditor : LBSCustomEditor
+    public class TileGroupBehaviorEditor : LBSCustomEditor, IBundleFilter
     {
         #region FIELDS
 
@@ -28,6 +30,7 @@ namespace ISILab.LBS.VisualElements
 
         private LBSCustomLabelIcon SelectedHeader;
 
+        private VisualElement Drop;
         private VisualElement Patrol;
         private VisualElement TriggersArea;
         private VisualElement Interact;
@@ -35,11 +38,13 @@ namespace ISILab.LBS.VisualElements
         private VisualElement Destroyed;
         private ListView AddonsView;
 
+        private LBSCustomObjectField DropObjectField;
         private LBSCustomToggleField PatrolLoop;
         private LBSCustomEventHooker InteractHook;
         private LBSCustomEventHooker DestroyedHook;
 
         public VisualTreeAsset visualTree { get; private set; }
+        public LBSButtonListFilter BundlePickerWindow { get; set; }
 
         #endregion
 
@@ -82,6 +87,7 @@ namespace ISILab.LBS.VisualElements
 
             SelectedHeader = this.Q<LBSCustomLabelIcon>("SelectedHeader");
 
+            Drop = this.Q<VisualElement>("Drop");
             Patrol = this.Q<VisualElement>("Patrol");
             TriggersArea = this.Q<VisualElement>("Triggers");
             Interact = this.Q<VisualElement>("Interact");
@@ -92,8 +98,24 @@ namespace ISILab.LBS.VisualElements
             DestroyedHook = this.Q<LBSCustomEventHooker>("DestroyedHook");
             DestroyedHook.EventType = LBSEventType.Destroy;
 
-
             AddonsView = this.Q<ListView>("AddonsView");
+
+            DropObjectField = this.Q<LBSCustomObjectField>("DropObjectField");
+            DropObjectField.UseCustomFilter = true;
+            DropObjectField.CustomFilter = pick =>
+            {
+                List<BundleFlags> flags = new List<BundleFlags>() { BundleFlags.Population };
+                var bundles = BundleQueryUtility.FindBundlesWithFlag(flags);
+                (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
+            };
+
+            DropObjectField.RegisterValueChangedCallback(evt =>
+            {
+                if (behaviour?.SelectedTilemap is null) return;
+                behaviour.SelectedTilemap.Addons.OnDestroyDrop = DropObjectField.value as Bundle;
+                UpdateSelectedTilemap();
+            });
+
             PatrolPointsView = this.Q<ListView>("PatrolPointsView");
 
             PatrolLoop = this.Q<LBSCustomToggleField>("PatrolLoop");
@@ -106,6 +128,7 @@ namespace ISILab.LBS.VisualElements
             });
 
             return this;
+
         }
 
         private void UpdateSelectedTilemap()

@@ -1,4 +1,5 @@
 using ISILab.Commons.Extensions;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace ISILab.LBS.Components
 
         #region FIELDS
         [SerializeReference]
+        private Bundle onDestroyDrop;
+        [SerializeReference]
         private List<TileTrigger> triggers = new();
         [SerializeField]
         private TilePatrol patrol;
@@ -23,6 +26,7 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region PROPERTIES
+        public Bundle OnDestroyDrop { get => onDestroyDrop; set => onDestroyDrop = value; }
         public List<TileTrigger> Triggers { get => triggers; set => triggers = value; }
         public TilePatrol Patrol { get => patrol; set => patrol = value; }
         public LBSEventHooker Interact { get => interact; set => interact = value; }
