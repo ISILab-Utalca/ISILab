@@ -2,7 +2,7 @@
     <ui:Template name="LBSHorizontalDivider" src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/StaticTemplateComponents/SimpleComponents/LBSHorizontalDivider.uxml?fileID=9197481963319205126&amp;guid=8e276661d37de8e41905231bb939b61a&amp;type=3#LBSHorizontalDivider" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSOverrideStyle.uss?fileID=7433441132597879392&amp;guid=dc3922656bcc222469152418c1839f87&amp;type=3#LBSOverrideStyle" />
-    <ui:VisualElement class="darker" style="flex-grow: 1;">
+    <ui:VisualElement class="light" style="flex-grow: 1;">
         <uie:Toolbar name="Toolbar" class="lbs-toolbar">
             <uie:ToolbarButton text="Button" />
             <uie:ToolbarToggle label="Toggle" />
@@ -54,6 +54,7 @@
                     <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" selectable="true" />
                     <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" />
                     <ISILab.LBS.CustomComponents.LBSCustomRadioButtonGroup choices="a,b,c" selected-choice="0" />
+                    <LBS.VisualElements.SimplePallete />
                 </ui:VisualElement>
                 <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
                     <ISILab.LBS.CustomComponents.LBSCustomFoldout>
