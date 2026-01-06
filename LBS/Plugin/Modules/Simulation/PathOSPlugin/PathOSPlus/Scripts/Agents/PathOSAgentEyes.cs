@@ -14,6 +14,10 @@ namespace PathOS
     [RequireComponent(typeof(PathOSAgent))]
     public class PathOSAgentEyes : MonoBehaviour
     {
+        public enum CamType { FreeMode, FirstPerson }
+
+        public CamType camType = CamType.FreeMode;
+
         private PathOSAgent agent;
         private static PathOSManager manager;
 
@@ -73,10 +77,15 @@ namespace PathOS
             if (null == manager)
                 manager = PathOSManager.instance;
 
-            Vector3 target = cam.transform.position;
-            cam.transform.Translate(Vector3.up * 10);
-            cam.transform.LookAt(target);
-            fixedRotation = cam.transform.rotation;
+            //camType = CamType.FirstPerson;
+
+            if(camType == CamType.FreeMode)
+            {
+                Vector3 target = cam.transform.position;
+                cam.transform.Translate(Vector3.up * 10);
+                cam.transform.LookAt(target);
+                fixedRotation = cam.transform.rotation;
+            }
 
             for (int i = 0; i < manager.levelEntities.Count; ++i)
             {
@@ -124,7 +133,7 @@ namespace PathOS
             visible.Clear();
 
             Vector3 camForwardXZ = cam.transform.forward;
-            //camForwardXZ.y = 0.0f;
+            if(camType.Equals(CamType.FirstPerson)) camForwardXZ.y = 0.0f;
 
             for (int i = 0; i < perceptionInfo.Count; ++i)
             {
@@ -133,7 +142,7 @@ namespace PathOS
                 Vector3 entityPos = entity.entityRef.objectRef.transform.position;
 
                 Vector3 entityVecXZ = entityPos - cam.transform.position;
-                //entityVecXZ.y = 0.0f;
+                if (camType.Equals(CamType.FirstPerson)) entityVecXZ.y = 0.0f;
 
                 bool wasVisible = entity.visible;
 
@@ -194,7 +203,7 @@ namespace PathOS
 
             perceptionTimer = 0.0f;
 
-            Debug.LogWarning(visible.Count);
+            //Debug.LogWarning(visible.Count);
         }
 
         //Uses an AABB and given position as nine points for checking
@@ -223,7 +232,7 @@ namespace PathOS
                 }
             }
 
-            if (!Physics.Raycast(pos, ray.normalized, out RaycastHit hit, ray.magnitude, ~LayerMask.GetMask("Ignore Raycast")))
+            if (!Physics.Raycast(pos, ray.normalized, ray.magnitude, ~LayerMask.GetMask("Ignore Raycast")))
             {
                 // GABO: We return invisible walls (and children) to their original layer
                 foreach (GameObject wall in invisibleWalls)
@@ -293,20 +302,35 @@ namespace PathOS
         //This should be updated eventually to do a more sophisticated check accounting
         //for *apparent* distance - i.e., by adding a couple of physics raycasts from the 
         //camera.
-        public NavMeshHit ExploreVisibilityCheck(Vector3 origin, Vector3 dir, out bool result)
+        public NavMeshHit ExploreVisibilityCheck(Vector3 origin, Vector3 dir)
+        {
+            NavMeshHit hit = new NavMeshHit();
+            bool result = NavMesh.Raycast(origin,
+                origin + dir.normalized * navmeshCastDistance + Vector3.up * navmeshCastHeight,
+                out hit, NavMesh.AllAreas);
+
+            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode =
+                (result) ?
+                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE :
+                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+
+            agent.memory.memoryMap.Fill(hit.position, fillCode);
+
+            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
+                new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
+
+            agent.memory.memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
+                out memHit, true);
+
+            return hit;
+        }
+
+        public NavMeshHit ExploreVisibilityCheckFreeMode(Vector3 origin, Vector3 dir, out bool result)
         {
             Vector3 position = origin;
             float distance = 0.0f;
-            //bool result;
 
             NavMeshHit hit = new NavMeshHit();
-
-            //result = NavMesh.Raycast(origin,
-            //    origin + dir.normalized * navmeshCastDistance/* + Vector3.up * navmeshCastHeight*/,
-            //    out hit, NavMesh.AllAreas);
-            //position = hit.position;
-            //distance = hit.distance;
-
 
             result = Physics.Raycast(origin, dir, out RaycastHit raycastHit, navmeshCastDistance);
             position = raycastHit.point;

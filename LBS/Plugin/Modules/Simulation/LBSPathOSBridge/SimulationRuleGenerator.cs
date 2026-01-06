@@ -151,6 +151,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 //currMaterial.SetTexture("_MainTex", tile.Tag.Icon);
                 currRenderer.material = currMaterial;
 
+                currRenderer.enabled = false;
+
                 // Setear posicion
                 currInstance.transform.position = settings.position +
                                                   new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)

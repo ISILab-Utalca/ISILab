@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR;
 
 /*
 PathOSAgent.cs 
@@ -284,6 +285,17 @@ namespace PathOS
             return eyes.cam.transform.position;
         }
 
+        public Vector3 GetOriginPos()
+        {
+            switch (eyes.camType)
+            {
+                case PathOSAgentEyes.CamType.FreeMode:      return GetEyesPosition();
+                case PathOSAgentEyes.CamType.FirstPerson:   return GetPosition();
+            }
+
+            return default;
+        }
+
         public void RecalibratePath()
         {
             navAgent.ResetPath();
@@ -393,10 +405,20 @@ namespace PathOS
             //Potential entity goals.
             EntityMemory currentGoalMemory = null;
 
+            Vector3 eyesForward = default;
             //Used in the calculation of exploration directions.
-            Vector3 eyesForward = eyes.cam.transform.forward;//transform.forward;
-            //XZForward.y = 0.0f;
-            //XZForward.Normalize();
+            switch (eyes.camType)
+            {
+                case PathOSAgentEyes.CamType.FreeMode:
+                    eyesForward = eyes.cam.transform.forward;
+                    break;
+
+                case PathOSAgentEyes.CamType.FirstPerson:
+                    eyesForward = transform.forward;
+                    eyesForward.y = 0.0f;
+                    eyesForward.Normalize();
+                    break;
+            }
 
             Vector3 yRotationAxis = eyes.cam.transform.up;
             Vector3 xRotationAxis = eyes.cam.transform.right;
@@ -419,14 +441,24 @@ namespace PathOS
             }
             else
             {
-                Vector3 goalForward = currentDest.pos - GetEyesPosition();
-                //goalForward.y = 0.0f;
+                Vector3 goalForward = default;
+                switch (eyes.camType)
+                {
+                    case PathOSAgentEyes.CamType.FreeMode:
+                        goalForward = currentDest.pos - GetEyesPosition();
+                        break;
+
+                    case PathOSAgentEyes.CamType.FirstPerson:
+                        goalForward = currentDest.pos - GetPosition();
+                        goalForward.y = 0.0f;
+                        break;
+                }
 
                 if (goalForward.sqrMagnitude > 0.1f)
                 {
                     goalForward.Normalize();
                     bool goalVisible = Mathf.Abs(Vector3.Angle(eyesForward, goalForward)) < (eyes.XFOV() * 0.5f); // FP. Generalizar.
-                    ScoreExploreDirection(GetEyesPosition(), goalForward, goalVisible, ref maxScore,
+                    ScoreExploreDirection(GetOriginPos(), goalForward, goalVisible, ref maxScore,
                         true, currentDest.pos);
                 }
             }
@@ -453,25 +485,25 @@ namespace PathOS
             int steps = (int)(halfX / exploreDegrees);
 
             float halfY = eyes.cam.fieldOfView * 0.5f;
-            int stepsY = (int)(halfY / exploreDegrees);
+            int stepsY = eyes.camType == PathOSAgentEyes.CamType.FreeMode ? (int)(halfY / exploreDegrees) : 0;
 
             for(int j = 0; j <= stepsY; ++j)
             {
                 Vector3 XRotated = Quaternion.AngleAxis(j * exploreDegrees, xRotationAxis) * eyesForward;
                 Vector3 negXRotated = Quaternion.AngleAxis(j * -exploreDegrees, xRotationAxis) * eyesForward;
 
-                ScoreExploreDirection(GetEyesPosition(), XRotated, true, ref maxScore);
+                ScoreExploreDirection(GetOriginPos(), XRotated, true, ref maxScore);
 
                 for (int i = 1; i <= steps; ++i)
                 {
-                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * exploreDegrees, yRotationAxis) * XRotated,
+                    ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * exploreDegrees, yRotationAxis) * XRotated,
                         true, ref maxScore);
-                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * -exploreDegrees, yRotationAxis) * XRotated,
+                    ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * -exploreDegrees, yRotationAxis) * XRotated,
                         true, ref maxScore);
 
-                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * exploreDegrees, yRotationAxis) * negXRotated,
+                    ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * exploreDegrees, yRotationAxis) * negXRotated,
                         true, ref maxScore);
-                    ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * -exploreDegrees, yRotationAxis) * negXRotated,
+                    ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * -exploreDegrees, yRotationAxis) * negXRotated,
                         true, ref maxScore);
                 }
             }
@@ -479,15 +511,15 @@ namespace PathOS
             //Behind the agent (from memory).
             Vector3 XZBack = -eyesForward;
 
-            ScoreExploreDirection(GetEyesPosition(), XZBack, false, ref maxScore);
+            ScoreExploreDirection(GetOriginPos(), XZBack, false, ref maxScore);
             halfX = (360.0f - eyes.XFOV()) * 0.5f;
             steps = (int)(halfX / invisibleExploreDegrees);
 
             for (int i = 1; i <= steps; ++i)
             {
-                ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * invisibleExploreDegrees, yRotationAxis) * XZBack,
+                ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * invisibleExploreDegrees, yRotationAxis) * XZBack,
                     false, ref maxScore);
-                ScoreExploreDirection(GetEyesPosition(), Quaternion.AngleAxis(i * -invisibleExploreDegrees, yRotationAxis) * XZBack,
+                ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * -invisibleExploreDegrees, yRotationAxis) * XZBack,
                     false, ref maxScore);
             }
 
@@ -709,10 +741,22 @@ namespace PathOS
             {
                 if (visible)
                 {
+                    NavMeshHit hit = new NavMeshHit();
                     //Grab the "extent" of the direction on the navmesh from the perceptual system.
-                    NavMeshHit hit = eyes.ExploreVisibilityCheck(GetEyesPosition(), dir, out bool result);
-                    distance = result ? hit.distance : 0;
-                    newTarget = result ? hit.position : GetPosition();
+                    switch (eyes.camType)
+                    {
+                        case PathOSAgentEyes.CamType.FreeMode:
+                            hit = eyes.ExploreVisibilityCheckFreeMode(GetEyesPosition(), dir, out bool result);
+                            distance = result ? hit.distance : 0;
+                            newTarget = result ? hit.position : GetPosition();
+                            break;
+                        case PathOSAgentEyes.CamType.FirstPerson:
+                            hit = eyes.ExploreVisibilityCheck(GetPosition(), dir);
+                            distance = hit.distance;
+                            newTarget = hit.position;
+                            break;
+                    }
+                    
                 }
                 else
                 {
@@ -763,12 +807,23 @@ namespace PathOS
                 //If we're originating from where we stand, target the "end" point.
                 //Else, target the "start" point, and the agent will re-assess its 
                 //options when it gets there.
-                if (Vector3.SqrMagnitude(origin - GetEyesPosition())
+                if (Vector3.SqrMagnitude(origin - GetOriginPos())
                     < PathOS.Constants.Navigation.EXPLORE_PATH_POS_THRESHOLD_FAC
                     * exploreThreshold)
                     newDest.pos = newTarget;
                 else
-                    newDest.pos = GetPosition();//origin;
+                {
+                    switch (eyes.camType)
+                    {
+                        case PathOSAgentEyes.CamType.FreeMode:
+                            newDest.pos = GetPosition();
+                            break;
+
+                        case PathOSAgentEyes.CamType.FirstPerson:
+                            newDest.pos = origin;
+                            break;
+                    }
+                }
 
                 newDest.accurate = true;
                 newDest.entity = null;
