@@ -77,6 +77,29 @@ namespace LBS.Components
 
             return false;
         }
+
+        public static List<Bundle> FindBundlesWithFlag(List<BundleFlags> flags)
+        {
+            var result = new List<Bundle>();
+            var bundleGuids = AssetDatabase.FindAssets("t:Bundle");
+
+            foreach (var guid in bundleGuids)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var bundle = AssetDatabase.LoadAssetAtPath<Bundle>(path);
+                if (bundle == null) continue;
+
+                foreach(var flag in flags)
+                {
+                    if (bundle.LayerContentFlags.HasFlag(flag))
+                    { 
+                        result.Add(bundle);
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }
 

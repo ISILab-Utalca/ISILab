@@ -8,6 +8,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Graphs;
@@ -65,11 +66,15 @@ namespace ISILab.LBS.Drawers
 
         private void DrawPatrol(MainView view, TileBundleGroup selected)
         {
-            var patrol = selected.Addons.Patrol;
-            var pts = patrol.Points;
+    
+            Addon_Patrol addon = selected.GetAddon<Addon_Patrol>();
+            if (addon is null) return;
+
+
+            var pts = addon.Points;
             if (pts.Count <= 1) return;
 
-            if (patrol.Loop)
+            if (addon.Loops)
                 DrawConnection(view, pts.Last(), pts.First());
             for (int i = 0; i < pts.Count - 1; i++)
                 DrawConnection(view, pts[i], pts[i + 1], i);
@@ -134,7 +139,11 @@ namespace ISILab.LBS.Drawers
 
         private void DrawTriggers(MainView view, TileBundleGroup selected)
         {
-            foreach (TileTrigger trigger in selected.Addons.Triggers)
+            Addon_Trigger addon = selected.GetAddon<Addon_Trigger>();
+
+            if (addon is null) return;
+
+            foreach (TileTrigger trigger in addon.Triggers)
             {
                 if (!trigger.isVisible) continue;
                 GraphElement shape = null;

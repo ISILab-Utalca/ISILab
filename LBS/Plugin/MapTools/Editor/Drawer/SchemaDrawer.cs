@@ -1,9 +1,9 @@
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.VisualElements;
-using ISILab.LBS.VisualElements.Editor;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
@@ -16,9 +16,16 @@ namespace ISILab.LBS.Drawers
     [Drawer(typeof(SchemaBehaviour))]
     public class SchemaDrawer : Drawer
     {
-        private VectorImage _doorConImage = null;
-        private VectorImage _windowConImage = null;
-        
+        private static VectorImage _doorConImage = null;
+        private static VectorImage _windowConImage = null;
+        private static VectorImage _lockConImage = null;
+        private static VectorImage _blockedConImage = null;
+
+        private static string lockedDoorIconGuid = "f79cf4ba5777aab4a884bca201ff0278";
+        private static string blockedDoorIconGuid = "8e1818e3f49414e4997ecc63e331999f";
+        private static string windowConnectionIconGuid = "c0d00de1d82858c4b9d772a012caf67d";
+        private static string doorConnectionIconGuid = "cd77d8067cf8b6b44ab23da9a62173c0";
+
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
@@ -273,16 +280,12 @@ namespace ISILab.LBS.Drawers
                 if (connectionType != connectionTypes[0] && connectionType != connectionTypes[1])
                 {
                     VectorImage setIcon = null;
-                    if (connectionType == connectionTypes[2])
-                    {
-                        setIcon = GetDoorImage();
-                        tView.CreateConnectionView(setIcon, new Vector2(xPos, yPos), connection.Key);
-                    }
-                    else if (connectionType == connectionTypes[3])
-                    {
-                        setIcon = GetWindowImage();
-                        tView.CreateConnectionView(setIcon, new Vector2(xPos, yPos), connection.Key);
-                    }
+                    if (connectionType == connectionTypes[2]) setIcon = GetDoorImage();
+                    else if (connectionType == connectionTypes[3]) setIcon = GetWindowImage();
+                    else if (connectionType == connectionTypes[4]) setIcon = GetLockImage();
+                    else if (connectionType == connectionTypes[5]) setIcon = GetBlockedImage();
+
+                    tView.CreateConnectionView(setIcon, new Vector2(xPos, yPos), connection.Key);
                 }
             }
         }
@@ -301,21 +304,37 @@ namespace ISILab.LBS.Drawers
 
             return t;
         }
-        private VectorImage GetDoorImage()
+        private static VectorImage GetDoorImage()
         {
-            if (_doorConImage == null)
-            {
-                _doorConImage = Resources.Load<VectorImage>("Icons/Vectorial/Icon=DoorConnection");
-            }
+            if (_doorConImage != null) return _doorConImage;
+            
+            _doorConImage = AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
             return _doorConImage;
+
         }
-        private VectorImage GetWindowImage()
+        private static VectorImage GetWindowImage()
         {
-            if (_windowConImage == null)
-            {
-                _windowConImage = Resources.Load<VectorImage>("Icons/Vectorial/Icon=WindowsConnection");
-            }
-            return _windowConImage;
+            if (_windowConImage != null) return _windowConImage;
+            
+            _windowConImage = AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
+            return _windowConImage;    
+           
+        }
+
+        private static VectorImage GetLockImage()
+        {
+            if (_lockConImage != null) return _lockConImage;
+
+            _lockConImage = AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
+            return _lockConImage;
+        }
+
+        private static VectorImage GetBlockedImage()
+        {
+            if (_blockedConImage != null) return _blockedConImage;
+            
+            _blockedConImage = AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
+            return _blockedConImage;
         }
     }
 }

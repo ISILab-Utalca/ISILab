@@ -348,13 +348,18 @@ namespace ISILab.LBS.Modules
         bool? rotatable = null;
         string locationKey = null;
 
-        [SerializeField]
-        BundleTileMapAddons addons = new();
+        [SerializeField, SerializeReference]
+        List<BundleTileMapAddons> addons = new();
 
         #region PROPERTIES
-        public BundleTileMapAddons Addons
-        {
-            get => addons; set => addons = value;
+
+        public List<BundleTileMapAddons> Addons 
+        { 
+            get => addons; 
+            set 
+            { 
+                addons = value; 
+            }
         }
 
         [JsonIgnore]
@@ -432,9 +437,27 @@ namespace ISILab.LBS.Modules
             this.bData = bData;
             guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
             this.rotation = rotation;
-            if (addons is not null)
-                this.Addons = addons;
+            //if (addons is not null)
+            //    this.Addons = addons;
+
+            BuildAddons(bData);
         }
+
+        private void BuildAddons(BundleData bData)
+        {
+            Addons = new List<BundleTileMapAddons>();
+
+            var tagCharacteristic = bData.GetCharacteristic<LBSTagsCharacteristic>();
+            foreach (var Tag in tagCharacteristic.Tags)
+            {
+                if (Tag.Label == "Patrol") Addons.Add(new Addon_Patrol());
+                if (Tag.Label == "Destructible") Addons.Add(new Addon_Destruct());
+                if (Tag.Label == "Drops") Addons.Add(new Addon_Drop());
+                if (Tag.Label == "Interactable") Addons.Add(new Addon_Interact());
+                if (Tag.Label == "TriggerArea") Addons.Add(new Addon_Trigger());
+            }
+        }
+
         public TileBundleGroup(Vector2 position, Vector2 size, BundleData bData, Vector2 rotation)
         {
             tileGroup = new List<LBSTile>();
@@ -450,6 +473,8 @@ namespace ISILab.LBS.Modules
             this.bData = bData;
             guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
             this.rotation = rotation;
+
+            BuildAddons(bData);
         }
         #endregion
 
@@ -558,6 +583,11 @@ namespace ISILab.LBS.Modules
             return true;
         }
 
+        public T GetAddon<T>() where T : BundleTileMapAddons
+        {
+            if (!addons.Any()) return null;
+            return addons.OfType<T>().FirstOrDefault();
+        }
 
         public override int GetHashCode()
         {

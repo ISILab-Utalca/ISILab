@@ -2,6 +2,8 @@ using ISILab.Commons.Extensions;
 using ISILab.LBS.Components;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -12,7 +14,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region FIELDS
         // addons from the tilegroup that was used to generate this object in the LBS tool
         [SerializeField, SerializeReference, HideInInspector]
-        BundleTileMapAddons addons;
+        List<BundleTileMapAddons> addons = new();
         private LBSGeneratedEventHook genEventHooker;
 
 
@@ -34,12 +36,24 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             get
             {
-                if (addons.Patrol.Loop) addons.Patrol.Points.Add(addons.Patrol.Points[0]);
-                return addons.Patrol.Points;
+                List<Vector2> points = new();
+                foreach (var addon in addons)
+                {
+                    if(addon is Addon_Patrol patrol)
+                    {
+                        points = patrol.Points;
+
+                        if (patrol.Loops) 
+                            patrol.Points.Add(patrol.Points[0]);
+
+                        break;              
+                    }
+                }
+                return points;
             }
         }
 
-        public BundleTileMapAddons Addons
+        public List<BundleTileMapAddons> Addons
         {
             get => addons;
             set
@@ -63,8 +77,24 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private void BindAddons()
         {
+            foreach(var addon in addons)
+            {
+                if(addon is Addon_Trigger trigger)
+                    MakeTriggers(trigger);
+                
+                if(addon is Addon_Interact interact) 
+                    GenEventHooker.AssignEvents(interact.Interact);
+
+                if(addon is Addon_Destruct destroy)
+                    GenEventHooker.AssignEvents(destroy.Destroyed);
+            }        
+
+        }
+
+        private void MakeTriggers(Addon_Trigger TriggerAddon)
+        {
             // set triggers first
-            foreach (TileTrigger triggerArea in addons.Triggers)
+            foreach (TileTrigger triggerArea in TriggerAddon.Triggers)
             {
                 GameObject child = new GameObject("ChildTrigger");
                 Collider collider;
@@ -90,13 +120,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 LBSTriggerHandler handler = child.AddComponent<LBSTriggerHandler>();
                 handler.Hooker = triggerArea._eventHooker;
                 handler.ActivationMode = triggerArea.activationMode;
-              
+
             }
-
-            GenEventHooker.AssignEvents(addons.Interact);
-            GenEventHooker.AssignEvents(addons.Destroyed);
-
         }
+
         private void OnDestroy()
         {
             //Destroy(gameObject);
