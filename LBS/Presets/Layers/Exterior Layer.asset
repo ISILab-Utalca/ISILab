@@ -43,6 +43,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 7091613708652642304
       type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:
@@ -361,7 +363,6 @@ MonoBehaviour:
         bundleRefGui: 3e607c0f80297b849a6ea0d7f98c73a3
         bundleRefGuid: 668e6768d7619b3459df4f6378dfa3bb
         selectedToSet: {fileID: 0}
-        bundleCollection: {fileID: 0}
         mainBundle: {fileID: 0}
         allFilter: All
         selectedTypeFilter: 
@@ -400,7 +401,7 @@ MonoBehaviour:
         colorTint: {r: 0.5294118, g: 0.84313726, b: 0.9647059, a: 1}
         name: ExteriorBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
-        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
+        icon: {fileID: 7388822144124034973, guid: e17eb0e02534666439fca8ea30b4d4e4, type: 3}
         targetBundleRef: {fileID: 11400000, guid: 9d3dac0f9a486fd47866f815b4fefc29, type: 2}
         bundleRefGui: 9d3dac0f9a486fd47866f815b4fefc29
         identifierToSet: {fileID: 0}
@@ -446,16 +447,4 @@ MonoBehaviour:
         targetBundleRef: {fileID: 11400000, guid: 9d3dac0f9a486fd47866f815b4fefc29, type: 2}
     - rid: 7091613708766675058
       type: {class: ExteriorRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
-      data:
-        generator3D:
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          rules: []
+      data: 
