@@ -1,10 +1,11 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Modules;
-using UnityEngine;
-using UnityEngine.UIElements;
 using ISILab.LBS.Behaviours;
-using UnityEditor.Experimental.GraphView;
 using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -59,17 +60,22 @@ namespace ISILab.LBS.VisualElements
             _triggerIcon.style.display = DisplayStyle.None;
 
             if (tile is null) return;
-            BundleTileMapAddons addons = tile.Addons;
-            if (addons is null) return;
 
-            if (addons.OnDestroyDrop is not null) 
+            var addonDrop = tile.GetAddon<Addon_Drop>();
+
+            if (addonDrop is not null && addonDrop.OnDestroyDrop is not null) 
             {
-                _dropIcon.style.backgroundImage = new StyleBackground(addons.OnDestroyDrop.Icon);
+                _dropIcon.style.backgroundImage = new StyleBackground(addonDrop.OnDestroyDrop.Icon);
                 _dropIcon.style.display = DisplayStyle.Flex; 
             }
-            if (addons.Triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
-            if (addons.Patrol.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
 
+            var addonTrigger = tile.GetAddon<Addon_Trigger>();
+            if (addonTrigger?.Triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
+
+            var addonPatrol = tile.GetAddon<Addon_Patrol>();
+            if (addonPatrol?.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
+
+ 
         }
 
         #endregion

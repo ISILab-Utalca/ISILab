@@ -62,8 +62,10 @@ namespace ISILab.LBS.VisualElements
         private void LoadVisualElement()
         {
             //    if (view == null)
-            view = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationTile", true);
-
+            if (view == null)
+            {
+                view = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationTile", true);
+            }
             view.CloneTree(this);
 
             _arrows.Add(this.Q<VisualElement>("Up"));

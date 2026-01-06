@@ -16,7 +16,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("TileGroupBehavior", typeof(TileGroupBehavior))]
-    public class TileGroupBehaviorEditor : LBSCustomEditor, IBundleFilter
+    public class TileGroupBehaviorEditor : LBSCustomEditor
     {
         #region FIELDS
 
@@ -29,22 +29,11 @@ namespace ISILab.LBS.VisualElements
         private VisualElement Content;
 
         private LBSCustomLabelIcon SelectedHeader;
+        public VisualElement AddonContainer;   
+   
 
-        private VisualElement Drop;
-        private VisualElement Patrol;
-        private VisualElement TriggersArea;
-        private VisualElement Interact;
-        private ListView PatrolPointsView;
-        private VisualElement Destroyed;
-        private ListView AddonsView;
+        private static VisualTreeAsset visualTree { get; set; }
 
-        private LBSCustomObjectField DropObjectField;
-        private LBSCustomToggleField PatrolLoop;
-        private LBSCustomEventHooker InteractHook;
-        private LBSCustomEventHooker DestroyedHook;
-
-        public VisualTreeAsset visualTree { get; private set; }
-        public LBSButtonListFilter BundlePickerWindow { get; set; }
 
         #endregion
 
@@ -84,51 +73,10 @@ namespace ISILab.LBS.VisualElements
 
             NoContent = this.Q<VisualElement>("NoContent");
             Content = this.Q<VisualElement>("Content");
-
             SelectedHeader = this.Q<LBSCustomLabelIcon>("SelectedHeader");
-
-            Drop = this.Q<VisualElement>("Drop");
-            Patrol = this.Q<VisualElement>("Patrol");
-            TriggersArea = this.Q<VisualElement>("Triggers");
-            Interact = this.Q<VisualElement>("Interact");
-            Destroyed = this.Q<VisualElement>("Destroyed");
-
-            InteractHook = this.Q<LBSCustomEventHooker>("InteractHook");
-            InteractHook.EventType = LBSEventType.Interact;
-            DestroyedHook = this.Q<LBSCustomEventHooker>("DestroyedHook");
-            DestroyedHook.EventType = LBSEventType.Destroy;
-
-            AddonsView = this.Q<ListView>("AddonsView");
-
-            DropObjectField = this.Q<LBSCustomObjectField>("DropObjectField");
-            DropObjectField.UseCustomFilter = true;
-            DropObjectField.CustomFilter = pick =>
-            {
-                List<BundleFlags> flags = new List<BundleFlags>() { BundleFlags.Population };
-                var bundles = BundleQueryUtility.FindBundlesWithFlag(flags);
-                (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
-            };
-
-            DropObjectField.RegisterValueChangedCallback(evt =>
-            {
-                if (behaviour?.SelectedTilemap is null) return;
-                behaviour.SelectedTilemap.Addons.OnDestroyDrop = DropObjectField.value as Bundle;
-                UpdateSelectedTilemap();
-            });
-
-            PatrolPointsView = this.Q<ListView>("PatrolPointsView");
-
-            PatrolLoop = this.Q<LBSCustomToggleField>("PatrolLoop");
-            PatrolLoop.RegisterValueChangedCallback(evt =>
-            {
-                if (behaviour?.SelectedTilemap is null) return;
-                behaviour.SelectedTilemap.Addons.Patrol.SetLoop(evt.newValue);
-                UpdateSelectedTilemap();
-
-            });
+            AddonContainer = this.Q<VisualElement>("AddonContainer");
 
             return this;
-
         }
 
         private void UpdateSelectedTilemap()
@@ -137,179 +85,49 @@ namespace ISILab.LBS.VisualElements
             DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
         }
 
-        private void SetAddonsList()
-        {
-
-            if (behaviour.SelectedTilemap is null)
-            {
-                AddonsView.Clear();
-                return;
-            }
-
-            BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
-            List<TileTrigger> triggers = addons.Triggers;
-
-            AddonsView.itemsSource = triggers;
-
-            // Create new item
-            AddonsView.makeItem = () =>
-            {
-                TilegroupTriggerView entry = new TilegroupTriggerView();
-                entry.style.flexGrow = 1;
-                entry.style.marginLeft = 8;
-                entry.style.marginRight = 0;
-                entry.style.justifyContent = Justify.Center;
-                entry.style.alignItems = Align.Center;
-
-              //  UpdateSelectedTilemap();
-                return entry;
-            };
-
-            // Bind item
-            AddonsView.bindItem = (ve, index) =>
-            {
-                TilegroupTriggerView entry = ve as TilegroupTriggerView;
-                if (index < 0 || index >= triggers.Count) return;
-
-                entry.Trigger = triggers[index];
-
-                entry.OnTriggerTypeChanged = (newType) =>
-                {
-                    triggers[index].Ttype = newType;
-                    UpdateSelectedTilemap();
-                };
-
-                //UpdateSelectedTilemap();
-            };
-
-
-            // Add new point
-            AddonsView.onAdd = (list) =>
-            {
-                triggers.Add(new TileTrigger());
-                AddonsView.Rebuild();
-                UpdateSelectedTilemap();
-            };
-
-            // Remove selected point
-            AddonsView.onRemove = (list) =>
-            {
-                int index = AddonsView.selectedIndex;
-                if (index < 0 || index >= triggers.Count) return;
-
-                triggers.RemoveAt(index);
-                AddonsView.Rebuild();
-                UpdateSelectedTilemap();
-            };
-        }
-
-        private void SetPatrolList()
-        {
-            if (behaviour.SelectedTilemap is null)
-            {
-                PatrolPointsView.Clear();
-                PatrolLoop.SetValueWithoutNotify(false);
-                return;
-            }
-
-            BundleTileMapAddons addons = behaviour.SelectedTilemap.Addons;
-            TilePatrol patrol = addons.Patrol;
-
-            PatrolLoop.SetValueWithoutNotify(patrol.Loop);
-
-            PatrolPointsView.itemsSource = patrol.Points;
-
-
-            // Create new item
-            PatrolPointsView.makeItem = () =>
-            {
-                var vecField = new Vector2Field();
-                vecField.style.flexGrow = 1;
-                vecField.style.marginLeft = 8;
-                vecField.style.marginRight = 0;
-                vecField.style.justifyContent = Justify.Center;
-                vecField.style.alignItems = Align.Center;
-
-                //UpdateSelectedTilemap();
-
-                return vecField;
-            };
-
-            // Bind item to patrol.Points[index]
-            PatrolPointsView.bindItem = (ve, index) =>
-            {
-                var vecField = ve as Vector2Field;
-                if (index < 0 || index >= patrol.Points.Count) return;
-
-                // Apply value without triggering callback
-                vecField.SetValueWithoutNotify(patrol.Points[index]);
-
-                // Register fresh callback
-                vecField.RegisterValueChangedCallback((_vector) =>
-                {
-                    patrol.Points[index] = _vector.newValue;
-                    UpdateSelectedTilemap();
-
-                });
-
-
-               // UpdateSelectedTilemap();
-            };
-
-            // Add new point
-            PatrolPointsView.onAdd = (list) =>
-            {
-                patrol.Points.Add(behaviour.SelectedTilemap.GetBounds().position);
-                PatrolPointsView.Rebuild();
-                UpdateSelectedTilemap();
-            };
-
-            // Remove selected point
-            PatrolPointsView.onRemove = (list) =>
-            {
-                int index = PatrolPointsView.selectedIndex;
-                if (index < 0 || index >= patrol.Points.Count) return;
-
-                patrol.Points.RemoveAt(index);
-                PatrolPointsView.Rebuild();
-                UpdateSelectedTilemap();
-            };
-
-        }
-
         private void UpdateTilebundle(TileBundleGroup TileBundleGroup)
         {
-            // Set init options
-            if (TileBundleGroup is null)
-            {
-                NoContent.style.display = DisplayStyle.Flex;
-                Content.style.display = DisplayStyle.None;
+            AddonContainer.Clear();
+            NoContent.style.display = DisplayStyle.Flex;
+            Content.style.display = DisplayStyle.None;
 
-                return;
-            }
-
+            if (TileBundleGroup is null) return;
 
             NoContent.style.display = DisplayStyle.None;
             Content.style.display = DisplayStyle.Flex;
             SelectedHeader.Icon = TileBundleGroup.BundleData.Bundle.Icon;
             SelectedHeader.Label = TileBundleGroup.BundleData.BundleName;
 
-            Bundle bundle = TileBundleGroup.BundleData.Bundle;
-         
-            DisplayStyle triggerDisplay = bundle.GetHasTagCharacteristic("TriggerArea") ? DisplayStyle.Flex : DisplayStyle.None;
-            TriggersArea.style.display = triggerDisplay;
-            DisplayStyle patrolDisplay = bundle.GetHasTagCharacteristic("Patrol") ? DisplayStyle.Flex : DisplayStyle.None;
-            Patrol.style.display = patrolDisplay;
-            DisplayStyle interactDisplay = bundle.GetHasTagCharacteristic("Interactable") ? DisplayStyle.Flex : DisplayStyle.None;
-            Interact.style.display = interactDisplay;
-            DisplayStyle destroyedDisplay = bundle.GetHasTagCharacteristic("Destructible") ? DisplayStyle.Flex : DisplayStyle.None;
-            Destroyed.style.display = destroyedDisplay;
-
-
-            SetPatrolList();
-            SetAddonsList();
-            InteractHook.Hooker = TileBundleGroup.Addons.Interact;
-            DestroyedHook.Hooker = TileBundleGroup.Addons.Destroyed;
+            Addon_Trigger atrigger = TileBundleGroup.GetAddon<Addon_Trigger>();
+            Addon_Patrol apatrol = TileBundleGroup.GetAddon<Addon_Patrol>();
+            Addon_Destruct adestruct = TileBundleGroup.GetAddon<Addon_Destruct>();
+            Addon_Interact ainteract = TileBundleGroup.GetAddon<Addon_Interact>();
+            Addon_Drop adrop = TileBundleGroup.GetAddon<Addon_Drop>();
+            if (atrigger is not null)
+            {
+                Addon_TriggerEditor NewEntry = new Addon_TriggerEditor(behaviour);
+                AddonContainer.Add(NewEntry);
+            }
+            if (apatrol is not null)
+            {
+                Addon_PatrolEditor NewEntry = new Addon_PatrolEditor(behaviour);
+                AddonContainer.Add(NewEntry);
+            }
+            if (adestruct is not null)
+            {
+                Addon_DestroyEditor NewEntry = new Addon_DestroyEditor(behaviour);
+                AddonContainer.Add(NewEntry);
+            }
+            if (ainteract is not null)
+            {
+                Addon_InteractEditor NewEntry = new Addon_InteractEditor(behaviour);
+                AddonContainer.Add(NewEntry);
+            }
+            if (adrop is not null)
+            {
+                Addon_DropEditor NewEntry = new Addon_DropEditor(behaviour);
+                AddonContainer.Add(NewEntry);
+            }
 
         }
 
