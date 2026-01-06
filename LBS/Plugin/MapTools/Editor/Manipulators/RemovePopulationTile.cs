@@ -46,6 +46,13 @@ namespace ISILab.LBS.Manipulators
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
         }
 
+        protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
+        {
+            ForceCancel = true;
+            MainView.Instance.RemoveElement(_previewFeedback);
+            MainView.Instance.RemoveElement(Feedback);
+            CleanPreviews();
+        }
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
             base.OnMouseUp(element, endPosition, e);

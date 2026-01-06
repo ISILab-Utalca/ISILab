@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.VisualElements.Editor;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using System.Collections.Generic;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -17,7 +18,8 @@ namespace ISILab.LBS.Manipulators
     {
         private PopulationBehaviour _population;
         private TileGroupBehavior _tileMapBehavior;
-        private readonly Feedback _previewFeedback;
+        private List<Feedback> previews = new List<Feedback>();
+
 
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
 
@@ -28,9 +30,6 @@ namespace ISILab.LBS.Manipulators
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
 
-            _previewFeedback = new IconFeedback();//DottedAreaFeedback();
-            _previewFeedback.preview = true;
-            _previewFeedback.fixToTeselation = true;
 
             Name = "Paint Tile with Item";
             Description =
@@ -56,21 +55,28 @@ namespace ISILab.LBS.Manipulators
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
 
-            if (ToSet != null)
-                (_previewFeedback as IconFeedback).Icon = ToSet.Icon;
+
 
             _tileMapBehavior = layer.GetBehaviour<TileGroupBehavior>();
+
+            OnManipulationRightClick += () =>
+            {
+                MainView.Instance.RemoveElement(Feedback);
+                CleanPreviews();
+            };
         }
 
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
         {
-            MainView.Instance.RemoveElement(_previewFeedback);
+            MainView.Instance.RemoveElement(Feedback);
+            CleanPreviews();
+
         }
 
         protected override void OnMouseEnter(VisualElement element, MouseEnterEvent e)
         {
-            if (ToSet != null)
-                (_previewFeedback as IconFeedback).Icon = ToSet.Icon;
+            CleanPreviews();
+
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
@@ -113,7 +119,6 @@ namespace ISILab.LBS.Manipulators
             //If esc key was pressed, cancel the operation
             if (ForceCancel)
             {
-                MainView.Instance.RemoveElement(_previewFeedback);
                 ForceCancel = false;
                 return;
             }
@@ -132,7 +137,6 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
-
             _population.OwnerLayer.OnChangeUpdate();
             _tileMapBehavior.SelectedTilemap = newTileGroup;
             LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
@@ -141,6 +145,8 @@ namespace ISILab.LBS.Manipulators
             {
                 EditorUtility.SetDirty(level);
             }
+
+            CleanPreviews();
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -151,64 +157,69 @@ namespace ISILab.LBS.Manipulators
             if (tile == null) return;
 
             _tileMapBehavior.SelectedTilemap = _population.GetTileGroup(tile.Position);
+            CleanPreviews();
+
+
         }
 
         // TODO Currently it completely bugs out whenever x or y are 0 in the grid space. why? wish i fucking knew
-        protected override void OnMouseMove(VisualElement element, Vector2Int endPosition, MouseMoveEvent e)
+        protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
-            MainView.Instance.RemoveElement(_previewFeedback);
+            CleanPreviews();
             if (!ToSet || ForceCancel) return;
+            
+            base.OnMouseMove(element, movePosition, e);
 
-            base.OnMouseMove(element, endPosition, e);
+            var starPos = (e.button == 0 && (e.pressedButtons & 1) != 0) ? StartPosition : movePosition;
+            var corners =_population.OwnerLayer.ToFixedPosition(starPos, movePosition);
 
-            // when dragging by using CTRL, do not display the feedback area
-            //Feedback.SetDisplay(!e.ctrlKey);
-            Feedback.SetDisplay(true);
+            for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
+            {
+                for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
+                {
+                    Debug.Log("selected tile: " + i + " | " + j);
+                    var iconFeedback = new IconFeedback();
+                    iconFeedback.Icon = ToSet.Icon;
+                    iconFeedback.preview = true;
+                    iconFeedback.fixToTeselation = true;
 
-            var topLeftCorner = _population.OwnerLayer.ToFixedPosition(endPosition);
-            var bottomRightCorner = topLeftCorner;
+                    Vector2Int tileGridPos = new Vector2Int(i, j);
+                    Vector2Int offset = Vector2Int.zero;
 
-            // Set corner by tile size
-            Vector2Int offset = Vector2Int.zero;
+                    if (ToSet.TileSize.x > 1) offset.x += ToSet.TileSize.x - 1;
+                    if (ToSet.TileSize.y > 1) offset.y -= ToSet.TileSize.y - 1;
 
-            if (ToSet.TileSize.x > 1) offset.x += ToSet.TileSize.x - 1;
-            if (ToSet.TileSize.y > 1) offset.y -= ToSet.TileSize.y - 1;
+                    // grid to local position
+                    Vector2 firstPos = _population.OwnerLayer.FixedToPosition(tileGridPos, true);
+                    Vector2 lastPos = _population.OwnerLayer.FixedToPosition(tileGridPos + offset, true);
 
-            // grid to local position
-            var firstPos = _population.OwnerLayer.FixedToPosition(topLeftCorner, true);
-            var lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner + offset, true);
+                    /* negative numbers in the FixedToPosition get clamped on negatives, jumping to the next lowest value.
+                     example: coordinate -100 instead draws on -200
+                     */
+                    if (firstPos.x < 0) firstPos.x += 99;
+                    if (lastPos.x < 0) lastPos.x += 99;
+                    if (firstPos.y < 0) firstPos.y += 99;
+                    if (lastPos.y < 0) lastPos.y += 99;
 
-            /* negative numbers in the FixedToPosition get clamped on negatives, jumping to the next lowest value.
-             example: coordinate -100 instead draws on -200
-             */
-            if (firstPos.x < 0) firstPos.x += 99;
-            if (lastPos.x < 0) lastPos.x += 99;
-            if (firstPos.y < 0) firstPos.y += 99;
-            if (lastPos.y < 0) lastPos.y += 99;
+                    iconFeedback.ValidForInput(true);
+                    iconFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
+                    MainView.Instance.AddElement(iconFeedback);
+                    previews.Add(iconFeedback);
 
-            _previewFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
-            MainView.Instance.AddElement(_previewFeedback);
+                }
+            }
 
-            //var _selectedTile = _tileMapBehavior.SelectedTilemap;
-            bool valid;
-            //// dragging feedback
-            //if (e.ctrlKey && _selectedTile != null)
-            //{
-            //    // undo the negative of topLeftCorner
-            //    valid = _population.ValidMoveGroup(topLeftCorner, _selectedTile);
-            //    
-            //}
-            //// adding feedback
-            //else
-            //{
-            //    // undo the negative of topLeftCorner
-            //}
-                valid = _population.ValidNewGroup(topLeftCorner, ToSet);
+        }
+        private void CleanPreviews()
+        {
+            foreach (IconFeedback feedback in previews)
+            {
+                if (feedback is null) continue;
+                MainView.Instance.RemoveElement(feedback);
+                feedback.visible = false;
+            }
 
-            _previewFeedback.ValidForInput(valid);
-
-
-
+            previews.Clear();
         }
     }
 }
