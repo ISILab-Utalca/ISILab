@@ -164,7 +164,9 @@ namespace LBS.VisualElements
         
         public void SetName(string name)
         {
+            
             dropdownGroup.label = name;
+            dropdownGroup.style.display = name == "" ? DisplayStyle.None : DisplayStyle.Flex;
         }
 
         public void DisplayContent(bool show)
