@@ -16,6 +16,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using UnityEngine.UI;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -153,15 +154,16 @@ namespace ISILab.LBS.VisualElements
                     _behaviour.activeGraphNodeType = typeof(QuestNode);
                     _behaviour.ActionToSet = action;
 
-
+                    foreach (var a in actionButtons)
+                    {
+                        a._toggle.SetValueWithoutNotify(false);
+                    }
                 });
-
-                if (action == _behaviour.ActionToSet) actionButton.SetHighlight(true);
 
                 actionButtons.Add(actionButton);
                 _actionPallete.Add(actionButton);
             }
-            
+
             // conditional nodes
             ActionButton orButton = new ActionButton("Or", () =>
             {
@@ -169,21 +171,27 @@ namespace ISILab.LBS.VisualElements
                 _behaviour.activeGraphNodeType = typeof(OrNode);
                 _behaviour.ActionToSet = string.Empty;
 
+                foreach (var a in actionButtons)
+                {
+                    a._toggle.SetValueWithoutNotify(false);
+                }
             });
             _conditionalPallete.Add(orButton);
-            
-            if(_behaviour.activeGraphNodeType == typeof(OrNode)) orButton.SetHighlight(true);
+            actionButtons.Add(orButton);
 
             ActionButton andButton = new ActionButton("And", () =>
             {
                 ToolKit.Instance.SetActive(typeof(AddGraphNode));
                 _behaviour.activeGraphNodeType = typeof(AndNode);
                 _behaviour.ActionToSet = string.Empty;
-    
+
+                foreach (var a in actionButtons)
+                {
+                    a._toggle.SetValueWithoutNotify(false);
+                }
             });
             _conditionalPallete.Add(andButton);
-
-            if (_behaviour.activeGraphNodeType == typeof(AndNode)) andButton.SetHighlight(true);
+            actionButtons.Add(andButton);
         }
 
         private void ChangeGrammar(LBSGrammar grammar)
