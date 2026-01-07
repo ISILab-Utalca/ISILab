@@ -124,7 +124,7 @@ namespace LBS.VisualElements
             noElement = this.Q<Button>("NoElement");
 
             // Icon
-            icon = this.Q<VisualElement>("IconPallete");
+            //icon = this.Q<VisualElement>("IconPallete");
 
         }
         #endregion
@@ -158,13 +158,13 @@ namespace LBS.VisualElements
         
         public void SetIcon(VectorImage icon, Color color)
         {
-            this.icon.style.backgroundImage = new StyleBackground(icon);
-            this.icon.style.unityBackgroundImageTintColor = color;
+            dropdownGroup.IconImage = icon;
+            dropdownGroup.IconColor = color;
         }
         
         public void SetName(string name)
         {
-            nameLabel.text = name;
+            dropdownGroup.label = name;
         }
 
         public void DisplayContent(bool show)
