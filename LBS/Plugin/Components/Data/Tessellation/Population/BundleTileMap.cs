@@ -437,11 +437,10 @@ namespace ISILab.LBS.Modules
             this.bData = bData;
             guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
             this.rotation = rotation;
-            if (addons is not null)
-                this.Addons = addons;
+            //if (addons is not null)
+            //    this.Addons = addons;
 
             BuildAddons(bData);
-
         }
 
         private void BuildAddons(BundleData bData)
