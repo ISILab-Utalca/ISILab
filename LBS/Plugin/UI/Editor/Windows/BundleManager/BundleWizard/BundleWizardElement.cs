@@ -1,6 +1,10 @@
+using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
+using System.Drawing;
 using UnityEditor;
+using UnityEditor.TestTools.TestRunner.Api;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
@@ -30,8 +34,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         //private readonly IMGUIContainer _warningIcon;
 
+        private readonly VectorImage _addIcon;
+        private readonly UnityEngine.Color _addIconColor = new UnityEngine.Color32(118, 151, 67, 255);
+        private readonly VectorImage _thrashIcon;
+
+        private System.Action _currentCallback;
+
         public BundleWizardElement()
         {
+            _addIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("ad8d08a3d465b3a438016713ae2f99c5"));
+
             GetVisualTreeForThis();
 
             _bundleIcon = this.Q<IMGUIContainer>("BundleIcon");
@@ -89,12 +101,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void SetRemoveCallback(System.Action removeCallback)
         {
-            _deleteButton.clicked += removeCallback;
+            if (_currentCallback != null)
+                this._deleteButton.clicked -= _currentCallback;
+
+            _currentCallback = removeCallback;
+            _deleteButton.clicked += _currentCallback;
         }
 
         public void RemoveDeleteIcon()
         {
-            _deleteButton.visible = false;
+            _deleteButton.SetBackgroundColor(_addIconColor);
+            _deleteButton.iconImage = Background.FromVectorImage(_addIcon);
+            //_deleteButton.visible = false;
         }
     }
 }
