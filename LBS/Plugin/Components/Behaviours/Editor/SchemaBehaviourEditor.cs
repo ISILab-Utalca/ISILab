@@ -182,54 +182,29 @@ namespace ISILab.LBS.Behaviours.Editor
                 options[i] = zones[i];
             }
 
-            areaPallete.OnSelectOption += (selected) =>
-            {
-                behaviour.RoomToSet = selected as Zone;
-                ToolKit.Instance.SetActive(typeof(AddSchemaTile));
-            };
+            areaPallete.OnSelectOption -= SelectOption;
+            areaPallete.OnSelectOption += SelectOption;
 
             areaPallete.OnAddOption -= AddZone;
             areaPallete.OnAddOption += AddZone;
 
             areaPallete.SetOptions(options, (optionView, option) =>
             {
+                Debug.Log("Setting options");
                 var area = (Zone)option;
                 optionView.Label = area.ID;
                 optionView.Color = area.Color;
                 optionView.Icon = AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
             });
 
-            areaPallete.OnRepaint += () =>
-            {
-                var refreshedZones = behaviour.Zones;
-                areaPallete.Options = new object[refreshedZones.Count];
-                for (int i = 0; i < refreshedZones.Count; i++)
-                {
-                    areaPallete.Options[i] = refreshedZones[i];
-                }
+            areaPallete.OnRepaint -= RepaintAreaPallete;
+            areaPallete.OnRepaint += RepaintAreaPallete;
 
-                areaPallete.Selected = behaviour.RoomToSet;
-            };
-
-            areaPallete.OnRemoveOption += (option) =>
-            {
-                if (option == null) return;
-
-                var answer = EditorUtility.DisplayDialog("Caution",
-                    "You are about to delete a zone, which may be related" +
-                    " to tiles on your map. If you delete the zone," +
-                    " the corresponding tiles will also be removed." +
-                    " Are you sure you want to proceed?", "Continue", "Cancel");
-
-                if (!answer) return;
-
-                behaviour.RemoveZone(option as Zone);
-                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
-                ToolKit.Instance.SetActive(typeof(AddSchemaTile));
-                areaPallete.Repaint();
-            };
+            areaPallete.OnRemoveOption -= DeleteZone; 
+            areaPallete.OnRemoveOption += DeleteZone;   
             
-            areaPallete.Repaint(); 
+            areaPallete.Repaint();
+
         }
 
 
@@ -246,6 +221,50 @@ namespace ISILab.LBS.Behaviours.Editor
             }
             behaviour.RoomToSet = newZone;
             areaPallete.Repaint();
+        }
+
+        private void DeleteZone(object option)
+        {
+            if (option == null) return;
+
+            Debug.Log("Enter delete");
+
+            var answer = EditorUtility.DisplayDialog("Caution",
+                "You are about to delete a zone, which may be related" +
+                " to tiles on your map. If you delete the zone," +
+                " the corresponding tiles will also be removed." +
+                " Are you sure you want to proceed?", "Continue", "Cancel");
+
+
+            if (!answer) return;
+
+            behaviour.RemoveZone(option as Zone);
+            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+            ToolKit.Instance.SetActive(typeof(AddSchemaTile));
+            areaPallete.Repaint();
+
+
+            Debug.Log("Finish delete");
+        }
+
+        private void RepaintAreaPallete()
+        {
+            Debug.Log("Repainting");
+            var refreshedZones = behaviour.Zones;
+            areaPallete.Options = new object[refreshedZones.Count];
+            for (int i = 0; i < refreshedZones.Count; i++)
+            {
+                areaPallete.Options[i] = refreshedZones[i];
+            }
+
+            areaPallete.Selected = behaviour.RoomToSet;
+        }
+
+        private void SelectOption(object selected)
+        {
+            Debug.Log("Selected");
+            behaviour.RoomToSet = selected as Zone;
+            ToolKit.Instance.SetActive(typeof(AddSchemaTile));
         }
 
         private void SetConnectionPallete()
