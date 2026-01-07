@@ -1,10 +1,11 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Modules;
-using UnityEngine;
-using UnityEngine.UIElements;
 using ISILab.LBS.Behaviours;
-using UnityEditor.Experimental.GraphView;
 using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -18,6 +19,7 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS
         private readonly TileGroupBehavior _tileBehaviour;
 
+        static private VisualElement _dropIcon;
         static private VisualElement _patrolIcon;
         static private VisualElement _triggerIcon;
 
@@ -41,7 +43,7 @@ namespace ISILab.LBS.VisualElements
 
             _triggerIcon = this.Q<VisualElement>("TriggerIcon");
             _patrolIcon = this.Q<VisualElement>("PatrolIcon");
-
+            _dropIcon = this.Q<VisualElement>("DropIcon");
 
         }
 
@@ -53,17 +55,27 @@ namespace ISILab.LBS.VisualElements
                 return;
             }
 
+            _dropIcon.style.display = DisplayStyle.None;
             _patrolIcon.style.display = DisplayStyle.None;
             _triggerIcon.style.display = DisplayStyle.None;
 
             if (tile is null) return;
-            BundleTileMapAddons addons = tile.Addons;
-            if (addons is null) return;
 
+            var addonDrop = tile.GetAddon<Addon_Drop>();
 
-            if (addons.Triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
-            if (addons.Patrol.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
+            if (addonDrop is not null && addonDrop.OnDestroyDrop is not null) 
+            {
+                _dropIcon.style.backgroundImage = new StyleBackground(addonDrop.OnDestroyDrop.Icon);
+                _dropIcon.style.display = DisplayStyle.Flex; 
+            }
 
+            var addonTrigger = tile.GetAddon<Addon_Trigger>();
+            if (addonTrigger?.Triggers.Count > 0) _triggerIcon.style.display = DisplayStyle.Flex;
+
+            var addonPatrol = tile.GetAddon<Addon_Patrol>();
+            if (addonPatrol?.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
+
+ 
         }
 
         #endregion

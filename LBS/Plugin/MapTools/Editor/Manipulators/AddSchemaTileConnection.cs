@@ -1,12 +1,9 @@
-using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
-using LBS.Components.TileMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEditor;
@@ -20,7 +17,7 @@ namespace ISILab.LBS.Manipulators
         private SchemaBehaviour _schema;
         private List<SchemaBehaviour> _others;
         private Vector2Int _first;
-        private List<Vector2Int> Dirs => ISILab.Commons.Directions.Bidimencional.Edges;
+        private List<Vector2Int> Dirs => Commons.Directions.Bidimencional.Edges;
 
         protected override string IconGuid => "b06c784e5d88d1547a40d4fc2f54b485";
         

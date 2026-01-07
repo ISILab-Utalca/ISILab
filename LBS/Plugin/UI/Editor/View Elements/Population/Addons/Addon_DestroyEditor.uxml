@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Destructible">
+        <ui:VisualElement name="Destroyed" style="flex-grow: 1;">
+            <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Destructible.asset?fileID=11400000&amp;guid=22465a8ab20fd9d4884efb2f61803db4&amp;type=2#Destructible" enabled="false" label="Tag Behavior" style="display: none;" />
+            <ISILab.LBS.CustomComponents.LBSCustomEventHooker name="DestroyedHook" />
+        </ui:VisualElement>
+    </ISILab.LBS.CustomComponents.LBSCustomFoldout>
+</ui:UXML>
