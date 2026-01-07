@@ -431,7 +431,7 @@ namespace ISILab.LBS.Modules
             set => locationKey = value;
         }
 
-        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, BundleTileMapAddons addons = null)
+        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, BundleTileMapAddons _addon = null)
         {
             tileGroup = tiles;
             this.bData = bData;
