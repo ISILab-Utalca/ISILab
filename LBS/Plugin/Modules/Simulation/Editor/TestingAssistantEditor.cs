@@ -10,12 +10,12 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.AI.Assistants.Editor
 {
-    [LBSCustomEditor("Testing Assistant", typeof(TestingAssistant))]
+    [LBSCustomEditor("Testing Assistant", typeof(SimulationAssistant))]
     public class TestingAssistantEditor : LBSCustomEditor, IToolProvider
     {
         #region FIELDS
 
-        private TestingAssistant assistant;
+        private SimulationAssistant assistant;
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace ISILab.LBS.AI.Assistants.Editor
 
         public TestingAssistantEditor(object target) : base(target) 
         {
-            assistant = target as TestingAssistant;
+            assistant = target as SimulationAssistant;
             assistant.OnDetach = () => LBSInspectorPanel.Instance.UnregisterCallback<GeometryChangedEvent>(SetLayoutCallback);
             CreateVisualElement();
         }
@@ -38,7 +38,7 @@ namespace ISILab.LBS.AI.Assistants.Editor
 
         public override void SetInfo(object paramTarget)
         {
-            assistant = paramTarget as TestingAssistant;
+            assistant = paramTarget as SimulationAssistant;
         }
 
         protected override VisualElement CreateVisualElement()

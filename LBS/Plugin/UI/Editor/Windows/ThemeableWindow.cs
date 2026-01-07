@@ -1,3 +1,4 @@
+using System;
 using ISILab.LBS.Plugin.Core.Settings;
 using UnityEditor;
 
@@ -5,6 +6,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 {
     public class ThemeableWindow: EditorWindow
     {
+        public void OnGUI()
+        {
+
+        }
+
+
         public virtual void ChangeTheme(LBSSettings.Interface.InterfaceTheme _newTheme)
         {
             switch (_newTheme)

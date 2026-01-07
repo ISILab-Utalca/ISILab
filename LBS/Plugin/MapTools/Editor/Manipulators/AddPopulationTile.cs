@@ -40,7 +40,7 @@ namespace ISILab.LBS.Manipulators
         protected override void OnKeyDown(KeyDownEvent e)
         {
             base.OnKeyDown(e);
-            if (e.ctrlKey) LBSMainWindow.WarningManipulator("(CTRL) Dragging selected tile");
+            //if (e.ctrlKey) LBSMainWindow.WarningManipulator("(CTRL) Dragging selected tile");
         }
 
         protected override void OnKeyUp(KeyUpEvent e)
@@ -81,27 +81,27 @@ namespace ISILab.LBS.Manipulators
 
             var _selectedTile = _tileMapBehavior.SelectedTilemap;
             // Dragging selected tile
-            if (e.ctrlKey)
-            {
-                if (_selectedTile == null) return;
-
-                // Check if the move is valid
-                if (!_population.BundleTilemap.ValidMoveGroup(endPos, _selectedTile, Vector2.right))
-                    return;
-
-                // Calculate the difference between the new position and the original top-left position of the group
-                Vector2Int originalTopLeft = _selectedTile.TileGroup[0].Position;
-                Vector2Int offset = endPos - originalTopLeft;
-
-                // Move each tile relative to the offset
-                foreach (var lbsTile in _selectedTile.TileGroup)
-                {
-                    lbsTile.Position += offset;
-
-                }
-                DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
-                return;
-            }
+            //if (e.ctrlKey)
+            //{
+            //    if (_selectedTile == null) return;
+            //
+            //    // Check if the move is valid
+            //    if (!_population.BundleTilemap.ValidMoveGroup(endPos, _selectedTile, Vector2.right))
+            //        return;
+            //
+            //    // Calculate the difference between the new position and the original top-left position of the group
+            //    Vector2Int originalTopLeft = _selectedTile.TileGroup[0].Position;
+            //    Vector2Int offset = endPos - originalTopLeft;
+            //
+            //    // Move each tile relative to the offset
+            //    foreach (var lbsTile in _selectedTile.TileGroup)
+            //    {
+            //        lbsTile.Position += offset;
+            //
+            //    }
+            //    DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+            //    return;
+            //}
 
             // Default Add Tile
             if (ToSet == null)
@@ -146,7 +146,7 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
             // get tile to drag
-            if (!e.ctrlKey) return;
+            //if (!e.ctrlKey) return;
             var tile = _population.GetTile(_population.OwnerLayer.ToFixedPosition(startPosition));
             if (tile == null) return;
 
@@ -162,7 +162,8 @@ namespace ISILab.LBS.Manipulators
             base.OnMouseMove(element, endPosition, e);
 
             // when dragging by using CTRL, do not display the feedback area
-            Feedback.SetDisplay(!e.ctrlKey);
+            //Feedback.SetDisplay(!e.ctrlKey);
+            Feedback.SetDisplay(true);
 
             var topLeftCorner = _population.OwnerLayer.ToFixedPosition(endPosition);
             var bottomRightCorner = topLeftCorner;
@@ -188,21 +189,21 @@ namespace ISILab.LBS.Manipulators
             _previewFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
             MainView.Instance.AddElement(_previewFeedback);
 
-            var _selectedTile = _tileMapBehavior.SelectedTilemap;
+            //var _selectedTile = _tileMapBehavior.SelectedTilemap;
             bool valid;
-            // dragging feedback
-            if (e.ctrlKey && _selectedTile != null)
-            {
-                // undo the negative of topLeftCorner
-                valid = _population.ValidMoveGroup(topLeftCorner, _selectedTile);
-                
-            }
-            // adding feedback
-            else
-            {
-                // undo the negative of topLeftCorner
+            //// dragging feedback
+            //if (e.ctrlKey && _selectedTile != null)
+            //{
+            //    // undo the negative of topLeftCorner
+            //    valid = _population.ValidMoveGroup(topLeftCorner, _selectedTile);
+            //    
+            //}
+            //// adding feedback
+            //else
+            //{
+            //    // undo the negative of topLeftCorner
+            //}
                 valid = _population.ValidNewGroup(topLeftCorner, ToSet);
-            }
 
             _previewFeedback.ValidForInput(valid);
 
