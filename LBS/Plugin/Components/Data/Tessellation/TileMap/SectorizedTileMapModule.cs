@@ -367,6 +367,14 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             //Debug.Log("ZONES PROXIMITY RECALCULATED\n"+log);
         }
 
+        public List<LBSTile> GetTilesWithDoors()
+        {
+            var connectedTM = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            var tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
+            var doors = tiles.Where(t => connectedTM.GetPair(t).HasConnections("Door").Count > 0);
+            return doors.ToList();
+        }
+
         private List<bool> CheckNeighborhood(Vector2Int position, List<Vector2> directions)
         {
             var neighborhood = new List<bool>();

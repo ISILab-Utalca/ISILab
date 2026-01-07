@@ -109,7 +109,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             {
                 // Si el tile es de agente, instanciar prefab.
                 GameObject currInstance;
-                if (tile.Tag.Label == "Player")//"PathOSAgent")
+                if (tile.Tag != null && tile.Tag.Label == "Player")//"PathOSAgent")
                 {
                     // Instanciar agente
                     agentGameObject = PrefabUtility.InstantiatePrefab(agentPrefab, parent.transform) as GameObject;
@@ -124,7 +124,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     continue;
                 }
                 // Si el tile es Wall, instanciar muro.
-                else if (tile.Tag.Label == "Wall")
+                else if (tile.Tag != null && tile.Tag.Label == "Wall")
                 {
                     currInstance = PrefabUtility.InstantiatePrefab(wallPrefab, wallsContainer.transform) as GameObject;
                     // Se modifican dimensiones segun la escala actual (la altura del muro es equivalente a la primera dimension X,
@@ -151,13 +151,15 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 //currMaterial.SetTexture("_MainTex", tile.Tag.Icon);
                 currRenderer.material = currMaterial;
 
+                currRenderer.enabled = false;
+
                 // Setear posicion
                 currInstance.transform.position = settings.position +
                                                   new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
                                                   - new Vector3(scale.x, 0, scale.y) / 2f;
 
                 // Crear entidades de marcado de PathOS y guardarlas temporalmente para su posterior manipulacion
-                if (tile.Tag.Label != "Wall")
+                if (tile.Tag == null || tile.Tag.Label != "Wall")
                 {
                     //TODO: Cambiar currInstance por el elemento de Population que representa, cuando corresponda
                     entitiesTemporaryReference.Add((tile, manager.AddLevelEntity(currInstance, tile.EntityType)));
