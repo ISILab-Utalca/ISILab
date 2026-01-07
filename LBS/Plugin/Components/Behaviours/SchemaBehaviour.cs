@@ -32,7 +32,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             "Door", // within wall connection
             "Window" // within wall connection
         };
-        
+    
         #endregion
 
         #region FIELDS

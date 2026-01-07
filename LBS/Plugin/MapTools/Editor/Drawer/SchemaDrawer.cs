@@ -5,10 +5,13 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Drawing.Imaging;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
@@ -18,6 +21,8 @@ namespace ISILab.LBS.Drawers
     {
         private VectorImage _doorConImage = null;
         private VectorImage _windowConImage = null;
+        private Color _zoneColor;
+        
         
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
@@ -180,11 +185,12 @@ namespace ISILab.LBS.Drawers
                 }
             }
         }
-
+        
         public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
         {
             var schema = target as SchemaBehaviour;
             var zones = schema.Zones;
+
 
             var texture = new Texture2D((int)(sourceRect.width * tesselationSize.x), (int)(sourceRect.height * tesselationSize.y));
 
@@ -196,29 +202,64 @@ namespace ISILab.LBS.Drawers
                 }
             }
 
+            int border = (int)(tesselationSize.x *0.1f);
+
             foreach (var z in zones)
             {
+                _zoneColor = z.Color;
                 var tiles = schema.GetTiles(z);
                 var text = GetTileTexture(tesselationSize, z.Color);
+
+                Color floorColor = z.Color;
 
                 foreach (var t in tiles)
                 {
                     if (!sourceRect.Contains(t.Position))
                         continue;
+
+                    var conns = schema.GetConnections(t);
+
+                    if(conns == null || conns.Count < 4)
+                        continue;
+
                     for (int j = 0; j < tesselationSize.y; j++)
                     {
                         for (int i = 0; i < tesselationSize.x; i++)
                         {
+                            Color pixelColor = floorColor;
+
+                            //Top
+                            if (j >= tesselationSize.y - border && conns[1] != "Empty") { pixelColor = getSimpleColor(conns[1]); }
+
+                            //Down
+                            if (j < border && conns[3] != "Empty") { pixelColor = getSimpleColor(conns[3]); }
+
+                            //Left
+                            if (i < border && conns[2] != "Empty") { pixelColor = getSimpleColor(conns[2]); }
+
+                            //Right
+                            if (i >= tesselationSize.x - border && conns[0] != "Empty") { pixelColor = getSimpleColor(conns[0]); }
+
                             var pos = t.Position - sourceRect.position;
-                            texture.SetPixel((int)(pos.x * tesselationSize.x) + i, (int)(pos.y * tesselationSize.y) + j, text.GetPixel(i, j));
+                            texture.SetPixel((int)(pos.x * tesselationSize.x) + i, (int)(pos.y * tesselationSize.y) + j, pixelColor);
                         }
                     }
                 }
+
             }
 
             texture.Apply();
 
             return texture;
+        }
+
+        private Color getSimpleColor(string type)
+        {
+
+            if (type == "Door") return Color.red;
+            if (type == "Window") return Color.cyan;
+            if (type == "Wall") return Color.Lerp(_zoneColor, Color.black, 0.3f);
+            return Color.clear;
         }
         private SchemaTileView GetTileView(LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
         {
@@ -229,6 +270,7 @@ namespace ISILab.LBS.Drawers
 
         private void AdjustTileView(SchemaTileView tView, LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
         {
+            _zoneColor = zone.Color;
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
             var size = DefaultSize * teselationSize;
             tView.SetPosition(new Rect(pos * size, size));
