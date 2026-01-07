@@ -10,9 +10,8 @@ namespace LBS.VisualElements
     [UxmlElement]
     public partial class SimplePallete : VisualElement
     {
-        #region FACTORY
-        //public new class UxmlFactory : UxmlFactory<SimplePallete, VisualElement.UxmlTraits> { }
-        #endregion
+
+        #region DATA FIELDS
 
         private OptionView[] optionViews;
         private object[] options;
@@ -20,8 +19,11 @@ namespace LBS.VisualElements
         private object collectionSelected;
         private Action<OptionView, object> onSetView;
 
-        #region FIELS VIEW
-        private VisualElement content;
+        #endregion
+
+        
+        #region UI PRIV FIELDS 
+        private readonly VisualElement contentContainer;
         private DropdownField dropdownGroup;
         private VisualElement icon;
         private Label nameLabel;
@@ -94,14 +96,15 @@ namespace LBS.VisualElements
         #region CONSTRUCTORS
         public SimplePallete()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SimplePallete");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SimplePallete");
             visualTree.CloneTree(this);
+            this.AddToClassList("lbs-simple-palette");
 
             // Content
-            content = this.Q<VisualElement>("Content");
-            content.style.flexDirection = FlexDirection.Row;         // Horizontal layout
-            content.style.justifyContent = Justify.FlexStart;     // Space items evenly
-            content.style.alignItems = Align.Stretch;                 // Vertically center them
+            contentContainer = this.Q<VisualElement>("Content");
+            contentContainer.style.flexDirection = FlexDirection.Row;         // Horizontal layout
+            contentContainer.style.justifyContent = Justify.FlexStart;     // Space items evenly
+            contentContainer.style.alignItems = Align.Stretch;                 // Vertically center them
             
             // Change Group
             dropdownGroup = this.Q<DropdownField>("DropdownGroup");
@@ -167,8 +170,8 @@ namespace LBS.VisualElements
 
         public void DisplayContent(bool show)
         {
-            if (show) content.style.display = DisplayStyle.Flex;
-            else content.style.display = DisplayStyle.None;
+            if (show) contentContainer.style.display = DisplayStyle.Flex;
+            else contentContainer.style.display = DisplayStyle.None;
         }
         
         public void Repaint()
@@ -176,7 +179,7 @@ namespace LBS.VisualElements
             MarkDirtyRepaint();
             
             OnRepaint?.Invoke();
-            content.Clear();
+            contentContainer.Clear();
 
             if (options.Any())
             {
@@ -188,14 +191,14 @@ namespace LBS.VisualElements
                     var view = new OptionView(option, OnInternalSelectOption, OnRemoveOption, onSetView);
                     view.tooltip = OnSetTooltip?.Invoke(option);
                     optionViews[i] = view;
-                    content.Add(view);
+                    contentContainer.Add(view);
                 }
             }
             else
             {
                 if (displayAddElement)
                 {
-                  content.Add(noElement);
+                    contentContainer.Add(noElement);
                 }
             }
 

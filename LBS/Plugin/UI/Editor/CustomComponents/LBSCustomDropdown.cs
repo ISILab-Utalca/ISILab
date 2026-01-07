@@ -8,12 +8,10 @@ namespace ISILab.LBS.CustomComponents
     [UxmlElement]
     public partial class LBSCustomDropdown: DropdownField
     {
-        #region constants
-            
+        
             public static string LBSClassName = "lbs-field";
             public static string LBSDropdownFieldClassName = "lbs-dropdown-field";
             
-            #endregion  
             
             #region Attributes
             
