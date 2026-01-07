@@ -267,6 +267,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public void RecalculateZonesProximity(Rect selection, ConnectedTileMapModule connectedTM = null)
         {
+
             if(OwnerLayer == null) return;
 
             var tilemap = OwnerLayer.GetModule<TileMapModule>();
