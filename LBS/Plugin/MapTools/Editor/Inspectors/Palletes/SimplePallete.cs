@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
+using ISILab.LBS.CustomComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -24,7 +25,7 @@ namespace LBS.VisualElements
         
         #region UI PRIV FIELDS 
         private readonly VisualElement contentContainer;
-        private DropdownField dropdownGroup;
+        private LBSCustomDropdown dropdownGroup;
         private VisualElement icon;
         private Label nameLabel;
         private Button noElement;
@@ -107,11 +108,9 @@ namespace LBS.VisualElements
             contentContainer.style.alignItems = Align.Stretch;                 // Vertically center them
             
             // Change Group
-            dropdownGroup = this.Q<DropdownField>("DropdownGroup");
+            dropdownGroup = this.Q<LBSCustomDropdown>("DropdownGroup");
             dropdownGroup.RegisterCallback<ChangeEvent<string>>(evt => OnChangeGroup?.Invoke(evt));
-
-            // NameLabel
-            nameLabel = this.Q<Label>("NameLabel");
+            nameLabel = dropdownGroup.Q<Label>();
 
             // AddButton
             addButton = this.Q<Button>("AddButton");
