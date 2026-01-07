@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Patrol">
+        <ui:VisualElement name="Patrol" style="flex-grow: 1;">
+            <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Patrol.asset?fileID=11400000&amp;guid=7d14522ccb3e27b469d6b129282c103c&amp;type=2#Patrol" enabled="false" label="Tag Behavior" style="display: none;" />
+            <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Loop patrol route" name="PatrolLoop" tooltip="Once the last point is reached, the game object tries to move to the first point, instead of backtracking" />
+            <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" header-title="Patrol Points" show-add-remove-footer="true" show-foldout-header="true" reorderable="true" show-border="true" />
+        </ui:VisualElement>
+    </ISILab.LBS.CustomComponents.LBSCustomFoldout>
+</ui:UXML>
