@@ -442,6 +442,32 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             return base.GetHashCode();
         }
+
+        public Vector3 EvaluateOriginalMap()
+        {
+
+            if (!RawToolRect.HasArea())
+            {
+                AutoSelectArea(out _);
+            }
+
+            var currentBundleMap = OwnerLayer.GetModule<BundleTileMap>();
+            if (currentBundleMap == null) return Vector3.negativeInfinity;
+
+            var tempChromosome = new BundleTilemapChromosome(
+                currentBundleMap,
+                RawToolRect,
+                CalcImmutables(RawToolRect),
+                CalcInvalids(RawToolRect, Data.ContextLayers)
+            );
+
+            float scoreX = (float)mapElites.XEvaluator.Evaluate(tempChromosome);
+            float scoreY = (float)mapElites.YEvaluator.Evaluate(tempChromosome);
+            float fitness = (float)mapElites.Optimizer.Evaluator.Evaluate(tempChromosome);
+
+            return new Vector3(scoreX, scoreY, fitness);
+        }
+
         #endregion
     }
 }
