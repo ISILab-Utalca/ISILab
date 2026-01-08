@@ -1345,6 +1345,9 @@ GameObject:
   - component: {fileID: 114482611139781848}
   - component: {fileID: 114839472988384982}
   - component: {fileID: 114232718271966738}
+  - component: {fileID: 522043049304101139}
+  - component: {fileID: 3152074107646236388}
+  - component: {fileID: 8364658052575852833}
   m_Layer: 2
   m_Name: PathOS Agent
   m_TagString: PathOSAgent
@@ -1479,7 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79551727de4d2a64eb4ea3de338c3952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSampleSize: 2
+  gridSampleSize: 1
 --- !u!114 &114839472988384982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,6 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3890f8a556a7e8e4b8d9549dce289ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camType: 0
   cam: {fileID: 20951506076577970}
   visSizeThreshold: 0.04
   navmeshCastDistance: 50
@@ -1514,6 +1518,68 @@ MonoBehaviour:
   showPlayerView: 1
   viewScreenSize: 256
   showHealthBar: 1
+--- !u!114 &522043049304101139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088327799159616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9e327dc43a5e643a893c0696c2884e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &3152074107646236388
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088327799159616}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.53
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &8364658052575852833
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088327799159616}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1218624666145408
 GameObject:
   m_ObjectHideFlags: 0
