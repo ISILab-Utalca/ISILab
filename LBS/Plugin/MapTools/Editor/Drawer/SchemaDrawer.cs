@@ -222,17 +222,17 @@ namespace ISILab.LBS.Drawers
                         {
                             Color pixelColor = floorColor;
 
-                            //Top
-                            if (j >= tesselationSize.y - border && conns[1] != "Empty") { pixelColor = getSimpleColor(conns[1]); }
+                            //Up
+                            if (j >= tesselationSize.y - border && conns[LBSDirection.ToInt(LBSDirection.Up)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Up)]); }
 
                             //Down
-                            if (j < border && conns[3] != "Empty") { pixelColor = getSimpleColor(conns[3]); }
+                            if (j < border && conns[LBSDirection.ToInt(LBSDirection.Down)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Down)]); }
 
                             //Left
-                            if (i < border && conns[2] != "Empty") { pixelColor = getSimpleColor(conns[2]); }
+                            if (i < border && conns[LBSDirection.ToInt(LBSDirection.Left)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Left)]); }
 
                             //Right
-                            if (i >= tesselationSize.x - border && conns[0] != "Empty") { pixelColor = getSimpleColor(conns[0]); }
+                            if (i >= tesselationSize.x - border && conns[LBSDirection.ToInt(LBSDirection.Right)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Right)]); }
 
                             var pos = t.Position - sourceRect.position;
                             texture.SetPixel((int)(pos.x * tesselationSize.x) + i, (int)(pos.y * tesselationSize.y) + j, pixelColor);
@@ -249,10 +249,9 @@ namespace ISILab.LBS.Drawers
 
         private Color getSimpleColor(string type)
         {
-
-            if (type == "Door") return Color.red;
-            if (type == "Window") return Color.cyan;
-            if (type == "Wall") return Color.Lerp(_zoneColor, Color.black, 0.3f);
+            if (type == SchemaBehaviour.Door) return Color.red;
+            if (type == SchemaBehaviour.Window) return Color.cyan;
+            if (type == SchemaBehaviour.Wall) return Color.Lerp(_zoneColor, Color.black, 0.3f);
             return Color.clear;
         }
         private SchemaTileView GetTileView(LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
@@ -306,8 +305,8 @@ namespace ISILab.LBS.Drawers
                 string connectionType = connection.Value;
 
                 // Draw connection tile only if its not wall or open
-                if (connectionType != LBSDirection.ToString(0) 
-                    && connectionType != LBSDirection.ToString(1))
+                if (connectionType != SchemaBehaviour.Empty
+                    && connectionType != SchemaBehaviour.Wall)
                 {
                      tView.CreateConnectionView(tile, connectionType, new Vector2(xPos, yPos), connection.Key);
                 }

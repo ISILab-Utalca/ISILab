@@ -449,8 +449,18 @@ namespace ISILab.LBS.VisualElements.Editor
             optimizerField.value = currentOptimizer?.Evaluator != null ? currentOptimizer.Evaluator.GetType().Name : defaultSelectText;
 
             InitializeAllCurrentEvaluators();
+            originalMapCalcs();
 
+            //param1Field.tooltip = currentXField.Tooltip;
+            //param2Field.tooltip = currentYField.Tooltip;
+            //optimizerField.tooltip = currentOptimizer?.Evaluator.Tooltip;
 
+            //InitializeAllCurrentEvaluators();
+        }
+
+        //Cals from the original map to set initial values & update graph
+        private void originalMapCalcs()
+        {
             Vector3 scores = _assistant.EvaluateOriginalMap();
 
             string textX = (scores.x > -1000) ? $" [Actual: {scores.x:0.00}]" : "";
@@ -463,7 +473,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             if (scores.x > -1000)
             {
-                xProgressBar.value = scores.x; 
+                xProgressBar.value = scores.x;
                 yProgressBar.value = scores.y;
                 zProgressBar.value = scores.z;
                 xProgressBar.title = Mathf.FloorToInt(scores.x * 100).ToString() + "%";
@@ -476,14 +486,27 @@ namespace ISILab.LBS.VisualElements.Editor
                 CurrentGraph.RecalculateCorners();
                 CurrentGraph.MarkDirtyRepaint();
             }
+        }
 
+        private void DefaultGraphsValues()
+        {
+            if (CurrentGraph != null)
+            {
+                CurrentGraph.SetAxisValue(0f, 0);
+                CurrentGraph.SetAxisValue(0f, 1);
+                CurrentGraph.SetAxisValue(0f, 2);
 
+                CurrentGraph.RecalculateCorners();
+                CurrentGraph.MarkDirtyRepaint();
+            }
 
-            //param1Field.tooltip = currentXField.Tooltip;
-            //param2Field.tooltip = currentYField.Tooltip;
-            //optimizerField.tooltip = currentOptimizer?.Evaluator.Tooltip;
+            if (xProgressBar != null) { xProgressBar.value = 0; xProgressBar.title = "0%"; }
+            if (yProgressBar != null) { yProgressBar.value = 0; yProgressBar.title = "0%"; }
+            if (zProgressBar != null) { zProgressBar.value = 0; zProgressBar.title = "0%"; }
 
-            //InitializeAllCurrentEvaluators();
+            yParamText.text = param2Field.Value;
+            xParamText.text = param1Field.Value;
+            zParamText.text = new string("Fitness (" + optimizerField.Value + ")");
         }
 
         #endregion
@@ -535,7 +558,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 Debug.LogError("[ISI Lab]: Selected evolution area height or width < 0");
                 return;
             }
-            
+
             UpdateGrid();
 
             InitializeAllCurrentEvaluators();
@@ -551,6 +574,7 @@ namespace ISILab.LBS.VisualElements.Editor
             LBSMainWindow.MessageNotify("Calculating.");
             sw.Start();
             RunExecuteTask();
+            DefaultGraphsValues();
         }
         
 
@@ -699,6 +723,9 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 LBSMainWindow.MessageNotify("Layer tile map not found."); return;
             }
+
+            
+
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Add Element population");
@@ -713,6 +740,8 @@ namespace ISILab.LBS.VisualElements.Editor
             }
             LayerPopulation.OwnerLayer.OnChangeUpdate();
             OnTileMapReset?.Invoke();
+
+            originalMapCalcs();
         }
         #endregion
 
