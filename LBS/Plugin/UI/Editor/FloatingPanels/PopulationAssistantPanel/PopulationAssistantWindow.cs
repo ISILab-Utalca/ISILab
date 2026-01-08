@@ -28,6 +28,7 @@ using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
+
     public class PopulationAssistantWindow : EditorWindow, IAssistantThreadedEditor
     {
 
@@ -449,6 +450,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             InitializeAllCurrentEvaluators();
 
+
             Vector3 scores = _assistant.EvaluateOriginalMap();
 
             string textX = (scores.x > -1000) ? $" [Actual: {scores.x:0.00}]" : "";
@@ -467,7 +469,16 @@ namespace ISILab.LBS.VisualElements.Editor
                 xProgressBar.title = Mathf.FloorToInt(scores.x * 100).ToString() + "%";
                 yProgressBar.title = Mathf.FloorToInt(scores.y * 100).ToString() + "%";
                 zProgressBar.title = Mathf.FloorToInt(scores.z * 100).ToString() + "%";
+                CurrentGraph.SetAxisValue(scores.z, 0);
+                CurrentGraph.SetAxisValue(scores.x, 1);
+                CurrentGraph.SetAxisValue(scores.y, 2);
+
+                CurrentGraph.RecalculateCorners();
+                CurrentGraph.MarkDirtyRepaint();
             }
+
+
+
             //param1Field.tooltip = currentXField.Tooltip;
             //param2Field.tooltip = currentYField.Tooltip;
             //optimizerField.tooltip = currentOptimizer?.Evaluator.Tooltip;
@@ -882,6 +893,8 @@ namespace ISILab.LBS.VisualElements.Editor
                 CurrentGraph.MarkDirtyRepaint();
             };
         }
+
+
         #endregion
 
         #region LAYER CONTEXT METHODS

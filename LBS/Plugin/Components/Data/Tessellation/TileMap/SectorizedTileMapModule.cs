@@ -268,12 +268,12 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         public void RecalculateZonesProximity(Rect selection, ConnectedTileMapModule connectedTM = null)
         {
 
-            if(OwnerLayer == null) return;
+            if (OwnerLayer == null) { Debug.Log("Owner layer null"); return; }
 
             var tilemap = OwnerLayer.GetModule<TileMapModule>();
-            if (tilemap == null) return;
+            if (tilemap == null) {Debug.Log("tilemap null"); return; }
             connectedTM ??= OwnerLayer.GetModule<ConnectedTileMapModule>();
-            if(connectedTM == null) return;
+            if (connectedTM == null) { Debug.Log("ConnectedTM null"); return; }
 
             var zonesToCalc = new List<Zone>(ZonesWithTiles);
             for(int i = 0; i < zonesToCalc.Count; i++)
