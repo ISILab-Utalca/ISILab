@@ -733,11 +733,12 @@ namespace PathOS
             float distance = 0.0f;
             Vector3 newTarget = origin;
 
-            if (overridePos && overrideDest != null)
-            {
-                newTarget = overrideDest;
-            }
-            else
+            // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target.
+            //if (overridePos && overrideDest != null)
+            //{
+            //    newTarget = overrideDest;
+            //}
+            //else
             {
                 if (visible)
                 {
@@ -943,7 +944,11 @@ namespace PathOS
                 float rerouteRoll = Random.Range(0.0f, 1.0f);
 
                 if (rerouteRoll >= rerouteChance)
+                {
+                    if (changeTargetCount == 0)
+                        ;
                     ComputeNewDestination();
+                }
             }
 
             //Memory path update.
@@ -974,7 +979,7 @@ namespace PathOS
             else if (currentDest.entity != null && !currentDest.accurate
                 && currentDest.entity.visible)
                 MakeEntityDestinationAccurate();
-
+            //Debug.LogWarning(!pathResolved + " && " + NavmeshPathIncomplete());
             //Targeting update. This prevents the agent from getting stuck.
             if (!pathResolved && NavmeshPathIncomplete())
             {
@@ -1117,7 +1122,7 @@ namespace PathOS
             for (int i = 0; i < unreachableReference.Count; ++i)
             {
                 if (Vector3.SqrMagnitude(target - unreachableReference[i])
-                    < PathOS.Constants.Navigation.UNREACHABLE_POS_CHECK_SQR)
+                    < PathOS.Constants.Navigation.UNREACHABLE_POS_CHECK_SQR) // 16
                     return true;
             }
 
