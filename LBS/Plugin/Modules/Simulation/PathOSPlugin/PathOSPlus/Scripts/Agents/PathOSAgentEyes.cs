@@ -82,7 +82,7 @@ namespace PathOS
             if(camType == CamType.FreeMode)
             {
                 Vector3 target = cam.transform.position;
-                cam.transform.Translate(Vector3.up * 10);
+                cam.transform.Translate(Vector3.up * 7 + Vector3.forward * -7);
                 cam.transform.LookAt(target);
                 fixedRotation = cam.transform.rotation;
             }
@@ -340,6 +340,11 @@ namespace PathOS
                 result = NavMesh.SamplePosition(raycastHit.point, out hit, 1, NavMesh.AllAreas);
                 if (result)
                 {
+                    var diffX = Mathf.Abs(raycastHit.point.x - hit.position.x);
+                    var diffY = Mathf.Abs(raycastHit.point.y - hit.position.y);
+                    var diffZ = Mathf.Abs(raycastHit.point.z - hit.position.z);
+                    Vector2 diff = new Vector2(diffX, diffZ);
+                    //Debug.LogWarning("Sample Deviation: " + diff + " | Height diff: " + diffY + $"\t | Raycast: {raycastHit.point} Sample: {hit.position}");
                     position = hit.position;
                     distance = Vector3.Distance(origin, position);
                 }
@@ -351,10 +356,10 @@ namespace PathOS
                 hit.position = position;
             }
 
-            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode = PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
-            //(result) ?
-            //    PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE :
-            //    PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode = //PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+            (result) ?
+                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN :
+                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
 
             agent.memory.memoryMap.Fill(position, fillCode);
 
