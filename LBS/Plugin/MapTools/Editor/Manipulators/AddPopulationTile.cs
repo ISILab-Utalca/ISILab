@@ -11,6 +11,7 @@ using UnityEngine.UIElements;
 using ISILab.LBS.VisualElements.Editor;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -139,6 +140,7 @@ namespace ISILab.LBS.Manipulators
 
             _population.OwnerLayer.OnChangeUpdate();
             _tileMapBehavior.SelectedTilemap = newTileGroup;
+
             LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
 
             if (EditorGUI.EndChangeCheck())
@@ -177,7 +179,7 @@ namespace ISILab.LBS.Manipulators
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
-                    Debug.Log("selected tile: " + i + " | " + j);
+                    //Debug.Log("selected tile: " + i + " | " + j);
                     var iconFeedback = new IconFeedback();
                     iconFeedback.Icon = ToSet.Icon;
                     iconFeedback.preview = true;

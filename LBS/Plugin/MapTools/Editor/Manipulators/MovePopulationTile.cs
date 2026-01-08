@@ -87,7 +87,8 @@ namespace ISILab.LBS.Manipulators
             _population.MoveGroup(Selected, offset);
 
             _population.OwnerLayer.OnChangeUpdate();
-            DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+            DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
+            //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)

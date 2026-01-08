@@ -87,7 +87,8 @@ namespace ISILab.LBS.VisualElements
                 {
                     triggers[index].Ttype = newType;
                     PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                    DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                    DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+                    //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer); //Dibujar solo el behaviour
                 };
 
                 //UpdateSelectedTilemap();
@@ -100,7 +101,8 @@ namespace ISILab.LBS.VisualElements
                 triggers.Add(new TileTrigger());
                 AddonsView.Rebuild();
                 PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+                //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
             };
 
             // Remove selected point
@@ -112,7 +114,8 @@ namespace ISILab.LBS.VisualElements
                 triggers.RemoveAt(index);
                 AddonsView.Rebuild();
                 PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+                //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
             };
         }
 

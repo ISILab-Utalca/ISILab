@@ -18,6 +18,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 namespace ISILab.LBS.Behaviours.Editor
 {
@@ -239,7 +240,8 @@ namespace ISILab.LBS.Behaviours.Editor
             if (!answer) return;
 
             behaviour.RemoveZone(option as Zone);
-            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer); //May fail, test and see
+            //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer); 
             ToolKit.Instance.SetActive(typeof(AddSchemaTile));
             areaPallete.Repaint();
 

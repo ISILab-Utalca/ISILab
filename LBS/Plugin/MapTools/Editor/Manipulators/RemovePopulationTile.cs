@@ -129,7 +129,7 @@ namespace ISILab.LBS.Manipulators
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
-                    Debug.Log("selected tile: " + i + " | " + j);
+                    //Debug.Log("selected tile: " + i + " | " + j);
                     Vector2Int position = new(i, j);
                     
                     TileBundleGroup tileGroup = _population.GetTileGroup(position);

@@ -33,7 +33,7 @@ namespace ISILab.LBS.Drawers
 
             OwnerLayer = population.OwnerLayer;
             LoadAllTiles(population, view);
-            
+
             //PaintNewTiles(population, view);
             //UpdateTilesRotation(population, view);
             //UpdateLoadedTiles(population, view);
