@@ -1,10 +1,13 @@
 using ISILab.Commons.Utility;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Bundles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
@@ -33,6 +36,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             public LBSCustomListView listView;
             public BundleManagerListGroup listGroup = new();
             public HashSet<Type> selectedCharacteristics = new();
+            public Dictionary<Type, bool> initializationValues = new();  
             /// <summary>
             /// Dictionary containing every characteristic element displayed, accessed through a characteristic type.
             /// </summary>
@@ -63,6 +67,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             public void Reset()
             {
                 selectedCharacteristics.Clear();
+                initializationValues.Clear();
             }
         }
 
@@ -85,36 +90,110 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         {
             //Debug.Log("Init: " + GetType().Name);
             Debug.Log("Builder data:\n\n" + Builder.ToString());
+
+            //return;
+
+            List<Type> mainInteriorChars = new() { typeof(LBSMainInteriorBundle) };
+            List<Type> childInteriorChars = new() { typeof(LBSTagsCharacteristic) };
+            List<Type> mainExteriorChars = new() { typeof(LBSMainExteriorBundle), typeof(LBSDirectionedGroup), typeof(LBSNavigableTags), typeof(WFCPresetsCharacteristic) };
+            List<Type> childExteriorChars = new() { typeof(LBSDirection) };
+            List<Type> mainPopulationChars = new() { typeof(LBSMainPopulationBundle) };
+            List<Type> childPopulationChars = new() { typeof(LBSTagsCharacteristic) };
+
+            List<Type> mainChars = new();
+            List<Type> childChars = new();
+
+            switch (Builder.layerTypeFlag)
+            {
+                case BundleFlags.Interior:
+                    mainChars = mainInteriorChars;
+                    childChars = childInteriorChars;
+                    break;
+
+                case BundleFlags.Exterior:
+                    mainChars = mainExteriorChars;
+                    childChars = childExteriorChars;
+                    break;
+
+                case BundleFlags.Population:
+                    mainChars = mainPopulationChars;
+                    childChars = childPopulationChars;
+                    break;
+
+                default:
+
+                    break;
+            }
+
+            foreach(Type cha in mainChars)
+            {
+                containers[ContainerKey.Main].initializationValues.Add(cha, true);
+                //containers[ContainerKey.Main].elements[cha].Toggle.value = true;
+            }
+            foreach(Type cha in childChars)
+            {
+                containers[ContainerKey.Children].initializationValues.Add(cha, true);
+                //containers[ContainerKey.Children].elements[cha].Toggle.value = true;
+            }
         }
 
         public void BindItem(VisualElement item, int i)
         {
+            int ind = i;
             var charElement = item as BundleWizardCharacteristicElement;
-            if (!Con.elements.ContainsKey(allCharacteristics[i]))
-                Con.elements.Add(allCharacteristics[i], charElement);
+            //if (!Con.elements.ContainsKey(allCharacteristics[ind]))
+            //{
+            //}
+            Con.elements.Clear();
+            Con.elements.Add(allCharacteristics[ind], charElement);
+            //else
+            //{
+            //    try
+            //    {
+            //        Assert.AreEqual(Con.elements[allCharacteristics[ind]], charElement);
+            //    }
+            //    catch(Exception ex)
+            //    {
+            //        Debug.LogException(ex);
+            //    }
+            //}
             //charElement.CharLabel.text = (mainCharListView.itemsSource[i] as Type).Name;
-            charElement.CharLabel.text = allCharacteristics[i].Name;
+            charElement.CharLabel.text = allCharacteristics[ind].Name;
 
-            bool exclusiveChar = LBSCharacteristic.IsExclusive(allCharacteristics[i], out List<List<Type>> exclusivenessGroups);
+            bool exclusiveChar = LBSCharacteristic.IsExclusive(allCharacteristics[ind], out List<List<Type>> exclusivenessGroups);
+            //exclusiveChar = false;
 
             var con = Con;
-            charElement.toggleCallback = evt =>
+
+            Action<bool> toggleCallback = value =>
             {
-                //Assert.AreNotEqual(evt.previousValue, evt.newValue);
-                if (evt.newValue)
+                if (value)
                 {
-                    con.selectedCharacteristics.Add(allCharacteristics[i]);
+                    con.selectedCharacteristics.Add(allCharacteristics[ind]);
                     // Uncheck all incompatible toggles
                     if (exclusiveChar)
                     {
-                        foreach (Type excluded in exclusivenessGroups.SelectMany(g => g).Except(new[] { allCharacteristics[i] }))
+                        foreach (Type excluded in exclusivenessGroups.SelectMany(g => g).Except(new[] { allCharacteristics[ind] }))
                         {
-                            con.elements[excluded].Toggle.SetValueWithoutNotify(false);
-                            con.selectedCharacteristics.Remove(excluded);
+                            try
+                            {
+                                string e = "";
+                                foreach (var el in con.elements)
+                                    e += "> " + el.Key.Name + "\n";
+
+                                Debug.Log(e + "\n" + excluded);
+                                
+                                con.elements[excluded].Toggle.SetValueWithoutNotify(false);
+                                con.selectedCharacteristics.Remove(excluded);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.LogException(ex);
+                            }
                         }
                     }
                 }
-                else con.selectedCharacteristics.Remove(allCharacteristics[i]);
+                else con.selectedCharacteristics.Remove(allCharacteristics[ind]);
 
                 string s = "Characteristics List:\n";
                 foreach (var cha in con.selectedCharacteristics)
@@ -122,14 +201,34 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 Debug.Log(s);
             };
 
+            charElement.toggleCallback = evt =>
+            {
+                //Assert.AreNotEqual(evt.previousValue, evt.newValue);
+                toggleCallback.Invoke(evt.newValue);
+            };
+
             charElement.EnableToggleCallback();
 
-            charElement.Toggle.SetValueWithoutNotify(Con.selectedCharacteristics.Contains(allCharacteristics[i]));
+            //// Predetermined values
+            if (Con.initializationValues.ContainsKey(allCharacteristics[i]))
+            {
+                bool initValue = Con.initializationValues[allCharacteristics[i]];
+                Con.elements[allCharacteristics[i]].Toggle.SetValueWithoutNotify(initValue);
+                //toggleCallback.Invoke(initValue);
+                //Con.initializationValues.Remove(allCharacteristics[i]);
+            }
+
+            //Debug.Log("SetValueWithoutNotify()");
+            //EditorApplication.delayCall += () => 
+            //charElement.Toggle.SetValueWithoutNotify(con.selectedCharacteristics.Contains(allCharacteristics[ind]));
         }
 
         public void UnbindItem(VisualElement item, int i)
         {
-            (item as BundleWizardCharacteristicElement).DisableToggleCallback();
+            var charElement = item as BundleWizardCharacteristicElement;
+            //charElement.Toggle.SetValueWithoutNotify(false);
+            charElement.DisableToggleCallback();
+            //charElement.toggleCallback = null;
         }
 
         public void Step()

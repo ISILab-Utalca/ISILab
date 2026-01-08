@@ -52,7 +52,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         public void Init()
         {
             //Debug.Log("Init: " + GetType().Name);
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
+            //Debug.Log("Builder data:\n\n" + Builder.ToString());
 
             currentBundleFlags = Builder.layerTypeFlag;
             Console.WriteLine(currentBundleFlags.ToString());

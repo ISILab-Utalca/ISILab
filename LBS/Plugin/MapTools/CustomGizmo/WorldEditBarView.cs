@@ -34,6 +34,8 @@ namespace ISILab.LBS.VisualElements
         private LBSGenerated lbsComponent;
         #endregion
 
+        bool HasBundle => lbsComponent != null && lbsComponent.BundleRef != null;
+
         public WorldEditBarView(LBSGenerated targetComponent)
         {
             view = DirectoryTools.GetAssetByName<VisualTreeAsset>("WorldEditBarView");
@@ -51,14 +53,18 @@ namespace ISILab.LBS.VisualElements
             
             go = targetComponent.gameObject;
             lbsComponent = targetComponent;
-            isStructure = lbsComponent.BundleTemp.Type == Bundle.TagType.Structural;
+            isStructure = HasBundle && lbsComponent.BundleTemp.LayerContentFlags.HasFlag(BundleFlags.Interior);
+                //lbsComponent.BundleTemp.Type == Bundle.TagType.Structural;
 
-            lbsComponent.AssetIndex = lbsComponent.BundleRef.Assets.FindIndex(a => a.obj.Equals(PrefabUtility.GetCorrespondingObjectFromSource(go)));
+            if(HasBundle)
+                lbsComponent.AssetIndex = lbsComponent.BundleRef.Assets.FindIndex(a => a.obj.Equals(PrefabUtility.GetCorrespondingObjectFromSource(go)));
         }
 
         #region BUTTON METHODS
         private void OnShuffleClicked()
         {
+            if(!HasBundle) return;
+
             if (lbsComponent.BundleTemp.Assets.Count >= 2)
             {
                 //Pick an asset
@@ -133,7 +139,7 @@ namespace ISILab.LBS.VisualElements
             {
                 //Get references
                 //Access to bundle parent to get the children and search one that contains a StructureTag in its name
-                Bundle newBundle = lbsComponent.BundleTemp.Parent().ChildsBundles.Find(b => b.name.Contains(EnumToString((StructureTags)evtNewValue)));
+                Bundle newBundle = HasBundle ? lbsComponent.BundleTemp.Parent().ChildsBundles.Find(b => b.name.Contains(EnumToString((StructureTags)evtNewValue))) : null;
 
                 //Replace models if new type
                 if (newBundle && lbsComponent.BundleTemp != newBundle)
@@ -161,9 +167,13 @@ namespace ISILab.LBS.VisualElements
                 else if(!newBundle)
                 {
                     //Blocks changing to an unavailable type
-        
-                    var tags = LBSAssetMacro.GetTagsFromBundle(lbsComponent.BundleTemp).ToList();
-                    typeField.value = tags.Count > 0 ? TagToEnum(tags[0]) : StructureTags.None;
+
+                    if (HasBundle)
+                    {
+                        var tags = LBSAssetMacro.GetTagsFromBundle(lbsComponent.BundleTemp).ToList();
+                        typeField.value = tags.Count > 0 ? TagToEnum(tags[0]) : StructureTags.None;
+                    }
+                    else typeField.value = StructureTags.None;
 
                     if ((StructureTags)evtNewValue != StructureTags.None)   //Structures never have a None tag, so it'd be obvious
                     {
@@ -183,8 +193,12 @@ namespace ISILab.LBS.VisualElements
             typeField.value = tags.Count > 0 ? TagToEnum(tags[0].Value) : StructureTags.None;
             */
 
-            var tags = LBSAssetMacro.GetTagsFromBundle(lbsComponent.BundleTemp).ToList();
-            typeField.value = tags.Count > 0 ? TagToEnum(tags[0]) : StructureTags.None;
+            if (HasBundle)
+            {
+                var tags = LBSAssetMacro.GetTagsFromBundle(lbsComponent.BundleTemp).ToList();
+                typeField.value = tags.Count > 0 ? TagToEnum(tags[0]) : StructureTags.None;
+            }
+            else typeField.value = StructureTags.None;
 
             bundleField.value = bundleRef;
             MarkDirtyRepaint();
