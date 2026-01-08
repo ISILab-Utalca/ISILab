@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
@@ -207,7 +208,7 @@ namespace ISILab.LBS.VisualElements
                 }
             }
 
-            _current.SetSelectedVe(selected);
+            _current.SetSelectedVe(selected); 
         }
         #endregion
 

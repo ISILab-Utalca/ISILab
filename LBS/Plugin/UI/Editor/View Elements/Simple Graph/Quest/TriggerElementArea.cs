@@ -204,7 +204,8 @@ namespace ISILab.LBS.VisualElements
 
                 _activeHandle = null;
                 
-                DrawManager.Instance.RedrawLayer(_data.Layer);
+                //DrawManager.Instance.RedrawLayer(_data.Layer);
+                DrawManager.Instance.DrawSingleComponent(_data, _data.Layer);
             });
 
             // Hide the areas by default(show when click on handle, hide on mouse up)

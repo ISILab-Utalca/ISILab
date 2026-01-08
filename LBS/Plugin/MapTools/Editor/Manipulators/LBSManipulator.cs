@@ -10,6 +10,7 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.VisualElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using System.Diagnostics;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -105,7 +106,7 @@ namespace ISILab.LBS.Manipulators
                     return _startClickPosition;
                 }
 
-                Debug.LogWarning("[ISI Lab]: cannot access the variable 'StartPosition' outside the action.");
+                UnityEngine.Debug.LogWarning("[ISI Lab]: cannot access the variable 'StartPosition' outside the action.");
                 return default;
             }
             set => _startClickPosition = value;
@@ -120,7 +121,7 @@ namespace ISILab.LBS.Manipulators
                     return _endClickPosition;
                 }
 
-                Debug.LogWarning("[ISI Lab]: cannot assign the variable 'StartPosition' outside the action.");
+                UnityEngine.Debug.LogWarning("[ISI Lab]: cannot assign the variable 'StartPosition' outside the action.");
                 return default;
             }
         }
@@ -360,9 +361,10 @@ namespace ISILab.LBS.Manipulators
             
             _ended = true;
             _endClickPosition = MainView.Instance.FixPos(@event.localMousePosition).ToInt();
+
             EndFeedback();
 
-            if(!_started)
+            if (!_started)
             {
                 @event.StopImmediatePropagation();
                 UpdateView();
@@ -389,10 +391,11 @@ namespace ISILab.LBS.Manipulators
                 UpdateView();
                 return;
             }
-            
+
             if (!@event.altKey)
             {
                 OnMouseUp(@event.target as VisualElement, _endClickPosition, @event);
+                
                 @event.StopImmediatePropagation();
             }
             //UnityEngine.Assertions.Assert.IsTrue(_started && _ended);
@@ -405,9 +408,10 @@ namespace ISILab.LBS.Manipulators
                 OnManipulationRightClickEnd?.Invoke();
                 LBSMainWindow.WarningManipulator(); // finished using a remover
             }
-            
+
             OnManipulationEnd?.Invoke();
             @event.StopImmediatePropagation();
+
             UpdateView();
         }
         

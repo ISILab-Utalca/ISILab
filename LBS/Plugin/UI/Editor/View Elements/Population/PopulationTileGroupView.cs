@@ -77,8 +77,6 @@ namespace ISILab.LBS.VisualElements
 
             var addonPatrol = tile.GetAddon<Addon_Patrol>();
             if (addonPatrol?.Points.Count > 0) _patrolIcon.style.display = DisplayStyle.Flex;
-
- 
         }
 
         #endregion
