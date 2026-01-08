@@ -19,6 +19,8 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS
         private readonly TileGroupBehavior _tileBehaviour;
 
+        // contains the drop icon
+        static private VisualElement _drop;
         static private VisualElement _dropIcon;
         static private VisualElement _patrolIcon;
         static private VisualElement _triggerIcon;
@@ -44,6 +46,7 @@ namespace ISILab.LBS.VisualElements
             _triggerIcon = this.Q<VisualElement>("TriggerIcon");
             _patrolIcon = this.Q<VisualElement>("PatrolIcon");
             _dropIcon = this.Q<VisualElement>("DropIcon");
+            _drop = this.Q<VisualElement>("Drop");
 
         }
 
@@ -55,7 +58,7 @@ namespace ISILab.LBS.VisualElements
                 return;
             }
 
-            _dropIcon.style.display = DisplayStyle.None;
+            _drop.style.display = DisplayStyle.None;
             _patrolIcon.style.display = DisplayStyle.None;
             _triggerIcon.style.display = DisplayStyle.None;
 
@@ -66,7 +69,7 @@ namespace ISILab.LBS.VisualElements
             if (addonDrop is not null && addonDrop.OnDestroyDrop is not null) 
             {
                 _dropIcon.style.backgroundImage = new StyleBackground(addonDrop.OnDestroyDrop.Icon);
-                _dropIcon.style.display = DisplayStyle.Flex; 
+                _drop.style.display = DisplayStyle.Flex; 
             }
 
             var addonTrigger = tile.GetAddon<Addon_Trigger>();

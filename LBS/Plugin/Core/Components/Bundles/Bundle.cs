@@ -1,17 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.DevTools.Macros;
-using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
-
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles.Tools;
 using ISILab.LBS.Plugin.Internal;
 using PathOS;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Assertions;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 
 namespace ISILab.LBS.Plugin.Components.Bundles
@@ -318,7 +317,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         {
             if (IsRecursive(this, child))
             {
-                Debug.Log("[ISI Lab]: Bundle '" +
+                UnityEngine.Debug.Log("[ISI Lab]: Bundle '" +
                     this.name + "' is contained in bundle '" +
                     child.name + "' or one of its child bundles.");
                 return;

@@ -1,4 +1,5 @@
 using ISILab.DevTools.Macros;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
@@ -16,15 +17,6 @@ namespace ISILab.LBS.Drawers
     [Drawer(typeof(SchemaBehaviour))]
     public class SchemaDrawer : Drawer
     {
-        private static VectorImage _doorConImage = null;
-        private static VectorImage _windowConImage = null;
-        private static VectorImage _lockConImage = null;
-        private static VectorImage _blockedConImage = null;
-
-        private static string lockedDoorIconGuid = "f79cf4ba5777aab4a884bca201ff0278";
-        private static string blockedDoorIconGuid = "8e1818e3f49414e4997ecc63e331999f";
-        private static string windowConnectionIconGuid = "c0d00de1d82858c4b9d772a012caf67d";
-        private static string doorConnectionIconGuid = "cd77d8067cf8b6b44ab23da9a62173c0";
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
@@ -261,31 +253,26 @@ namespace ISILab.LBS.Drawers
 
                 switch (connection.Key)
                 {
-                    case "top":
+                    case LBSDirection.Up:
                         yPos += -(tView.GetPosition().height / 2f);
                         break;
-                    case "bottom":
+                    case LBSDirection.Down:
                         yPos += (tView.GetPosition().height / 2f);
                         break;
-                    case "left":
+                    case LBSDirection.Left:
                         xPos += -(tView.GetPosition().width / 2f);
                         break;
-                    case "right":
+                    case LBSDirection.Right:
                         xPos += (tView.GetPosition().width / 2f);
                         break;
                 }
                 string connectionType = connection.Value;
-                var connectionTypes = SchemaBehaviour.Connections;
-                // Draw connection tile only if its not wall or open
-                if (connectionType != connectionTypes[0] && connectionType != connectionTypes[1])
-                {
-                    VectorImage setIcon = null;
-                    if (connectionType == connectionTypes[2]) setIcon = GetDoorImage();
-                    else if (connectionType == connectionTypes[3]) setIcon = GetWindowImage();
-                    else if (connectionType == connectionTypes[4]) setIcon = GetLockImage();
-                    else if (connectionType == connectionTypes[5]) setIcon = GetBlockedImage();
 
-                    tView.CreateConnectionView(setIcon, new Vector2(xPos, yPos), connection.Key);
+                // Draw connection tile only if its not wall or open
+                if (connectionType != LBSDirection.ToString(0) 
+                    && connectionType != LBSDirection.ToString(1))
+                {
+                     tView.CreateConnectionView(tile, connectionType, new Vector2(xPos, yPos), connection.Key);
                 }
             }
         }
@@ -304,37 +291,6 @@ namespace ISILab.LBS.Drawers
 
             return t;
         }
-        private static VectorImage GetDoorImage()
-        {
-            if (_doorConImage != null) return _doorConImage;
-            
-            _doorConImage = AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
-            return _doorConImage;
 
-        }
-        private static VectorImage GetWindowImage()
-        {
-            if (_windowConImage != null) return _windowConImage;
-            
-            _windowConImage = AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
-            return _windowConImage;    
-           
-        }
-
-        private static VectorImage GetLockImage()
-        {
-            if (_lockConImage != null) return _lockConImage;
-
-            _lockConImage = AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
-            return _lockConImage;
-        }
-
-        private static VectorImage GetBlockedImage()
-        {
-            if (_blockedConImage != null) return _blockedConImage;
-            
-            _blockedConImage = AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
-            return _blockedConImage;
-        }
     }
 }

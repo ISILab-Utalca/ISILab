@@ -2,6 +2,7 @@ using ISILab.Commons;
 using ISILab.Commons.Extensions;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
@@ -162,7 +163,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="bundles"></param>
         /// <param name="connections"></param>
         /// <returns></returns>
-        private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, List<string> connections)
+        private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, List<string> connections, LBSTile tile)
         {
             // Get "Edge" bundles
             List<Bundle> currents = new List<Bundle>();
@@ -196,9 +197,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     settings.scale.x / 2f * -obj.transform.forward.x,
                     0,
                     settings.scale.y / 2f * -obj.transform.forward.z) * deltaWall;
-                
+
                 // Add ref component
-                LBSGenerated generatedComponent = obj.AddComponent<LBSGenerated>();
+                LBSGeneratedInterior generatedComponent = obj.AddComponent<LBSGeneratedInterior>();
+                //generatedComponent.Tile = tile;
+                DirConnection newDirConnection = new DirConnection(tile);
+                newDirConnection.connections.Add((i, connections[i]));
+
+                generatedComponent.DirConnection = newDirConnection;
                 generatedComponent.BundleRef = current;
             }
 
@@ -315,7 +321,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 // Add pref part to pivot
                 GenerateCenters(tileObj, bundles);
-                GenerateEdges(tileObj, bundles, connections);
+                GenerateEdges(tileObj, bundles, connections, tile);
                 GenerateCorners(tileObj, bundles, tile);
 
                 Vector3 basePos = settings.position;
