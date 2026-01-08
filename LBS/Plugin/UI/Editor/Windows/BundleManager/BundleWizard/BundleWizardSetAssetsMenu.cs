@@ -101,7 +101,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         public void Step()
         {
             //Builder.objects.Add(new List<GameObject>(prefabs));
-            Builder.tempBundles.AddRange(TempBundles);
+            //Builder.tempBundles.AddRange(TempBundles);
             Builder.newSubBundles.AddRange(TempBundles);
 
             //manipulator.target = null;
@@ -111,7 +111,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         {
             //bundleContainers.Clear();
             //TempBundles.Clear();
-            Builder.tempBundles.Clear();
+            //Builder.tempBundles.Clear();
             Builder.newSubBundles.Clear();
         }
 
@@ -122,7 +122,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             //tempBundles.Clear();
             bundleContainers.Clear();
 
-            Builder.tempBundles.Clear();
+            //Builder.tempBundles.Clear();
             Builder.newSubBundles.Clear();
 
             Builder.objects.Clear();
