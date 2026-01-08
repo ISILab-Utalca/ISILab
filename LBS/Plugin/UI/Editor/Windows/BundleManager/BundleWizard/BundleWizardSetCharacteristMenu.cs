@@ -141,11 +141,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         {
             int ind = i;
             var charElement = item as BundleWizardCharacteristicElement;
-            //if (!Con.elements.ContainsKey(allCharacteristics[ind]))
-            //{
-            //}
-            Con.elements.Clear();
-            Con.elements.Add(allCharacteristics[ind], charElement);
+            if (!Con.elements.ContainsKey(allCharacteristics[ind]))
+            {
+                Con.elements.Add(allCharacteristics[ind], charElement);
+            }
             //else
             //{
             //    try
