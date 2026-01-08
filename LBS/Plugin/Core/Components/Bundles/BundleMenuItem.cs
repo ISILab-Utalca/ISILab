@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
@@ -112,6 +113,19 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
 
         public static Bundle CreateBundleWithInstance(Bundle instance, string baseName = "New_Bundle")
         {
+            /* 
+            string folderPath = LBSSettings.Instance.paths.bundleFolderPath;
+            // 1. ASEGURAR QUE LA CARPETA EXISTE
+            // Si la ruta es "Assets/Folder/Subfolder", esto creará todas las carpetas faltantes.
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+                // Refrescamos la base de datos para que Unity "vea" la nueva carpeta
+                AssetDatabase.Refresh();
+            }
+            */
+
+            AssetDatabase.Refresh();
             string name = baseName;
             int counter = 0;
             //string path = "Assets/" + name + ".asset";
@@ -123,7 +137,7 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
                 path = LBSSettings.Instance.paths.bundleFolderPath + "/" + name + ".asset";
             }
 
-            instance.BundleName = baseName;
+            instance.BundleName = name;
 
             AssetDatabase.CreateAsset(instance, path);
             return instance;
