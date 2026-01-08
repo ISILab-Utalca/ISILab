@@ -446,16 +446,33 @@ namespace ISILab.LBS.VisualElements.Editor
             param1Field.Value = currentXField != null ? currentXField.GetType().Name : defaultSelectText;
             param2Field.Value = currentYField != null ? currentYField.GetType().Name : defaultSelectText;
             optimizerField.value = currentOptimizer?.Evaluator != null ? currentOptimizer.Evaluator.GetType().Name : defaultSelectText;
-            
+
+            InitializeAllCurrentEvaluators();
+
+            Vector3 scores = _assistant.EvaluateOriginalMap();
+
+            string textX = (scores.x > -1000) ? $" [Actual: {scores.x:0.00}]" : "";
+            string textY = (scores.y > -1000) ? $" [Actual: {scores.y:0.00}]" : "";
+            string textZ = (scores.z > -1000) ? $" [Actual: {scores.z:0.00}]" : "";
+
             yParamText.text = param2Field.Value;
             xParamText.text = param1Field.Value;
             zParamText.text = new string("Fitness (" + optimizerField.Value + ")");
 
+            if (scores.x > -1000)
+            {
+                xProgressBar.value = scores.x; 
+                yProgressBar.value = scores.y;
+                zProgressBar.value = scores.z;
+                xProgressBar.title = Mathf.FloorToInt(scores.x * 100).ToString() + "%";
+                yProgressBar.title = Mathf.FloorToInt(scores.y * 100).ToString() + "%";
+                zProgressBar.title = Mathf.FloorToInt(scores.z * 100).ToString() + "%";
+            }
             //param1Field.tooltip = currentXField.Tooltip;
             //param2Field.tooltip = currentYField.Tooltip;
             //optimizerField.tooltip = currentOptimizer?.Evaluator.Tooltip;
 
-            InitializeAllCurrentEvaluators();
+            //InitializeAllCurrentEvaluators();
         }
 
         #endregion

@@ -431,16 +431,16 @@ namespace ISILab.LBS.Modules
             set => locationKey = value;
         }
 
-        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, BundleTileMapAddons _addon = null)
+        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, List<BundleTileMapAddons> _addons = null)
         {
             tileGroup = tiles;
             this.bData = bData;
             guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
             this.rotation = rotation;
-            //if (addons is not null)
-            //    this.Addons = addons;
+            if (_addons is not null)
+                this.Addons = _addons;
 
-            BuildAddons(bData);
+            BuildAddons(bData); // TODO omit duplicates
         }
 
         private void BuildAddons(BundleData bData)
@@ -560,7 +560,7 @@ namespace ISILab.LBS.Modules
 
         public object Clone()
         {
-            return new TileBundleGroup(tileGroup.Clone(), bData.Clone() as BundleData, rotation, (Addons as ICloneable).Clone() as BundleTileMapAddons);
+            return new TileBundleGroup(tileGroup.Clone(), bData.Clone() as BundleData, rotation, Addons.Select(a => ((a as ICloneable)?.Clone() as BundleTileMapAddons) ?? a).ToList());
         }
 
         public override bool Equals(object obj)

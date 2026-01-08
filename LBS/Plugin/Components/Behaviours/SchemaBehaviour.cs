@@ -35,7 +35,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             "BlockedDoor" // within wall connection. Opened by trigger
 
         };
-        
+    
         #endregion
 
         #region FIELDS
