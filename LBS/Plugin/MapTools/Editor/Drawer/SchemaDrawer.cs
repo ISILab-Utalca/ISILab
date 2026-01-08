@@ -1,4 +1,3 @@
-using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
@@ -6,13 +5,10 @@ using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.VisualElements;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing.Imaging;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
@@ -20,6 +16,7 @@ namespace ISILab.LBS.Drawers
     [Drawer(typeof(SchemaBehaviour))]
     public class SchemaDrawer : Drawer
     {
+        private Color _zoneColor;
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {

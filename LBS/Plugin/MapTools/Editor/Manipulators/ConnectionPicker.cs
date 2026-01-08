@@ -48,26 +48,26 @@ namespace ISILab.LBS.Manipulators
             if (_behaviour is null) return;
             if (_behaviour.SelectedTilemap is null) return;
 
-            Addon_Unlock UnlockAddon = _behaviour.SelectedTilemap.GetAddon<Addon_Unlock>();
-            if (UnlockAddon is null) return;
+            //Addon_Unlock UnlockAddon = _behaviour.SelectedTilemap.GetAddon<Addon_Unlock>();
+            //if (UnlockAddon is null) return;
 
-            // The VisualElement that received the event
-            VisualElement hovered = e.target as VisualElement;
+            //// The VisualElement that received the event
+            //VisualElement hovered = e.target as VisualElement;
 
-            // Walk up the hierarchy if needed
-            var connectionView = hovered?.GetFirstAncestorOfType<SchemaTileConnectionView>();
+            //// Walk up the hierarchy if needed
+            //var connectionView = hovered?.GetFirstAncestorOfType<SchemaTileConnectionView>();
 
-            if (connectionView != null)
-            {
-                LBSTile tile = connectionView.Tile;
-                DirConnection newDirConnection = new DirConnection(tile);
-                int direction = LBSDirection.ToInt(connectionView.Direction);
-                string connection = connectionView.Type;
+            //if (connectionView != null)
+            //{
+            //    LBSTile tile = connectionView.Tile;
+            //    DirConnection newDirConnection = new DirConnection(tile);
+            //    int direction = LBSDirection.ToInt(connectionView.Direction);
+            //    string connection = connectionView.Type;
 
                 
-                newDirConnection.connections.Add((direction,connection));
-                UnlockAddon.DirConnection = newDirConnection;
-            }
+            //    newDirConnection.connections.Add((direction,connection));
+            //    UnlockAddon.DirConnection = newDirConnection;
+            //}
 
             OnManipulationEnd?.Invoke();
         }

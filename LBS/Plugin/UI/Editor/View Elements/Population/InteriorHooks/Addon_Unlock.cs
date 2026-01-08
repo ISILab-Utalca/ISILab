@@ -1,5 +1,6 @@
 using ISILab.LBS.Plugin.Components.Behaviours;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ISILab.LBS.Components
@@ -13,6 +14,7 @@ namespace ISILab.LBS.Components
     public class Addon_SingleUnlock : BundleTileMapAddons
     {
         // to identify the lbs generated interior component in a door
+        [SerializeField]
         DirConnection dirConnection; 
 
         public DirConnection DirConnection { get; set; }
@@ -26,7 +28,10 @@ namespace ISILab.LBS.Components
     public class Addon_TriggerUnlock : BundleTileMapAddons
     {
         // to identify the lbs generated interior component in a door
-        DirConnection dirConnection;
+        [SerializeField]
+        (TriggerActivationMode, List<DirConnection>) OnEnterUnlocks;
+        [SerializeField]
+        (TriggerActivationMode, List<DirConnection>) OnExitUnlocks;
 
         public DirConnection DirConnection { get; set; }
 
