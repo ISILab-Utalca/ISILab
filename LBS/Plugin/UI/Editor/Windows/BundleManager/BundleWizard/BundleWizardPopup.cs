@@ -246,8 +246,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 
         public List<List<GameObject>> objects { get; private set; } = new();
     
-        public List<Bundle> tempBundles { get; private set; } = new();
+        //public List<Bundle> tempBundles { get; private set; } = new();
         public List<Bundle> newSubBundles { get; private set; } = new();
+
+        public List<Bundle> newAssignBundles { get; private set; } = new();
      
         public List<Type> mainCharacteristics { get; private set; } = new();
         public List<Type> childrenCharacteristics { get; private set; } = new();
@@ -309,6 +311,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
                     newSubBundles[i].AddCharacteristic(Activator.CreateInstance(childrenCharacteristics[j]) as LBSCharacteristic);
                 }
                 main.AddChild(newSubBundles[i]);
+            }
+        }
+
+        public void TryAssign(Bundle mainBundle)
+        {
+            //this function must take newAssignBundles and then assign
+            // those bundles as children of current new Collection
+            // algo así como ... .parent = newCollection
+
+            foreach (Bundle b in newAssignBundles)
+            {
+                mainBundle.AddChild(b); 
             }
         }
 

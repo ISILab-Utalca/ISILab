@@ -4,6 +4,7 @@ using ISILab.LBS.Plugin.Internal;
 using PathOS;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -27,7 +28,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         private BundleManagerListGroup bundleListSameLayerOrphan;
         private BundleManagerListGroup bundleListSameLayer;
         private BundleManagerListGroup bundleListNoLayer;
-        //private List<BundleManagerWindow.BundleContainer> bundleContainersCurrent = new();
+        private List<BundleManagerWindow.BundleContainer> bundleContainersShow = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersTemp = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayerOrphan = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayer = new();
@@ -70,7 +71,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             bundleListCurrent.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listCurrent,
                 "CurrentBundles",
-                bundleContainersTemp,
+                bundleContainersShow,
                 itemHeight: 40
                 );
             bundleListCurrent.SetExpandButtonSetting(rootVisualElement, "CurrentBundles", listCurrent, true, true);
@@ -115,7 +116,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             foreach (Bundle b in Builder.newSubBundles)
             {
-                bundleContainersTemp.Add(new BundleManagerWindow.BundleContainer(b));
+                bundleContainersShow.Add(new BundleManagerWindow.BundleContainer(b));
             }
         }
 
@@ -153,7 +154,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             //Clear lists
             _allBundles.Clear();
 
-            //bundleContainersCurrent.Clear();
+            bundleContainersShow.Clear();
             bundleContainersTemp.Clear();
             bundleContainersNoLayer.Clear();
             bundleContainersSameLayer.Clear();
@@ -170,13 +171,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             BundleManagerListGroup.OnRequestMove -= HandleIncomingElement;
             // Nos suscribimos al evento
             BundleManagerListGroup.OnRequestMove += HandleIncomingElement;
-            Debug.Log("sus crito");
         }
 
         void OnDisable()
         {
             // Importante: desuscribirse para evitar errores de memoria
-            Debug.Log("DES suscrito");
             BundleManagerListGroup.OnRequestMove -= HandleIncomingElement;
         }
 
@@ -185,6 +184,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             if(!bundleContainersTemp.Contains((BundleManagerWindow.BundleContainer)element))
             {
                 bundleContainersTemp.Add((BundleManagerWindow.BundleContainer)element);
+                bundleContainersShow.Add((BundleManagerWindow.BundleContainer)element);
             }
             listCurrent.Rebuild();
             listCurrent.RefreshItems();
@@ -192,12 +192,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void Step()
         {
-            // save temp bundles into current bundles
+            Builder.newAssignBundles.AddRange(bundleContainersTemp.Select(bc => bc.GetMainBundle()).ToList());
             OnDisable();
         }
 
         public void StepBack()
         {
+            Builder.newAssignBundles.Clear();
             OnEnable();
         }
 
@@ -206,7 +207,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             Debug.Log("Builder data:\n\n" + Builder.ToString());
             CleanAllLists();
             OnDisable();
-            // borrar temp bundles
         }
     }
 }
