@@ -201,7 +201,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 // Add ref component
                 LBSGeneratedInterior generatedComponent = obj.AddComponent<LBSGeneratedInterior>();
                 //generatedComponent.Tile = tile;
-                DirConnection newDirConnection = new DirConnection(tile);
+                DirConnection newDirConnection = new DirConnection(connectedTilesMod.OwnerLayer,tile);
                 newDirConnection.connections.Add((i, connections[i]));
 
                 generatedComponent.DirConnection = newDirConnection;

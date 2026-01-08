@@ -22,6 +22,9 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [SerializeField, SerializeReference]
         public LBSTile tile;
 
+        [SerializeField, SerializeReference]
+        public LBSLayer layer;
+
         /// <summary>
         /// First value is the direction <see cref="LBSDirection.Connections"/> index.
         /// Second value is the connection <see cref="SchemaBehaviour.Connections"/>.
@@ -30,13 +33,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [SerializeField]
         public List<(int direction, string connection)> connections;
 
-        public DirConnection(LBSTile tile = null, List<(int direction, string connection)> connections = null)
+        public DirConnection(LBSLayer layer ,LBSTile tile, List<(int direction, string connection)> connections = null)
         {
             this.connections = new();
             if(connections is not null) this.connections = connections;
-
-            if (tile is null) this.tile = null;
-            else this.tile = tile;
+            this.tile = tile;
+            this.layer = layer;
         }
 
         public bool Equals(LBSTile otherTile, int direction, string connection)

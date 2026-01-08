@@ -5,8 +5,13 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class IntTriggerHookEditor : LBSCustomEditor
+    [UxmlElement]
+    public partial class Addon_TriggerUnlockEditor : LBSCustomEditor
     {
+        #region VIEW FIELDS
+        ListView triggerUnlockList;
+
+        #endregion
         public override void SetInfo(object paramTarget)
         {
             throw new System.NotImplementedException();

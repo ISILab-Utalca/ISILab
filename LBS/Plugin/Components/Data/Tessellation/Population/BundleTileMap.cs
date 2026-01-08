@@ -456,7 +456,8 @@ namespace ISILab.LBS.Modules
                 if (Tag.Label == "Drops") Addons.Add(new Addon_Drop());
                 if (Tag.Label == "Interactable") Addons.Add(new Addon_Interact());
                 if (Tag.Label == "TriggerArea") Addons.Add(new Addon_Trigger());
-              //  if (Tag.Label == "Unlock") Addons.Add.(new Addon_)
+                if (Tag.Label == "TriggerUnlock") Addons.Add(new Addon_TriggerUnlock());
+                if (Tag.Label == "Unlock") Addons.Add(new Addon_Unlock());
             }
         }
 
