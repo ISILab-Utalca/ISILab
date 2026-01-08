@@ -117,7 +117,7 @@ namespace PathOS
 
         private void Start()
         {
-            agents.AddRange(FindObjectsOfType<PathOSAgent>());
+            agents.AddRange(FindObjectsByType<PathOSAgent>(FindObjectsSortMode.None));
         }
 
         private void Update()
@@ -223,7 +223,7 @@ namespace PathOS
         public void GenerateNavMeshFromLBSModules(PathOSAgent affectedAgent)
         {
             // Variables
-            PathOSAgent[] batchingAgents = FindObjectsOfType<PathOSAgent>().Where(a => a.name.Contains("Temporary Batch Agent")).ToArray();
+            PathOSAgent[] batchingAgents = FindObjectsByType<PathOSAgent>(FindObjectsSortMode.None).Where(a => a.name.Contains("Temporary Batch Agent")).ToArray();
             bool newAgentIdFound = false;
             int currentSmallestUnassignedIdIndex = -1;
             // Surface
@@ -241,7 +241,7 @@ namespace PathOS
                                                                                            $"concurrent batching agents!"); return;
             }
             // AgentType-maximum non-batching check.
-            else if (batchingAgents.Length == 0 && FindObjectsOfType<PathOSAgent>(true).Length > NavMesh.GetSettingsCount() - 1)
+            else if (batchingAgents.Length == 0 && FindObjectsByType<PathOSAgent>(FindObjectsInactive.Include, FindObjectsSortMode.None).Length > NavMesh.GetSettingsCount() - 1)
             {
                 Debug.LogWarning($"More than {NavMesh.GetSettingsCount() - 1} (non-batching) agents detected." +
                                  $"Limit the number of concurrent agents to {NavMesh.GetSettingsCount() - 1}."); return;
@@ -251,7 +251,7 @@ namespace PathOS
             // GABO TODO: Horrible but currently works. Fix in the future.
             if (affectedAgent.GetComponent<NavMeshAgent>().agentTypeID != 0)
             {
-                surface = FindObjectsOfType<NavMeshSurface>().Where(
+                surface = FindObjectsByType<NavMeshSurface>(FindObjectsSortMode.None).Where(
                     s => s.agentTypeID == affectedAgent.GetComponent<NavMeshAgent>().agentTypeID).ToArray()[0];
                 if (surface == null)
                 {
@@ -264,9 +264,9 @@ namespace PathOS
             else
             {
                 // If single agent, no need to create extra surfaces (unless there's zero)
-                if (FindObjectsOfType<PathOSAgent>().Length == 1)
+                if (FindObjectsByType<PathOSAgent>(FindObjectsSortMode.None).Length == 1)
                 {
-                    surface = FindObjectOfType<NavMeshSurface>().GetComponent<NavMeshSurface>();
+                    surface = FindAnyObjectByType<NavMeshSurface>().GetComponent<NavMeshSurface>();
                     if (surface == null)
                     {
                         GameObject surfaceGameObject = new GameObject("TemporaryNavMeshSurface");
@@ -274,10 +274,10 @@ namespace PathOS
                     }
                 }
                 // For more than one agent, we need to give the current one its own surface.
-                else if (FindObjectsOfType<PathOSAgent>().Length > 1)
+                else if (FindObjectsByType<PathOSAgent>(FindObjectsSortMode.None).Length > 1)
                 {
 
-                    PathOSAgent[] allAgents = FindObjectsOfType<PathOSAgent>(true);  // Includes inactive agents
+                    PathOSAgent[] allAgents = FindObjectsByType<PathOSAgent>(FindObjectsInactive.Include, FindObjectsSortMode.None);  // Includes inactive agents
                     GameObject surfaceGameObject = new GameObject("TemporaryNavMeshSurface");
                     surface = surfaceGameObject.AddComponent<NavMeshSurface>();
 
@@ -324,17 +324,17 @@ namespace PathOS
             surface.overrideTileSize = false;
 
             // Interior Layers: GameObjects
-            List<GameObject> interiorLayerGameObjects = GameObject.FindObjectsOfType<GameObject>().Where(
+            List<GameObject> interiorLayerGameObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None).Where(
                 obj => obj.transform.childCount == 2 &&
                 obj.transform != null && obj.transform.GetChild(0).name == "Schema" &&
                 obj.transform != null && obj.transform.GetChild(1).name == "Schema outside").ToList();
 
             // Exterior Layers: GameObjects
-            List<GameObject> exteriorLayerGameObjects = GameObject.FindObjectsOfType<GameObject>().Where(
+            List<GameObject> exteriorLayerGameObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None).Where(
                 obj => obj.transform.childCount == 1 &&
                 obj.transform != null && obj.transform.GetChild(0).name == "Exterior").ToList();
             // Testing Layers: Active walls (depend on given agent)
-            List<GameObject> testingLayerWalls = GameObject.FindObjectsOfType<GameObject>().Where(
+            List<GameObject> testingLayerWalls = FindObjectsByType<GameObject>(FindObjectsSortMode.None).Where(
                 obj => //obj.name == "WallPrefab" &&
                 obj.transform.parent != null && obj.transform.parent.name == "Walls" &&
                 obj.transform.parent.parent != null && obj.transform.parent.parent.name == "PathOS+" &&

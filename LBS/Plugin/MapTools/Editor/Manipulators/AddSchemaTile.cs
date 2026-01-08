@@ -17,7 +17,7 @@ namespace ISILab.LBS.Manipulators
     public class AddSchemaTile : LBSManipulator
     {
         private SchemaBehaviour _schema;
-        protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
+        protected override string IconGuid => "5b66071190800e84ca56304adc6b4e50";
 
         private Zone ToSet
         {

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
+using ISILab.LBS.CustomComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,9 +11,8 @@ namespace LBS.VisualElements
     [UxmlElement]
     public partial class SimplePallete : VisualElement
     {
-        #region FACTORY
-        //public new class UxmlFactory : UxmlFactory<SimplePallete, VisualElement.UxmlTraits> { }
-        #endregion
+
+        #region DATA FIELDS
 
         private OptionView[] optionViews;
         private object[] options;
@@ -20,9 +20,12 @@ namespace LBS.VisualElements
         private object collectionSelected;
         private Action<OptionView, object> onSetView;
 
-        #region FIELS VIEW
-        private VisualElement content;
-        private DropdownField dropdownGroup;
+        #endregion
+
+        
+        #region UI PRIV FIELDS 
+        private readonly VisualElement contentContainer;
+        private LBSCustomDropdown dropdownGroup;
         private VisualElement icon;
         private Label nameLabel;
         private Button noElement;
@@ -94,21 +97,20 @@ namespace LBS.VisualElements
         #region CONSTRUCTORS
         public SimplePallete()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SimplePallete");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SimplePallete");
             visualTree.CloneTree(this);
+            this.AddToClassList("lbs-simple-palette");
 
             // Content
-            content = this.Q<VisualElement>("Content");
-            content.style.flexDirection = FlexDirection.Row;         // Horizontal layout
-            content.style.justifyContent = Justify.FlexStart;     // Space items evenly
-            content.style.alignItems = Align.Stretch;                 // Vertically center them
+            contentContainer = this.Q<VisualElement>("Content");
+            contentContainer.style.flexDirection = FlexDirection.Row;         // Horizontal layout
+            contentContainer.style.justifyContent = Justify.FlexStart;     // Space items evenly
+            contentContainer.style.alignItems = Align.Stretch;                 // Vertically center them
             
             // Change Group
-            dropdownGroup = this.Q<DropdownField>("DropdownGroup");
+            dropdownGroup = this.Q<LBSCustomDropdown>("DropdownGroup");
             dropdownGroup.RegisterCallback<ChangeEvent<string>>(evt => OnChangeGroup?.Invoke(evt));
-
-            // NameLabel
-            nameLabel = this.Q<Label>("NameLabel");
+            nameLabel = dropdownGroup.Q<Label>();
 
             // AddButton
             addButton = this.Q<Button>("AddButton");
@@ -122,7 +124,7 @@ namespace LBS.VisualElements
             noElement = this.Q<Button>("NoElement");
 
             // Icon
-            icon = this.Q<VisualElement>("IconPallete");
+            //icon = this.Q<VisualElement>("IconPallete");
 
         }
         #endregion
@@ -156,19 +158,21 @@ namespace LBS.VisualElements
         
         public void SetIcon(VectorImage icon, Color color)
         {
-            this.icon.style.backgroundImage = new StyleBackground(icon);
-            this.icon.style.unityBackgroundImageTintColor = color;
+            dropdownGroup.IconImage = icon;
+            dropdownGroup.IconColor = color;
         }
         
         public void SetName(string name)
         {
-            nameLabel.text = name;
+            
+            dropdownGroup.label = name;
+            dropdownGroup.style.display = name == "" ? DisplayStyle.None : DisplayStyle.Flex;
         }
 
         public void DisplayContent(bool show)
         {
-            if (show) content.style.display = DisplayStyle.Flex;
-            else content.style.display = DisplayStyle.None;
+            if (show) contentContainer.style.display = DisplayStyle.Flex;
+            else contentContainer.style.display = DisplayStyle.None;
         }
         
         public void Repaint()
@@ -176,7 +180,7 @@ namespace LBS.VisualElements
             MarkDirtyRepaint();
             
             OnRepaint?.Invoke();
-            content.Clear();
+            contentContainer.Clear();
 
             if (options.Any())
             {
@@ -188,14 +192,14 @@ namespace LBS.VisualElements
                     var view = new OptionView(option, OnInternalSelectOption, OnRemoveOption, onSetView);
                     view.tooltip = OnSetTooltip?.Invoke(option);
                     optionViews[i] = view;
-                    content.Add(view);
+                    contentContainer.Add(view);
                 }
             }
             else
             {
                 if (displayAddElement)
                 {
-                  content.Add(noElement);
+                    contentContainer.Add(noElement);
                 }
             }
 

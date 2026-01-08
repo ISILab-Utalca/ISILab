@@ -11,10 +11,40 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
+using System;
 
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
-    
+    [Serializable]
+    public struct DirConnection
+    {
+        // addons from the tilegroup that was used to generate this object in the LBS tool
+        [SerializeField, SerializeReference]
+        public LBSTile tile;
+
+        /// <summary>
+        /// First value is the direction <see cref="LBSDirection.Connections"/> index.
+        /// Second value is the connection <see cref="SchemaBehaviour.Connections"/>.
+        /// </summary>
+        /// 
+        [SerializeField]
+        public List<(int direction, string connection)> connections;
+
+        public DirConnection(LBSTile tile = null, List<(int direction, string connection)> connections = null)
+        {
+            this.connections = new();
+            if(connections is not null) this.connections = connections;
+
+            if (tile is null) this.tile = null;
+            else this.tile = tile;
+        }
+
+        public bool Equals(LBSTile otherTile, int direction, string connection)
+        {
+            return tile.Equals(otherTile) && connections.Contains((direction, connection));
+        }
+    }
+
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
@@ -27,12 +57,22 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [JsonIgnore]
         private static List<string> connections = new List<string>() // esto puede ser remplazado despues (!)
         {
-            "Empty", // for clearing a wall
-            "Wall", // default wall connection 
-            "Door", // within wall connection
-            "Window" // within wall connection
+            Empty, // for clearing a wall
+            Wall, // default wall connection 
+            Door, // within wall connection
+            Window, // within wall connection
+            LockedDoor, // within wall connection. Opened by key
+            BlockedDoor // within wall connection. Opened by trigger
+
         };
-    
+
+        public const string Empty = "Empty";
+        public const string Wall = "Wall";
+        public const string Door = "Door";
+        public const string Window = "Window";
+        public const string LockedDoor = "LockedDoor";
+        public const string BlockedDoor = "BlockedDoor";
+
         #endregion
 
         #region FIELDS

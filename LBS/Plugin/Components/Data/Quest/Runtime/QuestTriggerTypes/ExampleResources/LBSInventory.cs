@@ -60,6 +60,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
             // Can only equip items
             if (lbsGen.BundleRef.ElementFlag == Bundle.EElementFlag.Item)
             {
+                Debug.LogWarning(lbsGen.BundleRef.BundleName);
                 string guid = AssetMacro.GetGuidFromAsset(lbsGen.BundleRef);
 
                 if (string.IsNullOrEmpty(guid))

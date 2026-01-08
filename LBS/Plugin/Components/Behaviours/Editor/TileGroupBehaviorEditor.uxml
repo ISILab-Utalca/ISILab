@@ -1,28 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; align-self: stretch; justify-content: space-between;">
         <ui:VisualElement name="NoContent" style="flex-grow: 1; flex-direction: row; max-height: 48px;">
-            <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/Vectorial/Icon=Important&apos;); -unity-background-scale-mode: scale-and-crop; background-size: 100% 100%; min-height: 36px; max-height: 36px; min-width: 36px; max-width: 36px; align-self: center; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px;" />
+            <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/Vectorial/Population/Icon=Important&apos;); -unity-background-scale-mode: scale-and-crop; background-size: 100% 100%; min-height: 36px; max-height: 36px; min-width: 36px; max-width: 36px; align-self: center; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px;" />
             <ui:Label text="No tilemap is currently selected." style="align-self: center; padding-left: 12px; justify-content: space-between; align-content: stretch; align-items: stretch; flex-grow: 1;" />
         </ui:VisualElement>
         <ui:VisualElement name="Content" style="flex-grow: 1;">
-            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon text="Bundle Name" direction="Column" name="SelectedHeader" icon="project://database/Assets/ISILab/Commons/Assets2D/Resources/Icons/Vectorial/Logo/LBS.svg?fileID=7388822144124034973&amp;guid=12e384eee491b39459a9a6dd5e403595&amp;type=3#LBS" label="Selected Bundle: " style="align-self: stretch; justify-content: center; align-items: center;" />
-            <ui:VisualElement name="Patrol" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Patrol.asset?fileID=11400000&amp;guid=7d14522ccb3e27b469d6b129282c103c&amp;type=2#Patrol" enabled="false" label="Tag Behavior" />
-                <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Loop patrol route" name="PatrolLoop" tooltip="Once the last point is reached, the game object tries to move to the first point, instead of backtracking" />
-                <ISILab.LBS.CustomComponents.LBSCustomListView name="PatrolPointsView" header-title="Patrol Points" show-add-remove-footer="true" show-foldout-header="true" reorderable="true" show-border="true" />
-            </ui:VisualElement>
-            <ui:VisualElement name="Triggers" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/TriggerArea.asset?fileID=11400000&amp;guid=1a444632a5be67d42a25143941fa7abe&amp;type=2#TriggerArea" enabled="false" label="Tag Behavior" />
-                <ISILab.LBS.CustomComponents.LBSCustomListView name="AddonsView" show-foldout-header="true" reorderable="false" show-add-remove-footer="true" header-title="Triggers" horizontal-scrolling="false" show-border="true" virtualization-method="DynamicHeight" />
-            </ui:VisualElement>
-            <ui:VisualElement name="Interact" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Interactable.asset?fileID=11400000&amp;guid=376131f09fdb7594e9a321361fd3f0e3&amp;type=2#Interactable" enabled="false" label="Tag Behavior" />
-                <ISILab.LBS.CustomComponents.LBSCustomEventHooker name="InteractHook" />
-            </ui:VisualElement>
-            <ui:VisualElement name="Destroyed" style="flex-grow: 1;">
-                <ISILab.LBS.CustomComponents.LBSCustomObjectField value="project://database/Assets/ISILab/LBS/Plugin/Core/Components/Tags/PopulationTags/Destructible.asset?fileID=11400000&amp;guid=22465a8ab20fd9d4884efb2f61803db4&amp;type=2#Destructible" enabled="false" label="Tag Behavior" />
-                <ISILab.LBS.CustomComponents.LBSCustomEventHooker name="DestroyedHook" />
-            </ui:VisualElement>
+            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon text="Bundle Name" direction="Column" name="SelectedHeader" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Logo/LBS.svg?fileID=7388822144124034973&amp;guid=12e384eee491b39459a9a6dd5e403595&amp;type=3#LBS" label="Selected Bundle: " style="align-self: stretch; justify-content: center; align-items: center;" />
+            <ui:VisualElement name="AddonContainer" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

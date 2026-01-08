@@ -150,7 +150,7 @@ namespace ISILab.LBS.Behaviours
             return module.GetTile(x, y);
         }
 
-        public void MapToPopulation(List<TileBundleGroup> groups)
+        public void MapToPopulation(List<TileBundleGroup> groups, List<LBSTile> doorTiles)
         {
             //string s = string.Empty;
             //foreach(KeyValuePair<EntityType, PathOSStorage.SimulationEntityData> pair in PathOSStorage.Instance.entityDataPool)
@@ -214,6 +214,11 @@ namespace ISILab.LBS.Behaviours
                     Vector2Int pos = tile.Position;
                     AddTile(tag, pos.x, pos.y, entityType);
                 }
+            }
+
+            foreach(LBSTile door in doorTiles)
+            {
+                AddTile(null, door.x, door.y, EntityType.ET_POI);
             }
         }
 

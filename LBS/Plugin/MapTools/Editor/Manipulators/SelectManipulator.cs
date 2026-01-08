@@ -36,7 +36,9 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
-            LBSInspectorPanel.Instance.CallSelectableByPosition(LBSLayer, position);            
+            LBSInspectorPanel.Instance.CallSelectableByPosition(LBSLayer, position);
+
+
         }
     }
 }

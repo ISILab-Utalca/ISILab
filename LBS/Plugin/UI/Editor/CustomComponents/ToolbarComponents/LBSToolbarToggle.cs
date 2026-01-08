@@ -95,6 +95,7 @@ namespace ISILab.LBS.CustomComponents
             _toggleIconElement = new VisualElement();
             _toggleIconElement.AddToClassList("lbs-icon");
             Add(_toggleIconElement);
+
             if (toggleIcon != null)
             {
                 _toggleIconElement.style.backgroundImage = new StyleBackground(toggleIcon);
@@ -113,9 +114,8 @@ namespace ISILab.LBS.CustomComponents
                 inputVisualElement.style.display = DisplayStyle.None;
             }
             //_toggleIconElement.PlaceBehind(labelElement);
-            
-            
         }
+
         private void lockedButtonClick(ChangeEvent<bool> _changeEvent)
         {
             if (lockOnClick)

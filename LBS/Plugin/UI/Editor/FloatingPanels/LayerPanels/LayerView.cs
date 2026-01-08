@@ -54,10 +54,6 @@ namespace ISILab.LBS.VisualElements.Editor
             BindUIElements();
             Callbacks();
             SetStyleSelectors();
-            
-            
-
-
         }
 
 

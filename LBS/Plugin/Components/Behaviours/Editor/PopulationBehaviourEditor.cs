@@ -37,7 +37,7 @@ namespace ISILab.LBS.VisualElements
         
         #region VIEW FIELDS
         private readonly Color BHcolor = LBSSettings.Instance.view.behavioursColor;
-        private VectorImage icon = Resources.Load<VectorImage>("Icons/Vectorial/Icon=Behavior");
+        private VectorImage icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
         private SimplePallete bundlePallete;
         private WarningPanel warningPanel;
 
@@ -227,8 +227,9 @@ namespace ISILab.LBS.VisualElements
                 bundlePallete.Selected = behaviour.selectedToSet;
                 //bundlePallete.CollectionSelected = behaviour.BundleCollection;
             };
-            
-            
+
+            bundlePallete.SetName("Entities");
+            bundlePallete.SetIcon(icon, BHcolor);
 
         }
 

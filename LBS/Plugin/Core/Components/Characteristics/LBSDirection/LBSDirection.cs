@@ -35,6 +35,13 @@ namespace ISILab.LBS.Characteristics
         [SerializeField, JsonRequired]
         private List<string> connections = new List<string>();
 
+
+        public const string Right = "Right";
+        public const string Left = "Left";
+        public const string Up = "Up";
+        public const string Down = "Down";
+
+
         #endregion
 
         #region PROPERTIES
@@ -77,6 +84,51 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region METHODS
+
+        /// <summary>
+        /// Right: 0
+        /// Up: 1
+        /// Left: 2
+        /// Down: 3
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <returns></returns>
+        // TODO replace hardcoding and magic number search with this
+        public static int ToInt(string connection)
+        {
+            switch (connection)
+            {
+                case Right: return 0;
+                case Up: return 1;
+                case Left: return 2;
+                case Down: return 3;
+                    // should never be default what are you doing!
+                default: return -1;
+            }
+        }
+
+        // TODO replace hardcoding and magic number search with this
+        /// <summary>
+        /// 0: Right
+        /// 1: Up
+        /// 2: Left
+        /// 3: Down
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <returns></returns>
+        public static string ToString(int connection)
+        {
+            switch (connection)
+            {
+                case 0: return Right;
+                case 1: return Up;
+                case 2: return Left;
+                case 3: return Down;
+                // should never be default what are you doing!
+                default: return string.Empty;
+            }
+        }
+
         public string[] GetConnection(int rotation = 0)
         {
             var conections = connections;

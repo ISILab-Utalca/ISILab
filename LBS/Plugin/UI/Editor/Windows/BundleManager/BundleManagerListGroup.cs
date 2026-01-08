@@ -6,6 +6,7 @@ using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard;
 using ISILab.Extensions;
+using UnityEngine;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 {
@@ -26,6 +27,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
         private LBSCustomListView listView;
         private VisualTreeAsset listItemTemplate;
 
+        public static System.Action<object> OnRequestMove;
         #endregion
 
 
@@ -86,7 +88,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             List<BundleManagerWindow.BundleContainer> bundles,
             bool main = false,
             float itemHeight = 32,
-            bool deleteIconBool = true
+            bool DeleteFunct = true
         ) where T : VisualElement, IBundleElement, new()
         {
             listView = this.listView;
@@ -111,21 +113,42 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 
                 if (element is BundleWizardElement wizElement)
                 {
-                    wizElement.Index = i; // Maybe add Index to IBundleElement to avoid this extra check?
-                    System.Action remove = () =>
+                    if (DeleteFunct)
                     {
-                        //bundles.RemoveAt(i); // Apparently the callback is being called twice so using Remove instead ensures deleting only one element.
-                        bundles.Remove(container);
-                        EditorApplication.delayCall += () =>
+                        wizElement.Index = i; // Maybe add Index to IBundleElement to avoid this extra check?
+                        System.Action remove = () =>
                         {
-                            list.Rebuild();
-                            list.RefreshItems();
+                            //bundles.RemoveAt(i); // Apparently the callback is being called twice so using Remove instead ensures deleting only one element.
+                            bundles.Remove(container);
+                            EditorApplication.delayCall += () =>
+                            {
+                                list.Rebuild();
+                                list.RefreshItems();
+                            };
                         };
-                    };
-                    wizElement.SetRemoveCallback(remove);
+                        wizElement.SetRemoveCallback(remove);
+                    }
+                    else if(!DeleteFunct)
+                    {
+                        wizElement.Index = i; // Maybe add Index to IBundleElement to avoid this extra check?
+                        System.Action changeList = () =>
+                        {
+                            //bundles.RemoveAt(i); // Apparently the callback is being called twice so using Remove instead ensures deleting only one element.
+                            if (bundles.Contains(container))
+                            {
+                                bundles.Remove(container);
 
-                    if(!deleteIconBool)wizElement.RemoveDeleteIcon();
-
+                                OnRequestMove?.Invoke(container);
+                                EditorApplication.delayCall += () =>
+                                {
+                                    list.Rebuild();
+                                    list.RefreshItems();
+                                };
+                            }
+                        };
+                        wizElement.SetRemoveCallback(changeList);
+                        wizElement.RemoveDeleteIcon();
+                    }
                 }
             };
 
@@ -141,7 +164,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             listView = this.listView;
         }
 
-        public void SetExpandButtonSetting(VisualElement rootVisualElement, string columnName, ListView list, bool expanded = true)
+        public void SetExpandButtonSetting(VisualElement rootVisualElement, string columnName, ListView list, bool expanded = true, bool forceExpanded = false)
         {
             var button = rootVisualElement.Q<VisualElement>(columnName).Q<Button>("ExpandButton");
 
@@ -152,7 +175,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                 button.iconImage = Background.FromVectorImage(newState ? arrowDownIcon : arrowSideIcon);
             });
 
-            list.SetDisplay(list.itemsSource is not null && list.itemsSource.Count > 0 && expanded);
+            list.SetDisplay((list.itemsSource is not null && list.itemsSource.Count > 0 && expanded)||forceExpanded);
             button.iconImage = Background.FromVectorImage(list.GetDisplay() ? arrowDownIcon : arrowSideIcon);
         }
 

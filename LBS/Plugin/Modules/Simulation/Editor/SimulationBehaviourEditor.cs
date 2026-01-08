@@ -16,6 +16,7 @@ using PathOS;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -28,7 +29,7 @@ namespace ISILab.LBS.VisualElements
         // PathOS Original Inspector
         private PathOSWindow pathOSOriginalWindow;
         // Target (PathOSBehaviour)
-        private SimulationBehaviour pathOS;
+        private SimulationBehaviour behaviour;
         // Manipulators
         AddSimulationTile addPathOSTile;
         RemoveSimulationTile removePathOSTile;
@@ -43,27 +44,30 @@ namespace ISILab.LBS.VisualElements
 
         List<LBSLayer> populationLayers = new List<LBSLayer>();
         List<TileBundleGroup> populationGroups = new List<TileBundleGroup>();
+
+        List<LBSLayer> interiorLayers = new List<LBSLayer>();
+        List<LBSTile> interiorTiles = new List<LBSTile>();
         #endregion
 
         #region PROPERTIES
         public PathOSWindow PathOSOriginalWindow { get => pathOSOriginalWindow; set => pathOSOriginalWindow = value; }
 
-        LBSLevelData Data { get => pathOS.OwnerLayer.Parent; }
+        LBSLevelData Data { get => behaviour.OwnerLayer.Parent; }
         #endregion
 
         #region METHODS
         public SimulationBehaviourEditor(object target) : base(target)
         {
-            pathOS = target as SimulationBehaviour;
-            Debug.Log("BEHAVIOUR CONSTRUCTED");
-            pathOS.AutoMapCallback = MapToCurrentPopulation;
-            pathOS.RemoveAutoMapCallbacks = () =>
+            behaviour = target as SimulationBehaviour;
+            //Debug.Log("BEHAVIOUR CONSTRUCTED");
+            behaviour.AutoMapCallback = MapToCurrentPopulation;
+            behaviour.RemoveAutoMapCallbacks = () =>
             {
                 GetPopulationLayers();
                 foreach(LBSLayer layer in populationLayers)
                 {
                     layer.OnChange -= MapToCurrentPopulation;// _target.AutoMapCallback;
-                    Debug.Log($"Removed Auto Map Callback from layer {layer.Name}");
+                    //Debug.Log($"Removed Auto Map Callback from layer {layer.Name}");
                 }
             };
 
@@ -74,7 +78,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetInfo(object target)
         {
-            pathOS = target as SimulationBehaviour;
+            behaviour = target as SimulationBehaviour;
         }
 
         protected override VisualElement CreateVisualElement()
@@ -150,7 +154,7 @@ namespace ISILab.LBS.VisualElements
             // OnSelect event
             bundlePallete.OnSelectOption += (selected) =>
             {
-                pathOS.selectedToSet = selected as Bundle;
+                behaviour.selectedToSet = selected as Bundle;
                 ToolKit.Instance.SetActive(typeof(AddSimulationTile));
             };
 
@@ -187,7 +191,7 @@ namespace ISILab.LBS.VisualElements
                 
             });
 
-            bundlePallete.OnRepaint += () => { bundlePallete.Selected = pathOS.selectedToSet; };
+            bundlePallete.OnRepaint += () => { bundlePallete.Selected = behaviour.selectedToSet; };
 
             bundlePallete.Repaint();
         }
@@ -214,7 +218,7 @@ namespace ISILab.LBS.VisualElements
             foreach (LBSTool tool in new[] { t1, t2, t3, t4 })
             {
                 tool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-                toolkit.ActivateTool(tool, pathOS.OwnerLayer, pathOS);
+                toolkit.ActivateTool(tool, behaviour.OwnerLayer, behaviour);
             }
         }
 
@@ -222,6 +226,7 @@ namespace ISILab.LBS.VisualElements
         {
             base.OnFocus();
             UpdatePopulationGroups();
+            UpdateInteriorTiles();
         }
 
         private void UpdatePopulationGroups()
@@ -271,9 +276,35 @@ namespace ISILab.LBS.VisualElements
             return populationGroups;
         }
 
+        private void UpdateInteriorTiles()
+        {
+            interiorTiles.Clear();
+            GetInteriorLayers();
+            if (interiorLayers.Count > 0)
+                GetInteriorTiles();
+        }
+
+        private void GetInteriorLayers()
+        {
+            interiorLayers.Clear();
+            if(Data.LayerCount <= 1)
+                return;
+
+            interiorLayers = Data.Layers.FindAll(l => l.ID.Equals("Interior"));
+        }
+
+        private void GetInteriorTiles()
+        {
+            foreach(LBSLayer interiorLayer in interiorLayers)
+            {
+                interiorTiles.AddRange(interiorLayer.GetModule<SectorizedTileMapModule>().GetTilesWithDoors());
+            }
+        }
+
         private void MapToCurrentPopulation()
         {
             UpdatePopulationGroups();
+            UpdateInteriorTiles();
             MapToPopulation();
         }
 
@@ -283,12 +314,12 @@ namespace ISILab.LBS.VisualElements
 
             EditorGUI.BeginChangeCheck();
 
-            pathOS.MapToPopulation(populationGroups);
+            behaviour.MapToPopulation(populationGroups, interiorTiles);
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);
 
-            DrawManager.Instance.RedrawLayer(pathOS.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
         }
 
         private void ClearMapping()
@@ -297,14 +328,14 @@ namespace ISILab.LBS.VisualElements
 
             EditorGUI.BeginChangeCheck();
 
-            pathOS.ClearMapping();
+            behaviour.ClearMapping();
             autoMapToggle.value = false;
 
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);
 
-            DrawManager.Instance.RedrawLayer(pathOS.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
         }
 
         #endregion

@@ -1,17 +1,14 @@
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.VisualElements;
-using ISILab.LBS.VisualElements.Editor;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing.Imaging;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
@@ -19,11 +16,8 @@ namespace ISILab.LBS.Drawers
     [Drawer(typeof(SchemaBehaviour))]
     public class SchemaDrawer : Drawer
     {
-        private VectorImage _doorConImage = null;
-        private VectorImage _windowConImage = null;
         private Color _zoneColor;
-        
-        
+
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
@@ -296,35 +290,26 @@ namespace ISILab.LBS.Drawers
 
                 switch (connection.Key)
                 {
-                    case "top":
+                    case LBSDirection.Up:
                         yPos += -(tView.GetPosition().height / 2f);
                         break;
-                    case "bottom":
+                    case LBSDirection.Down:
                         yPos += (tView.GetPosition().height / 2f);
                         break;
-                    case "left":
+                    case LBSDirection.Left:
                         xPos += -(tView.GetPosition().width / 2f);
                         break;
-                    case "right":
+                    case LBSDirection.Right:
                         xPos += (tView.GetPosition().width / 2f);
                         break;
                 }
                 string connectionType = connection.Value;
-                var connectionTypes = SchemaBehaviour.Connections;
+
                 // Draw connection tile only if its not wall or open
-                if (connectionType != connectionTypes[0] && connectionType != connectionTypes[1])
+                if (connectionType != LBSDirection.ToString(0) 
+                    && connectionType != LBSDirection.ToString(1))
                 {
-                    VectorImage setIcon = null;
-                    if (connectionType == connectionTypes[2])
-                    {
-                        setIcon = GetDoorImage();
-                        tView.CreateConnectionView(setIcon, new Vector2(xPos, yPos), connection.Key);
-                    }
-                    else if (connectionType == connectionTypes[3])
-                    {
-                        setIcon = GetWindowImage();
-                        tView.CreateConnectionView(setIcon, new Vector2(xPos, yPos), connection.Key);
-                    }
+                     tView.CreateConnectionView(tile, connectionType, new Vector2(xPos, yPos), connection.Key);
                 }
             }
         }
@@ -343,21 +328,6 @@ namespace ISILab.LBS.Drawers
 
             return t;
         }
-        private VectorImage GetDoorImage()
-        {
-            if (_doorConImage == null)
-            {
-                _doorConImage = Resources.Load<VectorImage>("Icons/Vectorial/Icon=DoorConnection");
-            }
-            return _doorConImage;
-        }
-        private VectorImage GetWindowImage()
-        {
-            if (_windowConImage == null)
-            {
-                _windowConImage = Resources.Load<VectorImage>("Icons/Vectorial/Icon=WindowsConnection");
-            }
-            return _windowConImage;
-        }
+
     }
 }

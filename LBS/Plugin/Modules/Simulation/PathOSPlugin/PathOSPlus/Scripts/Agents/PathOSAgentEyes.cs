@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using PathOS; 
 
 
 /*
@@ -15,6 +14,10 @@ namespace PathOS
     [RequireComponent(typeof(PathOSAgent))]
     public class PathOSAgentEyes : MonoBehaviour
     {
+        public enum CamType { FreeMode, FirstPerson }
+
+        public CamType camType = CamType.FreeMode;
+
         private PathOSAgent agent;
         private static PathOSManager manager;
 
@@ -62,6 +65,8 @@ namespace PathOS
         // GABO: List of invisible walls (to this agent)
         public List<GameObject> invisibleWalls { get; private set; }
 
+        Quaternion fixedRotation;
+
         void Awake()
         {
             agent = GetComponent<PathOSAgent>();
@@ -71,6 +76,16 @@ namespace PathOS
 
             if (null == manager)
                 manager = PathOSManager.instance;
+
+            //camType = CamType.FirstPerson;
+
+            if(camType == CamType.FreeMode)
+            {
+                Vector3 target = cam.transform.position;
+                cam.transform.Translate(Vector3.up * 7 + Vector3.forward * -7);
+                cam.transform.LookAt(target);
+                fixedRotation = cam.transform.rotation;
+            }
 
             for (int i = 0; i < manager.levelEntities.Count; ++i)
             {
@@ -95,6 +110,8 @@ namespace PathOS
 
         void Update()
         {
+            //cam.transform.rotation = fixedRotation;
+
             perceptionTimer += Time.deltaTime;
 
             //Visual processing update.
@@ -116,7 +133,7 @@ namespace PathOS
             visible.Clear();
 
             Vector3 camForwardXZ = cam.transform.forward;
-            camForwardXZ.y = 0.0f;
+            if(camType.Equals(CamType.FirstPerson)) camForwardXZ.y = 0.0f;
 
             for (int i = 0; i < perceptionInfo.Count; ++i)
             {
@@ -125,7 +142,7 @@ namespace PathOS
                 Vector3 entityPos = entity.entityRef.objectRef.transform.position;
 
                 Vector3 entityVecXZ = entityPos - cam.transform.position;
-                entityVecXZ.y = 0.0f;
+                if (camType.Equals(CamType.FirstPerson)) entityVecXZ.y = 0.0f;
 
                 bool wasVisible = entity.visible;
 
@@ -139,6 +156,13 @@ namespace PathOS
                     && GeometryUtility.TestPlanesAABB(frustum, entity.entityRef.bounds)
                     && entity.entityRef.SizeVisibilityCheck(cam, visSizeThreshold)
                     && RaycastVisibilityCheck(entity.entityRef.bounds, entityPos); // GABO: Modified to ignore invisible walls.
+
+                /// SEBA NOTES
+                /// 1. is not invisible
+                /// 2. is in front
+                /// 3. is in frustum
+                /// 4. is sized enough
+                /// 5. no obstacles in view
 
                 if (wasVisible != entity.visible)
                 {
@@ -178,6 +202,8 @@ namespace PathOS
             }
 
             perceptionTimer = 0.0f;
+
+            //Debug.LogWarning(visible.Count);
         }
 
         //Uses an AABB and given position as nine points for checking
@@ -283,7 +309,6 @@ namespace PathOS
                 origin + dir.normalized * navmeshCastDistance + Vector3.up * navmeshCastHeight,
                 out hit, NavMesh.AllAreas);
 
-
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode =
                 (result) ?
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE :
@@ -296,6 +321,52 @@ namespace PathOS
 
             agent.memory.memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
                 out memHit, true);
+
+            return hit;
+        }
+
+        public NavMeshHit ExploreVisibilityCheckFreeMode(Vector3 origin, Vector3 dir, out bool result)
+        {
+            Vector3 position = origin;
+            float distance = 0.0f;
+
+            NavMeshHit hit = new NavMeshHit();
+
+            result = Physics.Raycast(origin, dir, out RaycastHit raycastHit, navmeshCastDistance);
+            position = raycastHit.point;
+            distance = raycastHit.distance; // No retorna esta distancia, sino la de hit.
+            if (result)
+            {
+                result = NavMesh.SamplePosition(raycastHit.point, out hit, 1, NavMesh.AllAreas);
+                if (result)
+                {
+                    var diffX = Mathf.Abs(raycastHit.point.x - hit.position.x);
+                    var diffY = Mathf.Abs(raycastHit.point.y - hit.position.y);
+                    var diffZ = Mathf.Abs(raycastHit.point.z - hit.position.z);
+                    Vector2 diff = new Vector2(diffX, diffZ);
+                    //Debug.LogWarning("Sample Deviation: " + diff + " | Height diff: " + diffY + $"\t | Raycast: {raycastHit.point} Sample: {hit.position}");
+                    position = hit.position;
+                    distance = Vector3.Distance(origin, position);
+                }
+            }
+
+            if (!result)
+            {
+                hit.distance = distance;
+                hit.position = position;
+            }
+
+            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode = //PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+            (result) ?
+                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN :
+                PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
+
+            agent.memory.memoryMap.Fill(position, fillCode);
+
+            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
+                new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
+
+            agent.memory.memoryMap.RayMemoryMap(new Ray(origin, dir), distance, out memHit, true, false); // No mapea 1 a 1, sino a lo largo, en lineas.
 
             return hit;
         }

@@ -18,6 +18,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 namespace ISILab.LBS.Behaviours.Editor
 {
@@ -37,10 +38,12 @@ namespace ISILab.LBS.Behaviours.Editor
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon = Resources.Load<VectorImage>("Icons/Vectorial/Icon=Palette");
+        private VectorImage icon = Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878"); 
         private SimplePallete areaPallete;
         private SimplePallete connectionPallete;
         private string zoneIconGuid = "76bf813a38668ce439887addd209058c";
+        private string lockedDoorIconGuid = "f79cf4ba5777aab4a884bca201ff0278";
+        private string blockedDoorIconGuid = "8e1818e3f49414e4997ecc63e331999f";
         private string windowConnectionIconGuid = "c0d00de1d82858c4b9d772a012caf67d";
         private string doorConnectionIconGuid = "cd77d8067cf8b6b44ab23da9a62173c0";
         private string wallConnectionIconGuid = "b29ab5d90498432409a5fb48f6be7bd5";
@@ -237,7 +240,8 @@ namespace ISILab.LBS.Behaviours.Editor
             if (!answer) return;
 
             behaviour.RemoveZone(option as Zone);
-            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer); //May fail, test and see
+            //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer); 
             ToolKit.Instance.SetActive(typeof(AddSchemaTile));
             areaPallete.Repaint();
 
@@ -311,6 +315,8 @@ namespace ISILab.LBS.Behaviours.Editor
             if(label == "Wall") return AssetMacro.LoadAssetByGuid<VectorImage>(wallConnectionIconGuid);
             if(label == "Door") return AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
             if(label == "Window") return AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
+            if (label == "LockedDoor") return AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
+            if (label == "BlockedDoor") return AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
             return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
         }
         

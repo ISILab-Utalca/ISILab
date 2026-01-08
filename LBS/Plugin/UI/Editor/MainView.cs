@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -441,13 +442,13 @@ namespace ISILab.LBS.Plugin.UI.Editor
             //return _layers.TryGetValue(layer, out LayerContainer container) ? container.GetElement(key) : null;
             if (_layers == null)
             {
-                Debug.LogError("_layers dictionary is null, there are no containers.");
+                UnityEngine.Debug.LogError("_layers dictionary is null, there are no containers.");
                 return null;
             }
             
             if (!_layers.TryGetValue(layer, out LayerContainer container))
             {
-                Debug.LogError($"Layer '{layer.ID}' not found in _layers.");
+                UnityEngine.Debug.LogError($"Layer '{layer.ID}' not found in _layers.");
                 return null;
             }
 

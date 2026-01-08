@@ -128,7 +128,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 //Set rotation
                 var r = Directions.Bidimencional.Edges.FindIndex(v => v == group.Rotation);
-                go.transform.rotation = Quaternion.Euler(0, 90 * (r + 1), 0);
+                Debug.Log("rotation: " + r);
+                go.transform.rotation = Quaternion.Euler(0, 90 * (r + 2), 0);
 
                 // Set General position
                 go.transform.position =

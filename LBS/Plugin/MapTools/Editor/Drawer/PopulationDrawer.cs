@@ -32,8 +32,10 @@ namespace ISILab.LBS.Drawers
             PopulationTileView.SelectedTile?.Highlight(false);
 
             OwnerLayer = population.OwnerLayer;
-            PaintNewTiles(population, view);
-            UpdateTilesRotation(population, view);
+            LoadAllTiles(population, view);
+
+            //PaintNewTiles(population, view);
+            //UpdateTilesRotation(population, view);
             //UpdateLoadedTiles(population, view);
 
             // Paint all tiles
