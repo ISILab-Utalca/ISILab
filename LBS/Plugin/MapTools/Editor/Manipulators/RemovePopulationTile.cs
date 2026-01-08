@@ -109,11 +109,23 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
             base.OnMouseDown(element, startPosition, e);
-            StartPosition = startPosition;
 
-            LeftButtonPressed = e.button == 0;
-            
-            CleanPreviews();
+            if (e.button == 0)
+            {
+                StartPosition = startPosition;
+
+                LeftButtonPressed = e.button == 0;
+                ForceCancel = false;
+
+                CleanPreviews();
+            }
+            else
+            {
+                ForceCancel = true;
+                MainView.Instance.RemoveElement(_previewFeedback);
+                MainView.Instance.RemoveElement(Feedback);
+                CleanPreviews();
+            }
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
@@ -177,7 +189,15 @@ namespace ISILab.LBS.Manipulators
             {
                 MainView.Instance.AddElement(feedback);
             }
+        }
 
+        protected override void OnKeyDown(KeyDownEvent e)
+        {
+            base.OnKeyDown(e);
+
+            MainView.Instance.RemoveElement(_previewFeedback);
+            MainView.Instance.RemoveElement(Feedback);
+            CleanPreviews();
         }
 
         private void CleanPreviews()

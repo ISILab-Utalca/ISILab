@@ -165,7 +165,7 @@ namespace ISILab.LBS.Editor.Windows{
 
             #region LOAD UI TREE
             //MainWindows UXML 
-            VisualTreeAsset visualTree = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
+            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
             visualTree.CloneTree(rootVisualElement);
             #endregion
             

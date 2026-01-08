@@ -208,7 +208,12 @@ namespace ISILab.LBS.VisualElements
                 }
             }
 
-            _current.SetSelectedVe(selected); 
+            var sw = Stopwatch.StartNew();
+
+            _current.SetSelectedVe(selected);
+
+            sw.Stop();
+            UnityEngine.Debug.Log($"[LBS] time: {sw.ElapsedMilliseconds} ms for Selected");
         }
         #endregion
 
