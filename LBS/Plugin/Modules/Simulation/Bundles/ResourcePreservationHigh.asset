@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fb3215f5e8c1242aa1598a18cd8a53, type: 3}
   m_Name: ResourcePreservationHigh
   m_EditorClassIdentifier: 
+  bundleName: 
   layerContentFlags: 0
   type: 0
   anchorPosition: 0
   color: {r: 0, g: 0, b: 0, a: 0}
+  iconGuid: 
   icon: {fileID: 2800000, guid: 954d8a4d4b430be40a331f4a82450040, type: 3}
   assets: []
   characteristics:
   - rid: 3505131093380038662
-  populationType: 0
+  elementFlag: 0
   tileSize: {x: 1, y: 1}
   childsBundles: []
   microGenTool:
@@ -33,9 +35,13 @@ MonoBehaviour:
     mesh: {fileID: 0}
     material: {fileID: 0}
   guid: 
+  entityType: 0
+  admissibleTypes: 
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 3505131093380038662
       type: {class: LBSPathOSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
