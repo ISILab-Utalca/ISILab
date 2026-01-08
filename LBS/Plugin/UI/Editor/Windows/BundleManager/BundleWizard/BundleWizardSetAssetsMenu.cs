@@ -78,7 +78,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             
 
             //Debug.Log("Init: " + GetType().Name);
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
+            //Debug.Log("Builder data:\n\n" + Builder.ToString());
             try
             {
                 dragAndDropContainer = this.Q<TemplateContainer>();

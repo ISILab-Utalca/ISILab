@@ -168,7 +168,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             void OnAnyButtonClicked(Button button)
             {
                 //Debug.Log(button.text);
-                Debug.Log("Current Step: " + CurrentStep);
+                //Debug.Log("Current Step: " + CurrentStep);
             }
 
             #endregion
