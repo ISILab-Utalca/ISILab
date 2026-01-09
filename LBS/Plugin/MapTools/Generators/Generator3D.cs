@@ -8,6 +8,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
+using static ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -33,11 +34,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             return rules.OfType<T>().FirstOrDefault();
         }
+
         [System.Obsolete("Unnecesary usage of obsolete class. Consider deleting this method or creating a new extension.")]
         public T GetRule<T>( List<LBSGeneratorRule> otherRules) where T : LBSGeneratorRule
         {
             return otherRules.OfType<T>().FirstOrDefault();
         }
+
         public void RemoveRule(LBSGeneratorRule rule)
         {
             if (rules.Remove(rule))
@@ -68,36 +71,42 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns>A tuple containing the game object and a list of messages |
         /// On successful generation: return gameObject, and empty list
         /// On failed generation: return gameObject and a list full of error message</returns>
-        public Tuple<GameObject, List<string>> Generate(LBSLayer layer,List<LBSGeneratorRule> rules, LBSGenerator3DSettings settings)
+        public Tuple<GameObject, List<GeneratedGO>> Generate(LBSLayer layer,List<LBSGeneratorRule> rules, LBSGenerator3DSettings settings)
         {
             // each generation should have a message to indicate the reasons for failed generations
-            List<string> messages = new List<string>();
+            List<GeneratedGO> gos = new List<GeneratedGO>();
             
             var name = settings.name;
             var parent = new GameObject(name);
             this.rules = rules;
-            
+
             parent.transform.position = settings.position;
             
             if (this.rules.Count <= 0)
             {
-                messages.Add("[ISILab]: Generator contain 0 rules to generate map");
-                return Tuple.Create(parent, messages);
+                gos.Add(new GeneratedGO(null, "[ISILab]: Generator contain 0 rules to generate map"));
+                return Tuple.Create(parent, gos);
             }
             
             for (int i = 0; i < this.rules.Count; i++)
             {
                 var ruleParent = rules[i].Generate(layer, settings);
-                if (ruleParent.Item1 == null)
+
+                if (ruleParent.go == null)
                 {
-                    messages.Add(ruleParent.Item2);
+                    gos.Add(new GeneratedGO(null, ruleParent.message));
                     continue;
                 }
-                ruleParent.Item1.SetParent(parent);
+                else if (ruleParent.message != null)
+                {
+                    gos.Add(ruleParent);
+                    continue;
+                }
+
+                    ruleParent.go.SetParent(parent);
             }
-            return Tuple.Create(parent, messages);
+            return Tuple.Create(parent, gos);
         }
         #endregion
-
     }
 }

@@ -15,6 +15,7 @@ Label {
 .lbs-label {
     color: var(--lbs-text-color, var(--lbs-default-text-color));
     -unity-text-align: middle-left;
+    font-size: 12px;
 }
 
 .lbs-field {
@@ -1573,7 +1574,7 @@ Toggle > .lbs-default-icon {
     padding: 3px;
 }
 
-.lbs-base-field-container{
+.lbs-base-field-container {
     background-color: var(--lbs-field-solid-bg-gray-color, var(--lbs-default-field-solid-bg-gray-color));
     border-width: 1px;
     border-radius: 3px;
@@ -1581,7 +1582,6 @@ Toggle > .lbs-default-icon {
     margin: 1px;
     padding: 3px;
 }
-
 
 .lbs-arrow {
     background-image: resource('Icons/Arrows/Icon=ArrowDown');
@@ -1673,9 +1673,6 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-object-field {
-}
-
-.actionbutton {
 }
 
 .lbs-graph-view {
@@ -1779,3 +1776,10 @@ Toggle > .lbs-default-icon {
 
 .lbs-simple-palette {
 }
+
+.lbs-rounded-button {
+    min-height: 24px;
+    background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
+}
+
+

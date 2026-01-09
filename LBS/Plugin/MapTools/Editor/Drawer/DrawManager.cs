@@ -104,12 +104,7 @@ namespace ISILab.LBS
                 Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
                 if(drawer == null) continue;
 
-                var sw = Stopwatch.StartNew();
-
                 drawer.Draw(component, MainView.Instance, layer.TileSize);
-
-                sw.Stop();
-                UnityEngine.Debug.Log($"Draw time {sw.ElapsedMilliseconds} ms for {component}");
             }
         }
 
@@ -173,8 +168,6 @@ namespace ISILab.LBS
 
         public void RedrawLayer(LBSLayer layer)
         {
-            UnityEngine.Debug.Log("Redraw Layer");
-
             _view.ClearLayerContainer(layer);
             DrawLayer(layer);
         }

@@ -149,8 +149,7 @@
 }
 
 
-/*useful styles for general cases*/
-
+/* #region Style Props */
 
 .horizontal{
     --height: 24px;
@@ -163,3 +162,14 @@
     --width: 24px;
     flex-direction: column;
 }
+
+.prop-centered {
+    flex-grow: 1;
+    align-content: center;
+    align-self: center;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+}
+
+/* #endregion */

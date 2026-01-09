@@ -283,7 +283,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="layer"></param>
         /// <param name="settings"></param>
         /// <returns></returns>
-        public override Tuple<GameObject,string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Init values
             Init(layer, settings);
@@ -383,7 +383,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
             if (tiles.Count <= 0)
             {
-                return Tuple.Create<GameObject,string>(mainPivot, "[ISI Lab]: Not tiles found");
+                return new GeneratedGO(mainPivot, "No tiles found");
             }
             
             // tiles
@@ -435,7 +435,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // main
             mainPivot.transform.position += settings.position;
             
-            return Tuple.Create<GameObject, string>(mainPivot, null);
+            return new GeneratedGO(mainPivot, null);
         }
 
         private GameObject CreateObject(GameObject pref, Transform pivot)

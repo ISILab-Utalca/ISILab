@@ -198,6 +198,13 @@ namespace ISILab.LBS.VisualElements.Editor
             xProgressBar = rootVisualElement.Q<ProgressBar>("XProgressBar");
             yProgressBar = rootVisualElement.Q<ProgressBar>("YProgressBar");
             zProgressBar = rootVisualElement.Q<ProgressBar>("ZProgressBar");
+
+
+            if (xProgressBar != null) { xProgressBar.value = 0; xProgressBar.title = "0%"; }
+            if (yProgressBar != null) { yProgressBar.value = 0; yProgressBar.title = "0%"; }
+            if (zProgressBar != null) { zProgressBar.value = 0; zProgressBar.title = "0%"; }
+
+
             //Set parameters. Make everyone a ranged evaluator, make the value a default, add the listener to change the chosen elite bundle and then disable it.
             //I set everything false so they can't be manipulated if there's no preset present.
             param1Field = rootVisualElement.Q<ClassDropDown>("XParamDropdown");
@@ -235,6 +242,9 @@ namespace ISILab.LBS.VisualElements.Editor
                 yParamText.text = param2Field.Value;
             });
             param2Field.SetEnabled(false);
+
+
+
         }
 
         private void SetUpPresets()
@@ -435,6 +445,7 @@ namespace ISILab.LBS.VisualElements.Editor
             
             //Set the map elite accordingly.
             mapEliteBundle = preset;
+            _assistant.LoadPresset(mapEliteBundle);
             presetFieldRef.value = mapEliteBundle;
             rows.value = mapEliteBundle.SampleCount.x;
             columns.value = mapEliteBundle.SampleCount.y;
@@ -458,7 +469,7 @@ namespace ISILab.LBS.VisualElements.Editor
             //InitializeAllCurrentEvaluators();
         }
 
-        //Cals from the original map to set initial values & update graph
+        //Calcs from the original map to set initial values & update graph
         private void originalMapCalcs()
         {
             Vector3 scores = _assistant.EvaluateOriginalMap();
