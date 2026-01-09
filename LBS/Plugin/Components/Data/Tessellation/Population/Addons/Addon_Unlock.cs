@@ -8,7 +8,7 @@ namespace ISILab.LBS.Components
     public class Addon_Unlock : BundleTileMapAddons
     {
         // keys may only unlcock a single connection at a time
-        [SerializeReference]
+        [SerializeField]
         DirConnection connection;
 
         public Action<DirConnection> OnConnectionChange;
@@ -19,7 +19,7 @@ namespace ISILab.LBS.Components
             set
             {
                 connection = value;
-                OnConnectionChange.Invoke(connection);
+                OnConnectionChange?.Invoke(connection);
             }
         }
 

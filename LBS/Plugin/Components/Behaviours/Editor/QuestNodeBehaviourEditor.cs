@@ -200,8 +200,13 @@ namespace ISILab.LBS.VisualElements
             QuestPicker questPicker = new();
             LBSTool toolPicker = new(questPicker);
             toolPicker.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            
-            toolkit.ActivateTool(toolPicker,_behaviour?.OwnerLayer, target);
+            toolkit.ActivateTool(toolPicker, _behaviour?.OwnerLayer, target);
+
+            // context exclusive from the Node Panel
+            VisualElement toolButton = toolkit.GetToolButton(typeof(QuestPicker));
+            toolButton.SetEnabled(false);
+
+          
         }
 
         private void OnSelectNode(GraphNode graphNode)

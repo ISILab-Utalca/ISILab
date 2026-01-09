@@ -9,10 +9,10 @@ namespace ISILab.LBS.Components
     public class Addon_TriggerUnlock : BundleTileMapAddons
     {
         // triggers may unlock multiple connections at one
-        [SerializeReference]
-        (TriggerActivationMode, List<Addon_Unlock>) connections;
+        [SerializeField]
+        List<TriggerUnlockEntry> connections = new();
 
-        public (TriggerActivationMode, List<Addon_Unlock>) Connections 
+        public List<TriggerUnlockEntry> Connections 
         {
             get => connections; 
             set => connections = value; 
@@ -22,4 +22,14 @@ namespace ISILab.LBS.Components
 
 
     }
+
+    [Serializable]
+    public class TriggerUnlockEntry
+    {
+        public TriggerActivationMode Mode = TriggerActivationMode.OnEnter;
+        public List<Addon_Unlock> Unlocks = new();
+
+        public TriggerUnlockEntry() { }
+    }
+
 }

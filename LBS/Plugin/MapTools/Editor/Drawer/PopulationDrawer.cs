@@ -64,7 +64,7 @@ namespace ISILab.LBS.Drawers
             foreach (TileBundleGroup nTile in newTiles)
             {
                 PopulationTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(population.OwnerLayer, nTile.LocationKey);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(population.OwnerLayer, nTile.LocationKey);
 
                 if (previousElement is not null && previousElement.Count > 0)
                 {
@@ -76,6 +76,7 @@ namespace ISILab.LBS.Drawers
                 {
                     createCount++;
                     tView = CreatePopulationTileView(nTile, population);
+  
                     // Stores using TileBundleGroup as key
                     view.AddElementToLayerContainer(population.OwnerLayer, nTile.LocationKey, tView);
                 }
@@ -95,7 +96,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
 
-                var elements = view.GetElementsFromLayerContainer(population.OwnerLayer, tile.LocationKey);
+                var elements = view.GetElementsFromLayer(population.OwnerLayer, tile.LocationKey);
                 if (elements == null) continue;
 
                 foreach (var graphElement in elements)
@@ -123,7 +124,7 @@ namespace ISILab.LBS.Drawers
             foreach (TileBundleGroup nTileGroup in population.RetrieveNewRotations())
             {
                 // Get PopulationTileViews from MainView
-                foreach (var graphElement in view.GetElementsFromLayerContainer(population.OwnerLayer, nTileGroup.LocationKey))
+                foreach (var graphElement in view.GetElementsFromLayer(population.OwnerLayer, nTileGroup.LocationKey))
                 {
                     // Rotate visual element
                     var tView = (PopulationTileView)graphElement;
@@ -171,7 +172,7 @@ namespace ISILab.LBS.Drawers
             foreach (TileBundleGroup tileBundleGroup in population.Tilemap)
             {
                 PopulationTileView tileView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(population.OwnerLayer, tileBundleGroup.LocationKey);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(population.OwnerLayer, tileBundleGroup.LocationKey);
 
                 if (previousElement is not null && previousElement.Count > 0)
                 {
@@ -199,7 +200,7 @@ namespace ISILab.LBS.Drawers
 
             foreach (TileBundleGroup tile in population.Keys)
             {
-                foreach (var graphElement in view.GetElementsFromLayerContainer(population.OwnerLayer, tile.LocationKey).Where(graphElement => graphElement != null))
+                foreach (var graphElement in view.GetElementsFromLayer(population.OwnerLayer, tile.LocationKey).Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -214,7 +215,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
 
-                var elements = view.GetElementsFromLayerContainer(population.OwnerLayer, tile.LocationKey);
+                var elements = view.GetElementsFromLayer(population.OwnerLayer, tile.LocationKey);
                 foreach (var graphElement in elements)
                 {
                     graphElement.style.display = DisplayStyle.None;
@@ -235,6 +236,8 @@ namespace ISILab.LBS.Drawers
 
             // Create new graph element for the tile
             PopulationTileView tileView = new PopulationTileView(nTile, OwnerLayer);
+            // ignore so it does not block the connection selection
+            tileView.pickingMode = PickingMode.Ignore;
 
             UpdatePopulationTile(tileView, nTile, population);
 
