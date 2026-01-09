@@ -169,6 +169,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void GenerateAllLayers()
         {
+
             LBSMainWindow mw = EditorWindow.GetWindow<LBSMainWindow>();
             if(mw == null) return;
             //var layers = mw.GetLayers();
@@ -192,6 +193,8 @@ namespace ISILab.LBS.VisualElements.Editor
             Object.DestroyImmediate(GameObject.Find(_nameField.value));
             //crear objeto empty fuera del foreach
             GameObject rootParent = new GameObject(_nameField.value);
+
+            StandardTopDownCamera.SetStandardTopDown(rootParent);
             
             foreach (LBSLayer layer in layers)
             {
@@ -318,11 +321,13 @@ namespace ISILab.LBS.VisualElements.Editor
             if (GameObject.Find(_nameField.value))
             {
                 generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
+                StandardTopDownCamera.SetStandardTopDown(GameObject.Find(_nameField.value));
             }
             else
             {
                 GameObject rootParent = new GameObject(_nameField.value);
                 generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
+                StandardTopDownCamera.SetStandardTopDown(rootParent);
             }
 
             // If it created a usable LBS game object 
