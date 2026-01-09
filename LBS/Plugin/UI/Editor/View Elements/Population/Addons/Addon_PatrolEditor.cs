@@ -49,7 +49,8 @@ namespace ISILab.LBS.VisualElements
                 if (addonPatrol is not null)
                     addonPatrol.Loops = evt.newValue;
                 PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+                //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
 
             });
 
@@ -103,7 +104,8 @@ namespace ISILab.LBS.VisualElements
                 {
                     addonPatrol.Points[index] = _vector.newValue;
                     PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                    DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                    DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+                    //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
                 });
 
 
@@ -116,7 +118,8 @@ namespace ISILab.LBS.VisualElements
                 addonPatrol.Points.Add(behaviour.SelectedTilemap.GetBounds().position);
                 PatrolPointsView.Rebuild();
                 PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+                //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
             };
 
             // Remove selected point
@@ -128,7 +131,8 @@ namespace ISILab.LBS.VisualElements
                 addonPatrol.Points.RemoveAt(index);
                 PatrolPointsView.Rebuild();
                 PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+                //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
             };
 
         }

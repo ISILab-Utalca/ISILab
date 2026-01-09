@@ -9,13 +9,6 @@ namespace ISILab.LBS.Components
     {
     }
 
-    [Serializable]
-    public struct TilePatrol
-    {
-        
-    }
-
-
     public enum TriggerActivationMode
     {
         OnEnter,

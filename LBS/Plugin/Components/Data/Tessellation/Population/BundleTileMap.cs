@@ -448,6 +448,7 @@ namespace ISILab.LBS.Modules
             Addons = new List<BundleTileMapAddons>();
 
             var tagCharacteristic = bData.GetCharacteristic<LBSTagsCharacteristic>();
+            if (tagCharacteristic is null) return;
             foreach (var Tag in tagCharacteristic.Tags)
             {
                 if (Tag.Label == "Patrol") Addons.Add(new Addon_Patrol());
@@ -455,6 +456,8 @@ namespace ISILab.LBS.Modules
                 if (Tag.Label == "Drops") Addons.Add(new Addon_Drop());
                 if (Tag.Label == "Interactable") Addons.Add(new Addon_Interact());
                 if (Tag.Label == "TriggerArea") Addons.Add(new Addon_Trigger());
+                if (Tag.Label == "TriggerUnlock") Addons.Add(new Addon_TriggerUnlock());
+                if (Tag.Label == "Unlock") Addons.Add(new Addon_Unlock());
             }
         }
 
