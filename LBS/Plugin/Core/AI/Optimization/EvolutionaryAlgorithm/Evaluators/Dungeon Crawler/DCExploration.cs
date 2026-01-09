@@ -167,6 +167,15 @@ namespace ISILab.AI.Categorization
             if (from >= others.Count)
                 return;
 
+            Dictionary<Vector2Int, LBSTile> tilePos = new Dictionary<Vector2Int, LBSTile>();
+            foreach (var pair in sectorizedTM.PairTiles)
+            {
+                if (!tilePos.ContainsKey(pair.Tile.Position))
+                {
+                    tilePos.Add(pair.Tile.Position, pair.Tile);
+                }
+            }
+
             List<int> remainingOthers = new List<int>(others);
             remainingOthers.RemoveRange(0, from);
             remainingOthers.Remove(startPos);
@@ -203,7 +212,11 @@ namespace ISILab.AI.Categorization
                     List<Vector2Int> dirs = Directions.Bidimencional.Edges;
                     foreach (Vector2Int dir in dirs)
                     {
-                        LBSTile currentTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == currentPos).Tile;
+                        //LBSTile currentTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == currentPos).Tile;
+                        if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile))
+                        {
+                            continue;
+                        }
                         string currentConnection = connectedTM.GetConnections(currentTile)[dirs.FindIndex(d => d.Equals(dir))];
                         if (!(currentConnection.Equals("Door") || currentConnection.Equals("Empty")))
                             continue;
@@ -219,7 +232,11 @@ namespace ISILab.AI.Categorization
                         Zone otherZone = sectorizedTM.GetZone(newPos);
                         if (otherZone is null) continue;
 
-                        LBSTile newTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == newPos).Tile;
+                        //LBSTile newTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == newPos).Tile;
+                        if (!tilePos.TryGetValue(newPos, out LBSTile newTile))
+                        {
+                            continue;
+                        }
                         string connection = connectedTM.GetConnections(newTile)[dirs.FindIndex(d => d.Equals(-dir))];
                         if (!(connection.Equals("Door") || connection.Equals("Empty")))
                             continue;
