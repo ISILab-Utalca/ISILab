@@ -176,7 +176,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return pivot;
         }
 
-        public override Tuple<GameObject,string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Init values
             Init(layer, settings);
@@ -226,7 +226,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             if (tiles.Count <= 0)
             {
-                return Tuple.Create<GameObject,string>(mainPivot,"Could not finish generating zone, no tiles found");
+                return new GeneratedGO(mainPivot, "Could not finish generating zone, no tiles found");
             }
             
             var x = tiles.Average(t => t.transform.position.x);
@@ -242,7 +242,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             mainPivot.transform.position += settings.position;
 
-            return Tuple.Create<GameObject,string>(mainPivot, null);
+            return new GeneratedGO(mainPivot, null);
         }
 
         public override object Clone()

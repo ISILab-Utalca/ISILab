@@ -17,6 +17,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 
 using LBS.Components;
 using ISILab.LBS.Macros;
+using UnityEditor.VersionControl;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -150,7 +151,7 @@ namespace ISILab.LBS.VisualElements.Editor
             if (layer == null)
             {
                 //TODO: WHY IS THIS RECOGNIZING THE LAYER ON THE INITIATOR?????????????
-                LBSMainWindow.MessageNotify("[ISI Lab] Warning: You don't have any layer selected.", LogType.Warning, 2);
+                LBSMainWindow.MessageNotify("Warning: You don't have any layer selected.", LogType.Warning, 2);
                 return;
             }
 
@@ -165,43 +166,48 @@ namespace ISILab.LBS.VisualElements.Editor
             _resizeField.value = LBSSettings.Instance.generator.settings.resize;
         }
         
-        
-
-        private void GenerateAllLayers()
+        void GenerateAllLayers()
         {
-
             LBSMainWindow mw = EditorWindow.GetWindow<LBSMainWindow>();
-            if(mw == null) return;
-            //var layers = mw.GetLayers();
+            if (mw == null) return;
             var layers = new List<LBSLayer>(mw.GetLayers());
+
+            // Custom order for layer IDs
+            string[] order = { "Interior", "Exterior", "Population", "Quest", "Simulation" };
+            var orderDict = order.Select((id, idx) => new { id, idx }).ToDictionary(x => x.id, x => x.idx);
+
             layers.Sort((l1, l2) =>
             {
-                const string Simulation = "Simulation";
-                bool l1IsTesting = l1.ID.Equals(Simulation),
-                    l2IsTesting = l2.ID.Equals(Simulation);
-
-                if (l1IsTesting && !l2IsTesting) return 1;
-                if(!l1IsTesting && l2IsTesting) return -1;
-                return 0;
+                int idx1 = orderDict.TryGetValue(l1.ID, out var v1) ? v1 : int.MaxValue;
+                int idx2 = orderDict.TryGetValue(l2.ID, out var v2) ? v2 : int.MaxValue;
+                return idx1.CompareTo(idx2);
             });
+
             //string log = "";
             //foreach (var l in layers)
             //    log += l.ID + "\n";
             //Debug.Log(log);
-            
+
             //eliminar previo "root_Parent"
             Object.DestroyImmediate(GameObject.Find(_nameField.value));
             //crear objeto empty fuera del foreach
             GameObject rootParent = new GameObject(_nameField.value);
 
-            StandardTopDownCamera.SetStandardTopDown(rootParent);
+            //StandardTopDownCamera.SetStandardTopDown(rootParent);
             
+
+            bool ok = false;
+
             foreach (LBSLayer layer in layers)
             {
                 _layer = layer;
-                GenerateSingleLayer();
+                ok = GenerateSingleLayer();
+
+                if (!ok) break; 
             }
-            OnFinishGenerate();
+
+            if (ok) OnFinishGenerate();
+            else Object.DestroyImmediate(rootParent);
         }
         
         private bool ToggleBakeLighting()
@@ -227,15 +233,16 @@ namespace ISILab.LBS.VisualElements.Editor
             if (_layer is not null) tempLayer = _layer;
             
             var foundLayer = layers.Find(l => l.Name == layerName);
+            bool ok = false;
             if (foundLayer != null)
             {
                 _layer = foundLayer;
-                GenerateSingleLayer();
+                ok = GenerateSingleLayer();
             }
 
             if (tempLayer is not null) _layer = tempLayer;
             
-            OnFinishGenerate();
+            if (ok) OnFinishGenerate();
         }
 
         private void OnFinishGenerate()
@@ -254,7 +261,6 @@ namespace ISILab.LBS.VisualElements.Editor
                 {
                     LBSMainWindow.MessageNotify("Missing lightning settings BakeSetting", LogType.Error, 4);
                 }
-
             }
             
             EditorWindow.FocusWindowIfItsOpen<SceneView>();
@@ -316,34 +322,64 @@ namespace ISILab.LBS.VisualElements.Editor
             
             // Generation Call
             var generated = GeneratorSettings.Generate(_layer, _layer.GeneratorRules, _settings);
-            
+
             // Setting layer's parent, "root_Parent"
-            if (GameObject.Find(_nameField.value))
+
+            var root = GameObject.Find(_nameField.value);
+
+            if (root)
             {
-                generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
-                StandardTopDownCamera.SetStandardTopDown(GameObject.Find(_nameField.value));
+                //generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
+                generated.Item1.transform.parent = root.transform;
+                //StandardTopDownCamera.SetStandardTopDown(GameObject.Find(_nameField.value));
             }
             else
             {
                 GameObject rootParent = new GameObject(_nameField.value);
-                generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
-                StandardTopDownCamera.SetStandardTopDown(rootParent);
+                //generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
+                //StandardTopDownCamera.SetStandardTopDown(rootParent);
+                generated.Item1.transform.parent = rootParent.transform;
             }
 
-            // If it created a usable LBS game object 
+            // If it didn't create a usable LBS game object 
             if (generated.Item1 == null || generated.Item1.gameObject == null ||
                 !generated.Item1.GetComponentsInChildren<Transform>().Any() || generated.Item2.Any())
             {
                 var errormessage = "Layer " + _layer.Name + " could not be created correctly.";
                 LBSMainWindow.MessageNotify(errormessage, LogType.Error);
                 Debug.LogError(errormessage);
-                
-                foreach (var message in generated.Item2)
+
+                foreach (var ggo in generated.Item2)
                 {
-                    LBSMainWindow.MessageNotify("   " + message, LogType.Error, 6);
+                    if (ggo.message != "" || ggo.message != null)
+                    {
+                        LBSMainWindow.MessageNotify("   " + ggo.message, LogType.Error, 6);
+                        Debug.LogError(ggo.message);
+                    }
                 }
 
-                if (generated.Item1 is not null) Object.DestroyImmediate(generated.Item1.gameObject);
+                if (generated.Item1 is not null) 
+                    Object.DestroyImmediate(generated.Item1.gameObject);
+                
+                foreach(var ggo in generated.Item2)
+                {
+                    if (ggo.go is not null)
+                    {
+                        if (ggo.go.transform.parent is not null)
+                        {
+                            for (int i = 0; i < ggo.go.transform.childCount; i++)
+                            {
+                                if (ggo.go.transform.GetChild(i) is not null)
+                                    Object.DestroyImmediate(ggo.go.transform.GetChild(i).gameObject);
+                            }
+
+                            Object.DestroyImmediate(ggo.go.transform.parent.gameObject);
+                        }
+
+                        Object.DestroyImmediate(ggo.go);
+                    }
+                }
+
                 return false;
             }
             
@@ -366,7 +402,6 @@ namespace ISILab.LBS.VisualElements.Editor
             return true;
 
         }
-
 
         private void BakeReflections()
         {
@@ -391,7 +426,6 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 StaticObjs(child.gameObject);
             }
-        }
-        
+        }   
     }
 }

@@ -165,7 +165,7 @@ namespace ISILab.LBS.Editor.Windows{
 
             #region LOAD UI TREE
             //MainWindows UXML 
-            VisualTreeAsset visualTree = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
+            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
             visualTree.CloneTree(rootVisualElement);
             #endregion
             
@@ -337,12 +337,7 @@ namespace ISILab.LBS.Editor.Windows{
             layerPanel.OnSelectLayer += OnSelectedLayerChange;
             layerPanel.OnAddLayer += layer =>
             {
-                var sw = new Stopwatch();
-                sw.Start();
-             //   sw.Stop(); Debug.Log("OnAddLayer: " + sw.ElapsedMilliseconds + " ms");
-                sw.Restart();
                 DrawManager.Instance.AddContainer(layer);
-                //  sw.Stop(); Debug.Log("DrawManager.Instance.AddContainer: " + sw.ElapsedMilliseconds + " ms");
             };
             layerPanel.OnRemoveLayer += l =>
             {

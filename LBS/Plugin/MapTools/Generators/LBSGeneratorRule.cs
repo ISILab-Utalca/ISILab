@@ -13,6 +13,18 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         [JsonIgnore, SerializeField]
         internal Generator3D generator3D;
 
+        public struct GeneratedGO
+        {
+            public GameObject go;
+            public string message;
+
+            public GeneratedGO(GameObject _go, string _message)
+            {
+                go = _go;
+                message = _message;
+            }
+        }
+
         public LBSGeneratorRule() { }
 
         /// <summary>
@@ -22,7 +34,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="settings"></param>
         /// <returns>returns a tuple of the generated game object containing all the content, as well as a
         /// string in case the game object is invalid(null)</returns>
-        public abstract Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings);
+        public abstract GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings); //Falta modificar las reescrituras
 
         /// <summary>
         /// Check if the layer is viable to be generated

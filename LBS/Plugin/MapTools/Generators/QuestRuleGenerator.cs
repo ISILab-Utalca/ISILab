@@ -57,9 +57,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="layer"> the quest layer that contains the quest nodes and edges</param>
         /// <param name="settings"> the settings of the generator</param>
         /// <returns></returns>
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
-            
             var pivot = new GameObject(layer.ID);
             var observer = pivot.AddComponent<QuestTracker>();
 
@@ -67,30 +66,35 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var quest = layer.GetModule<QuestGraph>().Clone() as QuestGraph;
             if(quest == null)
             {
-                return Tuple.Create<GameObject, string>(null, "No quest graph found. Can't generate");
+                Object.DestroyImmediate(pivot);
+                return new GeneratedGO(null, "No quest graph found. Can't generate");
             }
             CloneRefs.End();
 
             if (!quest.GraphEdges.Any())
             {
-                return Tuple.Create<GameObject, string>(null, "The quest graph is empty!. Can't generate");
+                Object.DestroyImmediate(pivot);
+                return new GeneratedGO(null, "The quest graph is empty!. Can't generate");
             }
             
             if (quest.Root is null)
             {
-                return Tuple.Create<GameObject, string>(null, "There is no root in the graph. Assign a root to generate the quest");
+                Object.DestroyImmediate(pivot);
+                return new GeneratedGO(null, "There is no root in the graph. Assign a root to generate the quest");
             }
 
             if (quest.GetQuestNodes().All(n => n.NodeType != QuestNode.ENodeType.Goal))
             {
-                return Tuple.Create<GameObject, string>(null, "There must be at least one goal node. Make sure to have actions with roots but no branches");
+                Object.DestroyImmediate(pivot);
+                return new GeneratedGO(null, "There must be at least one goal node. Make sure to have actions with roots but no branches");
             }
             
             var assistant = layer.GetAssistant<GrammarAssistant>();
             bool allValid = assistant.ValidateQuestGraph();
              if (!allValid)
-             {
-                 return Tuple.Create<GameObject, string>(null, "At least one quest node is not grammatically valid. Fix or remove");
+            {
+                Object.DestroyImmediate(pivot);
+                return new GeneratedGO(null, "At least one quest node is not grammatically valid. Fix or remove");
              }
           
             observer.Init(quest);
@@ -104,7 +108,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
              */
             CreateUIDocument(pivot.transform, observer.gameObject);
             
-            return Tuple.Create<GameObject, string>(pivot, null);
+            return new GeneratedGO(pivot, null);
         }
 
         private void GenerateTriggers(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
@@ -462,6 +466,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="pivotTransform"> transform to assign the UI as child</param>
         private void CreateUIDocument(Transform pivotTransform, GameObject observerGameObject)
         {
+            //eliminar previo
+            var prev = GameObject.Find("UIDocument");
+            if (prev)
+                Object.DestroyImmediate(GameObject.Find("UIDocument"));
+
             GameObject uiGameObject = new GameObject("UIDocument");
             UIDocument uiDocument = uiGameObject.AddComponent<UIDocument>();
            
