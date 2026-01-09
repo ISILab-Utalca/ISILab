@@ -113,8 +113,8 @@ namespace ISILab.LBS.Editor
             {
                 // Save history version to revert
                 var level = LBSController.CurrentLevel;
-                Undo.RegisterCompleteObjectUndo(level, "Select Suggestion");
                 EditorGUI.BeginChangeCheck();
+                Undo.RegisterCompleteObjectUndo(level, "Select Suggestion");
 
                 // Apply suggestion
                 assistant.ApplySuggestion(s);
