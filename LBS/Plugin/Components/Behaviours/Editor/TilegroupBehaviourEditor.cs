@@ -4,11 +4,16 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
+using ISILab.LBS.VisualElements.Editor;
+using LBS;
 using LBS.Components;
+using LBS.VisualElements;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,11 +21,12 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("TileGroupBehavior", typeof(TileGroupBehavior))]
-    public class TileGroupBehaviorEditor : LBSCustomEditor
+    public class TileGroupBehaviorEditor : LBSCustomEditor, IToolProvider
     {
         #region FIELDS
 
         private TileGroupBehavior behaviour;
+        private ConnectionPicker pickConnection;
 
         #endregion
 
@@ -29,8 +35,8 @@ namespace ISILab.LBS.VisualElements
         private VisualElement Content;
 
         private LBSCustomLabelIcon SelectedHeader;
-        public VisualElement AddonContainer;   
-   
+        public VisualElement AddonContainer;
+
 
         private static VisualTreeAsset visualTree { get; set; }
 
@@ -105,6 +111,9 @@ namespace ISILab.LBS.VisualElements
             Addon_Destruct adestruct = TileBundleGroup.GetAddon<Addon_Destruct>();
             Addon_Interact ainteract = TileBundleGroup.GetAddon<Addon_Interact>();
             Addon_Drop adrop = TileBundleGroup.GetAddon<Addon_Drop>();
+            Addon_Unlock aunlock = TileBundleGroup.GetAddon<Addon_Unlock>();
+            Addon_TriggerUnlock atunlock = TileBundleGroup.GetAddon<Addon_TriggerUnlock>();
+
             if (atrigger is not null)
             {
                 Addon_TriggerEditor NewEntry = new Addon_TriggerEditor(behaviour);
@@ -130,12 +139,36 @@ namespace ISILab.LBS.VisualElements
                 Addon_DropEditor NewEntry = new Addon_DropEditor(behaviour);
                 AddonContainer.Add(NewEntry);
             }
+            if (aunlock is not null)
+            {
+                Addon_UnlockEditor NewEntry = new Addon_UnlockEditor(behaviour);
+                AddonContainer.Add(NewEntry);
+            }
+            if (atunlock is not null)
+            {
+                Addon_TriggerUnlockEditor NewEntry = new Addon_TriggerUnlockEditor(behaviour);
+                AddonContainer.Add(NewEntry);
+            }
 
         }
 
         public override void OnUnfocus()
         {
             base.OnUnfocus();
+        }
+
+        public void SetTools(ToolKit toolkit)
+        {
+            pickConnection = new ConnectionPicker();
+            LBSTool t1 = new LBSTool(pickConnection);
+            t1.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+            toolkit.ActivateTool(t1, behaviour.OwnerLayer, behaviour);                    
+
+            // context exclusive from the Tilemap Panel
+            VisualElement toolButton = toolkit.GetToolButton(typeof(ConnectionPicker));
+            toolButton.SetEnabled(false);
+
+     
         }
 
         #endregion

@@ -44,7 +44,7 @@ namespace ISILab.LBS.VisualElements
             ToolKit.Instance.SetActive(typeof(ConnectQuestNodes));
             if(ToolKit.Instance.GetToolButton(typeof(ConnectQuestNodes)) is ToolButton tb)
             {
-                LBSFocusHighlight.Highlight(tb.Button);
+                LBSFocusHighlight.Highlight(tb);
             }
         }
 

@@ -77,6 +77,7 @@ namespace LBS
                 OnDeselect?.Invoke();
                 LBSMainWindow.Instance.MessageManipulator("-");
             };
+
         }
         
         #endregion;

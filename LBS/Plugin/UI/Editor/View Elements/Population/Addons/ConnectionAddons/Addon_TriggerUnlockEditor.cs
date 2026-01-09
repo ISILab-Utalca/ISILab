@@ -1,5 +1,10 @@
+using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 
@@ -9,17 +14,78 @@ namespace ISILab.LBS.VisualElements
     public partial class Addon_TriggerUnlockEditor : LBSCustomEditor
     {
         #region VIEW FIELDS
-        ListView triggerUnlockList;
-
+        LBSCustomListView triggerUnlockList;
+        private static VisualTreeAsset visualTree { get; set; }
         #endregion
+
+        private TileGroupBehavior behaviour;
+        private Addon_TriggerUnlock addon;
+
+        public Addon_TriggerUnlockEditor() { }
+
+        public Addon_TriggerUnlockEditor(object target) : base(target)
+        {
+            behaviour = target as TileGroupBehavior;
+            if (behaviour is null) return;
+
+            CreateVisualElement();
+            SetInfo(behaviour);
+
+        }
         public override void SetInfo(object paramTarget)
         {
-            throw new System.NotImplementedException();
+            behaviour = target as TileGroupBehavior;
+            if (behaviour is null) return;
+
+            if(behaviour.SelectedTilemap is null) return;
+
+            addon = behaviour.SelectedTilemap.GetAddon<Addon_TriggerUnlock>();
+            if (addon is null) return;
+            SetList();
+
+        }
+
+        private void SetList()
+        {
+            if (addon is null) return;
+
+            triggerUnlockList.itemsSource = addon.Connections;
+
+            triggerUnlockList.makeItem = () =>
+            {
+                return new AddonTriggerConnectionView();
+            };
+
+            triggerUnlockList.bindItem = (element, index) =>
+            {
+                AddonTriggerConnectionView view = element as AddonTriggerConnectionView;
+                TriggerUnlockEntry entry = addon.Connections[index];
+                view.Entry = entry;
+            };
+
+            triggerUnlockList.onRemove += baselist =>
+            {
+
+
+            };
+
+            triggerUnlockList.RefreshItems();
         }
 
         protected override VisualElement CreateVisualElement()
         {
-            throw new System.NotImplementedException();
+            if (visualTree is null)
+            {
+                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_TriggerUnlockEditor", true);
+            }
+
+            visualTree.CloneTree(this);
+            triggerUnlockList = this.Q<LBSCustomListView>("TriggerUnlockList");
+
+
+
+
+            return this;
         }
 
     }

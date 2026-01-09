@@ -1,18 +1,19 @@
-using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.VisualElements;
 using LBS.Components;
-using UnityEngine;
-using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Macros;
-using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.VisualElements;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using ISILab.LBS.Characteristics;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -24,11 +25,12 @@ namespace ISILab.LBS.Manipulators
         // Private fields
         private TileGroupBehavior _behaviour;
 
+        public Action<SchemaTileConnectionView, DirConnection> OnConnectionClicked;
 
         /// <summary>
         /// Icon used by this manipulator.
         /// </summary>
-        protected override string IconGuid => "f53f51dae7956eb4b99123e868e99d67";
+        protected override string IconGuid => "810162c8614a2a544bcce7bbe955a81b";
 
         public ConnectionPicker()
         {
@@ -51,23 +53,23 @@ namespace ISILab.LBS.Manipulators
             //Addon_Unlock UnlockAddon = _behaviour.SelectedTilemap.GetAddon<Addon_Unlock>();
             //if (UnlockAddon is null) return;
 
-            //// The VisualElement that received the event
-            //VisualElement hovered = e.target as VisualElement;
+            // The VisualElement that received the event
+            VisualElement hovered = e.target as VisualElement;
 
-            //// Walk up the hierarchy if needed
-            //var connectionView = hovered?.GetFirstAncestorOfType<SchemaTileConnectionView>();
+            // Walk up the hierarchy if needed
+            var connectionView = hovered?.GetFirstAncestorOfType<SchemaTileConnectionView>();
 
-            //if (connectionView != null)
-            //{
-            //    LBSTile tile = connectionView.Tile;
-            //    DirConnection newDirConnection = new DirConnection(tile);
-            //    int direction = LBSDirection.ToInt(connectionView.Direction);
-            //    string connection = connectionView.Type;
+            if (connectionView != null)
+            {
+                LBSTile tile = connectionView.Tile;
+                DirConnection newDirConnection = new DirConnection(connectionView.Layer, tile);
+                int direction = LBSDirection.ToInt(connectionView.Direction);
+                string connection = connectionView.Type;
 
                 
-            //    newDirConnection.connections.Add((direction,connection));
-            //    UnlockAddon.DirConnection = newDirConnection;
-            //}
+                newDirConnection.connections.Add((direction,connection));
+                OnConnectionClicked.Invoke(connectionView, newDirConnection);
+            }
 
             OnManipulationEnd?.Invoke();
         }

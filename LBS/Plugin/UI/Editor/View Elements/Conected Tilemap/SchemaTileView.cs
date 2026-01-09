@@ -12,6 +12,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using LBS.Components;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -91,9 +92,9 @@ namespace ISILab.LBS.VisualElements
                 tags[LBSDirection.ToInt(LBSDirection.Down)].Equals(SchemaBehaviour.Empty) ? 0f : borderThickness;
         }
 
-        public void CreateConnectionView(LBSTile tile, string connectionType, Vector2 pos, string key)
+        public void CreateConnectionView(LBSLayer layer, LBSTile tile, string connectionType, Vector2 pos, string key)
         {
-            var connectionView = new SchemaTileConnectionView(tile, connectionType, key)
+            var connectionView = new SchemaTileConnectionView(layer, tile, connectionType, key)
             {
                 style =
                 {

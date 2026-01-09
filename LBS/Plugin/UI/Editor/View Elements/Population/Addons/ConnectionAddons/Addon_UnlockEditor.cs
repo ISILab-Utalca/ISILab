@@ -1,5 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
 using ISILab.LBS.Editor;
 using System;
 using UnityEngine.UIElements;
@@ -15,21 +16,16 @@ namespace ISILab.LBS.VisualElements
 
         public Addon_UnlockEditor(object target): base(target) 
         {
+            CreateVisualElement();
+            SetInfo(behaviour);
+        }
+
+        public override void SetInfo(object paramTarget)
+        {
             behaviour = target as TileGroupBehavior;
             if (behaviour is null) return;
 
-            CreateVisualElement();
-            SetInfo(behaviour);
-
-        }
-        public override void SetInfo(object paramTarget)
-        {
-            SetList();
-        }
-
-        private void SetList()
-        {
-            acv.SetInfo(behaviour.SelectedTilemap);
+            acv.SetInfo(behaviour.SelectedTilemap.GetAddon<Addon_Unlock>());
         }
 
         protected override VisualElement CreateVisualElement()

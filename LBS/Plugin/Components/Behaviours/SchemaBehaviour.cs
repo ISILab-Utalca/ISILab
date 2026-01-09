@@ -16,7 +16,7 @@ using System;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     [Serializable]
-    public struct DirConnection
+    public class DirConnection
     {
         // addons from the tilegroup that was used to generate this object in the LBS tool
         [SerializeField, SerializeReference]
@@ -33,6 +33,13 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [SerializeField]
         public List<(int direction, string connection)> connections;
 
+        public DirConnection()
+        {
+            connections = new();
+            layer = null;
+            tile = null;
+        }
+
         public DirConnection(LBSLayer layer ,LBSTile tile, List<(int direction, string connection)> connections = null)
         {
             this.connections = new();
@@ -41,8 +48,20 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             this.layer = layer;
         }
 
-        public bool Equals(LBSTile otherTile, int direction, string connection)
+        public bool Equals(DirConnection other)
         {
+            foreach(var conn in other.connections)
+            {
+                if (Equals(other.tile, conn.direction, conn.connection)) return true;
+            }
+          
+            return false;
+        }
+
+        private bool Equals(LBSTile otherTile, int direction, string connection)
+        {
+            // no tile cant be equal
+            if (tile is null) return false;
             return tile.Equals(otherTile) && connections.Contains((direction, connection));
         }
     }
@@ -63,8 +82,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             Wall, // default wall connection 
             Door, // within wall connection
             Window, // within wall connection
-            LockedDoor, // within wall connection. Opened by key
-            BlockedDoor // within wall connection. Opened by trigger
+            LockedDoor // within wall connection. Opened by key
+       //     BlockedDoor // within wall connection. Opened by trigger
 
         };
 
@@ -73,7 +92,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public const string Door = "Door";
         public const string Window = "Window";
         public const string LockedDoor = "LockedDoor";
-        public const string BlockedDoor = "BlockedDoor";
+  //      public const string BlockedDoor = "BlockedDoor";
 
         #endregion
 

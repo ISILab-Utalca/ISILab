@@ -46,21 +46,21 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
 
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 
             var bundles = LBSAssetsStorage.Instance.Get<Bundle>();
 
             if (layer.Behaviours.Count == 0)
             {
-                return Tuple.Create<GameObject,string>(null,"No behaviours found");
+                return new GeneratedGO(null,"No behaviours found");
             }
             
             var exteriorBehaviour = layer.Behaviours.Find(b => b is ExteriorBehaviour) as ExteriorBehaviour;
             var bundle = exteriorBehaviour?.Bundle; 
             if (bundle == null)
             {
-                return Tuple.Create<GameObject, string>(null, "Bundle not found");
+                return new GeneratedGO(null, "Bundle not found");
             }
             
             var selected = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
@@ -202,7 +202,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             //Warning
             if (tiles.Count == 0)
             {
-                return Tuple.Create<GameObject, string>(null, "[ISILab]: No tiles were created in the tool. Can't generate game object.");
+                UnityEngine.Object.DestroyImmediate(mainPivot);
+                return new GeneratedGO(null, "No tiles were created in the tool. Can't generate game object.");
             }
 
             //Decides the position of the pivot based on the average position of every object generated
@@ -220,7 +221,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             mainPivot.transform.position += settings.position;
 
-            return Tuple.Create<GameObject, string>(mainPivot, "");
+            return new GeneratedGO(mainPivot, null);
         }
 
         private GameObject ChoosePatternByGrid(Bundle currentBundle, Dictionary<string, Bundle> adjacentBundles, Dictionary<string, GameObject> adjacentPreferences)

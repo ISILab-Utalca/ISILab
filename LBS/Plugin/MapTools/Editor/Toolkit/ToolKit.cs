@@ -132,8 +132,8 @@ namespace LBS.VisualElements
 
             return current.Item1?.Manipulator;
         }
-        
-        private KeyValuePair<Type, (LBSTool, ToolButton)> GetTool(Type manipulatorType)
+
+        public KeyValuePair<Type, (LBSTool, ToolButton)> GetTool(Type manipulatorType)
         {
             // Find the first matching tool in the dictionary with all null checks
             KeyValuePair<Type, (LBSTool, ToolButton)> foundTool = tools.FirstOrDefault(kvp =>
@@ -170,7 +170,7 @@ namespace LBS.VisualElements
         
             // If another tool was active, blur it
             current.Item2?.OnBlur();
-
+            
             // Set the new current tool and focus it
             current = foundTool.Value;
             current.Item2?.OnFocus();

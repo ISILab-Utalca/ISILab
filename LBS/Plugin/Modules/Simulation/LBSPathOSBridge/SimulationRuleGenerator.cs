@@ -65,7 +65,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         }
 
         // GABO TODO: TERMINARR
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 #if UNITY_EDITOR
             PathOSStorage storage = PathOSStorage.Instance;
@@ -195,7 +195,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             // GABO TODO: No es esto un error? Basado en PopulationRuleGenerator (todos los modulos base lo hacen)
             parent.transform.position += settings.position;
 
-            return new Tuple<GameObject, string>(parent, "");
+            return new GeneratedGO(parent, null);
 #else
                 Debug.LogError("Attempting to use PathOSRuleGenerator class outside of Editor!"); return null;
 #endif
