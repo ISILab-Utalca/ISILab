@@ -337,12 +337,7 @@ namespace ISILab.LBS.Editor.Windows{
             layerPanel.OnSelectLayer += OnSelectedLayerChange;
             layerPanel.OnAddLayer += layer =>
             {
-                var sw = new Stopwatch();
-                sw.Start();
-             //   sw.Stop(); Debug.Log("OnAddLayer: " + sw.ElapsedMilliseconds + " ms");
-                sw.Restart();
                 DrawManager.Instance.AddContainer(layer);
-                //  sw.Stop(); Debug.Log("DrawManager.Instance.AddContainer: " + sw.ElapsedMilliseconds + " ms");
             };
             layerPanel.OnRemoveLayer += l =>
             {

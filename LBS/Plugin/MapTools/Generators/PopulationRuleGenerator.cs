@@ -47,7 +47,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return base.GetHashCode();
         }
 
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             //Get references
             BundleTileMap data = layer.GetModule<BundleTileMap>();
@@ -128,7 +128,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 //Set rotation
                 var r = Directions.Bidimencional.Edges.FindIndex(v => v == group.Rotation);
-                Debug.Log("rotation: " + r);
+                //Debug.Log("rotation: " + r);
                 go.transform.rotation = Quaternion.Euler(0, 90 * (r + 2), 0);
 
                 // Set General position
@@ -150,9 +150,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             if (objects.Count == 0)
             {
-                return Tuple.Create(parent, "No population objects were created. Assign a valid bundle type");
+                UnityEngine.Object.DestroyImmediate(parentEntity);
+                UnityEngine.Object.DestroyImmediate(parentObject);
+                UnityEngine.Object.DestroyImmediate(parentInteractable);
+                UnityEngine.Object.DestroyImmediate(parentTrigger);
+                UnityEngine.Object.DestroyImmediate(parentProp);
+                UnityEngine.Object.DestroyImmediate(parentMisc);
+                return new GeneratedGO(parent, "No population objects were created. Assign a valid bundle type");
             }
-
 
             var x = objects.Keys.Average(o => o.transform.position.x);
             var y = objects.Keys.Min(o => o.transform.position.y);
@@ -180,7 +185,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             parentMisc.transform.SetParent(parent.transform);
             parent.transform.position += settings.position;
 
-            return Tuple.Create<GameObject, string>(parent, null);
+            return new GeneratedGO(parent, null);
 
             Transform GetParentForFlag(Bundle.EElementFlag flag)
             {
