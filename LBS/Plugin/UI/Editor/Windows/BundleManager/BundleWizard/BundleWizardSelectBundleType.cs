@@ -53,7 +53,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             nameField.Focus();
 
             //Debug.Log("Radio button group value: " + layersType.value);
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
+            //Debug.Log("Builder data:\n\n" + Builder.ToString());
         }
 
         public void Step()

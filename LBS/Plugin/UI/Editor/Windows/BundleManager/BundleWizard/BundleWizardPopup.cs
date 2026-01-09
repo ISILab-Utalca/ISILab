@@ -168,7 +168,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             void OnAnyButtonClicked(Button button)
             {
                 //Debug.Log(button.text);
-                Debug.Log("Current Step: " + CurrentStep);
+                //Debug.Log("Current Step: " + CurrentStep);
             }
 
             #endregion
@@ -312,14 +312,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
                 }
                 main.AddChild(newSubBundles[i]);
             }
+
+            TryAssign(main);
         }
 
         public void TryAssign(Bundle mainBundle)
         {
-            //this function must take newAssignBundles and then assign
-            // those bundles as children of current new Collection
-            // algo así como ... .parent = newCollection
-
             foreach (Bundle b in newAssignBundles)
             {
                 mainBundle.AddChild(b); 
