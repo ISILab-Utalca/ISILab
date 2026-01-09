@@ -445,7 +445,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public Vector3 EvaluateOriginalMap()
         {
-
             if (!RawToolRect.HasArea())
             {
                 AutoSelectArea(out _);
@@ -453,6 +452,23 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             var currentBundleMap = OwnerLayer.GetModule<BundleTileMap>();
             if (currentBundleMap == null) return Vector3.negativeInfinity;
+
+            var sectorModule = OwnerLayer.GetModule<SectorizedTileMapModule>();
+
+            if(sectorModule == null)
+            {
+                Debug.Log("sectorModule is null");
+            }
+            if (sectorModule != null)
+            {
+                Debug.Log("sectorModule is not null");
+                sectorModule.RecalculateZonesProximity(RawToolRect);
+            }
+
+            if (mapElites.XEvaluator != null) InitializeEvaluator(mapElites.XEvaluator);
+            if (mapElites.YEvaluator != null) InitializeEvaluator(mapElites.YEvaluator);
+            if (mapElites.Optimizer?.Evaluator != null) InitializeEvaluator(mapElites.Optimizer.Evaluator);
+
 
             var tempChromosome = new BundleTilemapChromosome(
                 currentBundleMap,

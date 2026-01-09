@@ -9,6 +9,9 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Plugin.Components.Behaviours;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -73,24 +76,24 @@ namespace ISILab.LBS.VisualElements
 
         public void SetConnections(string[] tags)
         {
-           // right.SetDisplay(tags[0].Equals("Door"));
-           // top.SetDisplay(tags[1].Equals("Door"));
-            //left.SetDisplay(tags[2].Equals("Door"));
-            //bottom.SetDisplay(tags[3].Equals("Door"));
             right.SetDisplay(false);
             top.SetDisplay(false);
             left.SetDisplay(false);
             bottom.SetDisplay(false);
-            
-            border.style.borderRightWidth = tags[0].Equals("Empty") ? 0f : borderThickness;
-            border.style.borderTopWidth = tags[1].Equals("Empty") ? 0f : borderThickness;
-            border.style.borderLeftWidth = tags[2].Equals("Empty") ? 0f : borderThickness;
-            border.style.borderBottomWidth = tags[3].Equals("Empty") ? 0f : borderThickness;
+
+            border.style.borderRightWidth =
+                tags[LBSDirection.ToInt(LBSDirection.Right)].Equals(SchemaBehaviour.Empty) ? 0f : borderThickness;
+            border.style.borderTopWidth =
+                tags[LBSDirection.ToInt(LBSDirection.Up)].Equals(SchemaBehaviour.Empty) ? 0f : borderThickness;
+            border.style.borderLeftWidth =
+                tags[LBSDirection.ToInt(LBSDirection.Left)].Equals(SchemaBehaviour.Empty) ? 0f : borderThickness;
+            border.style.borderBottomWidth =
+                tags[LBSDirection.ToInt(LBSDirection.Down)].Equals(SchemaBehaviour.Empty) ? 0f : borderThickness;
         }
 
-        public void CreateConnectionView(VectorImage icon, Vector2 pos, string key)
+        public void CreateConnectionView(LBSTile tile, string connectionType, Vector2 pos, string key)
         {
-            var connectionView = new SchemaTileConnectionView(icon)
+            var connectionView = new SchemaTileConnectionView(tile, connectionType, key)
             {
                 style =
                 {
@@ -105,19 +108,19 @@ namespace ISILab.LBS.VisualElements
 
             switch (key)
             {
-                case "right":
+                case LBSDirection.Right:
                     rightConnectionView = connectionView;
                     break;
 
-                case "top":
+                case LBSDirection.Up:
                     topConnectionView = connectionView;
                     break;
 
-                case "left":
+                case LBSDirection.Left:
                     leftConnectionView = connectionView;
                     break;
 
-                case "bottom":
+                case LBSDirection.Down:
                     bottomConnectionView = connectionView;
                     break;
 
@@ -151,11 +154,26 @@ namespace ISILab.LBS.VisualElements
         {
             Dictionary<string, string> ConnectionPoints = new Dictionary<string, string>();
 
-            if(tags.Count > 0)  ConnectionPoints.Add("right", tags[0]);
-            if(tags.Count > 1)  ConnectionPoints.Add("top", tags[1]);
-            if(tags.Count > 2) ConnectionPoints.Add("left", tags[2]);
-            if(tags.Count > 3) ConnectionPoints.Add("bottom", tags[3]);
-
+            int indexRight = LBSDirection.ToInt(LBSDirection.Right);
+            int indexUp = LBSDirection.ToInt(LBSDirection.Up);
+            int indexLeft = LBSDirection.ToInt(LBSDirection.Left);
+            int indexDown = LBSDirection.ToInt(LBSDirection.Down);
+            if (tags.Count > indexRight)
+            {
+                ConnectionPoints.Add(LBSDirection.Right, tags[indexRight]); 
+            }
+            if(tags.Count > indexUp)
+            {
+                ConnectionPoints.Add(LBSDirection.Up, tags[indexUp]);
+            }
+            if (tags.Count > indexLeft) 
+            {
+                ConnectionPoints.Add(LBSDirection.Left, tags[indexLeft]);
+            } 
+            if(tags.Count > indexDown)
+            {
+                ConnectionPoints.Add(LBSDirection.Down, tags[indexDown]);
+            }
             return ConnectionPoints; 
         }
 

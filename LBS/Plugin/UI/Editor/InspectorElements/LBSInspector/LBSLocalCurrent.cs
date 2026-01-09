@@ -9,6 +9,8 @@ using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Modules;
 using UnityEngine.UIElements;
+using System.Diagnostics;
+using LBS.Components.TileMap;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -43,6 +45,9 @@ namespace ISILab.LBS.VisualElements
                 foreach (LBSModule module in refLayer.Modules)
                 {
                     Type type = module.GetType();
+
+                    if (type == typeof(BundleData)) continue;
+
                     var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
                         .Where(t => t.Item2.Any(v => v.type == type)).ToList();
 
@@ -107,9 +112,13 @@ namespace ISILab.LBS.VisualElements
 
                 if (!moduleDictionaries.TryGetValue(type, out Ve))
                 {
-                    // Get the editors of the selectable elements
+                    if (type == typeof(BundleData)) continue;
+
+                    //Get the editors of the selectable elements
                     List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
                             .Where(t => t.Item2.Any(v => v.type == type)).ToList();
+
+                    //find if the type is inside this other list
 
                     if (ves.Count <= 0)
                     {
@@ -135,7 +144,9 @@ namespace ISILab.LBS.VisualElements
                 var container = new DataContent(instance, Ve.Item2.First().name);
                 contentPanel.Add(container);
                 
-                if (activeEditor is null) continue;
+                if (activeEditor is null) 
+                    continue;
+                
                 InspectorInstance entry = new InspectorInstance(obj.GetType(), _target);
                 activeEditor[entry] = instance;
             }

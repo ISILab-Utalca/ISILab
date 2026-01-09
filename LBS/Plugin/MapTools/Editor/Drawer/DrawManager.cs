@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using ISILab.LBS.Drawers;
 using ISILab.LBS.Editor.Windows;
@@ -101,7 +103,13 @@ namespace ISILab.LBS
                 if (component == null)continue;
                 Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
                 if(drawer == null) continue;
+
+                var sw = Stopwatch.StartNew();
+
                 drawer.Draw(component, MainView.Instance, layer.TileSize);
+
+                sw.Stop();
+                UnityEngine.Debug.Log($"Draw time {sw.ElapsedMilliseconds} ms for {component}");
             }
         }
 
@@ -114,6 +122,14 @@ namespace ISILab.LBS
                 if (drawer == null) continue;
                 drawer.Update(component, MainView.Instance, layer.TileSize);
             }
+        }
+
+        public void DrawSingleComponent<T>(T component, LBSLayer layer)
+        {
+            if (component == null) return;
+            Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
+            if (drawer == null) return;
+            drawer.Draw(component, MainView.Instance, layer.TileSize);
         }
 
         private void HideVisuals<T>(List<T> components, LBSLayer layer)
@@ -158,6 +174,7 @@ namespace ISILab.LBS
         public void RedrawLayer(LBSLayer layer)
         {
             UnityEngine.Debug.Log("Redraw Layer");
+
             _view.ClearLayerContainer(layer);
             DrawLayer(layer);
         }

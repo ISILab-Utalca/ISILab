@@ -149,7 +149,7 @@ namespace ISILab.LBS.Manipulators
                 EditorUtility.SetDirty(level);
             }
             
-            if (success) DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+            if (success) DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer); //May fail, Test
         }
     }
 }

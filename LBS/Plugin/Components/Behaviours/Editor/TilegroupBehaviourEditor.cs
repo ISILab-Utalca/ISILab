@@ -56,7 +56,8 @@ namespace ISILab.LBS.VisualElements
 //            behaviour.OnSelectedChanged += UpdateTilebundle;
             behaviour.OnSelectedChanged += (tilemap) =>
             {
-                DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
                 UpdateTilebundle(tilemap);
             };
             UpdateTilebundle(behaviour.SelectedTilemap);
@@ -82,7 +83,8 @@ namespace ISILab.LBS.VisualElements
         private void UpdateSelectedTilemap()
         {
             PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+            //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
         }
 
         private void UpdateTilebundle(TileBundleGroup TileBundleGroup)

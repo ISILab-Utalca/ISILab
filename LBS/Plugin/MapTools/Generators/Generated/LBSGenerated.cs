@@ -12,19 +12,19 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     [ExecuteInEditMode] // Allows this to run in editor mode
     public class LBSGenerated : MonoBehaviour
     {
-        
+
         #region FIELDS
 
         //Layer Id from which the object was created
         [SerializeField]
         private string layerName;
-        
+
         //Original bundle reference
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private Bundle bundleRef;
         
         //Temporal bundle reference (for when it changes using the WorldEditBar)
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private Bundle bundleTemp;
 
         
