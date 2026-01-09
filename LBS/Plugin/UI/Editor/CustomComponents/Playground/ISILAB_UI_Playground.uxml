@@ -2,7 +2,7 @@
     <ui:Template name="LBSHorizontalDivider" src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/StaticTemplateComponents/SimpleComponents/LBSHorizontalDivider.uxml?fileID=9197481963319205126&amp;guid=8e276661d37de8e41905231bb939b61a&amp;type=3#LBSHorizontalDivider" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSOverrideStyle.uss?fileID=7433441132597879392&amp;guid=dc3922656bcc222469152418c1839f87&amp;type=3#LBSOverrideStyle" />
-    <ui:VisualElement class="alt" style="flex-grow: 1;">
+    <ui:VisualElement class="darker" style="flex-grow: 1;">
         <uie:Toolbar name="Toolbar" class="lbs-toolbar">
             <uie:ToolbarButton text="Button" />
             <uie:ToolbarToggle label="Toggle" />
@@ -27,6 +27,9 @@
                 <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Error" name="WarningPanel" />
                 <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Log" name="WarningPanel" />
                 <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Success" name="WarningPanel" />
+                <ISILab.LBS.CustomComponents.LBSCustomLabel text="Selection lorem ipsum" hint-color="#FF000000" />
+                <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/LBS/Plugin/Components/Data/Quest/QuestIcons/Artifact=target.svg?fileID=7388822144124034973&amp;guid=d96b94effa175424699a0813ffdd99ef&amp;type=3#Artifact=target" />
+                <ISILab.LBS.VisualElements.ToolButton />
             </ui:VisualElement>
             <ISILab.Commons.VisualElements.Editor.SplitView fixed-pane-initial-dimension="400">
                 <ui:VisualElement class="lbs-panel">
@@ -61,6 +64,7 @@
                         <ISILab.LBS.CustomComponents.LBSCustomListView show-add-remove-footer="true" data-source-path="List&lt;float&gt;" />
                         <ISILab.LBS.CustomComponents.LBSCustomTreeView selection-type="Multiple" />
                         <ISILab.LBS.CustomComponents.LBSCustomHeader icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/SideToolBar/Icon=AI_Assistant.svg?fileID=7388822144124034973&amp;guid=2cf0d2907db06024190d079005239a75&amp;type=3#Icon=AI_Assistant" style="height: 40px;" />
+                        <ISILab.LBS.CustomComponents.LBSCustomLabelIcon label="Label" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Manipulators/Icon=AddQuest.svg?fileID=7388822144124034973&amp;guid=3d0b251f4a09bce4b9224787cfa08d49&amp;type=3#Icon=AddQuest" icon-tint="#FFCC28FF" opacity="0.71" direction="RowReverse" />
                     </ISILab.LBS.CustomComponents.LBSCustomFoldout>
                     <ISILab.LBS.Editor.Windows.LBSWaitTaskOverlay step="3" delay="21" style="flex-grow: 1;" />
                     <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs section-titles="A,B,C,D" select-section="1" enabled="true" />
