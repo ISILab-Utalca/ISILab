@@ -66,14 +66,8 @@ Label {
 
 .lbs-default-container-panel {
     background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
-    border-left-color: var(--lbs-dark-overlay-color);
-    border-right-color: var(--lbs-dark-overlay-color);
-    border-top-color: var(--lbs-dark-overlay-color);
-    border-bottom-color: var(--lbs-dark-overlay-color);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
+    border-width: 1px;
     border-radius: 0;
     padding: 3px;
     margin-bottom: 6px;
@@ -190,6 +184,8 @@ Label {
     border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     border-width: 1px;
     margin-bottom: 2px;
+    height: 28px;
+    padding: 2px;
     min-height: 24px;
     border-radius: 3px;
 }
@@ -1575,6 +1571,8 @@ Toggle > .lbs-default-icon {
     border-bottom-color: var(--lbs-dark-overlay-color);
 }
 
+/* #region Containers */
+
 .lbs-box-container {
     background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
     border-width: 1px;
@@ -1601,6 +1599,12 @@ Toggle > .lbs-default-icon {
     margin: 1px;
     padding: 3px;
 }
+
+.lbs-box-group{
+
+}
+
+/* #endregion */
 
 .lbs-arrow {
     background-image: resource('Icons/Arrows/Icon=ArrowDown');
