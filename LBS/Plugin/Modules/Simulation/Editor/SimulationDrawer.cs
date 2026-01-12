@@ -67,7 +67,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (obj is not SimulationTile tile) continue;
 
-                List<GraphElement> elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile);
+                List<GraphElement> elements = view.GetElementsFromLayer(behaviour.OwnerLayer, tile);
                 if (elements == null) continue;
 
                 foreach(GraphElement element in elements)
@@ -110,7 +110,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
 
-                List<GraphElement> elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile).Where(graphElement => graphElement != null).ToList();
+                List<GraphElement> elements = view.GetElementsFromLayer(behaviour.OwnerLayer, tile).Where(graphElement => graphElement != null).ToList();
                 foreach(GraphElement element in elements)
                 {
                     element.style.display = DisplayStyle.None; 
@@ -125,7 +125,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
 
-                List<GraphElement> elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile);
+                List<GraphElement> elements = view.GetElementsFromLayer(behaviour.OwnerLayer, tile);
                 foreach (GraphElement element in elements)
                 {
                     element.style.display = DisplayStyle.Flex;

@@ -437,7 +437,7 @@ namespace ISILab.LBS.Plugin.UI.Editor
         /// <summary>
         /// Retrieves all GraphElements associated with a key in a layer container.
         /// </summary>
-        public List<GraphElement> GetElementsFromLayerContainer(LBSLayer layer, object key)
+        public List<GraphElement> GetElementsFromLayer(LBSLayer layer, object key)
         {
             //return _layers.TryGetValue(layer, out LayerContainer container) ? container.GetElement(key) : null;
             if (_layers == null)

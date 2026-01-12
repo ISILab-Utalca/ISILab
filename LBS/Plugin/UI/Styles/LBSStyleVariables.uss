@@ -96,9 +96,9 @@
     --lbs-text-color: rgb(20,20,20);
     
     --lbs-base-solid-gray-color: rgb(217, 217, 217);
-    --lbs-field-solid-bg-gray-color: rgb(174,174,174);
+    --lbs-field-solid-bg-gray-color: rgb(240,240,240);
     --lbs-darker-solid-gray-color: rgb(150,150, 150);
-    --lbs-unity-6-black-color: rgb(240,240,240);
+    --lbs-unity-6-black-color: rgb(120,120,120);
 
     --lbs-selectable-gray-color: rgb(227,227,227);
     --lbs-selectable-hover-color: rgb(196,196,196);
@@ -149,8 +149,7 @@
 }
 
 
-/*useful styles for general cases*/
-
+/* #region Style Props */
 
 .horizontal{
     --height: 24px;
@@ -163,3 +162,14 @@
     --width: 24px;
     flex-direction: column;
 }
+
+.prop-centered {
+    flex-grow: 1;
+    align-content: center;
+    align-self: center;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+}
+
+/* #endregion */

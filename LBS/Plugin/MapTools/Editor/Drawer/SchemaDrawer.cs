@@ -1,17 +1,14 @@
-using ISILab.DevTools.Macros;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.VisualElements;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing.Imaging;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
@@ -19,23 +16,13 @@ namespace ISILab.LBS.Drawers
     [Drawer(typeof(SchemaBehaviour))]
     public class SchemaDrawer : Drawer
     {
-        private static VectorImage _doorConImage = null;
-        private static VectorImage _windowConImage = null;
-        private static VectorImage _lockConImage = null;
-        private static VectorImage _blockedConImage = null;
-
-        private static string lockedDoorIconGuid = "f79cf4ba5777aab4a884bca201ff0278";
-        private static string blockedDoorIconGuid = "8e1818e3f49414e4997ecc63e331999f";
-        private static string windowConnectionIconGuid = "c0d00de1d82858c4b9d772a012caf67d";
-        private static string doorConnectionIconGuid = "cd77d8067cf8b6b44ab23da9a62173c0";
-        
         private Color _zoneColor;
-        
-        
+        private SchemaBehaviour schema;
+
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
-            var schema = target as SchemaBehaviour;
+            schema = target as SchemaBehaviour;
 
             // Get modules
             var tilesMod = schema.OwnerLayer.GetModule<TileMapModule>();
@@ -75,7 +62,7 @@ namespace ISILab.LBS.Drawers
                 TileConnectionsPair tc = connectionsMod.GetPair(newTile);
 
                 SchemaTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(schema.OwnerLayer, newTile);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, newTile);
 
                 if(previousElement is not null && previousElement.Count > 0)
                 {
@@ -108,7 +95,7 @@ namespace ISILab.LBS.Drawers
             {
                 if(obj is not LBSTile tile) continue;
 
-                var elements = view.GetElementsFromLayerContainer(schema.OwnerLayer, tile);
+                var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
                 if(elements == null) continue;
                 
                 foreach (var graphElement in elements)
@@ -144,7 +131,7 @@ namespace ISILab.LBS.Drawers
                 TileZonePair tz = zonesMod.GetPairTile(tile);
                 TileConnectionsPair tc = connectionsMod.GetPair(tile);
                 SchemaTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(schema.OwnerLayer, tile);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, tile);
 
                 if(previousElement is not null && previousElement.Count > 0)
                 {
@@ -171,7 +158,7 @@ namespace ISILab.LBS.Drawers
             
             foreach (LBSTile tile in schema.Keys)
             {
-                foreach (var graphElement in view.GetElementsFromLayerContainer(schema.OwnerLayer, tile).Where(graphElement => graphElement != null))
+                foreach (var graphElement in view.GetElementsFromLayer(schema.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -186,7 +173,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
 
-                var elements = view.GetElementsFromLayerContainer(schema.OwnerLayer, tile);
+                var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
                 foreach (var graphElement in elements)
                 {
                     graphElement.style.display = DisplayStyle.None;
@@ -236,17 +223,17 @@ namespace ISILab.LBS.Drawers
                         {
                             Color pixelColor = floorColor;
 
-                            //Top
-                            if (j >= tesselationSize.y - border && conns[1] != "Empty") { pixelColor = getSimpleColor(conns[1]); }
+                            //Up
+                            if (j >= tesselationSize.y - border && conns[LBSDirection.ToInt(LBSDirection.Up)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Up)]); }
 
                             //Down
-                            if (j < border && conns[3] != "Empty") { pixelColor = getSimpleColor(conns[3]); }
+                            if (j < border && conns[LBSDirection.ToInt(LBSDirection.Down)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Down)]); }
 
                             //Left
-                            if (i < border && conns[2] != "Empty") { pixelColor = getSimpleColor(conns[2]); }
+                            if (i < border && conns[LBSDirection.ToInt(LBSDirection.Left)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Left)]); }
 
                             //Right
-                            if (i >= tesselationSize.x - border && conns[0] != "Empty") { pixelColor = getSimpleColor(conns[0]); }
+                            if (i >= tesselationSize.x - border && conns[LBSDirection.ToInt(LBSDirection.Right)] != SchemaBehaviour.Empty) { pixelColor = getSimpleColor(conns[LBSDirection.ToInt(LBSDirection.Right)]); }
 
                             var pos = t.Position - sourceRect.position;
                             texture.SetPixel((int)(pos.x * tesselationSize.x) + i, (int)(pos.y * tesselationSize.y) + j, pixelColor);
@@ -263,10 +250,9 @@ namespace ISILab.LBS.Drawers
 
         private Color getSimpleColor(string type)
         {
-
-            if (type == "Door") return Color.red;
-            if (type == "Window") return Color.cyan;
-            if (type == "Wall") return Color.Lerp(_zoneColor, Color.black, 0.3f);
+            if (type == SchemaBehaviour.Door) return Color.red;
+            if (type == SchemaBehaviour.Window) return Color.cyan;
+            if (type == SchemaBehaviour.Wall) return Color.Lerp(_zoneColor, Color.black, 0.3f);
             return Color.clear;
         }
         private SchemaTileView GetTileView(LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
@@ -304,31 +290,26 @@ namespace ISILab.LBS.Drawers
 
                 switch (connection.Key)
                 {
-                    case "top":
+                    case LBSDirection.Up:
                         yPos += -(tView.GetPosition().height / 2f);
                         break;
-                    case "bottom":
+                    case LBSDirection.Down:
                         yPos += (tView.GetPosition().height / 2f);
                         break;
-                    case "left":
+                    case LBSDirection.Left:
                         xPos += -(tView.GetPosition().width / 2f);
                         break;
-                    case "right":
+                    case LBSDirection.Right:
                         xPos += (tView.GetPosition().width / 2f);
                         break;
                 }
                 string connectionType = connection.Value;
-                var connectionTypes = SchemaBehaviour.Connections;
-                // Draw connection tile only if its not wall or open
-                if (connectionType != connectionTypes[0] && connectionType != connectionTypes[1])
-                {
-                    VectorImage setIcon = null;
-                    if (connectionType == connectionTypes[2]) setIcon = GetDoorImage();
-                    else if (connectionType == connectionTypes[3]) setIcon = GetWindowImage();
-                    else if (connectionType == connectionTypes[4]) setIcon = GetLockImage();
-                    else if (connectionType == connectionTypes[5]) setIcon = GetBlockedImage();
 
-                    tView.CreateConnectionView(setIcon, new Vector2(xPos, yPos), connection.Key);
+                // Draw connection tile only if its not wall or open
+                if (connectionType != SchemaBehaviour.Empty
+                    && connectionType != SchemaBehaviour.Wall)
+                {
+                     tView.CreateConnectionView(schema.OwnerLayer, tile, connectionType, new Vector2(xPos, yPos), connection.Key);
                 }
             }
         }
@@ -347,37 +328,6 @@ namespace ISILab.LBS.Drawers
 
             return t;
         }
-        private static VectorImage GetDoorImage()
-        {
-            if (_doorConImage != null) return _doorConImage;
-            
-            _doorConImage = AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
-            return _doorConImage;
 
-        }
-        private static VectorImage GetWindowImage()
-        {
-            if (_windowConImage != null) return _windowConImage;
-            
-            _windowConImage = AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
-            return _windowConImage;    
-           
-        }
-
-        private static VectorImage GetLockImage()
-        {
-            if (_lockConImage != null) return _lockConImage;
-
-            _lockConImage = AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
-            return _lockConImage;
-        }
-
-        private static VectorImage GetBlockedImage()
-        {
-            if (_blockedConImage != null) return _blockedConImage;
-            
-            _blockedConImage = AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
-            return _blockedConImage;
-        }
     }
 }

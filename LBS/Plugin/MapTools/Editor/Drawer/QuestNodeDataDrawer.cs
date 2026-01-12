@@ -223,7 +223,7 @@ namespace ISILab.LBS.Drawers.Editor
             
             foreach (object tile in behaviour.Keys)
             {
-                foreach (GraphElement graphElement in view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile).Where(graphElement => graphElement != null))
+                foreach (GraphElement graphElement in view.GetElementsFromLayer(behaviour.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -238,7 +238,7 @@ namespace ISILab.LBS.Drawers.Editor
             {
                 if (tile == null) continue;
 
-                var elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile);
+                var elements = view.GetElementsFromLayer(behaviour.OwnerLayer, tile);
                 foreach (GraphElement graphElement in elements)
                 {
                     graphElement.style.display = DisplayStyle.None;

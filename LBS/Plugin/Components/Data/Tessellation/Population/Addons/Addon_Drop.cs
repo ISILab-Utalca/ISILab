@@ -1,3 +1,4 @@
+using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using System;
 using UnityEngine;
@@ -7,12 +8,13 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class Addon_Drop : BundleTileMapAddons
     {
-        [SerializeField, SerializeReference]
-        private Bundle onDestroyDrop;
+        [SerializeField]
+        private string onDestroyDropGuid;
+
         public Bundle OnDestroyDrop 
         {
-            get => onDestroyDrop; 
-            set => onDestroyDrop = value; 
+            get => LBSAssetMacro.LoadAssetByGuid<Bundle>(onDestroyDropGuid); 
+            set => onDestroyDropGuid = LBSAssetMacro.GetGuidFromAsset(value); 
         }
     }
 }

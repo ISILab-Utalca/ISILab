@@ -61,7 +61,7 @@ namespace ISILab.LBS.Drawers
                 List<string> connections = connectMod.GetConnections(newTile);
 
                 ExteriorTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(exterior.OwnerLayer, newTile);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(exterior.OwnerLayer, newTile);
                 if (previousElement is not null && previousElement.Count > 0)
                 {
                     replaceCount++;
@@ -94,7 +94,7 @@ namespace ISILab.LBS.Drawers
             {
                 if(obj is not LBSTile tile) continue;
                 
-                List<GraphElement> elements = view.GetElementsFromLayerContainer(exterior.OwnerLayer, tile);
+                List<GraphElement> elements = view.GetElementsFromLayer(exterior.OwnerLayer, tile);
                 if(elements == null) continue;
                 
                 foreach (GraphElement graphElement in elements)
@@ -152,7 +152,7 @@ namespace ISILab.LBS.Drawers
             {   
                 List<string> connections = connectMod.GetConnections(tile);
                 ExteriorTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(exterior.OwnerLayer, tile);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(exterior.OwnerLayer, tile);
                 if (previousElement is not null && previousElement.Count > 0)
                 {
                     replaceCount++;
@@ -181,7 +181,7 @@ namespace ISILab.LBS.Drawers
             
             foreach (LBSTile tile in exterior.Keys)
             {
-                foreach (var graphElement in view.GetElementsFromLayerContainer(exterior.OwnerLayer, tile).Where(graphElement => graphElement != null))
+                foreach (var graphElement in view.GetElementsFromLayer(exterior.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -196,7 +196,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
 
-                var elements = view.GetElementsFromLayerContainer(exterior.OwnerLayer, tile);
+                var elements = view.GetElementsFromLayer(exterior.OwnerLayer, tile);
                 foreach (var graphElement in elements)
                 {
                     graphElement.style.display = DisplayStyle.None;

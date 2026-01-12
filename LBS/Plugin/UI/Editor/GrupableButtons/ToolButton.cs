@@ -9,20 +9,48 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class ToolButton : VisualElement, IGrupable
+    
+    
+    [UxmlElement]
+    public partial class ToolButton : Button, IGrupable
     {
         #region FIELDS
 
-        private Color _color = LBSSettings.Instance.view.toolkitNormal;
-        private Color _selected = LBSSettings.Instance.view.newToolkitSelected;
+        private Color _color ; //LBSSettings.Instance.view.toolkitNormal;
+        private Color _selected; //LBSSettings.Instance.view.newToolkitSelected;
         #endregion
 
         #region FIELDS VIEW
-        private readonly Button _button;
-
+        private readonly VisualElement icon;
+        private VectorImage toolIconBackground;
         #endregion
+        
+        
+        #region PROPERTIES
 
-        public Button Button => _button;
+        [UxmlAttribute]
+        public VectorImage ToolIconBackground
+        {
+            get => toolIconBackground;
+            set
+            {
+                toolIconBackground = value;
+                if (icon != null)
+                {
+                    if (toolIconBackground != null)
+                    {
+                        icon.style.backgroundImage = new StyleBackground(toolIconBackground);
+                        icon.style.display = DisplayStyle.Flex;
+                    }
+                    else
+                    {
+                        icon.style.display = DisplayStyle.None;
+                    }
+                }
+            }
+        }
+        
+        #endregion
         
         #region EVENTS
         public event Action OnFocusEvent;
@@ -30,42 +58,48 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public ToolButton(LBSTool tool)
+
+        public ToolButton() : base()
         {
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ToolButton");
-            visualTree.CloneTree(this);
+            _color = style.backgroundColor.value;
+            icon = new VisualElement();
+            icon.AddToClassList("prop-centered");
+            this.Add(icon);
+            AddToClassList("lbs-rounded-button");
+            RemoveFromClassList("unity-button");
+        }
+        
+        
+        public ToolButton(LBSTool _tool) : this()
+        {
             
-            _button = this.Q<Button>("Button");
-            
-            var icon = this.Q<VisualElement>("Icon");
-            if (tool.Icon == null) return;
-            icon.style.backgroundImage = new StyleBackground(tool.Icon); 
-            
-            tooltip = tool.Name;
+            if (_tool.Icon == null) return;
+                icon.style.backgroundImage = new StyleBackground(_tool.Icon); 
+            tooltip = _tool.Name;
         }
         #endregion
 
         #region IGRUPABLE
         public void AddGroupEvent(Action action)
         {
-            _button.clicked += action;
+            this.clicked += action;
         }
 
         public void OnBlur()
         {
-            _button.style.backgroundColor = _color;
+            //this.style.backgroundColor = _color;
             OnBlurEvent?.Invoke();
         }
 
         public void OnFocus()
         {
-            _button.style.backgroundColor = _selected;
+            //this.style.backgroundColor = _selected;
             OnFocusEvent?.Invoke();
         }
 
         public void OnFocusWithoutNotify()
         {
-            _button.style.backgroundColor = _selected;
+            //this.style.backgroundColor = _selected;
         }
 
         public void SetColorGroup(Color color, Color selected)

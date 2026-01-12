@@ -134,6 +134,9 @@ namespace ISILab.LBS.VisualElements.Editor
             _generateAllLayers.clicked += GenerateAllLayers;
 
             GeneratorSettings ??= new Generator3D();
+            
+            
+            
         }
 
         public Generator3DPanel(Toggle bakeLights)
@@ -189,6 +192,9 @@ namespace ISILab.LBS.VisualElements.Editor
             Object.DestroyImmediate(GameObject.Find(_nameField.value));
             //crear objeto empty fuera del foreach
             GameObject rootParent = new GameObject(_nameField.value);
+
+            //StandardTopDownCamera.SetStandardTopDown(rootParent);
+            
 
             bool ok = false;
 
@@ -323,11 +329,15 @@ namespace ISILab.LBS.VisualElements.Editor
 
             if (root)
             {
+                //generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
                 generated.Item1.transform.parent = root.transform;
+                //StandardTopDownCamera.SetStandardTopDown(GameObject.Find(_nameField.value));
             }
             else
             {
                 GameObject rootParent = new GameObject(_nameField.value);
+                //generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
+                //StandardTopDownCamera.SetStandardTopDown(rootParent);
                 generated.Item1.transform.parent = rootParent.transform;
             }
 

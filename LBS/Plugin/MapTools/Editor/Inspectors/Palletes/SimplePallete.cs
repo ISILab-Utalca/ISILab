@@ -23,16 +23,19 @@ namespace LBS.VisualElements
         #endregion
 
         
-        #region UI PRIV FIELDS 
-        private readonly VisualElement contentContainer;
-        private LBSCustomDropdown dropdownGroup;
+        #region UI VISUAL ELEMENTS REFERENCES 
+        
+        private bool displayAddElement = true;
+        private bool displayRemoveElement = true;
+        
         private VisualElement icon;
         private Label nameLabel;
         private Button noElement;
-        private Button addButton;
-        private Button removeButton;
+        private LBSToolbarButton addButton;
+        private LBSToolbarButton removeButton;
+        private LBSCustomDropdown dropdownGroup;
+        private readonly VisualElement contentContainer;
         
-        private bool displayAddElement = true;
         #endregion
 
         #region EVENTS
@@ -45,10 +48,37 @@ namespace LBS.VisualElements
         #endregion
 
         #region PROPERTIES
-        public bool DisplayAddElement       
+        
+        
+        [UxmlAttribute]
+        public bool DisplayAddElement
         {
-            set => displayAddElement = value;
+            get => displayAddElement;
+            set
+            {
+                displayAddElement = value;
+                if (addButton != null)
+                {
+                    addButton.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+                }
+            }
         }
+        
+        
+        [UxmlAttribute]
+        public bool DisplayRemoveElement
+        {
+            get => displayRemoveElement;
+            set
+            {
+                displayRemoveElement = value;
+                if (removeButton != null)
+                {
+                    removeButton.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+                }
+            }
+        }
+
         public object Selected
         {
             get => selected;
@@ -113,11 +143,10 @@ namespace LBS.VisualElements
             nameLabel = dropdownGroup.Q<Label>();
 
             // AddButton
-            addButton = this.Q<Button>("AddButton");
+            addButton = this.Q<LBSToolbarButton>("AddButton");
             addButton.clicked += () => OnAddOption?.Invoke();
-
             // removeButton
-            removeButton = this.Q<Button>("DeleteButton");
+            removeButton = this.Q<LBSToolbarButton>("DeleteButton");
             removeButton.clicked += () => OnRemoveOption?.Invoke(selected);
 
             // NoElement
