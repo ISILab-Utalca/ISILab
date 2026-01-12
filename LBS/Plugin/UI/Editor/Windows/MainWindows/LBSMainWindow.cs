@@ -245,6 +245,7 @@ namespace ISILab.LBS.Editor.Windows{
             }
             levelData!.OnReload += () => layerPanel.ResetSelection();
             #endregion
+
             #region LOAD SCRIPTABLES TEMPLATE
             layerTemplates = DirectoryTools.GetScriptablesByType<LayerTemplate>();
             layerTemplates.Sort((a, b) => a.order.CompareTo(b.order));
@@ -541,8 +542,8 @@ namespace ISILab.LBS.Editor.Windows{
                 _selectedLayer.OnChangeUpdate();
                 DrawManager.Instance.UpdateLayer(_selectedLayer);
             }
-            else DrawManager.ReDraw();
             
+            DrawManager.ReDraw();
             LBSInspectorPanel.ReDraw();
         }
         

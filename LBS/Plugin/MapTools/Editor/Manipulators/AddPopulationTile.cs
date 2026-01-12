@@ -21,7 +21,6 @@ namespace ISILab.LBS.Manipulators
         private TileGroupBehavior _tileMapBehavior;
         private List<Feedback> previews = new List<Feedback>();
 
-
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
 
         private Bundle ToSet => _population.selectedToSet;
@@ -30,7 +29,6 @@ namespace ISILab.LBS.Manipulators
         {
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
-
 
             Name = "Paint Tile with Item";
             Description =
@@ -55,8 +53,7 @@ namespace ISILab.LBS.Manipulators
             _population = provider as PopulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
-
-
+            _population.OwnerLayer.OnChange += () => CleanPreviews();
 
             _tileMapBehavior = layer.GetBehaviour<TileGroupBehavior>();
 
