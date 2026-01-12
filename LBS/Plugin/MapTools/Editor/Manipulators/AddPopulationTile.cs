@@ -138,17 +138,16 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
-            _population.OwnerLayer.OnChangeUpdate();
             _tileMapBehavior.SelectedTilemap = newTileGroup;
-
             LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
+
+            _population.OwnerLayer.OnChangeUpdate();
+            CleanPreviews();
 
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(level);
             }
-
-            CleanPreviews();
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)

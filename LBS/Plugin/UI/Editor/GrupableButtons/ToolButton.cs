@@ -16,8 +16,8 @@ namespace ISILab.LBS.VisualElements
     {
         #region FIELDS
 
-        private Color _color = LBSSettings.Instance.view.toolkitNormal;
-        private Color _selected = LBSSettings.Instance.view.newToolkitSelected;
+        private Color _color ; //LBSSettings.Instance.view.toolkitNormal;
+        private Color _selected; //LBSSettings.Instance.view.newToolkitSelected;
         #endregion
 
         #region FIELDS VIEW
@@ -66,6 +66,7 @@ namespace ISILab.LBS.VisualElements
             icon.AddToClassList("prop-centered");
             this.Add(icon);
             AddToClassList("lbs-rounded-button");
+            RemoveFromClassList("unity-button");
         }
         
         
@@ -86,19 +87,19 @@ namespace ISILab.LBS.VisualElements
 
         public void OnBlur()
         {
-            this.style.backgroundColor = _color;
+            RemoveFromClassList("prop-state--checked");
             OnBlurEvent?.Invoke();
         }
 
         public void OnFocus()
         {
-            this.style.backgroundColor = _selected;
+            AddToClassList("prop-state--checked");
             OnFocusEvent?.Invoke();
         }
 
         public void OnFocusWithoutNotify()
         {
-            this.style.backgroundColor = _selected;
+            AddToClassList("prop-state--checked");
         }
 
         public void SetColorGroup(Color color, Color selected)

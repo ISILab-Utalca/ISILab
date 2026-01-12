@@ -92,18 +92,14 @@ namespace ISILab.LBS.Manipulators
                     poptb.SelectedTilemap = null; 
                 }
             }
-            LoadedLevel level = LBSController.CurrentLevel;
-            EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Remove Element population");
+
+            OwnerLayer.OnChangeUpdate();
+            CleanPreviews();
             
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(x);
             }
-
-            OwnerLayer.OnChangeUpdate();
-            
-            CleanPreviews();
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)

@@ -26,6 +26,11 @@ namespace PathOS
         [Tooltip("The camera representing the player's view (agent's \"eyes\")")]
         public Camera cam;
 
+        private Camera lastCamera;
+        private Transform lastCamParent;
+        private Vector3 lastCamPos;
+        private Quaternion lastCamRot;
+
         [Header("Navmesh \"Sight\"")]
 
         [PathOSDisplayName("Visibility Size Threshold")]
@@ -77,15 +82,23 @@ namespace PathOS
             if (null == manager)
                 manager = PathOSManager.instance;
 
+            UnityEngine.Assertions.Assert.IsNotNull(cam);
+            lastCamera = cam;
+            lastCamParent = cam.transform.parent;
+            lastCamPos = cam.transform.position;
+            lastCamRot = cam.transform.rotation;
+
             //camType = CamType.FirstPerson;
 
-            if(camType == CamType.FreeMode)
-            {
-                Vector3 target = cam.transform.position;
-                cam.transform.Translate(Vector3.up * 7 + Vector3.forward * -7);
-                cam.transform.LookAt(target);
-                fixedRotation = cam.transform.rotation;
-            }
+            //if(camType == CamType.FreeMode)
+            //{
+            //    Vector3 target = cam.transform.position;
+            //    cam.transform.Translate(Vector3.up * 7 + Vector3.forward * -7);
+            //    cam.transform.LookAt(target);
+            //    fixedRotation = cam.transform.rotation;
+            //}
+
+
 
             for (int i = 0; i < manager.levelEntities.Count; ++i)
             {
@@ -390,6 +403,68 @@ namespace PathOS
         public void RemoveInvisibleWall(GameObject wall)
         {
             invisibleWalls.Remove(wall);
+        }
+
+
+        private void OnValidate()
+        {
+            if (lastCamera == null)
+            {
+                lastCamera = cam;
+                lastCamParent = cam.transform.parent;
+                lastCamPos = cam.transform.position;
+                lastCamRot = cam.transform.rotation;
+            }
+
+            if(lastCamera != cam)
+            {
+                var originalParent = cam.transform.parent;
+                GameObject camObj = cam.transform.parent != transform ?
+                    Instantiate(cam.gameObject, transform) : 
+                    cam.gameObject;
+                camObj.transform.SetLocalPositionAndRotation(cam.transform.localPosition, cam.transform.localRotation);
+                cam = camObj.GetComponent<Camera>();
+
+                if(lastCamParent != transform)
+                {
+                    UnityEditor.EditorApplication.delayCall += () =>
+                    {
+                        DestroyImmediate(lastCamera.gameObject);
+                        lastCamParent = originalParent;
+                        lastCamera = cam;
+                    };
+                }
+                else
+                {
+                    lastCamParent = originalParent;
+                    lastCamera = cam;
+                }
+
+
+
+
+                //// Antes de mover la nueva camara, se guardan sus variables
+                //var newCamLastParent = cam.transform.parent;
+                //var newCamPos = cam.transform.position;
+                //var newCamRot = cam.transform.rotation;
+                //
+                //// Se setea la nueva camara con las variables de la predecesora
+                //cam.transform.SetParent(lastCamera.transform.parent);
+                //cam.transform.SetPositionAndRotation(lastCamera.transform.position, lastCamera.transform.rotation);
+                //
+                //// La camara anterior regresa a su sitio de origen
+                //lastCamera.transform.SetParent(lastCamParent);
+                //lastCamera.transform.SetPositionAndRotation(lastCamPos, lastCamRot);
+                //
+                //// Se guardan las variables para regresar la camara actual a su ubicacion anterior cuando sea reemplazada
+                //lastCamParent = newCamLastParent;
+                //lastCamPos = newCamPos;
+                //lastCamRot = newCamRot;
+                //
+                //// Finaliza el cambio de camara
+                //lastCamera = cam;
+
+            }
         }
     }
 

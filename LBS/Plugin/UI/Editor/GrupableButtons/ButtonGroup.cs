@@ -11,12 +11,11 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [UxmlElement]
-    public partial class ButtonGroup : VisualElement
+    public partial class ButtonGroup : GroupBox
     {
         #region FACTORY
-        //public new class UxmlFactory : UxmlFactory<ButtonGroup, UxmlTraits> { }
-
-            UxmlColorAttributeDescription m_BaseColor = new UxmlColorAttributeDescription
+ 
+            UxmlColorAttributeDescription mBaseColor = new UxmlColorAttributeDescription
             {
                 name = "base-color",
                 defaultValue = new Color(72f / 255f, 72f / 255f, 72f / 255f)
@@ -50,11 +49,11 @@ namespace ISILab.LBS.VisualElements
 
             public void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc)
             {
-                Init(ve, bag, cc);
+                //Init(ve, bag, cc);
                 ButtonGroup btn = ve as ButtonGroup;
 
                 btn.SelectedColor = m_SelectedColor.GetValueFromBag(bag, cc);
-                btn.BaseColor = m_BaseColor.GetValueFromBag(bag, cc);
+                btn.BaseColor = mBaseColor.GetValueFromBag(bag, cc);
                 btn.Index = m_Index.GetValueFromBag(bag, cc);
                 btn.SetChoices(m_choices.GetValueFromBag(bag, cc));
             }
@@ -117,13 +116,8 @@ namespace ISILab.LBS.VisualElements
         #region CONSTRUCTORS
         public ButtonGroup()
         {
-            Init();
-        }
-        #endregion
-
-        #region METHODS
-        public void Init()
-        {
+            AddToClassList("lbs-group-box");
+            RemoveFromClassList("unity-group-box");
             // Search all buttons inside itself
             group = this.Query<VisualElement>().ToList().Where(ve => ve is IGrupable).Select(ve => ve as IGrupable).ToList();
 
@@ -141,6 +135,9 @@ namespace ISILab.LBS.VisualElements
                 Active(current);
             }
         }
+        #endregion
+
+        #region METHODS
 
         public void SetChoices(string choices)
         {
@@ -159,7 +156,7 @@ namespace ISILab.LBS.VisualElements
                 Add(cv);
             }
             ChoiceCount = count;
-            Init();
+            //Init();
         }
 
         public void ChangeActive(IGrupable active)
