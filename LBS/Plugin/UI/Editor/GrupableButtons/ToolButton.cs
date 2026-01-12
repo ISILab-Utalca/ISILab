@@ -87,19 +87,19 @@ namespace ISILab.LBS.VisualElements
 
         public void OnBlur()
         {
-            //this.style.backgroundColor = _color;
+            RemoveFromClassList("prop-state--checked");
             OnBlurEvent?.Invoke();
         }
 
         public void OnFocus()
         {
-            //this.style.backgroundColor = _selected;
+            AddToClassList("prop-state--checked");
             OnFocusEvent?.Invoke();
         }
 
         public void OnFocusWithoutNotify()
         {
-            //this.style.backgroundColor = _selected;
+            AddToClassList("prop-state--checked");
         }
 
         public void SetColorGroup(Color color, Color selected)

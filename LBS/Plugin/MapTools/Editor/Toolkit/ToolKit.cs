@@ -22,8 +22,7 @@ namespace LBS.VisualElements
     public partial class ToolKit : VisualElement
     {
         #region FACTORY
-        //public new class UxmlFactory : UxmlFactory<ToolKit, UxmlTraits> { }
-        
+
         UxmlColorAttributeDescription m_BaseColor = new UxmlColorAttributeDescription
         {
             name = "base-color",

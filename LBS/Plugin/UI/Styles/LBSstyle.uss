@@ -153,7 +153,10 @@ Label {
     flex-direction: row;
 }
 
+/* #endregion */
 /* #region Buttons */
+
+
 
 .lbs-tool-button-toggle {
     margin-left: 0;
@@ -192,15 +195,18 @@ Label {
 }
 
 .lbs-rounded-button:hover {
-    min-height: 24px;
     background-color: var(--lbs-selection-dark-blue-color);
 }
-
 
 
 .lbs-rounded-button:active{
     background-color: var(--lbs-selection-neutral-blue-color);
 }
+
+.lbs-rounded-button:checked{
+    background-color: var(--lbs-selection-neutral-blue-color);
+}
+
 
 .lbs-tool-bar-button {
     border-left-width: 1px;
@@ -968,19 +974,11 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-compact-panel {
-    background-color: var(--lbs-base-solid-gray-color);
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-left-color: var(--lbs-white-overlay-color);
-    border-right-color: var(--lbs-white-overlay-color);
-    border-bottom-color: var(--lbs-white-overlay-color);
-    border-top-color: var(--lbs-white-overlay-color);
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: var(--lbs-white-overlay-color, var(--lbs-default-white-overlay-color));
+    padding: 1px;
 }
 
 .lbs-list-item {
@@ -1797,5 +1795,3 @@ Toggle > .lbs-default-icon {
 
 .lbs-simple-palette {
 }
-
-
