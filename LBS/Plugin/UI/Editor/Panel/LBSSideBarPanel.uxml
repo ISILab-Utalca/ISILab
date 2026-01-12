@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
-    <ISILab.LBS.CustomComponents.LBSToolbar name="ExtraToolsBar" class="vertical" style="width: 40px; border-bottom-width: 0; border-top-width: 0;">
+    <ISILab.LBS.CustomComponents.LBSToolbar name="ExtraToolsBar" toolbar-accent-color="DARKEST" class="vertical prop-darkest-bg" style="width: 40px; border-bottom-width: 0; border-top-width: 0;">
         <ui:VisualElement name="FloatingPanelButtonContainer" style="flex-grow: 0; flex-direction: column-reverse; justify-content: flex-end;">
             <ui:Toggle value="false" focusable="true" name="Gen3DToggle" tooltip="3D Generator Panel " class="lbs-tool-button-toggle" style="flex-direction: row; height: 40px; background-image: none;">
                 <ui:VisualElement name="Icon" class="lbs-default-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-self: center; align-items: auto; width: 32px; height: 32px; background-image: resource(&apos;Icons/Vectorial/SideToolBar/3D_Icon_Vector&apos;); -unity-background-image-tint-color: rgb(255, 255, 255);" />
