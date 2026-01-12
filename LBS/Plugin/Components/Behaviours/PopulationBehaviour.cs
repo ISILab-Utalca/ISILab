@@ -225,6 +225,7 @@ namespace ISILab.LBS.Behaviours
                 return false;
             t.Rotation = rotation;
 
+            _newRotations ??= new();
             _newRotations.Add(t);
 
             return true;
