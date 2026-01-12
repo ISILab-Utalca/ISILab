@@ -39,6 +39,13 @@ namespace ISILab.LBS.VisualElements
 
             if(behaviour.SelectedTilemap is null) return;
 
+            behaviour.OnSelectedChanged += (newTile) =>
+            {
+                addon = newTile?.GetAddon<Addon_TriggerUnlock>();
+                if (addon is null) return;
+                SetList();
+            };
+
             addon = behaviour.SelectedTilemap.GetAddon<Addon_TriggerUnlock>();
             if (addon is null) return;
             SetList();
@@ -56,17 +63,17 @@ namespace ISILab.LBS.VisualElements
                 return new AddonTriggerConnectionView();
             };
 
-            triggerUnlockList.bindItem = (element, index) =>
+            triggerUnlockList.onAdd = listView =>
             {
-                AddonTriggerConnectionView view = element as AddonTriggerConnectionView;
-                TriggerUnlockEntry entry = addon.Connections[index];
-                view.Entry = entry;
+                addon.Connections.Add(new TriggerUnlockEntry());
+                triggerUnlockList.RefreshItems();
             };
 
-            triggerUnlockList.onRemove += baselist =>
+            triggerUnlockList.bindItem = (element, index) =>
             {
-
-
+                AddonTriggerConnectionView view = element as AddonTriggerConnectionView;    
+                TriggerUnlockEntry entry = addon.Connections[index];
+                view.Entry = entry;
             };
 
             triggerUnlockList.RefreshItems();

@@ -2,9 +2,11 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.UI.Editor;
+using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
@@ -77,7 +79,7 @@ namespace ISILab.LBS.VisualElements
             clearRef.clicked += Reset;
 
             pickerConnect.OnConnectionClicked += OnChange;
-
+            
             this.RegisterCallback<MouseEnterEvent>(_ =>
             {
                 HighlightConnection();
@@ -110,16 +112,26 @@ namespace ISILab.LBS.VisualElements
         {
             if (unlock is null) return;
 
-            connectionTileView = schemaTile;
+            object mani = ToolKit.Instance.GetActiveManipulator();
+            var picker = ToolKit.Instance.GetTool(typeof(ConnectionPicker));
 
-            // no reconnect same
-            if (unlock.Connection is not null && connection is not null &&
-                unlock.Connection.Equals(connection)) return;
+            // only update changed data on the connection view that activated the manipulator
+            if (mani is ConnectionPicker cpicker)
+            {
+                if(pickerConnect == cpicker.Activator)
+                {
+                    connectionTileView = schemaTile;
 
-            unlock.Connection = connection;
-            LBSFocusHighlight.Highlight(this);
-            UpdateConnection();
+                    // no reconnect same
+                    if (unlock.Connection is not null && connection is not null &&
+                        unlock.Connection.Equals(connection)) return;
 
+                    unlock.Connection = connection;
+                    LBSFocusHighlight.Highlight(this);
+                    UpdateConnection();
+                }
+
+            }
         }
 
         private void UpdateConnection()
