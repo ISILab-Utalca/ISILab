@@ -64,15 +64,6 @@ Label {
     -unity-background-scale-mode: scale-to-fit;
 }
 
-.lbs-default-container-panel {
-    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
-    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
-    border-width: 1px;
-    border-radius: 0;
-    padding: 3px;
-    margin-bottom: 6px;
-}
-
 .lbs-default-label-icon {
     flex-grow: 1;
     flex-direction: row;
@@ -103,49 +94,14 @@ Label {
     -unity-background-image-tint-color: var(--lbs-main-blue-color);
 }
 
-.lbs-group-box {
-    background-color: var(--lbs-dark-overlay-color);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-top-left-radius: 1.5px;
-    border-bottom-left-radius: 1.5px;
-    border-top-right-radius: 1.5px;
-    border-bottom-right-radius: 1.5px;
-    border-left-color: var(--lbs-dark-overlay-color);
-    border-right-color: var(--lbs-dark-overlay-color);
-    border-top-color: var(--lbs-dark-overlay-color);
-    border-bottom-color: var(--lbs-dark-overlay-color);
-    margin-right: 0;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding-left: 1px;
-    padding-right: 1px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin-left: 0;
-}
+
 
 .lbs-3d-icon {
     -unity-background-image-tint-color: rgb(135, 215, 246);
     background-image: resource('Icons/Vectorial/3D_Icon_Vector');
 }
 
-.lbs-title-label-container {
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 1px;
-    border-bottom-color: var(--lbs-dark-overlay-color);
-    margin-top: 0;
-    margin-bottom: 0;
-    height: 24px;
-    min-height: 24px;
-    max-height: 24px;
-    padding-bottom: 2px;
-    flex-direction: row;
-}
+
 
 /* #endregion */
 /* #region Buttons */
@@ -1293,17 +1249,7 @@ Toggle > .lbs-default-icon {
     border-bottom-color: rgba(0, 0, 0, 0.2);
 }
 
-.lbs-container-bg {
-    background-color: var(--unity-colors-default-background);
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-bottom-color: rgb(0, 0, 0);
-}
+
 
 .lbs-foldout {
     border-left-color: rgba(0, 0, 0, 0.55);
@@ -1465,7 +1411,6 @@ Toggle > .lbs-default-icon {
 .lbs-toolbar {
     border-width: 1px 1px 1px 1px;
     border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
-    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
     height: var(--height);
     width: var(--width);
 }
@@ -1573,6 +1518,12 @@ Toggle > .lbs-default-icon {
 
 /* #region Containers */
 
+.lbs-container-bg {
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+    border-color: var(--lbs-dark-overlay-color,var(--lbs-default-dark-overlay-color));
+    border-width: 1px;
+}
+
 .lbs-box-container {
     background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
     border-width: 1px;
@@ -1600,8 +1551,46 @@ Toggle > .lbs-default-icon {
     padding: 3px;
 }
 
-.lbs-box-group{
+.lbs-title-label-container {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--lbs-dark-overlay-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 24px;
+    min-height: 24px;
+    max-height: 24px;
+    padding-bottom: 2px;
+    flex-direction: row;
+}
 
+.lbs-group-box {
+    background-color: var(--lbs-dark-overlay-color,var(--lbs-default-dark-overlay-color));
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-radius: 1.5px;
+    border-color: var(--lbs-dark-overlay-color,var(--lbs-default-dark-overlay-color));
+    margin-right: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 0;
+}
+
+.lbs-default-container-panel {
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
+    border-width: 1px;
+    border-radius: 0;
+    padding: 3px;
+    margin-bottom: 6px;
 }
 
 /* #endregion */
