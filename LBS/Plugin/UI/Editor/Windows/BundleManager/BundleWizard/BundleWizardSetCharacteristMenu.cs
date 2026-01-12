@@ -37,12 +37,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             public BundleManagerListGroup listGroup = new();
             public HashSet<Type> selectedCharacteristics = new();
             public Dictionary<Type, bool> initializationValues = new();
+            public String titleLable;
             /// <summary>
             /// Dictionary containing every characteristic element displayed, accessed through a characteristic type.
             /// </summary>
             public Dictionary<Type, BundleWizardCharacteristicElement> elements = new();
 
-            public CharacteristicContainer(BundleWizardSetCharacteristMenu menu, ContainerKey key)
+            public CharacteristicContainer(BundleWizardSetCharacteristMenu menu, ContainerKey key, string titleLable)
             {
                 //this.menu = menu;
 
@@ -50,6 +51,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
                 listGroup.GetListViewRef(out listView);
 
+                listGroup.TitleText = titleLable;
+                
                 listView.itemsSource = menu.allCharacteristics;
                 listView.makeItem = () => new BundleWizardCharacteristicElement();
                 listView.bindItem = (item, i) =>
@@ -61,6 +64,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 {
                     menu.UnbindItem(item, i, this);
                 };
+                this.titleLable = titleLable;
+
             }
 
             public void Reset()
@@ -78,8 +83,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             ContainerKey
                 mainKey = ContainerKey.Main,
                 childrenKey = ContainerKey.Children;
-            containers.Add(mainKey, new CharacteristicContainer(this, mainKey));
-            containers.Add(childrenKey, new CharacteristicContainer(this, childrenKey));
+            containers.Add(mainKey, new CharacteristicContainer(this, mainKey, "Main Bundle's Characteristics"));
+            containers.Add(childrenKey, new CharacteristicContainer(this, childrenKey, "Sub Bundle's Characteristics"));
 
             style.flexDirection = FlexDirection.Row;
             Add(containers[mainKey].listGroup);
