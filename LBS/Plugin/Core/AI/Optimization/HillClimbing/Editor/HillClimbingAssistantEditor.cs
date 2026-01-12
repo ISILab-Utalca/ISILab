@@ -176,8 +176,8 @@ namespace ISILab.LBS.VisualElements
         {
             // Save history version to revert if necessary
             LoadedLevel loadedLevel = LBSController.CurrentLevel;
-            Undo.RegisterCompleteObjectUndo(loadedLevel, "Recalculate Constraints");
             EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(loadedLevel, "Recalculate Constraints");
 
             // Recalculate constraints
             RunRecalculateTask();
@@ -227,8 +227,8 @@ namespace ISILab.LBS.VisualElements
         {
             // Save history version to revert if necessary
             LoadedLevel x = LBSController.CurrentLevel;
-            Undo.RegisterCompleteObjectUndo(x, "Execute HillClimbing");
             EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(x, "Execute HillClimbing");
 
             ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
