@@ -1,5 +1,7 @@
 using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -19,6 +21,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         [SerializeReference]
         LBSGeneratedPopulation keyComp;
 
+        NavMeshObstacle obstacle;
+
         #endregion
 
         #region PROPERTIES
@@ -33,11 +37,21 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (keyComp is null) return;
             // store ID as the object is destroyed when the item is added to inventory
             key = keyComp.GetID();
+            obstacle = GetComponent<NavMeshObstacle>();
+            obstacle.carving = true;
         }
 
         /* Implement unlock logic by default just destroy the locked object
         for example, animation. */
-        public virtual void OnUnlock() => Destroy(gameObject);
+        public virtual void OnUnlock()
+        {
+            //var navmesh = FindObjectsByType<NavMeshSurface>(FindObjectsSortMode.None)[0];
+            //navmesh.UpdateNavMesh()
+
+            obstacle = GetComponent<NavMeshObstacle>();
+            obstacle.carving = false;
+            Destroy(gameObject);
+        }
 
         private void OnTriggerStay(Collider other) => TryUnlock(other);
 
