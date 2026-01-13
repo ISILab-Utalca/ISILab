@@ -22,11 +22,16 @@ namespace ISILab.LBS.Manipulators
     /// </summary>
     public class ConnectionPicker : LBSManipulator
     {
+        // picker button that was used to activate the manipulator
+        private PickerConnect activator;
+
         // Private fields
         private TileGroupBehavior _behaviour;
 
         public Action<SchemaTileConnectionView, DirConnection> OnConnectionClicked;
 
+
+        public PickerConnect Activator { get; set; }
         /// <summary>
         /// Icon used by this manipulator.
         /// </summary>

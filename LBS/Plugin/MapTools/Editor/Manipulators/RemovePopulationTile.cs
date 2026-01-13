@@ -40,10 +40,12 @@ namespace ISILab.LBS.Manipulators
             _previewFeedback = new DottedAreaFeedback();
             _previewFeedback.preview = true;
             _previewFeedback.fixToTeselation = true;
-            
+
             _population = provider as PopulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
+
+            _population.OwnerLayer.OnChange += () => CleanPreviews();
         }
 
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
@@ -191,9 +193,12 @@ namespace ISILab.LBS.Manipulators
         {
             base.OnKeyDown(e);
 
-            MainView.Instance.RemoveElement(_previewFeedback);
-            MainView.Instance.RemoveElement(Feedback);
-            CleanPreviews();
+            if ((e.keyCode == KeyCode.Escape) && ForceCancel)
+            {
+                MainView.Instance.RemoveElement(_previewFeedback);
+                MainView.Instance.RemoveElement(Feedback);
+                CleanPreviews();
+            }
         }
 
         private void CleanPreviews()

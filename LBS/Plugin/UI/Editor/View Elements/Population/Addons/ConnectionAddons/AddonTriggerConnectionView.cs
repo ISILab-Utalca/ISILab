@@ -1,6 +1,8 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using System.Runtime.CompilerServices;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -72,12 +74,17 @@ namespace ISILab.LBS.VisualElements
 
             addonList.itemsSource = entry.Unlocks;
             addonList.makeItem = () => new AddonConnectionView();
+
+            addonList.onAdd = listView =>
+            {
+                entry.Unlocks.Add(new Addon_Unlock());
+                listView.RefreshItems();
+            };
+
+
             addonList.bindItem = (el, i) =>
             {
-                if (entry.Unlocks[i] is null) entry.Unlocks[i] = new Addon_Unlock();
                 ((AddonConnectionView)el).SetInfo(entry.Unlocks[i]);
-
-
             };
         }
         #endregion

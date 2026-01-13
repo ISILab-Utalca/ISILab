@@ -17,7 +17,6 @@ namespace ISILab.LBS.Behaviours
         public QuestBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
-        
 
         public override void OnGUI()
         {

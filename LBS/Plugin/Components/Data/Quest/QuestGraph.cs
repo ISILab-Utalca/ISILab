@@ -306,7 +306,6 @@ namespace ISILab.LBS.Modules
                 RemoveEdge(e); 
             }
             
-         
             if (Equals(node, root)) root = null;
             if (Equals(node, _selectedNode)) SelectedGraphNode = null;
             
@@ -316,29 +315,6 @@ namespace ISILab.LBS.Modules
         #region Edges
         public Tuple<string, LogType> AddEdge(GraphNode from, GraphNode to)
         {
-            if (to == null || from == null)
-                return Tuple.Create("A connection requires two nodes.", LogType.Error);
-
-            if (Equals(from, to))
-                return Tuple.Create("A node cannot connect to itself.", LogType.Error);
-
-            // prevent duplicates
-            if (graphEdges.Any(e => e.From.Contains(from) && Equals(e.To, to)))
-                return Tuple.Create("This connection already exists.", LogType.Error);
-
-            // check for looping connections
-            if (IsLooped(from, to, new HashSet<GraphNode>()))
-            {
-                return Tuple.Create("The destination is a root of this node.", LogType.Error);
-            }
-            // only branching nodes can be a To on multiple edges
-            if (to is QuestNode && from is QuestNode)
-            {
-                bool alreadyTarget = graphEdges.Any(e => Equals(e.To, to));
-                if (alreadyTarget)
-                    return Tuple.Create("Action Nodes can only be the destination of one edge. For multiple use Branching nodes", LogType.Error);
-            }
-            
             QuestEdge newEdge = new QuestEdge(from, to);
             graphEdges.Add(newEdge);
             OnAddEdge?.Invoke(newEdge);
@@ -346,7 +322,7 @@ namespace ISILab.LBS.Modules
             return Tuple.Create($"Connection: {from} → {to}", LogType.Log);
         }
 
-        private bool IsLooped(GraphNode origin, GraphNode current, HashSet<GraphNode> visited)
+        public bool IsLooped(GraphNode origin, GraphNode current, HashSet<GraphNode> visited)
         {
             if (Equals(origin, current))
                 return true;
@@ -388,15 +364,15 @@ namespace ISILab.LBS.Modules
             return false;
         }
 
-
-        private void RemoveEdge(QuestEdge edge)
+        public bool RemoveEdge(QuestEdge edge)
         {
-            if (edge == null) return;
+            if (edge == null) return false;
             graphEdges.Remove(edge);
             OnRemoveEdge?.Invoke(edge);
+            return true;
         }
 
-        private QuestEdge GetEdge(Vector2 pos, float delta)
+        public QuestEdge GetEdge(Vector2 pos, float delta)
         {
             foreach (QuestEdge e in graphEdges)
             {
@@ -409,12 +385,6 @@ namespace ISILab.LBS.Modules
                 }
             }
             return null;
-        }
-
-        public void RemoveEdgeByPosition(Vector2Int pos, float delta)
-        {
-            QuestEdge edge = GetEdge(pos, delta);
-            RemoveEdge(edge);
         }
 
         private List<QuestEdge> GetEdgesWithNode(GraphNode node) =>

@@ -80,6 +80,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
             //We have the tiles here
             var chosenTiles = mapMod.Tiles;
+            //var chosenTilesOrdered = chosenTiles.Select
+            
             Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
             var tilePrefPair = new Dictionary<LBSTile, GameObject>();
 
@@ -94,7 +96,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 
                 //Then see if it has a selector. If not, we go for random!
                 var patternSelector = currentBundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault();
-                Debug.Log(patternSelector);
 
                 if (patternSelector != null)
                 {
@@ -102,7 +103,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     var adjacentPrefs = new Dictionary<string, GameObject>();
 
                     //Left!
-                    var leftTile = chosenTiles.FirstOrDefault(c => c.Position.x.Equals(chosenTiles[i].Position.x - 1));
+                    var leftTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x-1, chosenTiles[i].Position.y)));
                     if (leftTile != null)
                     {
                         var leftBundle = GetBundle(selected, connctMod.GetConnections(leftTile).ToArray()).Item1.Owner;
@@ -112,7 +113,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         }
                     }
                     //Right!
-                    var rightTile = chosenTiles.FirstOrDefault(c => c.Position.x.Equals(chosenTiles[i].Position.x + 1));
+                    var rightTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x + 1, chosenTiles[i].Position.y)));
                     if (rightTile != null)
                     {
                         var rightBundle = GetBundle(selected, connctMod.GetConnections(rightTile).ToArray()).Item1.Owner;
@@ -123,7 +124,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         }
                     }
                     //Up!
-                    var upTile = chosenTiles.FirstOrDefault(c => c.Position.y.Equals(chosenTiles[i].Position.y - 1));
+                    var upTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x, chosenTiles[i].Position.y + 1)));
                     if (upTile != null)
                     {
                         var upBundle = GetBundle(selected, connctMod.GetConnections(upTile).ToArray()).Item1.Owner;
@@ -133,7 +134,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         }   
                     }
                     //Down!
-                    var downTile = chosenTiles.FirstOrDefault(c => c.Position.y.Equals(chosenTiles[i].Position.y + 1));
+                    var downTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x, chosenTiles[i].Position.y - 1)));
                     if (downTile != null)
                     {
                         var downBundle = GetBundle(selected, connctMod.GetConnections(downTile).ToArray()).Item1.Owner;
@@ -147,9 +148,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     //var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
                     var pref = ChoosePatternByGrid(currentBundle, adjacentBundles, adjacentPrefs);
                     if(pref==null) {
-                        Debug.Log("random chosen instead of grid");
-                        pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
+                        Debug.Log("starter chosen instead of grid");
+                        pref = pair?.Item1?.Owner?.Assets[0]?.obj;
                     }
+                    Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
                     tilePrefPair.Add(chosenTiles[i], pref);
                 }
                 else
@@ -229,7 +231,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             //We know the current bundle has a selector, but we'll still put a failsafe.
             var gridSelector = currentBundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault();
             if (gridSelector == null) return null;
-            if ((adjacentBundles.Count == 0) || (adjacentPreferences.Count == 0))
+            if ((adjacentBundles.Count == 0) && (adjacentPreferences.Count == 0))
             {
                 return null;
             }
@@ -240,45 +242,46 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 assetGridList.Add(assetGrid);
             }
-            Debug.Log("checking " + assetGridList.Count + "possible preferences");
 
             //Now, we check each adjacent bundle. The sequence is like this:
             var checkedGrids = new Dictionary<string, AssetConnectionGrid>();
             //1. Check if each direction's preference exists. If it doesn't, it's ignored.
             //2. Check if each bundle exists and get its grid. If it fails in any of these, it's ignored.
-            if(adjacentBundles.ContainsKey("Left")&&adjacentPreferences.ContainsKey("Left"))
+
+            //string debugDirect = "asset has the following: | ";
+
+            //3. If the direction has a preference, find, inside the direction's grid, the AssetGrid matching its preference. This can be done via the GetGrid method.
+            //4. Save access to the asset grid in checkedGrids, alongside the direction key.
+            if (adjacentBundles.ContainsKey("Left")&&adjacentPreferences.ContainsKey("Left"))
             {
                 var leftAsset = adjacentPreferences["Left"];
-                //3. If the direction has a preference, find, inside the direction's grid, the AssetGrid matching its preference. This can be done via the GetGrid method.
-                //4. Save access to the asset grid.
                 var leftGrid = adjacentBundles["Left"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Left"]);
-                checkedGrids.Add("Left", leftGrid);                
+                checkedGrids.Add("Left", leftGrid);
+                //debugDirect += "left | ";
             }
             if (adjacentBundles.ContainsKey("Right") && adjacentPreferences.ContainsKey("Right"))
             {
                 var rightAsset = adjacentPreferences["Right"];
-                //3. If the direction has a preference, find, inside the direction's grid, the AssetGrid matching its preference. This can be done via the GetGrid method.
-                //4. Save access to the asset grid.
                 var rightGrid = adjacentBundles["Right"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Right"]);
                 checkedGrids.Add("Right", rightGrid);
+                //debugDirect += "right | ";
             }
             if (adjacentBundles.ContainsKey("Up") && adjacentPreferences.ContainsKey("Up"))
             {
                 var upAsset = adjacentPreferences["Up"];
-                //3. If the direction has a preference, find, inside the direction's grid, the AssetGrid matching its preference. This can be done via the GetGrid method.
-                //4. Save access to the asset grid.
                 var upGrid = adjacentBundles["Up"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Up"]);
                 checkedGrids.Add("Up", upGrid);
+                //debugDirect += "up | ";
             }
             if (adjacentBundles.ContainsKey("Down") && adjacentPreferences.ContainsKey("Down"))
             {
                 var downAsset = adjacentPreferences["Down"];
-                //3. If the direction has a preference, find, inside the direction's grid, the AssetGrid matching its preference. This can be done via the GetGrid method.
-                //4. Save access to the asset grid.
                 var downGrid = adjacentBundles["Down"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Down"]);
                 checkedGrids.Add("Down", downGrid);
+                //debugDirect += "down | ";
             }
 
+            //Debug.Log(debugDirect);
             //6. When this has been done with all four directions, we move to the WFC.
             //6a. We check the list and immediately remove any "incompatible" assets we find.
             //We check opposite borders (right border in left object, so on and so forth) and, if any of the flags don't equate with the opposite border or aren't 0,
@@ -288,35 +291,81 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 for (int i = 0; i < grid.BorderSize; i++)
                 {
-                   if(checkedGrids.ContainsKey("Left"))
-                   {
-                        int flag = checkedGrids["Left"].FlagFromVector(grid.BorderSize-1, i);
-                        if ((flag != 0) && (grid.FlagFromVector(0, i)!=0) && (flag != grid.FlagFromVector(0, i))) { assetGridList.Remove(grid); break; }
-                   }
-                   if (checkedGrids.ContainsKey("Right"))
-                   {
-                        int flag = checkedGrids["Right"].FlagFromVector(0, i);
-                        if ((flag != 0) && (grid.FlagFromVector(grid.BorderSize-1, i) != 0) && (flag != grid.FlagFromVector(grid.BorderSize - 1, i))) { assetGridList.Remove(grid); break; }
-                   }
-                   if (checkedGrids.ContainsKey("Up"))
-                   {
-                        int flag = checkedGrids["Up"].FlagFromVector(i, grid.BorderSize-1);
-                        if ((flag != 0) && (grid.FlagFromVector(i, 0) != 0) && (flag != grid.FlagFromVector(i, 0))) { assetGridList.Remove(grid); break; }
+                    //If there's something to the left (or any direction), it'll ensure the grid flags match their respective opposite borders
+                    if (checkedGrids.ContainsKey("Left"))
+                    {
+                        int flag = checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, i);
+                        //Debug.Log("left flag "+i+ " = " + flag + " | this flag = " + grid.FlagFromVector(0, i));
+                        if (flag != grid.FlagFromVector(0, i)) { assetGridList.Remove(grid); break; }
                     }
-                   if (checkedGrids.ContainsKey("Down"))
-                   {
+
+                    //Otherwise, we have to identify if the adjacent side is a border or not. For this, we check if there's a bundle preference set up.
+                    //When an object has an adjacent bundle but not an adjacent preference, it means it's checking an unchecked tile.
+                    //When an object has no bundle, it means it's a border.
+                    else
+                    {
+                        if (!adjacentBundles.ContainsKey("Left"))
+                        {
+                            Debug.Log("left is border");
+                            if (grid.FlagFromVector(0, i) != 0) { assetGridList.Remove(grid); break; }
+                        }
+                        else Debug.Log("left is unchecked");
+                    }
+
+                    if (checkedGrids.ContainsKey("Right"))
+                    {
+                        int flag = checkedGrids["Right"].FlagFromVector(0, i);
+                        if (flag != grid.FlagFromVector(grid.BorderSize - 1, i)) { assetGridList.Remove(grid); break; }
+                    }
+                    else
+                    {
+                        if (!adjacentBundles.ContainsKey("Right"))
+                        {
+                            Debug.Log("right is border");
+                            if (grid.FlagFromVector(grid.BorderSize - 1, i) != 0) { assetGridList.Remove(grid); break; }
+                        }
+                        else Debug.Log("right is unchecked");
+                    }
+
+                    if (checkedGrids.ContainsKey("Up"))
+                    {
+                        int flag = checkedGrids["Up"].FlagFromVector(i, grid.BorderSize - 1);
+                        if (flag != grid.FlagFromVector(i, 0)) { assetGridList.Remove(grid); break; }
+                    }
+                    else
+                    {
+                        if (!adjacentBundles.ContainsKey("Up"))
+                        {
+                            Debug.Log("up is border");
+                            if (grid.FlagFromVector(i, 0) != 0) { assetGridList.Remove(grid); break; }
+                        }
+                        else Debug.Log("up is unchecked");
+                    }
+
+                    if (checkedGrids.ContainsKey("Down"))
+                    {
                         int flag = checkedGrids["Down"].FlagFromVector(i, 0);
-                        if ((flag != 0) && (grid.FlagFromVector(i, grid.BorderSize-1) != 0) && (flag != grid.FlagFromVector(i, grid.BorderSize - 1))) { assetGridList.Remove(grid); break; }
-                   }
+                        if (flag != grid.FlagFromVector(i, grid.BorderSize - 1)) { assetGridList.Remove(grid); break; }
+                    }
+                    else
+                    {
+                        if (!adjacentBundles.ContainsKey("Down"))
+                        {
+                            Debug.Log("down is border");
+                            if (grid.FlagFromVector(i, grid.BorderSize - 1) != 0) { assetGridList.Remove(grid); break; }
+                        }
+                        else Debug.Log("down is unchecked");
+                    }
                 }
             }
-            Debug.Log("options reduced to " + assetGridList.Count);
+            //Debug.Log("options reduced to " + assetGridList.Count);
             //Hopefully it's not a lot of executions
             //7. We can assume every grid in the curating list is compatible with everything around it, so we choose a random from the remaining ones
             //Let's return the preferred object!
+            var chosenObj = assetGridList.Count > 0 ? UnityEngine.Random.Range(0, assetGridList.Count) : 0;
             return assetGridList.Count > 0
-                ? assetGridList[UnityEngine.Random.Range(0, assetGridList.Count)].AssetReference.obj
-                : gridSelector.GridList[0].AssetReference.obj;
+                ? assetGridList[chosenObj].AssetReference.obj
+                : gridSelector.GridList[gridSelector.DefaultAsset].AssetReference.obj;
         }
 
         public override object Clone()

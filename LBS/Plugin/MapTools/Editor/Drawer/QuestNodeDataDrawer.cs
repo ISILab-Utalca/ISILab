@@ -31,7 +31,7 @@ namespace ISILab.LBS.Drawers.Editor
             if (target is not QuestNodeBehaviour behaviour) return;
             if (behaviour.OwnerLayer is not { } layer) return;
             view.ClearLayerContainer(behaviour.OwnerLayer, true);
-            
+
             if (_onChangeAction != null) layer.OnChange -= _onChangeAction;
             _onChangeAction = ClearElements(view, layer, behaviour);
             layer.OnChange += _onChangeAction;

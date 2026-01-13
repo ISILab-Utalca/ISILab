@@ -25,6 +25,12 @@ namespace ISILab.LBS.VisualElements
             behaviour = target as TileGroupBehavior;
             if (behaviour is null) return;
 
+            behaviour.OnSelectedChanged += (newTile) =>
+            {
+                acv.SetInfo(newTile?.GetAddon<Addon_Unlock>());
+            };
+
+
             acv.SetInfo(behaviour.SelectedTilemap.GetAddon<Addon_Unlock>());
         }
 

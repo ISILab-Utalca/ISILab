@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using ISILab.LBS.Drawers;
+using ISILab.LBS.Drawers.Editor;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
@@ -181,8 +182,10 @@ namespace ISILab.LBS
                 bool preVisible = _preVisibility.ContainsKey(layer) ? _preVisibility[layer] : layer.IsVisible;
                 //if(deepClean)
 
-                GetLayerDrawers(layer)
-                .ForEach(drawer => { drawer.FullRedrawRequested = preVisible && layer.IsVisible;
+                GetLayerDrawers(layer).ForEach(drawer => 
+                { 
+                    drawer.FullRedrawRequested = preVisible && layer.IsVisible;
+
                     if (layer.IsVisible)
                     {
                         if (!newDrawers.Contains(drawer.GetType())) // Temporary condition while working on other drawers
@@ -199,7 +202,7 @@ namespace ISILab.LBS
             }
             DrawLevel(level);
 
-            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer) };
+            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer), typeof(QuestGraphDrawer), typeof (QuestNodeBehaviourDrawer) };
         }
 
         private void DrawLevel(LBSLevelData level)
