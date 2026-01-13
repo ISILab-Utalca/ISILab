@@ -32,6 +32,8 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
 
+        Dictionary<Vector2Int, LBSTile> tilePos = new Dictionary<Vector2Int, LBSTile>();
+
         public string Tooltip => "DC Exploration Evaluator\n\n" +
             "This evaluator aims to balance the distances between every player and every \"point of interest\" such as chests, weapons and other resources, in order to maximize the explorable space.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
@@ -102,6 +104,12 @@ namespace ISILab.AI.Categorization
 
             if (layer is not null)
             {
+                var sectorMod = layer.GetModule<SectorizedTileMapModule>();
+                foreach (var pair in sectorMod.PairTiles)
+                {
+                    if (!tilePos.ContainsKey(pair.Tile.Position))
+                        tilePos.Add(pair.Tile.Position, pair.Tile);
+                }
                 switch (layer.ID)
                 {
                     case "Interior":
@@ -136,28 +144,53 @@ namespace ISILab.AI.Categorization
             //    }
             //}
 
-            float max = 0;
-            foreach(float i in distances)
-                if(i > max)
-                    max = i;
+         
+            List<float> neighborDistances = new List<float>();
 
-            List<float> score = new List<float>();
-            float sum = 0;
-            
-            for(int i = 0; i < distances.GetLength(0); i++)
+            for (int i = 0; i < size; i++)
             {
-                for(int j = i+1; j < distances.GetLength(1); j++)
+                float closestDist = float.MaxValue;
+                bool found = false;
+
+                for (int j = 0; j < size; j++)
                 {
-                    float newScore = (float)distances[i, j] / max;
-                    sum += newScore;
-                    score.Add(newScore);
+                    if (i == j) continue;
+                    int dist = distances[i, j];
+
+                    if (dist > 0 && dist < closestDist)
+                    {
+                        closestDist = dist;
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    neighborDistances.Add(closestDist);
                 }
             }
 
-            fitness = sum / (float)score.Count;
-            //UnityEngine.Assertions.Assert.IsTrue(float.IsNormal(fitness));
-            if (!float.IsNormal(fitness))
-                Debug.LogError("Fitness was NaN: " + fitness);
+            if (neighborDistances.Count < 2) return 0.0f;
+
+            float averageDist = 0;
+            foreach (float d in neighborDistances) averageDist += d;
+            averageDist /= neighborDistances.Count;
+
+            float totalError = 0;
+            foreach (float d in neighborDistances)
+            {
+                totalError += Mathf.Abs(d - averageDist);
+            }
+
+            float totalSum = averageDist * neighborDistances.Count;
+
+            if (totalSum == 0) return 0f;
+
+
+            fitness = 1.0f - (totalError / totalSum);
+
+            fitness = Mathf.Clamp01(fitness);
+
             return fitness;
         }
 
@@ -166,15 +199,6 @@ namespace ISILab.AI.Categorization
             //maxDistance = 0;
             if (from >= others.Count)
                 return;
-
-            Dictionary<Vector2Int, LBSTile> tilePos = new Dictionary<Vector2Int, LBSTile>();
-            foreach (var pair in sectorizedTM.PairTiles)
-            {
-                if (!tilePos.ContainsKey(pair.Tile.Position))
-                {
-                    tilePos.Add(pair.Tile.Position, pair.Tile);
-                }
-            }
 
             List<int> remainingOthers = new List<int>(others);
             remainingOthers.RemoveRange(0, from);
@@ -313,5 +337,127 @@ namespace ISILab.AI.Categorization
             clone.pointsOfInterest = new List<LBSCharacteristic>(pointsOfInterest);
             return clone;
         }
+
+
+        /*public float Evaluate(IOptimizable evaluable)
+        {
+            var chrom = evaluable as BundleTilemapChromosome;
+
+            if (chrom is null)
+            {
+                throw new System.Exception("Wrong Chromosome Type");
+            }
+            if (chrom.IsEmpty())
+            {
+                return 0.0f;
+            }
+
+            LBSLayer layer = CombinedLayer;
+
+            float fitness = 0;
+
+            var genes = chrom.GetGenes().Cast<BundleData>().ToList();
+
+            List<int> POIs = new List<int>();
+
+            for (int i = 0; i < genes.Count; i++)
+            {
+                if (chrom.IsInvalid(i))
+                    continue;
+                if (genes[i] is not null)
+                {
+                    if (genes[i].HasTag(playerCharacteristic.FirstTag()))
+                    {
+                        POIs.Add(i);
+                        continue;
+                    }
+                    foreach (var LBSChar in pointsOfInterest)
+                    {
+                        if (genes[i].HasTag(LBSChar.FirstTag()))
+                        {
+                            POIs.Add(i);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            int size = POIs.Count;
+
+            if (size <= 1)
+            {
+                Debug.LogWarning("Not enough Points of Interest were found. Try adding a player and some more resource elements. Check the DC Exploration evaluator description for more info.");
+                return 0.0f;
+            }
+
+            int[,] distances = new int[size, size];
+            bool[,] toIgnore = new bool[size, size];
+
+            if (layer is not null)
+            {
+                var sectorMod = layer.GetModule<SectorizedTileMapModule>();
+                foreach (var pair in sectorMod.PairTiles)
+                {
+                    if (!tilePos.ContainsKey(pair.Tile.Position))
+                        tilePos.Add(pair.Tile.Position, pair.Tile);
+                }
+                switch (layer.ID)
+                {
+                    case "Interior":
+                    case "Exterior":
+                        string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                        for (int i = 0; i < size; i++)
+                        {
+                            FloodFill(POIs[i], POIs, i, ref distances, chrom, layer.GetModule<SectorizedTileMapModule>(), layer.GetModule<ConnectedTileMapModule>(moduleID));
+                        }
+                        break;
+                    default:
+                        for (int i = 0; i < size; i++)
+                        {
+                            Manhattan(POIs[i], POIs, i, ref distances, chrom);
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    Manhattan(POIs[i], POIs, i, ref distances, chrom);
+                }
+            }
+
+            //for(int i = 0; i < size; i++)
+            //{
+            //    for(int j = 0; j < size; j++)
+            //    {
+            //        // Llenar toIgnore
+            //    }
+            //}
+
+            float max = 0;
+            foreach(float i in distances)
+                if(i > max)
+                    max = i;
+
+            List<float> score = new List<float>();
+            float sum = 0;
+            
+            for(int i = 0; i < distances.GetLength(0); i++)
+            {
+                for(int j = i+1; j < distances.GetLength(1); j++)
+                {
+                    float newScore = (float)distances[i, j] / max;
+                    sum += newScore;
+                    score.Add(newScore);
+                }
+            }
+
+            fitness = sum / (float)score.Count;
+            //UnityEngine.Assertions.Assert.IsTrue(float.IsNormal(fitness));
+            if (!float.IsNormal(fitness))
+                Debug.LogError("Fitness was NaN: " + fitness);
+            return fitness;
+        }*/
     }
 }
