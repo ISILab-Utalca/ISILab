@@ -19,6 +19,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         #region VISUAL ELEMENTS
         VisualElement thumbnail;
+        VisualElement highlight;
         List<AssetGridTile> tiles = new List<AssetGridTile>();
         #endregion
 
@@ -63,6 +64,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
             gridContainer = this.Q<VisualElement>("GridContainer");
             thumbnail = this.Q<VisualElement>("Thumbnail");
+            highlight = this.Q<VisualElement>("Highlight");
 
             Init();
         }
@@ -191,6 +193,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         public void BrushTool(AssetGridTile tile)
         {
+            Debug.Log(CurrentColorID);
             tile.ChangeValue(CurrentColorID);
         }
         public void EraserTool(AssetGridTile tile)
@@ -245,6 +248,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             {
                 __tile.ChangeValue(0);
             }
+        }
+
+        public void ToggleHighlight(bool toggle)
+        {
+            highlight.visible = toggle;
         }
 
         private void StepPreview()
