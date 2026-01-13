@@ -104,6 +104,7 @@ namespace ISILab.LBS.Characteristics
             }
         }
 
+        [System.Obsolete]
         public List<TagCharacteristicEntry> Value { get; internal set; }
 
         public LBSTagsCharacteristic(List<LBSTag> tags)
