@@ -15,8 +15,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         [SerializeField, SerializeReference, HideInInspector]
         List<BundleTileMapAddons> addons = new();
         private LBSGeneratedEventHook genEventHooker;
-        private object uhl;
-
 
         #endregion
 
@@ -27,6 +25,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             get
             {
                 genEventHooker = gameObject.GetComponent<LBSGeneratedEventHook>();
+
+                if(destroyCancellationToken.IsCancellationRequested) return null;
+
                 genEventHooker ??= gameObject.AddComponent<LBSGeneratedEventHook>();
                 return genEventHooker;
             }
