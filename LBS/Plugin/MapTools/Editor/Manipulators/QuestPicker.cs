@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 using ISILab.LBS.Macros;
-using log4net.Core;
 using UnityEditor;
 
 namespace ISILab.LBS.Manipulators

@@ -2,7 +2,6 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using LBS.Components;
-using log4net.Core;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
