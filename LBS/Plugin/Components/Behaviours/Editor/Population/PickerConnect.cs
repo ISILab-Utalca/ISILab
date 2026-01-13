@@ -19,7 +19,8 @@ namespace ISILab.LBS.VisualElements
     public partial class PickerConnect : PickerBase
     {   
         private readonly Button _buttonPickerTarget;
-     
+
+
         public Action OnClicked;
         private static VisualTreeAsset visualTree;
 
@@ -62,9 +63,10 @@ namespace ISILab.LBS.VisualElements
             // by default not picking the main trigger - its set on its OnClicked Implementation on QuestNodeBehaviourEditor
             object mani = ToolKit.Instance.GetActiveManipulator();
             var picker = ToolKit.Instance.GetTool(typeof(ConnectionPicker));
-
+         
             if(mani is ConnectionPicker cpicker)
             {
+                cpicker.Activator = this;
                 cpicker.OnConnectionClicked += (tile, direction) => 
                 { 
                     OnConnectionClicked?.Invoke(tile, direction); 
