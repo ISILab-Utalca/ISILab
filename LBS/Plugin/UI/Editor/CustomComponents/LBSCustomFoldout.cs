@@ -17,20 +17,39 @@ namespace ISILab.LBS.CustomComponents
         public const string FOLDOUT_CONTENT_PANEL = "lbs-foldout-panel";
         public const string FOLDOUT_CONTENT_MENU_BUTTON = "lbs-foldout-menu-button";
         public const string FOLDOUT_CHECKMARK = "lbs-custom-foldout-checkmark";
+        public const string ICON_USS_CLASS = "lbs-icon";
 
         
         
         private VectorImage arrowDownIcon;
         private VectorImage arrowSideIcon;
         private VectorImage dotsIcon;
+        private VectorImage leftIcon;
         
+        //Visual elements references
         private ToolbarMenu m_RightDropDown;
-        private VisualElement m_LeftIcon;
+        private VisualElement m_LeftIconElement;
         private VisualElement arrowVisualElement;
         private VisualElement content;
-            
+
+
+
         [UxmlAttribute]
-        public string LeftIcon;
+        public VectorImage LeftIcon
+        {
+            get => leftIcon;
+            set
+            {
+                leftIcon = value;
+                if (m_LeftIconElement != null)
+                {
+                    m_LeftIconElement.style.backgroundImage = leftIcon? 
+                        new StyleBackground(leftIcon) :
+                        new StyleBackground(AssetMacro.LoadPlaceholderTexture());
+                    m_LeftIconElement.style.display = leftIcon? DisplayStyle.Flex : DisplayStyle.None; 
+                }
+            }
+        }
         
         
         public LBSCustomFoldout() : base()
@@ -44,9 +63,9 @@ namespace ISILab.LBS.CustomComponents
             m_RightDropDown.AddToClassList(FOLDOUT_CONTENT_MENU_BUTTON);
             m_RightDropDown.RemoveFromClassList(ToolbarMenu.ussClassName);
             
-            m_LeftIcon = new VisualElement();
-            
-            m_LeftIcon.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
+            m_LeftIconElement = new VisualElement();
+            m_LeftIconElement.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
+            m_LeftIconElement.AddToClassList(ICON_USS_CLASS);
             
             Toggle mToggle = this.Q<Toggle>();
             mToggle.RemoveFromClassList(Toggle.ussClassName);
@@ -77,17 +96,22 @@ namespace ISILab.LBS.CustomComponents
                 {
                     arrowVisualElement.style.backgroundImage = new StyleBackground(arrowSideIcon);
                 }
-                
             }
             else
             {
                 arrowVisualElement.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
             }
             
+            
             content.AddToClassList(FOLDOUT_CONTENT_PANEL);
             content.style.marginLeft = 0;
             
             mToggle.Add(m_RightDropDown);
+            
+            // hack!
+            VisualElement labelContainer = contentLabel.parent;
+            labelContainer.Add(m_LeftIconElement);
+            m_LeftIconElement.PlaceBehind(contentLabel);
             
             VisualElement toolbarButtonIcon = this.Query<VisualElement>(classes: "unity-toolbar-menu__arrow");
             TextElement toolbarLabel  = m_RightDropDown.Query<TextElement>(classes: "unity-toolbar-menu__text");
