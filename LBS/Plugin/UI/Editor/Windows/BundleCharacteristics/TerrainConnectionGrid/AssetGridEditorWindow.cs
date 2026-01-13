@@ -121,6 +121,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                         {
                             _tile.ChangeColor(ColorPaletteKey[_tile.ColorValue]);
                         }
+                        //Border
+                        else if (_tile.ColorValue == -1)
+                        {
+                            _tile.ChangeColor(new Color(0.8f, 0.8f, 0.8f));
+                        }
                         else
                         {
                             _tile.ChangeValue(0);
@@ -193,7 +198,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         public void BrushTool(AssetGridTile tile)
         {
-            Debug.Log(CurrentColorID);
             tile.ChangeValue(CurrentColorID);
         }
         public void EraserTool(AssetGridTile tile)
