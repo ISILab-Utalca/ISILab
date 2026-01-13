@@ -74,7 +74,6 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-
             target = paramTarget;
             _assistant = target as GrammarAssistant;
 
@@ -84,7 +83,12 @@ namespace ISILab.LBS.Editor
             }
        
             _questGraph = _assistant._questGraph;
-            _questGraph.OnGraphNodeSelected -= UpdatePanel;
+
+            _assistant.OwnerLayer.OnChange += () => _questGraph.OnGraphNodeSelected -= UpdatePanel;
+
+            //if (_questGraph.DoesEventOnGraphNodeSelectedHasFunction())
+            //    _questGraph.OnGraphNodeSelected -= UpdatePanel;
+            
             _questGraph.OnGraphNodeSelected += UpdatePanel;
 
            // UpdatePanel();

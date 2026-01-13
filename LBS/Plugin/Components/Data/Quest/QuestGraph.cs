@@ -640,6 +640,12 @@ namespace ISILab.LBS.Modules
 
         private GraphNode GetGraphNode(Vector2Int pos) =>
             graphNodes.FirstOrDefault(n => n.Position == pos);
+
+        public bool DoesEventOnGraphNodeSelectedHasFunction()
+        {
+            return _onNodeSelected != null;
+        }
+
         #endregion
 
         #region Unused

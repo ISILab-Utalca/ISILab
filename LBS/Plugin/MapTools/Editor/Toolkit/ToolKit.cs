@@ -15,6 +15,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using static PlasticGui.LaunchDiffParameters;
 
 namespace LBS.VisualElements
 {
@@ -102,7 +103,6 @@ namespace LBS.VisualElements
 
             if (!Equals(instance, this))
                 instance = this;
-    
         }
         #endregion
 
@@ -190,8 +190,10 @@ namespace LBS.VisualElements
         {
             foreach (VisualElement separator in separators)
             {
-                separator.style.display = DisplayStyle.None;
+                //separator.style.display = DisplayStyle.None;
+                separator.parent.Remove(separator);
             }
+
             separators.Clear();
         }
 
@@ -206,7 +208,7 @@ namespace LBS.VisualElements
 
         private void AddTool(LBSTool tool)
         {
-            ToolButton button = new ToolButton(tool);
+            ToolButton button = new ToolButton(tool, content);
             tool.BindButton(button);
             content.Add(button);
             tools[tool.Manipulator.GetType()] = (tool, button);
@@ -269,11 +271,30 @@ namespace LBS.VisualElements
         public new void Clear()
         {
             if (!tools.Any()) return;
+            
             current.Item2?.OnBlur();
-            foreach ((LBSTool, ToolButton) toolPair in tools.Values)
+
+            var father = tools.Values.First().Item2.parent;
+            var children = father.Children();
+            List<VisualElement> toRemove = new();
+
+            foreach (var child in children)
             {
-                toolPair.Item2.style.display = DisplayStyle.None;
+                if (child.style.display == DisplayStyle.None)
+                {
+                    toRemove.Add(child);
+                }
+                else
+                {
+                    child.style.display = DisplayStyle.None;
+                }
             }
+
+            for (int i = 0; i < toRemove.Count; i++)
+            {
+                father.Remove(toRemove[i]);
+            }
+
             ClearSeparators();
         }
         

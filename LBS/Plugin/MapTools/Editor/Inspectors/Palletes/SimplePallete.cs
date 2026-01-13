@@ -34,8 +34,8 @@ namespace LBS.VisualElements
         private LBSToolbarButton addButton;
         private LBSToolbarButton removeButton;
         private LBSCustomDropdown dropdownGroup;
-        private readonly VisualElement contentContainer;
-        
+        private new readonly VisualElement contentContainer;
+
         #endregion
 
         #region EVENTS
