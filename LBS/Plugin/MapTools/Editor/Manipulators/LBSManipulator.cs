@@ -382,15 +382,6 @@ namespace ISILab.LBS.Manipulators
                 Remover.OnInternalMouseUp(ne);
                 return;
             }
-            
-            if (@event.button == 1 && Remover != null)
-            {
-                OnManipulationRightClick?.Invoke();
-                Remover.OnManipulationNotification?.Invoke();
-                @event.StopImmediatePropagation();
-                UpdateView();
-                return;
-            }
 
             if (!@event.altKey)
             {

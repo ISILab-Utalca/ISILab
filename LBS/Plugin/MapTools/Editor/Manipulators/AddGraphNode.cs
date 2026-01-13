@@ -7,6 +7,7 @@ using LBS.Components;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEditor;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -14,6 +15,7 @@ namespace ISILab.LBS.Manipulators
     {
         private QuestGraph _questGraph;
         private QuestBehaviour _behaviour;
+
         protected override string IconGuid => "3d0b251f4a09bce4b9224787cfa08d49";
 
         public AddGraphNode()
@@ -43,10 +45,19 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
 
+            var level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Add Quest Node");
+
             _questGraph.AddNewNode(_behaviour,endPosition);
+
             OnManipulationEnd.Invoke();
-            
             e.StopImmediatePropagation();
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(level);
+            }
         }
     }
 }

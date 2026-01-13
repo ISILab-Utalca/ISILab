@@ -15,8 +15,8 @@ namespace LBS.VisualElements
 {
     public class OptionView : VisualElement
     {
-        private Color selected = new Color(1,1,1,0.1f);
-        private Color nonSelected = new Color(1, 1, 1, 0f);
+        //private Color selected = new Color(1,1,1,0.1f);
+        //private Color nonSelected = new Color(1, 1, 1, 0f);
 
         private Label label;
         private Button button;
@@ -114,13 +114,15 @@ namespace LBS.VisualElements
         {
             if(value)
             {
-                border.SetBorder(selected, 2);
-                border.style.backgroundColor = selected;
+                //border.SetBorder(selected, 2);
+                //border.style.backgroundColor = selected;
+                AddToClassList("prop-state--checked");
             }
             else
             {
-                border.SetBorder(nonSelected, 2);
-                border.style.backgroundColor = nonSelected;
+                //border.SetBorder(nonSelected, 2);
+                //border.style.backgroundColor = nonSelected;
+                RemoveFromClassList("prop-state--checked");
             }
         }
     }
