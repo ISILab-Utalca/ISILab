@@ -21,7 +21,6 @@ namespace ISILab.LBS.Manipulators
         private TileGroupBehavior _tileMapBehavior;
         private List<Feedback> previews = new List<Feedback>();
 
-
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
 
         private Bundle ToSet => _population.selectedToSet;
@@ -30,7 +29,6 @@ namespace ISILab.LBS.Manipulators
         {
             Feedback = new AreaFeedback();
             Feedback.fixToTeselation = true;
-
 
             Name = "Paint Tile with Item";
             Description =
@@ -56,7 +54,7 @@ namespace ISILab.LBS.Manipulators
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
 
-
+            _population.OwnerLayer.OnChange += () => CleanPreviews();
 
             _tileMapBehavior = layer.GetBehaviour<TileGroupBehavior>();
 
@@ -159,8 +157,6 @@ namespace ISILab.LBS.Manipulators
 
             _tileMapBehavior.SelectedTilemap = _population.GetTileGroup(tile.Position);
             CleanPreviews();
-
-
         }
 
         // TODO Currently it completely bugs out whenever x or y are 0 in the grid space. why? wish i fucking knew
@@ -206,11 +202,11 @@ namespace ISILab.LBS.Manipulators
                     iconFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
                     MainView.Instance.AddElement(iconFeedback);
                     previews.Add(iconFeedback);
-
                 }
             }
 
         }
+
         private void CleanPreviews()
         {
             foreach (IconFeedback feedback in previews)

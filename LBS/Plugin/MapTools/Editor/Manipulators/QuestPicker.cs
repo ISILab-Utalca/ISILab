@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 using ISILab.LBS.Macros;
+using log4net.Core;
+using UnityEditor;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -56,7 +58,11 @@ namespace ISILab.LBS.Manipulators
             if (_behaviour.Graph.SelectedGraphNode is not QuestNode node || ActiveData == null) return;
                 
             Vector2Int location = LBSMainWindow._gridPosition;
-            
+
+            var level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Pick Population Element");
+
             if (PickTriggerPosition)
             {
                 // Only sets position on the trigger
@@ -74,6 +80,12 @@ namespace ISILab.LBS.Manipulators
             }
             
             _behaviour.Graph.NodeDataChanged(node);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(level);
+            }
+
             OnManipulationEnd?.Invoke();
         }
     }

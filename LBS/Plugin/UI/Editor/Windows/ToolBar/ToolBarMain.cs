@@ -28,7 +28,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
         public event Action OnProgressCancelled;
         
         #region  Visual Elements
-            private LBSToolbarToggle keyMapToggle;
+            private LBSToolbarToggle HelpToggle;
             private VisualElement taskInfo;
             private LBSCustomProgressBar taskProgressBar;
             private LBSToolbarButton taskStopButton;
@@ -49,7 +49,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
 
             //Button
             settingMenu = this.Q<LBSToolbarButton>("OptionButton");
-            keyMapToggle = this.Q<LBSToolbarToggle>("KeyMapToggle");
+            HelpToggle = this.Q<LBSToolbarToggle>("HelpToggle");
             
             LBSToolbarButton bundManBtn = this.Q<LBSToolbarButton>("BundleManagerButton");
             bundManBtn.clickable.clicked += BundleManagerWindow.ShowWindow;
@@ -102,10 +102,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
         public void Bind(LBSMainWindow _mainWindow)
         {
             MainWindow = _mainWindow;
-            keyMapToggle.RegisterCallback<ClickEvent>(evt =>
+            HelpToggle.RegisterCallback<ClickEvent>(evt =>
             {
-                Debug.Log("[Display Help]: Toggle KeyMap]");
-                MainWindow.DisplayHelp();
+                Debug.Log("[Display Help]: Redirecting to the web]");
+                Application.OpenURL("https://isilab-utalca.github.io/isilab-website/documentation/tutorials/lbs/shortcuts/");
             });
             
             OnNewLevel += (_loadedLevel) =>
