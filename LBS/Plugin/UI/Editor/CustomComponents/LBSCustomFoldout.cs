@@ -112,6 +112,7 @@ namespace ISILab.LBS.CustomComponents
             VisualElement labelContainer = contentLabel.parent;
             labelContainer.Add(m_LeftIconElement);
             m_LeftIconElement.PlaceBehind(contentLabel);
+            if (leftIcon == null) m_LeftIconElement.style.display = DisplayStyle.None;
             
             VisualElement toolbarButtonIcon = this.Query<VisualElement>(classes: "unity-toolbar-menu__arrow");
             TextElement toolbarLabel  = m_RightDropDown.Query<TextElement>(classes: "unity-toolbar-menu__text");
