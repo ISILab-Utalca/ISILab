@@ -1,11 +1,7 @@
-using ISILab.Commons.Extensions;
-using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -13,19 +9,30 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     [Serializable]
     public class LBSGeneratedInterior : LBSGenerated
     {
+
         #region FIELDS
         [SerializeField]
-        DirConnection dirConnection = new DirConnection();
+        ConnectionData dirConnection = new ConnectionData();
+
+        [SerializeField]
+        LBSTile connectinoPair;
 
         #endregion
 
         #region PROPERTIES
 
-        public DirConnection DirConnection
+        public ConnectionData Connection
         {
             get => dirConnection;
             set { dirConnection = value; }
-        }   
+        }
+
+        public LBSTile ConnectedTile 
+        { 
+            get => connectinoPair;
+            set { connectinoPair = value; }
+        }
+
         #endregion
 
         #region CONSTRUCTORS
