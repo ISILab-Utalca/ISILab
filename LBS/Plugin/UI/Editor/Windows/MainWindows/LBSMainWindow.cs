@@ -1,38 +1,56 @@
-    using ISILab.Commons.Utility;
+using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
+using ISILab.Commons.VisualElements.Editor;
+using ISILab.DevTools.Macros;
+using ISILab.Extensions;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Internal.Editor;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
+using ISILab.LBS.Plugin.UI.Editor.Windows;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
+using LBS.Components;
+using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-
+using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
-
-using LBS.Components;
-using LBS.VisualElements;
-using ISILab.Extensions;
-using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.Manipulators;
-using ISILab.LBS.Plugin.Internal.Editor;
-using ISILab.LBS.Macros;
-using ISILab.Commons.VisualElements.Editor;
-using ISILab.DevTools.Macros;
-using ISILab.LBS.Plugin.MapTools.Editor.Templates;
-using ISILab.LBS.Plugin.UI.Editor.Windows;
 using InfoToolbar = ISILab.LBS.Plugin.UI.Editor.Panel.InfoToolbar;
 using LBSSideBarPanel = ISILab.LBS.Plugin.UI.Editor.Panel.LBSSideBarPanel;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
-namespace ISILab.LBS.Editor.Windows{
+
+
+namespace ISILab.LBS.Editor.Windows
+{
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public sealed class LBSMainWindow : ThemeableWindow
     {
+#if UNITY_EDITOR_WIN
+        [DllImport("user32.dll")]
+        private static extern bool SetCursorPos(int X, int Y);
+
+        [DllImport("user32.dll")]
+        private static extern bool GetCursorPos(out POINT lpPoint);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int X;
+            public int Y;
+        }
+#endif
+
         #region PROPERTIES
 
         private LBSLevelData levelData
@@ -84,7 +102,7 @@ namespace ISILab.LBS.Editor.Windows{
         private VisualElement noLayerSign;
         private LBSSideBarPanel sideBarPanel;
 
-// Grid position
+        // Grid position
         public static Vector2Int _gridPosition;
 
         #endregion
@@ -109,7 +127,7 @@ namespace ISILab.LBS.Editor.Windows{
         private LBSWaitTaskOverlay taskOverlay;
 
         private ScrollView subPanelScrollView;
-        
+
         [UxmlAttribute]
         private SplitView splitView;
         //[UxmlAttribute]
@@ -119,6 +137,7 @@ namespace ISILab.LBS.Editor.Windows{
         #endregion
 
         private bool packageInitialized = false;
+        public static bool IsWarpingCursor { get; set; }
 
         #region EVENTS
         public static Action OnWindowRepaint;
@@ -126,7 +145,7 @@ namespace ISILab.LBS.Editor.Windows{
         #endregion
 
         #region STATIC METHODS
-        
+
         private static LBSMainWindow _instance;
         public static LBSMainWindow Instance
         {
@@ -139,15 +158,14 @@ namespace ISILab.LBS.Editor.Windows{
                 return _instance;
             }
         }
-        
         #endregion
 
-        public LBSMainWindow(): base()
+        public LBSMainWindow() : base()
         {
             // UI can't be referenced here because inherit from a scriptable object!
             //Debug.Log("[Main Window] - Constructor");
-            
-                
+
+
         }
 
         private void OnEnable()
@@ -168,38 +186,38 @@ namespace ISILab.LBS.Editor.Windows{
             VisualTreeAsset visualTree = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
             visualTree.CloneTree(rootVisualElement);
             #endregion
-            
+
             splitView = rootVisualElement.Q<SplitView>("SplitView");
-            
+
             helpOverlayAnchor = rootVisualElement.Q<VisualElement>("HelpOverlayAnchor");
-            
+
             topToolBar = rootVisualElement.Q<ToolBarMain>("ToolBar");
-            infoToolBar =  rootVisualElement.Q<InfoToolbar>("InfoToolbar");
-            
+            infoToolBar = rootVisualElement.Q<InfoToolbar>("InfoToolbar");
+
             mainView = rootVisualElement.Q<MainView>("MainView");
-            
+
             noLayerSign = rootVisualElement.Q<VisualElement>("NoLayerSign");
             selectedLabel = rootVisualElement.Q<Label>("SelectedLabel");
             positionLabel = rootVisualElement.Q<Label>("PositionLabel");
-            
+
             notifier = rootVisualElement.Q<NotifierViewer>("NotifierViewer");
-            
+
             inspectorPanelContainer = rootVisualElement.Q<VisualElement>("Inspector");
             inspectorManager = rootVisualElement.Q<LBSInspectorPanel>("InspectorPanel");
             sideBarPanel = rootVisualElement.Q<LBSSideBarPanel>("LBSSideBarPanel");
-            
+
             subPanelScrollView = rootVisualElement.Q<ScrollView>("SubPanelScrollView");
-            
+
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
             taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
         }
-        
+
         private void OnDisable()
         {
             if (_instance == this)
                 _instance = null;
         }
-        
+
         [MenuItem("Window/ISILab/Level Building Sidekick", priority = 0)]
         private static void ShowWindow()
         {
@@ -208,8 +226,8 @@ namespace ISILab.LBS.Editor.Windows{
             window.titleContent = new GUIContent("Level Builder", icon);
             window.minSize = new Vector2(800, 400);
         }
-        
-        
+
+
         #region METHODS
         public void CreateGUI()
         {
@@ -218,7 +236,7 @@ namespace ISILab.LBS.Editor.Windows{
             rootVisualElement.focusable = true;
             rootVisualElement.Focus();
         }
-        
+
         private void OnInspectorUpdate()
         {
             OnWindowRepaint?.Invoke();
@@ -250,6 +268,21 @@ namespace ISILab.LBS.Editor.Windows{
             layerTemplates.Sort((a, b) => a.order.CompareTo(b.order));
             #endregion
 
+            #region MAIN VIEW
+
+            mainView.RegisterCallback<MouseMoveEvent>(HandleInfiniteScrolling, TrickleDown.TrickleDown);
+
+            mainView.OnClearSelection += () =>
+            {
+                if (_selectedLayer != null)
+                {
+                    var il = Reflection.MakeGenericScriptable(_selectedLayer);
+                    Selection.SetActiveObjectWithContext(il, il);
+                }
+            };
+
+            #endregion
+
             #region HELP OVERLAY
 
             DisplayHelp();
@@ -261,10 +294,10 @@ namespace ISILab.LBS.Editor.Windows{
             infoToolBar.Bind(this);
 
             #endregion
-            
+
 
             #region MAIN VIEW
-            
+
             mainView.OnClearSelection += () =>
             {
                 if (_selectedLayer != null)
@@ -278,14 +311,14 @@ namespace ISILab.LBS.Editor.Windows{
 
             #region TOOLBARS
             topToolBar.Bind(this);
-            
+
             topToolBar.OnLoadLevel += data =>
             {
                 LBS.loadedLevel = data;
                 RefreshWindow();
                 //drawManager.RedrawLevel(levelData);
             };
-            
+
             topToolBar.OnThemeChanged += data => ChangeTheme(data);
             OnLayerChange += topToolBar.LevelChange;
 
@@ -296,7 +329,7 @@ namespace ISILab.LBS.Editor.Windows{
                 {
                     topToolBar.SaveLevel();
                     evt.StopPropagation();
-                }    
+                }
             }, TrickleDown.TrickleDown);
             //O = OPEN = Load level
             rootVisualElement.RegisterCallback<KeyDownEvent>(evt =>
@@ -323,11 +356,11 @@ namespace ISILab.LBS.Editor.Windows{
 
 
             inspectorManager.InitTabs(ref layerTemplates);
-            
+
             subPanelScrollView.Q<VisualElement>("unity-content-and-vertical-scroll-container").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-viewport").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-container").pickingMode = PickingMode.Ignore;
-            
+
             layerPanel = new LayersPanel(levelData, ref layerTemplates);
             extraPanel.Add(layerPanel);
             layerPanel.style.display = DisplayStyle.Flex;
@@ -339,7 +372,7 @@ namespace ISILab.LBS.Editor.Windows{
             {
                 var sw = new Stopwatch();
                 sw.Start();
-             //   sw.Stop(); Debug.Log("OnAddLayer: " + sw.ElapsedMilliseconds + " ms");
+                //   sw.Stop(); Debug.Log("OnAddLayer: " + sw.ElapsedMilliseconds + " ms");
                 sw.Restart();
                 DrawManager.Instance.AddContainer(layer);
                 //  sw.Stop(); Debug.Log("DrawManager.Instance.AddContainer: " + sw.ElapsedMilliseconds + " ms");
@@ -348,7 +381,7 @@ namespace ISILab.LBS.Editor.Windows{
             {
                 //      drawManager.RemoveContainer(l);
                 if (levelData.LayerCount != 0) return;
-            
+
                 toolkit.Clear();
                 OnSelectedLayerChange(null);
             };
@@ -366,7 +399,7 @@ namespace ISILab.LBS.Editor.Windows{
 
             #region INSPECTOR TOGGLE BUTTON
 
-            
+
             var buttonHideInspector = rootVisualElement.Q<Button>("ButtonDisplayInspector");
             buttonHideInspector.RegisterCallback<ClickEvent>(_ =>
             {
@@ -390,7 +423,7 @@ namespace ISILab.LBS.Editor.Windows{
             toolkit = rootVisualElement.Q<ToolKit>("Toolkit");
 
             #endregion
-        
+
             #region MAIN INIT & EVENTS
 
             LBSController.OnLoadLevel += _ => _selectedLayer = null;
@@ -402,8 +435,8 @@ namespace ISILab.LBS.Editor.Windows{
             drawManager.RedrawLevel(levelData);
 
             #endregion
-            
-            
+
+
             #region THEME SET
             ChangeTheme(LBSSettings.Instance.view.LBSTheme);
             #endregion
@@ -418,9 +451,9 @@ namespace ISILab.LBS.Editor.Windows{
         {
             sideBarPanel.OnToggleButtonClick();
             toggleVe.SetValueWithoutNotify(true);
-            if(toggleVe == sideBarPanel.layerDataTab) LBSInspectorPanel.ActivateDataTab();
-            if(toggleVe == sideBarPanel.behaviorTab) LBSInspectorPanel.ActivateBehaviourTab();
-            if(toggleVe == sideBarPanel.assistantTab) LBSInspectorPanel.ActivateAssistantTab();
+            if (toggleVe == sideBarPanel.layerDataTab) LBSInspectorPanel.ActivateDataTab();
+            if (toggleVe == sideBarPanel.behaviorTab) LBSInspectorPanel.ActivateBehaviourTab();
+            if (toggleVe == sideBarPanel.assistantTab) LBSInspectorPanel.ActivateAssistantTab();
         }
 
         /// <summary>
@@ -434,11 +467,11 @@ namespace ISILab.LBS.Editor.Windows{
                 sideBarPanel = rootVisualElement.Q<LBSSideBarPanel>("SideBarPanel");
             }
             Toggle toggleVe = null;
-            if(panel == LBSInspectorPanel.DataTab) toggleVe = sideBarPanel.layerDataTab; 
-            if(panel == LBSInspectorPanel.BehavioursTab) toggleVe = sideBarPanel.behaviorTab; 
-            if(panel == LBSInspectorPanel.AssistantsTab) toggleVe = sideBarPanel.assistantTab;
+            if (panel == LBSInspectorPanel.DataTab) toggleVe = sideBarPanel.layerDataTab;
+            if (panel == LBSInspectorPanel.BehavioursTab) toggleVe = sideBarPanel.behaviorTab;
+            if (panel == LBSInspectorPanel.AssistantsTab) toggleVe = sideBarPanel.assistantTab;
             if (toggleVe is null) return;
-            
+
             sideBarPanel.OnToggleButtonClick();
             toggleVe.SetValueWithoutNotify(true);
         }
@@ -459,7 +492,7 @@ namespace ISILab.LBS.Editor.Windows{
         {
             mainView.Clear();
             this.rootVisualElement.Clear();
-            
+
             //Repaint();
             OnDisable();
             OnEnable();
@@ -486,7 +519,7 @@ namespace ISILab.LBS.Editor.Windows{
         {
             LBSLayer previousSelected = _selectedLayer;
             _selectedLayer = layer;
-            
+
             if (previousSelected is not null)
             {
                 previousSelected.OnChangeUpdate();
@@ -497,14 +530,14 @@ namespace ISILab.LBS.Editor.Windows{
                 _selectedLayer.OnChangeUpdate();
                 _selectedLayer.OnChange += NotifyChange;
             }
-            
+
             toolkit.Clear();
             inspectorManager.SetTarget(layer);
             toolkit.SetActive(typeof(SelectManipulator));
             toolkit.SetSeparators();
-            
+
             gen3DPanel.Init(layer);
-            
+
             string layerName = layer is not null ? layer.Name : "-";
             selectedLabel.text = "Selected: " + layerName;
 
@@ -524,10 +557,10 @@ namespace ISILab.LBS.Editor.Windows{
         public List<LBSLayer> GetLayers()
         {
             List<LBSLayer> layers = new List<LBSLayer>();
-            if(layerPanel == null || layerPanel.Data == null) return layers;
+            if (layerPanel == null || layerPanel.Data == null) return layers;
             return layerPanel.Data.Layers;
         }
-        
+
         private void OnFocus()
         {
             Undo.undoRedoPerformed += UNDO;
@@ -547,27 +580,27 @@ namespace ISILab.LBS.Editor.Windows{
                 DrawManager.Instance.UpdateLayer(_selectedLayer);
             }
             else DrawManager.ReDraw();
-            
+
             LBSInspectorPanel.ReDraw();
         }
-        
+
         // Allows to send notifications from threads other than main. Seems to work, although I'm not completely sure it's safe.
         public static void MessageNotifyDelayed(string message, LogType logType = LogType.Log, int duration = 3)
         {
             EditorApplication.delayCall += () => MessageNotify(message, logType, duration);
         }
-        
+
         public static void MessageNotify(string message, LogType logType = LogType.Log, int duration = 3)
         {
             notifier?.SendNotification(message, logType, duration);
         }
-        
+
         public void MessageManipulator(string description)
         {
             infoToolBar?.SmallMessage(description);
 
         }
-        
+
         public static void GridPosition(Vector2 pos)
         {
             _gridPosition = pos.ToInt();
@@ -581,9 +614,85 @@ namespace ISILab.LBS.Editor.Windows{
             helpOverlay = new HintsController();
             helpOverlay.style.position = Position.Absolute;
             helpOverlayAnchor.Add(helpOverlay);
-            if(helpOverlay == null) return;
-            helpOverlay.style.display = helpOverlay.style.display == DisplayStyle.None ?  DisplayStyle.Flex : DisplayStyle.None;
+            if (helpOverlay == null) return;
+            helpOverlay.style.display = helpOverlay.style.display == DisplayStyle.None ? DisplayStyle.Flex : DisplayStyle.None;
         }
+        private void HandleInfiniteScrolling(MouseMoveEvent evt)
+        {
+            bool isMiddlePressed = (evt.pressedButtons & 4) != 0;
+            if (!isMiddlePressed) return;
+
+            var targetElement = evt.currentTarget as VisualElement;
+            if (targetElement == null) return;
+
+            Rect rect = targetElement.layout;
+            Vector2 localPos = evt.localMousePosition;
+
+            float margin = 5f;
+            bool needWarp = false;
+
+            Vector2 targetLocalPos = localPos;
+
+            if (localPos.x <= margin)
+            {
+                targetLocalPos.x = rect.width - margin - 2f;
+                needWarp = true;
+            }
+            else if (localPos.x >= rect.width - margin)
+            {
+                targetLocalPos.x = margin + 2f;
+                needWarp = true;
+            }
+
+            if (!needWarp) return;
+
+            IsWarpingCursor = true;
+
+            float pixelsPerPoint = EditorGUIUtility.pixelsPerPoint;
+
+            float deltaUI_X = targetLocalPos.x - localPos.x;
+            float deltaScreen_X = deltaUI_X * pixelsPerPoint;
+
+            POINT currentScreenPos;
+            GetCursorPos(out currentScreenPos);
+
+            int newScreenX = currentScreenPos.X + Mathf.RoundToInt(deltaScreen_X);
+            int newScreenY = currentScreenPos.Y;
+
+            Vector2 worldOld = targetElement.LocalToWorld(localPos);
+            Vector2 worldNew = targetElement.LocalToWorld(targetLocalPos);
+
+            Event imguiUp = new Event();
+            imguiUp.type = EventType.MouseUp;
+            imguiUp.button = 2;
+            imguiUp.mousePosition = worldOld;
+            imguiUp.modifiers = evt.modifiers;
+
+            using (var upEvt = MouseUpEvent.GetPooled(imguiUp))
+            {
+                upEvt.target = targetElement;
+                targetElement.SendEvent(upEvt);
+            }
+
+            #if UNITY_EDITOR_WIN
+            SetCursorPos(newScreenX, newScreenY);
+            #endif
+            Event imguiDown = new Event();
+            imguiDown.type = EventType.MouseDown;
+            imguiDown.button = 2;
+            imguiDown.mousePosition = worldNew;
+            imguiDown.modifiers = evt.modifiers;
+
+            using (var downEvt = MouseDownEvent.GetPooled(imguiDown))
+            {
+                downEvt.target = targetElement;
+                targetElement.SendEvent(downEvt);
+            }
+
+            IsWarpingCursor = false;
+            evt.StopImmediatePropagation();
+        }
+
         #endregion
     }
 
