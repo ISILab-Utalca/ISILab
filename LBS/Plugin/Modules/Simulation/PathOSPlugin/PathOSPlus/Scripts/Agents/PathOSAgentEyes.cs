@@ -26,10 +26,10 @@ namespace PathOS
         [Tooltip("The camera representing the player's view (agent's \"eyes\")")]
         public Camera cam;
 
-        private Camera lastCamera;
-        private Transform lastCamParent;
-        private Vector3 lastCamPos;
-        private Quaternion lastCamRot;
+        [SerializeField, HideInInspector] private Camera lastCamera;
+        [SerializeField, HideInInspector] private Transform lastCamParent;
+        [SerializeField, HideInInspector] private Vector3 lastCamPos;
+        [SerializeField, HideInInspector] private Quaternion lastCamRot;
 
         [Header("Navmesh \"Sight\"")]
 
@@ -405,7 +405,6 @@ namespace PathOS
             invisibleWalls.Remove(wall);
         }
 
-
         private void OnValidate()
         {
             if (lastCamera == null)
@@ -422,6 +421,7 @@ namespace PathOS
                 GameObject camObj = cam.transform.parent != transform ?
                     Instantiate(cam.gameObject, transform) : 
                     cam.gameObject;
+                camObj.gameObject.SetActive(true);
                 camObj.transform.SetLocalPositionAndRotation(cam.transform.localPosition, cam.transform.localRotation);
                 cam = camObj.GetComponent<Camera>();
 
@@ -437,6 +437,7 @@ namespace PathOS
                 else
                 {
                     lastCamParent = originalParent;
+                    lastCamera.gameObject.SetActive(false);
                     lastCamera = cam;
                 }
 
