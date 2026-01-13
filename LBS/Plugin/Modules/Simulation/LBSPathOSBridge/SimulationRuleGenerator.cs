@@ -118,8 +118,19 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     currInstance.transform.position = settings.position +
                                                       new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
                                                       - new Vector3(scale.x, 0, scale.y) / 2f;
+
+                    PathOSAgent agentComp = agentGameObject.GetComponent<PathOSAgent>();
                     // Se asigna a su campo respectivo de PathOSWindow
                     window.SetAgentReference(agentGameObject.GetComponent<PathOSAgent>());
+
+                    var player = GameObject.FindFirstObjectByType<CharacterController>();
+                    if (player is not null)
+                    {
+                        PathOSAgentEyes eyesComp = agentGameObject.GetComponent<PathOSAgentEyes>();
+                        eyesComp.cam = player.GetComponentInChildren<Camera>();
+                    }
+
+       
                     // Terminar este ciclo para evitar errores
                     continue;
                 }
