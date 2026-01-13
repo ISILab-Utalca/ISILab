@@ -12,7 +12,7 @@ namespace ISILab.LBS.VisualElements
     
     
     [UxmlElement]
-    public partial class ToolButton : Button, IGrupable
+    public partial class ToolButton : Toggle, IGrupable
     {
         #region FIELDS
 
@@ -77,6 +77,9 @@ namespace ISILab.LBS.VisualElements
         {
             father = content;
 
+            VisualElement checkbox = this.Q<VisualElement>(classes: "unity-base-field__input");
+            checkbox.style.display = DisplayStyle.None;
+
             if (_tool.Icon == null) return;
                 icon.style.backgroundImage = new StyleBackground(_tool.Icon); 
             tooltip = _tool.Name;
@@ -86,16 +89,7 @@ namespace ISILab.LBS.VisualElements
         #region IGRUPABLE
         public void AddGroupEvent(Action action)
         {
-            this.clicked += action;
-            //clicked += () =>
-            //{
-            //    foreach (var btn in father.Children())
-            //    {
-            //        if (btn is ToolButton b)
-            //            b.OnBlurWithoutNotify();
-            //    }
-            //    OnFocusWithoutNotify();
-            //};
+            RegisterCallback<ClickEvent>(evt => action?.Invoke());
         }
 
         public void OnBlur()

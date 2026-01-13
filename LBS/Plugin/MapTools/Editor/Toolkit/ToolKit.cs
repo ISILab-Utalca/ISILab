@@ -172,6 +172,14 @@ namespace LBS.VisualElements
             
             // Set the new current tool and focus it
             current = foundTool.Value;
+
+            foreach (var btn in content.Children())
+            {
+                if (btn is ToolButton b)
+                    b.SetValueWithoutNotify(false);
+            }
+            current.Item2.SetValueWithoutNotify(true);
+
             current.Item2?.OnFocus();
 
             // Activate its manipulator
