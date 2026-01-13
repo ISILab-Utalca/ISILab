@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons;
-using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -117,7 +115,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 var go = GameObject.Instantiate(pref.obj);
 #endif
                 if (go == null && current.GetHasTagCharacteristic("TriggerArea")) go = new GameObject(current.Name);
-
+                if (go == null && current.GetHasTagCharacteristic("TriggerUnlock")) go = new GameObject(current.Name);
                 else if (go == null)
                 {
                     Debug.LogError("Could not find prefab for: " + current.Name);             

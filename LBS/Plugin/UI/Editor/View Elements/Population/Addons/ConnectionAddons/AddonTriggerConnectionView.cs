@@ -61,7 +61,7 @@ namespace ISILab.LBS.VisualElements
             {
                 if (entry == null) return;
 
-                entry.Mode = (TriggerActivationMode)evt.newValue;
+                entry.ActivationMode = (TriggerActivationMode)evt.newValue;
             });
 
         }
@@ -70,7 +70,7 @@ namespace ISILab.LBS.VisualElements
         {
             if (entry == null) return;
 
-            triggerType.SetValueWithoutNotify(entry.Mode);
+            triggerType.SetValueWithoutNotify(entry.ActivationMode);
 
             addonList.itemsSource = entry.Unlocks;
             addonList.makeItem = () => new AddonConnectionView();

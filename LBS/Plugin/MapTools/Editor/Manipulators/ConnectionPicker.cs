@@ -28,7 +28,7 @@ namespace ISILab.LBS.Manipulators
         // Private fields
         private TileGroupBehavior _behaviour;
 
-        public Action<SchemaTileConnectionView, DirConnection> OnConnectionClicked;
+        public Action<SchemaTileConnectionView, ConnectionData> OnConnectionClicked;
 
 
         public PickerConnect Activator { get; set; }
@@ -67,13 +67,13 @@ namespace ISILab.LBS.Manipulators
             if (connectionView != null)
             {
                 LBSTile tile = connectionView.Tile;
-                DirConnection newDirConnection = new DirConnection(connectionView.Layer, tile);
+                ConnectionData connData = new ConnectionData(connectionView.Layer, tile);
                 int direction = LBSDirection.ToInt(connectionView.Direction);
                 string connection = connectionView.Type;
 
                 
-                newDirConnection.connections.Add((direction,connection));
-                OnConnectionClicked.Invoke(connectionView, newDirConnection);
+                connData.connections.Add(new DirConnection(direction,connection));
+                OnConnectionClicked.Invoke(connectionView, connData);
             }
 
             OnManipulationEnd?.Invoke();
