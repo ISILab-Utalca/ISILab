@@ -28,6 +28,9 @@ namespace ISILab.LBS.Characteristics
         [SerializeField, JsonRequired]
         int gridSize = 9;
 
+        [SerializeField, JsonRequired]
+        int defaultAsset = 0;
+
         #region PROPERTIES
         [JsonIgnore]
         public List<Asset> Assets
@@ -41,6 +44,12 @@ namespace ISILab.LBS.Characteristics
         [JsonIgnore]
         public List<UnityEngine.Color> ColorPalette => colorPalette;
         public List<int> ColorPaletteID => colorPaletteID;
+
+        public int DefaultAsset
+        {
+            get => defaultAsset;
+            set => defaultAsset = Mathf.Clamp(value, 0, gridList.Count - 1);
+        }
         #endregion
 
         #region CONSTRUCTOR

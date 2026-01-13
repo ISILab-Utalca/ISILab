@@ -2,9 +2,16 @@
     <ui:Template name="LBSHorizontalDivider" src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/StaticTemplateComponents/SimpleComponents/LBSHorizontalDivider.uxml?fileID=9197481963319205126&amp;guid=8e276661d37de8e41905231bb939b61a&amp;type=3#LBSHorizontalDivider" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSOverrideStyle.uss?fileID=7433441132597879392&amp;guid=dc3922656bcc222469152418c1839f87&amp;type=3#LBSOverrideStyle" />
-    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
-        <ui:VisualElement style="flex-grow: 1; width: 32px; max-width: 36px;" />
-        <ui:VisualElement class="darker" style="flex-grow: 1;">
+    <ui:VisualElement name="VisualElement" class="alt" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement style="flex-grow: 1; width: 32px; max-width: 36px;">
+            <ISILab.LBS.VisualElements.ButtonGroup>
+                <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/GrammarAssistant/Icon=Add.svg?fileID=7388822144124034973&amp;guid=ad8d08a3d465b3a438016713ae2f99c5&amp;type=3#Icon=Add" />
+                <ISILab.LBS.VisualElements.ToolButton />
+                <ISILab.LBS.VisualElements.ToolButton />
+                <ISILab.LBS.VisualElements.ToolButton />
+            </ISILab.LBS.VisualElements.ButtonGroup>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1;">
             <uie:Toolbar name="Toolbar" class="lbs-toolbar">
                 <uie:ToolbarButton text="Button" />
                 <uie:ToolbarToggle label="Toggle" />
@@ -19,7 +26,7 @@
                     <ISILab.LBS.CustomComponents.LBSCustomProgressBar low-value="0" progress-theme-color="#6E00F5FF" title="Content" value="69.9" progress-icon-image="project://database/Assets/ISILab/LBS/Plugin/Components/Data/Quest/QuestIcons/Icon=Star.svg?fileID=7388822144124034973&amp;guid=8d6364597c916884488b4054a8a747aa&amp;type=3#Icon=Star" style="height: 32px;" />
                     <ISILab.LBS.CustomComponents.LBSCustomProgressBar low-value="20" progress-theme-color="#00FFADFF" progress-icon-image="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/FloatingPanels/QuickAssistantPanel/AppIcon_24.svg?fileID=7388822144124034973&amp;guid=686cbcf439056ef44a2923e63463db01&amp;type=3#AppIcon_24" style="height: 33px;" />
                     <ISILab.LBS.CustomComponents.LBSCustomToggleField enabled="true" value="false" class="lbs-field" />
-                    <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Custom Foldout" name="LBSCustomFoldout">
+                    <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Custom Foldout" name="LBSCustomFoldout" left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
                         <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField value="0" label="Int Field" />
                         <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/MapElites/Icon=DungeonMap.svg?fileID=7388822144124034973&amp;guid=329bfddcd870ced4daa8a1f9c975bcfa&amp;type=3#Icon=DungeonMap">
                             <ISILab.LBS.CustomComponents.LBSCustomToggleField enabled="true" value="false" />
@@ -35,9 +42,9 @@
                 </ui:VisualElement>
                 <ISILab.Commons.VisualElements.Editor.SplitView fixed-pane-initial-dimension="400">
                     <ui:VisualElement class="lbs-panel">
-                        <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Custom Foldout" name="LBSCustomFoldout">
+                        <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Custom Foldout" name="LBSCustomFoldout" left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
                             <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField value="0" label="Int Field" />
-                            <ISILab.LBS.CustomComponents.LBSCustomFoldout>
+                            <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
                                 <ISILab.LBS.CustomComponents.LBSCustomToggleField enabled="true" value="false" />
                                 <ISILab.LBS.CustomComponents.LBSCustomEnumField style="height: 30px;" />
                             </ISILab.LBS.CustomComponents.LBSCustomFoldout>
@@ -59,10 +66,10 @@
                         <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" selectable="true" />
                         <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" />
                         <ISILab.LBS.CustomComponents.LBSCustomRadioButtonGroup choices="a,b,c" selected-choice="0" />
-                        <LBS.VisualElements.SimplePallete display-remove-element="true" display-add-element="true" />
+                        <LBS.VisualElements.SimplePallete display-remove-element="true" display-add-element="true" name-label="A custom Palette" />
                     </ui:VisualElement>
                     <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
-                        <ISILab.LBS.CustomComponents.LBSCustomFoldout>
+                        <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
                             <ISILab.LBS.CustomComponents.LBSCustomListView show-add-remove-footer="true" data-source-path="List&lt;float&gt;" />
                             <ISILab.LBS.CustomComponents.LBSCustomTreeView selection-type="Multiple" />
                             <ISILab.LBS.CustomComponents.LBSCustomHeader icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/SideToolBar/Icon=AI_Assistant.svg?fileID=7388822144124034973&amp;guid=2cf0d2907db06024190d079005239a75&amp;type=3#Icon=AI_Assistant" style="height: 40px;" />

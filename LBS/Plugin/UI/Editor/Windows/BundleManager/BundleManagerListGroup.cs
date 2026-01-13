@@ -88,7 +88,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             List<BundleManagerWindow.BundleContainer> bundles,
             bool main = false,
             float itemHeight = 32,
-            bool DeleteFunct = true
+            BundleWizardElement.Func buttonFunc = BundleWizardElement.Func.TRASH
         ) where T : VisualElement, IBundleElement, new()
         {
             listView = this.listView;
@@ -113,7 +113,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 
                 if (element is BundleWizardElement wizElement)
                 {
-                    if (DeleteFunct)
+                    wizElement.ChangeButtonIcon(buttonFunc);
+                    
+                    if (buttonFunc == BundleWizardElement.Func.TRASH)
                     {
                         wizElement.Index = i; // Maybe add Index to IBundleElement to avoid this extra check?
                         System.Action remove = () =>
@@ -128,7 +130,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                         };
                         wizElement.SetRemoveCallback(remove);
                     }
-                    else if(!DeleteFunct)
+                    else if(buttonFunc == BundleWizardElement.Func.ADD || buttonFunc == BundleWizardElement.Func.REMOVE)
                     {
                         wizElement.Index = i; // Maybe add Index to IBundleElement to avoid this extra check?
                         System.Action changeList = () =>
@@ -147,7 +149,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                             }
                         };
                         wizElement.SetRemoveCallback(changeList);
-                        wizElement.RemoveDeleteIcon();
                     }
                 }
             };

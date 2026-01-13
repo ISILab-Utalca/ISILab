@@ -67,7 +67,9 @@ namespace ISILab.LBS.VisualElements
             icon.AddToClassList("prop-centered");
             this.Add(icon);
             AddToClassList("lbs-rounded-button");
+            
             RemoveFromClassList("unity-button");
+            RemoveFromClassList("unity-text-element");
         }
         
         

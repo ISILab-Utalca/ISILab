@@ -49,6 +49,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         private List<AssetGridEditorWindow> editorWindows;
 
+        //Default Asset
+        private IntegerField defaultAssetField;
+        private Button defaultMinus;
+        private Button defaultPlus;
+
         #endregion
 
         #region PROPERTIES
@@ -161,6 +166,24 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                 EditorUtility.SetDirty(connectionGridTarget.Owner);
                 AssetDatabase.SaveAssets();
             };
+
+            //Default editor button!
+            defaultAssetField = rootVisualElement.Q<IntegerField>("DefaultAssetField");
+            defaultAssetField.value = connectionGridTarget.DefaultAsset;
+            defaultAssetField.maxLength = connectionGridTarget.GridList.Count;
+
+            defaultAssetField.RegisterValueChangedCallback((evt) => {
+                connectionGridTarget.DefaultAsset = evt.newValue;
+                defaultAssetField.SetValueWithoutNotify(connectionGridTarget.DefaultAsset);
+            });
+
+            defaultMinus = rootVisualElement.Q<Button>("DefaultMinus");
+            defaultMinus.clicked += () => { if (defaultAssetField.value > 0) defaultAssetField.value--; };
+
+            defaultPlus = rootVisualElement.Q<Button>("DefaultPlus");
+            defaultPlus.clicked += () => { if (defaultAssetField.value < defaultAssetField.maxLength) defaultAssetField.value++; };
+
+
 
             //Because otherwise everything breaks lol
             OnScaleModify?.Invoke(previewScaleSlider.value);
