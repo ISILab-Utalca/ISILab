@@ -3,6 +3,7 @@ using ISILab.AI.Optimization;
 using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Data;
@@ -76,14 +77,16 @@ namespace ISILab.AI.Categorization
                     continue;
                 if (genes[i] is not null)
                 {
-                    if (genes[i].HasTag(playerCharacteristic.FirstTag()))
+                    LBSTag tag = playerCharacteristic?.FirstTag();
+                    if (tag != null && genes[i].HasTag(tag))
                     {
                         POIs.Add(i);
                         continue;
                     }
                     foreach(var LBSChar in pointsOfInterest)
                     {
-                        if (genes[i].HasTag(LBSChar.FirstTag()))
+                        LBSTag tagPOI = LBSChar?.FirstTag();
+                        if (tagPOI != null && genes[i].HasTag(tagPOI))
                         {
                             POIs.Add(i);
                             break;

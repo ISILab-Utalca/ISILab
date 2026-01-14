@@ -1,4 +1,5 @@
 using ISILab.AI.Categorization;
+using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
@@ -14,7 +15,9 @@ namespace ISILab.LBS.VisualElements
     {
         LBSCustomObjectField playerTagField;
         LBSCustomObjectField obstacleTagField;
-        ListView POIsList;
+        LBSCustomListView POIsList;
+
+        Button setDefaultButton;
 
         public DCExplorationVE(object target) : base(target)
         {
@@ -28,7 +31,7 @@ namespace ISILab.LBS.VisualElements
             this.target = eval;
 
             if (eval is null) return;
-            eval.InitializeDefault();
+            //eval.InitializeDefault();
 
             if (eval.playerCharacteristic is not null)
             {
@@ -56,6 +59,8 @@ namespace ISILab.LBS.VisualElements
 
         protected override VisualElement CreateVisualElement()
         {
+            var eval = target as DCExploration;
+
             playerTagField = new LBSCustomObjectField();
             playerTagField.label = "Player Tag";
             playerTagField.objectType = typeof(LBSTag);
@@ -66,18 +71,23 @@ namespace ISILab.LBS.VisualElements
             obstacleTagField.objectType = typeof(LBSTag);
             this.Add(obstacleTagField);
 
-            POIsList = new ListView();
+            POIsList = new LBSCustomListView();
             POIsList.headerTitle = "POIs";
             POIsList.showAddRemoveFooter = true;
             POIsList.makeItem = () =>
             {
-                var eval = target as DCExploration;
+                //var eval = target as DCExploration;
                 var field = new LBSCustomObjectField();
                 field.objectType = typeof(LBSTag);
                 field.style.marginLeft = 10;
                 field.RegisterValueChangedCallback(evt =>
                 {
-                    int index = eval.pointsOfInterest.FindIndex(cha => (cha as LBSTagsCharacteristic).HasTag(evt.previousValue as LBSTag));
+                    int index = eval.pointsOfInterest.FindIndex(cha => 
+                    {
+                        var tagsChar = cha as LBSTagsCharacteristic;
+                        return tagsChar is not null && tagsChar.HasTag(evt.previousValue as LBSTag);
+                    });
+                    
                     if(index != -1)
                     {
                         eval.pointsOfInterest.RemoveAt(index);
@@ -85,14 +95,28 @@ namespace ISILab.LBS.VisualElements
                     }
                     else
                     {
+                        eval.pointsOfInterest = new System.Collections.Generic.List<LBSCharacteristic>(eval.pointsOfInterest.Where(p => p != null));
+                        POIsList.itemsSource = eval.pointsOfInterest;
                         eval.pointsOfInterest.Add(new LBSTagsCharacteristic(evt.newValue as LBSTag));
+                        Debug.Log(POIsList.itemsSource.Count);
+
                     }
+
+                    POIsList.RefreshItems();
+                    POIsList.Rebuild();
+
+                    string s = "";
+                    foreach(LBSCharacteristic poi in eval.pointsOfInterest)
+                    {
+                        s += $"\n{poi?.FirstTag().label}";
+                    }
+                    Debug.Log(s);
                 });
                 return field;
             };
             POIsList.bindItem = (item, i) =>
             {
-                var eval = target as DCExploration;
+                //var eval = target as DCExploration;
                 if (eval is null || eval.pointsOfInterest.Count == 0) return;
                 var tagChar = eval.pointsOfInterest[i] as LBSTagsCharacteristic;
                 if (tagChar is null || tagChar.TagEntries.Count == 0) return;
@@ -101,19 +125,31 @@ namespace ISILab.LBS.VisualElements
 
                 (item as LBSCustomObjectField).SetValueWithoutNotify(entry.Value);
             };
-            POIsList.itemsAdded += items =>
-            {
-                //// TODO
-                //var eval = target as DCExploration;
-                //for(int i = 0; i < items.Count(); i++)
-                //{
-                //    eval.pointsOfInterest.Insert(items.ElementAt(i), null);
-                //}
-                
-            };
             this.Add(POIsList);
 
+            setDefaultButton = new LBSCustomButton();
+            //setDefaultButton.style.backgroundColor = Color.red;
+            //setDefaultButton.style.width = 100;
+            setDefaultButton.style.height = 30;
+            //setDefaultButton.style.minHeight = 30;
+            setDefaultButton.text = "Default";
+            setDefaultButton.clicked -= SetDefault;
+            setDefaultButton.clicked += SetDefault;
+            //var ve = new VisualElement();
+            //ve.style.height = 32;
+            //ve.style.flexGrow = 0;
+            //this.Add(ve);
+            //ve.Add(setDefaultButton);
+            this.Add(setDefaultButton);
+
             return this;
+
+            void SetDefault()
+            {
+                eval.InitializeDefault();
+                POIsList.RefreshItems();
+                POIsList.Rebuild();
+            }
         }
     }
 }
