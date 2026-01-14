@@ -50,6 +50,8 @@ namespace ISILab.LBS.VisualElements
                 }
             }
         }
+
+        public VisualElement Father => father;
         
         #endregion
         
