@@ -66,11 +66,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             Toggle.UnregisterValueChangedCallback(toggleCallback);
         }
 
-        //public override bool Equals(object obj)
-        //{
-        //    if (obj is not BundleWizardCharacteristicElement other) return false;
-        //    return index == other.index;
-        //}
+        public override bool Equals(object obj)
+        {
+            if (obj is not BundleWizardCharacteristicElement other) return false;
+            //return index == other.index;
+
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
 

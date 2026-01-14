@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 {
@@ -22,6 +23,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         private GridTerrainTool activeTool;
 
         //Color Buttons
+        public VisualElement borderColorContainer;
+
         public LBSSelectableButton baseColorButton;
         public List<LBSSelectableButton> colorButtons = new List<LBSSelectableButton>();
         public LBSCustomButton addColorButton;
@@ -48,6 +51,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         private Button saveButton;
 
         private List<AssetGridEditorWindow> editorWindows;
+
+        //Default Asset
+        private IntegerField defaultAssetField;
+        private Button defaultMinus;
+        private Button defaultPlus;
+        private Toggle defaultHighlight;
 
         #endregion
 
@@ -94,9 +103,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             {
                 connectionGridTarget.AddColor(1, Color.red);
             }
-            UpdateColorButtons();
 
+            UpdateColorButtons();
             colorButtons[0].OnExecute?.Invoke();
+
+            borderColorContainer = rootVisualElement.Q<VisualElement>("BorderColor");
+            //Button for specifically the creation of borders. It isn't saved on the color palette or anything because the palette can never access -1 on its own.
+            AddColorButton(-1, new Color(0.8f, 0.8f, 0.8f), false, true, false);
 
             //Tools!
             brushTool = rootVisualElement.Q<LBSToolbarToggle>("BrushTool");
@@ -162,6 +175,41 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                 AssetDatabase.SaveAssets();
             };
 
+            //Default editor button!
+            defaultAssetField = rootVisualElement.Q<IntegerField>("DefaultAssetField");
+            defaultAssetField.value = connectionGridTarget.DefaultAsset;
+            defaultAssetField.maxLength = connectionGridTarget.GridList.Count;
+
+            defaultAssetField.RegisterValueChangedCallback((evt) => {
+                connectionGridTarget.DefaultAsset = evt.newValue;
+                defaultAssetField.SetValueWithoutNotify(connectionGridTarget.DefaultAsset);
+
+                if (defaultHighlight.value == true)
+                {
+                    if((evt.previousValue <= connectionGridTarget.GridList.Count) && (defaultAssetField.value <= connectionGridTarget.GridList.Count))
+                    {
+                        var oldbutton = gridsVE[evt.previousValue] as AssetGridEditorWindow;
+                        var button = gridsVE[defaultAssetField.value] as AssetGridEditorWindow;
+                        if (oldbutton != null) oldbutton.ToggleHighlight(false);
+                        if (button != null) button.ToggleHighlight(true);
+                    }
+                }
+            });
+
+            defaultMinus = rootVisualElement.Q<Button>("DefaultMinus");
+            defaultMinus.clicked += () => { if (defaultAssetField.value > 0) defaultAssetField.value--; };
+
+            defaultPlus = rootVisualElement.Q<Button>("DefaultPlus");
+            defaultPlus.clicked += () => { if (defaultAssetField.value < defaultAssetField.maxLength) defaultAssetField.value++; };
+
+            defaultHighlight = rootVisualElement.Q<Toggle>("DefaultHighlight");
+            defaultHighlight.RegisterValueChangedCallback((evt) => {
+                var button = gridsVE[defaultAssetField.value] as AssetGridEditorWindow;
+                if (button != null) button.ToggleHighlight(evt.newValue);
+
+            });
+
+
             //Because otherwise everything breaks lol
             OnScaleModify?.Invoke(previewScaleSlider.value);
         }
@@ -187,16 +235,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         public void AddColorKey()
         {
-            int _counter = ColorPaletteKey.Count + 1;
-            Color _color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
-            foreach (KeyValuePair<int, Color> item in ColorPaletteKey)
+            int _counter = 0;
+            for(int i=1; i<ColorPaletteKey.Count+2; i++)
             {
-                while (item.Value == _color) UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
-                if (item.Key == _counter) _counter++;
+                if(!ColorPaletteKey.ContainsKey(i))
+                {
+                    _counter = i;
+                    break;
+                }
             }
-
+            Color _color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f);
             connectionGridTarget.AddColor(_counter, _color);
-            AddColorButton(_counter, _color);
+            AddColorButton(_counter, _color, true);
         }
 
         public void RemoveColorKey(int key)
@@ -210,15 +260,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             }
         }
 
-        public void AddColorButton(int key, Color color)
+        public void AddColorButton(int key, Color color, bool selectAfterCreation = false, bool borderColor = false, bool removable = true)
         {
             //Add button and store its key as data
-            var newButton = new LBSSelectableButton(color);
+            var newButton = new LBSSelectableButton(color, removable);
             newButton.Data = key;
 
+            newButton.tooltip = "Color ID: " + key;
+
             //Add button functionality
-            newButton.OnExecute += () => { 
-                foreach(LBSSelectableButton button in colorButtons) { button.ToggleButtonSelected(false); }
+            newButton.OnExecute += () => {
+                foreach(LBSSelectableButton button in colorButtons) { 
+                    button.ToggleButtonSelected(false); }
                 newButton.ToggleButtonSelected(true);
                 currentColor = newButton.Data;
             };
@@ -226,12 +279,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             newButton.OnRemove += () => { colorButtons.Remove(newButton); RemoveColorKey(newButton.Data); };
 
             //Add to the visual window...
-            colorList.Add(newButton);
+            if(borderColor)
+            {
+                //Addendum: I added this later so I didn't have to recycle that much code to add a border color to this. tl;dr this is just executed once when the window is initialized.
+                borderColorContainer.Add(newButton);
+                
+            } else
+            {
+                colorList.Add(newButton);
+            }
             //...And to the button list
             colorButtons.Add(newButton);
 
             //Also let's select it, because why not!
-            newButton.OnExecute?.Invoke();
+            if (selectAfterCreation) newButton.OnExecute?.Invoke();
         }
 
         public void UpdateColorButtons()

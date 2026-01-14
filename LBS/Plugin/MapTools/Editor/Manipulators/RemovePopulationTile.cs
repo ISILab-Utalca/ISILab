@@ -40,10 +40,12 @@ namespace ISILab.LBS.Manipulators
             _previewFeedback = new DottedAreaFeedback();
             _previewFeedback.preview = true;
             _previewFeedback.fixToTeselation = true;
-            
+
             _population = provider as PopulationBehaviour;
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
+
+            _population.OwnerLayer.OnChange += () => CleanPreviews();
         }
 
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
@@ -92,28 +94,36 @@ namespace ISILab.LBS.Manipulators
                     poptb.SelectedTilemap = null; 
                 }
             }
-            LoadedLevel level = LBSController.CurrentLevel;
-            EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Remove Element population");
+
+            OwnerLayer.OnChangeUpdate();
+            CleanPreviews();
             
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(x);
             }
-
-            OwnerLayer.OnChangeUpdate();
-            
-            CleanPreviews();
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
             base.OnMouseDown(element, startPosition, e);
-            StartPosition = startPosition;
 
-            LeftButtonPressed = e.button == 0;
-            
-            CleanPreviews();
+            if (e.button == 0)
+            {
+                StartPosition = startPosition;
+
+                LeftButtonPressed = e.button == 0;
+                ForceCancel = false;
+
+                CleanPreviews();
+            }
+            else
+            {
+                ForceCancel = true;
+                MainView.Instance.RemoveElement(_previewFeedback);
+                MainView.Instance.RemoveElement(Feedback);
+                CleanPreviews();
+            }
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
@@ -177,7 +187,18 @@ namespace ISILab.LBS.Manipulators
             {
                 MainView.Instance.AddElement(feedback);
             }
+        }
 
+        protected override void OnKeyDown(KeyDownEvent e)
+        {
+            base.OnKeyDown(e);
+
+            if ((e.keyCode == KeyCode.Escape) && ForceCancel)
+            {
+                MainView.Instance.RemoveElement(_previewFeedback);
+                MainView.Instance.RemoveElement(Feedback);
+                CleanPreviews();
+            }
         }
 
         private void CleanPreviews()

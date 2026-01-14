@@ -11,28 +11,30 @@ namespace LBS.VisualElements
     [UxmlElement]
     public partial class SimplePallete : VisualElement
     {
-
         #region DATA FIELDS
 
         private OptionView[] optionViews;
         private object[] options;
         private object selected;
         private object collectionSelected;
-        private Action<OptionView, object> onSetView;
 
+        private string nameLabel = ""; 
         #endregion
 
         
-        #region UI PRIV FIELDS 
-        private readonly VisualElement contentContainer;
-        private LBSCustomDropdown dropdownGroup;
-        private VisualElement icon;
-        private Label nameLabel;
-        private Button noElement;
-        private Button addButton;
-        private Button removeButton;
+        #region UI VISUAL ELEMENTS REFERENCES 
         
         private bool displayAddElement = true;
+        private bool displayRemoveElement = true;
+        
+        private VisualElement icon;
+        private Label nameLabelElement;
+        private Button noElement;
+        private LBSToolbarButton addButton;
+        private LBSToolbarButton removeButton;
+        private LBSCustomDropdown dropdownGroup;
+        private new readonly VisualElement contentContainer;
+
         #endregion
 
         #region EVENTS
@@ -42,13 +44,61 @@ namespace LBS.VisualElements
         public event Action OnAddOption;
         public event Action OnRepaint;
         public event Func<object,string> OnSetTooltip;
+        
+        private Action<OptionView, object> onSetView;
         #endregion
 
         #region PROPERTIES
-        public bool DisplayAddElement       
+        
+        
+        [UxmlAttribute]
+        public bool DisplayAddElement
         {
-            set => displayAddElement = value;
+            get => displayAddElement;
+            set
+            {
+                displayAddElement = value;
+                if (addButton != null)
+                {
+                    addButton.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+                }
+            }
         }
+        
+        
+        [UxmlAttribute]
+        public bool DisplayRemoveElement
+        {
+            get => displayRemoveElement;
+            set
+            {
+                displayRemoveElement = value;
+                if (removeButton != null)
+                {
+                    removeButton.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+                }
+            }
+        }
+
+
+        [UxmlAttribute]
+        public string NameLabel
+        {
+            get => nameLabel;
+            set
+            {
+                nameLabel = value;
+                if (nameLabelElement != null)
+                {
+                    nameLabelElement.style.display = value != "" ? DisplayStyle.Flex : DisplayStyle.None;
+                    nameLabelElement.text = nameLabel;
+                }
+            }
+        }
+
+
+
+
         public object Selected
         {
             get => selected;
@@ -110,14 +160,13 @@ namespace LBS.VisualElements
             // Change Group
             dropdownGroup = this.Q<LBSCustomDropdown>("DropdownGroup");
             dropdownGroup.RegisterCallback<ChangeEvent<string>>(evt => OnChangeGroup?.Invoke(evt));
-            nameLabel = dropdownGroup.Q<Label>();
+            nameLabelElement = this.Q<LBSCustomLabel>("MainLabel");
 
             // AddButton
-            addButton = this.Q<Button>("AddButton");
+            addButton = this.Q<LBSToolbarButton>("AddButton");
             addButton.clicked += () => OnAddOption?.Invoke();
-
             // removeButton
-            removeButton = this.Q<Button>("DeleteButton");
+            removeButton = this.Q<LBSToolbarButton>("DeleteButton");
             removeButton.clicked += () => OnRemoveOption?.Invoke(selected);
 
             // NoElement

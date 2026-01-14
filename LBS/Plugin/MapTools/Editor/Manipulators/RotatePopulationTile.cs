@@ -49,10 +49,32 @@ namespace ISILab.LBS.Manipulators
 
         }
 
-        // TODO: Revisar de nuevo este m�todo. No parece estar cumpliendo su funci�n correctamente
-        protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
+        // DEPRECATED
+        //protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
+        //{
+        //    var position = _population.OwnerLayer.ToFixedPosition(movePosition);
+        //    var tileGroup = _population.GetTileGroup(position);
+        //    if (tileGroup == null ||
+        //        tileGroup.BundleData == null ||
+        //        !tileGroup.BundleData.Bundle ||
+        //        !tileGroup.BundleData.Bundle.GetHasTagCharacteristic("NonRotate"))
+        //    {
+        //        Selected = null;
+        //    }
+        //    //if(!tileGroup.BundleData.Bundle.GetHasTagCharacteristic("NonRotate"))
+        //    //{
+        //    //    Selected = null;
+        //    //}
+
+        //    Selected = tileGroup;
+        //    if (Selected != null) _storedPosition = position;
+        //    MainView.Instance.SetManipulatorZoom(Selected == null);
+        //    //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+        //}
+
+        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
-            var position = _population.OwnerLayer.ToFixedPosition(movePosition);
+            var position = _population.OwnerLayer.ToFixedPosition(startPosition);
             var tileGroup = _population.GetTileGroup(position);
             if (tileGroup == null ||
                 tileGroup.BundleData == null ||
@@ -61,13 +83,9 @@ namespace ISILab.LBS.Manipulators
             {
                 Selected = null;
             }
-            //if(!tileGroup.BundleData.Bundle.GetHasTagCharacteristic("NonRotate"))
-            //{
-            //    Selected = null;
-            //}
 
             Selected = tileGroup;
-            if(Selected!=null) _storedPosition = position;
+            if (Selected != null) _storedPosition = position;
             MainView.Instance.SetManipulatorZoom(Selected == null);
             //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
         }
@@ -149,7 +167,7 @@ namespace ISILab.LBS.Manipulators
                 EditorUtility.SetDirty(level);
             }
             
-            if (success) DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer); //May fail, Test
+            if (success) DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
         }
     }
 }

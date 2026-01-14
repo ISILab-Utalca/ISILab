@@ -88,7 +88,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                 }
             }
 
-            foreach (PathOSAgent agent in FindObjectsOfType<PathOSAgent>())
+            foreach (PathOSAgent agent in FindObjectsByType<PathOSAgent>(FindObjectsSortMode.None))
             {
                 logObjects.Add(agent.gameObject);
             }

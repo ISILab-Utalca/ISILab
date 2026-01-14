@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using ISILab.DevTools.Macros;
+using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using UnityEngine;
@@ -15,7 +16,8 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
         // Delegate for item added event
         public delegate void ItemAddedDelegate(string guid, int amount);
         public event ItemAddedDelegate OnItemAdded;
-    
+        
+
         public readonly Dictionary<string, int> Inventory = new();
 
         /// <summary>
@@ -54,14 +56,14 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            LBSGenerated lbsGen = other.gameObject.GetComponent<LBSGenerated>();
-            if (lbsGen == null || lbsGen.BundleRef == null) return;
+            LBSGeneratedPopulation lbsPopGen = other.gameObject.GetComponent<LBSGeneratedPopulation>();
+            if (lbsPopGen == null || lbsPopGen.BundleRef == null) return;
 
             // Can only equip items
-            if (lbsGen.BundleRef.ElementFlag == Bundle.EElementFlag.Item)
+            if (lbsPopGen.BundleRef.ElementFlag == Bundle.EElementFlag.Item)
             {
-                Debug.LogWarning(lbsGen.BundleRef.BundleName);
-                string guid = AssetMacro.GetGuidFromAsset(lbsGen.BundleRef);
+                Debug.LogWarning(lbsPopGen.BundleRef.BundleName);
+                string guid = lbsPopGen.GetID();  
 
                 if (string.IsNullOrEmpty(guid))
                 {
@@ -72,6 +74,14 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
                 AddItems(guid, 1);
                 Destroy(other.gameObject);
             }
+        }
+
+        internal void RemoveItem(string key, int amount = 1)
+        {
+            if (!Inventory.ContainsKey(key)) return;
+
+            --Inventory[key];
+            if (Inventory[key] <= 0) Inventory.Remove(key);
         }
     }
 }

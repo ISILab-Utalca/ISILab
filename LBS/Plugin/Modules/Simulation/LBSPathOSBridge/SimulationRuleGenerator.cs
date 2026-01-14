@@ -65,7 +65,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         }
 
         // GABO TODO: TERMINARR
-        public override Tuple<GameObject, string> Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
 #if UNITY_EDITOR
             PathOSStorage storage = PathOSStorage.Instance;
@@ -118,8 +118,19 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     currInstance.transform.position = settings.position +
                                                       new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
                                                       - new Vector3(scale.x, 0, scale.y) / 2f;
+
+                    PathOSAgent agentComp = agentGameObject.GetComponent<PathOSAgent>();
                     // Se asigna a su campo respectivo de PathOSWindow
                     window.SetAgentReference(agentGameObject.GetComponent<PathOSAgent>());
+
+                    var player = GameObject.FindFirstObjectByType<CharacterController>();
+                    if (player is not null)
+                    {
+                        PathOSAgentEyes eyesComp = agentGameObject.GetComponent<PathOSAgentEyes>();
+                        eyesComp.cam = player.GetComponentInChildren<Camera>();
+                    }
+
+       
                     // Terminar este ciclo para evitar errores
                     continue;
                 }
@@ -195,7 +206,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             // GABO TODO: No es esto un error? Basado en PopulationRuleGenerator (todos los modulos base lo hacen)
             parent.transform.position += settings.position;
 
-            return new Tuple<GameObject, string>(parent, "");
+            return new GeneratedGO(parent, null);
 #else
                 Debug.LogError("Attempting to use PathOSRuleGenerator class outside of Editor!"); return null;
 #endif

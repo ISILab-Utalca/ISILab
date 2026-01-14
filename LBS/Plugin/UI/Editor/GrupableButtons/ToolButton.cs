@@ -9,20 +9,49 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class ToolButton : VisualElement, IGrupable
+    
+    
+    [UxmlElement]
+    public partial class ToolButton : Toggle, IGrupable
     {
         #region FIELDS
 
-        private Color _color = LBSSettings.Instance.view.toolkitNormal;
-        private Color _selected = LBSSettings.Instance.view.newToolkitSelected;
+        private Color _color ; //LBSSettings.Instance.view.toolkitNormal;
+        private Color _selected; //LBSSettings.Instance.view.newToolkitSelected;
         #endregion
 
         #region FIELDS VIEW
-        private readonly Button _button;
-
+        private readonly VisualElement icon;
+        private VectorImage toolIconBackground;
+        private VisualElement father;
         #endregion
+        
+        
+        #region PROPERTIES
 
-        public Button Button => _button;
+        [UxmlAttribute]
+        public VectorImage ToolIconBackground
+        {
+            get => toolIconBackground;
+            set
+            {
+                toolIconBackground = value;
+                if (icon != null)
+                {
+                    if (toolIconBackground != null)
+                    {
+                        icon.style.backgroundImage = new StyleBackground(toolIconBackground);
+                        icon.style.display = DisplayStyle.Flex;
+                    }
+                    else
+                    {
+                        icon.style.display = DisplayStyle.None;
+                    }
+                }
+            }
+        }
+        
+        #endregion
         
         #region EVENTS
         public event Action OnFocusEvent;
@@ -30,42 +59,59 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public ToolButton(LBSTool tool)
+
+        public ToolButton() : base()
         {
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ToolButton");
-            visualTree.CloneTree(this);
+            _color = style.backgroundColor.value;
+            icon = new VisualElement();
+            icon.AddToClassList("prop-centered");
+            this.Add(icon);
+            AddToClassList("lbs-rounded-button");
             
-            _button = this.Q<Button>("Button");
-            
-            var icon = this.Q<VisualElement>("Icon");
-            if (tool.Icon == null) return;
-            icon.style.backgroundImage = new StyleBackground(tool.Icon); 
-            
-            tooltip = tool.Name;
+            RemoveFromClassList("unity-button");
+            RemoveFromClassList("unity-text-element");
+        }
+        
+        
+        public ToolButton(LBSTool _tool, VisualElement content) : this()
+        {
+            father = content;
+
+            VisualElement checkbox = this.Q<VisualElement>(classes: "unity-base-field__input");
+            checkbox.style.display = DisplayStyle.None;
+
+            if (_tool.Icon == null) return;
+                icon.style.backgroundImage = new StyleBackground(_tool.Icon); 
+            tooltip = _tool.Name;
         }
         #endregion
 
         #region IGRUPABLE
         public void AddGroupEvent(Action action)
         {
-            _button.clicked += action;
+            RegisterCallback<ClickEvent>(evt => action?.Invoke());
         }
 
         public void OnBlur()
         {
-            _button.style.backgroundColor = _color;
+            RemoveFromClassList("prop-state--checked");
             OnBlurEvent?.Invoke();
         }
 
         public void OnFocus()
         {
-            _button.style.backgroundColor = _selected;
+            AddToClassList("prop-state--checked");
             OnFocusEvent?.Invoke();
         }
 
         public void OnFocusWithoutNotify()
         {
-            _button.style.backgroundColor = _selected;
+            AddToClassList("prop-state--checked");
+        }
+
+        public void OnBlurWithoutNotify()
+        {
+            RemoveFromClassList("prop-state--checked");
         }
 
         public void SetColorGroup(Color color, Color selected)

@@ -34,15 +34,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         //private readonly IMGUIContainer _warningIcon;
 
+        public enum Func { ADD, REMOVE, TRASH }
+        public bool isCurrentIconAdd = false;
         private readonly VectorImage _addIcon;
         private readonly UnityEngine.Color _addIconColor = new UnityEngine.Color32(118, 151, 67, 255);
         private readonly VectorImage _thrashIcon;
+        private readonly UnityEngine.Color _thrashIconColor = new UnityEngine.Color32(103, 103, 103, 255);
+
 
         private System.Action _currentCallback;
 
         public BundleWizardElement()
         {
             _addIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("ad8d08a3d465b3a438016713ae2f99c5"));
+            _thrashIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("82c3c9ac96c6eb3469c80be1c73772ba"));
 
             GetVisualTreeForThis();
 
@@ -50,6 +55,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             _selectIcon = this.Q<IMGUIContainer>("SelectIcon");
 
             _nameField = this.Q<LBSCustomTextField>("NameField");
+            
             _nameField.RegisterCallback<BlurEvent>(e =>
             {
                 _nameField.value = _nameField.value.Replace(' ', '_');
@@ -61,14 +67,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             AddToClassList("lbs-list-item");
 
+            /*
             EditorApplication.delayCall += () =>
             {
-                _nameField.Focus();
+                //_nameField.Focus();
                 EditorApplication.delayCall += () =>
                 {
                     _nameField.SelectAll();
                 };
             };
+            */
         }
 
         public void SetBundleReference(Bundle bundle, ListView list, bool _)
@@ -108,11 +116,55 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             _deleteButton.clicked += _currentCallback;
         }
 
-        public void RemoveDeleteIcon()
+        public void ChangeButtonIcon(Func func)
         {
+            if(func == Func.ADD)
+            {
+                SetAddButton();
+            }
+            else if (func == Func.TRASH || func == Func.REMOVE)
+            {
+                SetThrashButton();
+            }
+        }
+
+        public void SetAddButton()
+        {
+            isCurrentIconAdd = true;
             _deleteButton.SetBackgroundColor(_addIconColor);
             _deleteButton.iconImage = Background.FromVectorImage(_addIcon);
-            //_deleteButton.visible = false;
+        }
+
+        public void SetThrashButton()
+        {
+            isCurrentIconAdd = false;
+            _deleteButton.SetBackgroundColor(_thrashIconColor);
+            _deleteButton.iconImage = Background.FromVectorImage(_thrashIcon);
+        }
+
+        public void SetTextAsUneditable()
+        {
+
+            // 1. Quitar el fondo del contenedor y del input interno
+            _nameField.style.backgroundColor = new StyleColor(UnityEngine.Color.clear);
+
+            // 2. Acceder al elemento interno del input para quitarle el fondo y bordes
+            // Esto es lo que realmente le da el aspecto de TextField
+            var inputElement = _nameField.Q("unity-text-input");
+            if (inputElement != null)
+            {
+                inputElement.style.backgroundColor = new StyleColor(UnityEngine.Color.clear);
+                inputElement.style.borderLeftWidth = 0;
+                inputElement.style.borderRightWidth = 0;
+                inputElement.style.borderTopWidth = 0;
+                inputElement.style.borderBottomWidth = 0;
+            }
+
+            // 3. Por si acaso, ocultar bordes en el contenedor principal también
+            _nameField.style.borderLeftWidth = 0;
+            _nameField.style.borderRightWidth = 0;
+            _nameField.style.borderTopWidth = 0;
+            _nameField.style.borderBottomWidth = 0;
         }
     }
 }

@@ -8,6 +8,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.VisualElements.Editor;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using ISILab.LBS.Editor.Windows;
+using UnityEditor;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -44,82 +46,140 @@ namespace ISILab.LBS.Manipulators
             base.Init(layer, provider);
             _population = provider as PopulationBehaviour;
 
+            _population.OwnerLayer.OnChange += () =>
+            {
+                MainView.Instance.RemoveElement(_dottedFeedback);
+                MainView.Instance.RemoveElement(_iconFeedback);
+            };
+
+            //OnManipulationRightClick += () =>
+            //{
+            //    ForceCancel = true;
+            //    OnToolUsage = false;
+
+            //    LBSMainWindow.MessageNotify("'" + Name + "' action cancelled.");
+            //    Feedback?.SetDisplay(false);
+            //    MainView.Instance.RemoveElement(_iconFeedback);
+            //    MainView.Instance.AddElement(_dottedFeedback);
+            //    _dottedFeedback.ValidForInput(false);
+            //    Selected = null;
+            //};
+        }
+
+        //protected override void OnKeyDown(KeyDownEvent e)
+        //{
+        //    base.OnKeyDown(e);
+        //    MainView.Instance.RemoveElement(_iconFeedback);
+        //}
+
+        //protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
+        //{
+        //    MainView.Instance.RemoveElement(_dottedFeedback);
+        //    MainView.Instance.RemoveElement(_iconFeedback);
+        //}
+
+        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
+        {
+            if (e.button == 0)
+            {
+                var position = _population.OwnerLayer.ToFixedPosition(startPosition);
+                var tileGroup = _population.GetTileGroup(position);
+                if (tileGroup == null || tileGroup.BundleData == null || !tileGroup.BundleData.Bundle)
+                {
+                    Selected = null;
+                    return;
+                }
+
+                Selected = tileGroup;
+                _iconFeedback.Icon = Selected.BundleData.Bundle.Icon;
+                MainView.Instance.AddElement(_iconFeedback);
+                ActualizeFeedbackPosition(startPosition);
+            }
+        }
+
+        protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
+        {
+            MainView.Instance.RemoveElement(_dottedFeedback);
+
+            if (ForceCancel)
+            {
+                MainView.Instance.RemoveElement(_iconFeedback);
+                _dottedFeedback.ValidForInput(false);
+                return;
+            }
+
+            ActualizeFeedbackPosition(movePosition);
+        }
+
+        protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
+        {
+            if (e.button == 0)
+            {
+                base.OnMouseUp(element, endPosition, e);
+
+                MainView.Instance.RemoveElement(_iconFeedback);
+
+                //If esc key was pressed, cancel the operation
+                if (ForceCancel)
+                {
+                    _dottedFeedback.ValidForInput(false);
+                    ForceCancel = false;
+                    return;
+                }
+
+                if (Selected == null) return;
+
+                var endPos = _population.OwnerLayer.ToFixedPosition(endPosition);
+
+                // Check if the move is valid
+                if (!_population.BundleTilemap.ValidMoveGroup(endPos, Selected, Vector2.right)) return;
+
+                var level = LBSController.CurrentLevel;
+                EditorGUI.BeginChangeCheck();
+                Undo.RegisterCompleteObjectUndo(level, "Move Element population");
+
+                // Calculate the difference between the new position and the original top-left position of the group
+                Vector2Int originalTopLeft = Selected.TileGroup[0].Position;
+                Vector2Int offset = endPos - originalTopLeft;
+
+                // Move each tile relative to the offset
+                //Selected.Translate(offset);
+                _population.MoveGroup(Selected, offset);
+
+                _population.OwnerLayer.OnChangeUpdate();
+                DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
+                //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
+
+                _dottedFeedback.ValidForInput(false);
+                Selected = null;
+
+                if (EditorGUI.EndChangeCheck())
+                {
+                    EditorUtility.SetDirty(level);
+                }
+            }
         }
 
         protected override void OnKeyDown(KeyDownEvent e)
         {
             base.OnKeyDown(e);
-            MainView.Instance.RemoveElement(_iconFeedback);
-        }
 
-        protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
-        {
-            MainView.Instance.RemoveElement(_dottedFeedback);
-            MainView.Instance.RemoveElement(_iconFeedback);
-        }
-
-        protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
-        {
-            base.OnMouseUp(element, endPosition, e);
-
-            MainView.Instance.RemoveElement(_iconFeedback);
-
-            //If esc key was pressed, cancel the operation
-            if (ForceCancel)
+            if ((e.keyCode == KeyCode.Escape) && ForceCancel)
             {
-                MainView.Instance.RemoveElement(_dottedFeedback);
-                ForceCancel = false;
-                return;
-            }
-
-            var endPos = _population.OwnerLayer.ToFixedPosition(endPosition);
-
-            // Check if the move is valid
-            if (!_population.BundleTilemap.ValidMoveGroup(endPos, Selected, Vector2.right)) return;
-               
-
-            // Calculate the difference between the new position and the original top-left position of the group
-            Vector2Int originalTopLeft = Selected.TileGroup[0].Position;
-            Vector2Int offset = endPos - originalTopLeft;
-
-            // Move each tile relative to the offset
-            //Selected.Translate(offset);
-            _population.MoveGroup(Selected, offset);
-
-            _population.OwnerLayer.OnChangeUpdate();
-            DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
-            //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
-        }
-
-        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
-        { 
-            var position = _population.OwnerLayer.ToFixedPosition(startPosition);
-            var tileGroup = _population.GetTileGroup(position);
-            if (tileGroup == null ||
-                tileGroup.BundleData == null ||
-                !tileGroup.BundleData.Bundle)
-            {
+                MainView.Instance.RemoveElement(_iconFeedback);
+                _dottedFeedback.ValidForInput(false);
+                MainView.Instance.AddElement(_dottedFeedback);
                 Selected = null;
-                return;
             }
-             
-            Selected = tileGroup;
-            _iconFeedback.Icon = Selected.BundleData.Bundle.Icon;
-            MainView.Instance.AddElement(_iconFeedback);
         }
-        
-        // TODO Currently it completely bugs out whenever x or y are 0 in the grid space. why? wish i fucking knew
-        protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
-        {
-            MainView.Instance.RemoveElement(_dottedFeedback);
 
-            if (ForceCancel) return;
- 
-            var topLeftCorner = -_population.OwnerLayer.ToFixedPosition(movePosition); // use negative value for corner
+        private void ActualizeFeedbackPosition(Vector2 pos)
+        {
+            var topLeftCorner = -_population.OwnerLayer.ToFixedPosition(pos); // use negative value for corner
             var bottomRightCorner = topLeftCorner;
 
             // Set corner by tile size
-            if (ToSet.TileSize.x > 1 || ToSet.TileSize.y > 1 )
+            if (ToSet.TileSize.x > 1 || ToSet.TileSize.y > 1)
             {
                 var offset = ToSet.TileSize - new Vector2Int(1, 1);
                 offset.x = -Mathf.Abs(offset.x);
@@ -132,47 +192,44 @@ namespace ISILab.LBS.Manipulators
             var lastPos = _population.OwnerLayer.FixedToPosition(bottomRightCorner);
 
             // weird correction on coordinates, hate it but it works
-            if(movePosition.y < 0)
+            if (pos.y < 0)
             {
                 firstPos.y += 99;
                 lastPos.y += 99;
             }
-            if(movePosition.x < 0)
+            if (pos.x < 0)
             {
                 firstPos.x -= 99;
                 lastPos.x -= 99;
             }
             firstPos.x *= -1;
             lastPos.x *= -1;
-            
+
             _dottedFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
             MainView.Instance.AddElement(_dottedFeedback);
 
 
-            bool valid;
             // dragging feedback
             if (Selected != null)
             {
                 // undo the negative of topLeftCorner
-                valid = _population.ValidMoveGroup(-topLeftCorner, Selected); 
+                bool valid = _population.ValidMoveGroup(-topLeftCorner, Selected);
                 _dottedFeedback.ValidForInput(valid);
                 _iconFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
             }
             // adding feedback
             else
             {
-                var position = _population.OwnerLayer.ToFixedPosition(movePosition);
+                var position = _population.OwnerLayer.ToFixedPosition(pos);
                 var tileGroup = _population.GetTileGroup(position);
-                if (tileGroup == null ||
-                    tileGroup.BundleData == null ||
-                    !tileGroup.BundleData.Bundle)
+                if (tileGroup == null || tileGroup.BundleData == null || !tileGroup.BundleData.Bundle)
                 {
-                    _dottedFeedback.ValidForInput(false);  
+                    _dottedFeedback.ValidForInput(false);
                     return;
                 }
 
                 // undo the negative of topLeftCorner
-                _dottedFeedback.ValidForInput(true);            
+                _dottedFeedback.ValidForInput(true);
             }
         }
     }

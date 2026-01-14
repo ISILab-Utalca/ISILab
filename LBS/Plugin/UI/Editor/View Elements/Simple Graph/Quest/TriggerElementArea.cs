@@ -223,7 +223,7 @@ namespace ISILab.LBS.VisualElements
             Painter2D painter = mgc.painter2D;
             LBSLayer lbsLayer = _data.Layer;
             
-            var nodeElements = MainView.Instance.GetElementsFromLayerContainer(lbsLayer, _data.OwnerNode);
+            var nodeElements = MainView.Instance.GetElementsFromLayer(lbsLayer, _data.OwnerNode);
 
             GraphElement node = nodeElements?.FirstOrDefault();
             if (node == null) return;

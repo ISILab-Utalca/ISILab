@@ -183,7 +183,7 @@ namespace ISILab.LBS.Editor.Windows
 
             #region LOAD UI TREE
             //MainWindows UXML 
-            VisualTreeAsset visualTree = AssetMacro.LoadAssetByGuid<VisualTreeAsset>("352a58bb499307540a1e69ea48063f29");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSMainWindow");
             visualTree.CloneTree(rootVisualElement);
             #endregion
 
@@ -263,6 +263,7 @@ namespace ISILab.LBS.Editor.Windows
             }
             levelData!.OnReload += () => layerPanel.ResetSelection();
             #endregion
+
             #region LOAD SCRIPTABLES TEMPLATE
             layerTemplates = DirectoryTools.GetScriptablesByType<LayerTemplate>();
             layerTemplates.Sort((a, b) => a.order.CompareTo(b.order));
@@ -294,10 +295,10 @@ namespace ISILab.LBS.Editor.Windows
             infoToolBar.Bind(this);
 
             #endregion
-
+            
 
             #region MAIN VIEW
-
+            
             mainView.OnClearSelection += () =>
             {
                 if (_selectedLayer != null)
@@ -311,14 +312,14 @@ namespace ISILab.LBS.Editor.Windows
 
             #region TOOLBARS
             topToolBar.Bind(this);
-
+            
             topToolBar.OnLoadLevel += data =>
             {
                 LBS.loadedLevel = data;
                 RefreshWindow();
                 //drawManager.RedrawLevel(levelData);
             };
-
+            
             topToolBar.OnThemeChanged += data => ChangeTheme(data);
             OnLayerChange += topToolBar.LevelChange;
 
@@ -329,7 +330,7 @@ namespace ISILab.LBS.Editor.Windows
                 {
                     topToolBar.SaveLevel();
                     evt.StopPropagation();
-                }
+                }    
             }, TrickleDown.TrickleDown);
             //O = OPEN = Load level
             rootVisualElement.RegisterCallback<KeyDownEvent>(evt =>
@@ -356,11 +357,11 @@ namespace ISILab.LBS.Editor.Windows
 
 
             inspectorManager.InitTabs(ref layerTemplates);
-
+            
             subPanelScrollView.Q<VisualElement>("unity-content-and-vertical-scroll-container").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-viewport").pickingMode = PickingMode.Ignore;
             subPanelScrollView.Q<VisualElement>("unity-content-container").pickingMode = PickingMode.Ignore;
-
+            
             layerPanel = new LayersPanel(levelData, ref layerTemplates);
             extraPanel.Add(layerPanel);
             layerPanel.style.display = DisplayStyle.Flex;
@@ -375,7 +376,6 @@ namespace ISILab.LBS.Editor.Windows
                 //   sw.Stop(); Debug.Log("OnAddLayer: " + sw.ElapsedMilliseconds + " ms");
                 sw.Restart();
                 DrawManager.Instance.AddContainer(layer);
-                //  sw.Stop(); Debug.Log("DrawManager.Instance.AddContainer: " + sw.ElapsedMilliseconds + " ms");
             };
             layerPanel.OnRemoveLayer += l =>
             {

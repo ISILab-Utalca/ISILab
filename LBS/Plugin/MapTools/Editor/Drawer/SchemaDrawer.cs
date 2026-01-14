@@ -17,11 +17,12 @@ namespace ISILab.LBS.Drawers
     public class SchemaDrawer : Drawer
     {
         private Color _zoneColor;
+        private SchemaBehaviour schema;
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
-            var schema = target as SchemaBehaviour;
+            schema = target as SchemaBehaviour;
 
             // Get modules
             var tilesMod = schema.OwnerLayer.GetModule<TileMapModule>();
@@ -61,7 +62,7 @@ namespace ISILab.LBS.Drawers
                 TileConnectionsPair tc = connectionsMod.GetPair(newTile);
 
                 SchemaTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(schema.OwnerLayer, newTile);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, newTile);
 
                 if(previousElement is not null && previousElement.Count > 0)
                 {
@@ -94,7 +95,7 @@ namespace ISILab.LBS.Drawers
             {
                 if(obj is not LBSTile tile) continue;
 
-                var elements = view.GetElementsFromLayerContainer(schema.OwnerLayer, tile);
+                var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
                 if(elements == null) continue;
                 
                 foreach (var graphElement in elements)
@@ -130,7 +131,7 @@ namespace ISILab.LBS.Drawers
                 TileZonePair tz = zonesMod.GetPairTile(tile);
                 TileConnectionsPair tc = connectionsMod.GetPair(tile);
                 SchemaTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayerContainer(schema.OwnerLayer, tile);
+                List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, tile);
 
                 if(previousElement is not null && previousElement.Count > 0)
                 {
@@ -157,7 +158,7 @@ namespace ISILab.LBS.Drawers
             
             foreach (LBSTile tile in schema.Keys)
             {
-                foreach (var graphElement in view.GetElementsFromLayerContainer(schema.OwnerLayer, tile).Where(graphElement => graphElement != null))
+                foreach (var graphElement in view.GetElementsFromLayer(schema.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -172,7 +173,7 @@ namespace ISILab.LBS.Drawers
             {
                 if (tile == null) continue;
 
-                var elements = view.GetElementsFromLayerContainer(schema.OwnerLayer, tile);
+                var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
                 foreach (var graphElement in elements)
                 {
                     graphElement.style.display = DisplayStyle.None;
@@ -308,7 +309,7 @@ namespace ISILab.LBS.Drawers
                 if (connectionType != SchemaBehaviour.Empty
                     && connectionType != SchemaBehaviour.Wall)
                 {
-                     tView.CreateConnectionView(tile, connectionType, new Vector2(xPos, yPos), connection.Key);
+                     tView.CreateConnectionView(schema.OwnerLayer, tile, connectionType, new Vector2(xPos, yPos), connection.Key);
                 }
             }
         }

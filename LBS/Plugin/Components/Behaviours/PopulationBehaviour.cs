@@ -100,7 +100,9 @@ namespace ISILab.LBS.Behaviours
 
         public TileBundleGroup AddTileGroup(Vector2Int position, Bundle bundle) 
         {
-            return AddTileGroup(position, new BundleData(bundle)); }
+            return AddTileGroup(position, new BundleData(bundle)); 
+        }
+
         public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData) 
         {
 
@@ -225,6 +227,7 @@ namespace ISILab.LBS.Behaviours
                 return false;
             t.Rotation = rotation;
 
+            _newRotations ??= new();
             _newRotations.Add(t);
 
             return true;
@@ -263,7 +266,6 @@ namespace ISILab.LBS.Behaviours
         {
             OwnerLayer = null;
             layer.OnChange -= UpdateKeys;
-
         }
 
         public void UpdateKeys()

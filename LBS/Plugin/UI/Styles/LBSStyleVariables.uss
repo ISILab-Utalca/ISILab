@@ -1,3 +1,7 @@
+
+/* #region Default Style Variables */
+
+
 :root {
     --lbs-light-red-color: rgb(254, 118, 105);
     --lbs-selection-dark-red-color: rgb(200, 92, 82);
@@ -38,6 +42,10 @@
     --lbs-default-frame-border-radius: 3px
 }
 
+/* #region Theme Style Variables */
+/* #endregion */
+
+/* #region Dark Theme Styles  */
 .dark {
     --lbs-icon-color: rgb(210,210,210);
     --lbs-text-color: rgb(220,220,220);
@@ -62,8 +70,10 @@
     --lbs-main-blue-color: var(--lbs-selection-neutral-blue-color);
     --lbs-main-yellow-color: var(--lbs-light-yellow-color);
     --lbs-main-green-color: var(--lbs-light-green-color);
-    
 }
+
+/* #endregion */
+/* #region Alt Theme Styles  */
 
 .alt {
     --lbs-icon-color: rgb(173,185,215);
@@ -91,14 +101,17 @@
     --lbs-main-green-color: var(--lbs-light-green-color);
 }
 
+/* #endregion */
+/* #region Light Theme Styles  */
+
 .light {
     --lbs-icon-color: rgb(40,40,40);
     --lbs-text-color: rgb(20,20,20);
     
     --lbs-base-solid-gray-color: rgb(217, 217, 217);
-    --lbs-field-solid-bg-gray-color: rgb(174,174,174);
+    --lbs-field-solid-bg-gray-color: rgb(240,240,240);
     --lbs-darker-solid-gray-color: rgb(150,150, 150);
-    --lbs-unity-6-black-color: rgb(240,240,240);
+    --lbs-unity-6-black-color: rgb(120,120,120);
 
     --lbs-selectable-gray-color: rgb(227,227,227);
     --lbs-selectable-hover-color: rgb(196,196,196);
@@ -118,6 +131,9 @@
     --lbs-main-green-color: var(--lbs-selection-dark-green-color);
     
 }
+
+/* #endregion */
+/* #region Darker Theme Styles  */
 
 .darker {
     --lbs-icon-color: rgb(210,210,210);
@@ -149,8 +165,7 @@
 }
 
 
-/*useful styles for general cases*/
-
+/* #region Style Props */
 
 .horizontal{
     --height: 24px;
@@ -163,3 +178,28 @@
     --width: 24px;
     flex-direction: column;
 }
+
+.prop-centered {
+    flex-grow: 1;
+    align-content: center;
+    align-self: center;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+}
+
+
+.prop-default-bg{
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+}
+
+.prop-darkest-bg{
+    background-color: var(--lbs-darker-solid-gray-color, var(--lbs-default-darker-solid-gray-color));
+}
+
+.prop-state--checked{
+    background-color: var(--lbs-selection-neutral-blue-color);
+}
+
+
+/* #endregion */

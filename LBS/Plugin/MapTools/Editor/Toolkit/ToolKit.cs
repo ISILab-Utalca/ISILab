@@ -22,8 +22,7 @@ namespace LBS.VisualElements
     public partial class ToolKit : VisualElement
     {
         #region FACTORY
-        //public new class UxmlFactory : UxmlFactory<ToolKit, UxmlTraits> { }
-        
+
         UxmlColorAttributeDescription m_BaseColor = new UxmlColorAttributeDescription
         {
             name = "base-color",
@@ -103,7 +102,6 @@ namespace LBS.VisualElements
 
             if (!Equals(instance, this))
                 instance = this;
-    
         }
         #endregion
 
@@ -132,8 +130,8 @@ namespace LBS.VisualElements
 
             return current.Item1?.Manipulator;
         }
-        
-        private KeyValuePair<Type, (LBSTool, ToolButton)> GetTool(Type manipulatorType)
+
+        public KeyValuePair<Type, (LBSTool, ToolButton)> GetTool(Type manipulatorType)
         {
             // Find the first matching tool in the dictionary with all null checks
             KeyValuePair<Type, (LBSTool, ToolButton)> foundTool = tools.FirstOrDefault(kvp =>
@@ -170,9 +168,17 @@ namespace LBS.VisualElements
         
             // If another tool was active, blur it
             current.Item2?.OnBlur();
-
+            
             // Set the new current tool and focus it
             current = foundTool.Value;
+
+            foreach (var btn in content.Children())
+            {
+                if (btn is ToolButton b)
+                    b.SetValueWithoutNotify(false);
+            }
+            current.Item2.SetValueWithoutNotify(true);
+
             current.Item2?.OnFocus();
 
             // Activate its manipulator
@@ -191,8 +197,10 @@ namespace LBS.VisualElements
         {
             foreach (VisualElement separator in separators)
             {
-                separator.style.display = DisplayStyle.None;
+                //separator.style.display = DisplayStyle.None;
+                separator.parent.Remove(separator);
             }
+
             separators.Clear();
         }
 
@@ -207,7 +215,7 @@ namespace LBS.VisualElements
 
         private void AddTool(LBSTool tool)
         {
-            ToolButton button = new ToolButton(tool);
+            ToolButton button = new ToolButton(tool, content);
             tool.BindButton(button);
             content.Add(button);
             tools[tool.Manipulator.GetType()] = (tool, button);
@@ -270,11 +278,30 @@ namespace LBS.VisualElements
         public new void Clear()
         {
             if (!tools.Any()) return;
+            
             current.Item2?.OnBlur();
-            foreach ((LBSTool, ToolButton) toolPair in tools.Values)
+
+            var father = tools.Values.First().Item2.parent;
+            var children = father.Children();
+            List<VisualElement> toRemove = new();
+
+            foreach (var child in children)
             {
-                toolPair.Item2.style.display = DisplayStyle.None;
+                if (child.style.display == DisplayStyle.None)
+                {
+                    toRemove.Add(child);
+                }
+                else
+                {
+                    child.style.display = DisplayStyle.None;
+                }
             }
+
+            for (int i = 0; i < toRemove.Count; i++)
+            {
+                father.Remove(toRemove[i]);
+            }
+
             ClearSeparators();
         }
         

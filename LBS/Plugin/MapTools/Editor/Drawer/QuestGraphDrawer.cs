@@ -11,6 +11,7 @@ using ISILab.LBS.Modules;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using ISILab.AI.Optimization.Populations;
 
 namespace ISILab.LBS.Drawers.Editor
 {
@@ -33,7 +34,7 @@ namespace ISILab.LBS.Drawers.Editor
             _actionViews.Clear();
             _suggestionViews.Clear();
             LoadAllTiles(graph, behaviour, view);
-            
+
             /* Unused drawing system
             view.ClearLayerContainer(behaviour.OwnerLayer, true);
             PaintNewTiles(quest, behaviour, nodeViews, view);
@@ -41,10 +42,12 @@ namespace ISILab.LBS.Drawers.Editor
             view.ClearLayerComponentView(behaviour.OwnerLayer, behaviour.Graph);
             */
 
-            if (Loaded) return;
-            
-            LoadAllTiles(graph, behaviour, view);
-            Loaded = true;
+            if (!Loaded || FullRedrawRequested)
+            {
+                LoadAllTiles(graph, behaviour, view);
+                Loaded = true;
+                FullRedrawRequested = false;
+            }
         }
 
         private Action OnLayerChange(QuestGraph graph, QuestBehaviour behaviour)
@@ -171,7 +174,7 @@ namespace ISILab.LBS.Drawers.Editor
             
             foreach (object tile in behaviour.Keys)
             {
-                var elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile)?.Where(graphElement => graphElement != null);
+                var elements = view.GetElementsFromLayer(behaviour.OwnerLayer, tile)?.Where(graphElement => graphElement != null);
                 if (elements == null) continue;
                 foreach (GraphElement graphElement in elements)
                 {
@@ -188,7 +191,7 @@ namespace ISILab.LBS.Drawers.Editor
             {
                 if (tile == null) continue;
 
-                var elements = view.GetElementsFromLayerContainer(behaviour.OwnerLayer, tile)?.Where(graphElement => graphElement != null);
+                var elements = view.GetElementsFromLayer(behaviour.OwnerLayer, tile)?.Where(graphElement => graphElement != null);
                 if(elements == null) continue;
                 foreach (GraphElement graphElement in elements)
                 {

@@ -52,7 +52,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         public void Init()
         {
             //Debug.Log("Init: " + GetType().Name);
-            Debug.Log("Builder data:\n\n" + Builder.ToString());
+            //Debug.Log("Builder data:\n\n" + Builder.ToString());
 
             currentBundleFlags = Builder.layerTypeFlag;
             Console.WriteLine(currentBundleFlags.ToString());
@@ -72,7 +72,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 out listCurrent,
                 "CurrentBundles",
                 bundleContainersShow,
-                itemHeight: 40
+                itemHeight: 40,
+                buttonFunc: BundleWizardElement.Func.REMOVE
                 );
             bundleListCurrent.SetExpandButtonSetting(rootVisualElement, "CurrentBundles", listCurrent, true, true);
             
@@ -83,7 +84,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 "SameLayerOrphanBundles",
                 bundleContainersSameLayerOrphan,
                 itemHeight: 40,
-                DeleteFunct: false
+                buttonFunc: BundleWizardElement.Func.ADD
                 );
             bundleListSameLayerOrphan.SetExpandButtonSetting(rootVisualElement, "SameLayerOrphanBundles", listSameLayerOrphan);
             
@@ -94,7 +95,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 "SameLayerBundles",
                 bundleContainersSameLayer,
                 itemHeight: 40,
-                DeleteFunct: false
+                buttonFunc: BundleWizardElement.Func.ADD
                 );
             bundleListSameLayer.SetExpandButtonSetting(rootVisualElement, "SameLayerBundles", listSameLayer, false);
             
@@ -105,7 +106,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 "NoLayerBundles",
                 bundleContainersNoLayer,
                 itemHeight: 40,
-                DeleteFunct: false
+                buttonFunc: BundleWizardElement.Func.ADD
                 );
             bundleListNoLayer.SetExpandButtonSetting(rootVisualElement, "NoLayerBundles", listNoLayer, false);
         }
@@ -127,24 +128,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             // Normal bundles
             foreach (Bundle b in _allBundles)
             {
-                //same layer orphan bundles
-                if (b.ChildsBundles.Count <= 0 && (b.Parent() == null) &&
-                   (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
-                {
-                    bundleContainersSameLayerOrphan.Add(new BundleManagerWindow.BundleContainer(b));
-                }
-                //same layer bundles
-                else if (b.ChildsBundles.Count <= 0 && (b.Parent() != null) &&
-                    (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
-                {
-                    bundleContainersSameLayer.Add(new BundleManagerWindow.BundleContainer(b));
-                }
-                //no layer bundles
-                else if (b.ChildsBundles.Count <= 0 &&
-                    (b.LayerContentFlags & currentBundleFlags) == BundleFlags.None)
-                {
-                    bundleContainersNoLayer.Add(new BundleManagerWindow.BundleContainer(b));
-                }
+                AddBundleToCorrectList(b);
             }
             Debug.Log("BundleManagerWindow updated");
         }
@@ -166,6 +150,28 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             if (listSameLayerOrphan != null) listSameLayerOrphan.Clear();
         }
 
+        void AddBundleToCorrectList(Bundle b)
+        {
+            //same layer orphan bundles
+            if (b.ChildsBundles.Count <= 0 && (b.Parent() == null) &&
+               (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
+            {
+                bundleContainersSameLayerOrphan.Add(new BundleManagerWindow.BundleContainer(b));
+            }
+            //same layer bundles
+            else if (b.ChildsBundles.Count <= 0 && (b.Parent() != null) &&
+                (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
+            {
+                bundleContainersSameLayer.Add(new BundleManagerWindow.BundleContainer(b));
+            }
+            //no layer bundles
+            else if (b.ChildsBundles.Count <= 0 &&
+                (b.LayerContentFlags & currentBundleFlags) == BundleFlags.None)
+            {
+                bundleContainersNoLayer.Add(new BundleManagerWindow.BundleContainer(b));
+            }
+        }
+
         void OnEnable()
         {
             BundleManagerListGroup.OnRequestMove -= HandleIncomingElement;
@@ -181,13 +187,26 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         void HandleIncomingElement(object element)
         {
-            if(!bundleContainersTemp.Contains((BundleManagerWindow.BundleContainer)element))
+            if (element is BundleManagerWindow.BundleContainer bundleContainer)
+            if(!bundleContainersTemp.Contains(bundleContainer))
             {
-                bundleContainersTemp.Add((BundleManagerWindow.BundleContainer)element);
-                bundleContainersShow.Add((BundleManagerWindow.BundleContainer)element);
+                bundleContainersTemp.Add(bundleContainer);
+                bundleContainersShow.Add(bundleContainer);
             }
+            else if(bundleContainersTemp.Contains(bundleContainer))
+            {
+                AddBundleToCorrectList(bundleContainer.GetMainBundle());
+            }
+
             listCurrent.Rebuild();
             listCurrent.RefreshItems();
+            listNoLayer.Rebuild();
+            listNoLayer.RefreshItems();
+            listSameLayer.Rebuild();
+            listSameLayer.RefreshItems();
+            listSameLayerOrphan.Rebuild();
+            listSameLayer.RefreshItems();
+
         }
 
         public void Step()

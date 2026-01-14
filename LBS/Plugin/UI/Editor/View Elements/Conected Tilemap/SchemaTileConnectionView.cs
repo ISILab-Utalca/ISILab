@@ -2,6 +2,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using LBS.Components;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
@@ -13,6 +14,7 @@ namespace ISILab.LBS.VisualElements
         #region VIEW FIELDS
 
         private VisualElement Icon;
+        private LBSLayer lbsLayer;
         private LBSTile tile;
 
         #endregion
@@ -21,13 +23,13 @@ namespace ISILab.LBS.VisualElements
 
         private static VisualTreeAsset view;
 
-        private static readonly Dictionary<string, string> ConnectionIconGuids =
+        public static readonly Dictionary<string, string> ConnectionIconGuids =
            new()
            {
-            { SchemaBehaviour.Connections[2],    "cd77d8067cf8b6b44ab23da9a62173c0" },
-            { SchemaBehaviour.Connections[3],  "c0d00de1d82858c4b9d772a012caf67d" },
-            { SchemaBehaviour.Connections[4],  "f79cf4ba5777aab4a884bca201ff0278" },
-            { SchemaBehaviour.Connections[5], "8e1818e3f49414e4997ecc63e331999f" },
+            { SchemaBehaviour.Door,    "cd77d8067cf8b6b44ab23da9a62173c0" },
+            { SchemaBehaviour.Window,  "c0d00de1d82858c4b9d772a012caf67d" },
+            { SchemaBehaviour.LockedDoor,  "f79cf4ba5777aab4a884bca201ff0278" }
+            //   ,{ SchemaBehaviour.BlockedDoor, "8e1818e3f49414e4997ecc63e331999f" },
            };
 
         private static readonly Dictionary<string, VectorImage> IconCache = new();
@@ -42,19 +44,19 @@ namespace ISILab.LBS.VisualElements
         public string Type { get => connectionType; }
         public string Direction { get => connectionSide; }
         public LBSTile Tile { get => tile; }
-
-        private static VectorImage LoadIcon(string guid)
+        public LBSLayer Layer { get => lbsLayer; }
+        public static VectorImage GetIcon(string connection)
         {
-            if (!IconCache.TryGetValue(guid, out var icon))
+            if (!IconCache.TryGetValue(connection, out VectorImage icon))
             {
-                icon = AssetMacro.LoadAssetByGuid<VectorImage>(guid);
-                IconCache[guid] = icon;
+                icon = AssetMacro.LoadAssetByGuid<VectorImage>(ConnectionIconGuids[connection]);
+                IconCache[connection] = icon;
             }
             return icon;
         }
         #endregion
 
-        public SchemaTileConnectionView(LBSTile tile, string connectionType, string connectionSide)
+        public SchemaTileConnectionView(LBSLayer layer, LBSTile tile, string connectionType, string connectionSide)
         {
             if (view == null)
             {
@@ -65,19 +67,20 @@ namespace ISILab.LBS.VisualElements
             Icon = this.Q<VisualElement>("Icon");
             List<string> connectionTypes = SchemaBehaviour.Connections;
 
+            this.lbsLayer = layer;
             this.tile = tile;
             this.connectionType = connectionType;
             this.connectionSide = connectionSide;
 
-            if (!ConnectionIconGuids.TryGetValue(this.connectionType, out string guid))
+            VectorImage connectionIcon = GetIcon(this.connectionType);
+            if (Icon is null)
             {
                 style.display = DisplayStyle.None;
                 return;
             }
 
-            Icon.style.backgroundImage = new StyleBackground(LoadIcon(guid));
+            Icon.style.backgroundImage = new StyleBackground(connectionIcon);
 
-        }
-
+        } 
     }
 }
