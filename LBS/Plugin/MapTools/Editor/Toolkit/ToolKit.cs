@@ -15,7 +15,6 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using static PlasticGui.LaunchDiffParameters;
 
 namespace LBS.VisualElements
 {
