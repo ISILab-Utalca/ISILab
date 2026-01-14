@@ -146,6 +146,7 @@ namespace ISILab.Commons
             /// List of vectors representing all directions.
             /// </summary>
             public static List<Vector2Int> All => all;
+
         }
     }
 }

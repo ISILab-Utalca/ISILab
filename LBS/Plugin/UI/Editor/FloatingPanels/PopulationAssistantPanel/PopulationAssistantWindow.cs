@@ -661,7 +661,7 @@ namespace ISILab.LBS.VisualElements.Editor
                     var gene = chromosome.GetGene(i);
                     if (gene == null)
                         continue;
-                    LayerPopulation.AddTileGroup(pos, gene as BundleData);
+                    LayerPopulation.AddTileGroup(pos, gene as BundleData, LayerPopulation.GetActiveRotation());
                 }
             }
 

@@ -1,0 +1,38 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Rotation" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/MapElites/Icon=Retry.svg?fileID=7388822144124034973&amp;guid=c41b7bfef591e3740b20bf4df0f96a29&amp;type=3#Icon=Retry" toggle-on-label-click="true" value="true">
+        <ui:VisualElement style="flex-grow: 1;">
+            <ISILab.LBS.CustomComponents.LBSCustomEnumField type="ISILab.LBS.Behaviours.PopulationBehaviour+TileMakeRot, LBS" label="Rotation Mode" include-obsolete-values="false" name="tileMakeRotEnum" />
+            <ui:VisualElement name="rotateSelector" style="flex-grow: 1; margin-top: 10px;">
+                <ui:VisualElement name="Row1" style="flex-grow: 1; flex-direction: row;">
+                    <ui:VisualElement style="flex-grow: 1;" />
+                    <ui:VisualElement style="flex-grow: 1; flex-direction: column-reverse; align-self: center;">
+                        <ISILab.LBS.CustomComponents.LBSToolbarToggle value="false" label="&#10;" toggle-on-label-click="false" lock-on-click="false" hide-toggle="true" name="tUp" style="background-image: resource(&apos;Icons/Arrows/Icon=ArrowUp&apos;); flex-grow: 1; max-width: 32px; max-height: 32px; min-width: 32px; min-height: 32px; -unity-background-scale-mode: scale-to-fit; align-self: center;" />
+                        <ui:FloatField value="42.2" name="UpW" style="flex-shrink: 1; align-self: center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1; flex-shrink: 1; min-width: auto; min-height: auto; max-width: none; max-height: none;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Row2" style="flex-grow: 1; flex-direction: row;">
+                    <ui:VisualElement style="flex-grow: 1;" />
+                    <ui:VisualElement style="flex-grow: 1; flex-direction: row-reverse; align-self: center;">
+                        <ISILab.LBS.CustomComponents.LBSToolbarToggle name="tLeft" style="background-image: resource(&apos;Icons/Arrows/Icon=ArrowLeft&apos;); flex-grow: 1; max-width: 32px; max-height: 32px; min-width: 32px; min-height: 32px; -unity-background-scale-mode: scale-to-fit; align-self: center;" />
+                        <ui:FloatField value="42.2" name="LeftW" style="align-self: center; flex-shrink: 1;" />
+                    </ui:VisualElement>
+                    <ISILab.LBS.CustomComponents.LBSToolbarToggle toggle-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Manipulators/Icon=Rotate.svg?fileID=7388822144124034973&amp;guid=485afea6f40f10e41a28c3d016a9250b&amp;type=3#Icon=Rotate" picking-mode="Ignore" enabled="false" style="background-image: resource(&apos;Icons/Vectorial/Manipulators/Icon=Rotate&apos;); flex-grow: 1; max-width: 32px; max-height: 32px; min-width: 32px; min-height: 32px;" />
+                    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                        <ISILab.LBS.CustomComponents.LBSToolbarToggle hide-toggle="true" name="tRight" style="background-image: resource(&apos;Icons/Arrows/Icon=ArrowRight&apos;); flex-grow: 1; max-width: 32px; max-height: 32px; min-width: 32px; min-height: 32px; -unity-background-scale-mode: scale-to-fit; align-self: center;" />
+                        <ui:FloatField value="42.2" name="RightW" style="align-self: center; flex-shrink: 1;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Row3" style="flex-grow: 1; flex-direction: row;">
+                    <ui:VisualElement style="flex-grow: 1;" />
+                    <ui:VisualElement style="flex-grow: 1; align-self: center; align-items: center;">
+                        <ISILab.LBS.CustomComponents.LBSToolbarToggle value="false" label="&#10;" toggle-on-label-click="false" lock-on-click="false" hide-toggle="true" name="tDown" style="background-image: resource(&apos;Icons/Arrows/Icon=ArrowDown&apos;); flex-grow: 1; max-width: 32px; max-height: 32px; min-width: 32px; min-height: 32px; -unity-background-scale-mode: scale-to-fit;" />
+                        <ui:FloatField value="42.2" name="DownW" readonly="false" hide-placeholder-on-focus="false" select-all-on-focus="true" select-line-by-triple-click="true" hide-mobile-input="false" style="align-self: center; justify-content: space-evenly; align-content: center; flex-shrink: 1;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ISILab.LBS.CustomComponents.LBSCustomFoldout>
+</ui:UXML>
