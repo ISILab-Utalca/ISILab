@@ -25,6 +25,7 @@ namespace ISILab.LBS.VisualElements.Editor
         //Can this be selected?
         private bool canHighlight;
         private bool selected;
+        private bool removable;
         #endregion
 
         #region PROPERTIES
@@ -52,8 +53,8 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region CONSTRUCTORS
-        public LBSSelectableButton() : this(UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f)) { }
-        public LBSSelectableButton(Color32 _backgroundColor)
+        public LBSSelectableButton() : this(UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.3f, 1f), true) { }
+        public LBSSelectableButton(Color32 _backgroundColor, bool removable)
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSSelectableButton");
             visualTree.CloneTree(this);
@@ -65,9 +66,11 @@ namespace ISILab.LBS.VisualElements.Editor
             selector = this.Q<VisualElement>("Selector");
 
             //Right click stuff
-            ContextualMenuManipulator m = new ContextualMenuManipulator(RemoveButtonOption);
-            m.target = this;
-
+            if (removable)
+            {
+                ContextualMenuManipulator m = new ContextualMenuManipulator(RemoveButtonOption);
+                m.target = this;
+            }
             //Decoratives to check if the button is highlighted or not
             OnButtonDeselected += () =>
             {
