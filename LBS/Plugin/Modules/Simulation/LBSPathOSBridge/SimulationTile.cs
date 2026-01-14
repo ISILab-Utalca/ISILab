@@ -286,10 +286,14 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
             return true;
         }
-
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return HashCode.Combine(
+                owner,
+                x,
+                y,
+                tag
+            );
         }
 
         #endregion
