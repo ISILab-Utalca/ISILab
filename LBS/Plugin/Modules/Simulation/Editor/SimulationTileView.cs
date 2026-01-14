@@ -50,15 +50,20 @@ namespace ISILab.LBS.VisualElements
             dynamicObstacleTrigger = this.Q<VisualElement>("DynamicObstacleTrigger");
 
             PathOSStorage storage = PathOSStorage.Instance;
+            SimulationEntityData data;
             // Set data
-            if (tile.Tag != null)
+            if (tile.Tag != null && tile.Tag.Label.Equals("Player"))
             {
-                SimulationEntityData data = tile.Tag.Label.Equals("Player") ?
-                    storage.agentData :
-                    storage.entityDataPool[tile.EntityType];
-                SetImage(data.image);
-                SetColor(data.color);
+                data = storage.agentData;
             }
+            else
+            {
+                data = storage.entityDataPool[tile.EntityType];
+            }
+                
+            SetImage(data.image);
+            SetColor(data.color);
+
             SetEvents(tile);
 
 
