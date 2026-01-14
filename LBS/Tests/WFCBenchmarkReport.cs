@@ -23,6 +23,11 @@ namespace ISILab.LBS.Tests
         const string Vertex_40x40_Map = "a75be50c10d15e14f934906c53ba56e1";
 
 
+        #region edge-based map tests
+
+        // These functions measure the execution time of the WFC algorithm in edge-based maps, dividing them into WFC execution with cleaning (cleaning the map before another execution)
+        // and WFC on the same map (without cleaning the map before another execution).
+
         [Test, Performance]
         public void TestMap_5x5_Edge()
         {
@@ -154,8 +159,12 @@ namespace ISILab.LBS.Tests
             
             CleanUpWFCTest();
         }
-        
 
+        #endregion
+
+        #region auxiliary methods
+
+        // This method setups the WFC assistant for the tests, loading the level data from the given GUID and initializing the WFC assistant.
         private void SetupWFCTest(string _guid)
         {
             levelData = JSONDataManager.LoadDataByGUID<LBSLevelData>(_guid);
@@ -167,7 +176,8 @@ namespace ISILab.LBS.Tests
             WFCassistant.SafeMode = true;
             fistLayer.Reload();
         }
-        
+
+        // This method cleans up the WFC assistant and level data after each test.
         private void CleanUpWFCTest()
         {
             if (levelData != null)
@@ -179,6 +189,13 @@ namespace ISILab.LBS.Tests
                 levelData = null;
             }
         }
+
+        #endregion
+
+        #region vertex-based map tests
+
+        // These functions measure the execution time of the WFC algorithm in vertex-based maps, dividing them into WFC execution with cleaning (cleaning the map before another execution)
+        // and WFC on the same map (without cleaning the map before another execution).
 
         [Test, Performance]
         public void TestMap_5x5_Vertex()
@@ -311,5 +328,7 @@ namespace ISILab.LBS.Tests
 
             CleanUpWFCTest();
         }
+
+        #endregion
     }
 }

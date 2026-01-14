@@ -20,6 +20,10 @@ namespace ISILab.LBS.Tests
         const string Map5Rooms = "d68863ab6554de747be765e86aa7ee9d";
 
 
+        #region hill climbing tests
+
+        // These functions measure the execution time of the Hill Climbing Assistant on different map sizes.
+
         [Test, Performance]
         [Timeout(3600000)]
         public void MeasureHillClimbing_25_Rooms()
@@ -100,6 +104,12 @@ namespace ISILab.LBS.Tests
                 .Run();
         }
 
+        #endregion
+
+        #region auxiliary methods
+
+        // This method sets up the test environment by loading the level data and initializing the Hill Climbing Assistant.
+
         // [OneTimeSetUp]
         private void SetupHillClimbTest(string _guid)
         {
@@ -112,6 +122,7 @@ namespace ISILab.LBS.Tests
             fistLayer.Reload();
         }
 
+        // This method cleans up the test environment by removing all elements from the first layer and nullifying references.
 
         private void CleanUpHillClimbTest()
         {
@@ -124,6 +135,8 @@ namespace ISILab.LBS.Tests
                 levelData = null;
             }
         }
+
+        #endregion
     }
 
 }
