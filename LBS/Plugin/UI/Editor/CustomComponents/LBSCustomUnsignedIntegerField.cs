@@ -7,8 +7,6 @@ namespace ISILab.LBS.CustomComponents
     [UxmlElement]
     public partial class LBSCustomUnsignedIntegerField: UnsignedIntegerField
     {
-        
-        
         private VectorImage typeIcon;
         private VectorImage addIcon;
         private VectorImage minusIcon;
