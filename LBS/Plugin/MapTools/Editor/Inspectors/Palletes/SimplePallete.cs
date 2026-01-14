@@ -11,15 +11,14 @@ namespace LBS.VisualElements
     [UxmlElement]
     public partial class SimplePallete : VisualElement
     {
-
         #region DATA FIELDS
 
         private OptionView[] optionViews;
         private object[] options;
         private object selected;
         private object collectionSelected;
-        private Action<OptionView, object> onSetView;
 
+        private string nameLabel = ""; 
         #endregion
 
         
@@ -29,13 +28,13 @@ namespace LBS.VisualElements
         private bool displayRemoveElement = true;
         
         private VisualElement icon;
-        private Label nameLabel;
+        private Label nameLabelElement;
         private Button noElement;
         private LBSToolbarButton addButton;
         private LBSToolbarButton removeButton;
         private LBSCustomDropdown dropdownGroup;
-        private readonly VisualElement contentContainer;
-        
+        private new readonly VisualElement contentContainer;
+
         #endregion
 
         #region EVENTS
@@ -45,6 +44,8 @@ namespace LBS.VisualElements
         public event Action OnAddOption;
         public event Action OnRepaint;
         public event Func<object,string> OnSetTooltip;
+        
+        private Action<OptionView, object> onSetView;
         #endregion
 
         #region PROPERTIES
@@ -78,6 +79,25 @@ namespace LBS.VisualElements
                 }
             }
         }
+
+
+        [UxmlAttribute]
+        public string NameLabel
+        {
+            get => nameLabel;
+            set
+            {
+                nameLabel = value;
+                if (nameLabelElement != null)
+                {
+                    nameLabelElement.style.display = value != "" ? DisplayStyle.Flex : DisplayStyle.None;
+                    nameLabelElement.text = nameLabel;
+                }
+            }
+        }
+
+
+
 
         public object Selected
         {
@@ -140,7 +160,7 @@ namespace LBS.VisualElements
             // Change Group
             dropdownGroup = this.Q<LBSCustomDropdown>("DropdownGroup");
             dropdownGroup.RegisterCallback<ChangeEvent<string>>(evt => OnChangeGroup?.Invoke(evt));
-            nameLabel = dropdownGroup.Q<Label>();
+            nameLabelElement = this.Q<LBSCustomLabel>("MainLabel");
 
             // AddButton
             addButton = this.Q<LBSToolbarButton>("AddButton");

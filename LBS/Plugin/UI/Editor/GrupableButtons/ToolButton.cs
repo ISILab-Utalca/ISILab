@@ -12,7 +12,7 @@ namespace ISILab.LBS.VisualElements
     
     
     [UxmlElement]
-    public partial class ToolButton : Button, IGrupable
+    public partial class ToolButton : Toggle, IGrupable
     {
         #region FIELDS
 
@@ -23,6 +23,7 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS VIEW
         private readonly VisualElement icon;
         private VectorImage toolIconBackground;
+        private VisualElement father;
         #endregion
         
         
@@ -66,13 +67,19 @@ namespace ISILab.LBS.VisualElements
             icon.AddToClassList("prop-centered");
             this.Add(icon);
             AddToClassList("lbs-rounded-button");
+            
             RemoveFromClassList("unity-button");
+            RemoveFromClassList("unity-text-element");
         }
         
         
-        public ToolButton(LBSTool _tool) : this()
+        public ToolButton(LBSTool _tool, VisualElement content) : this()
         {
-            
+            father = content;
+
+            VisualElement checkbox = this.Q<VisualElement>(classes: "unity-base-field__input");
+            checkbox.style.display = DisplayStyle.None;
+
             if (_tool.Icon == null) return;
                 icon.style.backgroundImage = new StyleBackground(_tool.Icon); 
             tooltip = _tool.Name;
@@ -82,7 +89,7 @@ namespace ISILab.LBS.VisualElements
         #region IGRUPABLE
         public void AddGroupEvent(Action action)
         {
-            this.clicked += action;
+            RegisterCallback<ClickEvent>(evt => action?.Invoke());
         }
 
         public void OnBlur()
@@ -100,6 +107,11 @@ namespace ISILab.LBS.VisualElements
         public void OnFocusWithoutNotify()
         {
             AddToClassList("prop-state--checked");
+        }
+
+        public void OnBlurWithoutNotify()
+        {
+            RemoveFromClassList("prop-state--checked");
         }
 
         public void SetColorGroup(Color color, Color selected)

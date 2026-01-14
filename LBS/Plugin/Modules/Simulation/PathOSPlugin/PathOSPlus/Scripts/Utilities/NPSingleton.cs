@@ -21,14 +21,14 @@ namespace NinePenguins
             {
                 lock (lockRef)
                 {
-                    if (FindObjectsOfType(typeof(T)).Length > 1)
+                    if (FindObjectsByType(typeof(T), FindObjectsSortMode.None).Length > 1)
                     {
                         NPDebug.LogError("Multiple instances found!", typeof(T));
                     }
 
                     if (null == instanceRef)
                     {
-                        instanceRef = (T)FindObjectOfType(typeof(T));
+                        instanceRef = (T)FindAnyObjectByType(typeof(T));
 
                         if (null == instanceRef)
                             NPDebug.LogError("No instance found, " +

@@ -19,12 +19,12 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             {
                 lock (lockRef)
                 {
-                    if (FindObjectsOfType(typeof(T)).Length > 1)
+                    if (FindObjectsByType(typeof(T), FindObjectsSortMode.None).Length > 1)
                         Debug.LogError(string.Format("Multiple instances of {0} found!", typeof(T)));
 
                     if (null == instanceRef)
                     {
-                        instanceRef = (T)FindObjectOfType(typeof(T));
+                        instanceRef = (T)FindAnyObjectByType(typeof(T));
 
                         if (null == instanceRef)
                             Debug.LogError(string.Format("No instance of {0} found, " +

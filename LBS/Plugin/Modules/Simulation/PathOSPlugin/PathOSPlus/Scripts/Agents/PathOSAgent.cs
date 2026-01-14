@@ -945,8 +945,8 @@ namespace PathOS
 
                 if (rerouteRoll >= rerouteChance)
                 {
-                    if (changeTargetCount == 0)
-                        ;
+                    //if (changeTargetCount == 0)
+                    //    ;
                     ComputeNewDestination();
                 }
             }

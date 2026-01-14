@@ -122,8 +122,15 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     PathOSAgent agentComp = agentGameObject.GetComponent<PathOSAgent>();
                     // Se asigna a su campo respectivo de PathOSWindow
                     window.SetAgentReference(agentGameObject.GetComponent<PathOSAgent>());
-                    PathOSAgentEyes eyesComp = agentGameObject.GetComponent<PathOSAgentEyes>();
-                    eyesComp.cam = agentGameObject.GetComponentInChildren<Camera>();
+
+                    var player = GameObject.FindFirstObjectByType<CharacterController>();
+                    if (player is not null)
+                    {
+                        PathOSAgentEyes eyesComp = agentGameObject.GetComponent<PathOSAgentEyes>();
+                        eyesComp.cam = player.GetComponentInChildren<Camera>();
+                    }
+
+       
                     // Terminar este ciclo para evitar errores
                     continue;
                 }

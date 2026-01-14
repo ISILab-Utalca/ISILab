@@ -77,30 +77,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 };
             };
             */
-
-            _nameField.isReadOnly = true;
-            _nameField.pickingMode = PickingMode.Ignore;
-
-            // 1. Quitar el fondo del contenedor y del input interno
-            _nameField.style.backgroundColor = new StyleColor(UnityEngine.Color.clear);
-
-            // 2. Acceder al elemento interno del input para quitarle el fondo y bordes
-            // Esto es lo que realmente le da el aspecto de TextField
-            var inputElement = _nameField.Q("unity-text-input");
-            if (inputElement != null)
-            {
-                inputElement.style.backgroundColor = new StyleColor(UnityEngine.Color.clear);
-                inputElement.style.borderLeftWidth = 0;
-                inputElement.style.borderRightWidth = 0;
-                inputElement.style.borderTopWidth = 0;
-                inputElement.style.borderBottomWidth = 0;
-            }
-
-            // 3. Por si acaso, ocultar bordes en el contenedor principal también
-            _nameField.style.borderLeftWidth = 0;
-            _nameField.style.borderRightWidth = 0;
-            _nameField.style.borderTopWidth = 0;
-            _nameField.style.borderBottomWidth = 0;
         }
 
         public void SetBundleReference(Bundle bundle, ListView list, bool _)
@@ -164,6 +140,31 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             isCurrentIconAdd = false;
             _deleteButton.SetBackgroundColor(_thrashIconColor);
             _deleteButton.iconImage = Background.FromVectorImage(_thrashIcon);
+        }
+
+        public void SetTextAsUneditable()
+        {
+
+            // 1. Quitar el fondo del contenedor y del input interno
+            _nameField.style.backgroundColor = new StyleColor(UnityEngine.Color.clear);
+
+            // 2. Acceder al elemento interno del input para quitarle el fondo y bordes
+            // Esto es lo que realmente le da el aspecto de TextField
+            var inputElement = _nameField.Q("unity-text-input");
+            if (inputElement != null)
+            {
+                inputElement.style.backgroundColor = new StyleColor(UnityEngine.Color.clear);
+                inputElement.style.borderLeftWidth = 0;
+                inputElement.style.borderRightWidth = 0;
+                inputElement.style.borderTopWidth = 0;
+                inputElement.style.borderBottomWidth = 0;
+            }
+
+            // 3. Por si acaso, ocultar bordes en el contenedor principal también
+            _nameField.style.borderLeftWidth = 0;
+            _nameField.style.borderRightWidth = 0;
+            _nameField.style.borderTopWidth = 0;
+            _nameField.style.borderBottomWidth = 0;
         }
     }
 }
