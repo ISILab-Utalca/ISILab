@@ -1,4 +1,3 @@
-using ISILab.LBS.Plugin.Components.Behaviours;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +25,7 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class TriggerUnlockEntry
     {
-        public TriggerActivationMode Mode = TriggerActivationMode.OnEnter;
+        public TriggerActivationMode ActivationMode = TriggerActivationMode.OnEnter;
         public List<Addon_Unlock> Unlocks = new();
 
         public TriggerUnlockEntry() { }

@@ -104,11 +104,11 @@ namespace ISILab.LBS.VisualElements
             connectionTileView = null;
 
             // Set new empty value
-            if (unlock is not null) unlock.Connection = new DirConnection();
+            if (unlock is not null) unlock.Connection = new ConnectionData();
          
         }
 
-        private void OnChange(SchemaTileConnectionView schemaTile, DirConnection connection)
+        private void OnChange(SchemaTileConnectionView schemaTile, ConnectionData connection)
         {
             if (unlock is null) return;
 
