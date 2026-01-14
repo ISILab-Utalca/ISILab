@@ -89,8 +89,7 @@ namespace ISILab.LBS.VisualElements
             if (_behaviour == null) return;
             _behaviour.Graph!.OnGraphNodeSelected -= OnSelectNode;
             _behaviour.Graph!.OnGraphNodeSelected += OnSelectNode;
-            DrawManager.Instance.DrawSingleComponent(_behaviour, _behaviour.OwnerLayer);
-            //DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
         }
         
         protected sealed override VisualElement CreateVisualElement()

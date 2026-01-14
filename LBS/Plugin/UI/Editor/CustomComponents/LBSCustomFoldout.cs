@@ -84,8 +84,6 @@ namespace ISILab.LBS.CustomComponents
             arrowSideIcon = AssetMacro.LoadAssetByGuid<VectorImage>("83eafacbab9ab554299bc4d0f124d980");
             dotsIcon = AssetMacro.LoadAssetByGuid<VectorImage>("4fc870f9e2f488d4bb2c1bffe1f5b751");
             
-
-            
             if (arrowDownIcon != null)
             {
                 if (value)
@@ -112,6 +110,7 @@ namespace ISILab.LBS.CustomComponents
             VisualElement labelContainer = contentLabel.parent;
             labelContainer.Add(m_LeftIconElement);
             m_LeftIconElement.PlaceBehind(contentLabel);
+            if (leftIcon == null) m_LeftIconElement.style.display = DisplayStyle.None;
             
             VisualElement toolbarButtonIcon = this.Query<VisualElement>(classes: "unity-toolbar-menu__arrow");
             TextElement toolbarLabel  = m_RightDropDown.Query<TextElement>(classes: "unity-toolbar-menu__text");
