@@ -109,10 +109,22 @@ namespace LBS.VisualElements
         
         public void InitGeneralTools(LBSLayer layer)
         { 
-            LBSTool selectTool = new LBSTool(new SelectManipulator());
+            var sm = new SelectManipulator();
+            LBSTool selectTool = new LBSTool(sm);
+
+            //var nm = new NoteManipulator();
+            //LBSTool noteTool = new LBSTool(nm);
+
+            //sm.SetRemover(new NoteManipulator());
+
             ActivateTool(selectTool,layer);
+            //ActivateTool(noteTool,layer);
+
             selectTool.Init(layer, this);
+            //noteTool.Init(layer, this);
+
             selectTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+            //noteTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
         }
         
         public object GetActiveManipulator()
@@ -281,7 +293,7 @@ namespace LBS.VisualElements
             
             current.Item2?.OnBlur();
 
-            var father = tools.Values.First().Item2.parent;
+            var father = tools.Values.First().Item2.Father;
             var children = father.Children();
             List<VisualElement> toRemove = new();
 
