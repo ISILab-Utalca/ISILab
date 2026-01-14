@@ -46,6 +46,7 @@ namespace ISILab.AI.Categorization
         [SerializeField, SerializeReference]
         public LBSCharacteristic colliderCharacteristic;
 
+        [SerializeField, SerializeReference]
         public List<LBSCharacteristic> pointsOfInterest = new List<LBSCharacteristic>();
 
         public float Evaluate(IOptimizable evaluable)
@@ -315,6 +316,8 @@ namespace ISILab.AI.Categorization
             playerCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Player"));
             colliderCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Collider"));
 
+            pointsOfInterest.Clear();
+            //Debug.Log(pointsOfInterest.Count);
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Chest")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Axe")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Hammer")));
