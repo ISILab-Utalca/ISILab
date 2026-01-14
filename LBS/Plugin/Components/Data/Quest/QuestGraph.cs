@@ -29,7 +29,7 @@ namespace ISILab.LBS.Modules
         private GraphNode _selectedNode;
 
         private const float ViewNodeWidthOffset = 100f;
-
+        private const float SuggestionDistance = 1.5f;
         [SerializeField]
         private List<QuestNode> suggestions = new();
         [SerializeField]
@@ -268,7 +268,9 @@ namespace ISILab.LBS.Modules
             Vector2 graphPos = OwnerLayer.FixedToPosition(pos, true);
             QuestNode node = AddNewQuestNode(generatedQuestNode.QuestAction, graphPos);
              node.Data = generatedQuestNode.Data;
-             node.NodeViewPosition = new Rect(graphPos, generatedQuestNode.NodeViewPosition.size);
+             node.NodeViewPosition = new Rect(
+                 graphPos, 
+                 generatedQuestNode.NodeViewPosition.size * SuggestionDistance);
         }
 
         private string GenerateUniqueId(string baseName, IEnumerable<string> existingIds)
@@ -538,14 +540,30 @@ namespace ISILab.LBS.Modules
             // cant' redo connections with a root already in use
             if(Equals(referenceNode, Root)) SetRoot(null);
             
+            List<QuestNode> newNodes = new List<QuestNode>();
+
             // add from the previous index position to add the new ones
-            foreach (string action in expandActions)
+            for (int i = 0; i < expandActions.Count; i++)
             {
-                QuestNode newNode = InsertQuestNodeAfter(action, iterationNode);
+                QuestNode newNode = InsertQuestNodeAfter(expandActions[i], iterationNode);
+                newNodes.Add(newNode);
                 iterationNode = newNode;
             }
-        
-            
+
+            // the nodes whose destination is the reference node
+            if (newNodes.Any())
+            {
+                List<QuestEdge> roots = referenceNode.Graph.GetRoots(referenceNode);
+                foreach (QuestEdge edge in roots)
+                {
+                    foreach (GraphNode from in edge.From)
+                    {
+                        // connect the last inserted node to the original reference node's destinations
+                        AddEdge(from, newNodes.First());
+                    }
+                }
+            }
+
             RemoveQuestNode(referenceNode);
         }
         
