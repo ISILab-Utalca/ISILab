@@ -2,11 +2,20 @@ using Commons.Optimization.Evaluator;
 using ISILab.AI.Categorization;
 using ISILab.Commons.JsonNet;   
 using ISILab.LBS.AI.Categorization;
+using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
+using LBS.Components.TileMap;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.PerformanceTesting;
 using UnityEditor;
+using UnityEngine;
+
 
 namespace ISILab.LBS.Tests
 {
@@ -20,12 +29,19 @@ namespace ISILab.LBS.Tests
         IRangedEvaluator og_xEvaluator;
         IRangedEvaluator og_yEvaluator;
 
-        const string level4Rooms = "d26957894fd4ddb43b3eba81012a128c";
-        const string level20Rooms = "ecb7a13f44837d845b00a5a19660369d";
+        BundleTilemapChromosome mockChromosome;
+        DCExploration evalExploration;
+        DCResourceSafety evalResource;
+        DCSafeArea evalSafe;
 
-        const string dungeonPresetPath = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
+
+        const string level4Rooms = "04acda0b4a6f7ca4da575ba34b30d554";
+        const string level20Rooms = "b93245dd9ffc3d84d9b6bb9e58d1d05e";
+
+        const string dungeonPresetPath = "Assets/ISILab/LBS/Presets/Assistants/DungeonPreset.asset";
 
         [Test, Performance]
+        [Timeout(600000)]
         public void MeasureMAPElites_4_Rooms_Exploration()
         {
             Measure.Method(() =>
@@ -71,6 +87,7 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
+        [Timeout(600000)]
         public void MeasureMAPElites_20_Rooms_Exploration()
         {
             Measure.Method(() =>
@@ -144,5 +161,117 @@ namespace ISILab.LBS.Tests
                 levelData = null;
             }
         }
+
+        private BundleTilemapChromosome GetChromosomeFromAssistant()
+        {
+            var mapElitesField = typeof(AssistantMapElite).GetField("mapElites", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            var mapElitesObj = mapElitesField.GetValue(assistant);
+
+            if (mapElitesObj != null)
+            {
+                var adamProp = mapElitesObj.GetType().GetProperty("Adam");
+                return adamProp.GetValue(mapElitesObj) as BundleTilemapChromosome;
+            }
+            return null;
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_20_Rooms_Exploration()
+        {
+            DCExploration evaluator = new DCExploration();
+            BundleTilemapChromosome chromosome = null;
+
+            Measure.Method(() =>
+            {
+                evaluator.Evaluate(chromosome);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level20Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_4_Rooms_Exploration()
+        {
+            DCExploration evaluator = new DCExploration();
+            BundleTilemapChromosome chromosome = null;
+
+            Measure.Method(() =>
+            {
+                evaluator.Evaluate(chromosome);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_4_Rooms_ResourceSafety()
+        {
+            DCResourceSafety evaluator = new DCResourceSafety();
+            BundleTilemapChromosome chromosome = null;
+
+            Measure.Method(() =>
+            {
+                evaluator.Evaluate(chromosome);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_4_Rooms_SafeArea()
+        {
+            DCSafeArea evaluator = new DCSafeArea();
+            BundleTilemapChromosome chromosome = null;
+
+            Measure.Method(() =>
+            {
+                evaluator.Evaluate(chromosome);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+
     }
 }
