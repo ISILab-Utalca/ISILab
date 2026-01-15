@@ -91,6 +91,8 @@ namespace ISILab.LBS.Drawers
         {
             foreach (SimulationTile tile in behaviour.Tiles)
             {
+                Debug.Log(tile.EntityType + ":" + tile.Position.ToString());
+
                 var tView = new SimulationTileView(tile);
                 //var size = behaviour.OwnerLayer.TileSize * LBSSettings.Instance.general.TileSize;
                 Vector2 pos = new Vector2(tile.X, -tile.Y);

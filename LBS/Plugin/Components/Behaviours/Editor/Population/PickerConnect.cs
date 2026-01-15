@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements
         public Action OnClicked;
         private static VisualTreeAsset visualTree;
 
-        public Action<SchemaTileConnectionView, DirConnection> OnConnectionClicked;
+        public Action<SchemaTileConnectionView, ConnectionData> OnConnectionClicked;
         #region Constructors
 
         public PickerConnect()

@@ -2,17 +2,28 @@ using Commons.Optimization.Evaluator;
 using ISILab.AI.Categorization;
 using ISILab.Commons.JsonNet;   
 using ISILab.LBS.AI.Categorization;
+using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
+using LBS.Components.TileMap;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.PerformanceTesting;
 using UnityEditor;
+using UnityEngine;
+
 
 namespace ISILab.LBS.Tests
 {
+
     [TestFixture]
     public class MAPElitesBenchmarkReport
     {
+
         LBSLevelData levelData;
         AssistantMapElite assistant;
         MAPElitesPreset preset;
@@ -20,32 +31,71 @@ namespace ISILab.LBS.Tests
         IRangedEvaluator og_xEvaluator;
         IRangedEvaluator og_yEvaluator;
 
-        const string level4Rooms = "d26957894fd4ddb43b3eba81012a128c";
-        const string level20Rooms = "ecb7a13f44837d845b00a5a19660369d";
+        const string level4Rooms = "04acda0b4a6f7ca4da575ba34b30d554";
+        const string level20Rooms = "b93245dd9ffc3d84d9b6bb9e58d1d05e";
 
-        const string dungeonPresetPath = "Assets/isi-lab-unity-module/LBS/Presets/Assistants/DungeonPreset.asset";
+        const string dungeonPresetPath = "Assets/ISILab/LBS/Presets/Assistants/DungeonPreset.asset";
+
+        #region Full MAP-Elites Execution
+
+        // These functions are responsible for measuring time and fitness (fitness for each map) present in the entire MapElites execution process.
 
         [Test, Performance]
+        [Timeout(600000)]
         public void MeasureMAPElites_4_Rooms_Exploration()
         {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
             Measure.Method(() =>
             {
                 assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
             })
-                .WarmupCount(0)
-                .MeasurementCount(10)
-                .IterationsPerMeasurement(1)
-                .SetUp(() => SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea()))
-                .CleanUp(CleanUpMAPElitesTest)
-                .Run();
+            .WarmupCount(0)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(1)
+            .SetUp(() =>
+            {
+                Selection.activeObject = null;
+                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .GC()
+            .Run();
         }
 
         [Test, Performance]
+        [Timeout(600000)]
         public void MeasureMAPElites_4_Rooms_ResourceSafety()
         {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
             Measure.Method(() =>
             {
                 assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -56,11 +106,26 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
+        [Timeout(600000)]
         public void MeasureMAPElites_4_Rooms_SafeArea()
         {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
             Measure.Method(() =>
             {
                 assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -71,11 +136,26 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
+        [Timeout(600000)]
         public void MeasureMAPElites_20_Rooms_Exploration()
         {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
             Measure.Method(() =>
             {
                 assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -84,7 +164,11 @@ namespace ISILab.LBS.Tests
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }
+        #endregion
 
+        #region auxiliary methods
+
+        // This method sets up the MAP-Elites assistant for testing, loading the level data, configuring the evaluators, and initializing the assistant with the provided preset.
         private void SetUpMAPElitesTest(string _guid, string presetPath, IRangedEvaluator optimizer, IRangedEvaluator xEvaluator, IRangedEvaluator yEvaluator)
         {
             levelData = JSONDataManager.LoadDataByGUID<LBSLevelData>(_guid);
@@ -129,6 +213,7 @@ namespace ISILab.LBS.Tests
             assistant.SetAdam(assistant.RawToolRect, levelData.ContextLayers);
         }
 
+        // This method cleans up after each test, restoring the original evaluators and clearing the level data and assistant instances.
         private void CleanUpMAPElitesTest()
         {
             preset.Optimizer.Evaluator = og_optimizer;
@@ -144,5 +229,132 @@ namespace ISILab.LBS.Tests
                 levelData = null;
             }
         }
+        // This method retrieves the current chromosome (individual) from the MAP-Elites assistant for evaluation purposes.
+        private BundleTilemapChromosome GetChromosomeFromAssistant()
+        {
+            var mapElitesField = typeof(AssistantMapElite).GetField("mapElites", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            var mapElitesObj = mapElitesField.GetValue(assistant);
+
+            if (mapElitesObj != null)
+            {
+                var adamProp = mapElitesObj.GetType().GetProperty("Adam");
+                return adamProp.GetValue(mapElitesObj) as BundleTilemapChromosome;
+            }
+            return null;
+        }
+
+        #endregion
+
+        #region Only Evaluate
+
+        // These functions are responsible for measuring only the evaluation time of each evaluator and the fitness of the map, without considering the entire MAP-Elites execution process.
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_20_Rooms_Exploration()
+        {
+            DCExploration evaluator = new DCExploration();
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                double fitness = evaluator.Evaluate(chromosome);
+                Measure.Custom(fitnessGroup, fitness);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level20Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_4_Rooms_Exploration()
+        {
+            DCExploration evaluator = new DCExploration();
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                double fitness = evaluator.Evaluate(chromosome);
+                Measure.Custom(fitnessGroup, fitness);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_4_Rooms_ResourceSafety()
+        {
+            DCResourceSafety evaluator = new DCResourceSafety();
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                double fitness = evaluator.Evaluate(chromosome);
+                Measure.Custom(fitnessGroup, fitness);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void OnlyEvaluateMAPElites_4_Rooms_SafeArea()
+        {
+            DCSafeArea evaluator = new DCSafeArea();
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                double fitness = evaluator.Evaluate(chromosome);
+                Measure.Custom(fitnessGroup, fitness);
+            })
+            .WarmupCount(5)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(10)
+            .SetUp(() =>
+            {
+                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                chromosome = GetChromosomeFromAssistant();
+                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
+
+        #endregion
+
+
     }
 }

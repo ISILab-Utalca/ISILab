@@ -4,6 +4,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -372,7 +373,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         {
             var connectedTM = OwnerLayer.GetModule<ConnectedTileMapModule>();
             var tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
-            var doors = tiles.Where(t => connectedTM.GetPair(t).HasConnections("Door").Count > 0);
+            var doors = tiles.Where(t => connectedTM.GetPair(t).HasConnections(SchemaBehaviour.Door, SchemaBehaviour.LockedDoor).Count > 0);
             return doors.ToList();
         }
 

@@ -9,11 +9,11 @@ namespace ISILab.LBS.Components
     {
         // keys may only unlcock a single connection at a time
         [SerializeField]
-        DirConnection connection;
+        ConnectionData connection;
 
-        public Action<DirConnection> OnConnectionChange;
+        public Action<ConnectionData> OnConnectionChange;
 
-        public DirConnection Connection 
+        public ConnectionData Connection 
         {
             get => connection;
             set

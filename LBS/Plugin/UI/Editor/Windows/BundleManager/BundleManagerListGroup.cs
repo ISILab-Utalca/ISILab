@@ -148,6 +148,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                                 };
                             }
                         };
+                        wizElement.SetTextAsUneditable();
                         wizElement.SetRemoveCallback(changeList);
                     }
                 }

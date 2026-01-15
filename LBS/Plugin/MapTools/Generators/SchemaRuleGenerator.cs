@@ -1,5 +1,6 @@
 using ISILab.Commons;
 using ISILab.Commons.Extensions;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
@@ -163,8 +164,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="bundles"></param>
         /// <param name="connections"></param>
         /// <returns></returns>
-        private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, List<string> connections, LBSTile tile)
+        private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, ConnectedTileMapModule connectMod, LBSTile tile)
         {
+
+            // Get connections
+            List<string> connections = connectMod.GetConnections(tile);
+            TileConnectionsPair pair = connectMod.GetPair(tile);
+
             // Get "Edge" bundles
             List<Bundle> currents = new List<Bundle>();
             foreach (Bundle bundle in bundles)
@@ -200,11 +206,27 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 // Add ref component
                 LBSGeneratedInterior generatedComponent = obj.AddComponent<LBSGeneratedInterior>();
-                //generatedComponent.Tile = tile;
-                DirConnection newDirConnection = new DirConnection(connectedTilesMod.OwnerLayer,tile);
-                newDirConnection.connections.Add((i, connections[i]));
 
-                generatedComponent.DirConnection = newDirConnection;
+                //generatedComponent.Tile = tile;
+                ConnectionData newDirConnection = new ConnectionData(connectedTilesMod.OwnerLayer,tile);
+                newDirConnection.connections.Add(new DirConnection(i, connections[i]));
+
+                if(connections[i] != SchemaBehaviour.Empty)
+                {
+                    Vector2Int direction = Vector2Int.zero;
+                    switch (LBSDirection.ToString(i))
+                    {
+                        case LBSDirection.Up: direction = Vector2Int.up; break;
+                        case LBSDirection.Down: direction = Vector2Int.down; break;
+                        case LBSDirection.Left: direction = Vector2Int.left; break;
+                        case LBSDirection.Right: direction = Vector2Int.right; break;
+
+                    }
+
+                    generatedComponent.ConnectedTile = tilesMod.GetTileNeighbor(tile, direction);
+                }
+
+                generatedComponent.Connection = newDirConnection;
                 generatedComponent.BundleRef = current;
             }
 
@@ -235,7 +257,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 Vector2Int d2 = Dirs[(i + 1) % Dirs.Count];
 
                 // if directions are NOT empty continue
-                if (!selfConnections[i].Equals("Empty") || !selfConnections[(i + 1)% Dirs.Count].Equals("Empty"))
+                if (!selfConnections[i].Equals(SchemaBehaviour.Empty) || 
+                    !selfConnections[(i + 1)% Dirs.Count].Equals(SchemaBehaviour.Empty))
                     continue;
 
                 LBSTile neigth = tilesMod.GetTileNeighbor(tile, d1);
@@ -249,7 +272,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 List<string> neigthConnections = connectedTilesMod.GetConnections(neigth);
                 List<string> neigthConnections2 = connectedTilesMod.GetConnections(neigth2);
 
-                if (neigthConnections[(i + 1) % Dirs.Count] != "Empty" || neigthConnections2[i] != "Empty")
+                if (neigthConnections[(i + 1) % Dirs.Count] != SchemaBehaviour.Empty
+                    || neigthConnections2[i] != SchemaBehaviour.Empty)
                 {
                     // Get random by weight
                     GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
@@ -313,15 +337,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     continue;
                 }
 
-                // Get connections
-                List<string> connections = connectedTilesMod.GetConnections(tile);
-
                 //Generate tile
                 GameObject tileObj = new GameObject(tile.Position.ToString());
 
                 // Add pref part to pivot
                 GenerateCenters(tileObj, bundles);
-                GenerateEdges(tileObj, bundles, connections, tile);
+                GenerateEdges(tileObj, bundles, connectedTilesMod, tile);
                 GenerateCorners(tileObj, bundles, tile);
 
                 Vector3 basePos = settings.position;

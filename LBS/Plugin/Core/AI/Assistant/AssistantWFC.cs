@@ -315,10 +315,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                 if (!success)
                 {
-                    Restore();
+                    //Restore();
                     if (log == string.Empty)
                     {
-                        log = $"Could not safely generate after {limit} attempts. ({getSeconds()} s)";
+                        //log = $"Could not safely generate after {limit} attempts. ({getSeconds()} s)";
+                        log = "Unsafely generated";
                     }
                     logType = LogType.Warning;
                     return false;

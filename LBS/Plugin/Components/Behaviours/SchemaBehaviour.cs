@@ -12,11 +12,35 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using System;
+using ISILab.LBS.Characteristics;
 
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     [Serializable]
-    public class DirConnection
+    public struct DirConnection
+    {
+        public int direction;
+        public string connection;
+
+        public DirConnection(int direction, string connection)
+        {
+            this.direction = direction;
+            this.connection = connection;
+        }
+
+        public override bool Equals(object other)
+        {
+            if (other is DirConnection od)
+            {
+                return od.connection == connection && od.direction == direction;
+            }
+            return false;
+        }
+    }
+
+
+    [Serializable]
+    public class ConnectionData
     {
         // addons from the tilegroup that was used to generate this object in the LBS tool
         [SerializeField, SerializeReference]
@@ -31,16 +55,16 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         /// </summary>
         /// 
         [SerializeField]
-        public List<(int direction, string connection)> connections;
+        public List<DirConnection> connections;
 
-        public DirConnection()
+        public ConnectionData()
         {
             connections = new();
             layer = null;
             tile = null;
         }
 
-        public DirConnection(LBSLayer layer ,LBSTile tile, List<(int direction, string connection)> connections = null)
+        public ConnectionData(LBSLayer layer ,LBSTile tile, List<DirConnection> connections = null)
         {
             this.connections = new();
             if(connections is not null) this.connections = connections;
@@ -48,21 +72,58 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             this.layer = layer;
         }
 
-        public bool Equals(DirConnection other)
+        public bool Equals(ConnectionData other)
         {
-            foreach(var conn in other.connections)
+            foreach (DirConnection conn in other.connections)
             {
-                if (Equals(other.tile, conn.direction, conn.connection)) return true;
+                if (Equals(other.tile, conn)) return true;
             }
           
             return false;
         }
 
-        private bool Equals(LBSTile otherTile, int direction, string connection)
+        private bool Equals(LBSTile otherTile, DirConnection connection)
         {
             // no tile cant be equal
             if (tile is null) return false;
-            return tile.Equals(otherTile) && connections.Contains((direction, connection));
+            if (!tile.Equals(otherTile)) return false;
+            foreach (DirConnection conn in connections)
+            {
+                if (conn.Equals(connection)) return true;
+            }
+
+            return false;
+        }
+
+        public bool IsConected(List<DirConnection> otherConns)
+        {
+            foreach(var conn in connections)
+            {
+                foreach(var oConn in otherConns)
+                {
+                    if (oConn.connection != conn.connection) continue;
+
+                    bool bIsConnected = false;
+                    switch (LBSDirection.ToString(conn.direction))
+                    {
+                        case LBSDirection.Up: 
+                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Down);
+                            break;
+                        case LBSDirection.Down:
+                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Up);
+                            break;
+                        case LBSDirection.Right:
+                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Left);
+                            break;
+                        case LBSDirection.Left:
+                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Right);
+                            break;
+                    }
+                    if (bIsConnected) return true;
+                }
+            }
+            return false;
+
         }
     }
 
