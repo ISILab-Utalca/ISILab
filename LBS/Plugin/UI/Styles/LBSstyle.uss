@@ -1775,17 +1775,22 @@ Toggle > .lbs-default-icon {
 .lbs-post-it TextInput {
     background-color: transparent;
     border-color: transparent;
-    flex-grow: 1;
+    overflow: visible;
 }
 
 .lbs-post-it TextElement {
     color: rgb(58, 49, 37);
-    flex-shrink: 1;
     -unity-text-align: upper-left;
     white-space: pre-wrap;
     flex-wrap: wrap;
+    width: 100%;
+    text-overflow: ellipsis;
 }
 
 .yellow-post-it {
     -unity-background-image-tint-color: rgb(255, 226, 153);
+}
+
+.green-post-it {
+    -unity-background-image-tint-color: #B3EFBD;
 }
