@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using LBS.Components;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using System.Runtime.InteropServices;
 
 namespace ISILab.LBS.Drawers
 {
