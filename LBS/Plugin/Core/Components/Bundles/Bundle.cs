@@ -51,6 +51,15 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         {
             return new Asset(this.obj, this.probability);
         }
+
+        public override bool Equals(object comp)
+        {
+            var other = comp as Asset;
+            if (other == null) return false;
+            if (other.obj != obj) return false;
+            if (other.probability != probability) return false;
+            return true;
+        }
     }
 
     //[CreateAssetMenu(fileName = "New Bundle", menuName = "ISILab/LBS/Bundle")] <- Replaced with BundleMenuItem
