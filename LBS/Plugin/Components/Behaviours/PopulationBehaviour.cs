@@ -105,7 +105,6 @@ namespace ISILab.LBS.Behaviours
 
         public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData) 
         {
-
             if (!_bundleTileMap.ValidNewGroup(position, bundleData, Vector2.right)) return null;
 
             //Create group

@@ -26,7 +26,6 @@ namespace ISILab.LBS.Plugin.Components.Data
         //[ScriptableObjectReference(typeof(LBSIdentifier), "Interior Styles")]
         [SerializeField, JsonRequired]
         private List<string> insideStyles = new List<string>();
-
         [SerializeField, JsonRequired]
         private List<string> outsideStyles = new List<string>();
         

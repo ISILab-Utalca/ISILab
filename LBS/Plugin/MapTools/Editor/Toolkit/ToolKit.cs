@@ -116,7 +116,7 @@ namespace LBS.VisualElements
             var nm = new NoteManipulator();
             LBSTool noteTool = new LBSTool(nm);
 
-            sm.SetRemover(new NoteManipulator());
+            sm.SetRemover(nm);
 
             ActivateTool(selectTool,layer);
             ActivateTool(noteTool,layer);
@@ -124,8 +124,8 @@ namespace LBS.VisualElements
             selectTool.Init(layer, this);
             noteTool.Init(layer, this);
 
-            selectTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            noteTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+            //selectTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+            //noteTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
         }
         
         public object GetActiveManipulator()

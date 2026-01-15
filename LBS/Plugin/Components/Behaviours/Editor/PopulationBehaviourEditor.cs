@@ -101,7 +101,6 @@ namespace ISILab.LBS.VisualElements
 
         public void SetTools(ToolKit toolkit)
         {
-
             addPopulationTile = new AddPopulationTile();
             var t1 = new LBSTool(addPopulationTile);
 
