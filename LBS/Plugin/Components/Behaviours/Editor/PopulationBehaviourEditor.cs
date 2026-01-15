@@ -280,6 +280,10 @@ namespace ISILab.LBS.VisualElements
                 optionView.Label = bundle.BundleName;
                 optionView.Color = bundle.Color;
                 optionView.Icon = bundle.Icon;
+               // var size = 20f;
+
+                //optionView.style.width = size;
+              //  optionView.style.height = size * 1.75f;
             });
             
             // Save current selected options in layer
