@@ -26,9 +26,6 @@ namespace ISILab.LBS.Drawers
 
                 var noteView = new LBSNoteView(note);
 
-                var canvasPos = view.FixPos(note.Position);
-                noteView.SetPosition(new Rect(canvasPos, noteView.layout.size));
-
                 view.AddElementToLayerContainer(nb.OwnerLayer, note, noteView);
             }
         }

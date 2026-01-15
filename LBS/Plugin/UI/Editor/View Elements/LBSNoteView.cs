@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Manipulators;
@@ -32,23 +33,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
 
         #region CONSTRUCTORS
 
-        //public LBSNoteView()
-        //{
-            
-        //}
-
-        public LBSNoteView(LBSNote note, float width = 100, float height = 100) : base()
+        public LBSNoteView()
         {
-            Note = note;
-            asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSNoteView");
+            asset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSNoteView");
             asset.CloneTree(this);
 
             textField = this.Q<TextField>("TextField");
             label = this.Q<Label>("Label");
-
-            this.style.minWidth = width;
-            this.style.minHeight = height;
-            this.style.flexGrow = 1;
 
             textField.Children().First().style.display = DisplayStyle.None;
 
@@ -85,11 +76,27 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
             label.RegisterCallback<MouseUpEvent>(OnMouseUp);
             label.RegisterCallback<MouseMoveEvent>(OnMouseMove);
 
-            //textField.style.display = DisplayStyle.Flex;
-            //label.style.display = DisplayStyle.None;
-            //textField.value = Note.Message;
-            //textField.Focus();
-            //isDragging = false;
+            RegisterCallbackOnce<GeometryChangedEvent>(SetPos);
+        }
+
+        public LBSNoteView(LBSNote note, float width = 100, float height = 100) : this()
+        {
+            Note = note;
+
+            this.style.minWidth = width;
+            this.style.minHeight = height;
+            this.style.flexGrow = 1;
+
+            textField.style.display = DisplayStyle.Flex;
+            label.style.display = DisplayStyle.None;
+            textField.value = Note.Message;
+            textField.Focus();
+            isDragging = false;
+        }
+
+        private void SetPos(GeometryChangedEvent evt)
+        {
+            SetPosition(new Rect(MainView.Instance.FixPos(Note.Position), layout.size));
         }
 
         #endregion
