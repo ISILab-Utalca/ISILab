@@ -200,7 +200,6 @@ namespace ISILab.AI.Categorization
 
         public void FloodFill(int startPos, List<int> others, int from, ref int[,] distances, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
         {
-            //maxDistance = 0;
             if (from >= others.Count)
                 return;
 
@@ -208,13 +207,12 @@ namespace ISILab.AI.Categorization
             remainingOthers.RemoveRange(0, from);
             remainingOthers.Remove(startPos);
 
-            //var distFromStart = new Dictionary<int, int>();
-            var remaining = new List<int>();
-            var closed = new List<int>();
+            var remaining = new HashSet<int>();
+            var closed = new HashSet<int>();
+
             foreach (var tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
             {
                 int index = chrom.ToIndex(tile.Position - chrom.Rect.position);
-                //distFromStart.Add(index, int.MaxValue);
                 if (index < 0) continue;
                 remaining.Add(index);
             }
@@ -222,51 +220,62 @@ namespace ISILab.AI.Categorization
             var remainingStep = new Queue<int>();
             remainingStep.Enqueue(startPos);
 
+            List<Vector2Int> dirs = Directions.Bidimencional.Edges;
+            int dirCount = dirs.Count;
+            int[] inverseIndices = new int[dirCount];
+            for (int k = 0; k < dirCount; k++)
+            {
+                inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
+            }
+
             int i;
             for (i = 0; remaining.Count > 0; i++)
             {
                 if (remainingStep.Count == 0)
                     break;
+
+                HashSet<int> nextStepCheck = new HashSet<int>();
                 List<int> nextStep = new List<int>();
-                while(remainingStep.Count > 0)
+
+                while (remainingStep.Count > 0)
                 {
                     int current = remainingStep.Dequeue();
+
                     Vector2Int currentPos = chrom.ToMatrixPosition(current) + Vector2Int.RoundToInt(chrom.Rect.position);
-                    Zone currentZone = sectorizedTM.GetZone(currentPos);
-                    //distFromStart[current] = i;
+
                     remaining.Remove(current);
                     closed.Add(current);
 
-                    List<Vector2Int> dirs = Directions.Bidimencional.Edges;
-                    foreach (Vector2Int dir in dirs)
+                    if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
+                    var currentConnections = connectedTM.GetConnections(currentTile);
+
+                    for (int k = 0; k < dirCount; k++)
                     {
-                        //LBSTile currentTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == currentPos).Tile;
-                        if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile))
-                        {
-                            continue;
-                        }
-                        string currentConnection = connectedTM.GetConnections(currentTile)[dirs.FindIndex(d => d.Equals(dir))];
-                        if (!(currentConnection.Equals("Door") || currentConnection.Equals("Empty")))
+                        string currentConnection = currentConnections[k];
+
+                        if (!((currentConnection.Length == 4 && currentConnection == "Door") ||
+                              (currentConnection.Length == 5 && currentConnection == "Empty")))
                             continue;
 
+                        Vector2Int dir = dirs[k];
                         Vector2Int newPos = currentPos + dir;
-
                         int index = chrom.ToIndex(newPos - chrom.Rect.position);
 
-                        //if (tileMap.Contains(pos)) // Esto esta mal. Esto es todo el mapa, no solo la seccion seleccionada
-                        if (index < 0 || nextStep.Contains(index) || closed.Contains(index))// || chrom.IsInvalid(index))
+                        if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index))
                             continue;
 
                         Zone otherZone = sectorizedTM.GetZone(newPos);
                         if (otherZone is null) continue;
 
-                        //LBSTile newTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == newPos).Tile;
-                        if (!tilePos.TryGetValue(newPos, out LBSTile newTile))
-                        {
-                            continue;
-                        }
-                        string connection = connectedTM.GetConnections(newTile)[dirs.FindIndex(d => d.Equals(-dir))];
-                        if (!(connection.Equals("Door") || connection.Equals("Empty")))
+                        if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
+
+                        int invIndex = inverseIndices[k];
+                        if (invIndex == -1) continue;
+
+                        string connection = connectedTM.GetConnections(newTile)[invIndex];
+
+                        if (!((connection.Length == 4 && connection == "Door") ||
+                              (connection.Length == 5 && connection == "Empty")))
                             continue;
 
                         for (int j = from; j < others.Count; j++)
@@ -275,23 +284,18 @@ namespace ISILab.AI.Categorization
                             {
                                 distances[from, j] = distances[j, from] = i + 1;
                                 remainingOthers.Remove(index);
-                                if (remainingOthers.Count == 0)
-                                {
-                                    //Debug.Log("i = " + i);
-                                    return;
-                                }
+                                if (remainingOthers.Count == 0) return;
                                 break;
                             }
                         }
 
                         nextStep.Add(index);
+                        nextStepCheck.Add(index);
                     }
                 }
 
-                nextStep.ForEach(i => remainingStep.Enqueue(i));
+                foreach (var step in nextStep) remainingStep.Enqueue(step);
             }
-            //Debug.Log("i = " + i);
-            //maxDistance = i;
         }
 
         public void Manhattan(int startPos, List<int> others, int from, ref int[,] distances, BundleTilemapChromosome chrom)
@@ -464,6 +468,103 @@ namespace ISILab.AI.Categorization
             if (!float.IsNormal(fitness))
                 Debug.LogError("Fitness was NaN: " + fitness);
             return fitness;
+        }*/
+
+
+        /*public void FloodFill(int startPos, List<int> others, int from, ref int[,] distances, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
+        {
+            //maxDistance = 0;
+            if (from >= others.Count)
+                return;
+
+            List<int> remainingOthers = new List<int>(others);
+            remainingOthers.RemoveRange(0, from);
+            remainingOthers.Remove(startPos);
+
+            //var distFromStart = new Dictionary<int, int>();
+            var remaining = new List<int>();
+            var closed = new List<int>();
+            foreach (var tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
+            {
+                int index = chrom.ToIndex(tile.Position - chrom.Rect.position);
+                //distFromStart.Add(index, int.MaxValue);
+                if (index < 0) continue;
+                remaining.Add(index);
+            }
+
+            var remainingStep = new Queue<int>();
+            remainingStep.Enqueue(startPos);
+
+            int i;
+            for (i = 0; remaining.Count > 0; i++)
+            {
+                if (remainingStep.Count == 0)
+                    break;
+                List<int> nextStep = new List<int>();
+                while (remainingStep.Count > 0)
+                {
+                    int current = remainingStep.Dequeue();
+                    Vector2Int currentPos = chrom.ToMatrixPosition(current) + Vector2Int.RoundToInt(chrom.Rect.position);
+                    Zone currentZone = sectorizedTM.GetZone(currentPos);
+                    //distFromStart[current] = i;
+                    remaining.Remove(current);
+                    closed.Add(current);
+
+                    List<Vector2Int> dirs = Directions.Bidimencional.Edges;
+                    foreach (Vector2Int dir in dirs)
+                    {
+                        //LBSTile currentTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == currentPos).Tile;
+                        if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile))
+                        {
+                            continue;
+                        }
+                        string currentConnection = connectedTM.GetConnections(currentTile)[dirs.FindIndex(d => d.Equals(dir))];
+                        if (!(currentConnection.Equals("Door") || currentConnection.Equals("Empty")))
+                            continue;
+
+                        Vector2Int newPos = currentPos + dir;
+
+                        int index = chrom.ToIndex(newPos - chrom.Rect.position);
+
+                        //if (tileMap.Contains(pos)) // Esto esta mal. Esto es todo el mapa, no solo la seccion seleccionada
+                        if (index < 0 || nextStep.Contains(index) || closed.Contains(index))// || chrom.IsInvalid(index))
+                            continue;
+
+                        Zone otherZone = sectorizedTM.GetZone(newPos);
+                        if (otherZone is null) continue;
+
+                        //LBSTile newTile = sectorizedTM.PairTiles.First(tzp => tzp.Tile.Position == newPos).Tile;
+                        if (!tilePos.TryGetValue(newPos, out LBSTile newTile))
+                        {
+                            continue;
+                        }
+                        string connection = connectedTM.GetConnections(newTile)[dirs.FindIndex(d => d.Equals(-dir))];
+                        if (!(connection.Equals("Door") || connection.Equals("Empty")))
+                            continue;
+
+                        for (int j = from; j < others.Count; j++)
+                        {
+                            if (index == others[j])
+                            {
+                                distances[from, j] = distances[j, from] = i + 1;
+                                remainingOthers.Remove(index);
+                                if (remainingOthers.Count == 0)
+                                {
+                                    //Debug.Log("i = " + i);
+                                    return;
+                                }
+                                break;
+                            }
+                        }
+
+                        nextStep.Add(index);
+                    }
+                }
+
+                nextStep.ForEach(i => remainingStep.Enqueue(i));
+            }
+            //Debug.Log("i = " + i);
+            //maxDistance = i;
         }*/
     }
 }
