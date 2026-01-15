@@ -10,10 +10,17 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
 {
-    public class LBSNoteView : GraphElement
+    
+    [UxmlElement]
+    public partial class LBSNoteView : GraphElement
     {
         // Define colors for the note, both when unselected (kinda transparent) and selected (when clicked and focused, more solid)
 
+        const float DEFAULT_WIDTH = 200;
+        const float DEFAULT_HEIGHT = 200;
+            
+        
+        
         #region FIELDS
 
         public LBSNote Note;
@@ -30,14 +37,34 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
 
         #endregion
 
+
+        private string contentText;
+
+        [UxmlAttribute]
+        public string ContentText
+        {
+            get => contentText;
+            set
+            {
+                contentText = value;
+                if (label != null)
+                {
+                    label.text = value;
+                }
+            }
+        }
+        
+
         #region CONSTRUCTORS
 
-        //public LBSNoteView()
-        //{
-            
-        //}
+        public LBSNoteView()
+        {
+            this.style.width = DEFAULT_WIDTH;
+            this.style.height = DEFAULT_HEIGHT;
+            AddToClassList("lbs-post-it");
+        }
 
-        public LBSNoteView(LBSNote note, float width = 100, float height = 100) : base()
+        public LBSNoteView(LBSNote note, float width = 100, float height = 100) : this()
         {
             Note = note;
             asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSNoteView");
@@ -81,9 +108,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                 textField.style.display = DisplayStyle.None;
             });
 
-            label.RegisterCallback<MouseDownEvent>(OnMouseDown);
+            this.RegisterCallback<MouseDownEvent>(OnMouseDown);
             label.RegisterCallback<MouseUpEvent>(OnMouseUp);
             label.RegisterCallback<MouseMoveEvent>(OnMouseMove);
+            RegisterCallback<PointerEnterEvent>(evt => {Debug.Log("EnterFrame");});
+            
 
             //textField.style.display = DisplayStyle.Flex;
             //label.style.display = DisplayStyle.None;
