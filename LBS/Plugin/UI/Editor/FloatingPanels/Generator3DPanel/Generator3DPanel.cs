@@ -334,14 +334,14 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 //generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
                 generated.Item1.transform.parent = root.transform;
-                //StandardTopDownCamera.SetStandardTopDown(GameObject.Find(_nameField.value));
+                StandardTopDownCamera.SetStandardTopDown(GameObject.Find(_nameField.value));
             }
             else
             {
                 GameObject rootParent = new GameObject(_nameField.value);
                 //generated.Item1.transform.parent = GameObject.Find(_nameField.value).transform;
-                //StandardTopDownCamera.SetStandardTopDown(rootParent);
                 generated.Item1.transform.parent = rootParent.transform;
+                StandardTopDownCamera.SetStandardTopDown(rootParent);
             }
 
             // If it didn't create a usable LBS game object 
