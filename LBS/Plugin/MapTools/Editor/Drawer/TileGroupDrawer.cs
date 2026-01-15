@@ -8,6 +8,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
@@ -31,12 +32,16 @@ namespace ISILab.LBS.Drawers
             if(_tgb is null)
             {
                 _tgb = tgb;
-                _tgb.OnSelectedChanged += _ =>
+                _tgb.OwnerLayer.OnChange += () =>
                 {
                     PopulationTileGroupView.UpdateVisuals(null);
+                    var isSelected = tgb.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
+
+                    PopulationTileView.SelectedTile?.Highlight(isSelected, true);
                     view.ClearLayerComponentView(_tgb.OwnerLayer, this);
                 };
             }
+
             view.ClearLayerComponentView(_tgb.OwnerLayer, this);
 
             if (LBSMainWindow.Instance._selectedLayer != _tgb.OwnerLayer)
