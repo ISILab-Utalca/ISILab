@@ -20,6 +20,9 @@
             <ui:Tab label="4 - Add Characteristics" closeable="false" name="Step4" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
                 <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetCharacteristMenu name="SetCharacteristicsMenu" class="lbs-wizard-menu-content" />
             </ui:Tab>
+            <ui:Tab label="5 - Summary" name="Step5">
+                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSummaryMenu name="SummaryMenu" />
+            </ui:Tab>
         </ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.LBSCustomTabView>
         <ui:VisualElement name="WizardButtons" class="lbs-group-box" style="flex-grow: 1; max-height: 32px; flex-direction: row; justify-content: flex-end; min-height: 32px;">
             <ISILab.LBS.CustomComponents.LBSCustomButton button-tint="#636363FF" text="Back&#10;" name="Back" enable-rich-text="false" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowLeft.svg?fileID=7388822144124034973&amp;guid=bd96d266e4bde964183b9e2aeba8d4a8&amp;type=3#Icon=ArrowLeft" hover-color="#BDFFFCFF" pressed-color="#FF0005FF" style="flex-direction: row; width: 144px;" />
