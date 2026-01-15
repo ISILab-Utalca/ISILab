@@ -139,8 +139,8 @@ namespace ISILab.LBS.Behaviours
 
         public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation) 
         {
-
-            if (!_bundleTileMap.ValidNewGroup(position, bundleData, rotation)) return null;
+            
+            if (!_bundleTileMap.ValidNewGroup(position, bundleData, Vector2.right)) return null;
 
             //Create group
             TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, rotation);

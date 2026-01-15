@@ -16,12 +16,15 @@ namespace ISILab.LBS.VisualElements
     public abstract class QuestGraphNodeView : GraphElement
     {
         #region Static Colors
+
         protected static readonly Color InvalidGrammarColor     = LBSSettings.Instance.view.errorColor;
         protected static readonly Color DefaultBackgroundColor = LBSSettings.Instance.view.toolkitNormalDark;
         protected static readonly Color ValidGrammarColor   = LBSSettings.Instance.view.successColor;
+        
         #endregion
 
         #region Fields
+
         public GraphNode Node;
         protected VisualElement InvalidConnectionIcon;
 
@@ -34,14 +37,18 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Events
+
         public Action<Rect> OnMoving;
+        
         #endregion
 
         #region Grammar State
+
         public virtual void DisplayGrammarState(GraphNode node)
         {
             InvalidConnectionIcon.style.display = node.ValidConnections ? DisplayStyle.None : DisplayStyle.Flex;
         }
+        
         #endregion
 
         #region Mouse Events

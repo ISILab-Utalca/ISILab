@@ -23,9 +23,11 @@ MonoBehaviour:
     modules:
     - rid: 6598277744948937221
     - rid: 6598277744948937222
+    - rid: 5364625334832726465
     behaviours:
     - rid: 6598277744948937223
     - rid: 7571179441826562132
+    - rid: 5364625334832726466
     assistants:
     - rid: 7091613708766675052
     generatorRules:
@@ -46,6 +48,76 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 5364625334832726465
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 48f2011efc0f7b2449db9f824c895d9d
+          id: Population
+          name: Layer Population
+          modules:
+          - rid: 6598277744948937221
+          - rid: 6598277744948937222
+          - rid: 5364625334832726465
+          behaviours:
+          - rid: 6598277744948937223
+          - rid: 7571179441826562132
+          - rid: 5364625334832726466
+          assistants:
+          - rid: 7091613708766675052
+          generatorRules:
+          - rid: 7571179378973868539
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Population
+            rootParentName: Root_Parent
+          index: 0
+    - rid: 5364625334832726466
+      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+      data:
+        visible: 1
+        ownerLayerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 48f2011efc0f7b2449db9f824c895d9d
+          id: Population
+          name: Layer Population
+          modules:
+          - rid: 6598277744948937221
+          - rid: 6598277744948937222
+          - rid: 5364625334832726465
+          behaviours:
+          - rid: 6598277744948937223
+          - rid: 7571179441826562132
+          - rid: 5364625334832726466
+          assistants:
+          - rid: 7091613708766675052
+          generatorRules:
+          - rid: 7571179378973868539
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Population
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0, g: 0, b: 0, a: 0}
+        name: NoteBehaviour
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 0}
     - rid: 6598277744948937221
       type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:

@@ -43,9 +43,14 @@ namespace ISILab.LBS.VisualElements
                 if (_refLayer == null) continue;
                 foreach (LBSBehaviour behaviour in _refLayer.Behaviours)
                 {
+                    if (behaviour is NoteBehaviour)
+                        continue;
+
                     Assert.IsNotNull(behaviour,  "Behaviour is null");
                     Type type = behaviour.GetType();
+
                     if (customEditor.ContainsKey(type)) continue;
+
                     var ves = Reflection.GetClassesWith<LBSCustomEditorAttribute>()
                         .Where(t => t.Item2.Any(v => v.type == type)).ToList();
 
@@ -79,6 +84,9 @@ namespace ISILab.LBS.VisualElements
             // Add the tools into the toolkit and set the data of behaviour
             foreach (var behaviour in _target.Behaviours)
             {
+                if (behaviour is NoteBehaviour)
+                    continue;
+
                 Type editorType = customEditor.GetValueOrDefault(behaviour.GetType()).Item1;
                 if(editorType == null) continue;
                 LBSCustomEditor instance = Activator.CreateInstance(editorType, behaviour) as LBSCustomEditor;
