@@ -191,7 +191,7 @@ namespace ISILab.LBS.Editor
                 var gene = chrom.GetGene(i);
                 if (gene == null)
                     continue;
-                layerPopulation.AddTileGroup(pos, gene as BundleData);
+                layerPopulation.AddTileGroup(pos, gene as BundleData, layerPopulation.GetActiveRotation());
             }
             DrawManager.Instance.RedrawLayer(TargetLayer);
 

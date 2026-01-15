@@ -10,6 +10,8 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEngine;
 using UnityEngine.Serialization;
+using ISILab.LBS.Characteristics;
+using System;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -18,6 +20,13 @@ namespace ISILab.LBS.Behaviours
     public class PopulationBehaviour : LBSBehaviour
     {
         #region FIELDS
+
+        private const string RandomMode = "RandomRotationMode";
+        private const string DefaultRotation = LBSDirection.Up;
+
+        private string activeRotationDirection = DefaultRotation;
+        private TileMakeRot tileRotationMode;
+
         [SerializeField, JsonIgnore, HideInInspector ] 
         private TileMapModule tileMap;
         [SerializeField, JsonIgnore, HideInInspector] 
@@ -45,6 +54,14 @@ namespace ISILab.LBS.Behaviours
         
         [FormerlySerializedAs("selectedTypetoSet")] [JsonIgnore, HideInInspector]
         public string selectedTypeFilter;
+
+        // the rotation type with which a new tile is created
+        public enum TileMakeRot
+        {
+            Fixed,
+            Random,
+            Weighted
+        }
         #endregion
 
         #region PROPERTIES
@@ -85,6 +102,23 @@ namespace ISILab.LBS.Behaviours
             return selectedTypeFilter ?? allFilter;
         }
 
+        public TileMakeRot TileRotationMode
+        {
+            get => tileRotationMode;
+            set
+            {
+                if (value == TileMakeRot.Fixed) ActiveRotationDirection = DefaultRotation;
+                if (value == TileMakeRot.Random) ActiveRotationDirection = RandomMode;
+                tileRotationMode = value;
+            }
+        }
+
+        public string ActiveRotationDirection
+        {
+            get => activeRotationDirection;
+            set => activeRotationDirection = value;
+        }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -98,18 +132,18 @@ namespace ISILab.LBS.Behaviours
 
         }
 
-        public TileBundleGroup AddTileGroup(Vector2Int position, Bundle bundle) 
+        public TileBundleGroup AddTileGroup(Vector2Int position, Bundle bundle, Vector2 rotation) 
         {
-            return AddTileGroup(position, new BundleData(bundle)); 
+            return AddTileGroup(position, new BundleData(bundle), rotation); 
         }
 
-        public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData) 
+        public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation) 
         {
 
-            if (!_bundleTileMap.ValidNewGroup(position, bundleData, Vector2.right)) return null;
+            if (!_bundleTileMap.ValidNewGroup(position, bundleData, rotation)) return null;
 
             //Create group
-            TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, Vector2.right);
+            TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, rotation);
             RequestTilePaint(group);
             
             //Add all tiles from the group
@@ -331,7 +365,28 @@ namespace ISILab.LBS.Behaviours
             // Return array
             return o;
         }
-        
+
+        public Vector2 GetActiveRotation()
+        {
+             var Directions = Commons.Directions.Bidimencional.Edges;
+
+            // We check this in the Commons Directions class
+            int magnitude = -1;
+            switch (ActiveRotationDirection)
+            {
+                case LBSDirection.Right: magnitude = 3; break;
+                case LBSDirection.Up: magnitude = 2; break;
+                case LBSDirection.Left: magnitude = 1; break;
+                case LBSDirection.Down: magnitude = 0; break;
+                case RandomMode: magnitude = UnityEngine.Random.Range(0, 4); break;
+                default:
+                    break;
+            }
+
+            return Directions[magnitude];
+
+        }
+
         #endregion
     }
 }

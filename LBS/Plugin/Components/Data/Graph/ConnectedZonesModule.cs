@@ -131,6 +131,26 @@ namespace ISILab.LBS.Modules
         {
             var clone = new ConnectedZonesModule();
 
+            List<ZoneEdge> cloneEdges = new();
+            foreach (var edge in edges)
+            {
+                object edgeClone = edge.Clone();
+                if(edgeClone is ZoneEdge ze)
+                {
+                    cloneEdges.Add(ze);
+                }
+                
+            }
+
+            foreach(ZoneEdge zeclon in cloneEdges)
+            {
+                clone.AddEdge(zeclon);
+            }
+
+            return clone;
+            /*
+            var clone = new ConnectedZonesModule();
+
             var edgesClone = edges.Select(e => e.Clone()).Cast<ZoneEdge>();
             foreach (var edge in edgesClone)
             {
@@ -138,6 +158,7 @@ namespace ISILab.LBS.Modules
             }
 
             return clone;
+            */
         }
 
         public override Rect GetBounds()
