@@ -242,7 +242,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 var gene = chrom.GetGene(i);
                 if (gene == null)
                     continue;
-                population.AddTileGroup(pos, gene as BundleData);
+                population.AddTileGroup(pos, gene as BundleData, population.GetActiveRotation());
             }
         }
 

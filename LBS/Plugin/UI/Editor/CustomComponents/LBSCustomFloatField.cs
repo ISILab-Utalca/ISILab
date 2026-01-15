@@ -5,14 +5,11 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.CustomComponents
 {
     [UxmlElement]
-    public partial class LBSCustomUnsignedIntegerField: UnsignedIntegerField
+    public partial class LBSCustomFloatField: FloatField
     {
         private VectorImage typeIcon;
         private VectorImage addIcon;
         private VectorImage minusIcon;
-        
-        private uint maxValue = 100;
-        private uint minValue = 0;
 
         private Button addButton;
         private Button minusButton;
@@ -24,22 +21,8 @@ namespace ISILab.LBS.CustomComponents
             get => typeIcon;
             set => typeIcon = value;
         }
-
-        [UxmlAttribute]
-        public uint MaxValue
-        {
-            get => maxValue; 
-            set => maxValue = value;
-        }
         
-        [UxmlAttribute]
-        public uint MinValue { 
-            get => minValue;
-            set => minValue = value; 
-        }
-        
-        
-        public LBSCustomUnsignedIntegerField() : base()
+        public LBSCustomFloatField() : base()
         {
             addButton = new Button() { text = "+" };
             minusButton = new Button() { text = "-" };
@@ -53,16 +36,14 @@ namespace ISILab.LBS.CustomComponents
             
             addButton.RegisterCallback<ClickEvent>((evt) =>
             {
-                value = Math.Clamp(value + 1, minValue, maxValue);
+                value = value + 0.01f;
                 
             });
             
             minusButton.RegisterCallback<ClickEvent>((evt) =>
             {
-                if (value != 0) 
-                    value = Math.Clamp(value - 1, minValue, maxValue);
+                value = value - 0.01f;
             });
-            
         }
     }
 }

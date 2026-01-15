@@ -21,7 +21,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant

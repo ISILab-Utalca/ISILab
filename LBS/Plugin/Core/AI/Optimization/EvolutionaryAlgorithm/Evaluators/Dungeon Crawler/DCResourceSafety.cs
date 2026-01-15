@@ -38,6 +38,7 @@ namespace ISILab.AI.Categorization
         [SerializeField, SerializeReference]
         public LBSCharacteristic playerCharacteristic;
 
+        [SerializeField, SerializeReference]
         public List<LBSCharacteristic> resources = new List<LBSCharacteristic>();
 
         public float Evaluate(IOptimizable evaluable)
