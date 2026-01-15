@@ -1,7 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using System.Collections.Generic;
@@ -16,17 +15,18 @@ namespace ISILab.LBS.VisualElements
     {
         static VisualTreeAsset VisualTree;
 
+        private PopulationBehaviour behaviour;
+
         private VisualElement rotateSelector;
         private LBSCustomEnumField tileMakeRotEnum;
-        private PopulationBehaviour behaviour;
-        private Dictionary<string, LBSToolbarToggle> toggles;
-        private readonly Dictionary<string, string> directionButtons = new()
+
+        private readonly Dictionary<string, DirToRotVisualElement> DirectionVes = new();
+
+        private class DirToRotVisualElement
         {
-            { LBSDirection.Up,    "tUp" },
-            { LBSDirection.Left,  "tLeft" },
-            { LBSDirection.Right, "tRight" },
-            { LBSDirection.Down,  "tDown" },
-        };
+            public LBSToolbarToggle Toggle;
+            public LBSCustomFloatField WeightField;
+        }
 
         public TileRotatorEditor()
         {
@@ -36,7 +36,11 @@ namespace ISILab.LBS.VisualElements
         public override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as PopulationBehaviour;
-            SelectDirection(behaviour.ActiveRotationDirection, toggles);
+            SelectDirection(behaviour.ActiveRotationDirection);
+            tileMakeRotEnum.SetValueWithoutNotify(behaviour.TileRotationMode);
+
+            Refresh();
+
         }
 
         protected override VisualElement CreateVisualElement()
@@ -44,59 +48,89 @@ namespace ISILab.LBS.VisualElements
             VisualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("TileRotatorEditor");
             VisualTree.CloneTree(this);
 
-
             rotateSelector = this.Q<VisualElement>("rotateSelector");
             tileMakeRotEnum = this.Q<LBSCustomEnumField>("tileMakeRotEnum");
+
+            RegisterDirection(LBSDirection.Up, "tUp", "UpW");
+            RegisterDirection(LBSDirection.Left, "tLeft", "LeftW");
+            RegisterDirection(LBSDirection.Right, "tRight", "RightW");
+            RegisterDirection(LBSDirection.Down, "tDown", "DownW");
 
             tileMakeRotEnum.RegisterValueChangedCallback(evt =>
             {
                 behaviour.TileRotationMode = (TileMakeRot)evt.newValue;
-
-                switch (behaviour.TileRotationMode)
-                {
-                    case TileMakeRot.Fixed:
-                        rotateSelector.style.display = DisplayStyle.Flex;
-                        break;
-
-                    case TileMakeRot.Random:
-                        rotateSelector.style.display = DisplayStyle.None;
-                        break;
-
-                    case TileMakeRot.Weighted:
-                        rotateSelector.style.display = DisplayStyle.Flex;
-                        break;
-                }
+                Refresh();
             });
 
-            toggles = new Dictionary<string, LBSToolbarToggle>();
-
-            foreach (var (direction, name) in directionButtons)
-            {
-                var toggle = this.Q<LBSToolbarToggle>(name);
-                toggles[direction] = toggle;
-
-                toggle.RegisterCallback<ClickEvent>(_ =>
-                    SelectDirection(direction, toggles)
-                );
-            }
 
             return this;
         }
 
-
-
-        private void SelectDirection(
-            string direction,
-            Dictionary<string, LBSToolbarToggle> toggles)
+        private void RegisterDirection(string dir, string toggleName, string weightName)
         {
+            var toggle = this.Q<LBSToolbarToggle>(toggleName);
+            var weight = this.Q<LBSCustomFloatField>(weightName);
+
+            DirectionVes[dir] = new DirToRotVisualElement
+            {
+                Toggle = toggle,
+                WeightField = weight
+            };
+
+            toggle.RegisterCallback<ClickEvent>(_ => SelectDirection(dir));
+
+            weight.RegisterValueChangedCallback(evt =>
+                behaviour.SetDirectionWeight(dir, evt.newValue)
+            );
+        }
+
+        private void Refresh()
+        {
+            if (behaviour is null) return;
+
+            bool showSelector = behaviour.TileRotationMode != TileMakeRot.Random;
+            bool showWeights = behaviour.TileRotationMode == TileMakeRot.Weighted;
+
+            rotateSelector.style.display = showSelector ? DisplayStyle.Flex : DisplayStyle.None;
+            if (showSelector)
+            {
+                foreach ((string dir, DirToRotVisualElement ves) in DirectionVes)
+                {
+                    ves.Toggle.SetValueWithoutNotify(behaviour.ActiveRotationDirection == dir);
+                }
+            }
+
+            foreach (var ves in DirectionVes.Values) 
+            { 
+                ves.WeightField.style.display = showWeights ? DisplayStyle.Flex : DisplayStyle.None;
+                ves.Toggle.SetEnabled(behaviour.TileRotationMode == TileMakeRot.Fixed); 
+            }
+
+            if(showWeights) RefreshWeights();
+        }
+
+        private void RefreshWeights()
+        {
+            if (behaviour is null) return;
+
+            foreach ((string dir, DirToRotVisualElement ves) in DirectionVes)
+            {
+                ves.WeightField.SetValueWithoutNotify(behaviour.GetDirectionWeight(dir));
+                ves.Toggle.SetValueWithoutNotify(false);
+            }
+        }
+
+        private void SelectDirection(string direction)
+        {
+            if (behaviour is null) return;
+
             behaviour.ActiveRotationDirection = direction;
 
-            if (!toggles.ContainsKey(direction)) return;
+            foreach (var ui in DirectionVes.Values)
+                ui.Toggle.SetValueWithoutNotify(false);
 
-            foreach (var toggle in toggles.Values)
-                toggle.SetValueWithoutNotify(false);
-
-            toggles[direction].SetValueWithoutNotify(true);
+            if (DirectionVes.TryGetValue(direction, out var selected))
+                selected.Toggle.SetValueWithoutNotify(true);
         }
     }
 }
