@@ -95,7 +95,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 Debug.Log(chosenTiles[i].Position.x + " | " + chosenTiles[i].Position.y + " : " + currentBundle);
                 
                 //Then see if it has a selector. If not, we go for random!
-                var patternSelector = currentBundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault();
+
+                var patternSelector = currentBundle != null ?
+                    currentBundle.GetCharacteristics<LBSTerrainConnectionGrid>()?.FirstOrDefault() : null;
 
                 if (patternSelector != null)
                 {
