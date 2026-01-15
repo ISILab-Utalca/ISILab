@@ -263,6 +263,7 @@ namespace LBS.Components
         #endregion
 
         #region Generator rules
+        
         public void AddGeneratorRule(LBSGeneratorRule rule)
         {
             if (rule == null) return;
@@ -270,8 +271,9 @@ namespace LBS.Components
         }
 
         public bool RemoveGeneratorRule(LBSGeneratorRule rule) => generatorRules.Remove(rule);
+
         #endregion
-              
+
         #region Utility
         public void Reload()
         {

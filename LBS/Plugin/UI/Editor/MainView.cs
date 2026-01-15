@@ -131,7 +131,7 @@ namespace ISILab.LBS.Plugin.UI.Editor
         private readonly List<Manipulator> _manipulators = new();
 
         private readonly LayerContainer _defaultLayer = new();
-        
+
         [SerializeReference]
         private readonly Dictionary<LBSLayer, LayerContainer> _layers = new();
         
@@ -487,9 +487,7 @@ namespace ISILab.LBS.Plugin.UI.Editor
             _layers.TryGetValue(layer, out var container);
             return container;
         }
-        
-        #endregion
 
- 
+        #endregion
     }
 }

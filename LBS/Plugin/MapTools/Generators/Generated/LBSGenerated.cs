@@ -20,7 +20,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private string layerName;
 
         //Original bundle reference
-        [SerializeField, HideInInspector]
+        [SerializeField]
         private Bundle bundleRef;
         
         //Temporal bundle reference (for when it changes using the WorldEditBar)

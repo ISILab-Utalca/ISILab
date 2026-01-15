@@ -1770,22 +1770,32 @@ Toggle > .lbs-default-icon {
 
 .lbs-post-it {
     padding: 5 6 28 3;
+    background-image: resource('Textures/post_it_v2_vector');
+    -unity-slice-left: 32;
+    -unity-slice-top: 32;
+    -unity-slice-right: 32;
+    -unity-slice-bottom: 32;
 }
 
 .lbs-post-it TextInput {
     background-color: transparent;
     border-color: transparent;
-    flex-grow: 1;
+    overflow: visible;
 }
 
 .lbs-post-it TextElement {
     color: rgb(58, 49, 37);
-    flex-shrink: 1;
     -unity-text-align: upper-left;
     white-space: pre-wrap;
     flex-wrap: wrap;
+    width: 100%;
+    text-overflow: ellipsis;
 }
 
 .yellow-post-it {
     -unity-background-image-tint-color: rgb(255, 226, 153);
+}
+
+.green-post-it {
+    -unity-background-image-tint-color: rgb(179, 239, 189);
 }
