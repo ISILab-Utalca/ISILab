@@ -36,12 +36,12 @@ namespace ISILab.LBS.CustomComponents
             iconVisualElement = new VisualElement();
 
 
-            addButton.AddToClassList("addButton");
-            this.Add(addButton);
+
             minusButton.AddToClassList("minusButton");
             this.Add(minusButton);
+            addButton.AddToClassList("addButton");
+            this.Add(addButton);
 
-            
             addButton.RegisterCallback<ClickEvent>((evt) =>
             {
                 value = Mathf.Clamp(value + 0.01f, Min, Max);
