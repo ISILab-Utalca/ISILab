@@ -192,8 +192,6 @@ namespace ISILab.LBS.VisualElements.Editor
             Object.DestroyImmediate(GameObject.Find(_nameField.value));
             //crear objeto empty fuera del foreach
             GameObject rootParent = new GameObject(_nameField.value);
-
-            //StandardTopDownCamera.SetStandardTopDown(rootParent);
             
 
             bool ok = false;
@@ -206,7 +204,12 @@ namespace ISILab.LBS.VisualElements.Editor
                 if (!ok) break; 
             }
 
-            if (ok) OnFinishGenerate();
+            if (ok)
+            {
+                StandardTopDownCamera.SetStandardTopDown(rootParent);
+                OnFinishGenerate();
+            }
+            
             else Object.DestroyImmediate(rootParent);
         }
         
