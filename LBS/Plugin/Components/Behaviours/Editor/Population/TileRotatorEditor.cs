@@ -123,7 +123,7 @@ namespace ISILab.LBS.VisualElements
         private void SelectDirection(string direction)
         {
             if (behaviour is null) return;
-            if (direction == string.Empty) return;
+            if (string.IsNullOrEmpty(direction)) return;
             behaviour.ActiveRotationDirection = direction;
 
             foreach (DirToRotVisualElement ui in DirectionVes.Values)
