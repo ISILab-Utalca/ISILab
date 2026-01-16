@@ -26,7 +26,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            var note = new LBSNote(new Vector2(endPosition.x, endPosition.y), "Write your comment");
+            var note = new LBSNote(new Vector2(endPosition.x, endPosition.y), "Write your whatever");
 
             var noteBehaviour = LBSMainWindow.Instance._selectedLayer.GetBehaviour<NoteBehaviour>();
             noteBehaviour?.AddNote(note);
