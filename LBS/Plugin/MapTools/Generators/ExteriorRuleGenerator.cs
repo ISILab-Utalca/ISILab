@@ -15,6 +15,7 @@ using LBS.Components.TileMap;
 using SharpNeatLib.Maths;
 using UnityEditor;
 using UnityEngine;
+using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -80,19 +81,18 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
             //We have the tiles here
             var chosenTiles = mapMod.Tiles;
-            //var chosenTilesOrdered = chosenTiles.Select
-            
+            var chosenTilesOrdered = chosenTiles.OrderByDescending(c => (Mathf.Abs(c.x) +(Mathf.Abs(c.y))));
             Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
             var tilePrefPair = new Dictionary<LBSTile, GameObject>();
 
-            for (int i = 0; i < chosenTiles.Count; i++)
+            foreach(LBSTile chosenTile in chosenTilesOrdered)
             {
                 // This gets the bundle immediately
-                var pair = GetBundle(selected, connctMod.GetConnections(chosenTiles[i]).ToArray());
+                var pair = GetBundle(selected, connctMod.GetConnections(chosenTile).ToArray());
 
                 //Get current bundle
                 var currentBundle = pair?.Item1?.Owner;
-                Debug.Log(chosenTiles[i].Position.x + " | " + chosenTiles[i].Position.y + " : " + currentBundle);
+                Debug.Log(chosenTile.Position.x + " | " + chosenTile.Position.y + " : " + currentBundle);
                 
                 //Then see if it has a selector. If not, we go for random!
 
@@ -105,7 +105,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     var adjacentPrefs = new Dictionary<string, GameObject>();
 
                     //Left!
-                    var leftTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x-1, chosenTiles[i].Position.y)));
+                    var leftTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x-1, chosenTile.Position.y)));
                     if (leftTile != null)
                     {
                         var leftBundle = GetBundle(selected, connctMod.GetConnections(leftTile).ToArray()).Item1.Owner;
@@ -115,7 +115,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         }
                     }
                     //Right!
-                    var rightTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x + 1, chosenTiles[i].Position.y)));
+                    var rightTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x + 1, chosenTile.Position.y)));
                     if (rightTile != null)
                     {
                         var rightBundle = GetBundle(selected, connctMod.GetConnections(rightTile).ToArray()).Item1.Owner;
@@ -126,7 +126,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         }
                     }
                     //Up!
-                    var upTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x, chosenTiles[i].Position.y + 1)));
+                    var upTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y + 1)));
                     if (upTile != null)
                     {
                         var upBundle = GetBundle(selected, connctMod.GetConnections(upTile).ToArray()).Item1.Owner;
@@ -136,7 +136,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         }   
                     }
                     //Down!
-                    var downTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTiles[i].Position.x, chosenTiles[i].Position.y - 1)));
+                    var downTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y - 1)));
                     if (downTile != null)
                     {
                         var downBundle = GetBundle(selected, connctMod.GetConnections(downTile).ToArray()).Item1.Owner;
@@ -154,13 +154,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         pref = pair?.Item1?.Owner?.Assets[0]?.obj;
                     }
                     Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
-                    tilePrefPair.Add(chosenTiles[i], pref);
+                    tilePrefPair.Add(chosenTile, pref);
                 }
                 else
                 {
                     //This is the same because I'm still figuring this out lol
                     var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
-                    tilePrefPair.Add(chosenTiles[i], pref);
+                    tilePrefPair.Add(chosenTile, pref);
                 }
             }
 
@@ -289,78 +289,157 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             //We check opposite borders (right border in left object, so on and so forth) and, if any of the flags don't equate with the opposite border or aren't 0,
             //we remove the grid and break the for loop.
             int gridSize = gridSelector.GridSize;
-            foreach(AssetConnectionGrid grid in gridSelector.GridList)
+
+            //First of all, let's identify all 4 directions
+            var leftSide = checkedGrids.ContainsKey("Left") ? "Generated" : adjacentBundles.ContainsKey("Left") ? "Unchecked" : "Border";
+            var rightSide = checkedGrids.ContainsKey("Right") ? "Generated" : adjacentBundles.ContainsKey("Right") ? "Unchecked" : "Border";
+            var topSide = checkedGrids.ContainsKey("Up") ? "Generated" : adjacentBundles.ContainsKey("Up") ? "Unchecked" : "Border";
+            var downSide = checkedGrids.ContainsKey("Down") ? "Generated" : adjacentBundles.ContainsKey("Down") ? "Unchecked" : "Border";
+            Debug.Log("LEFT: " + leftSide + "| RIGHT: " + rightSide + "| UP: " + topSide + " | DOWN: " + downSide);
+            
+            foreach (AssetConnectionGrid grid in gridSelector.GridList)
             {
+                bool removalClause = false;
+                //Okay, let's remake the entire thing now that we have to take into account whether the sides are corners, unchecked or verified.
+                //First of all, let's check out the borders
                 for (int i = 0; i < grid.BorderSize; i++)
                 {
-                    //If there's something to the left (or any direction), it'll ensure the grid flags match their respective opposite borders
-                    if (checkedGrids.ContainsKey("Left"))
+                    switch (leftSide)
                     {
-                        int flag = checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, i);
-                        //Debug.Log("left flag "+i+ " = " + flag + " | this flag = " + grid.FlagFromVector(0, i));
-                        if (flag != grid.FlagFromVector(0, i)) { assetGridList.Remove(grid); break; }
+                        case "Border": 
+                            removalClause = grid.FlagFromVector(0, i) != -1 && grid.FlagFromVector(0, i) != 0;
+                            break;
+                        case "Unchecked":
+                            if (grid.FlagFromVector(0, i) == -1)
+                            {
+                                if (i == 0)
+                                {
+                                    if (topSide == "Generated")
+                                    {
+                                        if (checkedGrids["Up"].FlagFromVector(0, grid.BorderSize - 1) != -1) removalClause = true;
+                                    }
+                                    else if (topSide != "Border") removalClause = true;
+                                }
+                                else if (i == grid.BorderSize - 1)
+                                {
+                                    if (downSide == "Generated")
+                                    {
+                                        if (checkedGrids["Down"].FlagFromVector(0, 0) != -1) removalClause = true;
+                                    }
+                                    else if (downSide != "Border") removalClause = true;
+                                }
+                            }
+                            break;
+                        case "Generated":
+                            int flag = checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, i);
+                            removalClause = (flag != grid.FlagFromVector(0, i)) && (flag != 0);
+                            break;
                     }
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in left side because of " + i); break; }
 
-                    //Otherwise, we have to identify if the adjacent side is a border or not. For this, we check if there's a bundle preference set up.
-                    //When an object has an adjacent bundle but not an adjacent preference, it means it's checking an unchecked tile.
-                    //When an object has no bundle, it means it's a border.
-                    else
+                    switch(rightSide)
                     {
-                        if (!adjacentBundles.ContainsKey("Left"))
-                        {
-                            Debug.Log("left is border");
-                            if (grid.FlagFromVector(0, i) != 0) { assetGridList.Remove(grid); break; }
-                        }
-                        else Debug.Log("left is unchecked");
-                    }
+                        case "Border":
+                            removalClause = grid.FlagFromVector(grid.BorderSize - 1, i) != -1 && grid.FlagFromVector(grid.BorderSize-1, i) != 0;
+                            break;
+                        case "Unchecked":
+                            if (grid.FlagFromVector(grid.BorderSize - 1, i) == -1)
+                            {
+                                if (i == 0)
+                                {
+                                    if (topSide == "Generated")
+                                    {
+                                        if (checkedGrids["Up"].FlagFromVector(grid.BorderSize - 1, grid.BorderSize - 1) != -1) removalClause = true;
+                                    }
+                                    else if (topSide != "Border") removalClause = true;
 
-                    if (checkedGrids.ContainsKey("Right"))
-                    {
-                        int flag = checkedGrids["Right"].FlagFromVector(0, i);
-                        if (flag != grid.FlagFromVector(grid.BorderSize - 1, i)) { assetGridList.Remove(grid); break; }
+                                }
+                                else if (i == grid.BorderSize - 1)
+                                {
+                                    if (downSide == "Generated")
+                                    {
+                                        if (checkedGrids["Down"].FlagFromVector(grid.BorderSize - 1, 0) != -1) removalClause = true;
+                                    }
+                                    else if (downSide != "Border") removalClause = true;
+                                }
+                            }
+                            break;
+                        case "Generated":
+                            int flag = checkedGrids["Right"].FlagFromVector(0, i);
+                            removalClause = (flag != grid.FlagFromVector(grid.BorderSize - 1, i)) && (flag != 0);
+                            break;
                     }
-                    else
-                    {
-                        if (!adjacentBundles.ContainsKey("Right"))
-                        {
-                            Debug.Log("right is border");
-                            if (grid.FlagFromVector(grid.BorderSize - 1, i) != 0) { assetGridList.Remove(grid); break; }
-                        }
-                        else Debug.Log("right is unchecked");
-                    }
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in right side because of "+i); break; }
 
-                    if (checkedGrids.ContainsKey("Up"))
+                    switch (topSide)
                     {
-                        int flag = checkedGrids["Up"].FlagFromVector(i, grid.BorderSize - 1);
-                        if (flag != grid.FlagFromVector(i, 0)) { assetGridList.Remove(grid); break; }
-                    }
-                    else
-                    {
-                        if (!adjacentBundles.ContainsKey("Up"))
-                        {
-                            Debug.Log("up is border");
-                            if (grid.FlagFromVector(i, 0) != 0) { assetGridList.Remove(grid); break; }
-                        }
-                        else Debug.Log("up is unchecked");
-                    }
+                        case "Border":
+                            removalClause = grid.FlagFromVector(i, 0) != -1 && grid.FlagFromVector(i, 0) != 0;
+                            break;
+                        case "Unchecked":
+                            if (grid.FlagFromVector(i, 0) == -1)
+                            {
+                                if (i == 0)
+                                {
+                                    if (leftSide == "Generated")
+                                    {
+                                        if (checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, 0) != -1) removalClause = true;
+                                    }
+                                    else if (leftSide != "Border") removalClause = true;
 
-                    if (checkedGrids.ContainsKey("Down"))
-                    {
-                        int flag = checkedGrids["Down"].FlagFromVector(i, 0);
-                        if (flag != grid.FlagFromVector(i, grid.BorderSize - 1)) { assetGridList.Remove(grid); break; }
+                                }
+                                else if (i == grid.BorderSize - 1)
+                                {
+                                    if (rightSide == "Generated")
+                                    {
+                                        if (checkedGrids["Right"].FlagFromVector(0, 0) != -1) removalClause = true;
+                                    }
+                                    else if (rightSide != "Border") removalClause = true;
+                                }
+                            }
+                            break;
+                        case "Generated":
+                            int flag = checkedGrids["Up"].FlagFromVector(i, grid.BorderSize-1);
+                            removalClause = (flag != grid.FlagFromVector(i, 0)) && (flag != 0);
+                            break;
                     }
-                    else
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in up side because of " + i); break; }
+
+                    switch (downSide)
                     {
-                        if (!adjacentBundles.ContainsKey("Down"))
-                        {
-                            Debug.Log("down is border");
-                            if (grid.FlagFromVector(i, grid.BorderSize - 1) != 0) { assetGridList.Remove(grid); break; }
-                        }
-                        else Debug.Log("down is unchecked");
+                        case "Border":
+                            removalClause = grid.FlagFromVector(i, grid.BorderSize-1) != -1 && grid.FlagFromVector(i, grid.BorderSize - 1) != 0;
+                            break;
+                        case "Unchecked":
+                            if(grid.FlagFromVector(i, grid.BorderSize-1) == -1)
+                            {
+                                if (i == 0)
+                                {
+                                    if (leftSide == "Generated")
+                                    {
+                                        if (checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, grid.BorderSize - 1) != -1) removalClause = true; 
+                                    }
+                                    else if (leftSide != "Border") removalClause = true;
+
+                                }
+                                else if (i == grid.BorderSize-1)
+                                {
+                                    if (rightSide == "Generated")
+                                    {
+                                        if (checkedGrids["Right"].FlagFromVector(0, grid.BorderSize - 1) != -1) removalClause = true;
+                                    }
+                                    else if (rightSide != "Border") removalClause = true;
+                                }
+                            }
+                            break;
+                        case "Generated":
+                            int flag = checkedGrids["Down"].FlagFromVector(i, 0);
+                            removalClause = (flag != grid.FlagFromVector(i, grid.BorderSize - 1)) && (flag != 0);
+                            break;
                     }
+                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in down side because of " + i); break; }
                 }
             }
-            //Debug.Log("options reduced to " + assetGridList.Count);
             //Hopefully it's not a lot of executions
             //7. We can assume every grid in the curating list is compatible with everything around it, so we choose a random from the remaining ones
             //Let's return the preferred object!

@@ -17,11 +17,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
         // Define colors for the note, both when unselected (kinda transparent) and selected (when clicked and focused, more solid)
 
         /*
-            Falta que la nota no esté gigante
+            Falta que la nota no estï¿½ gigante
             Ver lo del zoom
             Que no se borren las notas tras recargar
-            Ese pequeño detalle para que no se mueva el texto hacia arriba tras un salto de línea
-            Cambiar (si se puede) la forma de crear un salto de línea
+            Ese pequeï¿½o detalle para que no se mueva el texto hacia arriba tras un salto de lï¿½nea
+            Cambiar (si se puede) la forma de crear un salto de lï¿½nea
         */
     
         #region FIELDS
