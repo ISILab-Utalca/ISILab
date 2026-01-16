@@ -251,6 +251,27 @@ namespace ISILab.LBS
         {
             return base.ToString();
         }
+
+        public LBSLayer GetInteriorLayer()
+        {
+            return GetLayer("Interior");
+        }
+
+        public LBSLayer GetExteriorLayer()
+        {
+            return GetLayer("Exterior");
+        }
+
+        public LBSLayer GetPopulationLayer()
+        {
+            return GetLayer("Population");
+        }
+        public LBSLayer GetSimulationLayer()
+        {
+            return GetLayer("Simulation");
+        }
+
+
         #endregion
     }
 

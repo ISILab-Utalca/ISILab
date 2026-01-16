@@ -169,12 +169,12 @@ namespace ISILab.LBS.Tests
         {
             levelData = JSONDataManager.LoadDataByGUID<LBSLevelData>(_guid);
             Assert.IsNotNull(levelData);
-            LBSLayer fistLayer = levelData.GetLayer(0);
-            Assert.IsNotNull(fistLayer);
-            WFCassistant = fistLayer.GetAssistant<AssistantWFC>("");
+            LBSLayer exteriorLayer = levelData.GetExteriorLayer();
+            Assert.IsNotNull(exteriorLayer);
+            WFCassistant = exteriorLayer.GetAssistant<AssistantWFC>("");
             Assert.IsNotNull(WFCassistant);
             WFCassistant.SafeMode = true;
-            fistLayer.Reload();
+            exteriorLayer.Reload();
         }
 
         // This method cleans up the WFC assistant and level data after each test.
@@ -182,8 +182,8 @@ namespace ISILab.LBS.Tests
         {
             if (levelData != null)
             {
-                LBSLayer fistLayer = levelData.GetLayer(0);
-                fistLayer.RemoveAll();
+                LBSLayer exteriorLayer = levelData.GetExteriorLayer();
+                exteriorLayer.RemoveAll();
                 
                 WFCassistant = null;
                 levelData = null;

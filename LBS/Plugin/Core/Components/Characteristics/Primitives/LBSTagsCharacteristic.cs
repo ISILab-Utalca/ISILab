@@ -73,6 +73,14 @@ namespace ISILab.LBS.Characteristics
             tagName = value.Label;
             //tagGUID = AssetMacro.GetGuidFromAsset(value);
         }
+        public void OnBeforeSerialize()
+        {
+            if (value != null)
+            {
+                tagGUID = AssetMacro.GetGuidFromAsset(value);
+                tagName = value.Label;
+            }
+        }
     }
 
     [System.Serializable]
@@ -138,7 +146,7 @@ namespace ISILab.LBS.Characteristics
             List<LBSTag> cloneTags = new();
             foreach (var tagEntry in tagEntries)
             {
-                cloneTags.Add(tagEntry.Value);
+                if (tagEntry.Value != null) cloneTags.Add(tagEntry.Value);
             }
             return new LBSTagsCharacteristic(cloneTags);
         }
@@ -231,9 +239,9 @@ namespace ISILab.LBS.Characteristics
 
             foreach (var tagEntry in tagEntries)
             {
-                if (tagEntry.Value != null)
-                    tagEntry.UpdateInfo();
+                if (tagEntry != null) tagEntry.OnBeforeSerialize();
             }
+
 
         }
 

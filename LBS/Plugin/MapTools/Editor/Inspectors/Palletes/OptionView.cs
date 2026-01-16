@@ -67,11 +67,12 @@ namespace LBS.VisualElements
             this.border = this.Q<VisualElement>("Border");
             border.SetBorder(border.style.backgroundColor.value, 2);
             this.button = this.Q<Button>();
+
+      
             button.clicked += () => { 
                 this.OnSelect?.Invoke(target);
                 SetSelected(true);
             };
-            
             _toolbar = this.Q<ToolbarMenu>("ToolBar");
             if(_toolbar != null)
             {
@@ -97,7 +98,18 @@ namespace LBS.VisualElements
 
         private void OnMouseDown(MouseDownEvent evt)
         {
-            if (evt.button == 1 && _toolbar != null)
+            /* Commen so only the button triggers - currently there can be text so isntead the 
+                whole visual element triggers
+            */
+
+            if (evt.button == 0)
+            {
+                this.OnSelect?.Invoke(target);
+                SetSelected(true);
+            }
+            ///
+
+            else if (evt.button == 1 && _toolbar != null)
             {
                 _toolbar.style.display = DisplayStyle.Flex;
                 _toolbar.ShowMenu();
