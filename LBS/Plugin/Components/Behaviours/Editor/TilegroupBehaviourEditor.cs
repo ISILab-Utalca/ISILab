@@ -105,7 +105,7 @@ namespace ISILab.LBS.VisualElements
 
             NoContent.style.display = DisplayStyle.None;
             Content.style.display = DisplayStyle.Flex;
-            SelectedHeader.Icon = TileBundleGroup.BundleData.Bundle.Icon;
+            SelectedHeader.Icon = TileBundleGroup.BundleData.Bundle?.Icon;
             SelectedHeader.Label = TileBundleGroup.BundleData.BundleName;
 
             Addon_Trigger atrigger = TileBundleGroup.GetAddon<Addon_Trigger>();
