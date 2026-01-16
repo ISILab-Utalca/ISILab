@@ -94,6 +94,19 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                         evt.StopPropagation();
                     }
                 }
+                
+                Note = note;
+
+                this.style.minWidth = width;
+                this.style.minHeight = height;
+                this.style.flexGrow = 1;
+
+                textField.style.display = DisplayStyle.Flex;
+                label.style.display = DisplayStyle.None;
+                textField.value = Note.Message;
+                textField.Focus();
+                isDragging = false;
+                
             });
 
             textField.RegisterCallback<FocusOutEvent>(evt =>
@@ -111,21 +124,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
             
 
             RegisterCallbackOnce<GeometryChangedEvent>(SetPos);
-        }
-
-        public LBSNoteView(LBSNote note, float width = 100, float height = 100) : this()
-        {
-            Note = note;
-
-            this.style.minWidth = width;
-            this.style.minHeight = height;
-            this.style.flexGrow = 1;
-
-            textField.style.display = DisplayStyle.Flex;
-            label.style.display = DisplayStyle.None;
-            textField.value = Note.Message;
-            textField.Focus();
-            isDragging = false;
         }
 
         private void SetPos(GeometryChangedEvent evt)
