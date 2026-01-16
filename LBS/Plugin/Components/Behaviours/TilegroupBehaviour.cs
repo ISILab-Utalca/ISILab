@@ -43,7 +43,10 @@ namespace ISILab.LBS.Behaviours
         public override void OnAttachLayer(LBSLayer layer)
         {
             OwnerLayer = layer;
-            OwnerLayer.OnChange += ()=> SelectedTilemap = null;
+            OwnerLayer.OnChange += () =>
+            {
+             //   SelectedTilemap = null;
+            };
          
         }
 

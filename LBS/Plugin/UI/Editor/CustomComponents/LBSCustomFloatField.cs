@@ -16,6 +16,12 @@ namespace ISILab.LBS.CustomComponents
         private VisualElement iconVisualElement;
 
         [UxmlAttribute]
+        public float Min { get; set; } = float.NegativeInfinity;
+
+        [UxmlAttribute]
+        public float Max { get; set; } = float.PositiveInfinity;
+
+        [UxmlAttribute]
         public VectorImage TypeIcon
         {
             get => typeIcon;
@@ -24,25 +30,26 @@ namespace ISILab.LBS.CustomComponents
         
         public LBSCustomFloatField() : base()
         {
+            
             addButton = new Button() { text = "+" };
             minusButton = new Button() { text = "-" };
             iconVisualElement = new VisualElement();
-            
-            minusButton.AddToClassList("minusButton");
-            this.Add(minusButton);
-            
+
+
             addButton.AddToClassList("addButton");
             this.Add(addButton);
+            minusButton.AddToClassList("minusButton");
+            this.Add(minusButton);
+
             
             addButton.RegisterCallback<ClickEvent>((evt) =>
             {
-                value = value + 0.01f;
-                
+                value = Mathf.Clamp(value + 0.01f, Min, Max);
             });
             
             minusButton.RegisterCallback<ClickEvent>((evt) =>
             {
-                value = value - 0.01f;
+                value = Mathf.Clamp(value + 0.01f, Min, Max);
             });
         }
     }

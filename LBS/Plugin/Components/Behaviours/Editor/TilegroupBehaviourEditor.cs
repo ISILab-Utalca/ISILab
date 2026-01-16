@@ -16,6 +16,7 @@ using LBS.Components;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -59,14 +60,15 @@ namespace ISILab.LBS.VisualElements
         public sealed override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as TileGroupBehavior;
-//            behaviour.OnSelectedChanged += UpdateTilebundle;
-            behaviour.OnSelectedChanged += (tilemap) =>
-            {
-                //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
-                DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
-                UpdateTilebundle(tilemap);
-            };
+            behaviour.OnSelectedChanged -= OnSelectedChanged;
+            behaviour.OnSelectedChanged += OnSelectedChanged;
             UpdateTilebundle(behaviour.SelectedTilemap);
+        }
+
+        private void OnSelectedChanged(TileBundleGroup tilemap)
+        {
+            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+            UpdateTilebundle(tilemap);
         }
 
         protected sealed override VisualElement CreateVisualElement()
