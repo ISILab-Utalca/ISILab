@@ -115,7 +115,7 @@ namespace ISILab.LBS.Tests
         {
             levelData = JSONDataManager.LoadDataByGUID<LBSLevelData>(_guid);
             Assert.IsNotNull(levelData);
-            LBSLayer fistLayer = levelData.GetLayer(0);
+            LBSLayer fistLayer = levelData.GetInteriorLayer();
             Assert.IsNotNull(fistLayer);
             HCassistant = fistLayer.GetAssistant<HillClimbingAssistant>("");
             Assert.IsNotNull(HCassistant);
@@ -128,7 +128,7 @@ namespace ISILab.LBS.Tests
         {
             if (levelData != null)
             {
-                LBSLayer fistLayer = levelData.GetLayer(0);
+                LBSLayer fistLayer = levelData.GetInteriorLayer();
                 fistLayer.RemoveAll();
                 
                 HCassistant = null;

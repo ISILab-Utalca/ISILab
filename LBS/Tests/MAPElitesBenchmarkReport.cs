@@ -173,7 +173,7 @@ namespace ISILab.LBS.Tests
         {
             levelData = JSONDataManager.LoadDataByGUID<LBSLevelData>(_guid);
             Assert.IsNotNull(levelData, "Could not load level.");
-            LBSLayer fistLayer = levelData.GetLayer("Population");
+            LBSLayer fistLayer = levelData.GetPopulationLayer();
             Assert.IsNotNull(fistLayer, "Layer was null.");
             assistant = fistLayer.GetAssistant<AssistantMapElite>();
             Assert.IsNotNull(assistant, "Assistant Map Elite was null");
@@ -222,7 +222,7 @@ namespace ISILab.LBS.Tests
 
             if (levelData is not null)
             {
-                LBSLayer firstLayer = levelData.GetLayer(0);
+                LBSLayer firstLayer = levelData.GetPopulationLayer();
                 firstLayer.RemoveAll();
 
                 assistant = null;
