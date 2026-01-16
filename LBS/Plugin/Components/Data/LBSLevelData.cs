@@ -205,6 +205,7 @@ namespace ISILab.LBS
             Debug.Log("saving " + newSavedMap.Name);
             list.Maps.Add(newSavedMap);
         }
+
         public SavedMapList GetSavedMaps(LBSLayer layer)
         {
             //return SavedLayerMaps.ContainsKey(layer) ? SavedLayerMaps[layer] : null;

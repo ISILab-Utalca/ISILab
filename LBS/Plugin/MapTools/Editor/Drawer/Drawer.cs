@@ -53,6 +53,5 @@ namespace ISILab.LBS.Drawers
             LBSMainWindow.MessageNotify($"Texture generation not implemented for {((LBSBehaviour)target).OwnerLayer.ID} layer drawer.", LogType.Warning);
             return new Texture2D(16, 16);
         }
-
     }
 }

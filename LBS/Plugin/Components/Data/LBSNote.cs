@@ -14,10 +14,10 @@ public class LBSNote : ICloneable
     private static int noteCounter = 0;
 
     [SerializeField, JsonRequired]
-    protected int x;
+    protected float x;
 
     [SerializeField, JsonRequired]
-    protected int y;
+    protected float y;
 
     [SerializeField, JsonRequired]
     protected string message;
@@ -32,7 +32,7 @@ public class LBSNote : ICloneable
         set => id = value;
     }
 
-    public Vector2Int Position
+    public Vector2 Position
     {
         get => new(x, y);
         set
