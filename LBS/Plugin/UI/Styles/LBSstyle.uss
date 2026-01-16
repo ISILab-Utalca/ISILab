@@ -918,8 +918,6 @@ Toggle > .lbs-default-icon {
     padding: 1px;
 }
 
-/* #region Item  */
-
 .lbs-item {
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
@@ -932,11 +930,6 @@ Toggle > .lbs-default-icon {
 .lbs-item:selected {
     scale: 1.3 1.3;
 }
-
-
-/* #endregion */
-/* #region List Item  */
-
 
 .lbs-list-item {
     border-left-width: 1px;
@@ -992,10 +985,6 @@ Toggle > .lbs-default-icon {
 
 .lbs-quest-list-item {
 }
-
-
-/* #endregion */
-/* #region Action Buttons  */
 
 .lbs-action-button {
     flex-direction: row;
@@ -1101,9 +1090,6 @@ Toggle > .lbs-default-icon {
     padding-bottom: 0;
     padding-left: 0;
 }
-
-/* #endregion */
-/* #region Sidebar Toggles */
 
 #AssistantButton:selected {
     background-color: var(--lbs-selection-dark-green-color);
@@ -1772,7 +1758,6 @@ Toggle > .lbs-default-icon {
     margin-bottom: 0;
     margin-left: 0;
     padding: 32px;
-    
 }
 
 .asset-grid-tile {
@@ -1791,12 +1776,16 @@ Toggle > .lbs-default-icon {
     -unity-slice-top: 32;
     -unity-slice-right: 32;
     -unity-slice-bottom: 32;
+    overflow: visible;
 }
 
 .lbs-post-it TextInput {
     background-color: transparent;
     border-color: transparent;
     overflow: visible;
+}
+
+.lbs-post-it TextField {
 }
 
 .lbs-post-it TextElement {
@@ -1806,6 +1795,13 @@ Toggle > .lbs-default-icon {
     flex-wrap: wrap;
     width: 100%;
     text-overflow: ellipsis;
+}
+
+.lbs-post-it > Label {
+    -unity-text-align: upper-left;
+    white-space: normal;
+    flex-grow: 1;
+    font-size: 12px;
 }
 
 .yellow-post-it {
