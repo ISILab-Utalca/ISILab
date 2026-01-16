@@ -49,6 +49,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         private Button clearButton;
         private Button revertButton;
         private Button saveButton;
+        private Button updateButton;
 
         private List<AssetGridEditorWindow> editorWindows;
 
@@ -84,11 +85,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         #region CONSTRUCTOR
         public void CreateGUI()
         {
-            //Initialize connection grid if not initialized
-            if(connectionGridTarget.GridList == null || connectionGridTarget.GridList.Count!=connectionGridTarget.Assets.Count)
-            {
-                connectionGridTarget.UpdateGridList();
-            }
+            connectionGridTarget.UpdateGridList();
 
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TerrainConnectionGridEditorWindow");
             visualTree.CloneTree(rootVisualElement);
@@ -109,7 +106,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
             borderColorContainer = rootVisualElement.Q<VisualElement>("BorderColor");
             //Button for specifically the creation of borders. It isn't saved on the color palette or anything because the palette can never access -1 on its own.
-            AddColorButton(-1, new Color(0.8f, 0.8f, 0.8f), false, true, false);
+            var borderColorButton = AddColorButton(-1, new Color(0.8f, 0.8f, 0.8f), false, true, false);
+            borderColorButton.tooltip = "Tiles painted with this color will be ignored unless specifically working as compatible borders.";
 
             //Tools!
             brushTool = rootVisualElement.Q<LBSToolbarToggle>("BrushTool");
@@ -143,32 +141,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             clearButton = rootVisualElement.Q<Button>("ClearButton");
             //Save button!
             saveButton = rootVisualElement.Q<Button>("SaveButton");
+            //Update button!
+            updateButton = rootVisualElement.Q<Button>("UpdateButton");
+            updateButton.clicked += () => {
+                connectionGridTarget.UpdateGridList();
+                PaintGridListPanel();
+            };
 
             //Icons!
             editorWindows = new List<AssetGridEditorWindow>();
             gridsVE = rootVisualElement.Q<VisualElement>("GridsVE");
-
-            foreach (AssetConnectionGrid _grid in connectionGridTarget.GridList)
-            {
-                //Debug.Log(_grid.AssetReference.obj);
-                var _newGridWindow = new AssetGridEditorWindow(_grid, this);
-                SetFOVScale += _newGridWindow.UpdateFOVScale;
-                OnScaleModify += (newValue) => {
-                    //_newGridWindow.style.scale = new Scale(new Vector2(newValue, newValue));
-                    _newGridWindow.style.height = newValue * 128; 
-                    _newGridWindow.style.width = newValue * 128;
-                    _newGridWindow.MarkDirtyRepaint();
-                };
-
-                //Button interaction
-                clearButton.clicked += () => { _newGridWindow.ClearGrid(); };
-                saveButton.clicked += () => { _newGridWindow.SaveChanges(); };
-                revertButton.clicked += () => { _newGridWindow.RevertChanges(); };
-                //128 * (previewScaleSlider.value);
-                OnWindowClosed += () => { _newGridWindow.OnRemove?.Invoke(); };
-                gridsVE.Add(_newGridWindow);
-            
-            }
+            PaintGridListPanel();
 
             saveButton.clicked += () => {
                 EditorUtility.SetDirty(connectionGridTarget.Owner);
@@ -260,7 +243,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             }
         }
 
-        public void AddColorButton(int key, Color color, bool selectAfterCreation = false, bool borderColor = false, bool removable = true)
+        public LBSSelectableButton AddColorButton(int key, Color color, bool selectAfterCreation = false, bool borderColor = false, bool removable = true)
         {
             //Add button and store its key as data
             var newButton = new LBSSelectableButton(color, removable);
@@ -293,6 +276,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
             //Also let's select it, because why not!
             if (selectAfterCreation) newButton.OnExecute?.Invoke();
+
+            //Just in case!
+            return newButton;
         }
 
         public void UpdateColorButtons()
@@ -303,6 +289,30 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             foreach (KeyValuePair<int, UnityEngine.Color> pair in ColorPaletteKey)
             {
                 AddColorButton(pair.Key, pair.Value);
+            }
+        }
+
+        public void PaintGridListPanel()
+        {
+            foreach (AssetConnectionGrid _grid in connectionGridTarget.GridList)
+            {
+                //Debug.Log(_grid.AssetReference.obj);
+                var _newGridWindow = new AssetGridEditorWindow(_grid, this);
+                SetFOVScale += _newGridWindow.UpdateFOVScale;
+                OnScaleModify += (newValue) => {
+                    //_newGridWindow.style.scale = new Scale(new Vector2(newValue, newValue));
+                    _newGridWindow.style.height = newValue * 128;
+                    _newGridWindow.style.width = newValue * 128;
+                    _newGridWindow.MarkDirtyRepaint();
+                };
+
+                //Button interaction
+                clearButton.clicked += () => { _newGridWindow.ClearGrid(); };
+                saveButton.clicked += () => { _newGridWindow.SaveChanges(); };
+                revertButton.clicked += () => { _newGridWindow.RevertChanges(); };
+                //128 * (previewScaleSlider.value);
+                OnWindowClosed += () => { _newGridWindow.OnRemove?.Invoke(); };
+                gridsVE.Add(_newGridWindow);
             }
         }
         #endregion
