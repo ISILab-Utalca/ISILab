@@ -104,7 +104,10 @@ namespace ISILab.LBS.CustomComponents
             this.AddToClassList(LBSEnumFieldClass);
             iconVisualElement = new VisualElement();
             labelElement.AddToClassList("lbs-label");
+            
             labelElement.RemoveFromClassList("unity-label");
+            RemoveFromClassList("unity-base-field");
+            RemoveFromClassList("unity-enum-field");
             
             // input
             VisualElement inputButton = this.Q<VisualElement>(classes: inputUssClassName);

@@ -72,6 +72,7 @@ namespace ISILab.LBS.VisualElements
             
             RemoveFromClassList("unity-button");
             RemoveFromClassList("unity-text-element");
+            RemoveFromClassList("unity-base-field");
         }
         
         
