@@ -169,8 +169,6 @@ namespace ISILab.LBS.VisualElements
             // context exclusive from the Tilemap Panel
             VisualElement toolButton = toolkit.GetToolButton(typeof(ConnectionPicker));
             toolButton.SetEnabled(false);
-
-     
         }
 
         #endregion

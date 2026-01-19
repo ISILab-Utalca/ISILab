@@ -120,7 +120,7 @@ namespace ISILab.LBS.VisualElements
             Type ActiveManipulator = ToolKit.Instance.GetActiveManipulatorInstance().GetType();
             bool usingAddNode = ActiveManipulator == typeof(AddGraphNode);
             
-            // only set select if using addnode or remove node
+            // only set select if using addnode
             if (usingAddNode)
             {
                 if (_prevManipulatorType is null)

@@ -4,6 +4,7 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -26,10 +27,19 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            var note = new LBSNote(new Vector2(endPosition.x, endPosition.y), "Write your whatever");
+            var note = new LBSNote(endPosition, "Write your comment");
+
+            var level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Add Note");
 
             var noteBehaviour = LBSMainWindow.Instance._selectedLayer.GetBehaviour<NoteBehaviour>();
             noteBehaviour?.AddNote(note);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(level);
+            }
         }
     }
 }
