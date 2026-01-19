@@ -167,7 +167,7 @@ namespace ISILab.LBS.VisualElements.Editor
             view.OnNameChange += layer.InvokeNameChanged;
 
             CheckOpacity();
-    }
+        }
 
         private void SelectionChanged(IEnumerable<object> objs)
         {
@@ -209,7 +209,6 @@ namespace ISILab.LBS.VisualElements.Editor
         }
         
         #endregion
-
 
         #region LAYER MANAGEMENT
         private void AddLayerByTemplate(int index)
@@ -261,7 +260,6 @@ namespace ISILab.LBS.VisualElements.Editor
 
             return newName;
         }
-
 
         private void RemoveSelectedLayer()
         {
@@ -324,9 +322,9 @@ namespace ISILab.LBS.VisualElements.Editor
         private void SetSelectedLayer(LBSLayer layer)
         {
             //Debug.Log("SET SELECTED LAYER");
-            if(_selectedLayer is not null)
-            { 
-                _selectedLayer.OnChangeUpdate(); 
+            if (_selectedLayer is not null)
+            {
+                _selectedLayer.OnChangeUpdate();
             }
 
             _selectedLayer = layer;
@@ -340,7 +338,6 @@ namespace ISILab.LBS.VisualElements.Editor
         {
             _list.ClearSelection();
             SetSelectedLayer(null);
-   
         }
 
         private void UpdateNoSelectedLayer()

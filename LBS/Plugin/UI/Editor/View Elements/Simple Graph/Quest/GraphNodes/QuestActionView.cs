@@ -186,9 +186,6 @@ namespace ISILab.LBS.VisualElements
         #region Mouse Events
         protected override void OnMouseDown(MouseDownEvent evt)
         {
-            if (Node == null) return;
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
-            
             base.OnMouseDown(evt);
             if (evt.button == 1)
             {
@@ -200,10 +197,10 @@ namespace ISILab.LBS.VisualElements
         protected override void OnMouseEnter(MouseEnterEvent evt)
         {
             if (Node == null) return;
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
+
+            base.OnMouseEnter(evt);
 
             _questActionDetails.SetDisplays(InvalidConnectionIcon, _iconGrammarInvalid, _iconNodeDataInvalid);
-            base.OnMouseEnter(evt);
         }
 
         protected override void OnMouseLeave(MouseLeaveEvent evt)

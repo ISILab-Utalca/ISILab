@@ -36,7 +36,7 @@ namespace ISILab.LBS.Drawers
         {
             if (target is not NoteBehaviour nb) return;
 
-            foreach (LBSNote note in nb.Keys)
+            foreach (var note in nb.Notes)
             {
                 if (note == null) continue;
 
@@ -52,7 +52,7 @@ namespace ISILab.LBS.Drawers
         {
             if (target is not NoteBehaviour nb) return;
 
-            foreach (LBSNote note in nb.Keys)
+            foreach (var note in nb.Notes)
             {
                 foreach (var graphElement in view.GetElementsFromLayer(nb.OwnerLayer, note).Where(graphElement => graphElement != null))
                 {
