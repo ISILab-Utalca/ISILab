@@ -120,7 +120,7 @@ namespace ISILab.LBS.VisualElements
         {
             RestoreManipulator();
         }
-        
+
         void SetupResizeHandle(string handleName, string handleCode, bool isCenter)
         {
             VisualElement handle = this.Q<VisualElement>(handleName);
@@ -233,7 +233,7 @@ namespace ISILab.LBS.VisualElements
             Vector2 nodeWorldCenter = nodeRect.position + nodeRect.size / 2f;
             Vector2 to = this.WorldToLocal(nodeWorldCenter); // convert world to local space
 
-            if (_isDragging) _currentColor = new Color(0, 0, 0, 0); // transparent if moving
+            //if (_isDragging) _currentColor = new Color(0, 0, 0, 0); // transparent if moving
             painter.DrawDottedLine(center, to, _currentColor, 4f, 10f);
         }
 
@@ -268,6 +268,7 @@ namespace ISILab.LBS.VisualElements
             {
                 if (_prevManipulatorType is null)
                 {
+                    Debug.Log("Stored");
                     _prevManipulatorType = activeManipulator;
                 }
                 
@@ -308,12 +309,15 @@ namespace ISILab.LBS.VisualElements
             _data.Graph?.NodeDataChanged(_data.OwnerNode);
             DrawManager.Instance.RedrawLayer(_data.Layer);
             DrawManager.Instance.PickingModeRestoreAll();
+
+            RestoreManipulator();
         }
 
         private void RestoreManipulator()
         {
             if (_prevManipulatorType is not null)
             {
+                Debug.Log("Restored");
                 ToolKit.Instance.SetActive(_prevManipulatorType);
                 _prevManipulatorType = null;
             }
