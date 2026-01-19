@@ -90,7 +90,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y - 1))) == null)
             }.Count(t => t));
 
-            Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
+            //Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
             var tilePrefPair = new Dictionary<LBSTile, GameObject>();
 
             foreach(LBSTile chosenTile in chosenTilesOrdered)
@@ -159,7 +159,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         //Debug.Log("starter chosen instead of grid");
                         pref = pair?.Item1?.Owner?.Assets[0]?.obj;
                     }
-                    Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
+                    //Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
                     tilePrefPair.Add(chosenTile, pref);
                 }
                 else
@@ -301,7 +301,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var rightSide = checkedGrids.ContainsKey("Right") ? "Generated" : adjacentBundles.ContainsKey("Right") ? "Unchecked" : "Border";
             var topSide = checkedGrids.ContainsKey("Up") ? "Generated" : adjacentBundles.ContainsKey("Up") ? "Unchecked" : "Border";
             var downSide = checkedGrids.ContainsKey("Down") ? "Generated" : adjacentBundles.ContainsKey("Down") ? "Unchecked" : "Border";
-            Debug.Log("LEFT: " + leftSide + "| RIGHT: " + rightSide + "| UP: " + topSide + " | DOWN: " + downSide);
+            //Debug.Log("LEFT: " + leftSide + "| RIGHT: " + rightSide + "| UP: " + topSide + " | DOWN: " + downSide);
             
             foreach (AssetConnectionGrid grid in gridSelector.GridList)
             {

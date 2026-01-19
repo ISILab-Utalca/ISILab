@@ -82,6 +82,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         public Action OnColorRemoved;
         public Action<float> OnScaleModify;
 
+        public Action RevertChangesConfirmed;
+        public Action ClearChangesConfirmed;
+
         #region CONSTRUCTOR
         public void CreateGUI()
         {
@@ -137,11 +140,28 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
             //Revert button!
             revertButton = rootVisualElement.Q<Button>("RevertButton");
+            revertButton.clicked += () =>
+            {
+                if (EditorUtility.DisplayDialog("Revert Changes", "All unsaved changes will be reverted. Continue?", "Yes", "No"))
+                {
+                    RevertChangesConfirmed?.Invoke();
+                }
+                    
+            };
             //Clear button!
             clearButton = rootVisualElement.Q<Button>("ClearButton");
+            clearButton.clicked += () =>
+            {
+                if (EditorUtility.DisplayDialog("Clear Changes", "This will clear all grids. Continue?", "Yes", "No"))
+                {
+                    ClearChangesConfirmed?.Invoke();
+                }
+            };
+
             //Save button!
             saveButton = rootVisualElement.Q<Button>("SaveButton");
-            //Update button!
+            
+            //Update button! This one didn't work so it's disabled lol
             updateButton = rootVisualElement.Q<Button>("UpdateButton");
             updateButton.clicked += () => {
                 connectionGridTarget.UpdateGridList();
@@ -307,10 +327,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                 };
 
                 //Button interaction
-                clearButton.clicked += () => { _newGridWindow.ClearGrid(); };
                 saveButton.clicked += () => { _newGridWindow.SaveChanges(); };
-                revertButton.clicked += () => { _newGridWindow.RevertChanges(); };
-                //128 * (previewScaleSlider.value);
+                ClearChangesConfirmed += () => { _newGridWindow.ClearGrid(); };
+                RevertChangesConfirmed += () => { _newGridWindow.RevertChanges(); };
+
                 OnWindowClosed += () => { _newGridWindow.OnRemove?.Invoke(); };
                 gridsVE.Add(_newGridWindow);
             }
