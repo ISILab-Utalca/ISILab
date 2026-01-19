@@ -53,14 +53,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             if (layer.Behaviours.Count == 0)
             {
-                return new GeneratedGO(null,"No behaviours found");
+                return new GeneratedGO(null,new LBSLog("No behaviours found", LogType.Error));
             }
             
             var exteriorBehaviour = layer.Behaviours.Find(b => b is ExteriorBehaviour) as ExteriorBehaviour;
             var bundle = exteriorBehaviour?.Bundle; 
             if (bundle == null)
             {
-                return new GeneratedGO(null, "Bundle not found");
+                return new GeneratedGO(null, new LBSLog("Bundle not found", LogType.Error));
             }
             
             var selected = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
@@ -207,7 +207,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (tiles.Count == 0)
             {
                 UnityEngine.Object.DestroyImmediate(mainPivot);
-                return new GeneratedGO(null, "No tiles were created in the tool. Can't generate game object.");
+                return new GeneratedGO(null, 
+                    new LBSLog("No tiles were created in the tool. Can't generate game object.", LogType.Error));
             }
 
             //Decides the position of the pivot based on the average position of every object generated
@@ -225,7 +226,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             mainPivot.transform.position += settings.position;
 
-            return new GeneratedGO(mainPivot, null);
+            return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 
         private GameObject ChoosePatternByGrid(Bundle currentBundle, Dictionary<string, Bundle> adjacentBundles, Dictionary<string, GameObject> adjacentPreferences)
@@ -389,9 +390,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return base.GetHashCode();
         }
 
-        public override List<Message> CheckViability(LBSLayer layer)
+        public override bool CheckViability(LBSLayer layer)
         {
-            throw new NotImplementedException(); // TODO: Implement this method to check if the rule is viable for the layer
+            return true; // TODO: Implement this method to check if the rule is viable for the layer
         }
     }
 }

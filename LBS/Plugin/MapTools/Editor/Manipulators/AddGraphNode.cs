@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -36,12 +37,14 @@ namespace ISILab.LBS.Manipulators
         {
             if (_behaviour.activeGraphNodeType == null)
             {
-                LBSMainWindow.MessageNotify("Can't add node. Make sure a node is selected from the behaviour panel.", LogType.Error, 5);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("Can't add node. Make sure a node is selected from the behaviour panel.", LogType.Error, 5));
                 return;
             }
             if (_behaviour.activeGraphNodeType == typeof(QuestNode) && _behaviour.ActionToSet == string.Empty)
             {
-                LBSMainWindow.MessageNotify("Can't add node. Make sure to select a grammar and a word.", LogType.Error, 5);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("Can't add node. Make sure to select a grammar and a word.", LogType.Error, 5));
                 return;
             }
 

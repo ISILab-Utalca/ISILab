@@ -11,6 +11,7 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -78,7 +79,8 @@ namespace ISILab.LBS.Manipulators
 
             if (ToSet == null)
             {
-                LBSMainWindow.MessageNotify("You don't have any selected Zone to paint with. Create a new Zone in the Behaviours panel or press 'CTRL' when left clicking.", LogType.Error, 8);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("You don't have any selected Zone to paint with. Create a new Zone in the Behaviours panel or press 'CTRL' when left clicking.", LogType.Error, 8));
                 return;
             }
             

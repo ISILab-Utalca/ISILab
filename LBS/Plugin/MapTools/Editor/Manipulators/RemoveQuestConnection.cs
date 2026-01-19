@@ -1,6 +1,7 @@
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -37,7 +38,8 @@ namespace ISILab.LBS.Manipulators
 
             if (edge == null) 
             {
-                LBSMainWindow.MessageNotify("No Edge Selected to Remove", LogType.Error, 5);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("No Edge Selected to Remove", LogType.Error, 5));
                 return; 
             }
 

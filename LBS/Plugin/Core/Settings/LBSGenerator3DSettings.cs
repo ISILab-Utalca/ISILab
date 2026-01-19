@@ -5,6 +5,35 @@ using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Core.Settings
 {
+
+    public struct LBSLog
+    {
+        public string message;
+        public LogType type;
+        public int duration;
+
+        // Makes an empty message that is not actually displayed
+        public LBSLog(int anyValue)
+        {
+            message = string.Empty;
+            type = LogType.Log;
+            duration = 0;
+        }
+
+        public LBSLog(string message = "ISILab:", LogType type = LogType.Log, int duration = 3)
+        {
+            this.message = message;
+            this.type = type;
+            this.duration = duration;
+        }
+    }
+    public enum OptimizationGenMode
+    {
+        None,
+        Batch,
+        Render
+    }
+
     [System.Serializable]
     public class LBSGenerator3DSettings
     {
@@ -37,8 +66,20 @@ namespace ISILab.LBS.Plugin.Core.Settings
         public bool replacePrevious = true;
 
         [SerializeField]
+        [JsonConverter(typeof(bool))]
+        public bool buildLightProbes = true;
+
+        [SerializeField]
+        [JsonConverter(typeof(bool))]
+        public bool bakeLights = false;
+
+        [SerializeField]
+        [JsonConverter(typeof(OptimizationGenMode))]
+        public OptimizationGenMode optimization3d = OptimizationGenMode.None;
+
+        [SerializeField]
         [HideInInspector]
-        public string name = "DEFAULT";
+        public string generatedRootName = "DEFAULT";
             
         [SerializeField]
         public string rootParentName = "Root_Parent";
@@ -60,7 +101,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
             if (!this.position.Equals(other.position)) return false;
 
             // check if name is the same
-            if (this.name != other.name) return false;
+            if (this.generatedRootName != other.generatedRootName) return false;
 
             // check if rootParentName is the same
             if (this.rootParentName != other.rootParentName) return false;

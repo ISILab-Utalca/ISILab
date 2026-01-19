@@ -188,7 +188,8 @@ namespace ISILab.LBS.VisualElements.Editor
             presetField.RegisterValueChangedCallback(evt =>
             {
                 UpdatePreset(evt.newValue);
-                LBSMainWindow.MessageNotify($"Selected MAP Elite preset: {evt.newValue}");
+                LBSMainWindow.MessageNotify(
+                    new LBSLog($"Selected MAP Elite preset: {evt.newValue}"));
             });
 
             //Progress Bar and Sliders
@@ -259,7 +260,8 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 if (presetField.value is not null)
                     Selection.activeObject = presetFieldRef.value;
-                else LBSMainWindow.MessageNotify("No preset selected.", LogType.Warning);
+                else LBSMainWindow.MessageNotify(
+                    new LBSLog("No preset selected.", LogType.Warning));
             };
 
             resetPresetButton = rootVisualElement.Q<Button>("ResetPresetButton");
@@ -273,7 +275,8 @@ namespace ISILab.LBS.VisualElements.Editor
             autoSelectButton.clicked += () =>
             {
                 _assistant.AutoSelectArea(out List<string> logs);
-                logs.ForEach(log => LBSMainWindow.MessageNotify(log, LogType.Warning, 5));
+                logs.ForEach(log => LBSMainWindow.MessageNotify(
+                    new LBSLog(log, LogType.Warning, 5)));
                 DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
             };
             
@@ -557,7 +560,8 @@ namespace ISILab.LBS.VisualElements.Editor
         {
             if(mapEliteBundle == null)
             {
-                LBSMainWindow.MessageNotify("MAP Elite Preset not selected or null.", LogType.Error, 5);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("MAP Elite Preset not selected or null.", LogType.Error, 5));
                 Debug.LogError("[ISI Lab]: MAP Elite Preset not selected or null.");
                 return;
             }
@@ -565,7 +569,8 @@ namespace ISILab.LBS.VisualElements.Editor
             //Check if there's a place to optimize
             if (_assistant.RawToolRect.width == 0 || _assistant.RawToolRect.height == 0)
             {
-                LBSMainWindow.MessageNotify("Use the Area Selector tool to select an area to optimize before starting MAP Elites.", LogType.Error, 5);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("Use the Area Selector tool to select an area to optimize before starting MAP Elites.", LogType.Error, 5));
                 Debug.LogError("[ISI Lab]: Selected evolution area height or width < 0");
                 return;
             }
@@ -582,7 +587,7 @@ namespace ISILab.LBS.VisualElements.Editor
             _assistant.SetAdam(_assistant.RawToolRect, Data.ContextLayers);
             recalculate.text = "Recalculate";
             
-            LBSMainWindow.MessageNotify("Calculating.");
+            LBSMainWindow.MessageNotify(new LBSLog("Calculating."));
             sw.Start();
             RunExecuteTask();
             DefaultGraphsValues();
@@ -598,8 +603,9 @@ namespace ISILab.LBS.VisualElements.Editor
             EditorApplication.delayCall += () =>
             {
                 sw.Stop();
-                LBSMainWindow.MessageNotify($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)",
-                    LogType.Log, 5);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)",
+                    LogType.Log, 5));
                 Debug.Log($"MAP Elites finished. ({sw.ElapsedMilliseconds} ms.)");
                 
                 TaskBar.EnableProcess(false);
@@ -671,7 +677,7 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 EditorUtility.SetDirty(level);
             }
-            LBSMainWindow.MessageNotify("Layer modified by Population Assistant");
+            LBSMainWindow.MessageNotify(new LBSLog("Layer modified by Population Assistant"));
 
             LayerPopulation.OwnerLayer.OnChangeUpdate();
         }
@@ -710,7 +716,8 @@ namespace ISILab.LBS.VisualElements.Editor
                     {
                         if (!suggestionData.Equals(storedMap.Map)) continue;
                         
-                        LBSMainWindow.MessageNotify("An equal suggestion already exists.", LogType.Warning);
+                        LBSMainWindow.MessageNotify(
+                            new LBSLog("An equal suggestion already exists.", LogType.Warning));
                         return;
                     }
                 }
@@ -721,7 +728,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 levelData.SaveMapInLayer(newSavedMap, layer);
             }
 
-            LBSMainWindow.MessageNotify("Suggestion pinned.");
+            LBSMainWindow.MessageNotify(new LBSLog("Suggestion pinned."));
             UpdatePins?.Invoke();
 
         }
@@ -732,7 +739,8 @@ namespace ISILab.LBS.VisualElements.Editor
             if (originalTileMap == null) return;
             if (LayerPopulation.Tilemap == null)
             {
-                LBSMainWindow.MessageNotify("Layer tile map not found."); return;
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("Layer tile map not found.")); return;
             }
 
             
@@ -743,7 +751,8 @@ namespace ISILab.LBS.VisualElements.Editor
 
             LayerPopulation.ReplaceTileMap(originalTileMap);
             DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);
-            LBSMainWindow.MessageNotify("Layer reset.");
+            LBSMainWindow.MessageNotify(
+                new LBSLog("Layer reset."));
 
             if (EditorGUI.EndChangeCheck())
             {

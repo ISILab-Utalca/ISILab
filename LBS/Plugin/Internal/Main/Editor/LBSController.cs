@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using ISILab.Commons.JsonNet;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS
 {
@@ -46,7 +47,8 @@ namespace ISILab.LBS
             CurrentLevel = LoadedLevel.CreateInstance(data, fileInfo.FullName);
             CurrentLevel.data.Reload();
             OnLoadLevel?.Invoke(CurrentLevel.data);
-            LBSMainWindow.MessageNotify("The level '\" + fileInfo.Name + \"' has been loaded successfully.");
+            LBSMainWindow.MessageNotify(
+                new LBSLog("The level '\" + fileInfo.Name + \"' has been loaded successfully."));
         }
 
         /// <summary>
@@ -82,7 +84,7 @@ namespace ISILab.LBS
 
                 case 1: // Discard
                     
-                    LBSMainWindow.MessageNotify("Level discarded.");
+                    LBSMainWindow.MessageNotify(new LBSLog("Level discarded."));
                     
                     path = EditorUtility.OpenFilePanel("Load level data", "", "lbs");
                     if (path == "")
@@ -120,7 +122,7 @@ namespace ISILab.LBS
             {
                 if (JSONDataManager.SaveData(fileInfo.DirectoryName, fileInfo.Name, CurrentLevel.data))
                 {
-                    LBSMainWindow.MessageNotify("The file has been saved.");
+                    LBSMainWindow.MessageNotify(new LBSLog("The file has been saved."));
                     return true;
                 }
             }
@@ -162,7 +164,7 @@ namespace ISILab.LBS
                 Debug.Log("Save file on: '" + directory + filename + "'.");
                 JSONDataManager.SaveData(directory, filename, CurrentLevel.data);
                 LBS.loadedLevel.fullName = path;
-                LBSMainWindow.MessageNotify("The file has been saved.");
+                LBSMainWindow.MessageNotify(new LBSLog("The file has been saved."));
             }
             return (path != "");
         }

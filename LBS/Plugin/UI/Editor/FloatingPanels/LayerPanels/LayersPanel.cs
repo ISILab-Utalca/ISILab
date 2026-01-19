@@ -234,7 +234,8 @@ namespace ISILab.LBS.VisualElements.Editor
             OnAddLayer?.Invoke(layer);
             SetSelectedLayer(layer); // Aca tambien se invoca OnSelectLayer, seria bueno unificarlo de alguna forma para que se llame solo una vez en los casos que corresponda
 
-            LBSMainWindow.MessageNotify("New Data layer created");
+            LBSMainWindow.MessageNotify(
+                new LBSLog("New Data layer created"));
             _list.Rebuild();
 
             foreach (var layerView in _layerViews)
@@ -280,7 +281,8 @@ namespace ISILab.LBS.VisualElements.Editor
             _list.Rebuild();
 
             SetSelectedLayer(GetNextLayerAfterRemoval(index));
-            LBSMainWindow.MessageNotify("Data layer deleted");
+            LBSMainWindow.MessageNotify(
+                new LBSLog("Data layer deleted"));
         }
 
         private LBSLayer GetNextLayerAfterRemoval(int removedIndex)

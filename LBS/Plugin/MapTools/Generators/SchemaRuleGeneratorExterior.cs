@@ -61,12 +61,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             this.settings = settings;
         }
 
-        public override List<Message> CheckViability(LBSLayer layer)
+        public override bool CheckViability(LBSLayer layer)
         {
             var msgs = new List<Message>();
             var zonesMod = layer.GetModule<SectorizedTileMapModule>();
 
-            return msgs;
+            return zonesMod != null;
         }
 
         private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, List<string> connections, LBSTile tile)
@@ -226,7 +226,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             if (tiles.Count <= 0)
             {
-                return new GeneratedGO(mainPivot, "Could not finish generating zone, no tiles found");
+                return new GeneratedGO(mainPivot, 
+                    new LBSLog("Could not finish generating zone, no tiles found", LogType.Error));
             }
             
             var x = tiles.Average(t => t.transform.position.x);
@@ -242,7 +243,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             mainPivot.transform.position += settings.position;
 
-            return new GeneratedGO(mainPivot, null);
+            return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 
         public override object Clone()

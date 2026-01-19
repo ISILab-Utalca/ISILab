@@ -87,7 +87,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             this.settings = settings;
         }
 
-        public override List<Message> CheckViability(LBSLayer layer)
+        public override bool CheckViability(LBSLayer layer)
         {
             List<Message> msgs = new List<Message>();
             SectorizedTileMapModule zonesMod = layer.GetModule<SectorizedTileMapModule>();
@@ -100,6 +100,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         Message.Type.Warning,
                         "La zona '" + zone + "' no contiene bundles de estilo para crear el outside."
                         ));
+                    return false;
                 }
 
                 if (zone.InsideStyles.Count <= 0)
@@ -108,10 +109,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         Message.Type.Warning,
                         "La zona '" + zone + "' no contiene bundles de estilo para crear el inside."
                         ));
+                    return false;
                 }
             }
 
-            return msgs;
+            return true;
         }
 
         /// <summary>
@@ -386,8 +388,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 {
                     GameObject lightObject = new GameObject("lv_" + zone.ID);
                     LightProbeCubeGenerator light = lightObject.AddComponent<LightProbeCubeGenerator>();
-                  //  lightObject.AddComponent<LightProbeGroup>();
-                   // lightObject.AddComponent<BoxCollider>();
                
                     centerPos.y -= centerPos.y * settings.scale.y; // to be in the center of the room
                     lightObject.transform.position = centerPos;
@@ -404,7 +404,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
             if (tiles.Count <= 0)
             {
-                return new GeneratedGO(mainPivot, "No tiles found");
+                return new GeneratedGO(mainPivot, 
+                    new LBSLog("No tiles found", LogType.Error));
             }
             
             // tiles
@@ -456,7 +457,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // main
             mainPivot.transform.position += settings.position;
             
-            return new GeneratedGO(mainPivot, null);
+            return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 
         private GameObject CreateObject(GameObject pref, Transform pivot)

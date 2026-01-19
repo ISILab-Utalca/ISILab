@@ -16,12 +16,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public struct GeneratedGO
         {
             public GameObject go;
-            public string message;
+            public LBSLog log;
 
-            public GeneratedGO(GameObject _go, string _message)
+            public GeneratedGO(GameObject _go, LBSLog _log)
             {
                 go = _go;
-                message = _message;
+                log = _log;
             }
         }
 
@@ -41,7 +41,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// </summary>
         /// <param name="layer"></param>
         /// <returns></returns>
-        public abstract List<Message> CheckViability(LBSLayer layer);
+        public abstract bool CheckViability(LBSLayer layer);
 
         /// <summary>
         /// Clone this object to obtain a new instance of this object
