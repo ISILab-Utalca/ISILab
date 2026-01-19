@@ -140,6 +140,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                         if (ColorPaletteKey.ContainsKey(assetGrid.TerrainFlag[pos]))
                         {
                             _tile.ChangeValue(assetGrid.TerrainFlag[pos]);
+                        } else if (assetGrid.TerrainFlag[pos] == -1)
+                        {
+                            _tile.ChangeValue(-1);
                         } else
                         {
                             //TODO: Work on a way to be able to revert the colors and such.

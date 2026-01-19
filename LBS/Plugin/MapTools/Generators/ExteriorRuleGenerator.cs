@@ -81,7 +81,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
             //We have the tiles here
             var chosenTiles = mapMod.Tiles;
-            var chosenTilesOrdered = chosenTiles.OrderByDescending(c => (Mathf.Abs(c.x) +(Mathf.Abs(c.y))));
+
+            //This is a HORRIFYING way to order the tiles. PLEASE change it if you find a better way! -Alice
+            var chosenTilesOrdered = chosenTiles.OrderByDescending(c => new bool[] {
+            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x - 1, c.Position.y))) == null),
+            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x + 1, c.Position.y))) == null),
+            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y + 1))) == null),
+            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y - 1))) == null)
+            }.Count(t => t));
+
             Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
             var tilePrefPair = new Dictionary<LBSTile, GameObject>();
 
@@ -93,7 +101,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 //Get current bundle
                 var currentBundle = pair?.Item1?.Owner;
                 Debug.Log(chosenTile.Position.x + " | " + chosenTile.Position.y + " : " + currentBundle);
-                
+
                 //Then see if it has a selector. If not, we go for random!
                 var patternSelector = currentBundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault();
 
@@ -148,7 +156,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     //var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
                     var pref = ChoosePatternByGrid(currentBundle, adjacentBundles, adjacentPrefs);
                     if(pref==null) {
-                        Debug.Log("starter chosen instead of grid");
+                        //Debug.Log("starter chosen instead of grid");
                         pref = pair?.Item1?.Owner?.Assets[0]?.obj;
                     }
                     Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
@@ -305,7 +313,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     switch (leftSide)
                     {
                         case "Border": 
-                            removalClause = grid.FlagFromVector(0, i) != -1 && grid.FlagFromVector(0, i) != 0;
+                            removalClause = grid.FlagFromVector(0, i) != -1;
                             break;
                         case "Unchecked":
                             if (grid.FlagFromVector(0, i) == -1)
@@ -329,16 +337,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             }
                             break;
                         case "Generated":
+                            //If the grid flag has a code other than 0, it HAS to be compared to the generated tile near it. If it is 0, it can connect to anything except borders.
                             int flag = checkedGrids["Left"].FlagFromVector(grid.BorderSize - 1, i);
-                            removalClause = (flag != grid.FlagFromVector(0, i)) && (flag != 0);
-                            break;
+                            if (flag != 0)
+                            {
+                                removalClause = (flag != grid.FlagFromVector(0, i));
+                            } else
+                            {
+                                removalClause = grid.FlagFromVector(0, i) == -1;
+                            } break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in left side because of " + i); break; }
+                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in left side because of " + i);*/ break; }
 
                     switch(rightSide)
                     {
                         case "Border":
-                            removalClause = grid.FlagFromVector(grid.BorderSize - 1, i) != -1 && grid.FlagFromVector(grid.BorderSize-1, i) != 0;
+                            removalClause = grid.FlagFromVector(grid.BorderSize - 1, i) != -1;
                             break;
                         case "Unchecked":
                             if (grid.FlagFromVector(grid.BorderSize - 1, i) == -1)
@@ -364,15 +378,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             break;
                         case "Generated":
                             int flag = checkedGrids["Right"].FlagFromVector(0, i);
-                            removalClause = (flag != grid.FlagFromVector(grid.BorderSize - 1, i)) && (flag != 0);
+                            if (flag != 0)
+                            {
+                                removalClause = (flag != grid.FlagFromVector(grid.BorderSize - 1, i));
+                            }
+                            else
+                            {
+                                removalClause = grid.FlagFromVector(grid.BorderSize - 1, i) == -1;
+                            }
                             break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in right side because of "+i); break; }
+                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in right side because of "+i);*/ break; }
 
                     switch (topSide)
                     {
                         case "Border":
-                            removalClause = grid.FlagFromVector(i, 0) != -1 && grid.FlagFromVector(i, 0) != 0;
+                            removalClause = grid.FlagFromVector(i, 0) != -1;
                             break;
                         case "Unchecked":
                             if (grid.FlagFromVector(i, 0) == -1)
@@ -398,15 +419,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             break;
                         case "Generated":
                             int flag = checkedGrids["Up"].FlagFromVector(i, grid.BorderSize-1);
-                            removalClause = (flag != grid.FlagFromVector(i, 0)) && (flag != 0);
+                            if (flag != 0)
+                            {
+                                removalClause = (flag != grid.FlagFromVector(i, 0));
+                            }
+                            else
+                            {
+                                removalClause = grid.FlagFromVector(i, 0) == -1;
+                            }
                             break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in up side because of " + i); break; }
+                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in up side because of " + i);*/ break; }
 
                     switch (downSide)
                     {
                         case "Border":
-                            removalClause = grid.FlagFromVector(i, grid.BorderSize-1) != -1 && grid.FlagFromVector(i, grid.BorderSize - 1) != 0;
+                            removalClause = grid.FlagFromVector(i, grid.BorderSize - 1) != -1;
                             break;
                         case "Unchecked":
                             if(grid.FlagFromVector(i, grid.BorderSize-1) == -1)
@@ -432,10 +460,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                             break;
                         case "Generated":
                             int flag = checkedGrids["Down"].FlagFromVector(i, 0);
-                            removalClause = (flag != grid.FlagFromVector(i, grid.BorderSize - 1)) && (flag != 0);
+                            if (flag != 0)
+                            {
+                                removalClause = (flag != grid.FlagFromVector(i, grid.BorderSize - 1));
+                            }
+                            else
+                            {
+                                removalClause = grid.FlagFromVector(i, grid.BorderSize - 1) == -1;
+                            }
                             break;
                     }
-                    if (removalClause) { assetGridList.Remove(grid); Debug.Log(grid.AssetReference.obj + "removed in down side because of " + i); break; }
+                    if (removalClause) { assetGridList.Remove(grid); /*Debug.Log(grid.AssetReference.obj + "removed in down side because of " + i);*/ break; }
                 }
             }
             //Hopefully it's not a lot of executions
