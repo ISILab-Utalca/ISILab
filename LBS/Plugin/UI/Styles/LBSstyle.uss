@@ -2,6 +2,8 @@
 :root {
 }
 
+/* #region LBS Generic  */
+
 Label {
     font-size: 12px;
     color: var(--lbs-text-color, var(--lbs-default-text-color));
@@ -17,6 +19,9 @@ Label {
     -unity-text-align: middle-left;
     font-size: 12px;
 }
+
+/* #endregion */
+/* #region LBS Base Field  */
 
 .lbs-field {
     flex-direction: row;
@@ -35,12 +40,11 @@ Label {
 .lbs-field Label {
     padding-right: 4px;
     min-width: auto;
-    color: var(--lbs-default-text-color);
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
 }
 
-.lbs-text-element {
-    color: var(--lbs-default-text-color);
-}
+/* #endregion */
+/* #region Icons  */
 
 .lbs-icon {
     -unity-background-image-tint-color: var(--lbs-icon-color, var(--lbs-default-icon-color));
@@ -99,11 +103,11 @@ Label {
     background-image: resource('Icons/Vectorial/3D_Icon_Vector');
 }
 
+/* #endregion */
+/* #region Tool Buttons Toggles  */
+
 .lbs-tool-button-toggle {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin:     0px;
     height: 30px;
     background-color: var(--lbs-selectable-gray-color);
     -unity-text-align: middle-center;
@@ -151,6 +155,11 @@ Label {
     background-color: var(--lbs-selection-neutral-blue-color);
 }
 
+
+.lbs-rounded-button > .unity-toggle__input{
+    display: none;
+}
+
 .lbs-tool-bar-button {
     border-left-width: 1px;
     border-right-width: 1px;
@@ -175,6 +184,10 @@ Toggle > .lbs-default-icon {
     display: flex;
 }
 
+
+/* #endregion */
+/* #region Notificator  */
+
 .lbs-notificator {
     background-color: var(--lbs-base-solid-gray-color);
     border-left-width: 1px;
@@ -191,6 +204,9 @@ Toggle > .lbs-default-icon {
     border-bottom-color: var(--lbs-white-overlay-color);
 }
 
+/* #endregion */
+/* #region Popups  */
+
 .lbs_popup {
     background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
     margin-top: 71px;
@@ -203,28 +219,73 @@ Toggle > .lbs-default-icon {
     overflow: hidden;
 }
 
-.lbs-text-field-container > TextInput {
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-top-left-radius: 1.5px;
-    border-bottom-left-radius: 1.5px;
-    border-top-right-radius: 1.5px;
-    border-bottom-right-radius: 1.5px;
-    border-left-color: rgba(0, 0, 0, 0.53);
-    border-right-color: rgba(0, 0, 0, 0.53);
-    border-top-color: rgba(0, 0, 0, 0.53);
-    border-bottom-color: rgba(0, 0, 0, 0.53);
+/* #endregion */
+/* #region Text Fields  */
+
+.lbs-text-element {
+    color: var(--lbs-default-text-color);
 }
+
+.lbs-text-field-container > TextInput {
+    border-width: 1px;
+    border-radius: 1.5px;
+    border-color: rgba(0, 0, 0, 0.53);
+}
+
+/* #endregion */
+/* #region Foldout  */
 
 .lbs-foldout-title {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.lbs-unity-foldout__toggle > Toggle {
+    padding-right: 0;
+    -unity-font-style: bold;
+    font-size: 12px;
+    padding-bottom: 10px;
+    -unity-text-align: lower-left;
+    margin-bottom: 5px;
+}
+
+.lbs-unity-foldout__toggle > VisualElement {
+    flex-direction: column;
+    align-items: stretch;
+    align-self: stretch;
+    justify-content: space-between;
+    flex-grow: 0;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.lbs-customFoldout-arrow {
+    align-self: center;
+    align-content: stretch;
+    align-items: center;
+    background-image: resource('Icons/Arrows/Icon=ArrowDown');
+}
+
+.lbs-customFoldout-arrow > Toggle > VisualElement {
+    align-self: center;
+    align-content: stretch;
+    align-items: center;
+    background-image: none;
+    display: none;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}
+
+/* #endregion */
+/* #region Toolbar  */
+
 .unity-toolbar-button {
     background-image: none;
 }
+
+/* #endregion */
+/* #region LBS Button  */
 
 .lbs-button {
     background-color: var(--lbs-selectable-gray-color);
@@ -271,6 +332,9 @@ Toggle > .lbs-default-icon {
     color: var(--lbs-icon-color, var(--lbs-default-icon-color));
 }
 
+/* #endregion */
+/* #region Tab Button  */
+
 .lbs-tab-button {
     background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
     background-image: none;
@@ -295,18 +359,12 @@ Toggle > .lbs-default-icon {
     background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
 }
 
-.lbs-tab-button:selected {
-}
-
 .lbs-tab-button:active {
 }
 
 .lbs-tab-button > VisualElement {
     height: 24px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0px;
     background-image: none;
     flex-shrink: 1;
     flex-grow: 0;
@@ -318,50 +376,23 @@ Toggle > .lbs-default-icon {
     width: auto;
     white-space: nowrap;
     -unity-background-scale-mode: scale-to-fit;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0px;
     flex-wrap: nowrap;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-left-color: rgba(255, 255, 255, 0);
-    border-right-color: rgba(255, 255, 255, 0);
-    border-top-color: rgba(255, 255, 255, 0);
-    border-bottom-color: rgba(255, 255, 255, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
+    border-radius: 0px;
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0px;
     -unity-background-image-tint-color: rgb(255, 255, 255);
 }
+
+/* #endregion */
+/* #region Input Field  */
 
 .lbs-input-field-float {
 }
 
-.lbs-unity-foldout__toggle > Toggle {
-    padding-right: 0;
-    -unity-font-style: bold;
-    font-size: 12px;
-    padding-bottom: 10px;
-    -unity-text-align: lower-left;
-    margin-bottom: 5px;
-}
 
-.lbs-unity-foldout__toggle > VisualElement {
-    flex-direction: column;
-    align-items: stretch;
-    align-self: stretch;
-    justify-content: space-between;
-    flex-grow: 0;
-    width: auto;
-    height: auto;
-    flex-shrink: 0;
-    margin-left: 0;
-    margin-top: 0;
-}
+
+
 
 .lbs-inspector__show {
     flex-grow: 1;
@@ -440,6 +471,10 @@ Toggle > .lbs-default-icon {
     transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
+
+
+/* #endregion */
+/* #region Deprecated!  */
 
 .lbs_ToolButton > VisualElement {
     padding-left: 2px;
@@ -537,6 +572,33 @@ Toggle > .lbs-default-icon {
     flex-shrink: 0;
 }
 
+
+/* #endregion */
+/* #region Enum Field  */
+
+.lbs-enum-field {
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.lbs-enum-field:focus {
+    border-color: var(--lbs-selection-focus-blue-color);
+}
+
+.lbs-enum-field-input {
+    flex-grow: 1;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .lbs-enumcolored {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0);
@@ -549,6 +611,25 @@ Toggle > .lbs-default-icon {
     -unity-text-outline-color: rgb(0, 0, 0);
     -unity-font-style: bold;
 }
+
+.lbs-enumc-red > Label {
+    color: rgb(255, 119, 126);
+    background-color: rgba(0, 0, 0, 0);
+    -unity-text-outline-width: 0.5px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-font-style: bold;
+}
+
+.lbs-enumc-white > Label {
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 0.5px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-font-style: bold;
+}
+
+/* #endregion */
+/* #region Integer Fields  */
+
 
 .lbs-integerField {
     display: flex;
@@ -565,29 +646,9 @@ Toggle > .lbs-default-icon {
     display: none;
 }
 
-.lbs-enumc-red > Label {
-    color: rgb(255, 119, 126);
-    background-color: rgba(0, 0, 0, 0);
-    -unity-text-outline-width: 0.5px;
-    -unity-text-outline-color: rgb(0, 0, 0);
-    -unity-font-style: bold;
-}
+/* #endregion */
+/* #region Progress Bar  */
 
-.lbs-customFoldout-arrow {
-    align-self: center;
-    align-content: stretch;
-    align-items: center;
-    background-image: resource('Icons/Arrows/Icon=ArrowDown');
-}
-
-.lbs-customFoldout-arrow > Toggle > VisualElement {
-    align-self: center;
-    align-content: stretch;
-    align-items: center;
-    background-image: none;
-    display: none;
-    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
-}
 
 .lbs-progressBar-score > VisualElement > VisualElement {
     align-self: stretch;
@@ -599,20 +660,14 @@ Toggle > .lbs-default-icon {
     align-items: stretch;
     flex-direction: column;
     background-color: rgba(255, 32, 32, 0);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-    border-left-width: 2px;
+    border-radius: 8px;
+    border-width: 2px;
     overflow: hidden;
-    border-left-color: rgb(32, 32, 32);
-    border-right-color: rgb(32, 32, 32);
-    border-top-color: rgb(32, 32, 32);
-    border-bottom-color: rgb(32, 32, 32);
+    border-color: rgb(32, 32, 32);
 }
+
+/* #endregion */
+/* #region Slide Int  */
 
 .lbs-slide-int {
     flex-direction: row;
@@ -644,6 +699,9 @@ Toggle > .lbs-default-icon {
     flex-wrap: nowrap;
     -unity-text-align: upper-left;
 }
+
+/* #endregion */
+/* #region Custom Object Field  */
 
 .lbs-custom-obj {
     align-self: stretch;
@@ -682,6 +740,8 @@ Toggle > .lbs-default-icon {
     height: auto;
     flex-wrap: nowrap;
 }
+
+/* #endregion */
 
 .lbs-graphHell-style {
     flex-grow: 1;
@@ -755,15 +815,7 @@ Toggle > .lbs-default-icon {
     border-bottom-color: rgb(32, 32, 32);
 }
 
-.lbs-enumc-green {
-}
 
-.lbs-enumc-white > Label {
-    color: rgb(255, 255, 255);
-    -unity-text-outline-width: 0.5px;
-    -unity-text-outline-color: rgb(0, 0, 0);
-    -unity-font-style: bold;
-}
 
 .lbs-button-dark {
     color: rgb(255, 255, 255);
@@ -918,8 +970,6 @@ Toggle > .lbs-default-icon {
     padding: 1px;
 }
 
-/* #region Item  */
-
 .lbs-item {
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
@@ -932,11 +982,6 @@ Toggle > .lbs-default-icon {
 .lbs-item:selected {
     scale: 1.3 1.3;
 }
-
-
-/* #endregion */
-/* #region List Item  */
-
 
 .lbs-list-item {
     border-left-width: 1px;
@@ -992,10 +1037,6 @@ Toggle > .lbs-default-icon {
 
 .lbs-quest-list-item {
 }
-
-
-/* #endregion */
-/* #region Action Buttons  */
 
 .lbs-action-button {
     flex-direction: row;
@@ -1102,9 +1143,6 @@ Toggle > .lbs-default-icon {
     padding-left: 0;
 }
 
-/* #endregion */
-/* #region Sidebar Toggles */
-
 #AssistantButton:selected {
     background-color: var(--lbs-selection-dark-green-color);
 }
@@ -1149,21 +1187,6 @@ Toggle > .lbs-default-icon {
     border-radius: 4px;
     margin: 2px;
     padding: 4px;
-}
-
-.lbs-enum-field {
-    padding-top: 2px;
-    padding-right: 2px;
-    padding-bottom: 2px;
-    padding-left: 2px;
-    margin-top: 2px;
-    margin-right: 2px;
-    margin-bottom: 2px;
-    margin-left: 2px;
-}
-
-.lbs-enum-field:focus {
-    border-color: var(--lbs-selection-focus-blue-color);
 }
 
 .lbs-quest-action-icon {
@@ -1347,10 +1370,7 @@ Toggle > .lbs-default-icon {
     margin-right: 0;
     margin-bottom: 2px;
     margin-left: 0;
-    padding-top: 4px;
-    padding-right: 4px;
-    padding-bottom: 4px;
-    padding-left: 4px;
+    padding: 4px;
     justify-content: space-between;
     align-items: center;
 }
@@ -1602,13 +1622,7 @@ Toggle > .lbs-default-icon {
     width: 16px;
 }
 
-.lbs-enum-field-input {
-    flex-grow: 1;
-    height: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .lbs-dropdown-field {
 }
@@ -1772,7 +1786,6 @@ Toggle > .lbs-default-icon {
     margin-bottom: 0;
     margin-left: 0;
     padding: 32px;
-    
 }
 
 .asset-grid-tile {
@@ -1781,8 +1794,14 @@ Toggle > .lbs-default-icon {
     height: 100%;
 }
 
+/* #region Pallete  */
+
 .lbs-simple-palette {
 }
+
+
+/* #endregion */
+/* #region Post It  */
 
 .lbs-post-it {
     padding: 5 6 28 3;
@@ -1791,12 +1810,23 @@ Toggle > .lbs-default-icon {
     -unity-slice-top: 32;
     -unity-slice-right: 32;
     -unity-slice-bottom: 32;
+    overflow: visible;
+    flex-grow: 1;
+    flex-direction: column;
+    padding-top: 11px;
+    padding-right: 8px;
+    padding-bottom: 39px;
+    padding-left: 10px;
+    height: auto;
 }
 
 .lbs-post-it TextInput {
     background-color: transparent;
     border-color: transparent;
     overflow: visible;
+}
+
+.lbs-post-it TextField {
 }
 
 .lbs-post-it TextElement {
@@ -1806,6 +1836,14 @@ Toggle > .lbs-default-icon {
     flex-wrap: wrap;
     width: 100%;
     text-overflow: ellipsis;
+}
+
+.lbs-post-it > Label {
+    -unity-text-align: upper-left;
+    white-space: pre-wrap;
+    flex-grow: 1;
+    font-size: 12px;
+    color: rgb(0, 0, 0);
 }
 
 .yellow-post-it {

@@ -450,21 +450,20 @@ namespace ISILab.LBS.Behaviours
 
             float totalWeight = 0;
             foreach (WeightedDirection entry in DirectionWeights) totalWeight += entry.Weight;
-            if (totalWeight <= 0f) return directions[0];
-
-            float roll = UnityEngine.Random.Range(0f, totalWeight);
-            float cumulative = 0f;
+         
+            float randomValue = UnityEngine.Random.Range(0f, totalWeight);
+            float sum = 0f;
 
             foreach (WeightedDirection entry in dirWeights)
             {
-                cumulative += entry.Weight;
-                if (roll <= cumulative)
+                sum += entry.Weight;
+                if (randomValue <= sum)
                 {
                     return DirectionToVector(entry.Direction, directions);
                 }
             }
-
-            return directions[0]; // fallback
+            // safe case
+            return DirectionToVector(ActiveRotationDirection, directions); 
         }
 
         private Vector2 DirectionToVector(string dir, List<Vector2Int> directions)

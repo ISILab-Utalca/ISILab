@@ -10,7 +10,8 @@ namespace ISILab.LBS.CustomComponents
         private VectorImage typeIcon;
         private VectorImage addIcon;
         private VectorImage minusIcon;
-        
+        private bool displayButtons = true;
+
         private uint maxValue = 100;
         private uint minValue = 0;
 
@@ -37,8 +38,20 @@ namespace ISILab.LBS.CustomComponents
             get => minValue;
             set => minValue = value; 
         }
-        
-        
+
+        [UxmlAttribute]
+        public bool DisplayButtons
+        {
+            get => displayButtons;
+            set
+            {
+                displayButtons = value;
+                DisplayStyle display = displayButtons ? DisplayStyle.Flex : DisplayStyle.None;
+                addButton.style.display = display;
+                minusButton.style.display = display;
+            }
+        }
+
         public LBSCustomUnsignedIntegerField() : base()
         {
             addButton = new Button() { text = "+" };
