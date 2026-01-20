@@ -63,7 +63,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         public override bool CheckViability(LBSLayer layer)
         {
-            var msgs = new List<Message>();
+            var msgs = new List<LBSLog>();
             var zonesMod = layer.GetModule<SectorizedTileMapModule>();
 
             return zonesMod != null;

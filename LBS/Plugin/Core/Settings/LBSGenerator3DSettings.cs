@@ -31,7 +31,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
     {
         None,
         Batch,
-        Render
+        JoinGeometry
     }
 
     [System.Serializable]

@@ -38,6 +38,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region FIELDS
+        [SerializeField, SerializeReference]
         private LBSGenerator3DSettings _settings;
 
         #endregion
@@ -84,12 +85,24 @@ namespace ISILab.LBS.VisualElements.Editor
             Generator ??= new Generator3D();
            // Generator = LBSSettings.Instance.generator;
 
-            _settings = Generator.settings;
+            _settings ??= Generator.settings;
             visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Generator3DPanel");
             visualTree.CloneTree(this);
 
             LoadVisualElement();
+            PostLoad();
+        }
 
+        private void PostLoad()
+        {
+            _nameField.SetValueWithoutNotify(_settings.rootParentName);
+            _positionField.SetValueWithoutNotify(_settings.position);
+            _scaleField.SetValueWithoutNotify(_settings.scale);
+            _buildLightProbes.SetValueWithoutNotify(_settings.buildLightProbes);
+            _bakeLights.SetValueWithoutNotify(_settings.bakeLights);
+            _replacePrev.SetValueWithoutNotify(_settings.replacePrevious);
+            _reflection.SetValueWithoutNotify(_settings.reflectionProbe);
+            _optimizeMode.SetValueWithoutNotify(_settings.optimization3d);
         }
 
         private void LoadVisualElement()

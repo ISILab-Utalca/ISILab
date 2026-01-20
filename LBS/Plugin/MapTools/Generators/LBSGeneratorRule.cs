@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -48,24 +47,5 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// </summary>
         /// <returns></returns>
         public abstract object Clone();
-    }
-
-    public class Message
-    {
-        public enum Type
-        {
-            Error,
-            Warning,
-            Info
-        }
-
-        public Type type;
-        public string msg;
-
-        public Message(Type type, string msg)
-        {
-            this.type = type;
-            this.msg = msg;
-        }
     }
 }

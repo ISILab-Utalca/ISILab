@@ -1,4 +1,4 @@
-using ISILab.Commons.Extensions;
+﻿using ISILab.Commons.Extensions;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -9,11 +9,375 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
+using UnityEngine.Rendering;
 using static ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule;
 using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
+    public class Generator3D
+    {
+        #region FIELDS
+
+        [SerializeField]
+        public LBSGenerator3DSettings settings = new LBSGenerator3DSettings();
+
+        [JsonRequired, SerializeReference]
+        private List<LBSGeneratorRule> rules = new();
+
+        [JsonRequired, SerializeReference]
+        private LightingSettings lightningSettings;
+
+        private GameObject sharedRoot;
+
+        private OptimizerGeometry optGeo;
+        private OptimizerBatcher optBatch;
+
+        #endregion
+
+        #region PROPERTIES
+
+        private LightingSettings LightningSettings =>
+            lightningSettings ??= LBSAssetMacro.LoadAssetByGuid<LightingSettings>(
+                "e64852b0a0c259543bc34a95930684dd");
+
+        private OptimizerGeometry OptGeo 
+        { 
+            get
+            {
+                optGeo ??= new OptimizerGeometry();
+                return optGeo;
+            }
+        }
+        private OptimizerBatcher OptBatch
+        {
+            get
+            {
+                optBatch ??= new OptimizerBatcher();
+                return optBatch;
+            }
+        }
+
+        #endregion
+
+        #region METHODS
+
+        public Generator3D()
+        {
+            optGeo = new OptimizerGeometry();
+            optBatch = new OptimizerBatcher();
+        }
+
+        #region RULES
+
+        public void AddRule(LBSGeneratorRule rule)
+        {
+            if (rule == null) return;
+            if (rules.Contains(rule)) return;
+
+            rules.Add(rule);
+            rule.generator3D = this;
+        }
+
+        public void RemoveRule(LBSGeneratorRule rule)
+        {
+            if (rules.Remove(rule))
+                rule.generator3D = null;
+        }
+
+        public T GetRule<T>() where T : LBSGeneratorRule
+        {
+            return rules.OfType<T>().FirstOrDefault();
+        }
+
+        #endregion
+
+        public bool CheckIfIsPossible(LBSLayer layer)
+        {
+            foreach (LBSGeneratorRule rule in layer.GeneratorRules)
+            {
+                if (!rule.CheckViability(layer))
+                    return false;
+            }
+            return true;
+        }
+
+        public GeneratedEntry Generate(LBSLayer layer, List<LBSGeneratorRule> layerRules)
+        {
+            List<GeneratedGO> logs = new List<GeneratedGO>();
+
+            if (layerRules == null || layerRules.Count == 0)
+            {
+                logs.Add(new GeneratedGO(null,
+                    new LBSLog("[Generator3D] No rules to generate this layer", LogType.Error)));
+                return new GeneratedEntry(null, logs);
+            }
+
+            GameObject parent = new GameObject(layer.Name);
+            parent.transform.position = settings.position;
+
+            foreach (LBSGeneratorRule rule in layerRules)
+            {
+                GeneratedGO result = rule.Generate(layer, settings);
+
+                if (result.go == null || !string.IsNullOrEmpty(result.log.message))
+                {
+                    logs.Add(result);
+                    continue;
+                }
+
+                result.go.SetParent(parent);
+            }
+
+            return new GeneratedEntry(parent, logs);
+        }
+
+        #region MULTI LAYER GENERATION
+
+        public LBSLog GenerateAllLayers(List<LBSLayer> layers)
+        {
+            if (layers == null || layers.Count == 0)
+                return new LBSLog("There are no layers to generate", LogType.Warning);
+
+            SortLayers(ref layers);
+
+            ResetRoot();
+
+            foreach (LBSLayer layer in layers)
+            {
+                Tuple<bool, LBSLog> result = GenerateSingleLayer(layer, layers);
+                if (!result.Item1)
+                {
+                    Object.DestroyImmediate(sharedRoot);
+                    return result.Item2;
+                }
+            }
+
+            StandardTopDownCamera.SetStandardTopDown(sharedRoot);
+            OnFinishGenerate();
+
+            return new LBSLog("All layers generated correctly");
+        }
+
+        public LBSLog GenerateCurrentLayer(LBSLayer layer, List<LBSLayer> allLayers)
+        {
+            Tuple<bool, LBSLog> result = GenerateSingleLayer(layer, allLayers);
+            if (result.Item1)
+                OnFinishGenerate();
+
+            return result.Item2;
+        }
+
+        private Tuple<bool, LBSLog> GenerateSingleLayer(LBSLayer layer, List<LBSLayer> allLayers)
+        {
+            if (layer == null)
+                return Tuple.Create(false,
+                    new LBSLog("There is no reference for any layer to generate.", LogType.Error));
+
+            if (!CheckIfIsPossible(layer))
+                return Tuple.Create(false,
+                    new LBSLog($"Layer {layer.Name} is not viable to generate.", LogType.Error));
+
+            if (settings.replacePrevious)
+                DestroyPreviousLayer(layer.Name);
+
+            QuestRuleGenerator questGen = layer.GetRule<QuestRuleGenerator>();
+            if (questGen != null)
+            {
+                questGen.OnLayerRequired -= OnQuestLayerRequested;
+                questGen.OnLayerRequired += OnQuestLayerRequested;
+
+                void OnQuestLayerRequested(string requiredLayer)
+                {
+                    GenerateLayerByName(requiredLayer, allLayers);
+                }
+            }
+
+            GeneratedEntry generated = Generate(layer, layer.GeneratorRules);
+
+            if (generated.ParentGO == null || HasErrors(generated))
+            {
+                CleanupFailedGeneration(generated);
+                return Tuple.Create(false,
+                    new LBSLog($"Layer {layer.Name} could not be created correctly.", LogType.Error));
+            }
+
+            GameObject root = GetOrCreateRoot();
+            generated.ParentGO.transform.SetParent(root.transform);
+
+            Undo.RegisterCreatedObjectUndo(generated.ParentGO, "Create Layer");
+
+
+            Bake(generated.ParentGO);
+            BuildLightProbes();
+            ApplyRenderOptimization(root);
+
+            return Tuple.Create(true,
+                new LBSLog($"Layer {generated.ParentGO.name} created."));
+        }
+
+        private void GenerateLayerByName(string layerName, List<LBSLayer> allLayers)
+        {
+            LBSLayer found = allLayers.Find(l => l.Name == layerName);
+            if (found == null) return;
+
+            Tuple<bool, LBSLog> result = GenerateSingleLayer(found, allLayers);
+            if (result.Item1) OnFinishGenerate();
+
+        }
+
+        #endregion
+
+        private void ApplyRenderOptimization(GameObject root)
+        {
+            switch (settings.optimization3d)
+            {
+                case OptimizationGenMode.None:
+                    break;
+                case OptimizationGenMode.Batch:
+                    OptBatch.Optimize(root);
+                    break;
+                case OptimizationGenMode.JoinGeometry:
+                    OptGeo.Optimize(root);
+                    break;
+            }
+        }
+
+        #region PRE FINALIZATION
+        private void Bake(GameObject genGo)
+        {
+            if (!settings.bakeLights) return;
+
+            StaticObjs(genGo);
+            ReflectionProbe[] probes = Object.FindObjectsByType<ReflectionProbe>(FindObjectsSortMode.None);
+            foreach (ReflectionProbe probe in probes)
+            {
+                probe.RenderProbe();
+            }
+        }
+
+        private void BuildLightProbes()
+        {
+            if (!settings.buildLightProbes) return;
+
+            LightProbeCubeGenerator[] probes = Object.FindObjectsByType<LightProbeCubeGenerator>(FindObjectsSortMode.None);
+            foreach (LightProbeCubeGenerator lpcg in probes)
+            {
+                lpcg.Execute();
+            }
+
+        }
+        #endregion
+
+        private void OnFinishGenerate()
+        {
+            if (settings.bakeLights && LightningSettings)
+            {
+                Lightmapping.lightingSettings = LightningSettings;
+                Lightmapping.Bake();
+            }
+
+            EditorWindow.FocusWindowIfItsOpen<SceneView>();
+        }
+
+        #region HELPERS
+
+        public static void StaticObjs(GameObject obj)
+        {
+            if (obj.TryGetComponent<LBSGenerated>(out LBSGenerated lbsGen))
+            {
+                if (lbsGen.BundleRef.ElementFlag == Bundle.EElementFlag.Character) return;
+                if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
+            }
+
+            if (!obj.isStatic) obj.isStatic = true;
+            foreach (Transform child in obj.transform)
+            {
+                StaticObjs(child.gameObject);
+            }
+        }
+
+        private GameObject GetOrCreateRoot()
+        {
+            if (sharedRoot != null)
+                return sharedRoot;
+
+            GameObject existing = GameObject.Find(settings.rootParentName);
+            if (existing != null)
+            {
+                sharedRoot = existing;
+                return sharedRoot;
+            }
+
+            sharedRoot = new GameObject(settings.rootParentName);
+            sharedRoot.transform.position = settings.position;
+            return sharedRoot;
+        }
+
+        private void ResetRoot()
+        {
+            GameObject existing = GameObject.Find(settings.rootParentName);
+            if (existing != null)
+                Object.DestroyImmediate(existing);
+
+            sharedRoot = new GameObject(settings.rootParentName);
+            sharedRoot.transform.position = settings.position;
+        }
+
+        private void DestroyPreviousLayer(string layerName)
+        {
+            GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+
+            List<GameObject> toDestroy = allObjects
+                .Where(obj => obj != null && obj.name == layerName)
+                .ToList();   // materialize first
+
+            foreach (GameObject obj in toDestroy)
+            {
+                Object.DestroyImmediate(obj);
+            }
+
+        }
+
+        private bool HasErrors(GeneratedEntry entry)
+        {
+            return entry.Gens.Any(g =>
+                g.go == null || g.log.type == LogType.Error);
+        }
+
+        private void CleanupFailedGeneration(GeneratedEntry entry)
+        {
+            if (entry.ParentGO != null)
+                Object.DestroyImmediate(entry.ParentGO);
+
+            foreach (GeneratedGO gen in entry.Gens)
+            {
+                if (gen.go != null)
+                    Object.DestroyImmediate(gen.go);
+            }
+        }
+
+        private void SortLayers(ref List<LBSLayer> layers)
+        {
+            string[] order = { "Interior", "Exterior", "Population", "Quest", "Simulation" };
+            Dictionary<string, int> lookup = order.Select((id, i) => (id, i))
+                                .ToDictionary(x => x.id, x => x.i);
+
+            layers.Sort((a, b) =>
+            {
+                int ai = lookup.TryGetValue(a.ID, out var va) ? va : int.MaxValue;
+                int bi = lookup.TryGetValue(b.ID, out var vb) ? vb : int.MaxValue;
+                return ai.CompareTo(bi);
+            });
+        }
+
+        #endregion
+
+        #endregion
+
+    }
+
 
     public class GeneratedEntry
     {
@@ -23,354 +387,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         List<GeneratedGO> gens;
 
         public GameObject ParentGO { get => parentGo; set => parentGo = value; }
-        public List<GeneratedGO> Gens { get => gens; set => gens = value; } 
+        public List<GeneratedGO> Gens { get => gens; set => gens = value; }
 
         public GeneratedEntry() { }
-        public GeneratedEntry(GameObject go, List<GeneratedGO> gens)
+        public GeneratedEntry(GameObject parentGo, List<GeneratedGO> gens)
         {
-            this.parentGo = go;
+            this.parentGo = parentGo;
             this.gens = gens;
         }
     }
-    public class Generator3D
-    {
-        
-        #region FIELDS
-        [SerializeField]
-        public LBSGenerator3DSettings settings = new LBSGenerator3DSettings();
-
-        [JsonRequired, SerializeReference]
-        private List<LBSGeneratorRule> rules = new List<LBSGeneratorRule>();
-
-        [JsonRequired, SerializeReference]
-        LightingSettings lightningSettings;
-
-        #endregion
-
-        #region PROPERTIES
-
-        LightingSettings LightningSettings
-        {
-            get
-            {
-                return lightningSettings ??= LBSAssetMacro.
-                    LoadAssetByGuid<LightingSettings>("e64852b0a0c259543bc34a95930684dd");
-            }
-        }
-
-        #endregion
-
-        #region METHODS
-        public void AddRule(LBSGeneratorRule rule)
-        {
-            rules.Add(rule);
-            rule.generator3D = this;
-        }
-
-        public T GetRule<T>() where T : LBSGeneratorRule
-        {
-            return rules.OfType<T>().FirstOrDefault();
-        }
-
-        [System.Obsolete("Unnecesary usage of obsolete class. Consider deleting this method or creating a new extension.")]
-        public T GetRule<T>( List<LBSGeneratorRule> otherRules) where T : LBSGeneratorRule
-        {
-            return otherRules.OfType<T>().FirstOrDefault();
-        }
-
-        public void RemoveRule(LBSGeneratorRule rule)
-        {
-            if (rules.Remove(rule))
-                rule.generator3D = null;
-        }
-
-        public bool CheckIfIsPosible(LBSLayer layer)
-        {
-            foreach (var rule in rules)
-            {
    
-                if (rule.CheckViability(layer)) return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Generates a game object that contains all the content generated by a given layer
-        /// </summary>
-        /// <param name="layer">An LBSLayer containing the data to be generated</param>
-        /// <param name="rules">The rules that are applied to the generation</param>
-        /// <param name="settings">Settings passed from the Generator</param>
-        /// <returns>A tuple containing the game object and a list of messages |
-        /// On successful generation: return gameObject, and empty list
-        /// On failed generation: return gameObject and a list full of error message</returns>
-        public GeneratedEntry Generate(LBSLayer layer,List<LBSGeneratorRule> rules)
-        {
-            // each generation should have a message to indicate the reasons for failed generations
-            List<GeneratedGO> gos = new List<GeneratedGO>();
-
-            // string name = settings.generatedRootName;
-            string name = layer.Name;
-            GameObject parent = new GameObject(name);
-            this.rules = rules;
-
-            parent.transform.position = settings.position;
-            
-            if (this.rules.Count <= 0)
-            {
-                gos.Add(new GeneratedGO(null,
-                    new LBSLog("[ISILab]: Generator contain 0 rules to generate map", LogType.Error)
-                    ));
-                return new GeneratedEntry(parent, gos);
-            }
-            
-            for (int i = 0; i < this.rules.Count; i++)
-            {
-                var ruleParent = rules[i].Generate(layer, settings);
-
-                if (ruleParent.go == null)
-                {
-                    gos.Add(new GeneratedGO(null, ruleParent.log));
-                    continue;
-                }
-                else if (!string.IsNullOrEmpty(ruleParent.log.message))
-                {
-                    gos.Add(ruleParent);
-                    continue;
-                }
-
-                    ruleParent.go.SetParent(parent);
-            }
-            return new GeneratedEntry(parent, gos);
-        }
-
-        public LBSLog GenerateAllLayers(List<LBSLayer> layers)
-        {
-            if (!layers.Any())
-            {
-                return new LBSLog("There are no layers to generate", LogType.Warning);
-            }
-
-            // sort by priority
-            SortLayers(ref layers);
-            // Remove previous root
-            Object.DestroyImmediate(GameObject.Find(settings.rootParentName));
-            GameObject rootParent = new GameObject(settings.rootParentName);
-
-            bool valid = false;
-            LBSLayer currLayer = null;
-            foreach (LBSLayer layer in layers)
-            {
-                valid = GenerateSingleLayer(layer, layers).Item1;
-                currLayer = layer;
-                if (!valid) break;
-            }
-
-            if (valid)
-            {
-                StandardTopDownCamera.SetStandardTopDown(rootParent);
-                OnFinishGenerate();
-                return new LBSLog("All layers generated correctly");
-            }
-            // failed creation 0> destroy 
-            else 
-            {
-                Object.DestroyImmediate(rootParent);
-                return new LBSLog($"{currLayer.Name} failed to generate", LogType.Error);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="layer"></param>
-        /// <param name="allLayers"></param>
-        /// <returns>returns a tuple, first item is wheter it was successfully created.
-        /// The second item is the message of generation</returns>
-        private Tuple<bool, LBSLog> GenerateSingleLayer(LBSLayer layer, List<LBSLayer> allLayers)
-        {
-            if (layer == null)
-            {
-             //   LBSMainWindow.MessageNotify;
-                return Tuple.Create(false, 
-                    new LBSLog("There is no reference for any layer to generate.", LogType.Error)
-                    );
-            }
-
-            string ifReplace = string.Empty;
-
-            if (settings.replacePrevious)
-            {
-                GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-                List<GameObject> previousObjects = new List<GameObject>();
-
-                foreach (var generic in allObjects)
-                {
-                    if (generic.name == layer.Name) previousObjects.Add(generic);
-                }
-                foreach (var prev in previousObjects)
-                {
-                    if (prev == null) continue;
-                    ifReplace = "Previous layer replaced.";
-                    Object.DestroyImmediate(prev);
-                }
-            }
-
-            string layerName = layer.Name;
-
-            // Could required another layer's data such as quest layers
-            QuestRuleGenerator questGen = layer.GetRule<QuestRuleGenerator>();
-            if (questGen is not null) questGen.OnLayerRequired += (requiredLayer) =>
-            {
-                GenerateLayerByName(requiredLayer, allLayers);
-            };
-
-            GeneratedEntry generated = Generate(layer, layer.GeneratorRules);
-            GameObject root = GameObject.Find(settings.rootParentName);
-
-            if (root is null) root = new GameObject(settings.rootParentName);
-            generated.ParentGO.transform.parent = root.transform;
-            StandardTopDownCamera.SetStandardTopDown(GameObject.Find(layerName));
-
-            // If it didn't create a usable LBS game object 
-            if (generated.ParentGO == null ||
-                generated.ParentGO.gameObject == null ||
-                !generated.ParentGO.GetComponentsInChildren<Transform>().Any() ||
-                generated.Gens.Any())
-            {
-                string errormessage = "Layer " + layer.Name + " could not be created correctly.";
-
-                Debug.LogError(errormessage);
-
-                foreach (GeneratedGO genLog in generated.Gens)
-                {
-                    if (!string.IsNullOrEmpty(genLog.log.message))
-                    {
-                        Debug.LogError(genLog.log);
-                    }
-                }
-
-                if (generated.ParentGO is not null)
-                    Object.DestroyImmediate(generated.ParentGO.gameObject);
-
-                foreach (GeneratedGO gens in generated.Gens)
-                {
-                    if (gens.go is not null)
-                    {
-                        if (gens.go.transform.parent is not null)
-                        {
-                            for (int i = 0; i < gens.go.transform.childCount; i++)
-                            {
-                                if (gens.go.transform.GetChild(i) is not null)
-                                    Object.DestroyImmediate(gens.go.transform.GetChild(i).gameObject);
-                            }
-
-                            Object.DestroyImmediate(gens.go.transform.parent.gameObject);
-                        }
-
-                        Object.DestroyImmediate(gens.go);
-                    }
-                }
-
-                return Tuple.Create(false, new LBSLog(errormessage, LogType.Error));
-            }
-
-            Undo.RegisterCreatedObjectUndo(generated.ParentGO, "Create my GameObject");
-
-            if (settings.bakeLights)
-            {
-                StaticObjs(generated.ParentGO);
-                BakeReflections();
-            }
-
-            if (settings.buildLightProbes)
-            {
-                LightProbeCubeGenerator[] allLightProbes =
-                    Object.FindObjectsByType<LightProbeCubeGenerator>(FindObjectsSortMode.None);
-                foreach (var lpcg in allLightProbes) lpcg.Execute();
-            }
-
-            return Tuple.Create(true, new LBSLog(
-                "Layer " + generated.ParentGO.gameObject.name + " created. " + ifReplace));
-
-        }
-
-        private void GenerateLayerByName(string layerName, List<LBSLayer> allLayers)
-        {
-            LBSLayer tempLayer = null;
-            tempLayer = null;
-
-            var foundLayer = allLayers.Find(l => l.Name == layerName);
-            bool valid = false;
-            if (foundLayer != null)
-            {
-                tempLayer = foundLayer;
-                valid = GenerateSingleLayer(tempLayer, allLayers).Item1;
-            }
-
-          
-            if (valid) OnFinishGenerate();
-        }
-
-
-        public LBSLog GenerateCurrentLayer(LBSLayer layer, List<LBSLayer> allLayers)
-        {
-            Tuple<bool, LBSLog> result = GenerateSingleLayer(layer, allLayers);
-            if (result.Item1) OnFinishGenerate();
-
-            return result.Item2;
-        }
-
-        private void OnFinishGenerate()
-        {
-            if (settings.bakeLights)
-            {
-                LightingSettings lightingSettings = LightningSettings;
-                if (lightingSettings)
-                {
-                    Lightmapping.lightingSettings = lightingSettings;
-                    Lightmapping.Bake();
-                }
-            }
-
-            EditorWindow.FocusWindowIfItsOpen<SceneView>();
-        }
-
-        private void BakeReflections()
-        {
-            ReflectionProbe[] probes = Object.FindObjectsByType<ReflectionProbe>(FindObjectsSortMode.None);
-            foreach (var probe in probes)
-            {
-                probe.RenderProbe();
-            }
-        }
-
-        private void StaticObjs(GameObject obj)
-        {
-            var lbsGen = obj.GetComponent<LBSGenerated>();
-            if (lbsGen != null)
-            {
-                if (lbsGen.BundleRef.ElementFlag == Bundle.EElementFlag.Character) return;
-                if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
-            }
-
-            obj.isStatic = true;
-            foreach (Transform child in obj.transform)
-            {
-                StaticObjs(child.gameObject);
-            }
-        }
-        private void SortLayers(ref List<LBSLayer> layers)
-        {
-            string[] order = { "Interior", "Exterior", "Population", "Quest", "Simulation" };
-            var orderDict = order.Select((id, idx) => new { id, idx }).ToDictionary(x => x.id, x => x.idx);
-
-            layers.Sort((l1, l2) =>
-            {
-                int idx1 = orderDict.TryGetValue(l1.ID, out int v1) ? v1 : int.MaxValue;
-                int idx2 = orderDict.TryGetValue(l2.ID, out int v2) ? v2 : int.MaxValue;
-                return idx1.CompareTo(idx2);
-            });
-        }
-        #endregion
-    }
 }
