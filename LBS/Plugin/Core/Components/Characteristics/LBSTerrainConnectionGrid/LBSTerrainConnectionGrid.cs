@@ -248,5 +248,18 @@ namespace ISILab.LBS.Characteristics
             return true;
         }
     }
+
+    [System.Serializable]
+    public class IndividualAsset
+    {
+        Asset assetReference;
+        string id;
+
+        IndividualAsset(Asset refer, int index)
+        {
+            assetReference = refer;
+            id = refer.obj.name.GetHashCode().ToString() + index.ToString() + refer.probability.GetHashCode();
+        }
+    }
 }
 
