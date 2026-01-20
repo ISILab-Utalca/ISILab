@@ -36,14 +36,8 @@ namespace ISILab.LBS.Manipulators
 
         protected override void UpdateView() { } // Do not redraw level
 
-        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
-        {
-            // Move a Note if selected
-        }
-
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
-            // Check if we're dragging a note, else do this
             LBSInspectorPanel.Instance.CallSelectableByPosition(LBSLayer, position);
         }
     }

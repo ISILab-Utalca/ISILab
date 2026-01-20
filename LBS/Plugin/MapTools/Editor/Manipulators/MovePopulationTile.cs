@@ -72,11 +72,11 @@ namespace ISILab.LBS.Manipulators
         //    MainView.Instance.RemoveElement(_iconFeedback);
         //}
 
-        //protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
-        //{
-        //    MainView.Instance.RemoveElement(_dottedFeedback);
-        //    MainView.Instance.RemoveElement(_iconFeedback);
-        //}
+        protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
+        {
+            MainView.Instance.RemoveElement(_dottedFeedback);
+            MainView.Instance.RemoveElement(_iconFeedback);
+        }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {

@@ -122,9 +122,6 @@ namespace LBS.VisualElements
 
             selectTool.Init(layer, this);
             noteTool.Init(layer, this);
-
-            //selectTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            //noteTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
         }
         
         public object GetActiveManipulator()
@@ -203,7 +200,7 @@ namespace LBS.VisualElements
                 LBSMainWindow.Instance.MessageManipulator(manipulator.Description);
             };
             manipulator.OnManipulationNotification?.Invoke();
-            }
+        }
         
         private void ClearSeparators()
         {

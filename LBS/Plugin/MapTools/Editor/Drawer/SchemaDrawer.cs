@@ -156,7 +156,7 @@ namespace ISILab.LBS.Drawers
             // Get behaviours
             if (target is not SchemaBehaviour schema) return;
             
-            foreach (LBSTile tile in schema.Keys)
+            foreach (var tile in schema.Keys)
             {
                 foreach (var graphElement in view.GetElementsFromLayer(schema.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
@@ -169,7 +169,7 @@ namespace ISILab.LBS.Drawers
             // Get behaviours
             if (target is not SchemaBehaviour schema) return;
             
-            foreach (LBSTile tile in schema.Keys)
+            foreach (var tile in schema.Keys)
             {
                 if (tile == null) continue;
 

@@ -41,7 +41,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             "New Main Bundle",
             "Convert Prefabs",
             "Assign Bundles",
-            "Add Characteristics"
+            "Add Characteristics",
+            "Summary"
         };
 
         /// <summary>
@@ -180,7 +181,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
         public void Init()
         {
             // Names of each tab visual element in PopUp UXML file
-            var tabNames = new[] { "SelectBundleTypeMenu", "SetAssetsMenu", "SetBundleMenu", "SetCharacteristicsMenu" };
+            var tabNames = new[] { "SelectBundleTypeMenu", "SetAssetsMenu", "SetBundleMenu", "SetCharacteristicsMenu", "SummaryMenu" };
             // There is the same number of  display names and names visual element.
             Assert.IsTrue(breadcrumbLabels.Length == tabNames.Length);
 

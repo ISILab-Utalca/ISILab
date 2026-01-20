@@ -142,12 +142,13 @@ namespace ISILab.LBS.Characteristics
         
         public AssetConnectionGrid GetGrid(Asset asset)
         {
-            return gridList.Find(c => c.AssetReference == asset);
+            var match = gridList.Find(c => c.AssetReference.Equals(asset));
+            return match;
         }
 
         public AssetConnectionGrid GetGrid(GameObject obj)
         {
-            return gridList.Find(c => c.AssetReference.obj == obj);
+            return gridList.Find(c => c.AssetReference.obj.Equals(obj));
         }
 
         public void SetGridSize(int gSize)
@@ -162,23 +163,13 @@ namespace ISILab.LBS.Characteristics
         public void UpdateGridList()
         {
             if (gridList == null) gridList = new List<AssetConnectionGrid>();
-            //Add everything new
-            foreach (Asset asset in Assets)
+            var updatedGridList = new List<AssetConnectionGrid>();
+            foreach(Asset asset in Assets)
             {
-                if(GetGrid(asset)==null)
-                {
-                    gridList.Add(new AssetConnectionGrid(gridSize, asset));
-
-                }
+                var existingAsset = GetGrid(asset);
+                updatedGridList.Add(existingAsset != null ? existingAsset : new AssetConnectionGrid(gridSize, asset));
             }
-            //Remove everything old
-            foreach(AssetConnectionGrid grid in gridList)
-            {
-                if(!Assets.Contains(grid.AssetReference))
-                {
-                    gridList.Remove(grid);
-                }
-            }
+            gridList = updatedGridList;
         }
     }
 
@@ -255,6 +246,19 @@ namespace ISILab.LBS.Characteristics
                 if (terrainFlag[i] != other.terrainFlag[i]) return false;
             }
             return true;
+        }
+    }
+
+    [System.Serializable]
+    public class IndividualAsset
+    {
+        Asset assetReference;
+        string id;
+
+        IndividualAsset(Asset refer, int index)
+        {
+            assetReference = refer;
+            id = refer.obj.name.GetHashCode().ToString() + index.ToString() + refer.probability.GetHashCode();
         }
     }
 }

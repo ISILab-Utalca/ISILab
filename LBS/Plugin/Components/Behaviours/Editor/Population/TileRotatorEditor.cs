@@ -25,7 +25,7 @@ namespace ISILab.LBS.VisualElements
         private class DirToRotVisualElement
         {
             public LBSToolbarToggle Toggle;
-            public LBSCustomFloatField WeightField;
+            public LBSCustomUnsignedIntegerField WeightField;
         }
 
         public TileRotatorEditor()
@@ -68,8 +68,8 @@ namespace ISILab.LBS.VisualElements
 
         private void RegisterDirection(string dir, string toggleName, string weightName)
         {
-            var toggle = this.Q<LBSToolbarToggle>(toggleName);
-            var weight = this.Q<LBSCustomFloatField>(weightName);
+            LBSToolbarToggle toggle = this.Q<LBSToolbarToggle>(toggleName);
+            LBSCustomUnsignedIntegerField weight = this.Q<LBSCustomUnsignedIntegerField>(weightName);
 
             DirectionVes[dir] = new DirToRotVisualElement
             {
@@ -88,25 +88,19 @@ namespace ISILab.LBS.VisualElements
         {
             if (behaviour is null) return;
 
-            bool showSelector = behaviour.TileRotationMode != TileMakeRot.Random;
-            bool showWeights = behaviour.TileRotationMode == TileMakeRot.Weighted;
-
-            rotateSelector.style.display = showSelector ? DisplayStyle.Flex : DisplayStyle.None;
-            if (showSelector)
+            bool weighted = behaviour.TileRotationMode == TileMakeRot.Weighted;
+            bool random = behaviour.TileRotationMode == TileMakeRot.Random;
+            bool fix = behaviour.TileRotationMode == TileMakeRot.Fixed;
+            foreach ((string dir, DirToRotVisualElement ves) in DirectionVes)
             {
-                foreach ((string dir, DirToRotVisualElement ves) in DirectionVes)
-                {
-                    ves.Toggle.SetValueWithoutNotify(behaviour.ActiveRotationDirection == dir);
-                }
+                if(fix) ves.Toggle.SetValueWithoutNotify(behaviour.ActiveRotationDirection == dir);
+                if (random) ves.Toggle.SetValueWithoutNotify(true);
+
+                ves.WeightField.style.display = weighted ? DisplayStyle.Flex : DisplayStyle.None;
+                ves.Toggle.SetEnabled(!weighted);
             }
 
-            foreach (var ves in DirectionVes.Values) 
-            { 
-                ves.WeightField.style.display = showWeights ? DisplayStyle.Flex : DisplayStyle.None;
-                ves.Toggle.SetEnabled(behaviour.TileRotationMode == TileMakeRot.Fixed); 
-            }
-
-            if(showWeights) RefreshWeights();
+            if(weighted) RefreshWeights();
         }
 
         private void RefreshWeights()
@@ -115,7 +109,7 @@ namespace ISILab.LBS.VisualElements
 
             foreach ((string dir, DirToRotVisualElement ves) in DirectionVes)
             {
-                ves.WeightField.SetValueWithoutNotify(behaviour.GetDirectionWeight(dir));
+                ves.WeightField.SetValueWithoutNotify((uint)behaviour.GetDirectionWeight(dir));
                 ves.Toggle.SetValueWithoutNotify(false);
             }
         }
@@ -124,13 +118,27 @@ namespace ISILab.LBS.VisualElements
         {
             if (behaviour is null) return;
             if (string.IsNullOrEmpty(direction)) return;
-            behaviour.ActiveRotationDirection = direction;
+            if (behaviour.TileRotationMode == TileMakeRot.Fixed)
+            {
+                // set the new direction (value to 1) all other directions value to 0
+                behaviour.ActiveRotationDirection = direction;
 
-            foreach (var ui in DirectionVes.Values)
-                ui.Toggle.SetValueWithoutNotify(false);
+                foreach (KeyValuePair<string, DirToRotVisualElement> entry in DirectionVes)
+                {
+                    entry.Value.Toggle.SetValueWithoutNotify(direction == entry.Key);
+                }
+            }
+            else if(behaviour.TileRotationMode == TileMakeRot.Random)
+            {
+                // if the toggle is on, weight is 1, else 0.
+                foreach (KeyValuePair<string, DirToRotVisualElement> entry in DirectionVes)
+                {
+                    var value = entry.Value.Toggle.value ? 1f : 0f;
+                    behaviour.SetDirectionWeight(entry.Key,value);
+                }
 
-            if (DirectionVes.TryGetValue(direction, out var selected))
-                selected.Toggle.SetValueWithoutNotify(true);
+            }
+
         }
     }
 }

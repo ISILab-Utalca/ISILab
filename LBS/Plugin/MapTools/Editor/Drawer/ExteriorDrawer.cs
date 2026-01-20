@@ -179,7 +179,7 @@ namespace ISILab.LBS.Drawers
             // Get behaviours
             if (target is not ExteriorBehaviour exterior) return;
             
-            foreach (LBSTile tile in exterior.Keys)
+            foreach (var tile in exterior.Keys)
             {
                 foreach (var graphElement in view.GetElementsFromLayer(exterior.OwnerLayer, tile).Where(graphElement => graphElement != null))
                 {
@@ -192,7 +192,7 @@ namespace ISILab.LBS.Drawers
             // Get behaviours
             if (target is not ExteriorBehaviour exterior) return;
             
-            foreach (LBSTile tile in exterior.Keys)
+            foreach (var tile in exterior.Keys)
             {
                 if (tile == null) continue;
 
