@@ -100,7 +100,7 @@ namespace ISILab.LBS.Drawers
                 tView.SetPosition(new Rect(pos * size, size));
                 tView.style.display = (DisplayStyle)(behaviour.OwnerLayer.IsVisible ? 0 : 1);
                 //view.AddElement(tView);
-                view.AddElementToLayerContainer(behaviour.OwnerLayer, this, tView);
+                view.AddElementToLayerContainer(behaviour.OwnerLayer, tile, tView);
                 behaviour.Keys.Add(tile);
             }
         }
