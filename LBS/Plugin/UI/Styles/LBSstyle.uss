@@ -1806,18 +1806,19 @@ Toggle > .lbs-default-icon {
 .lbs-post-it {
     padding: 5 6 28 3;
     background-image: resource('Textures/post_it_v2_vector');
+    background-size: cover;
     -unity-slice-left: 32;
     -unity-slice-top: 32;
     -unity-slice-right: 32;
     -unity-slice-bottom: 32;
     overflow: visible;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     flex-direction: column;
     padding-top: 11px;
     padding-right: 8px;
     padding-bottom: 39px;
     padding-left: 10px;
-    height: auto;
+    /* height: auto; */
 }
 
 .lbs-post-it TextInput {
