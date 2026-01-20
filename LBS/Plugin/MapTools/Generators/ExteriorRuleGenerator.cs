@@ -63,22 +63,29 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 return new GeneratedGO(null, "Bundle not found");
             }
-            
+
+            List<string> navigableTags = exteriorBehaviour.NavigableTags;
             var selected = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
             
             // Create pivot
             var mainPivot = new GameObject("Exterior");
+            GameObject navContainer = new GameObject("Navigable");
+            GameObject nonNavContainer = new GameObject("NotNavigable");
+            navContainer.transform.parent = mainPivot.transform;
+            nonNavContainer.transform.parent = mainPivot.transform;
             var scale = settings.scale;
 
             // Get modules
             var mapMod = layer.GetModule<TileMapModule>();
             var connctMod = layer.GetModule<ConnectedTileMapModule>();
             var tiles = new List<GameObject>();
-            
+
+            Dictionary<GameObject, LBSTile> goToTileMap = new Dictionary<GameObject, LBSTile>();
+
             //So this is where I'm working on a little thing so the characteristic that chooses the tiles could be chosen.
             //Otherwise, it just keeps mapMod.Tiles as a default and randomizes the whole thing
             //This may take a bit, though! -Alice
-            
+
             //We have the tiles here
             var chosenTiles = mapMod.Tiles;
 
@@ -204,6 +211,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 
                 tiles.Add(go);
 
+                goToTileMap.Add(go, tile);
+
                 var current = pair.Item1.Owner;
                 // Add ref component
                 LBSGenerated generatedComponent = go.AddComponent<LBSGenerated>();
@@ -228,7 +237,21 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             foreach (var tile in tiles)
             {
-                tile.transform.parent = mainPivot.transform;
+                LBSTile logicalTile = goToTileMap[tile];
+                List<string> connections = connctMod.GetConnections(logicalTile);
+                int validConnectionsCount = connections.Count(c => navigableTags.Contains(c));
+
+                // Determine if the tile is navigable based on its connections (can be changed if you want more or less connections to be navigable)
+                bool isNavigable = validConnectionsCount >= 2;
+
+                if (isNavigable)
+                {
+                    tile.transform.parent = navContainer.transform;
+                }
+                else
+                {
+                    tile.transform.parent = nonNavContainer.transform;
+                }
             }
 
             mainPivot.transform.position += settings.position;
