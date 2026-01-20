@@ -118,6 +118,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             foreach (Bundle b in Builder.newSubBundles)
             {
                 bundleContainersShow.Add(new BundleManagerWindow.BundleContainer(b));
+                //esta la agregé hace poco, debo testear
+                bundleContainersTemp.Add(new BundleManagerWindow.BundleContainer(b));
             }
         }
 
@@ -195,6 +197,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             }
             else if(bundleContainersTemp.Contains(bundleContainer))
             {
+                if (Builder.newSubBundles.Contains(bundleContainer.GetMainBundle()))
+                    return;
                 AddBundleToCorrectList(bundleContainer.GetMainBundle());
             }
 

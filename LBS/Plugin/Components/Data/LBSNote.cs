@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using UnityEditor.Graphs;
 using UnityEngine;
 
+[Serializable]
 public class LBSNote : ICloneable
 {
     #region FIELDS
@@ -14,10 +15,10 @@ public class LBSNote : ICloneable
     private static int noteCounter = 0;
 
     [SerializeField, JsonRequired]
-    protected int x;
+    protected float x;
 
     [SerializeField, JsonRequired]
-    protected int y;
+    protected float y;
 
     [SerializeField, JsonRequired]
     protected string message;
@@ -32,7 +33,7 @@ public class LBSNote : ICloneable
         set => id = value;
     }
 
-    public Vector2Int Position
+    public Vector2 Position
     {
         get => new(x, y);
         set
@@ -57,8 +58,8 @@ public class LBSNote : ICloneable
     public LBSNote(Vector2 position, string message)
     {
         id = $"Note {++noteCounter}";
-        x = (int)position.x;
-        y = (int)position.y;
+        x = position.x;
+        y = position.y;
         this.message = message;
     }
 

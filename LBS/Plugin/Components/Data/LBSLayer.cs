@@ -70,6 +70,7 @@ namespace LBS.Components
         #endregion
 
         #region Events
+
         public event Action OnChangeName;
         public event Action OnChange;
         public event Action<Vector2Int> OnTileSizeChange;
@@ -370,6 +371,7 @@ namespace LBS.Components
         #endregion
         
         #region Events
+
         public void OnChangeUpdate() => OnChange?.Invoke();
         public void InvokeNameChanged() => OnChangeName?.Invoke();
         public void OnContextAddInvoke() => OnContextAdd?.Invoke();

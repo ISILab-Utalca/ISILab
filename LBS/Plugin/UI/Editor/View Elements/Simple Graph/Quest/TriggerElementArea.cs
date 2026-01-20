@@ -118,9 +118,10 @@ namespace ISILab.LBS.VisualElements
 
         private void OnMouseLeave(MouseLeaveEvent evt)
         {
-            RestoreManipulator();
+            if (!_isDragging)
+                RestoreManipulator();
         }
-        
+
         void SetupResizeHandle(string handleName, string handleCode, bool isCenter)
         {
             VisualElement handle = this.Q<VisualElement>(handleName);
@@ -133,7 +134,9 @@ namespace ISILab.LBS.VisualElements
             
             handle.RegisterCallback<MouseLeaveEvent>(_ =>
             {
-                RestoreManipulator();
+                if (_isDragging) return;
+
+                    RestoreManipulator();
                 
                 if(pickingMode == PickingMode.Ignore) return;
                 _resizing = false;
@@ -171,7 +174,6 @@ namespace ISILab.LBS.VisualElements
                 float deltaX = currentRect.x - _resizeStartPosition.x;
                 float deltaY = currentRect.y - _resizeStartPosition.y;
 
-       
                 // Round position and size by 100
                 float posX = Mathf.Round(_resizeStartPosition.x / GraphGridLength);
                 float posY = -Mathf.Round(_resizeStartPosition.y / GraphGridLength);
@@ -203,9 +205,13 @@ namespace ISILab.LBS.VisualElements
                 _data.Graph?.NodeDataChanged(_data.OwnerNode);
 
                 _activeHandle = null;
-                
+
+                Vector2 position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
+                Rect drawArea = new(position, new Vector2(_data.Area.width * GraphGridLength, _data.Area.height * GraphGridLength));
+                SetPosition(drawArea);
+
                 //DrawManager.Instance.RedrawLayer(_data.Layer);
-                DrawManager.Instance.DrawSingleComponent(_data, _data.Layer);
+                DrawManager.Instance.DrawSingleComponent(this, _data.Layer);
             });
 
             // Hide the areas by default(show when click on handle, hide on mouse up)
@@ -233,7 +239,7 @@ namespace ISILab.LBS.VisualElements
             Vector2 nodeWorldCenter = nodeRect.position + nodeRect.size / 2f;
             Vector2 to = this.WorldToLocal(nodeWorldCenter); // convert world to local space
 
-            if (_isDragging) _currentColor = new Color(0, 0, 0, 0); // transparent if moving
+            //if (_isDragging) _currentColor = new Color(0, 0, 0, 0); // transparent if moving
             painter.DrawDottedLine(center, to, _currentColor, 4f, 10f);
         }
 
@@ -268,20 +274,21 @@ namespace ISILab.LBS.VisualElements
             {
                 if (_prevManipulatorType is null)
                 {
+                    Debug.Log("Stored");
                     _prevManipulatorType = activeManipulator;
                 }
                 
                 ToolKit.Instance.SetActive(typeof(SelectManipulator));
             }
-            
         }
 
         private void OnMouseMove(MouseMoveEvent e)
         {
             // If resizing do NOT MOVE
             if(_resizing) return;
-            
+
             if (!_isDragging || e.pressedButtons != 1) return;
+            
             if (!MainView.Instance.HasManipulator<SelectManipulator>()) return;
 
             Vector3 scale = MainView.Instance.viewTransform.scale;
@@ -292,7 +299,7 @@ namespace ISILab.LBS.VisualElements
             Rect newRect = new(newPos, GetPosition().size);
             SetPosition(newRect);
             MarkDirtyRepaint();
-            
+
             e.StopImmediatePropagation();
         }
 
@@ -305,15 +312,19 @@ namespace ISILab.LBS.VisualElements
             _isDragging = false;
 
             _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
+            
             _data.Graph?.NodeDataChanged(_data.OwnerNode);
             DrawManager.Instance.RedrawLayer(_data.Layer);
             DrawManager.Instance.PickingModeRestoreAll();
+
+            RestoreManipulator();
         }
 
         private void RestoreManipulator()
         {
             if (_prevManipulatorType is not null)
             {
+                Debug.Log("Restored");
                 ToolKit.Instance.SetActive(_prevManipulatorType);
                 _prevManipulatorType = null;
             }

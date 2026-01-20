@@ -85,14 +85,15 @@ namespace ISILab.LBS.VisualElements
             var t1 = new LBSTool(setZoneConnection);
             t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
             t1.Init(_assistant.OwnerLayer, _assistant);
-            toolKit.ActivateTool(t1,_assistant.OwnerLayer, _assistant);
             
             removeZoneConnection = new RemoveZoneConnection();
             var t2 = new LBSTool(removeZoneConnection);
             t2.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
-            toolKit.ActivateTool(t2,_assistant.OwnerLayer, _assistant);
             
             setZoneConnection.SetRemover(removeZoneConnection);
+
+            toolKit.ActivateTool(t1, _assistant.OwnerLayer, _assistant);
+            toolKit.ActivateTool(t2, _assistant.OwnerLayer, _assistant);
         }
 
         protected override VisualElement CreateVisualElement()

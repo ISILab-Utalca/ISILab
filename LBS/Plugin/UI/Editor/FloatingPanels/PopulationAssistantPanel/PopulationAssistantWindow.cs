@@ -873,7 +873,9 @@ namespace ISILab.LBS.VisualElements.Editor
                 Type drawerT = LBS_Editor.GetDrawer(b.GetType());
                 if (Activator.CreateInstance(drawerT) is Drawer drawer)
                 {
-                    textures.Add(drawer.GetTexture(b, rect, Vector2Int.one * size));
+                    Texture2D tex = drawer.GetTexture(b, rect, Vector2Int.one * size);
+                    if (tex != null)
+                        textures.Add(tex);
                 }
             }
 

@@ -35,6 +35,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         #region EVENTS
         //Should change according to the tool
         public Action OnTileClicked;
+        public Action OnTileRightClicked;
         public Action OnValueUpdated;
         public Action OnValueSaved;
         public Action OnValueReverted;
@@ -54,6 +55,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
 
             interactButton = this.Q<LBSCustomButton>("InteractButton");
             interactButton.RegisterCallback<ClickEvent>((evt) => OnTileClicked?.Invoke());
+            interactButton.RegisterCallback<MouseDownEvent>(OnMouseRightClick);
 
             colorMultiplier = this.Q<VisualElement>("ColorMultiplier");
             colorMultiplier.style.visibility = colorValue != 0 ? Visibility.Visible : Visibility.Hidden;
@@ -80,6 +82,14 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.Windows.BundleCharacteristics.
         {
             tileBorder.visible = true;
             tileBorderHovered.visible = false;
+        }
+
+        public void OnMouseRightClick(MouseDownEvent evt)
+        {
+            if(evt.button == 1)
+            {
+                OnTileRightClicked?.Invoke();
+            }
         }
 
         public void ChangeValue(int newValue)

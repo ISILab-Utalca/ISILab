@@ -1,5 +1,9 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Components;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
@@ -10,33 +14,29 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
 {
-    
     [UxmlElement]
     public partial class LBSNoteView : GraphElement
     {
         // Define colors for the note, both when unselected (kinda transparent) and selected (when clicked and focused, more solid)
-
-        const float DEFAULT_WIDTH = 200;
-        const float DEFAULT_HEIGHT = 200;
-            
-        
-        
+    
         #region FIELDS
 
         public LBSNote Note;
 
-        private TextField textField;
+        private TextField tempEditor;
         private Label label;
         private static VisualTreeAsset asset;
 
         // Dragging and Double Click stuff
         private bool isDragging = false;
         private Vector2 dragOffset;
+        private Vector2 dragStartPos;
         private float lastClickTime = 0f;
         private const float doubleClickThreshold = 0.3f;
 
-        #endregion
+        private bool isEditing = false;
 
+        #endregion
 
         private string contentText;
 
@@ -53,72 +53,31 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                 }
             }
         }
-        
 
         #region CONSTRUCTORS
 
         public LBSNoteView()
         {
-            this.style.width = DEFAULT_WIDTH;
-            this.style.height = DEFAULT_HEIGHT;
             AddToClassList("lbs-post-it");
+
+            asset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSNoteView");
+            asset.CloneTree(this);
+
+            label = this.Q<Label>("Label");
+
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
+            RegisterCallback<MouseUpEvent>(OnMouseUp);
+            RegisterCallback<MouseMoveEvent>(OnMouseMove);
+            RegisterCallbackOnce<GeometryChangedEvent>(evt => { SetPosition(new Rect(Note.Position, layout.size)); });
         }
 
         public LBSNoteView(LBSNote note, float width = 100, float height = 100) : this()
         {
             Note = note;
-            asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSNoteView");
-            asset.CloneTree(this);
-
-            textField = this.Q<TextField>("TextField");
-            label = this.Q<Label>("Label");
-
-            this.style.minWidth = width;
-            this.style.minHeight = height;
-            this.style.flexGrow = 1;
-
-            textField.Children().First().style.display = DisplayStyle.None;
-
-            textField.RegisterCallback<KeyDownEvent>(evt =>
-            {
-                if (evt.keyCode == KeyCode.Return)
-                {
-                    if (evt.shiftKey)
-                    {
-                        // Insert line break
-                        int cursorIndex = textField.cursorIndex;
-                        string value = textField.value;
-                        textField.value = value.Insert(cursorIndex, "\n");
-                        textField.cursorIndex = cursorIndex + 1;
-                        evt.StopPropagation();
-                    }
-                    else
-                    {
-                        textField.Blur();
-                        evt.StopPropagation();
-                    }
-                }
-            });
-
-            textField.RegisterCallback<FocusOutEvent>(evt =>
-            {
-                Note.Message = textField.value;
-                label.text = Note.Message;
-                label.style.display = DisplayStyle.Flex;
-                textField.style.display = DisplayStyle.None;
-            });
-
-            this.RegisterCallback<MouseDownEvent>(OnMouseDown);
-            label.RegisterCallback<MouseUpEvent>(OnMouseUp);
-            label.RegisterCallback<MouseMoveEvent>(OnMouseMove);
-            RegisterCallback<PointerEnterEvent>(evt => {Debug.Log("EnterFrame");});
-            
-
-            //textField.style.display = DisplayStyle.Flex;
-            //label.style.display = DisplayStyle.None;
-            //textField.value = Note.Message;
-            //textField.Focus();
-            //isDragging = false;
+            label.text = note.Message;
+            style.width = label.style.width = width;
+            style.height = label.style.height = height;
+            style.overflow = Overflow.Hidden;
         }
 
         #endregion
@@ -127,32 +86,23 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
 
         private void OnMouseDown(MouseDownEvent evt)
         {
-            Debug.Log("Hola");
-
-            if (evt.button != 0) return; // Only left mouse button, maybe with left click you could delete the note
+            if (evt.button != 0) return;
             if (ToolKit.Instance.GetActiveManipulator() is null) return;
 
             if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
             {
-                float time = Time.realtimeSinceStartup;
-                if (time - lastClickTime < doubleClickThreshold)
+                var time = (float)UnityEditor.EditorApplication.timeSinceStartup;
+                if (time - lastClickTime < doubleClickThreshold && !isEditing)
                 {
-                    // Double click: Edit note
-                    textField.style.display = DisplayStyle.Flex;
-                    label.style.display = DisplayStyle.None;
-                    textField.value = Note.Message;
-                    textField.Focus();
-                    isDragging = false;
+                    StartEdition();
                 }
                 else
                 {
-                    // Single click: Start dragging
-                    if (ToolKit.Instance.GetActiveManipulatorInstance() is SelectManipulator)
-                    {
-                        isDragging = true;
-                        dragOffset = evt.localMousePosition;
-                        this.CaptureMouse();
-                    }
+                    if (isEditing) return;
+                    isDragging = true;
+                    dragStartPos = Note.Position;
+                    dragOffset = MainView.Instance.contentViewContainer.WorldToLocal(evt.originalMousePosition);
+                    this.CaptureMouse();
                 }
                 lastClickTime = time;
             }
@@ -160,22 +110,26 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
 
         private void OnMouseUp(MouseUpEvent evt)
         {
-            if (evt.button != 0) return; // Only left mouse button, maybe with left click you could delete the note
-            if (ToolKit.Instance.GetActiveManipulator() is null) return;
-
-            if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
+            if (evt.button == 0)
             {
-                if (isDragging)
+                if (ToolKit.Instance.GetActiveManipulator() is null) return;
+
+                if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
                 {
-                    isDragging = false;
-                    this.ReleaseMouse();
+                    if (isEditing) return;
+
+                    if (isDragging)
+                    {
+                        isDragging = false;
+                        this.ReleaseMouse();
+                    }
                 }
             }
         }
 
         private void OnMouseMove(MouseMoveEvent evt)
         {
-            if (evt.button != 0) return; // Only left mouse button, maybe with left click you could delete the note
+            if (evt.button != 0) return;
             if (ToolKit.Instance.GetActiveManipulator() is null) return;
 
             if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
@@ -184,10 +138,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                 {
                     if (parent != null)
                     {
-                        Vector2 newPos = evt.mousePosition - dragOffset;
-                        style.left = newPos.x;
-                        style.top = newPos.y;
-                        Note.Position = new Vector2Int(Mathf.RoundToInt(newPos.x), Mathf.RoundToInt(newPos.y));
+                        Vector2 mouseCanvas = MainView.Instance.contentViewContainer.WorldToLocal(evt.originalMousePosition);
+                        Vector2 delta = mouseCanvas - dragOffset;
+                        Vector2 newPos = dragStartPos + delta;
+                        Note.Position = newPos;
+                        SetPosition(new Rect(Note.Position, layout.size));
                     }
                 }
             }
@@ -196,5 +151,37 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
         // Check what happens if the mouse leaves the editor window while dragging
 
         #endregion
+
+        private void StartEdition()
+        {
+            CreateEditor();
+            label.style.display = DisplayStyle.None;
+            isEditing = true;
+            isDragging = false;
+        }
+
+        private void CreateEditor()
+        {
+            tempEditor = new TextField();
+            tempEditor.value = Note.Message;
+            tempEditor.style.width = label.style.width;
+            tempEditor.style.height = label.style.height;
+            //tempEditor.style.height = StyleKeyword.Auto;
+            tempEditor.style.whiteSpace = WhiteSpace.Normal;
+            tempEditor.multiline = true;
+            tempEditor.verticalScrollerVisibility = ScrollerVisibility.AlwaysVisible;
+            Add(tempEditor);
+            tempEditor.Focus();
+
+            tempEditor.RegisterCallback<FocusOutEvent>(evt =>
+            { 
+                Note.Message = tempEditor.value;
+                label.text = Note.Message;
+                label.style.display = DisplayStyle.Flex;
+                Remove(tempEditor);
+                isEditing = false;
+                evt.StopPropagation();
+            });
+        }
     }
 }

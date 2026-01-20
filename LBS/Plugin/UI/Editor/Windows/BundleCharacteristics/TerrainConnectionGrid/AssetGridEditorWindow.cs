@@ -115,7 +115,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                     int pos = (j + (i * Mathf.RoundToInt(_sqr)));
                     var _tile = new AssetGridTile(pos, assetGrid.TerrainFlag[pos]);
                     _tile.AddToClassList("asset-grid-tile");
-                    _tile.OnTileClicked += () => { UseToolOnTile(_tile); };
+                    _tile.OnTileClicked += () => { UseToolOnTile(_tile, false); };
+                    _tile.OnTileRightClicked += () => { UseToolOnTile(_tile, true); };
                     _tile.OnValueUpdated += () => {
                         if(ColorPaletteKey.ContainsKey(_tile.ColorValue))
                         {
@@ -140,6 +141,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                         if (ColorPaletteKey.ContainsKey(assetGrid.TerrainFlag[pos]))
                         {
                             _tile.ChangeValue(assetGrid.TerrainFlag[pos]);
+                        } else if (assetGrid.TerrainFlag[pos] == -1)
+                        {
+                            _tile.ChangeValue(-1);
                         } else
                         {
                             //TODO: Work on a way to be able to revert the colors and such.
@@ -166,18 +170,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         #endregion
 
-        public void UseToolOnTile(AssetGridTile tile)
+        public void UseToolOnTile(AssetGridTile tile, bool rightClick)
         {
             switch(ActiveTool)
             {
                 case TerrainConnectionGridEditorWindow.GridTerrainTool.Brush:
-                    BrushTool(tile);
+                    BrushTool(tile, rightClick);
                     break;
                 case TerrainConnectionGridEditorWindow.GridTerrainTool.Fill:
-                    FillTool(tile);
+                    FillTool(tile, rightClick);
                     break;
                 case TerrainConnectionGridEditorWindow.GridTerrainTool.Eraser:
-                    EraserTool(tile);
+                    EraserTool(tile, rightClick);
                     break;
             }
         }
@@ -196,18 +200,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             }
         }
 
-        public void BrushTool(AssetGridTile tile)
+        public void BrushTool(AssetGridTile tile, bool rightClick)
         {
-            tile.ChangeValue(CurrentColorID);
+            tile.ChangeValue(rightClick ? 0 : CurrentColorID);
         }
-        public void EraserTool(AssetGridTile tile)
+        public void EraserTool(AssetGridTile tile, bool rightClick)
         {
             tile.ChangeValue(0);
         }
-        public void FillTool(AssetGridTile tile)
+        public void FillTool(AssetGridTile tile, bool rightClick)
         {
             var _oldColor = tile.ColorValue;
-            tile.ChangeValue(CurrentColorID);
+            if (_oldColor == (rightClick ? 0 : CurrentColorID)) return;
+
+            tile.ChangeValue(rightClick ? 0 : CurrentColorID);
         
             //Now we propagate it by looking for anything with the same old color
         
@@ -216,7 +222,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             {
                 if (tiles[tile.GridPosition + 1].ColorValue == _oldColor)
                 {
-                    FillTool(tiles[tile.GridPosition + 1]);
+                    FillTool(tiles[tile.GridPosition + 1], rightClick);
                 }
             }
             //left
@@ -224,7 +230,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             {
                 if (tiles[tile.GridPosition - 1].ColorValue == _oldColor)
                 {
-                    FillTool(tiles[tile.GridPosition - 1]);
+                    FillTool(tiles[tile.GridPosition - 1], rightClick);
                 }
             }
             //up
@@ -232,7 +238,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             {
                 if (tiles[tile.GridPosition - GridLengthSqr].ColorValue == _oldColor)
                 {
-                    FillTool(tiles[tile.GridPosition - GridLengthSqr]);
+                    FillTool(tiles[tile.GridPosition - GridLengthSqr], rightClick);
                 }
             }
             //down
@@ -240,7 +246,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             {
                 if (tiles[tile.GridPosition + GridLengthSqr].ColorValue == _oldColor)
                 {
-                    FillTool(tiles[tile.GridPosition + GridLengthSqr]);
+                    FillTool(tiles[tile.GridPosition + GridLengthSqr], rightClick);
                 }
             }
 

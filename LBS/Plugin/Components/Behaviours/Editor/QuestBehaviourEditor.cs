@@ -70,6 +70,8 @@ namespace ISILab.LBS.VisualElements
             _removeNode = new RemoveGraphNode();
             var t2 = new LBSTool(_removeNode);
             t2.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+
+            _addNode.SetRemover(_removeNode);
             
             _connectNodes = new ConnectQuestNodes();
             var t3 = new LBSTool(_connectNodes);
@@ -78,9 +80,9 @@ namespace ISILab.LBS.VisualElements
             _removeConnection = new RemoveQuestConnection();
             var t4 = new LBSTool(_removeConnection);
             t4.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            
-            //_connectNodes.SetRemover(_removeConnection);
-            
+
+            _connectNodes.SetRemover(_removeConnection);
+
             toolkit.ActivateTool(t1,_behaviour?.OwnerLayer, target);
             toolkit.ActivateTool(t2,_behaviour?.OwnerLayer, target);
             toolkit.ActivateTool(t3,_behaviour?.OwnerLayer, target);
