@@ -35,7 +35,7 @@ namespace ISILab.LBS.VisualElements
 
         private const float Alpha = 0.33f;
 
-        private bool _isDragging = false;
+        protected bool _isDragging = false;
 
         #endregion
 
@@ -67,6 +67,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     Node.Graph.SelectedGraphNode = Node;
                     _isDragging = true;
+                    this.CaptureMouse();
                 }
             }
             
@@ -74,7 +75,7 @@ namespace ISILab.LBS.VisualElements
             DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
         }
 
-        protected void OnMouseMove(MouseMoveEvent e)
+        protected virtual void OnMouseMove(MouseMoveEvent e)
         {
             if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             if (this != _selectedGraph) return;
@@ -97,7 +98,7 @@ namespace ISILab.LBS.VisualElements
             if (_isDragging) return;
 
             RestoreManipulator();
-            OnMouseMove(MouseMoveEvent.GetPooled(e.mousePosition, e.button, e.clickCount, e.mouseDelta));
+            //OnMouseMove(MouseMoveEvent.GetPooled(e.mousePosition, e.button, e.clickCount, e.mouseDelta));
             DrawManager.Instance.PickingModeRestoreAll();
         }
         
@@ -109,6 +110,7 @@ namespace ISILab.LBS.VisualElements
             DrawManager.Instance.PickingModeRestoreAll();
             DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
             _isDragging = false;
+            this.ReleaseMouse();
             
             /// avoid recall on assistant
             Type activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance().GetType();

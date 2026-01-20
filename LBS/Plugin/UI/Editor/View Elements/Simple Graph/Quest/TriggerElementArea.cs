@@ -118,7 +118,7 @@ namespace ISILab.LBS.VisualElements
 
         private void OnMouseLeave(MouseLeaveEvent evt)
         {
-            if (!_isDragging)
+            if (!_isDragging && !_resizing)
                 RestoreManipulator();
         }
 
@@ -128,15 +128,14 @@ namespace ISILab.LBS.VisualElements
             handle.style.display = isCenter ? DisplayStyle.Flex : DisplayStyle.None;
             VisualElement handleArea = handle.Q<VisualElement>("handleArea");
             
-            
             // can only resize the main trigger area of a quest action node
             if (!isCenter) return;
             
             handle.RegisterCallback<MouseLeaveEvent>(_ =>
             {
-                if (_isDragging) return;
+                if (_isDragging || _resizing) return;
 
-                    RestoreManipulator();
+                RestoreManipulator();
                 
                 if(pickingMode == PickingMode.Ignore) return;
                 _resizing = false;
@@ -147,16 +146,20 @@ namespace ISILab.LBS.VisualElements
             handle.RegisterCallback<MouseEnterEvent>(_ =>
             {
                 ShelfManipulator();
-                
-                if(pickingMode == PickingMode.Ignore) return;
+            });
+
+            handle.RegisterCallback<MouseDownEvent>(evt =>
+            {
+                if (pickingMode == PickingMode.Ignore) return;
                 // only one resizer at a time
                 if (_resizing) return;
-                
-                _resizeStartPosition = GetPosition().position; 
-                
+
+                _resizeStartPosition = GetPosition().position;
+
                 _resizing = true;
                 _activeHandle = handleCode;
                 handleArea.style.display = DisplayStyle.Flex;
+                handle.CaptureMouse();
             });
 
             handle.RegisterCallback<MouseUpEvent>(_ =>
@@ -204,7 +207,9 @@ namespace ISILab.LBS.VisualElements
                 _data.Area = new Rect(posX, posY, width, height);
                 _data.Graph?.NodeDataChanged(_data.OwnerNode);
 
+                handle.ReleaseMouse();
                 _activeHandle = null;
+
 
                 Vector2 position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
                 Rect drawArea = new(position, new Vector2(_data.Area.width * GraphGridLength, _data.Area.height * GraphGridLength));
@@ -252,6 +257,7 @@ namespace ISILab.LBS.VisualElements
             if (e.button != 0) return;
             _isDragging = true;
             _dragStartMouse = e.mousePosition;
+            this.CaptureMouse();
             
             
             Vector2Int tilePosition = new Vector2Int((int)_data.Area.x, (int)_data.Area.y);
@@ -310,6 +316,7 @@ namespace ISILab.LBS.VisualElements
             
             if (!_isDragging) return;
             _isDragging = false;
+            this.ReleaseMouse();
 
             _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
             

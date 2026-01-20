@@ -13,7 +13,7 @@ namespace ISILab.LBS.Manipulators
 {
     public class AddNote : LBSManipulator
     {
-        protected override string IconGuid => "1280a33d1238d2b4d8e037976f245072";
+        protected override string IconGuid => "c301732b5aed09a4e8b1a4f165dc3515";
 
         public AddNote()
         {
