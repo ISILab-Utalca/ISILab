@@ -67,7 +67,7 @@ namespace ISILab.LBS.VisualElements
 
         private void OnSelectedChanged(TileBundleGroup tilemap)
         {
-            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
             UpdateTilebundle(tilemap);
         }
 

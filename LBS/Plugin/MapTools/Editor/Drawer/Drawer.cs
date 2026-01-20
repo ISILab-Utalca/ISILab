@@ -42,6 +42,7 @@ namespace ISILab.LBS.Drawers
         // parameters.
         protected void UpdateLoadedTiles() { throw new NotImplementedException(); }
         #endregion
+
         public abstract void HideVisuals(object target, MainView view);
         public abstract void ShowVisuals(object target, MainView view);
         

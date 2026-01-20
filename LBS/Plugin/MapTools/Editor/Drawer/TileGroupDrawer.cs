@@ -213,8 +213,34 @@ namespace ISILab.LBS.Drawers
         }
 
 
-        public override void HideVisuals(object target, MainView view) { }
-        public override void ShowVisuals(object target, MainView view) { }
+        public override void HideVisuals(object target, MainView view) 
+        {
+            //if (target is not TileGroupBehavior tgb) return;
+
+            //foreach (var tg in tgb.Keys)
+            //{
+            //    if (tg == null) continue;
+
+            //    var elements = view.GetElementsFromLayer(tgb.OwnerLayer, tg);
+            //    foreach (var graphElement in elements)
+            //    {
+            //        graphElement.style.display = DisplayStyle.None;
+            //    }
+            //}
+        }
+
+        public override void ShowVisuals(object target, MainView view) 
+        {
+            //if (target is not TileGroupBehavior nb) return;
+
+            //foreach (var tgb in nb.Keys)
+            //{
+            //    foreach (var graphElement in view.GetElementsFromLayer(nb.OwnerLayer, tgb).Where(graphElement => graphElement != null))
+            //    {
+            //        graphElement.style.display = DisplayStyle.Flex;
+            //    }
+            //}
+        }
         public override void Update(object target, MainView view, Vector2 tesselationSize) { }
     }
 }

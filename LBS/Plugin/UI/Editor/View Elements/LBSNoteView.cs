@@ -18,12 +18,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
     public partial class LBSNoteView : GraphElement
     {
         // Define colors for the note, both when unselected (kinda transparent) and selected (when clicked and focused, more solid)
-
-        /*
-            Falta que la nota se ajuste al tamaño de la label
-            Ese pequeño detalle para que no se mueva el texto hacia arriba tras un salto de línea
-            Cambiar (si se puede) la forma de crear un salto de l�nea
-        */
     
         #region FIELDS
 
@@ -36,6 +30,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
         // Dragging and Double Click stuff
         private bool isDragging = false;
         private Vector2 dragOffset;
+        private Vector2 dragStartPos;
         private float lastClickTime = 0f;
         private const float doubleClickThreshold = 0.3f;
 
@@ -81,7 +76,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
             Note = note;
             label.text = note.Message;
             style.width = label.style.width = width;
-            style.height = label.style.height = height; 
+            style.height = label.style.height = height;
+            style.overflow = Overflow.Hidden;
         }
 
         #endregion
@@ -102,8 +98,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                 }
                 else
                 {
+                    if (isEditing) return;
                     isDragging = true;
-                    dragOffset = evt.localMousePosition;
+                    dragStartPos = Note.Position;
+                    dragOffset = MainView.Instance.contentViewContainer.WorldToLocal(evt.originalMousePosition);
                     this.CaptureMouse();
                 }
                 lastClickTime = time;
@@ -127,10 +125,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                     }
                 }
             }
-            else if (evt.button == 1)
-            {
-
-            }
         }
 
         private void OnMouseMove(MouseMoveEvent evt)
@@ -144,9 +138,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                 {
                     if (parent != null)
                     {
-                        Vector2 newPos = evt.mousePosition - dragOffset;
-                        Note.Position = new Vector2(newPos.x ,newPos.y);
-                        SetPosition(new Rect(MainView.Instance.FixPos(Note.Position), layout.size));
+                        Vector2 mouseCanvas = MainView.Instance.contentViewContainer.WorldToLocal(evt.originalMousePosition);
+                        Vector2 delta = mouseCanvas - dragOffset;
+                        Vector2 newPos = dragStartPos + delta;
+                        Note.Position = newPos;
+                        SetPosition(new Rect(Note.Position, layout.size));
                     }
                 }
             }
@@ -170,7 +166,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
             tempEditor.value = Note.Message;
             tempEditor.style.width = label.style.width;
             tempEditor.style.height = label.style.height;
+            //tempEditor.style.height = StyleKeyword.Auto;
+            tempEditor.style.whiteSpace = WhiteSpace.Normal;
             tempEditor.multiline = true;
+            tempEditor.verticalScrollerVisibility = ScrollerVisibility.AlwaysVisible;
             Add(tempEditor);
             tempEditor.Focus();
 
@@ -181,6 +180,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                 label.style.display = DisplayStyle.Flex;
                 Remove(tempEditor);
                 isEditing = false;
+                evt.StopPropagation();
             });
         }
     }
