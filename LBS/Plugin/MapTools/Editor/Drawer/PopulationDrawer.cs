@@ -90,6 +90,8 @@ namespace ISILab.LBS.Drawers
 
         private void UpdateLoadedTiles(PopulationBehaviour population, MainView view)
         {
+            population.Keys.RemoveWhere(item => item == null);
+
             UpdateTilesRotation(population, view);
 
             // Update stored tiles
@@ -207,6 +209,7 @@ namespace ISILab.LBS.Drawers
                 }
             }
         }
+
         public override void HideVisuals(object target, MainView view)
         {
             // Get behaviours

@@ -1,3 +1,4 @@
+using ISILab.AI.Optimization.Populations;
 using ISILab.Commons.VisualElements;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
@@ -13,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Graphs;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
@@ -65,13 +67,13 @@ namespace ISILab.LBS.Drawers
 
             groupView.SetPosition(new Rect(pos * tileSize, tileSize));
             groupView.layer = _tgb.OwnerLayer.index;
-
             view.AddElementToLayerContainer(_tgb.OwnerLayer, this, groupView);
+
+            groupView.style.display = (DisplayStyle)(_tgb.OwnerLayer.IsVisible ? 0 : 1);
         }
 
         private void DrawPatrol(MainView view, TileBundleGroup selected)
         {
-    
             Addon_Patrol addon = selected.GetAddon<Addon_Patrol>();
             if (addon is null) return;
 
@@ -101,6 +103,8 @@ namespace ISILab.LBS.Drawers
             feedback.UpdatePositions(Color.white, aWorld.ToInt(), bWorld.ToInt());
 
             view.AddElementToLayerContainer(_tgb.OwnerLayer, this, feedback);
+
+            feedback.style.display = (DisplayStyle)(_tgb.OwnerLayer.IsVisible ? 0 : 1);
 
             if (labelIndex >= 0)
             {
@@ -164,6 +168,8 @@ namespace ISILab.LBS.Drawers
 
                 view.AddElementToLayerContainer(_tgb.OwnerLayer, this, shape);
                 shape.SendToBack();
+
+                shape.style.display = (DisplayStyle)(_tgb.OwnerLayer.IsVisible ? 0 : 1);
             }
 
         }
@@ -212,35 +218,10 @@ namespace ISILab.LBS.Drawers
 
         }
 
+        public override void HideVisuals(object target, MainView view) { }
 
-        public override void HideVisuals(object target, MainView view) 
-        {
-            //if (target is not TileGroupBehavior tgb) return;
+        public override void ShowVisuals(object target, MainView view) { }
 
-            //foreach (var tg in tgb.Keys)
-            //{
-            //    if (tg == null) continue;
-
-            //    var elements = view.GetElementsFromLayer(tgb.OwnerLayer, tg);
-            //    foreach (var graphElement in elements)
-            //    {
-            //        graphElement.style.display = DisplayStyle.None;
-            //    }
-            //}
-        }
-
-        public override void ShowVisuals(object target, MainView view) 
-        {
-            //if (target is not TileGroupBehavior nb) return;
-
-            //foreach (var tgb in nb.Keys)
-            //{
-            //    foreach (var graphElement in view.GetElementsFromLayer(nb.OwnerLayer, tgb).Where(graphElement => graphElement != null))
-            //    {
-            //        graphElement.style.display = DisplayStyle.Flex;
-            //    }
-            //}
-        }
         public override void Update(object target, MainView view, Vector2 tesselationSize) { }
     }
 }

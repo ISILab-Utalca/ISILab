@@ -13,6 +13,7 @@ using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using System.Collections.Generic;
 using System.Diagnostics;
 using ISILab.LBS.Characteristics;
+using LBS.Components.TileMap;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -72,13 +73,11 @@ namespace ISILab.LBS.Manipulators
         {
             MainView.Instance.RemoveElement(Feedback);
             CleanPreviews();
-
         }
 
         protected override void OnMouseEnter(VisualElement element, MouseEnterEvent e)
         {
             CleanPreviews();
-
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
@@ -138,7 +137,7 @@ namespace ISILab.LBS.Manipulators
                 {
                     newTileGroup = _population.AddTileGroup(
                         new Vector2Int(i, j), 
-                        ToSet,
+                        new BundleData(ToSet),
                         _population.GetActiveRotation());
                 }
             }
