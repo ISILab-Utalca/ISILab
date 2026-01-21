@@ -200,7 +200,8 @@ namespace ISILab.LBS.VisualElements
 
             base.OnMouseEnter(evt);
 
-            _questActionDetails.SetDisplays(InvalidConnectionIcon, _iconGrammarInvalid, _iconNodeDataInvalid);
+            if (!_isDragging)
+                _questActionDetails.SetDisplays(InvalidConnectionIcon, _iconGrammarInvalid, _iconNodeDataInvalid);
         }
 
         protected override void OnMouseLeave(MouseLeaveEvent evt)
@@ -208,11 +209,18 @@ namespace ISILab.LBS.VisualElements
             _questActionDetails.style.display = DisplayStyle.None;
             base.OnMouseLeave(evt);
         }
+
+        protected override void OnMouseMove(MouseMoveEvent evt)
+        {
+            if (_isDragging)
+                _questActionDetails.style.display = DisplayStyle.None;
+
+            base.OnMouseMove(evt);
+        }
         
         #endregion
 
         #region Helpers
-
 
         private float GetElementWidthIfVisible(VisualElement element, float fallback)
         {

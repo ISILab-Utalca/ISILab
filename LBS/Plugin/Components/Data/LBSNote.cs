@@ -1,5 +1,6 @@
 using System;
 using ISILab.LBS.Modules;
+using LBS.Components;
 using Newtonsoft.Json;
 using UnityEditor.Graphs;
 using UnityEngine;
@@ -22,6 +23,9 @@ public class LBSNote : ICloneable
 
     [SerializeField, JsonRequired]
     protected string message;
+
+    [SerializeField, JsonRequired, HideInInspector]
+    private LBSLayer ownerLayer;
 
     #endregion
 
@@ -49,18 +53,25 @@ public class LBSNote : ICloneable
         set => message = value;
     }
 
+    public LBSLayer OwnerLayer
+    {
+        get => ownerLayer;
+        set => ownerLayer = value;
+    }
+
     #endregion
 
     #region CONSTRUCTORS
 
     protected LBSNote() { }
 
-    public LBSNote(Vector2 position, string message)
+    public LBSNote(Vector2 position, string message, LBSLayer ownerLayer)
     {
         id = $"Note {++noteCounter}";
         x = position.x;
         y = position.y;
         this.message = message;
+        this.ownerLayer = ownerLayer;
     }
 
     #endregion
