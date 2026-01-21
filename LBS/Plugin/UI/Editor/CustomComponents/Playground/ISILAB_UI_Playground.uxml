@@ -11,7 +11,7 @@
                 <ISILab.LBS.VisualElements.ToolButton />
             </ISILab.LBS.VisualElements.ButtonGroup>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
             <uie:Toolbar name="Toolbar" class="lbs-toolbar">
                 <uie:ToolbarButton text="Button" />
                 <uie:ToolbarToggle label="Toggle" />
@@ -39,6 +39,7 @@
                     <ISILab.LBS.CustomComponents.LBSCustomLabel text="Selection lorem ipsum" hint-color="#FF000000" />
                     <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/LBS/Plugin/Components/Data/Quest/QuestIcons/Artifact=target.svg?fileID=7388822144124034973&amp;guid=d96b94effa175424699a0813ffdd99ef&amp;type=3#Artifact=target" />
                     <ISILab.LBS.VisualElements.ToolButton />
+                    <ISILab.LBS.VisualElements.WarningPanel text="Some simple warning" current-warning-type="Warning" name="WarningPanel" style="height: 36px;" />
                 </ui:VisualElement>
                 <ISILab.Commons.VisualElements.Editor.SplitView fixed-pane-initial-dimension="400">
                     <ui:VisualElement class="lbs-panel">
