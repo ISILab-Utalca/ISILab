@@ -1,4 +1,5 @@
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -152,7 +153,7 @@ namespace ISILab.LBS.CustomComponents
         {
             if (!string.IsNullOrEmpty(InvalidSelectionMessage))
             {
-                LBSMainWindow.MessageNotify(InvalidSelectionMessage, LogType.Warning);
+                LBSMainWindow.MessageNotify(new LBSLog(InvalidSelectionMessage, LogType.Warning));
             }
         }
 

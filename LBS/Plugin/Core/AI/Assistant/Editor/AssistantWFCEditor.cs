@@ -13,6 +13,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements;
@@ -100,7 +101,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
                 System.Action invalidBundleAction = () =>
                 {
                     bundleField.value = exterior.Bundle;
-                    LBSMainWindow.MessageNotify("Selected bundle was invalid.", LogType.Warning);
+                    LBSMainWindow.MessageNotify(
+                        new LBSLog("Selected bundle was invalid.", LogType.Warning));
                 };
 
                 if (bundle)
@@ -167,8 +169,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             {
                 assistant.SafeMode = evt.newValue;
                 if (evt.newValue)
-                    LBSMainWindow.MessageNotify("Safe Generation enabled.");
-                else LBSMainWindow.MessageNotify("Safe generation disabled. Some tiles may not be generated. Ensure you have enough variety of bundles for exteriors.", LogType.Warning, 7);
+                    LBSMainWindow.MessageNotify(
+                        new LBSLog("Safe Generation enabled."));
+                else LBSMainWindow.MessageNotify(
+                    new LBSLog("Safe generation disabled. Some tiles may not be generated. Ensure you have enough variety of bundles for exteriors.", LogType.Warning, 7));
             });
             safeModeToggle.SetValueWithoutNotify(assistant.SafeMode);
 
@@ -181,8 +185,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
         private void CaptureWeights()
         {
             if(assistant.CaptureWeights(out string errMsg))
-                LBSMainWindow.MessageNotify("Current map weights captured.");
-            else LBSMainWindow.MessageNotify(errMsg, LogType.Warning);
+                LBSMainWindow.MessageNotify( new LBSLog("Current map weights captured."));
+            else LBSMainWindow.MessageNotify( new LBSLog(errMsg, LogType.Warning));
             //
             //if (assistant.CaptureRules())
             //    LBSMainWindow.MessageNotify("Current map weights captured.");
@@ -196,10 +200,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
                 UpdatePresetsList();
                 currentPreset.value = newPreset;
                 presetsList.SetSelection(presetsList.itemsSource.IndexOf(newPreset));
-                LBSMainWindow.MessageNotify($"Weights saved as preset: {endName}.");
+                LBSMainWindow.MessageNotify(new LBSLog($"Weights saved as preset: {endName}."));
             }
             else if(!string.IsNullOrEmpty(errMsg))
-                LBSMainWindow.MessageNotify(errMsg, LogType.Warning);
+                LBSMainWindow.MessageNotify(new LBSLog(errMsg, LogType.Warning));
         }
 
         private void LoadWeights()
@@ -209,9 +213,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             {
                 assistant.LoadWeights(loaded);
                 currentPreset.value = loaded;
-                LBSMainWindow.MessageNotify($"Weights loaded from preset: {loaded.name}.");
+                LBSMainWindow.MessageNotify(
+                    new LBSLog($"Weights loaded from preset: {loaded.name}."));
             }
-            else LBSMainWindow.MessageNotify("Failed to load: you must select a non-null preset from the list or create a new one.", LogType.Warning, 5);
+            else LBSMainWindow.MessageNotify(
+                new LBSLog("Failed to load: you must select a non-null preset from the list or create a new one.", LogType.Warning, 5));
         }
 
         private void UpdatePresetsList()

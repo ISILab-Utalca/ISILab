@@ -39,9 +39,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         // For template construction
         public QuestRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
 
-        public override List<Message> CheckViability(LBSLayer layer)
+        public override bool CheckViability(LBSLayer layer)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public override object Clone()
@@ -67,26 +67,30 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if(quest == null)
             {
                 Object.DestroyImmediate(pivot);
-                return new GeneratedGO(null, "No quest graph found. Can't generate");
+                return new GeneratedGO(null, 
+                    new LBSLog("No quest graph found. Can't generate", LogType.Error));
             }
             CloneRefs.End();
 
             if (!quest.GraphEdges.Any())
             {
                 Object.DestroyImmediate(pivot);
-                return new GeneratedGO(null, "The quest graph is empty!. Can't generate");
+                return new GeneratedGO(null,
+                    new LBSLog("The quest graph is empty!. Can't generate", LogType.Error));
             }
             
             if (quest.Root is null)
             {
                 Object.DestroyImmediate(pivot);
-                return new GeneratedGO(null, "There is no root in the graph. Assign a root to generate the quest");
+                return new GeneratedGO(null, 
+                    new LBSLog("There is no root in the graph. Assign a root to generate the quest", LogType.Error));
             }
 
             if (quest.GetQuestNodes().All(n => n.NodeType != QuestNode.ENodeType.Goal))
             {
                 Object.DestroyImmediate(pivot);
-                return new GeneratedGO(null, "There must be at least one goal node. Make sure to have actions with roots but no branches");
+                return new GeneratedGO(null, 
+                    new LBSLog("There must be at least one goal node. Make sure to have actions with roots but no branches", LogType.Error));
             }
             
             var assistant = layer.GetAssistant<GrammarAssistant>();
@@ -94,7 +98,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
              if (!allValid)
             {
                 Object.DestroyImmediate(pivot);
-                return new GeneratedGO(null, "At least one quest node is not grammatically valid. Fix or remove");
+                return new GeneratedGO(null, 
+                    new LBSLog("At least one quest node is not grammatically valid. Fix or remove", LogType.Error));
              }
           
             observer.Init(quest);
@@ -108,7 +113,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
              */
             CreateUIDocument(pivot.transform, observer.gameObject);
             
-            return new GeneratedGO(pivot, null);
+            return new GeneratedGO(pivot, new LBSLog(0));
         }
 
         private void GenerateTriggers(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)

@@ -12,6 +12,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
@@ -159,7 +160,7 @@ namespace ISILab.LBS.Editor
                 UpdateExpandSuggestions(expandArray, currentQuest);
                 TaskBar.EnableProcess(false);
                 
-                LBSMainWindow.MessageNotify(log, type, 5);
+                LBSMainWindow.MessageNotify(new LBSLog(log, type, 5));
             };
         }
 

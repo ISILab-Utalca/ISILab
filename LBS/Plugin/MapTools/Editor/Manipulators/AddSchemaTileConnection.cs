@@ -9,6 +9,7 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -75,7 +76,8 @@ namespace ISILab.LBS.Manipulators
 
             if (ToSet is null)
             {
-                LBSMainWindow.MessageNotify("Select a connection type in the LBS-inspector panel",LogType.Warning,4);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("Select a connection type in the LBS-inspector panel",LogType.Warning,4));
                 return;
             }
 

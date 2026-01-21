@@ -11,6 +11,7 @@ using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.VisualElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using System.Diagnostics;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -438,7 +439,8 @@ namespace ISILab.LBS.Manipulators
                 _forceCancel = true;
                 _onToolUsage = false;
 
-                LBSMainWindow.MessageNotify("'" + Name + "' action cancelled.");
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("'" + Name + "' action cancelled."));
                 Feedback?.SetDisplay(false);
             }
         }

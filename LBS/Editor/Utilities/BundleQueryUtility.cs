@@ -7,6 +7,7 @@ using System.Linq;
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace LBS.Components
 {
@@ -29,13 +30,17 @@ namespace LBS.Components
         {
             if (characteristicType == null)
             {
-                LBSMainWindow.MessageNotify(new ArgumentNullException(nameof(characteristicType)).ToString(), LogType.Error);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog(new ArgumentNullException(nameof(characteristicType)).ToString(), 
+                    LogType.Error));
                 return null;
             }
 
             if (!typeof(LBSCharacteristic).IsAssignableFrom(characteristicType))
             {
-                LBSMainWindow.MessageNotify($"El tipo {characteristicType.Name} no deriva de {nameof(LBSCharacteristic)}.", LogType.Error);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog($"El tipo {characteristicType.Name} no deriva de {nameof(LBSCharacteristic)}.", 
+                    LogType.Error));
             }
 
             var result = new List<Bundle>();

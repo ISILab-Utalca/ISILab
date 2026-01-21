@@ -152,6 +152,11 @@ namespace LBS.Components
             return modules.FirstOrDefault(m => (m is T || Reflection.IsSubclassOfRawGeneric(typeof(T), m.GetType())) && m.ID == moduleID) as T;
         }
 
+        public T GetRule<T>() where T : LBSGeneratorRule
+        {
+            return generatorRules.OfType<T>().FirstOrDefault();
+        }
+
         internal void SetModule<T>(T module, string key = "") where T : LBSModule
         {
             if (module == null) return;
