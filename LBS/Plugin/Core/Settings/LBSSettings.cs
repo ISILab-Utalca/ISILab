@@ -83,26 +83,17 @@ namespace ISILab.LBS.Plugin.Core.Settings
             string userFolder = "Assets/LBSUserContent";
             string packageFolder = "Packages/" + packageInfo.name;
 
+            instance.paths.baseFolderPath = packageFolder;
+
             instance.paths.settingsPath = userFolder + "/Resources/Settings/LBSUserSettings.asset";
             instance.paths.storagePath = userFolder + "/Resources/Cache/Storage.asset";
             instance.paths.backUpPath = userFolder + "/Resources/Cache/LBSBackUp.asset";
-
-            //ReplacePathStart(ref instance.paths.settingsPath, userFolder); instance.paths.settingsPath.Replace("LBSDefaultSettings", "LBSUserSettings");
-            //ReplacePathStart(ref instance.paths.storagePath, userFolder); instance.paths.storagePath.Replace("StorageTemplate", "Storage");
-            //ReplacePathStart(ref instance.paths.pressetsPath);
-            //ReplacePathStart(ref instance.paths.backUpPath, userFolder);
 
             instance.paths.bundleFolderPath = userFolder + "/Bundles";
             instance.paths.tagFolderPath = userFolder + "/Tags";
             instance.paths.meshFolderPath = userFolder + "/Meshes";
 
             instance.paths.WFCpresetsFolderPath = userFolder + "/Presets/WFC";
-
-            //ReplacePathStart(ref instance.paths.bundleFolderPath, userFolder);
-            //ReplacePathStart(ref instance.paths.tagFolderPath, userFolder);
-            //ReplacePathStart(ref instance.paths.meshFolderPath, userFolder);
-
-            //ReplacePathStart(ref instance.paths.iconPath);
 
             ReplacePathStart(ref instance.paths.layerPressetFolderPath, packageFolder);
             ReplacePathStart(ref instance.paths.assistantPresetFolderPath, packageFolder);
@@ -154,6 +145,8 @@ namespace ISILab.LBS.Plugin.Core.Settings
         [System.Serializable]
         public class Paths
         {
+            public string baseFolderPath                = "Assets/ISILab";
+
             // Controller Paths
             public string settingsPath                  = "Assets/ISILab/LBS/Plugin/Internal/Settings/Resources/LBSDefaultSettings.asset";
             public string storagePath                   = "Assets/ISILab/LBS/Plugin/Internal/Resources/Storage/StorageTemplate.asset";

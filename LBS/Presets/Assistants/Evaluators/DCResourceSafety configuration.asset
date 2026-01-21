@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c337e8961ec74a145bc9c98971225b30, type: 3}
+  m_Name: DCResourceSafety configuration
+  m_EditorClassIdentifier: 
+  target:
+    rid: 3359370255002765032
+  fields:
+  - rid: 3359370256260541600
+  - rid: 3359370256260541601
+  references:
+    version: 2
+    RefIds:
+    - rid: 3359370255002765032
+      type: {class: DCResourceSafety, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        playerCharacteristic:
+          rid: 3359370255922889369
+        resources:
+        - rid: 3359370255922889370
+        - rid: 3359370255922889371
+        - rid: 3359370255922889372
+        - rid: 3359370255922889373
+        - rid: 3359370255922889374
+        - rid: 3359370255922889375
+    - rid: 3359370255922889369
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 
+    - rid: 3359370255922889370
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Chest
+          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
+          tagGUID: 
+    - rid: 3359370255922889371
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Axe
+          value: {fileID: 11400000, guid: 90c0458b7a8ee514d9c7ba0ace177f05, type: 2}
+          tagGUID: 
+    - rid: 3359370255922889372
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Hammer
+          value: {fileID: 11400000, guid: 1b5f81de2f3a4ac40a031e0d2f7ddd0b, type: 2}
+          tagGUID: 
+    - rid: 3359370255922889373
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Sword
+          value: {fileID: 11400000, guid: b1c5ecf1473587a42ba9abcff06c1437, type: 2}
+          tagGUID: 
+    - rid: 3359370255922889374
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Food
+          value: {fileID: 11400000, guid: b354587b73f945f4188c7dc7026de4ef, type: 2}
+          tagGUID: 
+    - rid: 3359370255922889375
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Tree
+          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
+          tagGUID: 
+    - rid: 3359370256260541600
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Player
+        tagName: Player
+    - rid: 3359370256260541601
+      type: {class: EvaluatorConfiguration/GroupedTagsField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Resources
+        tagsFields:
+        - name: 
+          tagName: Chest
+        - name: 
+          tagName: Axe
+        - name: 
+          tagName: Hammer
+        - name: 
+          tagName: Sword
+        - name: 
+          tagName: Food
+        - name: 
+          tagName: Tree

@@ -1,4 +1,3 @@
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.AI.Optimization.Populations;
 using ISILab.AI.Optimization.Selections;
@@ -12,6 +11,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;

@@ -178,7 +178,14 @@ namespace ISILab.LBS.Characteristics
 
         public override string ToString()
         {
-            return tagEntries.ToString();
+            string s = "[";
+            for(int i = 0; i <  tagEntries.Count; i++)
+            {
+                s += tagEntries[i].TagName + ", ";
+            }
+            s = s.Substring(0, s.Length - 2);
+            s += "]";
+            return s;
         }
 
         public override int GetHashCode()

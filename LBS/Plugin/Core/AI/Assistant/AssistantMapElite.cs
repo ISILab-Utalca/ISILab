@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Categorization;
 using ISILab.AI.Optimization;
 using ISILab.Commons.Extensions;
@@ -16,9 +11,14 @@ using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Categorization;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
 
@@ -146,14 +146,26 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             throw new NotImplementedException(); // TODO: Implement Continue method for AssistantMapElite class
         }
 
-        public void InitializeEvaluator(IEvaluator evaluator)
+        public void InitializeEvaluator(IEvaluator evaluator, bool defaultInitialization = false)
         {
-            if (evaluator != null)
+            if (evaluator is null) return;
+
+            var contextualChoice = evaluator as IContextualEvaluator;
+            var configurableChoice = evaluator as IConfigurableEvaluator;
+            contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);
+
+            if (defaultInitialization || configurableChoice is not null)
+                contextualChoice.InitializeDefault();
+            else
             {
-                var contextualChoice = evaluator as IContextualEvaluator;
-                if (contextualChoice != null)
-                    contextualChoice.InitializeDefaultWithContext(Data.ContextLayers, RawToolRect);
-                else evaluator.InitializeDefault();
+                string path = LBSSettings.Instance.paths.assistantPresetFolderPath + "/Evaluators";
+                string assetName = evaluator.GetType().Name;
+                string fullPath = path + "/" + assetName + " configuration.asset";
+
+                if (AssetDatabase.AssetPathExists(fullPath))
+                    configurableChoice.ReadConfiguration();
+                else
+                    contextualChoice.InitializeDefault();
             }
         }
 

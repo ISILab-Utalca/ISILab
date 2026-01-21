@@ -1,18 +1,10 @@
-using Commons.Optimization.Evaluator;
 using GeneticSharp.Domain.Crossovers;
 using GeneticSharp.Domain.Mutations;
-using ISILab.AI.Optimization;
 using ISILab.AI.Optimization.Selections;
 using ISILab.AI.Optimization.Terminations;
 using ISILab.LBS.Editor;
-using ISILab.LBS.Plugin.Core.Settings;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using ISILab.LBS.Plugin.Core.AI.Optimization;
-using UnityEditor;
-using UnityEngine;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements

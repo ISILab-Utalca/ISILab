@@ -1,7 +1,9 @@
 using ISILab.Commons.Utility;
+using ISILab.LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS
 {
@@ -42,6 +44,26 @@ namespace ISILab.LBS
             }
             return null;
 
+        }
+
+        public static void LoadEditor(VisualElement container, object target)
+        {
+            container.Clear();
+
+            var veType = GetEditor(target.GetType());
+
+            if (veType == null)
+            {
+                return;
+            }
+
+            var ve = Activator.CreateInstance(veType, new object[] { target }) as VisualElement;
+            if (ve is ClassFoldout cf)
+            {
+                //cf.OnCreate(veType, target);
+            }
+
+            container.Add(ve);
         }
 
         public static Type GetDrawer<T>()

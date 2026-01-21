@@ -1,29 +1,29 @@
+using ISILab.AI.Categorization;
+using ISILab.AI.Optimization;
+using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.AI.Categorization;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Drawers;
 using ISILab.LBS.Editor.Windows;
-using UnityEngine;
-using UnityEngine.UIElements;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
+using LBS.Components;
+using LBS.Components.TileMap;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using UnityEditor;
-using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.AI.Categorization;
-using UnityEditor.UIElements;
-using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using System.IO;
-using Commons.Optimization.Evaluator;
-using ISILab.AI.Optimization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Drawers;
-using ISILab.Extensions;
-using ISILab.AI.Categorization;
-using LBS.Components.TileMap;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
-using LBS.Components;
+using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine;
+using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.VisualElements.Editor
@@ -90,9 +90,9 @@ namespace ISILab.LBS.VisualElements.Editor
 
         #region PROPERTIES
 
-        private IRangedEvaluator currentXField
+        private IRangedEvaluator CurrentXField
         {
-            get => mapEliteBundle?.XEvaluator;
+            get => mapEliteBundle != null ? mapEliteBundle.XEvaluator : null;
             set
             {
                 if (mapEliteBundle == null) return;
@@ -100,9 +100,9 @@ namespace ISILab.LBS.VisualElements.Editor
             }
         }
 
-        private IRangedEvaluator currentYField
+        private IRangedEvaluator CurrentYField
         {
-            get => mapEliteBundle?.YEvaluator;
+            get => mapEliteBundle != null ? mapEliteBundle.YEvaluator : null;
             set
             {
                 if (mapEliteBundle == null) return;
@@ -110,7 +110,7 @@ namespace ISILab.LBS.VisualElements.Editor
             }
         }
 
-        private BaseOptimizer currentOptimizer => mapEliteBundle?.Optimizer;
+        private BaseOptimizer CurrentOptimizer => mapEliteBundle != null ? mapEliteBundle.Optimizer : null;
 
         private PopulationAssistantGraph CurrentGraph { get; set; }
 
@@ -167,11 +167,11 @@ namespace ISILab.LBS.VisualElements.Editor
             optimizerField.RegisterValueChangedCallback(_ =>
             {
                 if (optimizerField.value == null) return;
-                if (optimizerField.value == currentOptimizer?.Evaluator?.GetType().Name) return;
-                if (currentOptimizer == null) return;
+                if (optimizerField.value == CurrentOptimizer?.Evaluator?.GetType().Name) return;
+                if (CurrentOptimizer == null) return;
 
                 var optimizerChoice = optimizerField.GetChoiceInstance() as IRangedEvaluator;
-                currentOptimizer.Evaluator = optimizerChoice;
+                CurrentOptimizer.Evaluator = optimizerChoice;
                 InitializeEvaluator(optimizerChoice);
                 zParamText.text = new string("Fitness ("+optimizerField.Value+")");
 
@@ -214,11 +214,11 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 //Failsafe stuff
                 if (param1Field.value == null) return;
-                if (param1Field.value == currentXField?.GetType().Name) return;
+                if (param1Field.value == CurrentXField?.GetType().Name) return;
 
                 //Choice change
                 var xChoice = param1Field.GetChoiceInstance() as IRangedEvaluator;
-                currentXField = xChoice;
+                CurrentXField = xChoice;
                 InitializeEvaluator(xChoice);
                 xParamText.text = param1Field.Value;
 
@@ -233,11 +233,11 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 //Failsafe stuff
                 if (param2Field.value == null) return;
-                if (param2Field.value == currentYField?.GetType().Name) return;
+                if (param2Field.value == CurrentYField?.GetType().Name) return;
 
                 //Choice change
                 var yChoice = param2Field.GetChoiceInstance() as IRangedEvaluator;
-                currentYField = yChoice;
+                CurrentYField = yChoice;
                 InitializeEvaluator(yChoice);
                 yParamText.text = param2Field.Value;
             });
@@ -391,9 +391,9 @@ namespace ISILab.LBS.VisualElements.Editor
         
         private void UpdateTooltips()
         {
-            param1Field.tooltip = currentXField?.Tooltip;
-            param2Field.tooltip = currentYField?.Tooltip;
-            optimizerField.tooltip = currentOptimizer?.Evaluator?.Tooltip;
+            param1Field.tooltip = CurrentXField?.Tooltip;
+            param2Field.tooltip = CurrentYField?.Tooltip;
+            optimizerField.tooltip = CurrentOptimizer?.Evaluator?.Tooltip;
         }
         
         #region Presets
@@ -455,9 +455,9 @@ namespace ISILab.LBS.VisualElements.Editor
             param2Field.SetEnabled(true);
             optimizerField.SetEnabled(true);
 
-            param1Field.Value = currentXField != null ? currentXField.GetType().Name : defaultSelectText;
-            param2Field.Value = currentYField != null ? currentYField.GetType().Name : defaultSelectText;
-            optimizerField.value = currentOptimizer?.Evaluator != null ? currentOptimizer.Evaluator.GetType().Name : defaultSelectText;
+            param1Field.Value = CurrentXField != null ? CurrentXField.GetType().Name : defaultSelectText;
+            param2Field.Value = CurrentYField != null ? CurrentYField.GetType().Name : defaultSelectText;
+            optimizerField.value = CurrentOptimizer?.Evaluator != null ? CurrentOptimizer.Evaluator.GetType().Name : defaultSelectText;
 
             InitializeAllCurrentEvaluators();
             originalMapCalcs();
@@ -527,9 +527,9 @@ namespace ISILab.LBS.VisualElements.Editor
         private void InitializeAllCurrentEvaluators()
         {
             var evalList = new List<IEvaluator>();
-            if (currentXField != null) { evalList.Add(currentXField); }
-            if (currentYField != null) { evalList.Add(currentYField); }
-            if (currentOptimizer?.Evaluator != null) { evalList.Add(currentOptimizer.Evaluator); }
+            if (CurrentXField != null) { evalList.Add(CurrentXField); }
+            if (CurrentYField != null) { evalList.Add(CurrentYField); }
+            if (CurrentOptimizer?.Evaluator != null) { evalList.Add(CurrentOptimizer.Evaluator); }
             if (evalList.Count == 0) return;
 
             InitializeEvaluator(evalList.ToArray());
@@ -864,7 +864,9 @@ namespace ISILab.LBS.VisualElements.Editor
                 Type drawerT = LBS_Editor.GetDrawer(b.GetType());
                 if (Activator.CreateInstance(drawerT) is Drawer drawer)
                 {
-                    textures.Add(drawer.GetTexture(b, rect, Vector2Int.one * size));
+                    Texture2D tex = drawer.GetTexture(b, rect, Vector2Int.one * size);
+                    if(tex != null)
+                        textures.Add(tex);
                 }
             }
 
