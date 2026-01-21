@@ -439,7 +439,156 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         {
             return base.GetHashCode();
         }
-        
+        private class VirtualZoneTile
+        {
+            public Vector2Int TargetPosition;
+            public List<DirConnection> RotatedConnections;
+            public List<bool> EditedFlags;
+        }
+
+        public bool MoveZone(Zone zone, Vector2Int offset)
+        {
+            return TransformZone(zone, offset, 0);
+        }
+
+        public bool RotateZone(Zone zone, int direction)
+        {
+            return TransformZone(zone, Vector2Int.zero, direction);
+        }
+        private bool TransformZone(Zone zone, Vector2Int offset, int rotationDir)
+        {
+            var currentTiles = GetTiles(zone);
+            if (currentTiles.Count == 0) return false;
+
+            // Calculate old bounds
+            Vector2Int oldMin = new Vector2Int(int.MaxValue, int.MaxValue); // bottom-left
+            Vector2Int oldMax = new Vector2Int(int.MinValue, int.MinValue); // top-right
+
+            foreach (var t in currentTiles)
+            {
+                oldMin = Vector2Int.Min(oldMin, t.Position);
+                oldMax = Vector2Int.Max(oldMax, t.Position);
+            }
+
+            Vector2Int oldSize = oldMax - oldMin;
+
+            List<VirtualZoneTile> virtualTiles = new List<VirtualZoneTile>();
+            List<Vector2Int> rotatedRelativePositions = new List<Vector2Int>();
+            // Calculate virtual tiles positions and rotated connections
+            foreach (var tile in currentTiles)
+            {
+                Vector2Int localPos = tile.Position - oldMin;
+                Vector2Int rotatedPos = localPos;
+
+                if (rotationDir != 0)
+                {
+                    if (rotationDir > 0)
+                        rotatedPos = new Vector2Int(localPos.y, -localPos.x);
+                    else
+                        rotatedPos = new Vector2Int(-localPos.y, localPos.x);
+                }
+
+                rotatedRelativePositions.Add(rotatedPos);
+            }
+
+            Vector2Int newRotatedMin = new Vector2Int(int.MaxValue, int.MaxValue);
+            Vector2Int newRotatedMax = new Vector2Int(int.MinValue, int.MinValue);
+            foreach (var p in rotatedRelativePositions)
+            {
+                newRotatedMin = Vector2Int.Min(newRotatedMin, p);
+                newRotatedMax = Vector2Int.Max(newRotatedMax, p);
+            }
+            Vector2Int newSize = newRotatedMax - newRotatedMin;
+
+            Vector2Int centeringOffset = (oldSize - newSize) / 2; // to keep the zone centered
+
+            // Calculate final positions and rotated connections
+            for (int i = 0; i < currentTiles.Count; i++)
+            {
+                // Final position after rotation and offset
+                Vector2Int finalPos = oldMin + (rotatedRelativePositions[i] - newRotatedMin) + centeringOffset + offset;
+
+                var pair = tileConnections.GetPair(currentTiles[i]);
+                List<DirConnection> newConns = new List<DirConnection>();
+
+                // Rotate connections
+                if (pair != null && pair.Connections != null)
+                {
+                    for (int k = 0; k < pair.Connections.Count; k++)
+                    {
+                        Vector2Int dirVector = ISILab.Commons.Directions.Bidimencional.Edges[k];
+                        Vector2Int rotatedDirVector = dirVector;
+                        if (rotationDir != 0)
+                        {
+                            if (rotationDir > 0) rotatedDirVector = new Vector2Int(dirVector.y, -dirVector.x);
+                            else rotatedDirVector = new Vector2Int(-dirVector.y, dirVector.x);
+                        }
+                        int newIndex = ISILab.Commons.Directions.Bidimencional.Edges.IndexOf(rotatedDirVector);
+                        if (newIndex != -1)
+                        {
+                            newConns.Add(new DirConnection(newIndex, pair.Connections[k]));
+                        }
+                    }
+                }
+
+                virtualTiles.Add(new VirtualZoneTile
+                {
+                    TargetPosition = finalPos,
+                    RotatedConnections = newConns,
+                    EditedFlags = pair.EditedByIA
+                });
+            }
+
+            // Check for collisions
+            foreach (var vt in virtualTiles)
+            {
+                if (!tileMap.Contains(vt.TargetPosition)) continue;
+                var existingTile = GetTile(vt.TargetPosition);
+                if (existingTile != null)
+                {
+                    var existingZone = GetZone(existingTile);
+                    if (existingZone != zone)
+                    {
+                        Debug.LogWarning($"Colisión con zona: {existingZone.ID}");
+                        return false;
+                    }
+                }
+            }
+
+            foreach (var t in currentTiles) RemoveTile(t.Position);
+
+            // Create new tiles and set connections
+            List<LBSTile> createdTiles = new List<LBSTile>();
+            foreach (var vt in virtualTiles)
+            {
+                var newTile = AddTile(vt.TargetPosition, zone);
+                createdTiles.Add(newTile);
+                AddConnections(newTile, new List<string> { "Empty", "Empty", "Empty", "Empty" }, new List<bool> { false, false, false, false });
+            }
+
+            for (int i = 0; i < virtualTiles.Count; i++)
+            {
+                var vt = virtualTiles[i];
+                var newTile = createdTiles[i];
+
+                foreach (var conn in vt.RotatedConnections)
+                {
+                    SetConnection(newTile, conn.direction, conn.connection, true);
+
+                    Vector2Int dirVec = ISILab.Commons.Directions.Bidimencional.Edges[conn.direction];
+                    var neighbor = GetTile(vt.TargetPosition + dirVec);
+
+                    if (neighbor != null)
+                    {
+                        int oppDir = (conn.direction + 2) % 4;
+                        SetConnection(neighbor, oppDir, conn.connection, true);
+                    }
+                }
+            }
+            RequestFullRepaint(currentTiles, createdTiles);
+            return true;
+        }
+
         #endregion
     }
 }

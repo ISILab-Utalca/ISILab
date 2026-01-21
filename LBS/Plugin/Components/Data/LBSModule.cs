@@ -51,6 +51,7 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region CONSTRUCTOR
+
         public LBSModule() 
         { 
             ID = GetType().Name; 
@@ -60,6 +61,7 @@ namespace ISILab.LBS.Modules
         { 
             ID = key; 
         }
+
         #endregion
 
         #region METHODS

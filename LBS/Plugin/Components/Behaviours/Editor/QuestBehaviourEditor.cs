@@ -17,6 +17,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using UnityEngine.UI;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -69,6 +70,8 @@ namespace ISILab.LBS.VisualElements
             _removeNode = new RemoveGraphNode();
             var t2 = new LBSTool(_removeNode);
             t2.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+
+            _addNode.SetRemover(_removeNode);
             
             _connectNodes = new ConnectQuestNodes();
             var t3 = new LBSTool(_connectNodes);
@@ -77,9 +80,9 @@ namespace ISILab.LBS.VisualElements
             _removeConnection = new RemoveQuestConnection();
             var t4 = new LBSTool(_removeConnection);
             t4.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            
-            //_connectNodes.SetRemover(_removeConnection);
-            
+
+            _connectNodes.SetRemover(_removeConnection);
+
             toolkit.ActivateTool(t1,_behaviour?.OwnerLayer, target);
             toolkit.ActivateTool(t2,_behaviour?.OwnerLayer, target);
             toolkit.ActivateTool(t3,_behaviour?.OwnerLayer, target);
@@ -198,7 +201,8 @@ namespace ISILab.LBS.VisualElements
         {
             if (grammar == null)
             {
-                LBSMainWindow.MessageNotify("LBS Quest: Must assign a valid grammar in the Quest Behaviour Editor",LogType.Error,5);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("LBS Quest: Must assign a valid grammar in the Quest Behaviour Editor",LogType.Error,5));
                 _grammarReference.value = null;
             }
             else

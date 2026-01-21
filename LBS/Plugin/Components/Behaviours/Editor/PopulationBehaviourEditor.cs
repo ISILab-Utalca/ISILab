@@ -95,13 +95,12 @@ namespace ISILab.LBS.VisualElements
             _mainBundle = behaviour.MainBundle;
             behaviour.OwnerLayer.OnChange += () =>
             {
-                PopulationTileView.SelectedTile?.Highlight(false, true);
+                //PopulationTileView.SelectedTile?.Highlight(false, true);
             };
         }
 
         public void SetTools(ToolKit toolkit)
         {
-
             addPopulationTile = new AddPopulationTile();
             var t1 = new LBSTool(addPopulationTile);
 
@@ -126,13 +125,13 @@ namespace ISILab.LBS.VisualElements
 
         protected sealed override VisualElement CreateVisualElement()
         {
-            
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationBehaviourEditor");
+
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationBehaviourEditor");
             visualTree.CloneTree(this);
             
             // WarningPanel
             warningPanel = this.Q<WarningPanel>();
-            
+
             //var collectionField = this.Q<ObjectField>("BundleCollection");
             //// only updates the first bundle value change - fix pending
             //collectionField.RegisterValueChangedCallback(evt =>
@@ -144,7 +143,10 @@ namespace ISILab.LBS.VisualElements
             //    
             //});
 
-            var bundleField = this.Q<LBSCustomObjectField>("BundleField");
+            TileRotatorEditor tileRotatorEditor = this.Q<TileRotatorEditor>("TileRotatorEditor");
+            tileRotatorEditor.SetInfo(behaviour);
+
+            LBSCustomObjectField bundleField = this.Q<LBSCustomObjectField>("BundleField");
             bundleField.RegisterValueChangedCallback(evt =>
             {
                 var bundle = evt.newValue as Bundle;
@@ -155,7 +157,7 @@ namespace ISILab.LBS.VisualElements
             bundleField.UseCustomFilter = true;
             bundleField.CustomFilter = pick =>
             {
-                var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainPopulationBundle>(includeChildren: true);
+                List<Bundle> bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainPopulationBundle>(includeChildren: true);
                 (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
             };
             
@@ -163,7 +165,7 @@ namespace ISILab.LBS.VisualElements
             type.choices = displayChoices.Keys.ToArray().ToList();
             type.RegisterValueChangedCallback(evt =>
             {
-                var filter = evt.newValue;
+                string filter = evt.newValue;
                 behaviour.selectedTypeFilter = filter; 
                 UpdateElementBundles();
             });
@@ -205,11 +207,11 @@ namespace ISILab.LBS.VisualElements
             
             bundlePallete.OnSetTooltip += (option) =>
             {
-                var b = option as Bundle;
+                Bundle b = option as Bundle;
 
                 string tooltip = "Tags:";
 
-                var tags = LBSAssetMacro.GetAllTagNames(b);
+                List<string> tags = LBSAssetMacro.GetAllTagNames(b);
                 if (tags.Count > 0)
                 {
                     tags.ForEach(t => tooltip += "\n- " + t);
@@ -263,9 +265,9 @@ namespace ISILab.LBS.VisualElements
                     .ToList();
             }
             bundlePallete.ShowGroups = false;
-
+            
             candidates.Sort((b1, b2) => b1.BundleName.CompareTo(b2.BundleName));
-            var options = new object[candidates.Count];
+            object[] options = new object[candidates.Count];
             for (int i = 0; i < candidates.Count; i++)
             {
                 options[i] = candidates[i];
@@ -278,6 +280,10 @@ namespace ISILab.LBS.VisualElements
                 optionView.Label = bundle.BundleName;
                 optionView.Color = bundle.Color;
                 optionView.Icon = bundle.Icon;
+               // var size = 20f;
+
+                //optionView.style.width = size;
+              //  optionView.style.height = size * 1.75f;
             });
             
             // Save current selected options in layer

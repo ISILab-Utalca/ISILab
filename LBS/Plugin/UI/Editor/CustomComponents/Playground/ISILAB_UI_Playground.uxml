@@ -11,7 +11,7 @@
                 <ISILab.LBS.VisualElements.ToolButton />
             </ISILab.LBS.VisualElements.ButtonGroup>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
             <uie:Toolbar name="Toolbar" class="lbs-toolbar">
                 <uie:ToolbarButton text="Button" />
                 <uie:ToolbarToggle label="Toggle" />
@@ -24,7 +24,7 @@
                     <ISILab.LBS.CustomComponents.LBSCustomDropdown choices="Item 1,Item 2,Item 3" label="Custom Dropdown" index="0" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=EnumField.svg?fileID=7388822144124034973&amp;guid=ea38db42f43233b4894243942b78f176&amp;type=3#Icon=EnumField" style="height: 37px;" />
                     <ui:Instance template="LBSHorizontalDivider" />
                     <ISILab.LBS.CustomComponents.LBSCustomProgressBar low-value="0" progress-theme-color="#6E00F5FF" title="Content" value="69.9" progress-icon-image="project://database/Assets/ISILab/LBS/Plugin/Components/Data/Quest/QuestIcons/Icon=Star.svg?fileID=7388822144124034973&amp;guid=8d6364597c916884488b4054a8a747aa&amp;type=3#Icon=Star" style="height: 32px;" />
-                    <ISILab.LBS.CustomComponents.LBSCustomProgressBar low-value="20" progress-theme-color="#00FFADFF" progress-icon-image="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/FloatingPanels/QuickAssistantPanel/AppIcon_24.svg?fileID=7388822144124034973&amp;guid=686cbcf439056ef44a2923e63463db01&amp;type=3#AppIcon_24" style="height: 33px;" />
+                    <ISILab.LBS.CustomComponents.LBSCustomProgressBar low-value="20" progress-theme-color="#00FFADFF" progress-icon-image="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/FloatingPanels/QuickAssistantPanel/AppIcon_24.svg?fileID=7388822144124034973&amp;guid=686cbcf439056ef44a2923e63463db01&amp;type=3#AppIcon_24" title="progress" progress-text-label="Hello" style="height: 33px;" />
                     <ISILab.LBS.CustomComponents.LBSCustomToggleField enabled="true" value="false" class="lbs-field" />
                     <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Custom Foldout" name="LBSCustomFoldout" left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
                         <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField value="0" label="Int Field" />
@@ -33,12 +33,13 @@
                             <ISILab.LBS.CustomComponents.LBSCustomEnumField label="CustomEnumField" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=EnumField.svg?fileID=7388822144124034973&amp;guid=ea38db42f43233b4894243942b78f176&amp;type=3#Icon=EnumField" icon-color="#FFFFFFFF" />
                         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
                     </ISILab.LBS.CustomComponents.LBSCustomFoldout>
-                    <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Error" name="WarningPanel" />
                     <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Log" name="WarningPanel" />
                     <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Success" name="WarningPanel" />
+                    <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Error" name="WarningPanel" />
                     <ISILab.LBS.CustomComponents.LBSCustomLabel text="Selection lorem ipsum" hint-color="#FF000000" />
                     <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/LBS/Plugin/Components/Data/Quest/QuestIcons/Artifact=target.svg?fileID=7388822144124034973&amp;guid=d96b94effa175424699a0813ffdd99ef&amp;type=3#Artifact=target" />
                     <ISILab.LBS.VisualElements.ToolButton />
+                    <ISILab.LBS.VisualElements.WarningPanel text="Some simple warning" current-warning-type="Warning" name="WarningPanel" style="height: 36px;" />
                 </ui:VisualElement>
                 <ISILab.Commons.VisualElements.Editor.SplitView fixed-pane-initial-dimension="400">
                     <ui:VisualElement class="lbs-panel">
@@ -67,9 +68,7 @@
                         <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" />
                         <ISILab.LBS.CustomComponents.LBSCustomRadioButtonGroup choices="a,b,c" selected-choice="0" />
                         <LBS.VisualElements.SimplePallete display-remove-element="true" display-add-element="true" name-label="A custom Palette" />
-                        <ui:VisualElement class="lbs-post-it yellow-post-it" style="flex-grow: 1; background-image: resource(&apos;Textures/post_it_v2_vector&apos;); -unity-slice-type: tiled; -unity-slice-left: 28; -unity-slice-top: 28; -unity-slice-right: 32; -unity-slice-bottom: 32; -unity-slice-scale: 1px;">
-                            <ui:TextField value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac purus sit amet sapien tempor auctor dapibus at arcu. Proin sagittis scelerisque magna non venenatis. Integer massa urna, tincidunt sed euismod luctus, faucibus nec eros. Mauris ac arcu et nisi elementum porta. Suspendisse dictum aliquam nibh, sed dapibus purus faucibus mollis. Vestibulum sit amet aliquam massa. Nam vel maximus magna. Donec euismod finibus turpis, id ornare risus pharetra quis. Fusce ultrices, diam sit amet placerat varius, nunc felis dignissim est, at sollicitudin dolor justo ac quam. Proin consequat metus sed lorem imperdiet varius venenatis tincidunt lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam vulputate, risus non tempor ultricies, neque purus pretium tortor, sit amet semper est nulla id tortor. " hide-placeholder-on-focus="false" style="flex-grow: 1;" />
-                        </ui:VisualElement>
+                        <ISILab.LBS.Plugin.UI.Editor.CustomComponents.ComplexComponents.LBSCustomRandomSeedField label="RandomValue" />
                     </ui:VisualElement>
                     <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
                         <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
@@ -84,7 +83,6 @@
                     </ui:VisualElement>
                 </ISILab.Commons.VisualElements.Editor.SplitView>
             </ISILab.Commons.VisualElements.Editor.SplitView>
-            <ISILab.LBS.Plugin.UI.Editor.Panel.InfoToolbar style="height: 32px; -unity-background-image-tint-color: rgb(255, 226, 153); background-color: rgba(0, 0, 0, 0.4);" />
             <uie:Toolbar>
                 <uie:ToolbarButton text="Button" />
                 <uie:ToolbarToggle label="Toggle" />

@@ -142,7 +142,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
                     {
                         OnNewLevel?.Invoke(data);
                      
-                        LBSMainWindow.MessageNotify("New level created.");
+                        LBSMainWindow.MessageNotify(new LBSLog("New level created."));
                     }
                     return;
                 case false:
@@ -162,7 +162,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
             if (data != null)
             {
                 OnLoadLevel?.Invoke(data);
-                LBSMainWindow.MessageNotify("The level has been loaded successfully.");
+                LBSMainWindow.MessageNotify(new LBSLog("The level has been loaded successfully."));
             }
 
         }

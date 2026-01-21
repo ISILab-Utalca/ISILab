@@ -205,6 +205,7 @@ namespace ISILab.LBS
             Debug.Log("saving " + newSavedMap.Name);
             list.Maps.Add(newSavedMap);
         }
+
         public SavedMapList GetSavedMaps(LBSLayer layer)
         {
             //return SavedLayerMaps.ContainsKey(layer) ? SavedLayerMaps[layer] : null;
@@ -250,6 +251,27 @@ namespace ISILab.LBS
         {
             return base.ToString();
         }
+
+        public LBSLayer GetInteriorLayer()
+        {
+            return GetLayer("Interior");
+        }
+
+        public LBSLayer GetExteriorLayer()
+        {
+            return GetLayer("Exterior");
+        }
+
+        public LBSLayer GetPopulationLayer()
+        {
+            return GetLayer("Population");
+        }
+        public LBSLayer GetSimulationLayer()
+        {
+            return GetLayer("Simulation");
+        }
+
+
         #endregion
     }
 

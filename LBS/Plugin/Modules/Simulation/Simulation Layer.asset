@@ -22,8 +22,10 @@ MonoBehaviour:
     name: Layer Simulation
     modules:
     - rid: 7236887134041539658
+    - rid: 5364625334832726469
     behaviours:
     - rid: 7236887134041539659
+    - rid: 5364625334832726470
     assistants:
     - rid: 7236887134041539660
     generatorRules:
@@ -42,6 +44,72 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 5364625334832726469
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 13f64883312513a41adeb7dec75a3a5f
+          id: Simulation
+          name: Layer Simulation
+          modules:
+          - rid: 7236887134041539658
+          - rid: 5364625334832726469
+          behaviours:
+          - rid: 7236887134041539659
+          - rid: 5364625334832726470
+          assistants:
+          - rid: 7236887134041539660
+          generatorRules:
+          - rid: 7236887134041539661
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Simulation
+            rootParentName: Root_Parent
+          index: 0
+    - rid: 5364625334832726470
+      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+      data:
+        visible: 1
+        ownerLayerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 13f64883312513a41adeb7dec75a3a5f
+          id: Simulation
+          name: Layer Simulation
+          modules:
+          - rid: 7236887134041539658
+          - rid: 5364625334832726469
+          behaviours:
+          - rid: 7236887134041539659
+          - rid: 5364625334832726470
+          assistants:
+          - rid: 7236887134041539660
+          generatorRules:
+          - rid: 7236887134041539661
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            name: Simulation
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0, g: 0, b: 0, a: 0}
+        name: NoteBehaviour
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 0}
     - rid: 7236887134041539658
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:

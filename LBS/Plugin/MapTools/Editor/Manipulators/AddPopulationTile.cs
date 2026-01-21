@@ -12,11 +12,15 @@ using ISILab.LBS.VisualElements.Editor;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using System.Collections.Generic;
 using System.Diagnostics;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
     public class AddPopulationTile : LBSManipulator
     {
+     
+
         private PopulationBehaviour _population;
         private TileGroupBehavior _tileMapBehavior;
         private List<Feedback> previews = new List<Feedback>();
@@ -111,7 +115,8 @@ namespace ISILab.LBS.Manipulators
             // Default Add Tile
             if (ToSet == null)
             {
-                LBSMainWindow.MessageNotify("You don't have any selected item to place.", LogType.Error);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("You don't have any selected item to place.", LogType.Error));
                 return;
             }
 
@@ -128,16 +133,20 @@ namespace ISILab.LBS.Manipulators
 
             var corners = _population.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
             TileBundleGroup newTileGroup = null;
+
             for (int i = corners.Item1.x; i <= corners.Item2.x; i++)
             {
                 for (int j = corners.Item1.y; j <= corners.Item2.y; j++)
                 {
-                    newTileGroup = _population.AddTileGroup(new Vector2Int(i, j), ToSet);
+                    newTileGroup = _population.AddTileGroup(
+                        new Vector2Int(i, j), 
+                        ToSet,
+                        _population.GetActiveRotation());
                 }
             }
 
-            _tileMapBehavior.SelectedTilemap = newTileGroup;
             LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
+            _tileMapBehavior.SelectedTilemap = newTileGroup;
 
             _population.OwnerLayer.OnChangeUpdate();
             CleanPreviews();

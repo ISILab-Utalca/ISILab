@@ -12,6 +12,7 @@ using System;
 using System.Linq;
 using ISILab.LBS.Behaviours;
 using UnityEngine.EventSystems;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -52,24 +53,24 @@ namespace ISILab.LBS.Manipulators
 
             if (_first == null || second == null)
             {
-                LBSMainWindow.MessageNotify("A connection requires two nodes.", LogType.Error); 
+                LBSMainWindow.MessageNotify(new LBSLog("A connection requires two nodes.", LogType.Error)); 
                 return; 
             }
             if (Equals(_first, second))
             {
-                LBSMainWindow.MessageNotify("A node cannot connect to itself.", LogType.Error); 
+                LBSMainWindow.MessageNotify(new LBSLog("A node cannot connect to itself.", LogType.Error)); 
                 return;
             }
             // prevent duplicates
             if (_quest.GraphEdges.Any(e => e.From.Contains(_first) && Equals(e.To, second)))
             {
-                LBSMainWindow.MessageNotify("This connection already exists.", LogType.Error);
+                LBSMainWindow.MessageNotify(new LBSLog("This connection already exists.", LogType.Error));
                 return;
             }
             // check for looping connections
             if (_quest.IsLooped(_first, second, new HashSet<GraphNode>()))
             {
-                LBSMainWindow.MessageNotify("The destination is a root of this node.", LogType.Error);
+                LBSMainWindow.MessageNotify(new LBSLog("The destination is a root of this node.", LogType.Error));
                 return;
             }
             // only branching nodes can be a To on multiple edges
@@ -78,7 +79,7 @@ namespace ISILab.LBS.Manipulators
                 bool alreadyTarget = _quest.GraphEdges.Any(e => Equals(e.To, second));
                 if (alreadyTarget)
                 {
-                    LBSMainWindow.MessageNotify("Action Nodes can only be the destination of one edge. For multiple use Branching nodes", LogType.Error);
+                    LBSMainWindow.MessageNotify(new LBSLog("Action Nodes can only be the destination of one edge. For multiple use Branching nodes", LogType.Error));
                     return;
                 }
             }
@@ -88,7 +89,7 @@ namespace ISILab.LBS.Manipulators
             Undo.RegisterCompleteObjectUndo(level, "Add Quest Connection");
 
             var result = _quest.AddEdge(_first, second);
-            LBSMainWindow.MessageNotify(result.Item1, result.Item2, 4);
+            LBSMainWindow.MessageNotify(new LBSLog(result.Item1, result.Item2, 4));
 
             OnManipulationEnd.Invoke();
 

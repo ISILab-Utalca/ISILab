@@ -389,8 +389,7 @@ namespace ISILab.LBS.Editor.Windows
             gen3DPanel = new Generator3DPanel();
             extraPanel.Add(gen3DPanel);
             gen3DPanel.style.display = DisplayStyle.None;
-            gen3DPanel.OnExecute = () => gen3DPanel.Init(_selectedLayer);
-
+            
             #endregion
 
             #region SIDE TOOLBAR TOGGLES
@@ -536,7 +535,7 @@ namespace ISILab.LBS.Editor.Windows
             toolkit.SetActive(typeof(SelectManipulator));
             toolkit.SetSeparators();
 
-            gen3DPanel.Init(layer);
+           // gen3DPanel.Init(layer);
 
             string layerName = layer is not null ? layer.Name : "-";
             selectedLabel.text = "Selected: " + layerName;
@@ -584,15 +583,12 @@ namespace ISILab.LBS.Editor.Windows
             LBSInspectorPanel.ReDraw();
         }
 
-        // Allows to send notifications from threads other than main. Seems to work, although I'm not completely sure it's safe.
-        public static void MessageNotifyDelayed(string message, LogType logType = LogType.Log, int duration = 3)
+        public static void MessageNotify(LBSLog lbsMessage)
         {
-            EditorApplication.delayCall += () => MessageNotify(message, logType, duration);
-        }
-
-        public static void MessageNotify(string message, LogType logType = LogType.Log, int duration = 3)
-        {
-            notifier?.SendNotification(message, logType, duration);
+            notifier?.SendNotification(
+                lbsMessage.message, 
+                lbsMessage.type, 
+                lbsMessage.duration);
         }
 
         public void MessageManipulator(string description)

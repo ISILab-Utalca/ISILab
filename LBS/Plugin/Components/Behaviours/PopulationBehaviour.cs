@@ -1,13 +1,16 @@
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.DevTools.Macros;
-using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -17,10 +20,28 @@ namespace ISILab.LBS.Behaviours
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
     public class PopulationBehaviour : LBSBehaviour
     {
+
+
         #region FIELDS
-        [SerializeField, JsonIgnore, HideInInspector ] 
+        private const string DefaultRotation = LBSDirection.Up;
+        [SerializeField, HideInInspector]
+        private List<WeightedDirection> dirWeights = new()
+        {
+            new WeightedDirection(LBSDirection.Up, 0f),
+            new WeightedDirection(LBSDirection.Right, 0f),
+            new WeightedDirection(LBSDirection.Down, 0f),
+            new WeightedDirection(LBSDirection.Left, 0f),
+        };
+
+
+        [SerializeField, HideInInspector]
+        private string activeRotationDirection = DefaultRotation;
+        [SerializeField, HideInInspector]
+        private TileMakeRot tileRotationMode;
+
+        [SerializeField, JsonIgnore, HideInInspector]
         private TileMapModule tileMap;
-        [SerializeField, JsonIgnore, HideInInspector] 
+        [SerializeField, JsonIgnore, HideInInspector]
         private BundleTileMap _bundleTileMap;
 
         [SerializeField, JsonRequired, HideInInspector]
@@ -30,7 +51,7 @@ namespace ISILab.LBS.Behaviours
         private string bundleRefGuid = "668e6768d7619b3459df4f6378dfa3bb";
         private string DefaultBundleRefGuid { get => "668e6768d7619b3459df4f6378dfa3bb"; }
 
-        private HashSet<TileBundleGroup> _newRotations = new ();
+        private HashSet<TileBundleGroup> _newRotations = new();
         #endregion
 
         #region META-FIELDS
@@ -42,9 +63,17 @@ namespace ISILab.LBS.Behaviours
 
         [HideInInspector]
         public string allFilter = "All";
-        
-        [FormerlySerializedAs("selectedTypetoSet")] [JsonIgnore, HideInInspector]
+
+        [FormerlySerializedAs("selectedTypetoSet")][JsonIgnore, HideInInspector]
         public string selectedTypeFilter;
+
+        // the rotation type with which a new tile is created
+        public enum TileMakeRot
+        {
+            Fixed,
+            Random,
+            Weighted
+        }
         #endregion
 
         #region PROPERTIES
@@ -73,8 +102,8 @@ namespace ISILab.LBS.Behaviours
                 bundleRefGuid = AssetMacro.GetGuidFromAsset(value);
             }
         }
-        
-        public string SelectedFilter 
+
+        public string SelectedFilter
         {
             get => GetFilter();
             set => selectedTypeFilter = value;
@@ -85,35 +114,70 @@ namespace ISILab.LBS.Behaviours
             return selectedTypeFilter ?? allFilter;
         }
 
+        public TileMakeRot TileRotationMode
+        {
+            get => tileRotationMode;
+            set
+            {
+                // if (value == TileMakeRot.Fixed) ActiveRotationDirection = DefaultRotation;
+                tileRotationMode = value;
+
+                UpdateRotationWeights();
+            }
+        }
+
+        public List<WeightedDirection> DirectionWeights
+        {
+            get => dirWeights;
+            set => dirWeights = value;
+        }
+        public string ActiveRotationDirection
+        {
+            get => activeRotationDirection;
+            set
+            {
+                foreach (WeightedDirection entry in dirWeights)
+                    entry.Weight = entry.Direction == value ? 1f : 0f;
+
+
+                activeRotationDirection = value;
+            }
+        }
+
         #endregion
 
         #region CONSTRUCTORS
-        public PopulationBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
+        public PopulationBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
+        {
+
+        }
+
+
         #endregion
 
         #region METHODS
-        
+
         public override void OnGUI()
         {
 
         }
 
-        public TileBundleGroup AddTileGroup(Vector2Int position, Bundle bundle) 
+        public TileBundleGroup AddTileGroup(Vector2Int position, Bundle bundle, Vector2 rotation)
         {
-            return AddTileGroup(position, new BundleData(bundle)); 
+            return AddTileGroup(position, new BundleData(bundle), rotation);
         }
 
-        public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData) 
+        public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation)
         {
-
+            
             if (!_bundleTileMap.ValidNewGroup(position, bundleData, Vector2.right)) return null;
 
             //Create group
-            TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, Vector2.right);
+            TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, rotation);
             RequestTilePaint(group);
-            
+
             //Add all tiles from the group
-            foreach(LBSTile tile in group.TileGroup)
+            foreach (LBSTile tile in group.TileGroup)
             {
                 tileMap.AddTile(tile);
             }
@@ -161,11 +225,11 @@ namespace ISILab.LBS.Behaviours
         {
             //var tile = tileMap.GetTile(position);   // Is this supposed to do something?
             TileBundleGroup group = _bundleTileMap.GetGroup(position);
-            
+
             //CHANGE FROM HERE
             if (group == null) return null;
             group.Removed();
-            
+
             foreach (var gTile in group.TileGroup)
             {
                 tileMap.RemoveTile(gTile);
@@ -179,7 +243,7 @@ namespace ISILab.LBS.Behaviours
         {
             return _bundleTileMap.ValidNewGroup(position, new BundleData(bundle), Vector2.right);
         }
-        
+
         public void ReplaceTileMap(BundleTileMap map)
         {
             //Remove everything
@@ -191,7 +255,7 @@ namespace ISILab.LBS.Behaviours
                     RequestTileRemove(group);
                 }
             }
-            foreach(TileBundleGroup group in map.Groups)
+            foreach (TileBundleGroup group in map.Groups)
             {
                 _bundleTileMap.AddGroup(group);
                 RequestTilePaint(group);
@@ -247,7 +311,7 @@ namespace ISILab.LBS.Behaviours
         public void Clear()
         {
             if (Tilemap.Count == 0) return;
-            foreach(TileBundleGroup group in Tilemap)
+            foreach (TileBundleGroup group in Tilemap)
             {
                 _bundleTileMap.RemoveGroup(group);
             }
@@ -283,7 +347,7 @@ namespace ISILab.LBS.Behaviours
         {
             return base.RetrieveExpiredTiles().Cast<TileBundleGroup>().Select(t => t.LocationKey).ToArray();
         }
-        
+
         public override object Clone()
         {
             return new PopulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
@@ -305,14 +369,14 @@ namespace ISILab.LBS.Behaviours
 
         private Bundle GetMainBundle()
         {
-            if(mainBundle == null)
+            if (mainBundle == null)
             {
                 mainBundle = AssetMacro.LoadAssetByGuid<Bundle>(bundleRefGuid ?? DefaultBundleRefGuid);
             }
 
             return mainBundle;
-        }        
-        
+        }
+
         /// <summary>
         /// Get all tileBundleGroups that were rotated since the last time they were retrieved.
         /// The memory of new tiles will be cleared after calling this method.
@@ -321,17 +385,119 @@ namespace ISILab.LBS.Behaviours
         {
             // If null create a new one
             _newRotations ??= new HashSet<TileBundleGroup>();
-            
+
             // Turn into array
             TileBundleGroup[] o = _newRotations.ToArray();
-            
+
             // Clear memory
             _newRotations.Clear();
-            
+
             // Return array
             return o;
         }
-        
+
+
+
+        private void UpdateRotationWeights()
+        {
+            switch (tileRotationMode)
+            {
+                case TileMakeRot.Fixed:
+                    SetFixedWeights(activeRotationDirection);
+                    return;
+
+                case TileMakeRot.Random:
+                case TileMakeRot.Weighted:
+                    SetRandomWeights();
+                    return;
+            }
+        }
+
+        private void SetFixedWeights(string direction)
+        {
+            if (DirectionWeights is null) return;
+            foreach (WeightedDirection entry in DirectionWeights)
+                entry.Weight = entry.Direction == direction? 1f : 0f;
+        }
+
+        private void SetRandomWeights()
+        {
+            foreach (WeightedDirection entry in DirectionWeights)
+                entry.Weight = 0.5f;
+        }
+
+        public void SetDirectionWeight(string direction, float newWeight)
+        {
+            foreach (WeightedDirection entry in DirectionWeights)
+                entry.Weight = entry.Direction == direction ? Mathf.Max(0f, newWeight) : entry.Weight;
+
+        }
+
+        public float GetDirectionWeight(string direction)
+        {
+            foreach(WeightedDirection entry in DirectionWeights)
+            {
+                if (entry.Direction != direction) continue;
+                return entry.Weight;
+            }
+            return -1;
+        }
+
+
+        public Vector2 GetActiveRotation()
+        {
+            List<Vector2Int> directions = Commons.Directions.Bidimencional.Edges;
+
+            float totalWeight = 0;
+            foreach (WeightedDirection entry in DirectionWeights) totalWeight += entry.Weight;
+         
+            float randomValue = UnityEngine.Random.Range(0f, totalWeight);
+            float sum = 0f;
+
+            foreach (WeightedDirection entry in dirWeights)
+            {
+                sum += entry.Weight;
+                if (randomValue <= sum)
+                {
+                    return DirectionToVector(entry.Direction, directions);
+                }
+            }
+            // safe case
+            return DirectionToVector(ActiveRotationDirection, directions); 
+        }
+
+        private Vector2 DirectionToVector(string dir, List<Vector2Int> directions)
+        {
+            return dir switch
+            {
+                LBSDirection.Down => directions[0],
+                LBSDirection.Left => directions[1],
+                LBSDirection.Up => directions[2],
+                LBSDirection.Right => directions[3],
+                _ => directions[0]
+            };
+        }
+
+
         #endregion
+    }
+
+
+    [Serializable]
+    public class WeightedDirection
+    {
+        [SerializeField]
+        string direction;
+        [SerializeField]
+        float weight;
+
+        public float Weight { get => weight; set => weight = value; }
+        public string Direction { get => direction; }
+
+        public WeightedDirection(string direction, float weight)
+        {
+            this.direction = direction;
+            this.weight = weight;
+        }
     }
 }

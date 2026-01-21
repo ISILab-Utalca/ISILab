@@ -156,7 +156,7 @@ namespace ISILab.LBS.VisualElements
                 System.Action invalidBundleAction = () =>
                 {
                     bundleField.value = exterior.Bundle;
-                    LBSMainWindow.MessageNotify("Selected bundle was invalid.", LogType.Warning);
+                    LBSMainWindow.MessageNotify(new LBSLog("Selected bundle was invalid.", LogType.Warning));
                 };
 
                 if(bundle)

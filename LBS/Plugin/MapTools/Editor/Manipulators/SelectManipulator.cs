@@ -1,3 +1,4 @@
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
@@ -13,6 +14,7 @@ namespace ISILab.LBS.Manipulators
     public class SelectManipulator : LBSManipulator
     {
         private LBSLocalCurrent _current;
+
         protected override string IconGuid => "77f81c1ea560ddf4c99e41c605166e3e";
 
         public SelectManipulator()
@@ -37,8 +39,6 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
             LBSInspectorPanel.Instance.CallSelectableByPosition(LBSLayer, position);
-
-
         }
     }
 }

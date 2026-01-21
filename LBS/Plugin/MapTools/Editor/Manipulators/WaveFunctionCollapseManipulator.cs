@@ -11,6 +11,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -95,7 +96,7 @@ namespace ISILab.LBS.Manipulators
                 var x = LBSController.CurrentLevel;
 
          //       _assistant.OnTermination?.Invoke(log, type);
-                LBSMainWindow.MessageNotify(log, type, 5);
+                LBSMainWindow.MessageNotify(new LBSLog(log, type, 5));
                 if (type == LogType.Log)
                     Debug.Log(log);
                 else

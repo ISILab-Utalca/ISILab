@@ -70,6 +70,7 @@ namespace LBS.Components
         #endregion
 
         #region Events
+
         public event Action OnChangeName;
         public event Action OnChange;
         public event Action<Vector2Int> OnTileSizeChange;
@@ -149,6 +150,11 @@ namespace LBS.Components
             if (string.IsNullOrEmpty(moduleID))
                 return modules.OfType<T>().FirstOrDefault();
             return modules.FirstOrDefault(m => (m is T || Reflection.IsSubclassOfRawGeneric(typeof(T), m.GetType())) && m.ID == moduleID) as T;
+        }
+
+        public T GetRule<T>() where T : LBSGeneratorRule
+        {
+            return generatorRules.OfType<T>().FirstOrDefault();
         }
 
         internal void SetModule<T>(T module, string key = "") where T : LBSModule
@@ -263,6 +269,7 @@ namespace LBS.Components
         #endregion
 
         #region Generator rules
+        
         public void AddGeneratorRule(LBSGeneratorRule rule)
         {
             if (rule == null) return;
@@ -270,8 +277,9 @@ namespace LBS.Components
         }
 
         public bool RemoveGeneratorRule(LBSGeneratorRule rule) => generatorRules.Remove(rule);
+
         #endregion
-              
+
         #region Utility
         public void Reload()
         {
@@ -363,6 +371,7 @@ namespace LBS.Components
         #endregion
         
         #region Events
+
         public void OnChangeUpdate() => OnChange?.Invoke();
         public void InvokeNameChanged() => OnChangeName?.Invoke();
         public void OnContextAddInvoke() => OnContextAdd?.Invoke();

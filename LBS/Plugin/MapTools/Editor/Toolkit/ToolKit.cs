@@ -112,19 +112,21 @@ namespace LBS.VisualElements
             var sm = new SelectManipulator();
             LBSTool selectTool = new LBSTool(sm);
 
-            //var nm = new NoteManipulator();
-            //LBSTool noteTool = new LBSTool(nm);
+            var an = new AddNote();
+            LBSTool addNoteTool = new LBSTool(an);
 
-            //sm.SetRemover(new NoteManipulator());
+            var rn = new RemoveNote();
+            LBSTool removeNoteTool = new LBSTool(rn);
+
+            an.SetRemover(rn);
 
             ActivateTool(selectTool,layer);
-            //ActivateTool(noteTool,layer);
+            ActivateTool(addNoteTool,layer);
+            ActivateTool(removeNoteTool, layer);
 
             selectTool.Init(layer, this);
-            //noteTool.Init(layer, this);
-
-            selectTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            //noteTool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+            addNoteTool.Init(layer, this);
+            removeNoteTool.Init(layer, this);
         }
         
         public object GetActiveManipulator()
@@ -203,7 +205,7 @@ namespace LBS.VisualElements
                 LBSMainWindow.Instance.MessageManipulator(manipulator.Description);
             };
             manipulator.OnManipulationNotification?.Invoke();
-            }
+        }
         
         private void ClearSeparators()
         {

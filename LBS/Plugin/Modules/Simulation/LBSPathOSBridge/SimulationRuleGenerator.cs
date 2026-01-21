@@ -54,9 +54,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         public SimulationRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
 
         #region METHODS
-        public override List<Message> CheckViability(LBSLayer layer)
+        public override bool CheckViability(LBSLayer layer)
         {
-            throw new System.NotImplementedException(); // GABO TODO: Implementar? (Proyecto no la usa todavia)
+            return true; // GABO TODO: Implementar? (Proyecto no la usa todavia)
         }
 
         public override object Clone()
@@ -206,7 +206,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             // GABO TODO: No es esto un error? Basado en PopulationRuleGenerator (todos los modulos base lo hacen)
             parent.transform.position += settings.position;
 
-            return new GeneratedGO(parent, null);
+            return new GeneratedGO(parent, new LBSLog(0));
 #else
                 Debug.LogError("Attempting to use PathOSRuleGenerator class outside of Editor!"); return null;
 #endif
@@ -252,11 +252,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
             // Exterior Layers: GameObjects
             List<GameObject> exteriorLayerGameObjects =
-                //GameObject.FindObjectsOfType<GameObject>()
-                GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
-                .Where(
-                obj => obj.transform.childCount == 1 &&
-                obj.transform?.GetChild(0).name == "Exterior").ToList();
+                            GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None)
+                            .Where(obj => obj.name == "Navigable").ToList();
 
             // Si no se encuentra, advierte.
             if (interiorLayerGameObjects.Count == 0 && exteriorLayerGameObjects.Count == 0)

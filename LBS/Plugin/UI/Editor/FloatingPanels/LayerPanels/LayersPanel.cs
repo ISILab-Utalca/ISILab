@@ -167,7 +167,7 @@ namespace ISILab.LBS.VisualElements.Editor
             view.OnNameChange += layer.InvokeNameChanged;
 
             CheckOpacity();
-    }
+        }
 
         private void SelectionChanged(IEnumerable<object> objs)
         {
@@ -210,7 +210,6 @@ namespace ISILab.LBS.VisualElements.Editor
         
         #endregion
 
-
         #region LAYER MANAGEMENT
         private void AddLayerByTemplate(int index)
         {
@@ -234,7 +233,8 @@ namespace ISILab.LBS.VisualElements.Editor
             OnAddLayer?.Invoke(layer);
             SetSelectedLayer(layer); // Aca tambien se invoca OnSelectLayer, seria bueno unificarlo de alguna forma para que se llame solo una vez en los casos que corresponda
 
-            LBSMainWindow.MessageNotify("New Data layer created");
+            LBSMainWindow.MessageNotify(
+                new LBSLog("New Data layer created"));
             _list.Rebuild();
 
             foreach (var layerView in _layerViews)
@@ -262,7 +262,6 @@ namespace ISILab.LBS.VisualElements.Editor
             return newName;
         }
 
-
         private void RemoveSelectedLayer()
         {
             if (!Data.Layers.Any()) return;
@@ -280,7 +279,8 @@ namespace ISILab.LBS.VisualElements.Editor
             _list.Rebuild();
 
             SetSelectedLayer(GetNextLayerAfterRemoval(index));
-            LBSMainWindow.MessageNotify("Data layer deleted");
+            LBSMainWindow.MessageNotify(
+                new LBSLog("Data layer deleted"));
         }
 
         private LBSLayer GetNextLayerAfterRemoval(int removedIndex)
@@ -324,9 +324,9 @@ namespace ISILab.LBS.VisualElements.Editor
         private void SetSelectedLayer(LBSLayer layer)
         {
             //Debug.Log("SET SELECTED LAYER");
-            if(_selectedLayer is not null)
-            { 
-                _selectedLayer.OnChangeUpdate(); 
+            if (_selectedLayer is not null)
+            {
+                _selectedLayer.OnChangeUpdate();
             }
 
             _selectedLayer = layer;
@@ -340,7 +340,6 @@ namespace ISILab.LBS.VisualElements.Editor
         {
             _list.ClearSelection();
             SetSelectedLayer(null);
-   
         }
 
         private void UpdateNoSelectedLayer()

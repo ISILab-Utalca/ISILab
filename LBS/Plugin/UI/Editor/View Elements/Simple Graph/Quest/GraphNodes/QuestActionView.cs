@@ -186,9 +186,6 @@ namespace ISILab.LBS.VisualElements
         #region Mouse Events
         protected override void OnMouseDown(MouseDownEvent evt)
         {
-            if (Node == null) return;
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
-            
             base.OnMouseDown(evt);
             if (evt.button == 1)
             {
@@ -200,10 +197,11 @@ namespace ISILab.LBS.VisualElements
         protected override void OnMouseEnter(MouseEnterEvent evt)
         {
             if (Node == null) return;
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
 
-            _questActionDetails.SetDisplays(InvalidConnectionIcon, _iconGrammarInvalid, _iconNodeDataInvalid);
             base.OnMouseEnter(evt);
+
+            if (!_isDragging)
+                _questActionDetails.SetDisplays(InvalidConnectionIcon, _iconGrammarInvalid, _iconNodeDataInvalid);
         }
 
         protected override void OnMouseLeave(MouseLeaveEvent evt)
@@ -211,11 +209,18 @@ namespace ISILab.LBS.VisualElements
             _questActionDetails.style.display = DisplayStyle.None;
             base.OnMouseLeave(evt);
         }
+
+        protected override void OnMouseMove(MouseMoveEvent evt)
+        {
+            if (_isDragging)
+                _questActionDetails.style.display = DisplayStyle.None;
+
+            base.OnMouseMove(evt);
+        }
         
         #endregion
 
         #region Helpers
-
 
         private float GetElementWidthIfVisible(VisualElement element, float fallback)
         {

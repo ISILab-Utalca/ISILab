@@ -35,6 +35,8 @@ namespace ISILab.LBS.Behaviours.Editor
 
         private AddSchemaTileConnection addTileConnection;
         private RemoveTileConnection removeTileConnection;
+        private MoveSchemaZone moveSchemaZone;
+        private RotateSchemaZone rotateSchemaZone;
         #endregion
 
         #region VIEW FIELDS
@@ -86,15 +88,25 @@ namespace ISILab.LBS.Behaviours.Editor
             removeTileConnection = new RemoveTileConnection();
             var t4 = new LBSTool(removeTileConnection);
             t4.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            
+
+            moveSchemaZone = new MoveSchemaZone();
+            var t5 = new LBSTool(moveSchemaZone);
+            t5.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+
+            rotateSchemaZone = new RotateSchemaZone();
+            var t6 = new LBSTool(rotateSchemaZone);
+            t6.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+
             addSchemaTile.SetRemover(removeSchemaTile);
             addTileConnection.SetRemover(removeTileConnection);
-            
-            toolKit.ActivateTool(t1,behaviour.OwnerLayer, behaviour);
-            toolKit.ActivateTool(t2,behaviour.OwnerLayer, behaviour);
-            toolKit.ActivateTool(t3,behaviour.OwnerLayer, behaviour);
-            toolKit.ActivateTool(t4,behaviour.OwnerLayer, behaviour);
-            
+
+            toolKit.ActivateTool(t1, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t2, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t6, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t5, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t3, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t4, behaviour.OwnerLayer, behaviour);
+
             addSchemaTile.OnManipulationLeftClickCtrl += AddZone;
         }
 
@@ -146,9 +158,9 @@ namespace ISILab.LBS.Behaviours.Editor
                 if (evt.newValue)
                 {
                     addTileConnection.MultiLayerSetup();
-                    LBSMainWindow.MessageNotify("Multi-layer connection painting enabled.");
+                    LBSMainWindow.MessageNotify(new LBSLog("Multi-layer connection painting enabled."));
                 }
-                else LBSMainWindow.MessageNotify("Multi-layer connection painting disabled.");
+                else LBSMainWindow.MessageNotify(new LBSLog("Multi-layer connection painting disabled."));
             });
             multiLayerConnectionsToggle.SetValueWithoutNotify(behaviour.MultiLayerConnections);
 

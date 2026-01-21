@@ -10,6 +10,7 @@ using LBS.Components.TileMap;
 using ISILab.Extensions;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements.Editor;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Editor
 {
@@ -191,7 +192,7 @@ namespace ISILab.LBS.Editor
                 var gene = chrom.GetGene(i);
                 if (gene == null)
                     continue;
-                layerPopulation.AddTileGroup(pos, gene as BundleData);
+                layerPopulation.AddTileGroup(pos, gene as BundleData, layerPopulation.GetActiveRotation());
             }
             DrawManager.Instance.RedrawLayer(TargetLayer);
 
@@ -199,7 +200,8 @@ namespace ISILab.LBS.Editor
             {
                 EditorUtility.SetDirty(level);
             }
-            LBSMainWindow.MessageNotify("Layer modified by Population Assistant");
+            LBSMainWindow.MessageNotify(
+                new LBSLog("Layer modified by Population Assistant"));
 
             layerPopulation.OwnerLayer.OnChangeUpdate();
         }
