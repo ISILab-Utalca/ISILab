@@ -26,7 +26,6 @@ namespace LBS.VisualElements
         //private Button button;
         private VisualElement frame;
         private VisualElement iconVisualElement;
-        private VisualElement border;
         private ToolbarMenu _toolbar;
         
         // Manipulator
@@ -35,6 +34,7 @@ namespace LBS.VisualElements
         // Parameters backing fields
         private VectorImage icon;
         private Color frameColor = Color.black;
+        private string labelText = "Item: 0";
         
         public object target;
 
@@ -56,8 +56,16 @@ namespace LBS.VisualElements
         [UxmlAttribute]
         public string Label
         {
-            get => label.text;
-            set => label.text = value;
+            get => labelText;
+            set
+            {
+                labelText = value;
+                if (label != null)
+                {
+                    label.text = value;
+                    tooltip = value;
+                }
+            }
         }
 
         [UxmlAttribute]
@@ -104,11 +112,11 @@ namespace LBS.VisualElements
             visualTree.CloneTree(this);
             // Init View
             this.AddToClassList("lbs-item");
-            this.style.height = 84;
-            
+            this.style.height = 96;
+            this.style.width = 64;
+            this.frame = this.Q<VisualElement>("Frame");
             this.label = this.Q<Label>("Label");
             this.iconVisualElement = this.Q<VisualElement>("Icon");
-            this.border = this.Q<VisualElement>("Border");
             //border.SetBorder(border.style.backgroundColor.value, 2);
             //this.button = this.Q<Button>();
 
@@ -120,6 +128,7 @@ namespace LBS.VisualElements
             this.pickingMode = PickingMode.Position;
             this.focusable = true;
             this.style.overflow = Overflow.Hidden;
+            this.style.flexGrow = 0;
 
         }
         public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView): this()
