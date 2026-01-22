@@ -1,20 +1,11 @@
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor;
-using System;
-using ISILab.LBS.VisualElements;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Tracing;
-using System.Linq;
-using UnityEditor;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using UnityEditor.UIElements;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -54,14 +45,14 @@ namespace ISILab.LBS.VisualElements
             if (presset.PresetName != null)
             {
                 presetName.value = presset.PresetName.GetType().Name;
-                LoadEditor(contentX, presset.PresetName);
+                LBS_Editor.LoadEditor(contentX, presset.PresetName);
             }
             presetName.value = presset.PresetName;
 
             if (presset.XEvaluator != null)
             {
                 evaluatorX.value = presset.XEvaluator.GetType().Name;
-                LoadEditor(contentX, presset.XEvaluator);
+                LBS_Editor.LoadEditor(contentX, presset.XEvaluator);
             }
             thresholdX.value = presset.XThreshold;
 
@@ -69,14 +60,14 @@ namespace ISILab.LBS.VisualElements
             if (presset.YEvaluator != null)
             {
                 evaluatorY.value = presset.YEvaluator.GetType().Name;
-                LoadEditor(contentY, presset.YEvaluator);
+                LBS_Editor.LoadEditor(contentY, presset.YEvaluator);
             }
             thresholdY.value = presset.YThreshold;
 
             if (presset.Optimizer != null)
             {
                 optimizer.value = presset.Optimizer.GetType().Name;
-                LoadEditor(contentO, presset.Optimizer);
+                LBS_Editor.LoadEditor(contentO, presset.Optimizer);
             }
             if (presset.MaskType != null)
                 maskType.value = presset.MaskType.Name;
@@ -132,7 +123,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     var obj = evaluatorX.GetChoiceInstance();
                     presset.XEvaluator = obj as IRangedEvaluator;
-                    LoadEditor(contentX, obj);
+                    LBS_Editor.LoadEditor(contentX, obj);
                 });
 
             evaluatorY.RegisterValueChangedCallback(
@@ -140,7 +131,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     var obj = evaluatorY.GetChoiceInstance();
                     presset.YEvaluator = obj as IRangedEvaluator;
-                    LoadEditor(contentY, obj);
+                    LBS_Editor.LoadEditor(contentY, obj);
                 });
 
             optimizer.RegisterValueChangedCallback(
@@ -148,7 +139,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     var obj = optimizer.GetChoiceInstance();
                     presset.Optimizer = obj as BaseOptimizer;
-                    LoadEditor(contentO, obj);
+                    LBS_Editor.LoadEditor(contentO, obj);
                 });
 
             maskType = this.Q<ClassDropDown>(name: "BehaviourContext");
@@ -170,25 +161,7 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
 
-        private void LoadEditor(VisualElement container, object target)
-        {
-            container.Clear();
-
-            var veType = LBS_Editor.GetEditor(target.GetType());
-
-            if (veType == null)
-            {
-                return;
-            }
-
-            var ve = Activator.CreateInstance(veType, new object[] { target }) as VisualElement;
-            if (ve is ClassFoldout cf)
-            {
-                //cf.OnCreate(veType, target);
-            }
-
-            container.Add(ve);
-        }
+        
 
         VisualElement MakeItem()
         {

@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.AI.Categorization;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using Newtonsoft.Json;
 using UnityEngine;
 

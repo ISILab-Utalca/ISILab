@@ -1,12 +1,9 @@
+using GeneticSharp.Infrastructure.Framework.Commons;
+using ISILab.AI.Optimization.Populations;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Commons.Optimization.Evaluator;
-using GeneticSharp.Domain.Chromosomes;
-using GeneticSharp.Infrastructure.Framework.Commons;
-using GeneticSharp.Infrastructure.Framework.Texts;
-using ISILab.AI.Optimization.Populations;
-using UnityEngine.UIElements;
 
 namespace ISILab.AI.Optimization.Selections
 {

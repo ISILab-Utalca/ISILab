@@ -1,7 +1,7 @@
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.Commons;
 using ISILab.Extensions;
+using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
@@ -13,10 +13,11 @@ using LBS.Components.TileMap;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
-    public class #SCRIPTNAME# : IContextualEvaluator, IRangedEvaluator
+    public class #SCRIPTNAME# : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -34,6 +35,8 @@ namespace ISILab.AI.Categorization
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
 
+        public static EvaluatorConfiguration config;
+
         /* Place here any LBSCharacteristic type field required for your evaluator to work. */
         #region CHARACTERISTIC FIELDS
 
@@ -41,6 +44,8 @@ namespace ISILab.AI.Categorization
         public LBSCharacteristic defaultCharacteristic;
 
         #endregion
+
+        #region EVALUATION
 
         public float Evaluate(IOptimizable evaluable)
         {
@@ -109,21 +114,49 @@ namespace ISILab.AI.Categorization
             throw new System.NotImplementedException("Default evaluation method not overwritten.");
         }
 
-        public void InitializeDefaultWithContext(List<LBSLayer> contextLayers, Rect selection)
+        #endregion
+
+        #region INITIALIZATION
+
+        public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
             var contextualEvaluator = this as IContextualEvaluator;
             CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
             CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
             CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
-            InitializeDefault();
         }
 
         public void InitializeDefault()
         {
             /* Initialize here all your LBSCharacteristic fields. */
             defaultCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("TAG NAME"));
+        
+            CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
+
+        #endregion
+
+        #region CONFIGURATION
+
+        public void ReadConfiguration()
+        {
+            CreateOrUpdateConfiguration(ref config, GetType());
+
+            defaultCharacteristic = config.GetValue<LBSCharacteristic>("FIELD NAME");
+        }
+
+        public List<EvaluatorConfigurationField> GetEvaluatorFields()
+        {
+            var list = new List<EvaluatorConfigurationField>
+            {
+                new MainTagField("FIELD NAME", defaultCharacteristic.FirstTag().Label, defaultCharacteristic)
+            };
+
+            return list;
+        }
+
+        #endregion
 
         public object Clone()
         {

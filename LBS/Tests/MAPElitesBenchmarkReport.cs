@@ -1,20 +1,12 @@
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Categorization;
 using ISILab.Commons.JsonNet;   
 using ISILab.LBS.AI.Categorization;
-using ISILab.LBS.Components;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
-using LBS.Components.TileMap;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
 using Unity.PerformanceTesting;
 using UnityEditor;
-using UnityEngine;
 
 
 namespace ISILab.LBS.Tests
@@ -205,9 +197,9 @@ namespace ISILab.LBS.Tests
             preset.XEvaluator = xEvaluator;
             preset.YEvaluator = yEvaluator;
 
-            assistant.InitializeEvaluator(preset.Optimizer.Evaluator);
-            assistant.InitializeEvaluator(preset.XEvaluator);
-            assistant.InitializeEvaluator(preset.YEvaluator);
+            assistant.InitializeEvaluator(preset.Optimizer.Evaluator, true);
+            assistant.InitializeEvaluator(preset.XEvaluator, true);
+            assistant.InitializeEvaluator(preset.YEvaluator, true);
 
             assistant.LoadPresset(preset);
             assistant.SetAdam(assistant.RawToolRect, levelData.ContextLayers);
@@ -269,7 +261,8 @@ namespace ISILab.LBS.Tests
             {
                 SetUpMAPElitesTest(level20Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
                 chromosome = GetChromosomeFromAssistant();
-                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeDefault();
             })
             .CleanUp(CleanUpMAPElitesTest)
             .Run();
@@ -295,7 +288,8 @@ namespace ISILab.LBS.Tests
             {
                 SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
                 chromosome = GetChromosomeFromAssistant();
-                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeDefault();
             })
             .CleanUp(CleanUpMAPElitesTest)
             .Run();
@@ -321,7 +315,8 @@ namespace ISILab.LBS.Tests
             {
                 SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
                 chromosome = GetChromosomeFromAssistant();
-                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeDefault();
             })
             .CleanUp(CleanUpMAPElitesTest)
             .Run();
@@ -347,7 +342,8 @@ namespace ISILab.LBS.Tests
             {
                 SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
                 chromosome = GetChromosomeFromAssistant();
-                evaluator.InitializeDefaultWithContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeContext(levelData.ContextLayers, assistant.RawToolRect);
+                //evaluator.InitializeDefault();
             })
             .CleanUp(CleanUpMAPElitesTest)
             .Run();

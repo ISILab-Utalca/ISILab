@@ -1,7 +1,7 @@
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.Commons;
 using ISILab.Extensions;
+using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
@@ -11,14 +11,17 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
     [System.Serializable]
-    public class DCExploration : IContextualEvaluator, IRangedEvaluator
+    public class DCExploration : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -40,6 +43,8 @@ namespace ISILab.AI.Categorization
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
+
+        public static EvaluatorConfiguration config;
 
         [SerializeField, SerializeReference]
         public LBSCharacteristic playerCharacteristic;
@@ -309,13 +314,12 @@ namespace ISILab.AI.Categorization
             }
         }
 
-        public void InitializeDefaultWithContext(List<LBSLayer> contextLayers, Rect selection)
+        public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
             CombinedInteriorLayer = (this as IContextualEvaluator).InteriorLayers(selection);
             CombinedExteriorLayer = (this as IContextualEvaluator).ExteriorLayers(selection);
             CombinedLayer = (this as IContextualEvaluator).MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
-            InitializeDefault();
         }
 
         public void InitializeDefault()
@@ -324,13 +328,40 @@ namespace ISILab.AI.Categorization
             colliderCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Collider"));
 
             pointsOfInterest.Clear();
-            //Debug.Log(pointsOfInterest.Count);
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Chest")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Axe")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Hammer")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Sword")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Food")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Tree")));
+
+            CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
+        }
+
+        public void ReadConfiguration()
+        {
+            CreateOrUpdateConfiguration(ref config, GetType());
+
+            playerCharacteristic = config.GetValue<LBSCharacteristic>("Player");
+            colliderCharacteristic = config.GetValue<LBSCharacteristic>("Obstacle");
+            pointsOfInterest.Clear();
+            pointsOfInterest.AddRange(config.GetValues<LBSCharacteristic>("PointsOfInterest"));
+        }
+
+        public List<EvaluatorConfigurationField> GetEvaluatorFields()
+        {
+            var thisTarget = config.target as DCExploration; // (!) Las chars de thisTarget son null
+            var POIs = new List<Tuple<string, LBSCharacteristic>>();
+            for(int i = 0; i < pointsOfInterest.Count; i++)
+                POIs.Add(new(pointsOfInterest[i].FirstTag().Label, pointsOfInterest[i]));
+            var list = new List<EvaluatorConfigurationField>
+            {
+                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic),
+                new MainTagField("Obstacle", colliderCharacteristic.FirstTag().Label, colliderCharacteristic),
+                new GroupedTagsField("PointsOfInterest", POIs)
+            };
+
+            return list;
         }
 
         public object Clone()

@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components.TileMap;
 using UnityEngine;
 
