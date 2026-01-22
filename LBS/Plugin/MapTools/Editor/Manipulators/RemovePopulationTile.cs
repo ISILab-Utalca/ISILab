@@ -95,7 +95,7 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
-            OwnerLayer.OnChangeUpdate();
+            //OwnerLayer.OnChangeUpdate();
             CleanPreviews();
             
             if (EditorGUI.EndChangeCheck())

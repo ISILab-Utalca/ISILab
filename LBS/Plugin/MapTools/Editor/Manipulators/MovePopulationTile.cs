@@ -149,7 +149,7 @@ namespace ISILab.LBS.Manipulators
                 //Selected.Translate(offset);
                 _population.MoveGroup(Selected, offset);
 
-                _population.OwnerLayer.OnChangeUpdate();
+                //_population.OwnerLayer.OnChangeUpdate();
                 DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
                 //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
 

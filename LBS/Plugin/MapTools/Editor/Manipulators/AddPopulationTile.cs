@@ -145,7 +145,7 @@ namespace ISILab.LBS.Manipulators
             LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
             _tileMapBehavior.SelectedTilemap = newTileGroup;
 
-            _population.OwnerLayer.OnChangeUpdate();
+            //_population.OwnerLayer.OnChangeUpdate();
             CleanPreviews();
 
             if (EditorGUI.EndChangeCheck())
