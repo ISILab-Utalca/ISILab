@@ -21,7 +21,6 @@ namespace ISILab.LBS.Behaviours
             {
                 selectedTilemap = value;
                 OnSelectedChanged?.Invoke(selectedTilemap);
-                
             }
         }
 

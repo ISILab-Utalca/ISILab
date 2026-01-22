@@ -7,22 +7,34 @@ using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Behaviours.Editor;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using UnityEditor.UIElements;
 
 
 namespace LBS.VisualElements
 {
-    public class OptionView : VisualElement
+    
+    [UxmlElement]
+    public partial class OptionView : VisualElement
     {
         //private Color selected = new Color(1,1,1,0.1f);
         //private Color nonSelected = new Color(1, 1, 1, 0f);
 
         private Label label;
-        private Button button;
-        private VisualElement icon;
+        //private Button button;
+        private VisualElement frame;
+        private VisualElement iconVisualElement;
         private VisualElement border;
         private ToolbarMenu _toolbar;
+        
+        // Manipulator
+        private Clickable clickableManipulator;
+        
+        // Parameters backing fields
+        private VectorImage icon;
+        private Color frameColor = Color.black;
         
         public object target;
 
@@ -40,39 +52,83 @@ namespace LBS.VisualElements
             }
         }
 
+        
+        [UxmlAttribute]
         public string Label
         {
+            get => label.text;
             set => label.text = value;
         }
 
+        [UxmlAttribute]
         public VectorImage Icon
         {
-            set => icon.style.backgroundImage = new StyleBackground(value);
+            get => icon;
+            set
+            {
+                icon = value;
+                if (iconVisualElement != null)
+                {
+                    if (icon != null)
+                    {
+                        iconVisualElement.style.backgroundImage = new StyleBackground(value);
+                    }
+                    else
+                    {
+                        iconVisualElement.style.backgroundImage = new StyleBackground(LBSAssetMacro.LoadPlaceholderVectorImage());
+                    }
+                }
+            }
         }
 
-        public Color Color
+
+        [UxmlAttribute]
+        public Color FrameColor
         {
-            set => button.style.backgroundColor = value;
+            get => frameColor;
+            set
+            {
+                frameColor = value;
+                if (frame != null)
+                {
+                    frame.style.backgroundColor = value;
+                }
+            }
         }
         #endregion
 
-        public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView)
+
+        public OptionView() : base()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("OptionView");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("OptionView");
             visualTree.CloneTree(this);
-
             // Init View
-            this.label = this.Q<Label>();
-            this.icon = this.Q<VisualElement>("Icon");
+            this.AddToClassList("lbs-item");
+            this.style.height = 84;
+            
+            this.label = this.Q<Label>("Label");
+            this.iconVisualElement = this.Q<VisualElement>("Icon");
             this.border = this.Q<VisualElement>("Border");
-            border.SetBorder(border.style.backgroundColor.value, 2);
-            this.button = this.Q<Button>();
+            //border.SetBorder(border.style.backgroundColor.value, 2);
+            //this.button = this.Q<Button>();
 
-      
-            button.clicked += () => { 
-                this.OnSelect?.Invoke(target);
+            clickableManipulator = new Clickable(() =>
+            {
                 SetSelected(true);
+            });
+            this.AddManipulator(clickableManipulator);
+            this.pickingMode = PickingMode.Position;
+            this.focusable = true;
+            this.style.overflow = Overflow.Hidden;
+
+        }
+        public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView): this()
+        {
+      
+            clickableManipulator.clicked += () => { 
+                this.OnSelect?.Invoke(target);
             };
+            
             _toolbar = this.Q<ToolbarMenu>("ToolBar");
             if(_toolbar != null)
             {
@@ -98,7 +154,7 @@ namespace LBS.VisualElements
 
         private void OnMouseDown(MouseDownEvent evt)
         {
-            /* Commen so only the button triggers - currently there can be text so isntead the 
+            /* Commen so only the button triggers - currently there can be text so instead the 
                 whole visual element triggers
             */
 
@@ -126,14 +182,11 @@ namespace LBS.VisualElements
         {
             if(value)
             {
-                //border.SetBorder(selected, 2);
-                //border.style.backgroundColor = selected;
+
                 AddToClassList("prop-state--checked");
             }
             else
             {
-                //border.SetBorder(nonSelected, 2);
-                //border.style.backgroundColor = nonSelected;
                 RemoveFromClassList("prop-state--checked");
             }
         }

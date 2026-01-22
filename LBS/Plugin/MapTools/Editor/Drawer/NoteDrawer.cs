@@ -29,6 +29,8 @@ namespace ISILab.LBS.Drawers
                 var noteView = new LBSNoteView(note);
 
                 view.AddElementToLayerContainer(nb.OwnerLayer, note, noteView);
+
+                noteView.style.display = (DisplayStyle)(nb.OwnerLayer.IsVisible ? 0 : 1);
             }
         }
 

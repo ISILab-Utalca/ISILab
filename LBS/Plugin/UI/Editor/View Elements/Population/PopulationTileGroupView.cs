@@ -13,10 +13,13 @@ namespace ISILab.LBS.VisualElements
     {
 
         #region STATIC
+
         private static VisualTreeAsset view;
+        
         #endregion
 
         #region FIELDS
+
         private readonly TileGroupBehavior _tileBehaviour;
 
         // contains the drop icon
@@ -28,14 +31,17 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTOR
+
         public PopulationTileGroupView(TileBundleGroup tile)
         {
             LoadVisualElement();
             UpdateVisuals(tile);
         }
+
         #endregion
 
         #region INITIALIZATION
+
         private void LoadVisualElement()
         {
             //    if (view == null)
@@ -52,7 +58,6 @@ namespace ISILab.LBS.VisualElements
 
         static public void UpdateVisuals(TileBundleGroup tile)
         {
-
             if (_patrolIcon is null || _triggerIcon is null)
             {
                 return;
@@ -81,9 +86,7 @@ namespace ISILab.LBS.VisualElements
 
         #endregion
 
-
         #region VISUAL CONTROL
-
 
         public void SetPivot(Vector2 pivot)
         {
@@ -96,7 +99,6 @@ namespace ISILab.LBS.VisualElements
             this.style.width = size.x;
             this.style.height = size.y;
         }
-
 
         #endregion
     }

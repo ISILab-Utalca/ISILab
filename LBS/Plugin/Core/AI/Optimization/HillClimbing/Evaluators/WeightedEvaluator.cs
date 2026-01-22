@@ -1,9 +1,9 @@
-﻿using System;
+﻿using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Commons.Optimization.Evaluator;
 using UnityEngine.UIElements;
 
 namespace ISILab.AI.Optimization

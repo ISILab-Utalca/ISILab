@@ -74,8 +74,11 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
         {
-            MainView.Instance.RemoveElement(_dottedFeedback);
-            MainView.Instance.RemoveElement(_iconFeedback);
+            if (Selected == null)
+            {
+                MainView.Instance.RemoveElement(_dottedFeedback);
+                MainView.Instance.RemoveElement(_iconFeedback);
+            }
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -146,7 +149,7 @@ namespace ISILab.LBS.Manipulators
                 //Selected.Translate(offset);
                 _population.MoveGroup(Selected, offset);
 
-                _population.OwnerLayer.OnChangeUpdate();
+                //_population.OwnerLayer.OnChangeUpdate();
                 DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
                 //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
 
@@ -213,7 +216,7 @@ namespace ISILab.LBS.Manipulators
             if (Selected != null)
             {
                 // undo the negative of topLeftCorner
-                bool valid = _population.ValidMoveGroup(-topLeftCorner, Selected);
+                bool valid = _population.BundleTilemap.ValidMoveGroup(-topLeftCorner, Selected, Vector2.right);
                 _dottedFeedback.ValidForInput(valid);
                 _iconFeedback.UpdatePositions(firstPos.ToInt(), lastPos.ToInt());
             }

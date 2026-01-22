@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.LBS.Plugin.Core.AI.Optimization;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Core.AI.Categorization

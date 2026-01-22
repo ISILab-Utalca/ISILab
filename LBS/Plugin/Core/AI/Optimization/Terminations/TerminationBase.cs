@@ -1,6 +1,6 @@
-using Commons.Optimization.Evaluator;
 using GeneticSharp.Infrastructure.Framework.Commons;
 using GeneticSharp.Infrastructure.Framework.Texts;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using UnityEngine.UIElements;
 
 namespace ISILab.AI.Optimization.Terminations

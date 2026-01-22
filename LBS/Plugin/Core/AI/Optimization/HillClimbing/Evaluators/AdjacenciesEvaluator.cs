@@ -1,8 +1,8 @@
-﻿using Commons.Optimization.Evaluator;
-using ISILab.AI.Wrappers;
+﻿using ISILab.AI.Wrappers;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using System.Collections.Generic;
 

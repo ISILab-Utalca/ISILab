@@ -1,6 +1,6 @@
-﻿using Commons.Optimization.Evaluator;
-using ISILab.AI.Optimization;
+﻿using ISILab.AI.Optimization;
 using ISILab.Extensions;
+using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Data;
@@ -8,13 +8,15 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
-    public class DCResourceSafety : IContextualEvaluator, IRangedEvaluator
+    public class DCResourceSafety : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -34,6 +36,8 @@ namespace ISILab.AI.Categorization
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
+
+        public static EvaluatorConfiguration config;
 
         [SerializeField, SerializeReference]
         public LBSCharacteristic playerCharacteristic;
@@ -179,25 +183,50 @@ namespace ISILab.AI.Categorization
             //return (int)(2.00f * resources.Count);
         }
 
-        public void InitializeDefaultWithContext(List<LBSLayer> contextLayers, Rect selection)
+        public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
             CombinedInteriorLayer = (this as IContextualEvaluator).InteriorLayers(selection);
             CombinedExteriorLayer = (this as IContextualEvaluator).ExteriorLayers(selection);
             CombinedLayer = (this as IContextualEvaluator).MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
-            InitializeDefault();
         }
 
         public void InitializeDefault()
         {
             playerCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Player"));
 
+            resources.Clear();
             resources.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Chest")));
             resources.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Axe")));
             resources.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Hammer")));
             resources.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Sword")));
             resources.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Food")));
             resources.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Tree")));
+
+            CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
+        }
+
+        public void ReadConfiguration()
+        {
+            CreateOrUpdateConfiguration(ref config, GetType());
+
+            playerCharacteristic = config.GetValue<LBSCharacteristic>("Player");
+            resources.Clear();
+            resources.AddRange(config.GetValues<LBSCharacteristic>("Resources"));
+        }
+
+        public List<EvaluatorConfigurationField> GetEvaluatorFields()
+        {
+            var res = new List<Tuple<string, LBSCharacteristic>>();
+            for (int i = 0; i < resources.Count; i++)
+                res.Add(new(resources[i].FirstTag().Label, resources[i]));
+            var list = new List<EvaluatorConfigurationField>
+            {
+                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic),
+                new GroupedTagsField("Resources", res)
+            };
+
+            return list;
         }
 
         public object Clone()
