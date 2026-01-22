@@ -154,7 +154,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             var configurableChoice = evaluator as IConfigurableEvaluator;
             contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);
 
-            if (defaultInitialization || configurableChoice is not null)
+            if (defaultInitialization || configurableChoice is null)
                 contextualChoice.InitializeDefault();
             else
             {
