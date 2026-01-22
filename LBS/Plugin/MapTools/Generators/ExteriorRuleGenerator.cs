@@ -54,31 +54,38 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             if (layer.Behaviours.Count == 0)
             {
-                return new GeneratedGO(null,"No behaviours found");
+                return new GeneratedGO(null,new LBSLog("No behaviours found", LogType.Error));
             }
             
             var exteriorBehaviour = layer.Behaviours.Find(b => b is ExteriorBehaviour) as ExteriorBehaviour;
             var bundle = exteriorBehaviour?.Bundle; 
             if (bundle == null)
             {
-                return new GeneratedGO(null, "Bundle not found");
+                return new GeneratedGO(null, new LBSLog("Bundle not found", LogType.Error));
             }
-            
+
+            List<string> navigableTags = exteriorBehaviour.NavigableTags;
             var selected = bundle.GetCharacteristics<LBSDirectionedGroup>()[0];
             
             // Create pivot
             var mainPivot = new GameObject("Exterior");
+            GameObject navContainer = new GameObject("Navigable");
+            GameObject nonNavContainer = new GameObject("NotNavigable");
+            navContainer.transform.parent = mainPivot.transform;
+            nonNavContainer.transform.parent = mainPivot.transform;
             var scale = settings.scale;
 
             // Get modules
             var mapMod = layer.GetModule<TileMapModule>();
             var connctMod = layer.GetModule<ConnectedTileMapModule>();
             var tiles = new List<GameObject>();
-            
+
+            Dictionary<GameObject, LBSTile> goToTileMap = new Dictionary<GameObject, LBSTile>();
+
             //So this is where I'm working on a little thing so the characteristic that chooses the tiles could be chosen.
             //Otherwise, it just keeps mapMod.Tiles as a default and randomizes the whole thing
             //This may take a bit, though! -Alice
-            
+
             //We have the tiles here
             var chosenTiles = mapMod.Tiles;
 
@@ -204,6 +211,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 
                 tiles.Add(go);
 
+                goToTileMap.Add(go, tile);
+
                 var current = pair.Item1.Owner;
                 // Add ref component
                 LBSGenerated generatedComponent = go.AddComponent<LBSGenerated>();
@@ -215,7 +224,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (tiles.Count == 0)
             {
                 UnityEngine.Object.DestroyImmediate(mainPivot);
-                return new GeneratedGO(null, "No tiles were created in the tool. Can't generate game object.");
+                return new GeneratedGO(null, 
+                    new LBSLog("No tiles were created in the tool. Can't generate game object.", LogType.Error));
             }
 
             //Decides the position of the pivot based on the average position of every object generated
@@ -228,12 +238,26 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             foreach (var tile in tiles)
             {
-                tile.transform.parent = mainPivot.transform;
+                LBSTile logicalTile = goToTileMap[tile];
+                List<string> connections = connctMod.GetConnections(logicalTile);
+                int validConnectionsCount = connections.Count(c => navigableTags.Contains(c));
+
+                // Determine if the tile is navigable based on its connections (can be changed if you want more or less connections to be navigable)
+                bool isNavigable = validConnectionsCount >= 2;
+
+                if (isNavigable)
+                {
+                    tile.transform.parent = navContainer.transform;
+                }
+                else
+                {
+                    tile.transform.parent = nonNavContainer.transform;
+                }
             }
 
             mainPivot.transform.position += settings.position;
 
-            return new GeneratedGO(mainPivot, null);
+            return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 
         private GameObject ChoosePatternByGrid(Bundle currentBundle, Dictionary<string, Bundle> adjacentBundles, Dictionary<string, GameObject> adjacentPreferences)
@@ -503,9 +527,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return base.GetHashCode();
         }
 
-        public override List<Message> CheckViability(LBSLayer layer)
+        public override bool CheckViability(LBSLayer layer)
         {
-            throw new NotImplementedException(); // TODO: Implement this method to check if the rule is viable for the layer
+            return true; // TODO: Implement this method to check if the rule is viable for the layer
         }
     }
 }

@@ -22,9 +22,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         // For template construction
         public PopulationRuleGenerator(string IconGuid, string name, Color colorTint) : base() { }
 
-        public override List<Message> CheckViability(LBSLayer layer)
+        public override bool CheckViability(LBSLayer layer)
         {
-            throw new NotImplementedException(); // TODO: Implement CheckViability method
+            return true; // TODO: Implement CheckViability method
         }
 
         public override object Clone()
@@ -154,7 +154,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 UnityEngine.Object.DestroyImmediate(parentTrigger);
                 UnityEngine.Object.DestroyImmediate(parentProp);
                 UnityEngine.Object.DestroyImmediate(parentMisc);
-                return new GeneratedGO(parent, "No population objects were created. Assign a valid bundle type");
+                return new GeneratedGO(parent, 
+                    new LBSLog("No population objects were created. Assign a valid bundle type", LogType.Error));
             }
 
             var x = objects.Keys.Average(o => o.transform.position.x);
@@ -183,7 +184,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             parentMisc.transform.SetParent(parent.transform);
             parent.transform.position += settings.position;
 
-            return new GeneratedGO(parent, null);
+            return new GeneratedGO(parent, new LBSLog(0));
 
             Transform GetParentForFlag(Bundle.EElementFlag flag)
             {

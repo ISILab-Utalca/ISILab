@@ -5,6 +5,7 @@ using ISILab.LBS.VisualElements;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using UnityEditor;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -56,7 +57,7 @@ namespace ISILab.LBS.Manipulators
 
             if (z1 == null)
             {
-                LBSMainWindow.MessageNotify("No origin selected!", LogType.Error, 2);
+                LBSMainWindow.MessageNotify(new LBSLog("No origin selected!", LogType.Error, 2));
                 return;
             }
 
@@ -64,19 +65,19 @@ namespace ISILab.LBS.Manipulators
             var z2 = _assistant.GetZone(pos);
             if (z2 == null)
             {
-                LBSMainWindow.MessageNotify("No destination selected!", LogType.Error, 2);
+                LBSMainWindow.MessageNotify(new LBSLog("No destination selected!", LogType.Error, 2));
                 return;
             }
 
             if (z1.Equals(z2))
             {
-                LBSMainWindow.MessageNotify("Can't connect a zone with itself!", LogType.Error, 2);
+                LBSMainWindow.MessageNotify(new LBSLog("Can't connect a zone with itself!", LogType.Error, 2));
                 return;
             }
 
             if (_assistant.CheckEdges(z1, z2))
             {
-                LBSMainWindow.MessageNotify("This connection already exists.");
+                LBSMainWindow.MessageNotify(new LBSLog("This connection already exists."));
                 return;
             }
 

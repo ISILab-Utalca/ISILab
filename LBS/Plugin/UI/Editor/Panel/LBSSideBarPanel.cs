@@ -80,7 +80,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                 gen3DToggle?.SetValueWithoutNotify(false);
                 gen3DToggle?.RegisterCallback<ChangeEvent<bool>>(_evt =>
                 {
-                    _mainWindow.gen3DPanel.Init(_mainWindow._selectedLayer);
+                    //_mainWindow.gen3DPanel.Init(_mainWindow._selectedLayer);
                     _mainWindow.gen3DPanel.style.display = _evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
                 });
 

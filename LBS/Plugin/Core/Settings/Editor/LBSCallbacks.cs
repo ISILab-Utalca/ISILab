@@ -107,7 +107,8 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
             }
             else
             {
-                LBSMainWindow.MessageNotify("Error on save BackUp", LogType.Error);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("Error on save BackUp", LogType.Error));
             }
         }
 

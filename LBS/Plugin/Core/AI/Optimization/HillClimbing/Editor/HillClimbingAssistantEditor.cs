@@ -157,7 +157,7 @@ namespace ISILab.LBS.VisualElements
         void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
         {
             LoadedLevel loadedLevel = LBSController.CurrentLevel;
-            LBSMainWindow.MessageNotify(log, type);
+            LBSMainWindow.MessageNotify(new LBSLog(log, type));
 
             // Mark as dirty
             if (EditorGUI.EndChangeCheck())

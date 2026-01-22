@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using ISILab.LBS.Characteristics;
 using LBS.Components.TileMap;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -113,7 +114,8 @@ namespace ISILab.LBS.Manipulators
             // Default Add Tile
             if (ToSet == null)
             {
-                LBSMainWindow.MessageNotify("You don't have any selected item to place.", LogType.Error);
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("You don't have any selected item to place.", LogType.Error));
                 return;
             }
 

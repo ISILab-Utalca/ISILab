@@ -84,6 +84,8 @@ namespace LBS.VisualElements
 
         public void SendNotification(string message, LogType logType, int duration)
         {
+            if (duration == 0 || string.IsNullOrEmpty(message)) return;
+
             SetContainer();
             var newMessage = new NotificationMessage();
 

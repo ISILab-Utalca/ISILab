@@ -11,7 +11,7 @@
                 <ISILab.LBS.VisualElements.ToolButton />
             </ISILab.LBS.VisualElements.ButtonGroup>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
             <uie:Toolbar name="Toolbar" class="lbs-toolbar">
                 <uie:ToolbarButton text="Button" />
                 <uie:ToolbarToggle label="Toggle" />
@@ -33,12 +33,13 @@
                             <ISILab.LBS.CustomComponents.LBSCustomEnumField label="CustomEnumField" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=EnumField.svg?fileID=7388822144124034973&amp;guid=ea38db42f43233b4894243942b78f176&amp;type=3#Icon=EnumField" icon-color="#FFFFFFFF" />
                         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
                     </ISILab.LBS.CustomComponents.LBSCustomFoldout>
-                    <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Error" name="WarningPanel" />
                     <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Log" name="WarningPanel" />
                     <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Success" name="WarningPanel" />
+                    <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Error" name="WarningPanel" />
                     <ISILab.LBS.CustomComponents.LBSCustomLabel text="Selection lorem ipsum" hint-color="#FF000000" />
                     <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/LBS/Plugin/Components/Data/Quest/QuestIcons/Artifact=target.svg?fileID=7388822144124034973&amp;guid=d96b94effa175424699a0813ffdd99ef&amp;type=3#Artifact=target" />
                     <ISILab.LBS.VisualElements.ToolButton />
+                    <ISILab.LBS.VisualElements.WarningPanel text="Some simple warning" current-warning-type="Warning" name="WarningPanel" style="height: 36px;" />
                 </ui:VisualElement>
                 <ISILab.Commons.VisualElements.Editor.SplitView fixed-pane-initial-dimension="400">
                     <ui:VisualElement class="lbs-panel">
@@ -67,6 +68,7 @@
                         <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" />
                         <ISILab.LBS.CustomComponents.LBSCustomRadioButtonGroup choices="a,b,c" selected-choice="0" />
                         <LBS.VisualElements.SimplePallete display-remove-element="true" display-add-element="true" name-label="A custom Palette" />
+                        <ISILab.LBS.Plugin.UI.Editor.CustomComponents.ComplexComponents.LBSCustomRandomSeedField label="RandomValue" />
                     </ui:VisualElement>
                     <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
                         <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
@@ -81,7 +83,6 @@
                     </ui:VisualElement>
                 </ISILab.Commons.VisualElements.Editor.SplitView>
             </ISILab.Commons.VisualElements.Editor.SplitView>
-            <ISILab.LBS.Plugin.UI.Editor.Panel.InfoToolbar style="height: 32px; -unity-background-image-tint-color: rgb(255, 226, 153); background-color: rgba(0, 0, 0, 0.4);" />
             <uie:Toolbar>
                 <uie:ToolbarButton text="Button" />
                 <uie:ToolbarToggle label="Toggle" />
