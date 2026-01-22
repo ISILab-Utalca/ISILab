@@ -13,7 +13,9 @@ using UnityEditor.UIElements;
 
 namespace LBS.VisualElements
 {
-    public class OptionView : VisualElement
+    
+    [UxmlElement]
+    public partial class OptionView : VisualElement
     {
         //private Color selected = new Color(1,1,1,0.1f);
         //private Color nonSelected = new Color(1, 1, 1, 0f);
@@ -50,24 +52,31 @@ namespace LBS.VisualElements
             set => icon.style.backgroundImage = new StyleBackground(value);
         }
 
+        
+        [UxmlAttribute]
         public Color Color
         {
-            set => button.style.backgroundColor = value;
+            set
+            {
+                if (button != null) button.style.backgroundColor = value;
+            }
         }
         #endregion
 
-        public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView)
-        {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("OptionView");
-            visualTree.CloneTree(this);
 
+        public OptionView() : base()
+        {
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("OptionView");
+            visualTree.CloneTree(this);
             // Init View
-            this.label = this.Q<Label>();
+            this.label = this.Q<Label>("Label");
             this.icon = this.Q<VisualElement>("Icon");
             this.border = this.Q<VisualElement>("Border");
-            border.SetBorder(border.style.backgroundColor.value, 2);
+            //border.SetBorder(border.style.backgroundColor.value, 2);
             this.button = this.Q<Button>();
-
+        }
+        public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView): this()
+        {
       
             button.clicked += () => { 
                 this.OnSelect?.Invoke(target);
@@ -98,7 +107,7 @@ namespace LBS.VisualElements
 
         private void OnMouseDown(MouseDownEvent evt)
         {
-            /* Commen so only the button triggers - currently there can be text so isntead the 
+            /* Commen so only the button triggers - currently there can be text so instead the 
                 whole visual element triggers
             */
 
