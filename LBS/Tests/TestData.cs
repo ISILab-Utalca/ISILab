@@ -376,7 +376,7 @@ namespace ISILab.LBS.Tests
 
             // Add some data
             var populationBH = layer.Behaviours[0] as PopulationBehaviour;
-            populationBH.AddTileGroup(new Vector2Int(0, 0), bundle, populationBH.GetActiveRotation());
+            populationBH.AddTileGroup(new Vector2Int(0, 0), new BundleData(bundle), populationBH.GetActiveRotation());
 
             // Save the level as JSON
             JSONDataManager.SaveData(path, "Population_Layer.tst", lvl);

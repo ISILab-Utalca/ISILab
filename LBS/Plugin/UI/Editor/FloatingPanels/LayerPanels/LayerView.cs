@@ -141,6 +141,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 _onVisibilityChange?.Invoke();
             }
         }
+
         #endregion
 
         #region CALLBACKS

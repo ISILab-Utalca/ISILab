@@ -32,15 +32,14 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region VIEW FIELD
+
         private VisualElement NoContent;
         private VisualElement Content;
 
         private LBSCustomLabelIcon SelectedHeader;
         public VisualElement AddonContainer;
 
-
         private static VisualTreeAsset visualTree { get; set; }
-
 
         #endregion
 
