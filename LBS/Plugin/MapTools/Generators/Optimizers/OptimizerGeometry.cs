@@ -9,7 +9,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     {
         public override void Optimize(GameObject rootObject)
         {
-            Generator3D.StaticObjs(rootObject);
             // immediate children only (layers)
             foreach (Transform group in rootObject.transform) 
             {
@@ -26,19 +25,18 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 if (child.name.Contains("_Combined_"))
                     toRemove.Add(child.gameObject);
             }
-            foreach (var go in toRemove)
-                Object.DestroyImmediate(go);
+            foreach (GameObject go in toRemove) Object.DestroyImmediate(go);
 
-            // 1. Extract all mesh entries (including children & submeshes)
+            // get mesh entries (children and submeshes)
             List<MeshEntry> entries = ExtractMeshes(groupRoot);
             if (entries.Count == 0) return;
 
-            // 2. Group by MeshID (mesh + material + submesh)
+            // group in dicot, using (mesh + material + submesh)
             Dictionary<MeshID, List<MeshEntry>> groups = new();
 
-            foreach (var entry in entries)
+            foreach (MeshEntry entry in entries)
             {
-                if (!groups.TryGetValue(entry.Id, out var list))
+                if (!groups.TryGetValue(entry.Id, out List<MeshEntry> list))
                 {
                     list = new List<MeshEntry>();
                     groups[entry.Id] = list;
@@ -50,8 +48,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // Track exactly which renderers were merged
             HashSet<MeshRenderer> disabledRenderers = new();
 
-            // 3. Combine each compatible group
-            foreach (var pair in groups)
+            // combine groups by compatibility. i.e same mesh and materials(order matters)
+            foreach (KeyValuePair<MeshID, List<MeshEntry>> pair in groups)
             {
                 MeshID id = pair.Key;
                 List<MeshEntry> list = pair.Value;
@@ -61,7 +59,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 List<CombineInstance> combines = new();
 
-                foreach (var entry in list)
+                foreach (MeshEntry entry in list)
                 {
                     CombineInstance ci = new CombineInstance
                     {
@@ -97,11 +95,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 mr.sharedMaterial = id.Material;
             }
 
-            // 4. Disable ONLY renderers that were actually combined
-            foreach (var r in disabledRenderers)
+            // if combined disable original render
+            foreach (MeshRenderer r in disabledRenderers)
             {
-                if (r != null)
-                    r.enabled = false;
+                if (r != null) r.enabled = false;
+
             }
         }
 
@@ -111,9 +109,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             var groups = new Dictionary<MeshID, List<MeshEntry>>();
 
-            foreach (var kvp in objectMeshes)
+            foreach (KeyValuePair<GameObject, List<MeshEntry>> kvp in objectMeshes)
             {
-                foreach (var entry in kvp.Value)
+                foreach (MeshEntry entry in kvp.Value)
                 {
                     if (!groups.TryGetValue(entry.Id, out List<MeshEntry> list))
                     {
@@ -178,7 +176,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     toRemove.Add(child.gameObject);
             }
 
-            foreach (var go in toRemove)
+            foreach (GameObject go in toRemove)
                 Object.DestroyImmediate(go);
 
             // Collect all mesh filters in this group
@@ -211,9 +209,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     Material mat = materials[sub];
                     if (mat == null) continue;
 
-                    var key = (mesh, mat, sub);
+                    (Mesh mesh, Material mat, int sub) key = (mesh, mat, sub);
 
-                    if (!combines.TryGetValue(key, out var list))
+                    if (!combines.TryGetValue(key, out List<(CombineInstance ci, MeshRenderer renderer)> list))
                     {
                         list = new List<(CombineInstance, MeshRenderer)>();
                         combines[key] = list;
@@ -232,10 +230,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             // Create combined meshes
-            foreach (var pair in combines)
+            foreach (KeyValuePair<(Mesh mesh, Material mat, int subMesh), List<(CombineInstance ci, MeshRenderer renderer)>> pair in combines)
             {
-                var key = pair.Key;
-                var list = pair.Value;
+                (Mesh mesh, Material mat, int subMesh) key = pair.Key;
+                List<(CombineInstance ci, MeshRenderer renderer)> list = pair.Value;
 
                 // Only combine if more than one instance
                 if (list.Count <= 1)
@@ -265,7 +263,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             // Disable ONLY the renderers that were actually combined
-            foreach (var r in combinedRenderers)
+            foreach (MeshRenderer r in combinedRenderers)
             {
                 if (r != null)
                     r.enabled = false;

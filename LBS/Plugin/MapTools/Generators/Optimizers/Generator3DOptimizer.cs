@@ -12,6 +12,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
     public class MeshEntry
     {
+        // stores the mesh itself, a material and submesh
         public MeshID Id;
         public MeshFilter Filter;
         public MeshRenderer Renderer;
@@ -50,6 +51,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             unchecked
             {
                 int hash = Mesh != null ? Mesh.GetHashCode() : 0;
+                // using 397, a large prime number to avoid collisions
                 hash = (hash * 397) ^ (Material != null ? Material.GetHashCode() : 0);
                 hash = (hash * 397) ^ SubMesh;
                 return hash;

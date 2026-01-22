@@ -31,7 +31,8 @@ namespace ISILab.LBS.Plugin.Core.Settings
     {
         None,
         Batch,
-        JoinGeometry
+        JoinGeometry,
+        GpuInstancing
     }
 
     [System.Serializable]
@@ -74,7 +75,6 @@ namespace ISILab.LBS.Plugin.Core.Settings
         public bool bakeLights = false;
 
         [SerializeField]
-        [JsonConverter(typeof(OptimizationGenMode))]
         public OptimizationGenMode optimization3d = OptimizationGenMode.None;
 
         [SerializeField]
