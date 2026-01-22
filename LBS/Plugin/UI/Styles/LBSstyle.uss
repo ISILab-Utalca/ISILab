@@ -909,20 +909,32 @@ Toggle > .lbs-default-icon {
     border-width: 1px;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
+    border-radius: 8px;
+    padding: 1px;
+    margin: 4px;
 }
 
 .lbs-item:hover {
+    background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
     border-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
     border-width: 2px;
     scale: 1.15 1.15;
+    
 }
 
-.lbs-item:selected {
+.lbs-item:active {
     background-color: var(--lbs-selection-dark-blue-color);
     border-color: var(--lbs-selection-neutral-blue-color);
     border-width: 2px;
     scale: 1.3 1.3;
 }
+
+.lbs-item-frame {
+    background-color: var(--lbs-field-solid-bg-gray-color, var(--lbs-default-field-solid-bg-gray-color));
+    border-radius: 6px; 
+    
+}
+
 
 .lbs-list-item {
     border-left-width: 1px;
@@ -930,10 +942,7 @@ Toggle > .lbs-default-icon {
     background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
     flex-direction: row;
     height: 24px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 0px;
     border-right-width: 0;
     padding-right: 0;
     padding-left: 0;
@@ -1792,3 +1801,4 @@ Toggle > .lbs-default-icon {
 .lbs-random-int-field TextField {
     flex-grow: 0.3;
 }
+

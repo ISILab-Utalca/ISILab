@@ -206,7 +206,7 @@ namespace ISILab.LBS.Behaviours.Editor
                 Debug.Log("Setting options");
                 var area = (Zone)option;
                 optionView.Label = area.ID;
-                optionView.Color = area.Color;
+                optionView.FrameColor = area.Color;
                 optionView.Icon = AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
             });
 

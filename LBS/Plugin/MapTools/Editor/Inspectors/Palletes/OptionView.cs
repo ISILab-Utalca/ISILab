@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Behaviours.Editor;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using UnityEditor.UIElements;
 
@@ -21,10 +23,18 @@ namespace LBS.VisualElements
         //private Color nonSelected = new Color(1, 1, 1, 0f);
 
         private Label label;
-        private Button button;
-        private VisualElement icon;
+        //private Button button;
+        private VisualElement frame;
+        private VisualElement iconVisualElement;
         private VisualElement border;
         private ToolbarMenu _toolbar;
+        
+        // Manipulator
+        private Clickable clickableManipulator;
+        
+        // Parameters backing fields
+        private VectorImage icon;
+        private Color frameColor = Color.black;
         
         public object target;
 
@@ -42,23 +52,47 @@ namespace LBS.VisualElements
             }
         }
 
+        
+        [UxmlAttribute]
         public string Label
         {
+            get => label.text;
             set => label.text = value;
         }
 
+        [UxmlAttribute]
         public VectorImage Icon
         {
-            set => icon.style.backgroundImage = new StyleBackground(value);
-        }
-
-        
-        [UxmlAttribute]
-        public Color Color
-        {
+            get => icon;
             set
             {
-                if (button != null) button.style.backgroundColor = value;
+                icon = value;
+                if (iconVisualElement != null)
+                {
+                    if (icon != null)
+                    {
+                        iconVisualElement.style.backgroundImage = new StyleBackground(value);
+                    }
+                    else
+                    {
+                        iconVisualElement.style.backgroundImage = new StyleBackground(LBSAssetMacro.LoadPlaceholderVectorImage());
+                    }
+                }
+            }
+        }
+
+
+        [UxmlAttribute]
+        public Color FrameColor
+        {
+            get => frameColor;
+            set
+            {
+                frameColor = value;
+                if (frame != null)
+                {
+                    frame.style.backgroundColor = value;
+                }
             }
         }
         #endregion
@@ -69,19 +103,32 @@ namespace LBS.VisualElements
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("OptionView");
             visualTree.CloneTree(this);
             // Init View
+            this.AddToClassList("lbs-item");
+            this.style.height = 84;
+            
             this.label = this.Q<Label>("Label");
-            this.icon = this.Q<VisualElement>("Icon");
+            this.iconVisualElement = this.Q<VisualElement>("Icon");
             this.border = this.Q<VisualElement>("Border");
             //border.SetBorder(border.style.backgroundColor.value, 2);
-            this.button = this.Q<Button>();
+            //this.button = this.Q<Button>();
+
+            clickableManipulator = new Clickable(() =>
+            {
+                SetSelected(true);
+            });
+            this.AddManipulator(clickableManipulator);
+            this.pickingMode = PickingMode.Position;
+            this.focusable = true;
+            this.style.overflow = Overflow.Hidden;
+
         }
         public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView): this()
         {
       
-            button.clicked += () => { 
+            clickableManipulator.clicked += () => { 
                 this.OnSelect?.Invoke(target);
-                SetSelected(true);
             };
+            
             _toolbar = this.Q<ToolbarMenu>("ToolBar");
             if(_toolbar != null)
             {
@@ -135,14 +182,11 @@ namespace LBS.VisualElements
         {
             if(value)
             {
-                //border.SetBorder(selected, 2);
-                //border.style.backgroundColor = selected;
+
                 AddToClassList("prop-state--checked");
             }
             else
             {
-                //border.SetBorder(nonSelected, 2);
-                //border.style.backgroundColor = nonSelected;
                 RemoveFromClassList("prop-state--checked");
             }
         }
