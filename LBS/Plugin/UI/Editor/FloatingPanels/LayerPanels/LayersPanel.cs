@@ -174,6 +174,7 @@ namespace ISILab.LBS.VisualElements.Editor
             LBSLayer newSelected = objs.FirstOrDefault() as LBSLayer;
             SetSelectedLayer(newSelected);
             LBSMainWindow.Instance._selectedLayer = _selectedLayer;
+            CheckOpacity();
         }
 
         private void ItemChosen(IEnumerable<object> objs)
@@ -292,6 +293,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region FOCUS MANAGEMENT
+
         private void OnToggleFocusChanged(ChangeEvent<bool> evt)
         {
             if (!evt.newValue)
@@ -321,6 +323,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region SELECTION MANAGEMENT
+
         private void SetSelectedLayer(LBSLayer layer)
         {
             //Debug.Log("SET SELECTED LAYER");
@@ -356,6 +359,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 LBSInspectorPanel.Instance.DeactivateTabs();
             }
         }
+
         #endregion
 
         #region UI UPDATES
@@ -390,6 +394,7 @@ namespace ISILab.LBS.VisualElements.Editor
             bool hasItems = _list.itemsSource.Count > 0;
             _list.style.display = hasItems ? DisplayStyle.Flex : DisplayStyle.None;
         }
+
         #endregion
 
         #region KEYBOARD HANDLING
@@ -409,6 +414,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 AddLayer(_selectedLayer.Clone() as LBSLayer);
             }
         }
+
         #endregion
 
         #endregion
