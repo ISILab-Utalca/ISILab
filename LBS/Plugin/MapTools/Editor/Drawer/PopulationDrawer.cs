@@ -33,7 +33,10 @@ namespace ISILab.LBS.Drawers
             PopulationTileView.SelectedTile?.Highlight(false);
 
             OwnerLayer = population.OwnerLayer;
-            LoadAllTiles(population, view);
+            PaintNewTiles(population, view);
+
+            //OwnerLayer = population.OwnerLayer;
+            //LoadAllTiles(population, view);
 
             //PaintNewTiles(population, view);
             //UpdateTilesRotation(population, view);
@@ -60,7 +63,7 @@ namespace ISILab.LBS.Drawers
         {
             int replaceCount = 0, createCount = 0;
             IEnumerable<TileBundleGroup> newTiles = population.RetrieveNewTiles().Cast<TileBundleGroup>();
-            Debug.Log($"POPULATION PAINT TILES: {newTiles.Count()}");
+            //Debug.Log($"POPULATION PAINT TILES: {newTiles.Count()}");
             // New tiles
             foreach (TileBundleGroup nTile in newTiles)
             {
@@ -84,8 +87,8 @@ namespace ISILab.LBS.Drawers
 
                 tView.style.display = (DisplayStyle)(population.OwnerLayer.IsVisible ? 0 : 1);
             }
-            Debug.Log($"Replaced: {replaceCount} | Created: {createCount}");
-            Debug.Log(view.graphElements.Count());
+            //Debug.Log($"Replaced: {replaceCount} | Created: {createCount}");
+            //Debug.Log(view.graphElements.Count());
         }
 
         private void UpdateLoadedTiles(PopulationBehaviour population, MainView view)

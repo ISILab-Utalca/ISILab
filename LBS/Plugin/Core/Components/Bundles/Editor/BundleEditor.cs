@@ -147,7 +147,7 @@ namespace ISILab.LBS.Bundles.Editor
                 bundle.Characteristics.RemoveAt(bundle.Characteristics.Count - 1);
 
                 EditorGUI.BeginChangeCheck();
-                Undo.RegisterCompleteObjectUndo(bundle, "Add characteristics");
+                Undo.RegisterCompleteObjectUndo(bundle, "Add Characteristics");
                 bundle.Characteristics.Add(x);
 
                 if (EditorGUI.EndChangeCheck()) EditorUtility.SetDirty(target);
@@ -207,7 +207,7 @@ namespace ISILab.LBS.Bundles.Editor
                 bundle.ChildsBundles.RemoveAt(bundle.ChildsBundles.Count - 1);
                 
                 EditorGUI.BeginChangeCheck();
-                Undo.RegisterCompleteObjectUndo(bundle, "Add child bundle");
+                Undo.RegisterCompleteObjectUndo(bundle, "Add Child Bundle");
                 bundle.AddChild(x);
 
                 if (EditorGUI.EndChangeCheck()) EditorUtility.SetDirty(target);
@@ -223,7 +223,7 @@ namespace ISILab.LBS.Bundles.Editor
                 if (bundle.ChildsBundles.Contains(x))
                 {
                     EditorGUI.BeginChangeCheck(); 
-                    Undo.RegisterCompleteObjectUndo(bundle, "Remove child bundle");
+                    Undo.RegisterCompleteObjectUndo(bundle, "Remove Child Bundle");
                     bundle.RemoveChild(x);
 
                     if (EditorGUI.EndChangeCheck()) EditorUtility.SetDirty(target);
@@ -341,7 +341,7 @@ namespace ISILab.LBS.Bundles.Editor
                         if (MakeChildBundleItem() is ObjectField cb)
                         {
                             EditorGUI.BeginChangeCheck(); 
-                            Undo.RegisterCompleteObjectUndo(bundle, "Remove child bundle");
+                            Undo.RegisterCompleteObjectUndo(bundle, "Remove Child Bundle");
                             //  cb.SetValueWithoutNotify(potentialChild);
                             bundle.RemoveChild(potentialChild);
                         
@@ -374,7 +374,7 @@ namespace ISILab.LBS.Bundles.Editor
                     if (MakeChildBundleItem() is ObjectField cb)
                     {
                         EditorGUI.BeginChangeCheck(); 
-                        Undo.RegisterCompleteObjectUndo(bundle, "Add child bundle");
+                        Undo.RegisterCompleteObjectUndo(bundle, "Add Child Bundle");
                         cb.SetValueWithoutNotify(potentialChild);
                         bundle.AddChild(potentialChild);
                         

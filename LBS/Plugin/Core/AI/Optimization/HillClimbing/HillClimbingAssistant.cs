@@ -123,7 +123,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             var schema = OwnerLayer.GetBehaviour<SchemaBehaviour>();
             schema.RequestFullRepaint(TileMapMod.Tiles, modules.GetModule<TileMapModule>().Tiles);
             RecalculateWalls(modules);
-
             SetDoors(modules);
 
             System.Diagnostics.Debug.Assert(modules != null, nameof(modules) + " != null");
@@ -406,7 +405,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             };
 
             CreateHillClimbing();
-
         }
 
         private void CreateHillClimbing()

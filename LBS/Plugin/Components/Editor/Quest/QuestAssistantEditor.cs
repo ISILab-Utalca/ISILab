@@ -104,7 +104,7 @@ namespace ISILab.LBS.Editor
         public CancellationTokenSource CancellationTokenSource { get; set; }
         public ToolBarMain TaskBar { get; set; }
 
-        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, UnityEngine.Object loadedLevel)
         {
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
@@ -140,7 +140,7 @@ namespace ISILab.LBS.Editor
                     
                     string log = "Recommended nodes generated.";
                     LogType logType = LogType.Log;
-                    EditorApplication.delayCall += () => _assistant.OnTermination?.Invoke(log, logType);
+                    EditorApplication.delayCall += () => _assistant.OnTermination?.Invoke(log, logType, null);
                    
                 }
                 catch (Exception ex)

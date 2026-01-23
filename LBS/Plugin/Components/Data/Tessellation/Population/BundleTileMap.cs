@@ -66,10 +66,10 @@ namespace ISILab.LBS.Modules
         //Check bundle size -> create group -> check tile location and add all tiles according to size.
 
         //Creates group from variables provided
-        public TileBundleGroup CreateGroup(Vector2Int position, BundleData bundleData, Vector2 rotation) {
+        public TileBundleGroup CreateGroup(Vector2Int position, BundleData bundleData, Vector2 rotation, List<BundleTileMapAddons> addons) {
 
             //Create group, then get the tilesize
-            TileBundleGroup newGroup = new TileBundleGroup(new List<LBSTile>(), bundleData, rotation);
+            TileBundleGroup newGroup = new TileBundleGroup(new List<LBSTile>(), bundleData, rotation, addons);
             Vector2Int groupSize = newGroup.GetBundleSize();
             
             //Fill group with tiles according to tilesize
@@ -89,7 +89,7 @@ namespace ISILab.LBS.Modules
         {
          
             //Create group, then get the tilesize
-            TileBundleGroup newGroup = new TileBundleGroup(new List<LBSTile>(), bundleData, rotation);
+            TileBundleGroup newGroup = new TileBundleGroup(new List<LBSTile>(), bundleData, rotation, null);
             Vector2Int groupSize = newGroup.GetBundleSize();
             
             // Check if its valid to add a tilegroup
@@ -115,7 +115,7 @@ namespace ISILab.LBS.Modules
         {
             if (currentGroup is null) return false;
             // Create a temporary group at the new position to get the tile layout
-            TileBundleGroup tempGroup = new TileBundleGroup(new List<LBSTile>(), currentGroup.BundleData, rotation);
+            TileBundleGroup tempGroup = new TileBundleGroup(new List<LBSTile>(), currentGroup.BundleData, rotation, null);
             Vector2Int groupSize = tempGroup.GetBundleSize();
     
             // Collect the new positions for the current group
@@ -431,7 +431,7 @@ namespace ISILab.LBS.Modules
             set => locationKey = value;
         }
 
-        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, List<BundleTileMapAddons> _addons = null)
+        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, List<BundleTileMapAddons> _addons)
         {
             tileGroup = tiles;
             this.bData = bData;
@@ -439,8 +439,8 @@ namespace ISILab.LBS.Modules
             this.rotation = rotation;
             if (_addons is not null)
                 this.Addons = _addons;
-
-            BuildAddons(bData); // TODO omit duplicates
+            else
+                BuildAddons(bData); // TODO omit duplicates
         }
 
         private void BuildAddons(BundleData bData)

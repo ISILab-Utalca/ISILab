@@ -70,7 +70,7 @@ namespace ISILab.LBS.Manipulators
         {
             var x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "remove conection");
+            Undo.RegisterCompleteObjectUndo(x, "Remove Conection");
 
             // Get end position
             var end = exterior.OwnerLayer.ToFixedPosition(position);
@@ -83,7 +83,6 @@ namespace ISILab.LBS.Manipulators
             {
                 AreaEffect(end, e);
             }
-
 
             if (EditorGUI.EndChangeCheck())
             {
