@@ -180,7 +180,7 @@ namespace ISILab.LBS.Editor
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Add Element population");
+            Undo.RegisterCompleteObjectUndo(level, "Applying Suggestion from Saved Map");
 
             var layerPopulation = TargetLayer.Behaviours.Find(b => b.GetType().Equals(typeof(PopulationBehaviour))) as PopulationBehaviour;
             var rect = chrom.Rect;
@@ -192,7 +192,7 @@ namespace ISILab.LBS.Editor
                 var gene = chrom.GetGene(i);
                 if (gene == null)
                     continue;
-                layerPopulation.AddTileGroup(pos, gene as BundleData, layerPopulation.GetActiveRotation());
+                layerPopulation.AddTileGroup(pos, gene as BundleData, layerPopulation.GetActiveRotation(), null);
             }
             DrawManager.Instance.RedrawLayer(TargetLayer);
 

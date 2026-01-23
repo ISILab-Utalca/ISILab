@@ -243,8 +243,9 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public override void OnDetachLayer(LBSLayer layer)
         {
             OwnerLayer = null;
-            layer.OnChange -= UpdateKeys;
+            layer.OnChange -= UpdateKeys;  //Por qué se hace esto en todos los detach? No es mejor mantener las referencias y que siempre se actualizen las keys? 
         }
+
         public void UpdateKeys()
         {
             UpdateKeys(Tiles.ToList<object>());
@@ -303,7 +304,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public void RemoveTile(Vector2Int position)
         {
             var tile = tileMap.GetTile(position);
-            
+
             RequestTileRemove(tile);
             
             tileMap.RemoveTile(tile);
@@ -455,6 +456,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         {
             return TransformZone(zone, Vector2Int.zero, direction);
         }
+
         private bool TransformZone(Zone zone, Vector2Int offset, int rotationDir)
         {
             var currentTiles = GetTiles(zone);

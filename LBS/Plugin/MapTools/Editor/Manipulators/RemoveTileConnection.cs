@@ -66,7 +66,7 @@ namespace ISILab.LBS.Manipulators
 
             LoadedLevel x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "Remove Connection between tile");
+            Undo.RegisterCompleteObjectUndo(x, "Remove Connection between Tiles");
 
             Vector2Int pos = _schema.OwnerLayer.ToFixedPosition(position);
 

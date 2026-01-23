@@ -79,7 +79,7 @@ namespace ISILab.LBS.Manipulators
             _assistant.OnGUI();
 
             //_assistant.TryExecute(out string log, out LogType type, 5);
-            RunTask();
+            RunTask(x);
         }
         
         #region IAssistantThreadedEditor
@@ -87,14 +87,12 @@ namespace ISILab.LBS.Manipulators
         public CancellationTokenSource CancellationTokenSource { get; set; }
         public ToolBarMain TaskBar { get; set; }
 
-        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, UnityEngine.Object loadedLevel)
         {
             EditorApplication.delayCall += () =>
             {
                 TaskBar.EnableProcess(false);
                 
-                var x = LBSController.CurrentLevel;
-
          //       _assistant.OnTermination?.Invoke(log, type);
                 LBSMainWindow.MessageNotify(new LBSLog(log, type, 5));
                 if (type == LogType.Log)
@@ -107,14 +105,14 @@ namespace ISILab.LBS.Manipulators
                 
                 if (EditorGUI.EndChangeCheck())
                 {
-                    EditorUtility.SetDirty(x);
+                    EditorUtility.SetDirty(loadedLevel);
                 }
             };
         }
 
         #endregion
         
-        private void RunTask()
+        private void RunTask(LoadedLevel loadedLevel)
         {
             ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
@@ -122,7 +120,7 @@ namespace ISILab.LBS.Manipulators
                 try
                 {
                     _assistant.TryExecute(out string log, out LogType type, 5, ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
-                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type, loadedLevel);
                 }
                 catch (Exception ex)
                 {

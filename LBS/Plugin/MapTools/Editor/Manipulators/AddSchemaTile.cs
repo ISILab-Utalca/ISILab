@@ -66,10 +66,6 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
 
-            LoadedLevel level = LBSController.CurrentLevel;
-            EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Add Zone");
-
             if (e.ctrlKey)
             {
                 OnManipulationLeftClickCtrl.Invoke();
@@ -83,7 +79,11 @@ namespace ISILab.LBS.Manipulators
                     new LBSLog("You don't have any selected Zone to paint with. Create a new Zone in the Behaviours panel or press 'CTRL' when left clicking.", LogType.Error, 8));
                 return;
             }
-            
+
+            LoadedLevel level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Add Zone");
+
             (Vector2Int, Vector2Int) corners = _schema.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
             var tilesToRecalculate = new HashSet<LBSTile>();
