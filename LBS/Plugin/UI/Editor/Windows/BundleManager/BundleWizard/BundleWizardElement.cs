@@ -144,6 +144,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void SetTextAsUneditable()
         {
+            Debug.Log("huh?");
+
+            _nameField.isReadOnly = true;
+            _nameField.focusable = false;
 
             // 1. Quitar el fondo del contenedor y del input interno
             _nameField.style.backgroundColor = new StyleColor(UnityEngine.Color.clear);

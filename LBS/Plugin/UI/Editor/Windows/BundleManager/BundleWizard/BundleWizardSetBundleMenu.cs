@@ -28,8 +28,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         private BundleManagerListGroup bundleListSameLayerOrphan;
         private BundleManagerListGroup bundleListSameLayer;
         private BundleManagerListGroup bundleListNoLayer;
-        private List<BundleManagerWindow.BundleContainer> bundleContainersShow = new();
-        private List<BundleManagerWindow.BundleContainer> bundleContainersTemp = new();
+        private List<BundleManagerWindow.BundleContainer> bundleContainersCurrent = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayerOrphan = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersSameLayer = new();
         private List<BundleManagerWindow.BundleContainer> bundleContainersNoLayer = new();
@@ -44,16 +43,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         public BundleWizardSetBundleMenu() : base()
         {
             GetVisualTreeForThis();
-
-            //nameField = new LBSCustomTextField("New Bundle Collection’s Name: ");
-            //this.Add(nameField);
         }
 
         public void Init()
         {
-            //Debug.Log("Init: " + GetType().Name);
-            //Debug.Log("Builder data:\n\n" + Builder.ToString());
-
             currentBundleFlags = Builder.layerTypeFlag;
             Console.WriteLine(currentBundleFlags.ToString());
 
@@ -64,6 +57,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             rootVisualElement = panel.visualTree;
 
+            InitBundleList();
+        }
+
+        private void InitBundleList()
+        {
             //BUNDLE LISTS INIT
 
             //BundleList Current Bundles to be added through BundleWizard
@@ -71,12 +69,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             bundleListCurrent.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
                 out listCurrent,
                 "CurrentBundles",
-                bundleContainersShow,
+                bundleContainersCurrent,
                 itemHeight: 40,
                 buttonFunc: BundleWizardElement.Func.REMOVE
                 );
             bundleListCurrent.SetExpandButtonSetting(rootVisualElement, "CurrentBundles", listCurrent, true, true);
-            
+
             //BundleList Orphan (Same Layer)
             bundleListSameLayerOrphan = this.Q<BundleManagerListGroup>("SameLayerOrphanBundles");
             bundleListSameLayerOrphan.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
@@ -87,7 +85,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 buttonFunc: BundleWizardElement.Func.ADD
                 );
             bundleListSameLayerOrphan.SetExpandButtonSetting(rootVisualElement, "SameLayerOrphanBundles", listSameLayerOrphan);
-            
+
             //BundleList Same Layer
             bundleListSameLayer = this.Q<BundleManagerListGroup>("SameLayerBundles");
             bundleListSameLayer.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
@@ -98,7 +96,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
                 buttonFunc: BundleWizardElement.Func.ADD
                 );
             bundleListSameLayer.SetExpandButtonSetting(rootVisualElement, "SameLayerBundles", listSameLayer, false);
-            
+
             //BundleList No Layer
             bundleListNoLayer = this.Q<BundleManagerListGroup>("NoLayerBundles");
             bundleListNoLayer.SetBundleListViewItem<UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement>(
@@ -117,9 +115,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             foreach (Bundle b in Builder.newSubBundles)
             {
-                bundleContainersShow.Add(new BundleManagerWindow.BundleContainer(b));
-                //esta la agregé hace poco, debo testear
-                bundleContainersTemp.Add(new BundleManagerWindow.BundleContainer(b));
+                bundleContainersCurrent.Add(new BundleManagerWindow.BundleContainer(b));
             }
         }
 
@@ -137,11 +133,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         void CleanAllLists()
         {
-            //Clear lists
             _allBundles.Clear();
 
-            bundleContainersShow.Clear();
-            bundleContainersTemp.Clear();
+            bundleContainersCurrent.Clear();
             bundleContainersNoLayer.Clear();
             bundleContainersSameLayer.Clear();
             bundleContainersSameLayerOrphan.Clear();
@@ -174,6 +168,42 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             }
         }
 
+        void HandleIncomingElement(object element)
+        {
+            if (element is BundleManagerWindow.BundleContainer bundleContainer)
+            {
+                //eliminar de current, existe de antes
+                if (bundleContainersCurrent.Contains(bundleContainer) && !Builder.newSubBundles.Contains(bundleContainer.GetMainBundle()))
+                {
+                    bundleContainersCurrent.Remove(bundleContainer);
+                    AddBundleToCorrectList(bundleContainer.GetMainBundle());
+                }
+                //fue creado en el paso anterior
+                else if (bundleContainersCurrent.Contains(bundleContainer) && Builder.newSubBundles.Contains(bundleContainer.GetMainBundle()))
+                {
+                    bundleContainersCurrent.Remove(bundleContainer);
+                }
+                //else
+                else if (bundleContainersSameLayerOrphan.Contains(bundleContainer))
+                {
+                    bundleContainersCurrent.Add(bundleContainer);
+                    bundleContainersSameLayerOrphan.Remove(bundleContainer);
+                }
+                else if (bundleContainersSameLayer.Contains(bundleContainer))
+                {
+                    bundleContainersCurrent.Add(bundleContainer);
+                    bundleContainersSameLayer.Remove(bundleContainer);
+                }
+                else if (bundleContainersNoLayer.Contains(bundleContainer))
+                {
+                    bundleContainersCurrent.Add(bundleContainer);
+                    bundleContainersNoLayer.Remove(bundleContainer);
+                }
+            }
+
+            RefreshAllLists();
+        }
+
         void OnEnable()
         {
             BundleManagerListGroup.OnRequestMove -= HandleIncomingElement;
@@ -187,35 +217,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             BundleManagerListGroup.OnRequestMove -= HandleIncomingElement;
         }
 
-        void HandleIncomingElement(object element)
+        public void RefreshAllLists()
         {
-            if (element is BundleManagerWindow.BundleContainer bundleContainer)
-            if(!bundleContainersTemp.Contains(bundleContainer))
-            {
-                bundleContainersTemp.Add(bundleContainer);
-                bundleContainersShow.Add(bundleContainer);
-            }
-            else if(bundleContainersTemp.Contains(bundleContainer))
-            {
-                if (Builder.newSubBundles.Contains(bundleContainer.GetMainBundle()))
-                    return;
-                AddBundleToCorrectList(bundleContainer.GetMainBundle());
-            }
-
-            listCurrent.Rebuild();
             listCurrent.RefreshItems();
-            listNoLayer.Rebuild();
             listNoLayer.RefreshItems();
-            listSameLayer.Rebuild();
             listSameLayer.RefreshItems();
-            listSameLayerOrphan.Rebuild();
-            listSameLayer.RefreshItems();
-
+            listSameLayerOrphan.RefreshItems();
         }
 
         public void Step()
         {
-            Builder.newAssignBundles.AddRange(bundleContainersTemp.Select(bc => bc.GetMainBundle()).ToList());
+            //ESTOY AGREGANDO 2 VECES LOS CURRENT, DEBO QUITARLOS ANTES DE ENVIARLOS
+            Builder.newAssignBundles.AddRange(bundleContainersCurrent.Select(bc => bc.GetMainBundle()).ToList());
             OnDisable();
         }
 
