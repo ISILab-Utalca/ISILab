@@ -83,7 +83,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConne
                     {
                         saveReport += grid.TerrainFlag[i] + " | ";
                     }
-                    saveReport += " | Asset: " + grid.AssetReference.obj;
+                    saveReport += "ID: "+ grid.AssetReference.id +" | Asset: " + grid.AssetReference.obj;
                     Debug.Log(saveReport);
                 }
             }
