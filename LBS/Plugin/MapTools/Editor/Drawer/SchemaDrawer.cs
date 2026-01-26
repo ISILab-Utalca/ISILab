@@ -29,7 +29,6 @@ namespace ISILab.LBS.Drawers
             var zonesMod = schema.OwnerLayer.GetModule<SectorizedTileMapModule>();
             var connectionsMod = schema.OwnerLayer.GetModule<ConnectedTileMapModule>();
 
-
             PaintNewTiles(schema, tesselationSize, view, zonesMod, connectionsMod);
 
             //UpdateLoadedTiles(schema, tesselationSize, view, zonesMod, connectionsMod);

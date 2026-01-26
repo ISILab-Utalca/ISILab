@@ -107,7 +107,7 @@ namespace ISILab.LBS.VisualElements
 
             // Local functions
 
-            void OnTerminationBaseCallback(string log, LogType type)
+            void OnTerminationBaseCallback(string log, LogType type, UnityEngine.Object loadedLevel)
             {
                 if(currentAssistant is null) return;
                 currentAssistant.OnTermination -= OnTerminationBaseCallback;

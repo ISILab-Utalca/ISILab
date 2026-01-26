@@ -598,7 +598,7 @@ namespace ISILab.LBS.VisualElements.Editor
         public CancellationToken CancelToken { get; set; }
         public CancellationTokenSource CancellationTokenSource { get; set; }
         public Plugin.UI.Editor.Windows.ToolBar.ToolBarMain TaskBar { get; set; }
-        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, UnityEngine.Object loadedLevel)
         {
             EditorApplication.delayCall += () =>
             {
@@ -613,6 +613,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 Repaint();
             };
         }
+
         #endregion
         
         private void RunExecuteTask()
@@ -654,7 +655,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Add Element population");
+            Undo.RegisterCompleteObjectUndo(level, "Apply Suggestion");
 
             if (chromosome != null)
             {
@@ -667,7 +668,7 @@ namespace ISILab.LBS.VisualElements.Editor
                     var gene = chromosome.GetGene(i);
                     if (gene == null)
                         continue;
-                    LayerPopulation.AddTileGroup(pos, gene as BundleData, LayerPopulation.GetActiveRotation());
+                    LayerPopulation.AddTileGroup(pos, gene as BundleData, LayerPopulation.GetActiveRotation(), null);
                 }
             }
 
@@ -747,7 +748,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Add Element population");
+            Undo.RegisterCompleteObjectUndo(level, "Reset Suggestion");
 
             LayerPopulation.ReplaceTileMap(originalTileMap);
             DrawManager.Instance.RedrawLayer(_assistant.OwnerLayer);

@@ -170,6 +170,7 @@ namespace ISILab.LBS.Behaviours
             _newTiles.Add(tile);
             _keys.Add(tile);
         }
+
         protected bool RequestTileRemove(object tile)
         {
             if (_keys == null)
@@ -184,7 +185,6 @@ namespace ISILab.LBS.Behaviours
             _expiredTiles.Add(tile);
             return true;
         }
-        
         
         /// <summary>
         /// Get all new tiles' position that have been created since the last time they were retrieved.

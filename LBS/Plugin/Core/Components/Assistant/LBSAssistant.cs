@@ -85,7 +85,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [JsonIgnore]
         public Action OnStart;
         [JsonIgnore]
-        public Action<string,LogType> OnTermination;
+        public Action<string,LogType,UnityEngine.Object> OnTermination;
         [JsonIgnore]
         public Action OnCancellation;
         #endregion

@@ -53,7 +53,7 @@ namespace ISILab.LBS.Manipulators
 
             var x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "Add empty tiles");
+            Undo.RegisterCompleteObjectUndo(x, "Add Exterior Tile");
 
             var paintNeighbors = !e.ctrlKey;
             

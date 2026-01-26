@@ -71,7 +71,7 @@ namespace ISILab.LBS.Manipulators
 
             LoadedLevel x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "Remove element population");
+            Undo.RegisterCompleteObjectUndo(x, "Remove Population Tile");
 
             (Vector2Int min, Vector2Int max) corners = _population.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
@@ -95,7 +95,7 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
-            //OwnerLayer.OnChangeUpdate();
+            OwnerLayer.OnChangeUpdate();
             CleanPreviews();
             
             if (EditorGUI.EndChangeCheck())

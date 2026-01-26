@@ -29,7 +29,6 @@ using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 
-
 namespace ISILab.LBS.Editor.Windows
 {
 
@@ -118,6 +117,7 @@ namespace ISILab.LBS.Editor.Windows
 
         public LayersPanel layerPanel;
         public Generator3DPanel gen3DPanel;
+        public QuickAssistantPanel quickAssistantPanel;
         public VisualElement extraPanel;
         public VisualElement inspectorPanelContainer;
 
@@ -389,7 +389,12 @@ namespace ISILab.LBS.Editor.Windows
             gen3DPanel = new Generator3DPanel();
             extraPanel.Add(gen3DPanel);
             gen3DPanel.style.display = DisplayStyle.None;
-            
+
+            quickAssistantPanel = new QuickAssistantPanel();
+            extraPanel.Add(quickAssistantPanel);
+            quickAssistantPanel.style.display = DisplayStyle.None;
+            quickAssistantPanel.Setup(layerTemplates);
+
             #endregion
 
             #region SIDE TOOLBAR TOGGLES
@@ -530,10 +535,13 @@ namespace ISILab.LBS.Editor.Windows
                 _selectedLayer.OnChange += NotifyChange;
             }
 
-            toolkit.Clear();
-            inspectorManager.SetTarget(layer);
-            toolkit.SetActive(typeof(SelectManipulator));
-            toolkit.SetSeparators();
+            if (toolkit != null)
+            {
+                toolkit.Clear();
+                inspectorManager.SetTarget(layer);
+                toolkit.SetActive(typeof(SelectManipulator));
+                toolkit.SetSeparators();
+            }
 
            // gen3DPanel.Init(layer);
 

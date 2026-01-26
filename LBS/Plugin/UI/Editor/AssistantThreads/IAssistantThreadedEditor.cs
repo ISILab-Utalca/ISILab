@@ -17,7 +17,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
         ToolBarMain TaskBar { get; set; }
 
         // recommended to encapsulate logic within an "EditorApplication.delayCall"
-        protected abstract void OnAssistantTermination(string log = "", LogType type = LogType.Log);
+        protected abstract void OnAssistantTermination(string log = "", LogType type = LogType.Log, UnityEngine.Object loadedLevel = null);
 
 
         public void OnTaskException(Exception ex, LBSAssistant Assistant)
@@ -79,11 +79,11 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
             Debug.Log($"{Assistant.Name} Task started.");
         }
 
-        private void HandleTermination(string log, LogType type)
+        private void HandleTermination(string log, LogType type, UnityEngine.Object loadedLevel)
         {
             EditorApplication.delayCall += () =>
             {
-                OnAssistantTermination(log, type);
+                OnAssistantTermination(log, type, loadedLevel);
             };
         }
 

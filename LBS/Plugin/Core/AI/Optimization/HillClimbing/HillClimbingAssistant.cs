@@ -123,7 +123,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             var schema = OwnerLayer.GetBehaviour<SchemaBehaviour>();
             schema.RequestFullRepaint(TileMapMod.Tiles, modules.GetModule<TileMapModule>().Tiles);
             RecalculateWalls(modules);
-
             SetDoors(modules);
 
             System.Diagnostics.Debug.Assert(modules != null, nameof(modules) + " != null");
@@ -368,7 +367,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 Thread.Sleep(1); // to draw
             }
         }
-
+        /* Old OnAttachLayer
         public override void OnAttachLayer(LBSLayer layer)
         {
             // Call base method
@@ -406,9 +405,77 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             };
 
             CreateHillClimbing();
+        }*/
 
+        public override void OnAttachLayer(LBSLayer layer)
+        {
+            base.OnAttachLayer(layer);
+
+            var zonesMod = layer.GetModule<SectorizedTileMapModule>();
+            if (zonesMod != null)
+            {
+                zonesMod.OnAddZone += HandleZoneAdded;
+                zonesMod.OnRemoveZone += HandleZoneRemoved;
+                zonesMod.OnRemovePair += HandleTileRemoved;
+            }
+
+            CreateHillClimbing();
         }
 
+        public override void OnDetachLayer(LBSLayer layer)
+        {
+            var zonesMod = layer.GetModule<SectorizedTileMapModule>();
+            if (zonesMod != null)
+            {
+                zonesMod.OnAddZone -= HandleZoneAdded;
+                zonesMod.OnRemoveZone -= HandleZoneRemoved;
+                zonesMod.OnRemovePair -= HandleTileRemoved;
+            }
+
+            base.OnDetachLayer(layer);
+        }
+
+        private void HandleZoneAdded(SectorizedTileMapModule module, Zone zone)
+        {
+            if (OwnerLayer == null) return;
+            ConstrainsZonesMod.RecalculateConstraint(AreasMod.Zones);
+        }
+
+        private void HandleZoneRemoved(SectorizedTileMapModule module, Zone zone)
+        {
+            if (OwnerLayer == null) return;
+
+            ConstrainsZonesMod.RecalculateConstraint(AreasMod.Zones);
+
+            var graph = GraphMod;
+            if (graph != null)
+            {
+                foreach (var edge in graph.RemoveEdges(zone))
+                {
+                    RequestTileRemove(edge);
+                }
+            }
+        }
+
+        private void HandleTileRemoved(SectorizedTileMapModule module, TileZonePair pair)
+        {
+            if (OwnerLayer == null || pair == null) return;
+
+            var areas = AreasMod;
+            if (areas == null) return;
+
+            if (!areas.ZonesWithTiles.Contains(pair.Zone))
+            {
+                var graph = GraphMod;
+                if (graph != null)
+                {
+                    foreach (var edge in graph.RemoveEdges(pair.Zone))
+                    {
+                        RequestTileRemove(edge);
+                    }
+                }
+            }
+        }
         private void CreateHillClimbing()
         {
             var adam = new OptimizableModules(OwnerLayer.Modules);

@@ -3,38 +3,69 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.VisualElements.Editor;
 using LBS;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.VisualElements.Editor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using UnityEngine.UI;
-using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("QuestBehaviour", typeof(QuestBehaviour))]
     public class QuestBehaviourEditor : LBSCustomEditor, IToolProvider
     {
+
+        #region FIELDS
+        private QuestBehaviour _behaviour;
+
+        private const string actionIconGuid = "aa4c8898bd338cb4b91b6516e6d4e0c9";
+        private const string orIconGuid = "e06ff34bd346d754eb0a4b12ef3dbe56";
+        private const string andIconGuid = "5aed77f9dd05be64b9e99eb9d43d8ce6";
+
         private AddGraphNode _addNode;
         private RemoveGraphNode _removeNode;
         private ConnectQuestNodes _connectNodes;
         private RemoveQuestConnection _removeConnection;
+        #endregion
+
+
+        #region VIEW ELEMENTS
         private ObjectField _grammarReference;
 
-        private VisualElement _actionPallete;
-        private VisualElement _conditionalPallete;
-        
-        private QuestBehaviour _behaviour;
-        
+        private SimplePallete _actionsPallete;
+        private SimplePallete _conditionsPallete;
+        #endregion
+
+
+        #region PROPERTIES
+        VectorImage QuestActionIcon
+        {
+            get => LBSAssetMacro.LoadAssetByGuid<VectorImage>(actionIconGuid);
+        }
+        VectorImage OrIcon
+        {
+            get => LBSAssetMacro.LoadAssetByGuid<VectorImage>(orIconGuid);
+        }
+        VectorImage AndIcon
+        {
+            get => LBSAssetMacro.LoadAssetByGuid<VectorImage>(andIconGuid);
+        }
+
+        #endregion
+
         public QuestBehaviourEditor(object target) : base(target)
         {
             CreateVisualElement();
@@ -47,7 +78,7 @@ namespace ISILab.LBS.VisualElements
             _behaviour = target as QuestBehaviour;
 
             // this should only happen on object creation
-            var questGraph = _behaviour?.OwnerLayer.GetModule<QuestGraph>();
+            QuestGraph questGraph = _behaviour?.OwnerLayer.GetModule<QuestGraph>();
             if (questGraph is null) return;
             
             questGraph.LoadGrammar();
@@ -100,8 +131,8 @@ namespace ISILab.LBS.VisualElements
 
         private static void GoToQuestNode(Vector2Int nodePos)
         {
-            var scale = MainView.Instance.viewTransform.scale;
-            var viewport = MainView.Instance.viewport.layout;
+            Vector3 scale = MainView.Instance.viewTransform.scale;
+            Rect viewport = MainView.Instance.viewport.layout;
             
             // the x offset depends on the size of the inspector window
             // TODO get the difference between the main view and the inspector window to set the center correctly
@@ -124,78 +155,122 @@ namespace ISILab.LBS.VisualElements
         
         protected sealed override VisualElement CreateVisualElement()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestBehaviourEditor");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestBehaviourEditor");
             visualTree.CloneTree(this);
 
             _grammarReference = this.Q<ObjectField>(name: "Grammar");
             _grammarReference.objectType = typeof(LBSGrammar);
-            
-            _conditionalPallete  = this.Q<VisualElement>(name: "Conditional");
-            
-            _actionPallete = this.Q<VisualElement>(name: "Content");
             _grammarReference.RegisterValueChangedCallback(evt => ChangeGrammar(evt.newValue as LBSGrammar));
+
+            _actionsPallete = this.Q<SimplePallete>("ActionsPallete");
+            _actionsPallete.DisplayAddElement = false;
+         
+
+            _conditionsPallete = this.Q<SimplePallete>("ConditionsPallete");
+            _conditionsPallete.DisplayAddElement = false;
+          
+            
             return this;
         }
 
-        private void UpdateContent()
-        {
-            _actionPallete.Clear();
+        private void SetActionPallete()
+        { 
+            _actionsPallete.NameLabel = "Action nodes";
+            _actionsPallete.ShowGroups = false;
+            _actionsPallete.ShowAddButton = false;
+            _actionsPallete.ShowRemoveButton = false;
+            _actionsPallete.ShowNoElement = false;
 
-            var quest = _behaviour?.OwnerLayer.GetModule<QuestGraph>();
+         //   _actionsPallete.Clear();
+            _actionsPallete.DisplayContent(false);
+            QuestGraph quest = _behaviour?.OwnerLayer.GetModule<QuestGraph>();
             if (quest == null) return;
             if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
 
-            List<ActionButton> instancedButtons = new();
+            string[] terminals = quest.Grammar.TerminalActions.ToArray();
 
-            // Grammar actions
-            List<ActionButton> actionButtons = new();
-            foreach (string action in quest.Grammar.TerminalActions)
+            _actionsPallete.DisplayContent(true);
+
+            object[] options = new object[terminals.Length];
+            for (int i = 0; i < terminals.Length; i++)
             {
-                ActionButton actionButton = new ActionButton(action, () =>
-                {
-                    ToolKit.Instance.SetActive(typeof(AddGraphNode));
-                    _behaviour.activeGraphNodeType = typeof(QuestNode);
-                    _behaviour.ActionToSet = action;
-
-                    foreach (var a in actionButtons)
-                    {
-                        a._toggle.SetValueWithoutNotify(false);
-                    }
-                });
-
-                actionButtons.Add(actionButton);
-                _actionPallete.Add(actionButton);
+                options[i] = terminals[i];
             }
 
-            // conditional nodes
-            ActionButton orButton = new ActionButton("Or", () =>
+            // Init options
+            _actionsPallete.SetOptions(options, (optionView, option) =>
+            {
+                string terminalAction = (string)option;
+                optionView.Label = terminalAction;
+                //optionView.FrameColor = bundle.Color;
+                optionView.Icon = QuestActionIcon;
+            });
+
+            _actionsPallete.OnSelectOption += (selected) =>
             {
                 ToolKit.Instance.SetActive(typeof(AddGraphNode));
-                _behaviour.activeGraphNodeType = typeof(OrNode);
-                _behaviour.ActionToSet = string.Empty;
+                _behaviour.activeGraphNodeType = typeof(QuestNode);
+                _behaviour.ActionToSet = (string)selected;
+            };
 
-                foreach (var a in actionButtons)
-                {
-                    a._toggle.SetValueWithoutNotify(false);
-                }
-            });
-            _conditionalPallete.Add(orButton);
-            actionButtons.Add(orButton);
 
-            ActionButton andButton = new ActionButton("And", () =>
-            {
-                ToolKit.Instance.SetActive(typeof(AddGraphNode));
-                _behaviour.activeGraphNodeType = typeof(AndNode);
-                _behaviour.ActionToSet = string.Empty;
+            _actionsPallete.Repaint();
 
-                foreach (var a in actionButtons)
-                {
-                    a._toggle.SetValueWithoutNotify(false);
-                }
-            });
-            _conditionalPallete.Add(andButton);
-            actionButtons.Add(andButton);
         }
+
+        private void SetConditionalPallete()
+        {
+            _conditionsPallete.NameLabel = "Connection nodes";
+            _conditionsPallete.ShowGroups = false;
+            _conditionsPallete.ShowAddButton = false;
+            _conditionsPallete.ShowRemoveButton = false;
+            _conditionsPallete.ShowNoElement = false;
+
+          //  _conditionsPallete.Clear();
+            _conditionsPallete.DisplayContent(false);
+
+            QuestGraph quest = _behaviour?.OwnerLayer.GetModule<QuestGraph>();
+            if (quest == null) return;
+            if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
+
+            _conditionsPallete.DisplayContent(true);
+
+            string[] conditionals = {GraphNode.Or, GraphNode.And};
+
+            object[] options = new object[conditionals.Length];
+            for (int i = 0; i < conditionals.Length; i++)
+            {
+                options[i] = conditionals[i];
+            }
+
+            // Init options
+            _conditionsPallete.SetOptions(options, (optionView, option) =>
+            {
+                string conditional = (string)option;
+
+                optionView.Label = conditional;
+                //optionView.FrameColor = bundle.Color;
+                if (conditional == GraphNode.Or)optionView.Icon = OrIcon;
+                if (conditional == GraphNode.And) optionView.Icon = AndIcon;
+            });
+
+            _conditionsPallete.OnSelectOption += (selected) =>
+            {
+                string conditional = (string)selected;
+                ToolKit.Instance.SetActive(typeof(AddGraphNode));
+                if (conditional == GraphNode.Or) _behaviour.activeGraphNodeType = typeof(OrNode);
+                if (conditional == GraphNode.And) _behaviour.activeGraphNodeType = typeof(AndNode);
+    
+                // no action, only node type
+                _behaviour.ActionToSet = string.Empty;
+
+            };
+
+
+            _conditionsPallete.Repaint();
+
+        }
+
 
         private void ChangeGrammar(LBSGrammar grammar)
         {
@@ -207,15 +282,16 @@ namespace ISILab.LBS.VisualElements
             }
             else
             {
-                var quest = _behaviour.OwnerLayer.GetModule<QuestGraph>();
+                QuestGraph quest = _behaviour.OwnerLayer.GetModule<QuestGraph>();
                 if (quest == null)  throw new Exception("No Module");
             
                 // Check if the new grammar is different at all
                 if(quest.Grammar != grammar) quest.Grammar = grammar;
             }
-           
-            UpdateContent();
-            
+
+            SetActionPallete();
+            SetConditionalPallete();
+
         }
     }
 }

@@ -1,6 +1,7 @@
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
@@ -162,13 +163,13 @@ namespace ISILab.LBS.Behaviours
 
         }
 
-        public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation)
+        public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation, List<BundleTileMapAddons> addons)
         {
             if (!_bundleTileMap.ValidNewGroup(position, bundleData, rotation)) return null;
 
-            //Create group
-            TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, rotation);
-            _bundleTileMap.AddGroup(group);
+            //Create group 
+            TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, rotation, addons);
+            //_bundleTileMap.AddGroup(group); // The group is already being added in the CreateGroup function
 
             //Add all tiles from the group
             foreach (LBSTile tile in group.TileGroup)
@@ -181,17 +182,19 @@ namespace ISILab.LBS.Behaviours
             return group;
         }
 
-        public void MoveGroup(TileBundleGroup group, Vector2Int offset)
+        public TileBundleGroup MoveGroup(TileBundleGroup group, Vector2Int offset)
         {
-            if (offset.Equals(Vector2Int.zero)) return;
+            if (offset.Equals(Vector2Int.zero)) return null;
 
             Vector2Int oldPos = group.TileGroup[0].Position;
-            AddTileGroup(oldPos + offset, group.BundleData, group.Rotation);
+            TileBundleGroup newTileGroup = AddTileGroup(oldPos + offset, group.BundleData, group.Rotation, group.Addons);
             RemoveTileGroup(oldPos);
             //RequestTileRemove(group);
             ////group.Translate(offset);
             //group.LocationKey = null;
             //RequestTilePaint(group);
+
+            return newTileGroup;
         }
 
         public TileBundleGroup RemoveTileGroup(Vector2Int position)

@@ -33,6 +33,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private OptimizerGeometry optGeo;
         private OptimizerBatcher optBatch;
+        private OptimizerGPUInstancing optGPUinst;
 
         #endregion
 
@@ -56,6 +57,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 optBatch ??= new OptimizerBatcher();
                 return optBatch;
+            }
+        }
+
+        private OptimizerGPUInstancing OptGpuInst
+        {
+            get
+            {
+                optGPUinst ??= new OptimizerGPUInstancing();
+                return optGPUinst;
             }
         }
 
@@ -164,7 +174,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             Tuple<bool, LBSLog> result = GenerateSingleLayer(layer, allLayers);
             if (result.Item1)
+            {
+                StandardTopDownCamera.SetStandardTopDown(sharedRoot);
                 OnFinishGenerate();
+            }
 
             return result.Item2;
         }
@@ -208,10 +221,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             Undo.RegisterCreatedObjectUndo(generated.ParentGO, "Create Layer");
 
-
-            Bake(generated.ParentGO);
-            BuildLightProbes();
-            ApplyRenderOptimization(root);
+            StaticObjs(root);
+            Optimize(root);
+            PostOptimization(generated);
 
             return Tuple.Create(true,
                 new LBSLog($"Layer {generated.ParentGO.name} created."));
@@ -229,46 +241,43 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #endregion
 
-        private void ApplyRenderOptimization(GameObject root)
+        private void Optimize(GameObject root)
         {
             switch (settings.optimization3d)
             {
                 case OptimizationGenMode.None:
-                    break;
+                    return;
                 case OptimizationGenMode.Batch:
                     OptBatch.Optimize(root);
-                    break;
+                    return;
                 case OptimizationGenMode.JoinGeometry:
                     OptGeo.Optimize(root);
-                    break;
+                    return;
+                case OptimizationGenMode.GpuInstancing:
+                    OptGpuInst.Optimize(root);
+                    return;
             }
         }
 
-        #region PRE FINALIZATION
+        private void PostOptimization(GeneratedEntry generated)
+        {
+            if (settings.bakeLights)  Bake(generated.ParentGO);
+            if (settings.buildLightProbes) BuildLightProbes();
+        }
+
         private void Bake(GameObject genGo)
         {
-            if (!settings.bakeLights) return;
-
             StaticObjs(genGo);
             ReflectionProbe[] probes = Object.FindObjectsByType<ReflectionProbe>(FindObjectsSortMode.None);
-            foreach (ReflectionProbe probe in probes)
-            {
-                probe.RenderProbe();
-            }
+            foreach (ReflectionProbe probe in probes) probe.RenderProbe();
         }
 
         private void BuildLightProbes()
         {
-            if (!settings.buildLightProbes) return;
-
             LightProbeCubeGenerator[] probes = Object.FindObjectsByType<LightProbeCubeGenerator>(FindObjectsSortMode.None);
-            foreach (LightProbeCubeGenerator lpcg in probes)
-            {
-                lpcg.Execute();
-            }
-
+            foreach (LightProbeCubeGenerator lpcg in probes) lpcg.Execute();
         }
-        #endregion
+
 
         private void OnFinishGenerate()
         {
@@ -283,11 +292,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region HELPERS
 
-        public static void StaticObjs(GameObject obj)
+        private static void StaticObjs(GameObject obj)
         {
             if (obj.TryGetComponent<LBSGenerated>(out LBSGenerated lbsGen))
             {
-                if (lbsGen.BundleRef.ElementFlag == Bundle.EElementFlag.Character) return;
+                if (lbsGen.BundleRef.HasAnyFlag(new HashSet<Bundle.EElementFlag>{ Bundle.EElementFlag.Character})) return;
                 if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
             }
 

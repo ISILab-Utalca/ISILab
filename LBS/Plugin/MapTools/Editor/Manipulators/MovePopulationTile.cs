@@ -16,6 +16,7 @@ namespace ISILab.LBS.Manipulators
     public class MovePopulationTile : LBSManipulator
     {
         private PopulationBehaviour _population;
+        private TileGroupBehavior _tileMapBehavior;
 
         private readonly Feedback _dottedFeedback;
         private readonly IconFeedback _iconFeedback;
@@ -51,6 +52,8 @@ namespace ISILab.LBS.Manipulators
                 MainView.Instance.RemoveElement(_dottedFeedback);
                 MainView.Instance.RemoveElement(_iconFeedback);
             };
+
+            _tileMapBehavior = layer.GetBehaviour<TileGroupBehavior>();
 
             //OnManipulationRightClick += () =>
             //{
@@ -139,7 +142,7 @@ namespace ISILab.LBS.Manipulators
 
                 var level = LBSController.CurrentLevel;
                 EditorGUI.BeginChangeCheck();
-                Undo.RegisterCompleteObjectUndo(level, "Move Element population");
+                Undo.RegisterCompleteObjectUndo(level, "Move Population Tile");
 
                 // Calculate the difference between the new position and the original top-left position of the group
                 Vector2Int originalTopLeft = Selected.TileGroup[0].Position;
@@ -147,9 +150,12 @@ namespace ISILab.LBS.Manipulators
 
                 // Move each tile relative to the offset
                 //Selected.Translate(offset);
-                _population.MoveGroup(Selected, offset);
+                TileBundleGroup newTileGroup = _population.MoveGroup(Selected, offset);
 
-                //_population.OwnerLayer.OnChangeUpdate();
+                LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
+                _tileMapBehavior.SelectedTilemap = newTileGroup;
+
+                _population.OwnerLayer.OnChangeUpdate();
                 DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
                 //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
 

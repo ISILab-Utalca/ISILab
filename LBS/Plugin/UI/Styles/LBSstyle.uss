@@ -99,6 +99,8 @@ Label {
     margin: 0;
     height: 30px;
     background-color: var(--lbs-selectable-gray-color);
+    border-width: 1 0 1 0;
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     -unity-text-align: middle-center;
     align-self: stretch;
     justify-content: center;
@@ -110,6 +112,10 @@ Label {
 }
 
 .lbs-tool-button-toggle:active {
+    background-color: var(--lbs-selection-neutral-blue-color);
+}
+
+.lbs-tool-button-toggle:checked {
     background-color: var(--lbs-selection-neutral-blue-color);
 }
 
@@ -319,13 +325,21 @@ Toggle > .lbs-default-icon {
     border-radius: var(--lbs-frame-border-radius, var(--lbs-default-frame-border-radius));
     border-color: var(--lbs-white-overlay-color, var(--lbs-default-white-overlay-color));
     border-width: 1px;
+    height: 36px;
+    transition-property: height;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
 .lbs-tab-button:hover {
     background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
 }
 
-.lbs-tab-button:active {
+.lbs-tab-button:checked {
+    height: 56px;
+    transition-property: height;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
 .lbs-tab-button > VisualElement {
@@ -918,23 +932,36 @@ Toggle > .lbs-default-icon {
     background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
     border-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
     border-width: 2px;
-    scale: 1.15 1.15;
-    
+    scale: 1.1 1.1;
 }
 
 .lbs-item:active {
     background-color: var(--lbs-selection-dark-blue-color);
     border-color: var(--lbs-selection-neutral-blue-color);
     border-width: 2px;
-    scale: 1.3 1.3;
+    scale: 1.2 1.2;
+}
+
+.lbs-item:focus {
+    background-color: var(--lbs-selection-dark-blue-color);
+    border-color: var(--lbs-selection-neutral-blue-color);
+    border-width: 2px;
 }
 
 .lbs-item-frame {
     background-color: var(--lbs-field-solid-bg-gray-color, var(--lbs-default-field-solid-bg-gray-color));
-    border-radius: 6px; 
-    
+    border-radius: 6px;
+    max-height: 60;
+    min-height: 60px;
+    width: 100%;
 }
 
+.lbs-item-label {
+    margin: 2 0 2 0;
+    -unity-text-align: middle-center;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
 
 .lbs-list-item {
     border-left-width: 1px;
@@ -942,7 +969,7 @@ Toggle > .lbs-default-icon {
     background-color: var(--lbs-selectable-gray-color, var(--lbs-default-selectable-gray-color));
     flex-direction: row;
     height: 24px;
-    border-radius: 0px;
+    border-radius: 0;
     border-right-width: 0;
     padding-right: 0;
     padding-left: 0;
@@ -1441,12 +1468,8 @@ Toggle > .lbs-default-icon {
 
 .lbs-toolbar-button {
     border-width: 1px 1px 1px 1px;
-    border-color: var(--lbs-dark-overlay-color);
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     background-color: var(--lbs-base-solid-gray-color);
-    border-bottom-color: var(--lbs-dark-overlay-color);
-    border-top-color: var(--lbs-dark-overlay-color);
-    border-left-color: var(--lbs-dark-overlay-color);
-    border-right-color: var(--lbs-dark-overlay-color);
     flex-direction: row;
     padding-left: 4px;
     padding-right: 4px;
@@ -1698,10 +1721,7 @@ Toggle > .lbs-default-icon {
     border-top-color: rgb(22, 22, 22);
     border-bottom-color: rgb(22, 22, 22);
     background-color: rgb(62, 62, 62);
-    border-top-left-radius: 1.5px;
-    border-top-right-radius: 1.5px;
-    border-bottom-right-radius: 1.5px;
-    border-bottom-left-radius: 1.5px;
+    border-radius: 1.5px;
 }
 
 .lbs-breadcrumb-item-selected {
@@ -1759,6 +1779,7 @@ Toggle > .lbs-default-icon {
     padding-right: 8px;
     padding-bottom: 39px;
     padding-left: 10px;
+
 }
 
 .lbs-post-it TextInput {
@@ -1801,4 +1822,3 @@ Toggle > .lbs-default-icon {
 .lbs-random-int-field TextField {
     flex-grow: 0.3;
 }
-
