@@ -11,6 +11,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
     {
         private Toggle layerToggle;
         private Toggle gen3DToggle;
+        private Toggle qAssisToggle;
         private Toggle plusToggle;
 
         
@@ -43,6 +44,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             
             layerToggle = this.Q<Toggle>("LayerToggle");
             gen3DToggle = this.Q<Toggle>("Gen3DToggle");
+            qAssisToggle = this.Q<Toggle>("QAssisToggle");
             plusToggle =  this.Q<Toggle>("PlusToggle");
             
             layerDataTab = this.Q<Toggle>("LayerDataButton");
@@ -82,6 +84,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                 {
                     //_mainWindow.gen3DPanel.Init(_mainWindow._selectedLayer);
                     _mainWindow.gen3DPanel.style.display = _evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                });
+
+                qAssisToggle?.SetValueWithoutNotify(false);
+                qAssisToggle?.RegisterCallback<ChangeEvent<bool>>(_evt =>
+                {
+                    _mainWindow.quickAssistantPanel.style.display = _evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
                 });
 
                 layerDataTab.RegisterCallback<ClickEvent>(_ => _mainWindow.ChangeInspectorPanelTab(layerDataTab));
