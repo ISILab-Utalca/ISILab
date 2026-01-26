@@ -224,7 +224,7 @@ namespace ISILab.LBS.VisualElements.Editor
             AddLayer(layer);
         }
 
-        private void AddLayer(LBSLayer layer)
+        public void AddLayer(LBSLayer layer)
         {
             layer.Name = GenerateUniqueLayerName(layer.Name);
 
