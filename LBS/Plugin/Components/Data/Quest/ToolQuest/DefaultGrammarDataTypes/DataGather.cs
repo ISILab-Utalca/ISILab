@@ -18,7 +18,7 @@ namespace ISILab.LBS.Components
         /// </summary>
         [SerializeField] public BundleType bundleGatherType;
         
-        private readonly HashSet<Bundle.EElementFlag> validGatherType = new()
+        private readonly Bundle.EElementFlag[] validGatherType = 
         {
             Bundle.EElementFlag.Item
         }; 

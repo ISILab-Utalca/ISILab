@@ -13,7 +13,7 @@ namespace ISILab.LBS.Components
         {
             [SerializeField] public BundleGraph bundleToRead;
             
-            private readonly HashSet<Bundle.EElementFlag> validToReadTags = new()
+            private readonly Bundle.EElementFlag[] validToReadTags = 
             {
                 Bundle.EElementFlag.Item
             }; 

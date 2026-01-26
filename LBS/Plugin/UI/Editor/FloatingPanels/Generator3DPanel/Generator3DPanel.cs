@@ -83,7 +83,7 @@ namespace ISILab.LBS.VisualElements.Editor
         public Generator3DPanel()
         {
             Generator ??= new Generator3D();
-           // Generator = LBSSettings.Instance.generator;
+            Generator = LBSSettings.Instance.generator;
 
             _settings ??= Generator.settings;
             visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Generator3DPanel");

@@ -17,12 +17,12 @@ namespace ISILab.LBS.Components
         /// </summary>
         [SerializeField] public BundleGraph bundleGiveTo;
         
-        private readonly HashSet<Bundle.EElementFlag> validGiveTags = new()
+        private readonly Bundle.EElementFlag[] validGiveTags = 
         {
             Bundle.EElementFlag.Item
         }; 
         
-        private readonly HashSet<Bundle.EElementFlag> validToGiveTags = new()
+        private readonly Bundle.EElementFlag[] validToGiveTags = 
         {
             Bundle.EElementFlag.Ally
         }; 
