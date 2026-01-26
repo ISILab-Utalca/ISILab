@@ -31,7 +31,7 @@ namespace ISILab.LBS.VisualElements
         #region FIELDS
         private QuestBehaviour _behaviour;
 
-        private const string actionIconGuid = "bb0770b945366c94c822cf3255eb885d";
+        private const string actionIconGuid = "aa4c8898bd338cb4b91b6516e6d4e0c9";
         private const string orIconGuid = "e06ff34bd346d754eb0a4b12ef3dbe56";
         private const string andIconGuid = "5aed77f9dd05be64b9e99eb9d43d8ce6";
 
