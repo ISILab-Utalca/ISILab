@@ -255,7 +255,7 @@ namespace ISILab.LBS.VisualElements
             {
                 var identifier = option as LBSTag;
                 optionView.Label = identifier.Label;
-                optionView.Color = identifier.Color;
+                optionView.FrameColor = identifier.Color;
                 optionView.Icon = AssetMacro.LoadAssetByGuid<VectorImage>(tileIconGuid);
                 // optionView.Icon = identifier.Icon;
             });

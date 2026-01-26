@@ -1,4 +1,3 @@
-using Commons.Optimization.Evaluator;
 using ISILab.Commons;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
@@ -21,7 +20,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         public LBSLayer CombinedInteriorLayer { get; set; }
         public LBSLayer CombinedExteriorLayer { get; set; }
 
-        public void InitializeDefaultWithContext(List<LBSLayer> contextLayers, Rect selection);
+        public void InitializeContext(List<LBSLayer> contextLayers, Rect selection);
 
         public LBSLayer InteriorLayers(Rect selection)
         {

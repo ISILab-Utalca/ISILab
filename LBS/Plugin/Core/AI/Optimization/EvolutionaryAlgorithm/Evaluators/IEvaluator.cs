@@ -2,7 +2,7 @@
 using System;
 using ISILab.AI.Optimization;
 
-namespace Commons.Optimization.Evaluator
+namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
 {
     /// <summary>
     /// Defines an interface for fitness function.

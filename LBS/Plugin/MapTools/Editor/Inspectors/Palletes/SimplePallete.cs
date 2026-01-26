@@ -90,7 +90,7 @@ namespace LBS.VisualElements
                 nameLabel = value;
                 if (nameLabelElement != null)
                 {
-                    nameLabelElement.style.display = value != "" ? DisplayStyle.Flex : DisplayStyle.None;
+                    nameLabelElement.style.display = !string.IsNullOrEmpty(value) ? DisplayStyle.Flex : DisplayStyle.None;
                     nameLabelElement.text = nameLabel;
                 }
             }

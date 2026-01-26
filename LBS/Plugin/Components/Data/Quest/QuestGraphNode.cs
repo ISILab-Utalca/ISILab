@@ -15,6 +15,13 @@ namespace ISILab.LBS.Components
     [Serializable]
     public abstract class GraphNode : ICloneable
     {
+        #region CONST
+
+        public const string Or = "Or";      
+        public const string And = "And";
+
+        #endregion
+
         #region FIELDS
 
         [SerializeField]
@@ -136,8 +143,6 @@ namespace ISILab.LBS.Components
 
         protected abstract GraphNode CreateCloneInstance();
 
-        public abstract override string ToString();
-
         public abstract bool IsValid();
 
         public bool Equal(GraphNode other)
@@ -158,11 +163,6 @@ namespace ISILab.LBS.Components
             return new OrNode(ID, Position, graph);
         }
 
-        public override string ToString()
-        {
-            return "Or";
-        }
-
         public override bool IsValid()
         {
             return ValidConnections;
@@ -178,11 +178,6 @@ namespace ISILab.LBS.Components
         protected override GraphNode CreateCloneInstance()
         {
             return new AndNode(ID, Position, graph);
-        }
-
-        public override string ToString()
-        {
-            return "And";
         }
 
         public override bool IsValid()

@@ -9,6 +9,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.CustomComponents
     {
         public LBSCustomIntSlider() : base()
         {
+            AddToClassList("lbs-custom-int-slider");
             fill = true;
             showInputField = true;
         }

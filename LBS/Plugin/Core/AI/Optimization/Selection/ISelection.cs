@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization.Populations;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 
 namespace ISILab.AI.Optimization.Selections
 {

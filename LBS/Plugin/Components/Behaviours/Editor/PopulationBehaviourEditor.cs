@@ -278,7 +278,7 @@ namespace ISILab.LBS.VisualElements
             {
                 var bundle = (Bundle)option;
                 optionView.Label = bundle.BundleName;
-                optionView.Color = bundle.Color;
+                optionView.FrameColor = bundle.Color;
                 optionView.Icon = bundle.Icon;
                // var size = 20f;
 

@@ -40,6 +40,20 @@
                     <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/LBS/Plugin/Components/Data/Quest/QuestIcons/Artifact=target.svg?fileID=7388822144124034973&amp;guid=d96b94effa175424699a0813ffdd99ef&amp;type=3#Artifact=target" />
                     <ISILab.LBS.VisualElements.ToolButton />
                     <ISILab.LBS.VisualElements.WarningPanel text="Some simple warning" current-warning-type="Warning" name="WarningPanel" style="height: 36px;" />
+                    <ui:GroupBox style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+                        <LBS.VisualElements.OptionView label="Item jashdjhadhasjdhsjah" frame-color="#761212FF" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/SeedSelector/dice-d6-6.svg?fileID=7388822144124034973&amp;guid=1f9e7d5f8fa0fb24585986994cdc6864&amp;type=3#dice-d6-6" style="flex-shrink: 0;" />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                        <LBS.VisualElements.OptionView />
+                    </ui:GroupBox>
                 </ui:VisualElement>
                 <ISILab.Commons.VisualElements.Editor.SplitView fixed-pane-initial-dimension="400">
                     <ui:VisualElement class="lbs-panel">
@@ -68,7 +82,8 @@
                         <ISILab.LBS.VisualElements.Editor.LayerView focusable="true" />
                         <ISILab.LBS.CustomComponents.LBSCustomRadioButtonGroup choices="a,b,c" selected-choice="0" />
                         <LBS.VisualElements.SimplePallete display-remove-element="true" display-add-element="true" name-label="A custom Palette" />
-                        <ISILab.LBS.Plugin.UI.Editor.CustomComponents.ComplexComponents.LBSCustomRandomSeedField label="RandomValue" />
+                        <ISILab.LBS.Plugin.UI.Editor.CustomComponents.ComplexComponents.LBSCustomRandomSeedField value="20000" label="Random Seed" />
+                        <ISILab.LBS.Plugin.UI.Editor.CustomComponents.LBSCustomEnumFlagField label="Flag" />
                     </ui:VisualElement>
                     <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
                         <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization.Populations;
 using ISILab.AI.Optimization.Selections;
 using ISILab.AI.Optimization.Terminations;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using UnityEngine;
 
 namespace ISILab.AI.Optimization

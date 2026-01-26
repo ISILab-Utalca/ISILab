@@ -1,6 +1,6 @@
-﻿using Commons.Optimization.Evaluator;
-using ISILab.AI.Optimization;
+﻿using ISILab.AI.Optimization;
 using ISILab.Extensions;
+using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Data;
@@ -11,10 +11,11 @@ using LBS.Components.TileMap;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
-    public class DCSafeArea : IContextualEvaluator, IRangedEvaluator
+    public class DCSafeArea : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -34,6 +35,8 @@ namespace ISILab.AI.Categorization
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
+
+        public static EvaluatorConfiguration config;
 
         [SerializeField, SerializeReference]
         public LBSCharacteristic playerCharacteristic;
@@ -174,19 +177,39 @@ namespace ISILab.AI.Categorization
             //return (int)(1.00f * enemies.Count);
         }
 
-        public void InitializeDefaultWithContext(List<LBSLayer> contextLayers, Rect selection)
+        public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
             CombinedInteriorLayer = (this as IContextualEvaluator).InteriorLayers(selection);
             CombinedExteriorLayer = (this as IContextualEvaluator).ExteriorLayers(selection);
             CombinedLayer = (this as IContextualEvaluator).MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
-            InitializeDefault();
         }
 
         public void InitializeDefault()
         {
             playerCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Player"));
             enemiesCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Enemies"));
+
+            CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
+        }
+
+        public void ReadConfiguration()
+        {
+            CreateOrUpdateConfiguration(ref config, GetType());
+
+            playerCharacteristic = config.GetValue<LBSCharacteristic>("Player");
+            enemiesCharacteristic = config.GetValue<LBSCharacteristic>("Danger");
+        }
+
+        public List<EvaluatorConfigurationField> GetEvaluatorFields()
+        {
+            var list = new List<EvaluatorConfigurationField>
+            {
+                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic),
+                new MainTagField("Danger", enemiesCharacteristic.FirstTag().Label, enemiesCharacteristic)
+            };
+
+            return list;
         }
 
         public object Clone()

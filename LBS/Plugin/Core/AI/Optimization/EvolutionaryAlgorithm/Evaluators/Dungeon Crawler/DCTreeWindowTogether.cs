@@ -1,7 +1,7 @@
-using Commons.Optimization.Evaluator;
 using ISILab.AI.Optimization;
 using ISILab.Commons;
 using ISILab.Extensions;
+using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
@@ -13,11 +13,12 @@ using LBS.Components.TileMap;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
     [System.Serializable]
-    public class DCTreeWindowTogether : IContextualEvaluator, IRangedEvaluator
+    public class DCTreeWindowTogether : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
         public float MaxValue => 1;
@@ -33,6 +34,8 @@ namespace ISILab.AI.Categorization
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
+
+        public static EvaluatorConfiguration config;
 
         [SerializeField, SerializeReference]
         public LBSCharacteristic colliderCharacteristic;
@@ -170,20 +173,40 @@ namespace ISILab.AI.Categorization
             return min;
         }
 
-        public void InitializeDefaultWithContext(List<LBSLayer> contextLayers, Rect selection)
+        public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
             var ctx = (IContextualEvaluator)this;
             CombinedInteriorLayer = ctx.InteriorLayers(selection);
             CombinedExteriorLayer = ctx.ExteriorLayers(selection);
             CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
-            InitializeDefault();
         }
 
         public void InitializeDefault()
         {
             colliderCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Collider"));
             treeCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Tree"));
+
+            CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
+        }
+
+        public void ReadConfiguration()
+        {
+            CreateOrUpdateConfiguration(ref config, GetType());
+
+            colliderCharacteristic = config.GetValue<LBSCharacteristic>("Obstacle");
+            treeCharacteristic = config.GetValue<LBSCharacteristic>("Target");
+        }
+
+        public List<EvaluatorConfigurationField> GetEvaluatorFields()
+        {
+            var list = new List<EvaluatorConfigurationField>
+            {
+                new MainTagField("Obstacle", colliderCharacteristic.FirstTag().Label, colliderCharacteristic),
+                new MainTagField("Target", treeCharacteristic.FirstTag().Label, treeCharacteristic)
+            };
+
+            return list;
         }
 
         public object Clone()
