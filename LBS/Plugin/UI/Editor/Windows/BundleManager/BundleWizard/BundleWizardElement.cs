@@ -144,8 +144,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void SetTextAsUneditable()
         {
-            Debug.Log("huh?");
-
             _nameField.isReadOnly = true;
             _nameField.focusable = false;
 

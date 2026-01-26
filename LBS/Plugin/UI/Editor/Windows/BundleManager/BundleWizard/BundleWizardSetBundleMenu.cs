@@ -1,3 +1,4 @@
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
@@ -148,9 +149,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         void AddBundleToCorrectList(Bundle b)
         {
+            if (b.HasCharacteristic(typeof(LBSMainExteriorBundle)) || b.HasCharacteristic(typeof(LBSMainInteriorBundle)) || b.HasCharacteristic(typeof(LBSMainPopulationBundle)))
+            { return; }
+
             //same layer orphan bundles
             if (b.ChildsBundles.Count <= 0 && (b.Parent() == null) &&
-               (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
+            (b.LayerContentFlags & currentBundleFlags) == currentBundleFlags)
             {
                 bundleContainersSameLayerOrphan.Add(new BundleManagerWindow.BundleContainer(b));
             }
