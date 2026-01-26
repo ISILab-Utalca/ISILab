@@ -99,6 +99,8 @@ Label {
     margin: 0;
     height: 30px;
     background-color: var(--lbs-selectable-gray-color);
+    border-width: 1 0 1 0;
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     -unity-text-align: middle-center;
     align-self: stretch;
     justify-content: center;
@@ -1466,12 +1468,8 @@ Toggle > .lbs-default-icon {
 
 .lbs-toolbar-button {
     border-width: 1px 1px 1px 1px;
-    border-color: var(--lbs-dark-overlay-color);
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     background-color: var(--lbs-base-solid-gray-color);
-    border-bottom-color: var(--lbs-dark-overlay-color);
-    border-top-color: var(--lbs-dark-overlay-color);
-    border-left-color: var(--lbs-dark-overlay-color);
-    border-right-color: var(--lbs-dark-overlay-color);
     flex-direction: row;
     padding-left: 4px;
     padding-right: 4px;
