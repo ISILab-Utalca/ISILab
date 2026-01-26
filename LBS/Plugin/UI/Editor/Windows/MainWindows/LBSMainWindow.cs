@@ -535,10 +535,13 @@ namespace ISILab.LBS.Editor.Windows
                 _selectedLayer.OnChange += NotifyChange;
             }
 
-            toolkit.Clear();
-            inspectorManager.SetTarget(layer);
-            toolkit.SetActive(typeof(SelectManipulator));
-            toolkit.SetSeparators();
+            if (toolkit != null)
+            {
+                toolkit.Clear();
+                inspectorManager.SetTarget(layer);
+                toolkit.SetActive(typeof(SelectManipulator));
+                toolkit.SetSeparators();
+            }
 
            // gen3DPanel.Init(layer);
 

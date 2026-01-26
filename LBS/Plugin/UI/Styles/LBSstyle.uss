@@ -319,13 +319,21 @@ Toggle > .lbs-default-icon {
     border-radius: var(--lbs-frame-border-radius, var(--lbs-default-frame-border-radius));
     border-color: var(--lbs-white-overlay-color, var(--lbs-default-white-overlay-color));
     border-width: 1px;
+    height: 36px;
+    transition-property: height;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
 .lbs-tab-button:hover {
     background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
 }
 
-.lbs-tab-button:active {
+.lbs-tab-button:checked {
+    height: 56px;
+    transition-property: height;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
 .lbs-tab-button > VisualElement {
@@ -1711,10 +1719,7 @@ Toggle > .lbs-default-icon {
     border-top-color: rgb(22, 22, 22);
     border-bottom-color: rgb(22, 22, 22);
     background-color: rgb(62, 62, 62);
-    border-top-left-radius: 1.5px;
-    border-top-right-radius: 1.5px;
-    border-bottom-right-radius: 1.5px;
-    border-bottom-left-radius: 1.5px;
+    border-radius: 1.5px;
 }
 
 .lbs-breadcrumb-item-selected {
