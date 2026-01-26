@@ -76,9 +76,9 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region METHODS
-        public void AddTile(LBSTag tag, int x, int y, EntityType type)
+        public void AddTile(LBSTag tag, int x, int y, EntityType type, bool lockedDoorPOI = false)
         {
-            SimulationTile tile = new SimulationTile(this, x, y, type, tag);
+            SimulationTile tile = new SimulationTile(this, x, y, type, tag, lockedDoorPOI);
 
             bool isElement = true;
             bool isEvent = false;
@@ -150,7 +150,7 @@ namespace ISILab.LBS.Behaviours
             return module.GetTile(x, y);
         }
 
-        public void MapToPopulation(List<TileBundleGroup> groups, List<LBSTile> doorTiles)
+        public void MapToPopulation(List<TileBundleGroup> groups, List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles)
         {
             //string s = string.Empty;
             //foreach(KeyValuePair<EntityType, PathOSStorage.SimulationEntityData> pair in PathOSStorage.Instance.entityDataPool)
@@ -216,10 +216,10 @@ namespace ISILab.LBS.Behaviours
                 }
             }
 
-            foreach(LBSTile door in doorTiles)
-            {
+            foreach (LBSTile door in doorTiles)
                 AddTile(null, door.x, door.y, EntityType.ET_POI);
-            }
+            foreach (LBSTile door in lockedDoorTiles)
+                AddTile(null, door.x, door.y, EntityType.ET_POI, true);
         }
 
         public void ClearMapping()

@@ -139,6 +139,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 go.transform.position += current.GetMicroGenTool().MicroPosVector(go.transform, scale, r);
 
                 //Add components
+                go.AddComponent<DestroyNotifier>();
+
                 LBSGeneratedPopulation generatedComponent = go.AddComponent<LBSGeneratedPopulation>();
                 generatedComponent.Addons = group.Addons;
                 generatedComponent.BundleRef = current;
@@ -172,7 +174,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 go.transform.SetParent(parentTransform);
 
                 // continue your existing logic
-                go.AddComponent<DestroyNotifier>();
+                //go.AddComponent<DestroyNotifier>(); // Added earlier ^^^^^^
             }
 
             parentEntity.transform.SetParent(parent.transform);

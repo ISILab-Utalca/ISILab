@@ -334,7 +334,10 @@ namespace PathOS
             return false;
         }
 
-
+        public override bool Equals(object obj)
+        {
+            return Equals(objectRef, (obj as LevelEntity)?.objectRef);
+        }
     }
     // GABO: Class uniting a LevelEntity with an associated
     // obstacle connection event (either CLOSE or OPEN).
@@ -501,7 +504,12 @@ namespace PathOS
             entity = data.entity;
             pos = data.pos;
             accurate = data.accurate;
-        }   
+        }
+
+        public override string ToString()
+        {
+            return entity.entityRef.name;
+        }
     }
 
     //How the memory of an object is represented in the agent's world model.

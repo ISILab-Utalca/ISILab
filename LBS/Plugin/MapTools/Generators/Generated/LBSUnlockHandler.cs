@@ -39,6 +39,27 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             key = keyComp.GetID();
             obstacle = GetComponent<NavMeshObstacle>();
             obstacle.carving = true;
+
+            ActivatePOICallback();
+        }
+
+        private void ActivatePOICallback()
+        {
+            if (!keyComp.TryGetComponent<DestroyNotifier>(out var keyDestroyNotifier))
+                return;
+            
+            keyDestroyNotifier.OnDestroyed += obj =>
+            {
+                Debug.Log("ON DESTROY!!!");
+                Collider[] doorPOIElements = Physics.OverlapBox(transform.position, new Vector3(0.5f, 0.5f, 1f), transform.rotation);
+                for (int i = 0; i < doorPOIElements.Length; i++)
+                {
+                    var simComp = doorPOIElements[i].GetComponentInParent<LBSGeneratedSimulation>();
+                    if (simComp == null) continue;
+
+                    simComp.ReactivateEntity();
+                }
+            };
         }
 
         /* Implement unlock logic by default just destroy the locked object

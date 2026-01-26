@@ -17,6 +17,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Components.Behaviours;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -46,7 +47,7 @@ namespace ISILab.LBS.VisualElements
         List<TileBundleGroup> populationGroups = new List<TileBundleGroup>();
 
         List<LBSLayer> interiorLayers = new List<LBSLayer>();
-        List<LBSTile> interiorTiles = new List<LBSTile>();
+        Dictionary<string, List<LBSTile>> interiorTiles = new Dictionary<string, List<LBSTile>>();
         #endregion
 
         #region PROPERTIES
@@ -71,6 +72,8 @@ namespace ISILab.LBS.VisualElements
                 }
             };
 
+            interiorTiles.Add(SchemaBehaviour.Door, new List<LBSTile>());
+            interiorTiles.Add(SchemaBehaviour.LockedDoor, new List<LBSTile>());
 
             CreateVisualElement();
             MapToCurrentPopulation();
@@ -278,7 +281,8 @@ namespace ISILab.LBS.VisualElements
 
         private void UpdateInteriorTiles()
         {
-            interiorTiles.Clear();
+            interiorTiles[SchemaBehaviour.Door].Clear();
+            interiorTiles[SchemaBehaviour.LockedDoor].Clear();
             GetInteriorLayers();
             if (interiorLayers.Count > 0)
                 GetInteriorTiles();
@@ -297,7 +301,9 @@ namespace ISILab.LBS.VisualElements
         {
             foreach(LBSLayer interiorLayer in interiorLayers)
             {
-                interiorTiles.AddRange(interiorLayer.GetModule<SectorizedTileMapModule>().GetTilesWithDoors());
+                Dictionary<string, List<LBSTile>> lists = interiorLayer.GetModule<SectorizedTileMapModule>().GetTilesWithConnections(SchemaBehaviour.Door, SchemaBehaviour.LockedDoor);
+                interiorTiles[SchemaBehaviour.Door].AddRange(lists[SchemaBehaviour.Door]);
+                interiorTiles[SchemaBehaviour.LockedDoor].AddRange(lists[SchemaBehaviour.LockedDoor]);
             }
         }
 
@@ -314,7 +320,7 @@ namespace ISILab.LBS.VisualElements
 
             EditorGUI.BeginChangeCheck();
 
-            behaviour.MapToPopulation(populationGroups, interiorTiles);
+            behaviour.MapToPopulation(populationGroups, interiorTiles[SchemaBehaviour.Door], interiorTiles[SchemaBehaviour.LockedDoor]);
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);
