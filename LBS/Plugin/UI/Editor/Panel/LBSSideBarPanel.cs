@@ -49,7 +49,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             
             layerDataTab = this.Q<Toggle>("LayerDataButton");
             assistantTab = this.Q<Toggle>("AssistantButton");
-            behaviorTab = this.Q<Toggle>("BehaviorButton");
+            behaviorTab = this.Q<Toggle>("BehaviourButton");
             inspectorToggleTabs.Clear();
             inspectorToggleTabs.Add(layerDataTab);
             inspectorToggleTabs.Add(assistantTab);
