@@ -15,6 +15,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using ISILab.LBS.Plugin.Components.Behaviours;
 
 namespace ISILab.LBS.Drawers
 {
@@ -33,7 +34,7 @@ namespace ISILab.LBS.Drawers
             // Set target Assistant
             if (target is not HillClimbingAssistant assistant) return;
          
-            ClearElements(assistant);
+            //ClearElements(assistant);
             
             // Get modules
             List<ConstraintPair> constraints = assistant.ConstrainsZonesMod.Constraints;
@@ -52,7 +53,12 @@ namespace ISILab.LBS.Drawers
 
         private Action CheckDrawing(MainView view, Vector2 tesselationSize, HillClimbingAssistant assistant, List<ConstraintPair> constraints)
         {
-            return () => { PaintElements(view, tesselationSize, assistant, constraints); };
+            return () => 
+            {
+                var schema = assistant.OwnerLayer.GetBehaviour<SchemaBehaviour>();
+                schema.UpdateKeys();
+                PaintElements(view, tesselationSize, assistant, constraints); 
+            };
         }
 
         private void PaintElements(MainView view, Vector2 tesselationSize, HillClimbingAssistant assistant, List<ConstraintPair> constraints)

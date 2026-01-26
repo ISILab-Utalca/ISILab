@@ -174,7 +174,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             Tuple<bool, LBSLog> result = GenerateSingleLayer(layer, allLayers);
             if (result.Item1)
+            {
+                StandardTopDownCamera.SetStandardTopDown(sharedRoot);
                 OnFinishGenerate();
+            }
 
             return result.Item2;
         }

@@ -81,10 +81,6 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
 
-            LoadedLevel level = LBSController.CurrentLevel;
-            EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Add Connection between tile");
-
             // Get second fixed position
             Vector2Int lastPos = _schema.OwnerLayer.ToFixedPosition(position);
 
@@ -101,6 +97,10 @@ namespace ISILab.LBS.Manipulators
             int frontDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
             if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) return;
             int backDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+
+            LoadedLevel level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Add Connection Between Zones");
 
             // Multi-connection mode
             bool requiresWall = dLength > 1;

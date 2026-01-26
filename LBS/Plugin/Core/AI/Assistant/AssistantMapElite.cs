@@ -135,7 +135,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         private void OnTerminateBind()
         {
-            EditorApplication.delayCall += () => OnTermination?.Invoke("MapElites ended!",  LogType.Log);
+            EditorApplication.delayCall += () => OnTermination?.Invoke("MapElites ended!", LogType.Log, null);
         }
 
         public void RequestOptimizerStop() => mapElites?.Optimizer?.RequestStop();
@@ -254,7 +254,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 var gene = chrom.GetGene(i);
                 if (gene == null)
                     continue;
-                population.AddTileGroup(pos, gene as BundleData, population.GetActiveRotation());
+                population.AddTileGroup(pos, gene as BundleData, population.GetActiveRotation(), null);
             }
         }
 

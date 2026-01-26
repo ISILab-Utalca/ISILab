@@ -265,7 +265,7 @@ namespace ISILab.LBS.Tests
             //var tile = new LBSTile(new Vector2(0, 0));
 
             //Problems starts here
-            bundleMap.CreateGroup(new Vector2Int(0, 0), new BundleData("data", "", new List<LBSCharacteristic>(bundle.Characteristics)), dir);
+            bundleMap.CreateGroup(new Vector2Int(0, 0), new BundleData("data", "", new List<LBSCharacteristic>(bundle.Characteristics)), dir, null);
             ///So any BundleData object should be generated like below and NOT like above, because the code has to run through some hoops to succesfully work with the
             ///above code. however, I don't wanna modify it since the point of tests is find where we can stretch it and such.
             //bundleMap.CreateGroup(new Vector2Int(0, 0), new BundleData(bundle), dir);
@@ -376,7 +376,7 @@ namespace ISILab.LBS.Tests
 
             // Add some data
             var populationBH = layer.Behaviours[0] as PopulationBehaviour;
-            populationBH.AddTileGroup(new Vector2Int(0, 0), new BundleData(bundle), populationBH.GetActiveRotation());
+            populationBH.AddTileGroup(new Vector2Int(0, 0), new BundleData(bundle), populationBH.GetActiveRotation(), null);
 
             // Save the level as JSON
             JSONDataManager.SaveData(path, "Population_Layer.tst", lvl);

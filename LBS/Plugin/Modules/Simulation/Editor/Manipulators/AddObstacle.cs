@@ -57,9 +57,9 @@ namespace ISILab.LBS.Manipulators
 
             // GABO TODO: Arreglar undo, tal y como en AddPathOSTile!!!!
             // Inicio logica UNDO
-            var x = LBSController.CurrentLevel;
-            EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "Add Obstacle");
+            //var x = LBSController.CurrentLevel;
+            //EditorGUI.BeginChangeCheck();
+            //Undo.RegisterCompleteObjectUndo(x, "Add Obstacle");
 
             // Chequeos
             // Chequeo nulo
@@ -74,6 +74,10 @@ namespace ISILab.LBS.Manipulators
             {
                 if (obstacle.Item1 == obstacleTile) { Debug.LogWarning($"Tile-obstaculo X:{obstacle.Item1.X} Y:{obstacle.Item1.Y} Label:{obstacle.Item1.Tag.Label} repetido!"); return; }
             }
+
+            var x = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(x, "Add Obstacle");
 
             // Accion a realizar al agregar el obstaculo
             AddObstacleAction();

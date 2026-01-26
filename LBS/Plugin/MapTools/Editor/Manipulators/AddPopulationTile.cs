@@ -20,8 +20,6 @@ namespace ISILab.LBS.Manipulators
 {
     public class AddPopulationTile : LBSManipulator
     {
-     
-
         private PopulationBehaviour _population;
         private TileGroupBehavior _tileMapBehavior;
         private List<Feedback> previews = new List<Feedback>();
@@ -128,7 +126,7 @@ namespace ISILab.LBS.Manipulators
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Add Element population");
+            Undo.RegisterCompleteObjectUndo(level, "Add Population Tile");
 
             var corners = _population.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
             TileBundleGroup newTileGroup = null;
@@ -140,14 +138,15 @@ namespace ISILab.LBS.Manipulators
                     newTileGroup = _population.AddTileGroup(
                         new Vector2Int(i, j), 
                         new BundleData(ToSet),
-                        _population.GetActiveRotation());
+                        _population.GetActiveRotation(),
+                        null);
                 }
             }
 
             LBSInspectorPanel.Instance.CallSelectableByPosition(_tileMapBehavior.OwnerLayer, endPosition);
             _tileMapBehavior.SelectedTilemap = newTileGroup;
 
-            //_population.OwnerLayer.OnChangeUpdate();
+            _population.OwnerLayer.OnChangeUpdate();
             CleanPreviews();
 
             if (EditorGUI.EndChangeCheck())

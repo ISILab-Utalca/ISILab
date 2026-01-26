@@ -154,9 +154,8 @@ namespace ISILab.LBS.VisualElements
         public CancellationTokenSource CancellationTokenSource { get; set; }
         public ToolBarMain TaskBar { get; set; }
 
-        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type)
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, UnityEngine.Object loadedLevel)
         {
-            LoadedLevel loadedLevel = LBSController.CurrentLevel;
             LBSMainWindow.MessageNotify(new LBSLog(log, type));
 
             // Mark as dirty
@@ -181,10 +180,10 @@ namespace ISILab.LBS.VisualElements
             Undo.RegisterCompleteObjectUndo(loadedLevel, "Recalculate Constraints");
 
             // Recalculate constraints
-            RunRecalculateTask();
+            RunRecalculateTask(loadedLevel);
         }
 
-        private void RunRecalculateTask()
+        private void RunRecalculateTask(LoadedLevel loadedLevel)
         {
             ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
@@ -192,7 +191,7 @@ namespace ISILab.LBS.VisualElements
                 try
                 {
                     _assistant.RecalculateConstraint(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
-                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke("Zone Constraints Recalculated", LogType.Log);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke("Zone Constraints Recalculated", LogType.Log, loadedLevel);
                 }
                 catch (Exception ex)
                 {
@@ -209,13 +208,18 @@ namespace ISILab.LBS.VisualElements
 
         private void ExecuteOneStep()
         {
+            // Save history version to revert if necessary
+            LoadedLevel x = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(x, "Execute One Step HillClimbing");
+
             ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
             Task.Run(() =>
             {
                 try
                 {
                     _assistant.ExecuteOneStep(out string log, out LogType type, ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
-                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type, x);
                 }
                 catch (Exception ex)
                 {
@@ -238,7 +242,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     _assistant.TryExecute(out string log, out LogType type, ((IAssistantThreadedEditor)this).ReportProgress,
                         CancelToken);
-                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type);
+                    EditorApplication.delayCall += () => _assistant.OnTermination.Invoke(log, type, x);
                 }
                 catch (Exception ex)
                 {
