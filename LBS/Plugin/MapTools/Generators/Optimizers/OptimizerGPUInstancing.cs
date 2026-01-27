@@ -1,6 +1,8 @@
 ﻿using ISILab.LBS.Plugin.Components.Bundles;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static ISILab.LBS.Plugin.MapTools.Generators.LBSGpuInstancer;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -13,134 +15,137 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             foreach (KeyValuePair<Bundle, List<GameObject>> decoration in decoratives)
             {
-                BuildGPUInstancers(rootObject, decoration);
+                BuildGPUInstancer(decoration);
             }
         }
 
-        private void BuildGPUInstancers(GameObject rootObject,KeyValuePair<Bundle, List<GameObject>> decorator)
+        private void BuildGPUInstancer(KeyValuePair<Bundle, List<GameObject>> decorator)
         {
             Bundle bundle = decorator.Key;
             List<GameObject> objects = decorator.Value;
 
-            if (objects.Count <= 1)
-                return;
+            if (objects.Count <= 1) return;
 
-            // Group by (mesh + material)
-            Dictionary<(Mesh mesh, Material mat), List<GameObject>> groups = new();
+            HashSet<SubMeshBatch> subMeshBatches = new();
 
             foreach (GameObject entry in objects)
             {
-                MeshRenderer[] mrs = entry.GetComponentsInChildren<MeshRenderer>(true);
-                foreach (MeshRenderer mr in mrs)
+                foreach (MeshRenderer mr in GetLODRender(entry, 99))
                 {
                     MeshFilter mf = mr.GetComponent<MeshFilter>();
-                    if (mf == null || mf.sharedMesh == null) continue;
+                    if (!mf || !mf.sharedMesh) continue;
 
-
+                    Mesh mesh = mf.sharedMesh;
                     Material[] mats = mr.sharedMaterials;
                     if (mats == null || mats.Length == 0) continue;
 
+                    int subCount = Mathf.Min(mesh.subMeshCount, mats.Length);
 
-                    for (int i = 0; i < mats.Length; i++)
+                    for (int sub = 0; sub < subCount; sub++)
                     {
-                        Material mat = mats[i];
-                        if (mat == null) continue;
+                        Material mat = mats[sub];
+                        if (!mat) continue;
 
                         mat.enableInstancing = true;
 
-                        (Mesh sharedMesh, Material mat) key = (mf.sharedMesh, mat);
+                        SubMeshBatch key = new(mesh, sub, mat);
 
-                        if (!groups.TryGetValue(key, out List<GameObject> list))
+                        if (!subMeshBatches.TryGetValue(key, out SubMeshBatch batch))
                         {
-                            list = new List<GameObject>();
-                            groups[key] = list;
+                            batch = key;
+                            subMeshBatches.Add(batch);
                         }
 
-                        list.Add(mr.gameObject);
+                        batch.matrices.Add(mf.transform.localToWorldMatrix);
                     }
 
-                    // Disable original renderer (we will draw it manually)
                     mr.enabled = false;
                 }
             }
 
-            // Create one instancer component per (mesh + material)
-            foreach (KeyValuePair<(Mesh mesh, Material mat), List<GameObject>> kvp in groups)
+            if (subMeshBatches.Count == 0) return;
+
+            GameObject parent = objects[0].transform.parent.gameObject;
+
+            LBSGpuInstancer instancer =
+                parent.TryGetComponent(out LBSGpuInstancer existing)
+                    ? existing
+                    : parent.AddComponent<LBSGpuInstancer>();
+
+            foreach (SubMeshBatch batch in subMeshBatches)
             {
-                (Mesh mesh, Material mat) = kvp.Key;
+                if (batch.matrices.Count <= 1) continue;
 
-                List<GameObject> objs = kvp.Value;
-                List<Transform> transforms = new();
-
-                if (objs.Count <= 1) continue;
-
-                GameObject parent = objs[0].transform.parent.gameObject;
-
-
-                foreach (GameObject obj in objs) transforms.Add(obj.transform);
-
-                LBSGpuInstancer instancer = parent.AddComponent<LBSGpuInstancer>();
-
-                foreach (GameObject instanceRoot in objects)
+                foreach (Matrix4x4 m in batch.matrices)
                 {
-                    MeshFilter[] mfs = instanceRoot.GetComponentsInChildren<MeshFilter>(true);
-                    foreach (MeshFilter mf in mfs)
-                    {
-                        MeshRenderer mr = mf.GetComponent<MeshRenderer>();
-                        if (mr == null) continue;
-
-                        Mesh innerMesh = mf.sharedMesh;
-                        Material[] innerMat = mr.sharedMaterials;
-
-                        int subCount = Mathf.Min(innerMesh.subMeshCount, innerMat.Length);
-
-                        for (int sub = 0; sub < subCount; sub++)
-                        {
-                            Material matParam = innerMat[sub];
-                            if (matParam == null) continue;
-
-                            instancer.AddInstance(innerMesh, sub, matParam, mf.transform.localToWorldMatrix);
-                        }
-
-                        // disable original renderer
-                        mr.enabled = false;
-                    }
+                    instancer.AddBatch(batch.mesh, batch.subMeshIndex, batch.material, m);
                 }
-
-                instancer.Build();
-
             }
+
+            instancer.Build();
 
             Debug.Log(
                 $"[GPU Instancing] Bundle '{bundle.name}' → " +
-                $"{objects.Count} objects, {groups.Count} instancing groups."
+                $"{objects.Count} objects, {subMeshBatches.Count} batches."
             );
         }
 
+
+        /// <summary>
+        /// Gets a Level Of Detail from the mesh render of a gameobject
+        /// </summary>
+        /// <param name="go">game object to get the LODS from</param>
+        /// <param name="desiredLOD">desired LOD; lowest index highest detail. Default of 0</param>
+        /// <returns>meshrenderes in their desired LOD if it exists, else its default render</returns>
+        private static IEnumerable<MeshRenderer> GetLODRender(GameObject go, int desiredLOD = 0)
+        {
+            LODGroup[] lodGroups = go.GetComponentsInChildren<LODGroup>(true);
+
+            if (lodGroups.Length > desiredLOD)
+            {
+                foreach (LODGroup lg in lodGroups)
+                {
+                    LOD[] lods = lg.GetLODs();
+                    if (lods == null || !lods.Any()) continue;
+
+                    desiredLOD = Mathf.Clamp(desiredLOD, 0, lodGroups.Length-1);
+
+                    foreach (Renderer r in lods[desiredLOD].renderers)
+                    {
+                        if (r is MeshRenderer mr) yield return mr;
+                    }
+                }
+            }
+            else
+            {
+                // No LODGroup get all renders
+                foreach (MeshRenderer mr in go.GetComponentsInChildren<MeshRenderer>(true)) yield return mr;
+            }
+        }
+
+        /// <summary>
+        /// Recursively try to get all gameobjects with the "Decorative" lbs characteristic tag
+        /// </summary>
+        /// <param name="transform">transform of object</param>
+        /// <param name="result">list of game objects that can be gpu instanced</param>
         private void GetDecorativesRecursive(Transform transform, Dictionary<Bundle, List<GameObject>> result)
         {
-            if (transform.gameObject.TryGetComponent<LBSGenerated>(
-                    out LBSGenerated lbsgen))
+            if (transform.gameObject.TryGetComponent(out LBSGenerated lbsgen))
             {
                 Bundle bundle = lbsgen.BundleRef;
-                if (bundle != null &&
-                    bundle.GetHasTagCharacteristic("Decorative"))
+                if (bundle != null && bundle.GetHasTagCharacteristic("Decorative"))
                 {
                     if (!result.TryGetValue(bundle, out List<GameObject> list))
                     {
                         list = new List<GameObject>();
                         result[bundle] = list;
                     }
-                    Debug.Log($"instancing prefab: {transform.gameObject}");
+
                     list.Add(transform.gameObject);
                 }
             }
 
-            foreach (Transform child in transform)
-                GetDecorativesRecursive(child, result);
+            foreach (Transform child in transform) GetDecorativesRecursive(child, result);
         }
-
-
     }
-
 }
