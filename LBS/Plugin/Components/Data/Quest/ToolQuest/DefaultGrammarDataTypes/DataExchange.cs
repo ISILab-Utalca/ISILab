@@ -20,7 +20,7 @@ namespace ISILab.LBS.Components
         [SerializeField] public BundleType bundleReceiveType;
         [SerializeField] public int receiveAmount = 1;
         
-        private readonly HashSet<Bundle.EElementFlag> validExchangeTags = new()
+        private readonly Bundle.EElementFlag[] validExchangeTags = 
         {
             Bundle.EElementFlag.Item
         }; 

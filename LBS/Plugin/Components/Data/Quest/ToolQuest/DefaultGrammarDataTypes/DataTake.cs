@@ -13,7 +13,7 @@ namespace ISILab.LBS.Components
     public class DataTake : QuestActionData
     {
        [SerializeField] public BundleGraph bundleToTake;
-       private readonly HashSet<Bundle.EElementFlag> validToTakeTags = new()
+       private readonly Bundle.EElementFlag[] validToTakeTags = 
        {
            Bundle.EElementFlag.Item
        }; 

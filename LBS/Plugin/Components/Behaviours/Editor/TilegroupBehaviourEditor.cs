@@ -1,22 +1,12 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
-using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Components.Data;
-using ISILab.LBS.Plugin.UI.Editor;
-using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
-using ISILab.LBS.VisualElements.Editor;
 using LBS;
-using LBS.Components;
 using LBS.VisualElements;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements

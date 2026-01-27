@@ -21,7 +21,7 @@ namespace ISILab.LBS.Components
         [SerializeField]
         public List<BundleGraph> bundlesObservers;
         
-        private readonly HashSet<Bundle.EElementFlag> requiredObserverTags = new()
+        private readonly Bundle.EElementFlag[] requiredObserverTags = 
         {
             Bundle.EElementFlag.Enemy
         }; 

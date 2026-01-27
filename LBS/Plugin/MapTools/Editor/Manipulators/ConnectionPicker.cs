@@ -35,7 +35,7 @@ namespace ISILab.LBS.Manipulators
         /// <summary>
         /// Icon used by this manipulator.
         /// </summary>
-        protected override string IconGuid => "810162c8614a2a544bcce7bbe955a81b";
+        protected override string IconGuid => "f3c32b867195f234aa39c78f7683e0fc";
 
         public ConnectionPicker()
         {

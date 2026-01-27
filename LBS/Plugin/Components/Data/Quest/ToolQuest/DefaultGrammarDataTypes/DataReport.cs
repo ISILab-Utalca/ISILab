@@ -17,7 +17,7 @@ namespace ISILab.LBS.Components
         /// </summary>
         [SerializeField] public BundleGraph bundleReportTo;
         
-        private readonly HashSet<Bundle.EElementFlag> validToReportTags = new()
+        private readonly Bundle.EElementFlag[] validToReportTags =
         {
             Bundle.EElementFlag.Ally
         }; 
