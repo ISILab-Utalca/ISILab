@@ -1,11 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Editor/Windows/BundleManager/BundleWizard/DragAndDrop/DragAndDrop.uss?fileID=7433441132597879392&amp;guid=a38a3497de397d84a909832de17732e5&amp;type=3#DragAndDrop" />
+    <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/DragAndDrop/DragAndDrop.uss?fileID=7433441132597879392&amp;guid=a38a3497de397d84a909832de17732e5&amp;type=3#DragAndDrop" />
     <ui:VisualElement name="DragAndDrop" class="background">
-        <ui:VisualElement class="header">
-            <ui:Label text="Drag And Drop Sample" display-tooltip-when-elided="true" class="header__label" />
-        </ui:VisualElement>
         <ui:VisualElement name="DropArea" class="drop-area">
-            <ui:Label text="Drag an asset here..." display-tooltip-when-elided="true" name="DropAreaLabel" class="drop-area__label" />
+            <ui:Label text="Drag any number of GameObjects here &#10;to turn them into different bundles" display-tooltip-when-elided="true" name="DropAreaLabel" class="drop-area__label" style="-unity-text-align: upper-center; text-overflow: clip; white-space: pre-wrap;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
