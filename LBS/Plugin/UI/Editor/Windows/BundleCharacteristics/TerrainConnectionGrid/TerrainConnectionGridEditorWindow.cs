@@ -88,6 +88,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         #region CONSTRUCTOR
         public void CreateGUI()
         {
+            connectionGridTarget.Init();
             connectionGridTarget.UpdateGridList();
 
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TerrainConnectionGridEditorWindow");

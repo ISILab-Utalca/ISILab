@@ -7,6 +7,7 @@ using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
@@ -40,13 +41,24 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         public GameObject obj;
         [Range(0f,1f)]
         public float probability;
+        [HideInInspector]
+        public string id = "";
 
+        public string ID => (id != null && id != "") ? id : SetID(); 
         public Asset(GameObject obj, float probability)
         {
             this.obj = obj;
             this.probability = probability;
         }
-
+        public string SetID()
+        {
+            id = Guid.NewGuid().ToString();
+            return id;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         public object Clone()
         {
             return new Asset(this.obj, this.probability);
@@ -58,6 +70,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             if (other == null) return false;
             if (other.obj != obj) return false;
             if (other.probability != probability) return false;
+            if (other.ID != ID) return false;
             return true;
         }
     }

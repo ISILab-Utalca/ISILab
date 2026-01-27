@@ -62,7 +62,8 @@ namespace ISILab.LBS.Characteristics
         }
         #endregion
 
-        #region METHODS
+        #region METHODS - COLORS
+    
         public void AddColor(int id, UnityEngine.Color color)
         {
             if (ColorExists(id)) return;
@@ -87,10 +88,79 @@ namespace ISILab.LBS.Characteristics
             return ColorPalette[colorPaletteID.IndexOf(id)];
         }
 
+        #endregion
+
+        #region METHODS - GRIDS
+        public void Init()
+        {
+            foreach (Asset asset in Assets)
+            {
+                if (asset.id == null) asset.SetID();
+            }
+        }
+
+        public AssetConnectionGrid GetGrid(Asset asset)
+        {
+            var match = gridList.Find(c => c.AssetReference.Equals(asset));
+            return match;
+        }
+
+        public List<AssetConnectionGrid> GetGrids(Asset asset)
+        {
+            return gridList.FindAll(c => c.AssetReference.Equals(asset));
+        }
+
+        public AssetConnectionGrid GetGrid(GameObject obj) => GetGrid(Assets.Find(c => c.obj == obj));
+
+        public void SetGridSize(int gSize)
+        {
+            gridSize = gSize;
+            foreach (AssetConnectionGrid grid in gridList)
+            {
+                grid.TerrainFlag = new int[gSize];
+            }
+        }
+
+        public void UpdateGridList()
+        {
+            if (gridList == null) gridList = new List<AssetConnectionGrid>();
+            var updatedGridList = new List<AssetConnectionGrid>();
+            foreach (Asset asset in Assets)
+            {
+                var existingAssets = GetGrids(asset);
+                AssetConnectionGrid verifiedGrid = null;
+                foreach (AssetConnectionGrid grid in existingAssets)
+                {
+                    //Ignore asset already added
+                    if (updatedGridList.Contains(grid))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        verifiedGrid = grid;
+                        break;
+                    }
+                }
+                if (verifiedGrid == null)
+                {
+                    asset.SetID();
+                    verifiedGrid = new AssetConnectionGrid(gridSize, asset);
+                }
+                updatedGridList.Add(verifiedGrid);
+            }
+            gridList = updatedGridList;
+        }
+
+        #endregion
+
+        #region METHODS - OTHER
+
         public override object Clone()
         {
             throw new NotImplementedException();
         }
+
         public override bool Equals(object obj)
         {
             var other = obj as LBSTerrainConnectionGrid;
@@ -118,10 +188,12 @@ namespace ISILab.LBS.Characteristics
             }
             return true;
         }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
+
         public override List<string> Validate()
         {
             List<string> warnings = new List<string>();
@@ -131,47 +203,19 @@ namespace ISILab.LBS.Characteristics
             }
             foreach(Asset asset in Assets)
             {
-                if (GetGrid(asset) == null)
+                if (GetGrids(asset).Count == 0)
                 {
                     warnings.Add("gridlist for " + asset + " is null.");
                 }
             }
             return warnings;
         }
+        
         #endregion
         
-        public AssetConnectionGrid GetGrid(Asset asset)
-        {
-            var match = gridList.Find(c => c.AssetReference.Equals(asset));
-            return match;
-        }
+        
 
-        public AssetConnectionGrid GetGrid(GameObject obj)
-        {
-            return gridList.Find(c => c.AssetReference.obj.Equals(obj));
-        }
-
-        public void SetGridSize(int gSize)
-        {
-            gridSize = gSize;
-            foreach(AssetConnectionGrid grid in gridList)
-            {
-                grid.TerrainFlag = new int[gSize];
-            }
-        }
-
-        public void UpdateGridList()
-        {
-            if (gridList == null) gridList = new List<AssetConnectionGrid>();
-            var updatedGridList = new List<AssetConnectionGrid>();
-            foreach(Asset asset in Assets)
-            {
-                var existingAsset = GetGrid(asset);
-                updatedGridList.Add(existingAsset != null ? existingAsset : new AssetConnectionGrid(gridSize, asset));
-            }
-            gridList = updatedGridList;
-        }
-    }
+    }  
 
     [System.Serializable]
     public class AssetConnectionGrid
