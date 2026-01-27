@@ -1,90 +1,90 @@
 using System;
-using ISILab.LBS.Modules;
 using LBS.Components;
 using Newtonsoft.Json;
-using UnityEditor.Graphs;
 using UnityEngine;
 
-[Serializable]
-public class LBSNote : ICloneable
+
+namespace ISILab.LBS.Modules
 {
-    #region FIELDS
-
-    [SerializeField, JsonRequired]
-    private string id = "";
-
-    private static int noteCounter = 0;
-
-    [SerializeField, JsonRequired]
-    protected float x;
-
-    [SerializeField, JsonRequired]
-    protected float y;
-
-    [SerializeField, JsonRequired]
-    protected string message;
-
-    [SerializeField, JsonRequired, HideInInspector]
-    private LBSLayer ownerLayer;
-
-    #endregion
-
-    #region PROPERTIES
-
-    public string ID
+    [Serializable]
+    public class LBSNote : ICloneable
     {
-        get => id;
-        set => id = value;
-    }
+        #region FIELDS
 
-    public Vector2 Position
-    {
-        get => new(x, y);
-        set
+        [SerializeField, JsonRequired] private string id = "";
+
+        private static int noteCounter = 0;
+
+        [SerializeField, JsonRequired] protected float x;
+
+        [SerializeField, JsonRequired] protected float y;
+
+        [SerializeField, JsonRequired] protected string message;
+
+        [SerializeField, JsonRequired, HideInInspector]
+        private LBSLayer ownerLayer;
+
+        #endregion
+
+        #region PROPERTIES
+
+        public string ID
         {
-            x = value.x;
-            y = value.y;
+            get => id;
+            set => id = value;
         }
-    }
 
-    public string Message
-    {
-        get => message;
-        set => message = value;
-    }
+        public Vector2 Position
+        {
+            get => new(x, y);
+            set
+            {
+                x = value.x;
+                y = value.y;
+            }
+        }
 
-    public LBSLayer OwnerLayer
-    {
-        get => ownerLayer;
-        set => ownerLayer = value;
-    }
+        public string Message
+        {
+            get => message;
+            set => message = value;
+        }
 
-    #endregion
+        public LBSLayer OwnerLayer
+        {
+            get => ownerLayer;
+            set => ownerLayer = value;
+        }
 
-    #region CONSTRUCTORS
+        #endregion
 
-    protected LBSNote() { }
+        #region CONSTRUCTORS
 
-    public LBSNote(Vector2 position, string message, LBSLayer ownerLayer)
-    {
-        id = $"Note {++noteCounter}";
-        x = position.x;
-        y = position.y;
-        this.message = message;
-        this.ownerLayer = ownerLayer;
-    }
+        protected LBSNote()
+        {
+        }
 
-    #endregion
+        public LBSNote(Vector2 position, string message, LBSLayer ownerLayer)
+        {
+            id = $"Note {++noteCounter}";
+            x = position.x;
+            y = position.y;
+            this.message = message;
+            this.ownerLayer = ownerLayer;
+        }
 
-    public object Clone()
-    {
-        var clone = new LBSNote();
+        #endregion
 
-        clone.ID = ID;
-        clone.x = x;
-        clone.y = y;
-        clone.message = message;
+        public object Clone()
+        {
+            var clone = new LBSNote();
 
-        return clone;
+            clone.ID = ID;
+            clone.x = x;
+            clone.y = y;
+            clone.message = message;
+
+            return clone;
+        }
     }
 }
