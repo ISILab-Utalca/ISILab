@@ -24,6 +24,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Components.Data;
+using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -79,7 +80,16 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region INITIALIZATION
-        public void Setup(List<LayerTemplate> templates) { _templates = templates; }
+        public void Setup(List<LayerTemplate> templates)
+        {
+            _templates = templates;
+
+            if (_extType != null)
+            {
+
+                AutoAssignBundle((ConnectedTileMapModule.ConnectedTileType)_extType.value);
+            }
+        }
 
         private void LoadVisualElements()
         {
@@ -93,6 +103,13 @@ namespace ISILab.LBS.VisualElements
             if (_containerExterior != null)
             {
                 _extType = _containerExterior.Q<LBSCustomEnumField>("ExtType");
+                _extType?.RegisterValueChangedCallback(evt =>
+                {
+                    if (evt.newValue != null)
+                    {
+                        AutoAssignBundle((ConnectedTileMapModule.ConnectedTileType)evt.newValue);
+                    }
+                });
                 _extThemeBundle = _containerExterior.Q<LBSCustomObjectField>("ExtThemeBundle");
                 if (_extThemeBundle != null)
                 {
@@ -158,6 +175,32 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region LOGIC METHODS
+
+        private void AutoAssignBundle(ConnectedTileMapModule.ConnectedTileType type)
+        {
+            if (_templates == null || _templates.Count == 0 || _extThemeBundle == null) return;
+
+            string typeKeyword = (type == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
+
+            var match = _templates.FirstOrDefault(t =>
+                t.templateName.Contains("Exterior") &&
+                t.templateName.Contains(typeKeyword));
+
+            if (match == null)
+            {
+                match = _templates.FirstOrDefault(t => t.templateName.Contains("Exterior"));
+            }
+
+            if (match != null)
+            {
+                var exteriorBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
+
+                if (exteriorBehaviour != null && exteriorBehaviour.Bundle != null)
+                {
+                    _extThemeBundle.value = exteriorBehaviour.Bundle;
+                }
+            }
+        }
         private void UpdateVisibility(string mode)
         {
             bool showExterior = mode == "Exterior";
@@ -259,27 +302,69 @@ namespace ISILab.LBS.VisualElements
         private async void RunHillClimbingOptimization(LBSLayer layer)
         {
             Debug.Log("[QuickAssistant] Iniciando Optimización IA...");
-            EditorUtility.DisplayProgressBar("Quick Assistant", "Optimizando Distribución...", 0.3f);
+
+            Undo.RegisterCompleteObjectUndo(LBSController.CurrentLevel, "Quick Optimization");
 
             var optimizer = new HillClimbingAssistant(System.Guid.NewGuid().ToString(), "AutoOptimizer", Color.cyan);
             optimizer.OnAttachLayer(layer);
 
+            var tokenSource = new System.Threading.CancellationTokenSource();
+            var token = tokenSource.Token;
+
+            ToolBarMain taskBar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
+
+            if (taskBar != null)
+            {
+                taskBar.EnableProcess(true, "Quick Assistant Optimization");
+            }
+            else
+            {
+                EditorUtility.DisplayProgressBar("Quick Assistant", "Iniciando...", 0f);
+            }
             try
             {
                 await Task.Run(() =>
                 {
-                    try { optimizer.TryExecute(out string log, out LogType type, null, default); }
-                    catch (System.Exception ex) { Debug.LogWarning($"HillClimbing Error: {ex.Message}"); }
+                    try
+                    {
+                        optimizer.TryExecute(out string log, out LogType type, (progress) =>
+                        {
+                            EditorApplication.delayCall += () =>
+                            {
+                                if (taskBar != null)
+                                {
+                                    taskBar.SetProgressPercent(progress);
+                                }
+                                else
+                                {
+                                    EditorUtility.DisplayProgressBar("Quick Assistant", $"Optimizando... {progress * 100:F0}%", progress);
+                                }
+                            };
+                        }, token);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogWarning($"HillClimbing Error: {ex.Message}");
+                    }
                 });
             }
             finally
             {
-                EditorUtility.ClearProgressBar();
-            }
+                if (taskBar != null)
+                {
+                    taskBar.EnableProcess(false);
+                }
+                else
+                {
+                    EditorUtility.ClearProgressBar();
+                }
 
-            optimizer.OnDetachLayer(layer);
-            FinalizeLayer(layer);
-            Debug.Log("[QuickAssistant] Optimización Finalizada.");
+                tokenSource.Dispose();
+                optimizer.OnDetachLayer(layer);
+                FinalizeLayer(layer);
+
+                Debug.Log("[QuickAssistant] Optimización Finalizada.");
+            }
         }
 
         private void PlaceRoomsGridWalker(SchemaBehaviour schema, Dictionary<Vector2Int, Zone> grid, int maxRooms, int roomSize, int step)

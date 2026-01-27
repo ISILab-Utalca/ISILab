@@ -462,6 +462,18 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             var currentTiles = GetTiles(zone);
             if (currentTiles.Count == 0) return false;
 
+            var graph = OwnerLayer.GetModule<ConnectedZonesModule>();
+            HashSet<Zone> preservedNeighbors = new HashSet<Zone>();
+
+            if (graph != null)
+            {
+                foreach (var edge in graph.Edges)
+                {
+                    if (edge.First == zone) preservedNeighbors.Add(edge.Second);
+                    else if (edge.Second == zone) preservedNeighbors.Add(edge.First);
+                }
+            }
+
             // Calculate old bounds
             Vector2Int oldMin = new Vector2Int(int.MaxValue, int.MaxValue); // bottom-left
             Vector2Int oldMax = new Vector2Int(int.MinValue, int.MinValue); // top-right
@@ -587,6 +599,18 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                     }
                 }
             }
+
+            if (graph != null)
+            {
+                foreach (var neighbor in preservedNeighbors)
+                {
+                    if (!graph.EdgesConnected(zone, neighbor))
+                    {
+                        graph.AddEdge(zone, neighbor);
+                    }
+                }
+            }
+
             RequestFullRepaint(currentTiles, createdTiles);
             return true;
         }

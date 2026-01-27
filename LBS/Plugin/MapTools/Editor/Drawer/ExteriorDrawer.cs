@@ -189,17 +189,24 @@ namespace ISILab.LBS.Drawers
         }
         public override void HideVisuals(object target, MainView view)
         {
-            // Get behaviours
             if (target is not ExteriorBehaviour exterior) return;
-            
+
+            if (exterior.Keys == null) return;
+
             foreach (var tile in exterior.Keys)
             {
                 if (tile == null) continue;
 
                 var elements = view.GetElementsFromLayer(exterior.OwnerLayer, tile);
+
+                if (elements == null) continue;
+
                 foreach (var graphElement in elements)
                 {
-                    graphElement.style.display = DisplayStyle.None;
+                    if (graphElement != null)
+                    {
+                        graphElement.style.display = DisplayStyle.None;
+                    }
                 }
             }
         }

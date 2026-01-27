@@ -152,12 +152,19 @@ namespace ISILab.LBS.Drawers
 
         public override void ShowVisuals(object target, MainView view)
         {
-            // Get behaviours
             if (target is not SchemaBehaviour schema) return;
-            
+
+            if (schema.Keys == null) return;
+
             foreach (var tile in schema.Keys)
             {
-                foreach (var graphElement in view.GetElementsFromLayer(schema.OwnerLayer, tile).Where(graphElement => graphElement != null))
+                if (tile == null) continue;
+
+                var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
+
+                if (elements == null) continue;
+
+                foreach (var graphElement in elements.Where(graphElement => graphElement != null))
                 {
                     graphElement.style.display = DisplayStyle.Flex;
                 }
@@ -165,21 +172,28 @@ namespace ISILab.LBS.Drawers
         }
         public override void HideVisuals(object target, MainView view)
         {
-            // Get behaviours
             if (target is not SchemaBehaviour schema) return;
-            
+
+            if (schema.Keys == null) return;
+
             foreach (var tile in schema.Keys)
             {
                 if (tile == null) continue;
 
                 var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
+
+                if (elements == null) continue;
+
                 foreach (var graphElement in elements)
                 {
-                    graphElement.style.display = DisplayStyle.None;
+                    if (graphElement != null)
+                    {
+                        graphElement.style.display = DisplayStyle.None;
+                    }
                 }
             }
         }
-        
+
         public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
         {
             var schema = target as SchemaBehaviour;

@@ -130,11 +130,23 @@ namespace ISILab.LBS
 
         private void HideVisuals<T>(List<T> components, LBSLayer layer)
         {
+            if (components == null) return;
+
             foreach (T component in components)
             {
-                if (component == null)continue;
+                if (component == null) continue;
+
                 Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
-                drawer?.HideVisuals(component, _view);
+
+                if (drawer == null) continue;
+
+                try
+                {
+                    drawer.HideVisuals(component, _view);
+                }
+                catch (Exception)
+                {
+                }
             }
         }
         private void ShowVisuals<T>(List<T> components, LBSLayer layer)

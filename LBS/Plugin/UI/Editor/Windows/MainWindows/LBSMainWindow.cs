@@ -436,6 +436,15 @@ namespace ISILab.LBS.Editor.Windows
 
             drawManager = new DrawManager();
             inspectorManager.CreateContainers(levelData, mainView);
+
+            if (levelData != null && levelData.Layers != null)
+            {
+                foreach (var layer in levelData.Layers)
+                {
+                    DrawManager.Instance.AddContainer(layer);
+                }
+            }
+
             drawManager.RedrawLevel(levelData);
 
             #endregion
@@ -626,22 +635,27 @@ namespace ISILab.LBS.Editor.Windows
             var targetElement = evt.currentTarget as VisualElement;
             if (targetElement == null) return;
 
-            Rect rect = targetElement.layout;
-            Vector2 localPos = evt.localMousePosition;
+            POINT currentScreenPos;
+#if UNITY_EDITOR_WIN
+            GetCursorPos(out currentScreenPos);
+#else
+            currentScreenPos = new POINT { X = (int)evt.mousePosition.x, Y = (int)evt.mousePosition.y }; 
+#endif
 
-            float margin = 5f;
+            Resolution currentRes = Screen.currentResolution;
+
+            int screenMargin = 10;
             bool needWarp = false;
+            int newScreenX = currentScreenPos.X;
 
-            Vector2 targetLocalPos = localPos;
-
-            if (localPos.x <= margin)
+            if (currentScreenPos.X <= screenMargin)
             {
-                targetLocalPos.x = rect.width - margin - 2f;
+                newScreenX = currentRes.width - screenMargin - 5;
                 needWarp = true;
             }
-            else if (localPos.x >= rect.width - margin)
+            else if (currentScreenPos.X >= currentRes.width - screenMargin)
             {
-                targetLocalPos.x = margin + 2f;
+                newScreenX = screenMargin + 5;
                 needWarp = true;
             }
 
@@ -649,42 +663,38 @@ namespace ISILab.LBS.Editor.Windows
 
             IsWarpingCursor = true;
 
-            float pixelsPerPoint = EditorGUIUtility.pixelsPerPoint;
+            Event fakeUp = new Event();
+            fakeUp.type = EventType.MouseUp;
+            fakeUp.button = 2;
+            fakeUp.mousePosition = evt.mousePosition;
+            fakeUp.modifiers = evt.modifiers;
 
-            float deltaUI_X = targetLocalPos.x - localPos.x;
-            float deltaScreen_X = deltaUI_X * pixelsPerPoint;
-
-            POINT currentScreenPos;
-            GetCursorPos(out currentScreenPos);
-
-            int newScreenX = currentScreenPos.X + Mathf.RoundToInt(deltaScreen_X);
-            int newScreenY = currentScreenPos.Y;
-
-            Vector2 worldOld = targetElement.LocalToWorld(localPos);
-            Vector2 worldNew = targetElement.LocalToWorld(targetLocalPos);
-
-            Event imguiUp = new Event();
-            imguiUp.type = EventType.MouseUp;
-            imguiUp.button = 2;
-            imguiUp.mousePosition = worldOld;
-            imguiUp.modifiers = evt.modifiers;
-
-            using (var upEvt = MouseUpEvent.GetPooled(imguiUp))
+            using (var upEvt = MouseUpEvent.GetPooled(fakeUp))
             {
                 upEvt.target = targetElement;
                 targetElement.SendEvent(upEvt);
             }
+            targetElement.ReleaseMouse();
 
-            #if UNITY_EDITOR_WIN
-            SetCursorPos(newScreenX, newScreenY);
-            #endif
-            Event imguiDown = new Event();
-            imguiDown.type = EventType.MouseDown;
-            imguiDown.button = 2;
-            imguiDown.mousePosition = worldNew;
-            imguiDown.modifiers = evt.modifiers;
+#if UNITY_EDITOR_WIN
+            SetCursorPos(newScreenX, currentScreenPos.Y);
+#endif
 
-            using (var downEvt = MouseDownEvent.GetPooled(imguiDown))
+            targetElement.CaptureMouse();
+
+            float deltaJump = (newScreenX - currentScreenPos.X);
+            float pixelsPerPoint = EditorGUIUtility.pixelsPerPoint;
+            float uiDelta = deltaJump / pixelsPerPoint;
+
+            Vector2 newWindowPos = evt.mousePosition + new Vector2(uiDelta, 0);
+
+            Event fakeDown = new Event();
+            fakeDown.type = EventType.MouseDown;
+            fakeDown.button = 2;
+            fakeDown.mousePosition = newWindowPos;
+            fakeDown.modifiers = evt.modifiers;
+
+            using (var downEvt = MouseDownEvent.GetPooled(fakeDown))
             {
                 downEvt.target = targetElement;
                 targetElement.SendEvent(downEvt);
