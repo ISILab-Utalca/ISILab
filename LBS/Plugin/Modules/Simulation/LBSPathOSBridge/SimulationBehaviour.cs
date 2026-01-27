@@ -248,6 +248,11 @@ namespace ISILab.LBS.Behaviours
             OwnerLayer = null;
         }
 
+        public override void CheckKeys()
+        {
+            UpdateKeys(Tiles.ToList<object>());
+        }
+
         public override void OnGUI()
         {
             
@@ -268,6 +273,7 @@ namespace ISILab.LBS.Behaviours
         {
             return base.GetHashCode();
         }
+
         #endregion
     }
 }

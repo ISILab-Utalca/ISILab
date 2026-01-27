@@ -369,20 +369,13 @@ namespace ISILab.LBS.Editor.Windows
             layerPanel.OnLayerVisibilityChange += _ => DrawManager.Instance.RedrawLevel(levelData);
             layerPanel.OnLayerOrderChange += _ => DrawManager.Instance.RedrawLevel(levelData, true);
             layerPanel.OnSelectLayer += OnSelectedLayerChange;
-            layerPanel.OnAddLayer += layer =>
-            {
-                var sw = new Stopwatch();
-                sw.Start();
-                //   sw.Stop(); Debug.Log("OnAddLayer: " + sw.ElapsedMilliseconds + " ms");
-                sw.Restart();
-                DrawManager.Instance.AddContainer(layer);
-            };
+            layerPanel.OnAddLayer += layer => DrawManager.Instance.AddContainer(layer);
             layerPanel.OnRemoveLayer += l =>
             {
                 //      drawManager.RemoveContainer(l);
                 if (levelData.LayerCount != 0) return;
 
-                toolkit.Clear();
+                //toolkit.Clear(); It already happens in OnSelectedLayerChange
                 OnSelectedLayerChange(null);
             };
 
@@ -541,6 +534,7 @@ namespace ISILab.LBS.Editor.Windows
             selectedLabel.text = "Selected: " + layerName;
 
         }
+
         public static void WarningManipulator(string description = null)
         {
             if (warningLabel == null) return;
@@ -573,12 +567,25 @@ namespace ISILab.LBS.Editor.Windows
         private void UNDO()
         {
             //So for some reason, THIS executes about 3-4 times every time it's executed. I have NO idea why this is and at this point I'm too scared to ask. -Alice
-            if (_selectedLayer is not null)
+            foreach (var layer in GetLayers())
             {
-                _selectedLayer.OnChangeUpdate();
-                DrawManager.Instance.UpdateLayer(_selectedLayer);
+                if (layer == _selectedLayer) layer.OnChangeUpdate();
+                DrawManager.Instance.UpdateLayer(layer);
             }
-            else DrawManager.ReDraw();
+
+            //if the undo added/eliminated a layer
+            {
+                //layerPanel.ResetSelection();
+                //layerPanel.RefreshUI();
+                // The recovered layer must regain its non sereialized references (events, some stuff from its behaviours/assistants/... and its parent
+            }
+
+            //if (_selectedLayer is not null)
+            //{
+            //    _selectedLayer.OnChangeUpdate();
+            //    DrawManager.Instance.UpdateLayer(_selectedLayer);
+            //}
+            //else DrawManager.ReDraw();
 
             LBSInspectorPanel.ReDraw();
         }
@@ -594,7 +601,6 @@ namespace ISILab.LBS.Editor.Windows
         public void MessageManipulator(string description)
         {
             infoToolBar?.SmallMessage(description);
-
         }
 
         public static void GridPosition(Vector2 pos)

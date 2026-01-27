@@ -6,6 +6,7 @@ using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using ISILab.LBS.Editor.Windows;
 
 namespace ISILab.LBS.Drawers
 {
@@ -23,11 +24,16 @@ namespace ISILab.LBS.Drawers
             {
                 _dotArea = new DottedAreaFeedback();
                 view.AddElementToLayerContainer(assistant.OwnerLayer,this,_dotArea);
+                assistant.OwnerLayer.OnChange += () =>
+                {
+                    if (assistant.OwnerLayer != LBSMainWindow.Instance._selectedLayer) HideVisuals(null, null);
+                    else ShowVisuals(null, null);
+                };
                 Loaded = true;
             }
 
             if (!assistant.visible) return;
-            
+
             var size = (assistant.OwnerLayer.TileSize * LBSSettings.Instance.general.TileSize).ToInt();
             var start = new Vector2(assistant.RawToolRect.min.x, -assistant.RawToolRect.min.y + 1) * size;
             var end = new Vector2(assistant.RawToolRect.max.x, -assistant.RawToolRect.max.y + 1) * size;

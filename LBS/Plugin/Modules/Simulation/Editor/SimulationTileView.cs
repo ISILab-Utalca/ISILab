@@ -77,10 +77,9 @@ namespace ISILab.LBS.VisualElements
                     tier.style.backgroundImage = new StyleBackground(Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>(TierMedGuid)); break;
                 case TierEntity.High:
                     tier.style.backgroundImage = new StyleBackground(Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>(TierHighGuid)); break;
-
-
             }
 
+            pickingMode = PickingMode.Ignore;
         }
 
 

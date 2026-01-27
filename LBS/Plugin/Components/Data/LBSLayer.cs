@@ -98,6 +98,7 @@ namespace LBS.Components
             IEnumerable<LBSAssistant> assistant,
             IEnumerable<LBSGeneratorRule> rules,
             IEnumerable<LBSBehaviour> behaviours,
+            LBSLevelData parent,
             string ID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
             if (modules != null) foreach (LBSModule m in modules) AddModule(m);
@@ -105,6 +106,7 @@ namespace LBS.Components
             if (rules != null) foreach (LBSGeneratorRule r in rules) AddGeneratorRule(r);
             if (behaviours != null) foreach (LBSBehaviour b in behaviours) AddBehaviour(b);
 
+            Parent = parent;
             this.ID = ID;
             IsVisible = visible;
             this.name = name;
@@ -351,7 +353,7 @@ namespace LBS.Components
             List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
             List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
 
-            return new LBSLayer(clonedModules, clonedAssistants, clonedRules, clonedBehaviours, id, visible, name, iconGuid, TileSize);
+            return new LBSLayer(clonedModules, clonedAssistants, clonedRules, clonedBehaviours, Parent, id, visible, name, iconGuid, TileSize);
         }
 
         public override bool Equals(object obj)
