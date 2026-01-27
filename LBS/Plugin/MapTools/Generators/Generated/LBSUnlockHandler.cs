@@ -34,7 +34,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         public void Start()
         {
-            if (keyComp is null) return;
+            if (keyComp == null) return;
             // store ID as the object is destroyed when the item is added to inventory
             key = keyComp.GetID();
             obstacle = GetComponent<NavMeshObstacle>();
@@ -45,20 +45,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private void ActivatePOICallback()
         {
-            if (!keyComp.TryGetComponent<DestroyNotifier>(out var keyDestroyNotifier))
+            if (keyComp == null || !keyComp.TryGetComponent<DestroyNotifier>(out var keyDestroyNotifier))
                 return;
             
             keyDestroyNotifier.OnDestroyed += obj =>
             {
                 Debug.Log("ON DESTROY!!!");
-                Collider[] doorPOIElements = Physics.OverlapBox(transform.position, new Vector3(0.5f, 0.5f, 1f), transform.rotation);
-                for (int i = 0; i < doorPOIElements.Length; i++)
-                {
-                    var simComp = doorPOIElements[i].GetComponentInParent<LBSGeneratedSimulation>();
-                    if (simComp == null) continue;
-
-                    simComp.ReactivateEntity();
-                }
+                SimulationUnlock();
             };
         }
 
@@ -66,8 +59,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         for example, animation. */
         public virtual void OnUnlock()
         {
-            //var navmesh = FindObjectsByType<NavMeshSurface>(FindObjectsSortMode.None)[0];
-            //navmesh.UpdateNavMesh()
+            if(keyComp == null)
+                SimulationUnlock();
 
             obstacle = GetComponent<NavMeshObstacle>();
             obstacle.carving = false;
@@ -81,7 +74,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private bool TryUnlock(Collider other)
         {
             var inventory = other.GetComponent<LBSInventory>();
-            if (inventory is null) return false;
+            if (inventory == null) return false;
             if (!inventory.HasType(key)) return false;
 
             inventory.RemoveItem(key);
@@ -93,6 +86,18 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             return true;
+        }
+
+        private void SimulationUnlock()
+        {
+            Collider[] doorPOIElements = Physics.OverlapBox(transform.position, new Vector3(0.5f, 0.5f, 1f), transform.rotation);
+            for (int i = 0; i < doorPOIElements.Length; i++)
+            {
+                var simComp = doorPOIElements[i].GetComponentInParent<LBSGeneratedSimulation>();
+                if (simComp == null) continue;
+
+                simComp.ReactivateEntity();
+            }
         }
 
         #endregion
