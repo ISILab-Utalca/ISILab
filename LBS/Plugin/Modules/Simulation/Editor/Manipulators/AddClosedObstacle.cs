@@ -11,7 +11,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators
 
         public override void AddObstacleAction()
         {
-            triggerTile.AddObstacle(obstacleTile, LBSSimualtionObstacleConnections.Category.CLOSE);
+            triggerTile.AddObstacle(obstacleTile, LBSSimulationObstacleConnections.Category.CLOSE);
         }
     }
 

@@ -8,7 +8,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
     // Connexions entre un SimulationTile de tipo DynamicObstacleTrigger y los
     // respectivos DynamicObstacleObject que afecta.
     [System.Serializable]
-    public class LBSSimualtionObstacleConnections : SimulationObstacleConnections
+    public class LBSSimulationObstacleConnections : SimulationObstacleConnections
     {
 
         #region FIELDS
@@ -20,7 +20,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region CONSTRUCTORS
-        public LBSSimualtionObstacleConnections(SimulationTile trigger, List<(SimulationTile, Category)> obs)
+        public LBSSimulationObstacleConnections(SimulationTile trigger, List<(SimulationTile, Category)> obs)
         {
             // Obstacle tile check
             foreach (var obstacle in obs)
@@ -36,7 +36,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             this.obstacles = obs;
         }
         
-        public LBSSimualtionObstacleConnections(bool isNull):  base(isNull) { }
+        public LBSSimulationObstacleConnections(bool isNull):  base(isNull) { }
         #endregion
 
         #region PROPERTIES

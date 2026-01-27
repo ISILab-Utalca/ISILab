@@ -372,9 +372,28 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         public List<LBSTile> GetTilesWithDoors()
         {
             var connectedTM = OwnerLayer.GetModule<ConnectedTileMapModule>();
-            var tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
-            var doors = tiles.Where(t => connectedTM.GetPair(t).HasConnections(SchemaBehaviour.Door, SchemaBehaviour.LockedDoor).Count > 0);
+            IEnumerable<LBSTile> tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
+            IEnumerable<LBSTile> doors = tiles.Where(t => connectedTM.GetPair(t).HasConnections(SchemaBehaviour.Door, SchemaBehaviour.LockedDoor).Count > 0);
             return doors.ToList();
+        }
+
+        public Dictionary<string, List<LBSTile>> GetTilesWithConnections(params string[] connections)
+        {
+            var lists = new Dictionary<string, List<LBSTile>>();
+            foreach (string connection in connections) 
+                lists.Add(connection, new List<LBSTile>());
+
+            var connectedTM = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            IEnumerable<LBSTile> tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
+            foreach(LBSTile tile in tiles)
+            {
+                HashSet<string> set = connectedTM.GetPair(tile).Connections.ToHashSet();
+                foreach(string conn in set)
+                    if(lists.ContainsKey(conn))
+                        lists[conn].Add(tile);
+            }
+
+            return lists;
         }
 
         private List<bool> CheckNeighborhood(Vector2Int position, List<Vector2> directions)

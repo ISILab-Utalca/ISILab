@@ -21,6 +21,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         //private PathOSTag tag;
         private LBSTag tag;
         [SerializeField, JsonRequired]
+        private bool lockedDoorPOI;
+        [SerializeField, JsonRequired]
         private EntityType entityType;
         // Booleanos para Event Tags
         [SerializeField, JsonRequired]
@@ -28,21 +30,23 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         [SerializeField, JsonRequired]
         private bool isDynamicObstacleObject = false;
         [SerializeField]
-        private LBSSimualtionObstacleConnections obstacles;
+        private LBSSimulationObstacleConnections obstacles;
         [SerializeField]
         private SimulationDynamicTagConnections dynamicTagTiles;
         #endregion
 
         #region CONSTRUCTORS
-        public SimulationTile(SimulationBehaviour owner, int x, int y, EntityType type, LBSTag tag = null)
+        public SimulationTile(SimulationBehaviour owner, int x, int y, EntityType type, LBSTag tag = null, bool lockedDoorPOI = false)
         {
             this.owner = owner;
             this.x = x;
             this.y = y;
-            obstacles = new LBSSimualtionObstacleConnections(isNull: true);
+            obstacles = new LBSSimulationObstacleConnections(isNull: true);
             dynamicTagTiles = new SimulationDynamicTagConnections(isNull: true);
             entityType = type;
             if (tag != null) { this.tag = tag; }
+
+            LockedDoorPOI = lockedDoorPOI;
         }
         #endregion
 
@@ -67,6 +71,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         public int Y { get { return y; } set { y = value; } }
         public Vector2Int Position { get { return new Vector2Int(x, y); } }
         public LBSTag Tag { get { return tag; } set { tag = value; } }
+        public bool LockedDoorPOI { get => lockedDoorPOI; set => lockedDoorPOI = value; }
         public EntityType EntityType { get => entityType; set => entityType = value; }
         public bool IsDynamicTagObject
         {
@@ -138,7 +143,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 }
                 else
                 {
-                    obstacles = new LBSSimualtionObstacleConnections(isNull: true);
+                    obstacles = new LBSSimulationObstacleConnections(isNull: true);
                 }
 
                 // Eventos de conversion y reversion (solo si cambio es no redundante)
@@ -149,7 +154,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         #endregion
 
         #region METHODS
-        public List<(SimulationTile, LBSSimualtionObstacleConnections.Category)> GetObstacles()
+        public List<(SimulationTile, LBSSimulationObstacleConnections.Category)> GetObstacles()
         {
             // Chequeo de existencia.
             if (obstacles.IsNull) return new(); // Devuelve lista vacia
@@ -186,7 +191,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             return dynamicTagTiles.GetDynamicTag(tile);
         }
 
-        public void AddObstacle(SimulationTile obstacleTile, LBSSimualtionObstacleConnections.Category category)
+        public void AddObstacle(SimulationTile obstacleTile, LBSSimulationObstacleConnections.Category category)
         {
             // Chequeo de Condiciones
             if (obstacleTile == null) { Debug.LogWarning("Tile obstaculo es nulo!"); return; }
