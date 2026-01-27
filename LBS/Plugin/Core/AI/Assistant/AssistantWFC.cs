@@ -416,7 +416,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     toCalc.Add(areaNeighbour.Item1);
                 }
             }
-            else Debug.LogError("Unhandled case for Vertex-based grid. Could not build area neighbourhood.");
+            else Debug.LogWarning("Unhandled case for Vertex-based grid. Could not build area neighbourhood.");
 
             //Lista que guarda los tiles ya generados
             var closed = new List<LBSTile>();

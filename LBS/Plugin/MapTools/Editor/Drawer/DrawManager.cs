@@ -190,7 +190,7 @@ namespace ISILab.LBS
 
         public void RedrawLevel(LBSLevelData level, bool deepClean = false)
         {
-            UnityEngine.Debug.Log("Redraw Level");
+            //UnityEngine.Debug.Log("Redraw Level");
             var newDrawers = GetNewDrawers();
             foreach (LBSLayer layer in level.Layers)
             {

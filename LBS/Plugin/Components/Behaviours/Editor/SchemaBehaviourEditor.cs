@@ -203,7 +203,7 @@ namespace ISILab.LBS.Behaviours.Editor
 
             areaPallete.SetOptions(options, (optionView, option) =>
             {
-                Debug.Log("Setting options");
+                //Debug.Log("Setting options");
                 var area = (Zone)option;
                 optionView.Label = area.ID;
                 optionView.FrameColor = area.Color;
@@ -263,7 +263,7 @@ namespace ISILab.LBS.Behaviours.Editor
 
         private void RepaintAreaPallete()
         {
-            Debug.Log("Repainting");
+            //Debug.Log("Repainting");
             var refreshedZones = behaviour.Zones;
             areaPallete.Options = new object[refreshedZones.Count];
             for (int i = 0; i < refreshedZones.Count; i++)
