@@ -400,12 +400,13 @@ namespace ISILab.LBS.Plugin.UI.Editor
                 RemoveElement(element);
             }
         }
-        
+
         /// <summary>
         /// Creates a new LayerContainer for a layer. in which all the graph elements will be stored
         /// </summary>
         public void AddContainer(LBSLayer layer)
         {
+            if (_layers.ContainsKey(layer)) return;
             _layers.Add(layer, new LayerContainer());
         }
 
@@ -439,29 +440,11 @@ namespace ISILab.LBS.Plugin.UI.Editor
         /// </summary>
         public List<GraphElement> GetElementsFromLayer(LBSLayer layer, object key)
         {
-            //return _layers.TryGetValue(layer, out LayerContainer container) ? container.GetElement(key) : null;
-            if (_layers == null)
-            {
-                UnityEngine.Debug.LogError("_layers dictionary is null, there are no containers.");
-                return null;
-            }
-            
-            if (!_layers.TryGetValue(layer, out LayerContainer container))
-            {
-                UnityEngine.Debug.LogError($"Layer '{layer.ID}' not found in _layers.");
-                return null;
-            }
+            var container = GetLayerContainer(layer);
 
-            var result = container.GetElement(key);
-            if (result == null)
-            {
-                //Debug.LogError($"container.GetElement({key}) does not contain any values.");
-                
-                // TODO FIX TRYING TO REDRAW THIS
-              //  Debug.LogError($"container.GetElement({key}) does not contain any values.");
-            }
-            
-            return result;
+            if (container == null) return null;
+
+            return container.GetElement(key);
         }
 
         /// <summary>
@@ -478,13 +461,19 @@ namespace ISILab.LBS.Plugin.UI.Editor
             return container.GetAllElements();
         }
 
-        
+
         /// <summary>
         /// Retrieves an existing container for a layer.
         /// </summary>
         private LayerContainer GetLayerContainer(LBSLayer layer)
         {
-            _layers.TryGetValue(layer, out var container);
+            if (layer == null) return null;
+
+            if (!_layers.TryGetValue(layer, out var container))
+            {
+                container = new LayerContainer();
+                _layers.Add(layer, container);
+            }
             return container;
         }
 
