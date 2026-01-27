@@ -52,6 +52,13 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseEnter(VisualElement element, MouseEnterEvent e)
         {
             CleanUpVisuals();
+            if (_selectedZone != null)
+            {
+                if (ISILab.LBS.Plugin.UI.Editor.MainView.Instance != null)
+                {
+                    ISILab.LBS.Plugin.UI.Editor.MainView.Instance.AddElement(_dottedFeedback);
+                }
+            }
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
