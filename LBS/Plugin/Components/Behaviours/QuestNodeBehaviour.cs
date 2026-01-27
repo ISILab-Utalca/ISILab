@@ -34,16 +34,14 @@ namespace ISILab.LBS.Behaviours
             OwnerLayer = layer;
         }
 
-        public override void OnDetachLayer(LBSLayer layer)
-        {
-        }
+        public override void OnDetachLayer(LBSLayer layer) { }
         
-      
-
         private void ChangeVisuals()
         {
             RequestTileRemove(this);
             RequestTilePaint(this);
         }
+
+        public override void CheckKeys() { } // Quest Behaviour does this for the rest of behaviours from the quest layer
     }
 }

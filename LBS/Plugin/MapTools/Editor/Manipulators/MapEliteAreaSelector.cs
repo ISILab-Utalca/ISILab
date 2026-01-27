@@ -12,8 +12,6 @@ namespace ISILab.LBS.Manipulators
         private readonly Action<Rect> _onSelection;
         protected override string IconGuid => "132787114daf605489a3d20bafcf2844";
 
-
-
         public MapEliteAreaSelector(Action<Rect> action)
         {
             Feedback = new AreaFeedback();
@@ -23,8 +21,6 @@ namespace ISILab.LBS.Manipulators
             Name = "Assistant Area Selector";
             Description = "Select an area that will be used by Map Elites Assistant.";
         }
-
-
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {

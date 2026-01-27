@@ -172,6 +172,27 @@ namespace ISILab.LBS.VisualElements.Editor
         private void SelectionChanged(IEnumerable<object> objs)
         {
             LBSLayer newSelected = objs.FirstOrDefault() as LBSLayer;
+            
+            //if (newSelected != null)
+            //{
+            //    if (newSelected.Parent == null)
+            //    {
+            //        var removedLayer = Data.RemoveAt(_list.selectedIndex);
+            //        removedLayer.RemoveAll();
+            //        DrawManager.Instance.RemoveContainer(removedLayer);
+            //        OnRemoveLayer?.Invoke(removedLayer);
+            //        _list.Rebuild();
+
+            //        var template = _templates.FirstOrDefault(t => t.layer.ID == newSelected.ID);
+            //        if (template != null)
+            //        {
+            //            if (template.layer.Clone() is not LBSLayer layer) return;
+            //            layer.Name = LBSSettings.Instance.general.baseLayerName;
+            //            AddLayer(layer);
+            //        }
+            //    }
+            //}
+
             SetSelectedLayer(newSelected);
             LBSMainWindow.Instance._selectedLayer = _selectedLayer;
             CheckOpacity();
@@ -219,10 +240,19 @@ namespace ISILab.LBS.VisualElements.Editor
                 Debug.LogWarning("No layer type selected.");
                 return;
             }
+            
+            //LoadedLevel level = LBSController.CurrentLevel;
+            //EditorGUI.BeginChangeCheck();
+            //Undo.RegisterCompleteObjectUndo(level, "Add Layer");
 
             if (_templates[index].layer.Clone() is not LBSLayer layer) return;
             layer.Name = LBSSettings.Instance.general.baseLayerName;
             AddLayer(layer);
+
+            //if (EditorGUI.EndChangeCheck())
+            //{
+            //    EditorUtility.SetDirty(level);
+            //}
         }
 
         public void AddLayer(LBSLayer layer)
@@ -273,6 +303,10 @@ namespace ISILab.LBS.VisualElements.Editor
                 "You are about to delete a layer. Are you sure?",
                 "Continue", "Cancel")) return;
 
+            //LoadedLevel level = LBSController.CurrentLevel;
+            //EditorGUI.BeginChangeCheck();                             // TODO: Serialization doesn't work, behaviours and assistants don't recover all of its references, it would require a lot of changes for it to work
+            //Undo.RegisterCompleteObjectUndo(level, "Remove Layer");
+
             var removedLayer = Data.RemoveAt(index);
             removedLayer.RemoveAll();
             DrawManager.Instance.RemoveContainer(removedLayer);
@@ -282,6 +316,11 @@ namespace ISILab.LBS.VisualElements.Editor
             SetSelectedLayer(GetNextLayerAfterRemoval(index));
             LBSMainWindow.MessageNotify(
                 new LBSLog("Data layer deleted"));
+
+            //if (EditorGUI.EndChangeCheck())
+            //{
+            //    EditorUtility.SetDirty(level);
+            //}
         }
 
         private LBSLayer GetNextLayerAfterRemoval(int removedIndex)
@@ -342,6 +381,7 @@ namespace ISILab.LBS.VisualElements.Editor
         public void ResetSelection()
         {
             _list.ClearSelection();
+            _list.Rebuild();
             SetSelectedLayer(null);
         }
 
@@ -374,7 +414,7 @@ namespace ISILab.LBS.VisualElements.Editor
             CheckOpacity();
         }
 
-        private void RefreshUI()
+        public void RefreshUI()
         {
             UpdateNoLayerPanel();
             UpdateNoSelectedLayer();

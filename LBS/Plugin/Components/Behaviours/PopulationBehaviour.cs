@@ -21,9 +21,8 @@ namespace ISILab.LBS.Behaviours
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
     public class PopulationBehaviour : LBSBehaviour
     {
-
-
         #region FIELDS
+        
         private const string DefaultRotation = LBSDirection.Up;
         [SerializeField, HideInInspector]
         private List<WeightedDirection> dirWeights = new()
@@ -53,6 +52,7 @@ namespace ISILab.LBS.Behaviours
         private string DefaultBundleRefGuid { get => "668e6768d7619b3459df4f6378dfa3bb"; }
 
         private HashSet<TileBundleGroup> _newRotations = new();
+        
         #endregion
 
         #region META-FIELDS
@@ -78,6 +78,7 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region PROPERTIES
+
         [JsonIgnore]
         public List<TileBundleGroup> Tilemap => _bundleTileMap is not null ? _bundleTileMap.Groups : new List<TileBundleGroup>();
 
@@ -158,10 +159,7 @@ namespace ISILab.LBS.Behaviours
 
         #region METHODS
 
-        public override void OnGUI()
-        {
-
-        }
+        public override void OnGUI() { }
 
         public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation, List<BundleTileMapAddons> addons)
         {
@@ -306,6 +304,11 @@ namespace ISILab.LBS.Behaviours
             layer.OnChange -= UpdateKeys;
         }
 
+        public override void CheckKeys()
+        {
+            UpdateKeys(Tilemap.ToList<object>());
+        }
+
         public void UpdateKeys()
         {
             UpdateKeys(Tilemap.ToList<object>());
@@ -370,8 +373,6 @@ namespace ISILab.LBS.Behaviours
             return o;
         }
 
-
-
         private void UpdateRotationWeights()
         {
             switch (tileRotationMode)
@@ -417,7 +418,6 @@ namespace ISILab.LBS.Behaviours
             return -1;
         }
 
-
         public Vector2 GetActiveRotation()
         {
             List<Vector2Int> directions = Commons.Directions.Bidimencional.Edges;
@@ -451,7 +451,6 @@ namespace ISILab.LBS.Behaviours
                 _ => directions[0]
             };
         }
-
 
         #endregion
     }

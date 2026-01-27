@@ -243,7 +243,11 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public override void OnDetachLayer(LBSLayer layer)
         {
             OwnerLayer = null;
-            layer.OnChange -= UpdateKeys;  //Por qué se hace esto en todos los detach? No es mejor mantener las referencias y que siempre se actualizen las keys? 
+            layer.OnChange -= UpdateKeys;
+        }
+        public override void CheckKeys()
+        {
+            UpdateKeys(Tiles.ToList<object>());
         }
 
         public void UpdateKeys()

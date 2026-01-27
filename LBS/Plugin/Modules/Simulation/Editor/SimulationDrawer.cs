@@ -21,7 +21,6 @@ namespace ISILab.LBS.Drawers
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
-      
             if (behaviour is null)
             {
                 behaviour = target as SimulationBehaviour;

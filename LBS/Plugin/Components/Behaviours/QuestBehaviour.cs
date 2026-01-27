@@ -40,6 +40,11 @@ namespace ISILab.LBS.Behaviours
             layer.OnChange -= UpdateKeys;
         }
 
+        public override void CheckKeys()
+        {
+            UpdateKeys(Graph.GraphNodes.ToList<object>());
+        }
+
         public void UpdateKeys()
         {
             UpdateKeys(Graph.GraphNodes.ToList<object>());

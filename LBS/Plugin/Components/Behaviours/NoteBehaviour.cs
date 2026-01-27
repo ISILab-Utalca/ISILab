@@ -55,6 +55,11 @@ namespace ISILab.LBS.Behaviours
             layer.OnChange -= UpdateKeys;
         }
 
+        public override void CheckKeys()
+        {
+            UpdateKeys(Notes.ToList<object>());
+        }
+
         public void UpdateKeys()
         {
             UpdateKeys(Notes.ToList<object>());

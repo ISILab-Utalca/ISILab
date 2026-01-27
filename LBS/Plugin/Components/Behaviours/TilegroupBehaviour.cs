@@ -73,6 +73,8 @@ namespace ISILab.LBS.Behaviours
             return base.GetHashCode();
         }
 
+        public override void CheckKeys() { }
+
         #endregion
     }
 }

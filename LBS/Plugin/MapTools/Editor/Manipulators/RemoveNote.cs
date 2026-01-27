@@ -10,7 +10,7 @@ namespace ISILab.LBS.Manipulators
 {
     public class RemoveNote : LBSManipulator
     {
-        protected override string IconGuid => "";
+        protected override string IconGuid => "a57f2767b5141524ea6c0ae9b682346e";
 
         public RemoveNote()
         {
