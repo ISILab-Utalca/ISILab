@@ -296,7 +296,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             if (obj.TryGetComponent<LBSGenerated>(out LBSGenerated lbsGen))
             {
-                if (lbsGen.BundleRef.HasAnyFlag(new HashSet<Bundle.EElementFlag>{ Bundle.EElementFlag.Character})) return;
+                if (lbsGen.BundleRef.HasAnyFlag(Bundle.EElementFlag.Character)) return;
                 if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
             }
 

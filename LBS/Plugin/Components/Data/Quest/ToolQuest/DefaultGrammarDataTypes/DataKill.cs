@@ -18,7 +18,7 @@ namespace ISILab.LBS.Components
             /// </summary>
             [SerializeField] public List<BundleGraph> bundlesToKill;
 
-            private readonly HashSet<Bundle.EElementFlag> requiredKillTags = new()
+            private readonly Bundle.EElementFlag[]  requiredKillTags =
             {
                 Bundle.EElementFlag.Enemy
             }; 

@@ -7,6 +7,7 @@ using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
@@ -40,13 +41,24 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         public GameObject obj;
         [Range(0f,1f)]
         public float probability;
+        [HideInInspector]
+        public string id = "";
 
+        public string ID => (id != null && id != "") ? id : SetID(); 
         public Asset(GameObject obj, float probability)
         {
             this.obj = obj;
             this.probability = probability;
         }
-
+        public string SetID()
+        {
+            id = Guid.NewGuid().ToString();
+            return id;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         public object Clone()
         {
             return new Asset(this.obj, this.probability);
@@ -58,6 +70,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             if (other == null) return false;
             if (other.obj != obj) return false;
             if (other.probability != probability) return false;
+            if (other.ID != ID) return false;
             return true;
         }
     }
@@ -257,7 +270,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         public List<Bundle> GetChildrenByPositioning(Positioning positioning)
         {
             var r = new List<Bundle>();
-            foreach (var child in childsBundles)
+            foreach (Bundle child in childsBundles)
             {
                 if(child.anchorPosition == positioning)
                     r.Add(child);
@@ -270,7 +283,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         internal List<Bundle> GetChildrensByTag(string tag)
         {
             var r = new List<Bundle>();
-            foreach (var child in childsBundles)
+            foreach (Bundle child in childsBundles)
             {
                 if (child.name == tag)
                     r.Add(child);
@@ -282,7 +295,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public void Reload()
         {
-            foreach (var characteristic in characteristics)
+            foreach (LBSCharacteristic characteristic in characteristics)
             {
                 if (characteristic != null)
                 {
@@ -309,7 +322,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         {
             // Get all parent bundles to avoid recursion
             List<Bundle> parents = new List<Bundle>();
-            var currentParent = this;
+            Bundle currentParent = this;
             while (currentParent != null)
             {
                 parents.Add(currentParent);
@@ -370,7 +383,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         {
             while (childsBundles.Count() > 0)
             {
-                var last = childsBundles.Last();
+                Bundle last = childsBundles.Last();
                 OnRemoveChild?.Invoke(this);
                 childsBundles.Remove(last);
             }
@@ -427,7 +440,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public void RemoveAssetAt(int index)
         {
-            var asset = assets[index];
+            Asset asset = assets[index];
             assets.RemoveAt(index);
             OnRemoveAsset?.Invoke(asset);
         }
@@ -451,10 +464,10 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
             chars.AddRange(GetCharacteristics<T>());
 
-            foreach (var child in childsBundles)
+            foreach (Bundle child in childsBundles)
             {
                 if(child == null) continue;
-                var subChars = child.GetChildrenCharacteristics<T>();
+                List<T> subChars = child.GetChildrenCharacteristics<T>();
                 chars.AddRange(subChars);
             }
             return chars;
@@ -476,20 +489,20 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public object Clone()
         {
-            var other = ScriptableObject.CreateInstance<Bundle>();
+            Bundle other = ScriptableObject.CreateInstance<Bundle>();
 
-            foreach (var charc in this.characteristics)
+            foreach (LBSCharacteristic charc in this.characteristics)
             {
                 other.AddCharacteristic(charc.Clone() as LBSCharacteristic);
             }
 
-            foreach (var child in this.childsBundles)
+            foreach (Bundle child in this.childsBundles)
             {
                 var b = child.Clone() as Bundle;
                 other.AddChild(b);
             }
 
-            foreach (var asset in assets)
+            foreach (Asset asset in assets)
             {
                 other.AddAsset(asset.Clone() as Asset);
             }
@@ -549,9 +562,9 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         /// Returns true if the bundle has all of the given flags.
         /// Example: Enemy | Item returns true if queried with { Character, Item }.
         /// </summary>
-        public bool HasAllFlags(HashSet<EElementFlag> queryFlags)
+        public bool HasAllFlags(params EElementFlag[] queryFlags)
         {
-            foreach (var flag in queryFlags)
+            foreach (EElementFlag flag in queryFlags)
             {
                 if ((ElementFlag & flag) != flag)
                     return false;
@@ -559,22 +572,40 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             return true;
         }
 
-        
+
         /// <summary>
-        /// Returns true if the bundle has at least one of the given flags
-        /// or falls under its parent category.
-        /// Example: Enemy will return true if checked against { Character, Player } because Enemy includes Character.
+        /// Returns true if the bundle matches at least one of the given flags
+        /// (including via parent-category bits).
+        /// Example: Enemy -> true for (Character, Item)
+        ///          Equipment -> true for (Item)
         /// </summary>
-        public bool HasAnyFlag(HashSet<EElementFlag> queryFlags)
+        public bool HasAnyFlag(params EElementFlag[] queryFlags)
         {
-            foreach (var flag in queryFlags)
+            foreach (EElementFlag flag in queryFlags)
             {
-                if ((ElementFlag & flag) == flag)
+                if (HasFlag(flag))
                     return true;
             }
 
             return false;
         }
+
+
+
+        /// <summary>
+        /// Returns true if this bundle has the given flag
+        /// or is a subtype that includes it (via bit composition).
+        /// Example: Enemy.HasFlag(Character) -> true
+        ///          Equipment.HasFlag(Item)   -> true
+        /// </summary>
+        public bool HasFlag(EElementFlag queryFlag)
+        {
+            if (queryFlag == EElementFlag.None)
+                return ElementFlag == EElementFlag.None;
+
+            return (ElementFlag & queryFlag) == queryFlag;
+        }
+
 
         public bool HasCharacteristic(Type t)
         {
@@ -606,7 +637,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             if (parent == child) return true;
             if (child.ChildsBundles.Contains(parent)) return true;
             
-            foreach (var ch in child.ChildsBundles)
+            foreach (Bundle ch in child.ChildsBundles)
             {
                 if (IsRecursive(parent, ch))
                 {
@@ -617,16 +648,17 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             return false;
         }
 
+
         #endregion
 
-   
+
     }
 
     public static class BundleExtensions
     {
         public static bool IsRoot(this Bundle bundle)
         {
-            var storage = LBSAssetsStorage.Instance;
+            LBSAssetsStorage storage = LBSAssetsStorage.Instance;
 
             var x = storage.Get<Bundle>().ToList();
             var xx = x.Where(b => b.ChildsBundles.Contains(bundle)).ToList();
@@ -636,7 +668,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
 
         public static Bundle Parent(this Bundle bundle)
         {
-            var parent = LBSAssetsStorage.Instance.Get<Bundle>()
+            Bundle parent = LBSAssetsStorage.Instance.Get<Bundle>()
                 .Find(b => b.ChildsBundles.Contains(bundle));
 
             return parent;
@@ -644,7 +676,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
         
         public static List<Bundle> Parents(this Bundle bundle)
         {
-            var parents = LBSAssetsStorage.Instance.Get<Bundle>()
+            List<Bundle> parents = LBSAssetsStorage.Instance.Get<Bundle>()
                 .FindAll(b => b.ChildsBundles.Contains(bundle));
 
             return parents;

@@ -138,7 +138,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                             //bundles.RemoveAt(i); // Apparently the callback is being called twice so using Remove instead ensures deleting only one element.
                             if (bundles.Contains(container))
                             {
-                                bundles.Remove(container);
+                                //bundles.Remove(container);
 
                                 OnRequestMove?.Invoke(container);
                                 EditorApplication.delayCall += () =>

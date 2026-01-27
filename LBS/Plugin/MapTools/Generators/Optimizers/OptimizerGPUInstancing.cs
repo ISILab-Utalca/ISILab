@@ -84,4 +84,29 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
     }
 
+
+    public class LBSGpuInstancer : MonoBehaviour
+    {
+
+        public Material material;
+        public Mesh mesh;
+        // original transform of the objects
+        public List<Transform> originals = new();
+
+        int numInstances = -1;
+
+        void Start()
+        {
+            numInstances = originals.Count;
+        }
+        void Update()
+        {
+            RenderParams rp = new RenderParams(material);
+            Matrix4x4[] instData = new Matrix4x4[numInstances];
+            for (int i = 0; i < numInstances; ++i)
+                instData[i] = Matrix4x4.Translate(originals[i].position);
+            Graphics.RenderMeshInstanced(rp, mesh, 0, instData);
+        }
+    }
+
 }

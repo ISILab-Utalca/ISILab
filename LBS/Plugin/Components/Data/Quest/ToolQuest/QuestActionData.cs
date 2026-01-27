@@ -160,7 +160,7 @@ namespace ISILab.LBS.Components
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
             ref List<BundleGraph> listVar,
-            HashSet<Bundle.EElementFlag> flags,
+            Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
             foreach (TileBundleGroup suggestionTile in suggestions)
@@ -186,7 +186,7 @@ namespace ISILab.LBS.Components
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
             ref BundleGraph graphVar,
-            HashSet<Bundle.EElementFlag> flags,
+            Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
             foreach (TileBundleGroup suggestionTile in suggestions)
@@ -212,7 +212,7 @@ namespace ISILab.LBS.Components
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
             ref BundleType typeVar,
-            HashSet<Bundle.EElementFlag> flags,
+            Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
             foreach (TileBundleGroup suggestionTile in suggestions)

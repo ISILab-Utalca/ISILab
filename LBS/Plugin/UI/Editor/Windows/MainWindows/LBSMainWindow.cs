@@ -386,7 +386,7 @@ namespace ISILab.LBS.Editor.Windows
                 OnSelectedLayerChange(null);
             };
 
-            gen3DPanel = new Generator3DPanel();
+            gen3DPanel ??= new Generator3DPanel();
             extraPanel.Add(gen3DPanel);
             gen3DPanel.style.display = DisplayStyle.None;
 
