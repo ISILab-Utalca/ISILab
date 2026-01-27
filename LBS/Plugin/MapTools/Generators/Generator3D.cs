@@ -1,6 +1,7 @@
 ﻿using ISILab.Commons.Extensions;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Bundles.Tools;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -243,6 +244,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private void Optimize(GameObject root)
         {
+            // Scatter areas use one of those optimizations
+            ScatterAreaBase[] scatterAreas = root.GetComponentsInChildren<ScatterAreaBase>().ToArray();
+
             switch (settings.optimization3d)
             {
                 case OptimizationGenMode.None:
@@ -252,12 +256,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     return;
                 case OptimizationGenMode.JoinGeometry:
                     OptGeo.Optimize(root);
+                    foreach (ScatterAreaBase sa in scatterAreas)
+                    {
+                        sa.generationMode = ScatterAreaBase.GenerationMode.SingleCachedMesh;
+                    }
                     return;
                 case OptimizationGenMode.GpuInstancing:
                     OptGpuInst.Optimize(root);
+                    foreach (ScatterAreaBase sa in scatterAreas)
+                    {
+                        sa.generationMode = ScatterAreaBase.GenerationMode.GpuBach;
+                    }
                     return;
             }
+
         }
+
 
         private void PostOptimization(GeneratedEntry generated)
         {
