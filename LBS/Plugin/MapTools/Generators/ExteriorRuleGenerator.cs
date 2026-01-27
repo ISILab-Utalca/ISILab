@@ -90,12 +90,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var chosenTiles = mapMod.Tiles;
 
             //This is a HORRIFYING way to order the tiles. PLEASE change it if you find a better way! -Alice
-            var chosenTilesOrdered = chosenTiles.OrderByDescending(c => new bool[] {
-            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x - 1, c.Position.y))) == null),
-            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x + 1, c.Position.y))) == null),
-            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y + 1))) == null),
-            (chosenTiles.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y - 1))) == null)
-            }.Count(t => t));
+            var chosenTilesOrdered = OrderBySameConnection(chosenTiles);
 
             //Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
             var tilePrefPair = new Dictionary<LBSTile, GameObject>();
@@ -260,6 +255,18 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 
+        private IOrderedEnumerable<LBSTile> OrderBySameConnection(List<LBSTile> list)
+        {
+            var reorderedTiles = list.OrderByDescending(c => new bool[] {
+            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x - 1, c.Position.y))) == null),
+            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x + 1, c.Position.y))) == null),
+            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y + 1))) == null),
+            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y - 1))) == null)
+            }.Count(t => t));
+
+            return reorderedTiles;
+
+        }
         private GameObject ChoosePatternByGrid(Bundle currentBundle, Dictionary<string, Bundle> adjacentBundles, Dictionary<string, GameObject> adjacentPreferences)
         {
             //We know the current bundle has a selector, but we'll still put a failsafe.
