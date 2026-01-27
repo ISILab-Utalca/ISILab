@@ -16,7 +16,7 @@ namespace ISILab.LBS.Components
         /// Character or objects that gets listened to
         /// </summary>
         [SerializeField] public BundleGraph bundleListenTo;
-        private readonly HashSet<Bundle.EElementFlag> validListenTo = new()
+        private readonly Bundle.EElementFlag[] validListenTo =
         {
             Bundle.EElementFlag.Ally
         }; 

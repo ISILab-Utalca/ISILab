@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Drawers;
 using ISILab.LBS.Drawers.Editor;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
@@ -116,6 +118,7 @@ namespace ISILab.LBS
                 if (component == null) continue;
                 Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
                 if (drawer == null) continue;
+                layer.GetBehaviour<LBSBehaviour>()?.CheckKeys();
                 drawer.Update(component, MainView.Instance, layer.TileSize);
             }
         }
@@ -187,7 +190,7 @@ namespace ISILab.LBS
 
         public void RedrawLevel(LBSLevelData level, bool deepClean = false)
         {
-            UnityEngine.Debug.Log("Redraw Level");
+            //UnityEngine.Debug.Log("Redraw Level");
             var newDrawers = GetNewDrawers();
             foreach (LBSLayer layer in level.Layers)
             {

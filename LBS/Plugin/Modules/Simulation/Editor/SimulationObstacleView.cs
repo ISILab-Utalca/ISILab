@@ -37,7 +37,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
-        public SimulationObstacleView(SimulationTile triggerTile, SimulationTile obstacleTile, LBSSimualtionObstacleConnections.Category category)
+        public SimulationObstacleView(SimulationTile triggerTile, SimulationTile obstacleTile, LBSSimulationObstacleConnections.Category category)
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PathOSObstacleView");
             visualTree.CloneTree(this);
@@ -53,7 +53,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region METHODS
-        private void SetFields(SimulationTile triggerTile, SimulationTile obstacleTile, LBSSimualtionObstacleConnections.Category category)
+        private void SetFields(SimulationTile triggerTile, SimulationTile obstacleTile, LBSSimulationObstacleConnections.Category category)
         {
             // Obstacle object+trigger tile check
             if (!obstacleTile.IsDynamicObstacleObject) { Debug.LogWarning("PathOSObstacleView.SetFields(): Tile dada no es obstaculo!"); return; }

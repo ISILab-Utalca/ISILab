@@ -21,7 +21,6 @@ namespace ISILab.LBS.Drawers
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
-      
             if (behaviour is null)
             {
                 behaviour = target as SimulationBehaviour;
@@ -91,7 +90,7 @@ namespace ISILab.LBS.Drawers
         {
             foreach (SimulationTile tile in behaviour.Tiles)
             {
-                Debug.Log(tile.EntityType + ":" + tile.Position.ToString());
+               // Debug.Log(tile.EntityType + ":" + tile.Position.ToString());
 
                 var tView = new SimulationTileView(tile);
                 //var size = behaviour.OwnerLayer.TileSize * LBSSettings.Instance.general.TileSize;

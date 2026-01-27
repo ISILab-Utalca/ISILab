@@ -733,7 +733,7 @@ namespace PathOS
             float distance = 0.0f;
             Vector3 newTarget = origin;
 
-            // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target.
+            // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target. // Or maybe not...
             //if (overridePos && overrideDest != null)
             //{
             //    newTarget = overrideDest;
@@ -945,8 +945,6 @@ namespace PathOS
 
                 if (rerouteRoll >= rerouteChance)
                 {
-                    //if (changeTargetCount == 0)
-                    //    ;
                     ComputeNewDestination();
                 }
             }

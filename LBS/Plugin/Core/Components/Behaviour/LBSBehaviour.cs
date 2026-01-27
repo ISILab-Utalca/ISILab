@@ -222,6 +222,8 @@ namespace ISILab.LBS.Behaviours
             return o;
         }
 
+        public abstract void CheckKeys();
+
         public virtual void UpdateKeys(List<object> currentList)
         {
             //Create if not real
@@ -243,7 +245,6 @@ namespace ISILab.LBS.Behaviours
                     RequestTilePaint(newObject);
                 }
             }
-            
         }
 
         #endregion

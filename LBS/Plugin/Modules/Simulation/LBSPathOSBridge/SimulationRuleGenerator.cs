@@ -98,10 +98,14 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             // Lista de GameObjects a retornar
             List<GameObject> boxes = new List<GameObject>();
 
+            List<LBSGeneratedSimulation> allGeneratedComponents = new();
+
             // Instanciacion de Prefabs + colocacion de referencias en PathOSWindow
             GenerateManager();
             GenerateWorldCamera();
             GenerateScreenshotCamera();
+
+            Dictionary<string, int> objectNames = new();
 
             // Instanciacion de tags
             manager = managerGameObject.GetComponent<PathOSManager>();
@@ -130,8 +134,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                         eyesComp.cam = player.GetComponentInChildren<Camera>();
                     }
 
-       
+
                     // Terminar este ciclo para evitar errores
+                    LBSGeneratedSimulation genComp = currInstance.AddComponent<LBSGeneratedSimulation>();
+                    allGeneratedComponents.Add(genComp);
                     continue;
                 }
                 // Si el tile es Wall, instanciar muro.
@@ -155,6 +161,17 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     currInstance = PrefabUtility.InstantiatePrefab(elementPrefab, levelMarkupContainer.transform) as GameObject;
                 }
 
+                string key = UI.entityLabels[tile.EntityType];
+                currInstance.name = key;
+                if (objectNames.ContainsKey(key))
+                {
+                    objectNames[key]++;
+                    currInstance.name += " (" + objectNames[key] + ")";
+                }
+                else objectNames.Add(key, 0);
+
+
+
                 // Agregar icono del Tag asociado a este tile como textura al cubo
                 MeshRenderer currRenderer = currInstance.GetComponentInChildren<MeshRenderer>();
                 Material originalMaterial = currRenderer.sharedMaterial;
@@ -169,13 +186,25 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                                                   new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
                                                   - new Vector3(scale.x, 0, scale.y) / 2f;
 
+                LBSGeneratedSimulation generatedComponent = currInstance.AddComponent<LBSGeneratedSimulation>();
+
                 // Crear entidades de marcado de PathOS y guardarlas temporalmente para su posterior manipulacion
                 if (tile.Tag == null || tile.Tag.Label != "Wall")
                 {
                     //TODO: Cambiar currInstance por el elemento de Population que representa, cuando corresponda
-                    entitiesTemporaryReference.Add((tile, manager.AddLevelEntity(currInstance, tile.EntityType)));
+                    LevelEntity levelEntity = manager.AddLevelEntity(currInstance, tile.EntityType);
+                    entitiesTemporaryReference.Add((tile, levelEntity));
+                    generatedComponent.levelEntity = levelEntity;
                 }
+
+                if(tile.LockedDoorPOI)
+                    generatedComponent.hideAtStart = true;
+
+                allGeneratedComponents.Add(generatedComponent);
             }
+
+            foreach(LBSGeneratedSimulation generated in allGeneratedComponents)
+                generated.agent = agentGameObject.GetComponent<PathOSAgent>();
 
             // OBSTACULOS DINAMICOS: Crear y agregar obstaculos dinamicos para cada entidad recien creada (si le corresponde)
             foreach (var entityPair in entitiesTemporaryReference)

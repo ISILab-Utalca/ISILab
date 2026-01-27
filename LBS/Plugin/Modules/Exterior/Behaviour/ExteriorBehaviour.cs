@@ -145,6 +145,11 @@ namespace ISILab.LBS.Behaviours
             OwnerLayer = null;
             layer.OnChange -= UpdateKeys;
         }
+        public override void CheckKeys()
+        {
+            UpdateKeys(Tiles.ToList<object>());
+        }
+
         public void UpdateKeys()
         {
             UpdateKeys(Tiles.ToList<object>());
@@ -212,11 +217,7 @@ namespace ISILab.LBS.Behaviours
         {
             return base.GetHashCode();
         }
-        
-        
+
         #endregion
-
-
-
     }
 }

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using ISILab.AI.Optimization.Terminations;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Bundles;
@@ -56,11 +57,21 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            LBSGeneratedPopulation lbsPopGen = other.gameObject.GetComponent<LBSGeneratedPopulation>();
+            GameObject obj = other.gameObject;
+            LBSGeneratedPopulation lbsPopGen = obj.GetComponent<LBSGeneratedPopulation>();
+
+            // weapons have a child game obejct for trigger detection
+            if (!lbsPopGen)
+            {
+                obj = other.gameObject.transform.parent.gameObject;
+                lbsPopGen = other.gameObject.GetComponentInParent<LBSGeneratedPopulation>();
+            }
+
+
             if (lbsPopGen == null || lbsPopGen.BundleRef == null) return;
 
-            // Can only equip items
-            if (lbsPopGen.BundleRef.ElementFlag == Bundle.EElementFlag.Item)
+            // Can only equip itemsif (lbsPopGen.BundleRef.HasAnyFlag(Bundle.EElementFlag.Item))
+            if (lbsPopGen.BundleRef.HasFlag(Bundle.EElementFlag.Item))
             {
                 Debug.LogWarning(lbsPopGen.BundleRef.BundleName);
                 string guid = lbsPopGen.GetID();  
@@ -72,7 +83,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
                 }
 
                 AddItems(guid, 1);
-                Destroy(other.gameObject);
+                Destroy(obj);
             }
         }
 

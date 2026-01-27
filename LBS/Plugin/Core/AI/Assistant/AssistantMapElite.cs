@@ -29,18 +29,22 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
     public class AssistantMapElite : LBSAssistant
     {
         #region FIELDS
+     
         [JsonIgnore]
         private MapElites mapElites = new MapElites();
+
         [JsonIgnore, HideInInspector]
         public List<Vector2> toUpdate = new List<Vector2>();
         #endregion
 
         #region PROPERTIES
+        
         [JsonIgnore]
         public PopulationBehaviour LayerPopulation
         {
             get => OwnerLayer.Behaviours.Find(b => b.GetType().Equals(typeof(PopulationBehaviour))) as PopulationBehaviour;
         }
+
         [JsonIgnore]
         public LBSLevelData Data
         {
@@ -50,8 +54,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         [JsonIgnore]
         public bool Testing { get; set; } = false;
 
-        [JsonIgnore]
+        [SerializeField, JsonRequired]
         public Rect RawToolRect { get; set; }
+
+        // TODO: MapEliteAreaSelector has ctrl + z (undo functionality) to recover RawToolRect previous state, but for some reason
+        //       the serialization doesn't happen. With SerializeField it should be saved as such, and the layer does save the assistants
+        //       for serialization, but still, it doesn't restore it's previous values. 
 
         [JsonIgnore]
         public Rect Rect
@@ -76,6 +84,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             get => mapElites.XSampleCount;
             set => mapElites.XSampleCount = value;
         }
+
         [JsonIgnore]
         public int SampleHeight
         {
@@ -105,9 +114,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         #region METHODS
 
-        public override void OnGUI()
-        {
-        }
+        public override void OnGUI() { }
 
         public void Execute(bool synchronous = false, Action<float> onProgress = null, CancellationToken token = default)
         {

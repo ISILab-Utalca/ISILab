@@ -29,8 +29,8 @@ namespace ISILab.LBS.Behaviours
             OwnerLayer = layer;
         }
 
-        public override void OnDetachLayer(LBSLayer layer)
-        {
-        }
+        public override void OnDetachLayer(LBSLayer layer) { }
+
+        public override void CheckKeys() { }
     }
 }

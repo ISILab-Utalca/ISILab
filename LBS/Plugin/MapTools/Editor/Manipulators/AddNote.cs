@@ -1,6 +1,7 @@
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.Plugin.UI.Editor.ViewElements;
 using ISILab.LBS.VisualElements;
