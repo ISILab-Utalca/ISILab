@@ -24,7 +24,7 @@ namespace ISILab.LBS.VisualElements
     [UxmlElement]
     public partial class PickerVector2Int : PickerBase
     {
-        private Color _color = LBSSettings.Instance.view.toolkitNormal;
+        //private Color _color = LBSSettings.Instance.view.toolkitNormal;
         private Color _selected = LBSSettings.Instance.view.newToolkitSelected;
 
         public Vector2IntField vector2IntField;

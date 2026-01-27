@@ -1,5 +1,6 @@
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.Plugin.UI.Editor.ViewElements;
 using LBS.Components;
 using UnityEditor;
@@ -45,6 +46,9 @@ namespace ISILab.LBS.Manipulators
             {
                 EditorUtility.SetDirty(level);
             }
+
+            MainView.Instance.ClearLayerContainer(note.OwnerLayer);
+            DrawManager.Instance.DrawSingleComponent(noteBehaviour, note.OwnerLayer);
         }
     }
 }

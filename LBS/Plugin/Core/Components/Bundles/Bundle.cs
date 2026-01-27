@@ -60,6 +60,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             if (other.probability != probability) return false;
             return true;
         }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(obj, probability);
+        }
     }
 
     //[CreateAssetMenu(fileName = "New Bundle", menuName = "ISILab/LBS/Bundle")] <- Replaced with BundleMenuItem

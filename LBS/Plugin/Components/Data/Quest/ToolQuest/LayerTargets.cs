@@ -27,6 +27,10 @@ namespace ISILab.LBS.Components
             return other?.GetGuid() == GetGuid();
         }
 
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(layer);
+        }
     }
     
     /// <summary>

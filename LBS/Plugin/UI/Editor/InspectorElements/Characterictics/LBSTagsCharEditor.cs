@@ -15,7 +15,7 @@ namespace ISILab.LBS.Editor
         private DropdownField dropdownField;
         private ListView listView;
 
-        private string LBSTagIcon = "d6f94a68988be8b45894b9f0e677e8d1";
+        //private string LBSTagIcon = "d6f94a68988be8b45894b9f0e677e8d1";
 
         private LBSTagsCharacteristic TC => target as LBSTagsCharacteristic;
 
