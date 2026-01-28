@@ -2,11 +2,11 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -40,11 +40,25 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, provider);
             _schema = provider as SchemaBehaviour;
+            _schema.OwnerLayer.OnChange += CleanUpVisuals;
+        }
 
-            _schema.OwnerLayer.OnChange += () =>
+        protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
+        {
+            CleanUpVisuals();
+
+        }
+
+        protected override void OnMouseEnter(VisualElement element, MouseEnterEvent e)
+        {
+            CleanUpVisuals();
+            if (_selectedZone != null)
             {
-                ISILab.LBS.Plugin.UI.Editor.MainView.Instance.RemoveElement(_dottedFeedback);
-            };
+                if (ISILab.LBS.Plugin.UI.Editor.MainView.Instance != null)
+                {
+                    ISILab.LBS.Plugin.UI.Editor.MainView.Instance.AddElement(_dottedFeedback);
+                }
+            }
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -68,19 +82,24 @@ namespace ISILab.LBS.Manipulators
             CalculateZoneBounds(_cachedZoneTiles, pos);
 
             ISILab.LBS.Plugin.UI.Editor.MainView.Instance.AddElement(_dottedFeedback);
-
             ActualizeFeedback(pos);
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
-            if (_selectedZone == null) return;
+            if (_selectedZone == null)
+            {
+                CleanUpVisuals();
+                return;
+            }
 
             if (ForceCancel)
             {
-                ISILab.LBS.Plugin.UI.Editor.MainView.Instance.RemoveElement(_dottedFeedback);
+                CleanUpVisuals();
                 return;
             }
+
+            base.OnMouseMove(element, movePosition, e);
 
             var currentGridPos = _schema.OwnerLayer.ToFixedPosition(movePosition);
             ActualizeFeedback(currentGridPos);
@@ -124,11 +143,19 @@ namespace ISILab.LBS.Manipulators
             CleanUp();
         }
 
+        private void CleanUpVisuals()
+        {
+            if (ISILab.LBS.Plugin.UI.Editor.MainView.Instance != null)
+            {
+                ISILab.LBS.Plugin.UI.Editor.MainView.Instance.RemoveElement(_dottedFeedback);
+            }
+        }
+
         private void CleanUp()
         {
             _selectedZone = null;
             _cachedZoneTiles = null;
-            ISILab.LBS.Plugin.UI.Editor.MainView.Instance.RemoveElement(_dottedFeedback);
+            CleanUpVisuals();
         }
 
         private void CalculateZoneBounds(List<LBSTile> tiles, Vector2Int anchorPos)
@@ -173,12 +200,12 @@ namespace ISILab.LBS.Manipulators
             firstPos.x *= -1;
             lastPos.x *= -1;
 
-            _dottedFeedback.UpdatePositions( new Vector2Int((int)firstPos.x, (int)firstPos.y), new Vector2Int((int)lastPos.x, (int)lastPos.y));
+            _dottedFeedback.UpdatePositions(new Vector2Int((int)firstPos.x, (int)firstPos.y), new Vector2Int((int)lastPos.x, (int)lastPos.y));
         }
+
         private bool CheckCollision(Vector2Int offset)
         {
             if (offset == Vector2Int.zero) return true;
-
             if (_cachedZoneTiles == null) return false;
 
             foreach (var tile in _cachedZoneTiles)
@@ -189,14 +216,12 @@ namespace ISILab.LBS.Manipulators
                 if (existingTile != null)
                 {
                     var existingZone = _schema.GetZone(existingTile);
-
                     if (existingZone != _selectedZone)
                     {
                         return false;
                     }
                 }
             }
-
             return true;
         }
     }
