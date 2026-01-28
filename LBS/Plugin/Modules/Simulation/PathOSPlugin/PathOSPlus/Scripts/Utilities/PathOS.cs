@@ -365,7 +365,7 @@ namespace PathOS
             for(int i = destList.Count - 1; i >= 0; --i)
             {
                 //Clean out everything below our threshold.
-                if (destList[i].score < maxScore - PathOS.Constants.Behaviour.SCORE_UNCERTAINTY_THRESHOLD)
+                if (destList[i].score < maxScore - Constants.Behaviour.SCORE_UNCERTAINTY_THRESHOLD)
                 {
                     destList.RemoveAt(i);
                     continue;
@@ -379,7 +379,7 @@ namespace PathOS
                 //Normalized score on [0, 1] 
                 //converted from [maxScore - threshold, maxScore].
                 destList[i].normScore = 1.0f - (maxScore - destList[i].score) /
-                    PathOS.Constants.Behaviour.SCORE_UNCERTAINTY_THRESHOLD;
+                    Constants.Behaviour.SCORE_UNCERTAINTY_THRESHOLD;
 
                 totalScore += destList[i].normScore;
             }
@@ -433,11 +433,11 @@ namespace PathOS
 
         public static bool SameEntity(PerceivedEntity lhs, EntityMemory rhs)
         {
-            if (object.ReferenceEquals(lhs, null))
-                return object.ReferenceEquals(rhs, null);
+            if (ReferenceEquals(lhs, null))
+                return ReferenceEquals(rhs, null);
 
-            if (object.ReferenceEquals(rhs, null))
-                return object.ReferenceEquals(lhs, null);
+            if (ReferenceEquals(rhs, null))
+                return ReferenceEquals(lhs, null);
 
             return lhs.instanceID == rhs.entity.instanceID;
         }
@@ -445,22 +445,22 @@ namespace PathOS
         //Equality operators are overriden to make array search/comparison easier.
         public static bool operator==(PerceivedEntity lhs, PerceivedEntity rhs)
         {
-            if(object.ReferenceEquals(lhs, null))
-                return object.ReferenceEquals(rhs, null);
+            if(ReferenceEquals(lhs, null))
+                return ReferenceEquals(rhs, null);
 
-            if (object.ReferenceEquals(rhs, null))
-                return object.ReferenceEquals(lhs, null);
+            if (ReferenceEquals(rhs, null))
+                return ReferenceEquals(lhs, null);
 
             return lhs.instanceID == rhs.instanceID;
         }
 
         public static bool operator!=(PerceivedEntity lhs, PerceivedEntity rhs)
         {
-            if (object.ReferenceEquals(lhs, null))
-                return !object.ReferenceEquals(rhs, null);
+            if (ReferenceEquals(lhs, null))
+                return !ReferenceEquals(rhs, null);
 
-            if (object.ReferenceEquals(rhs, null))
-                return !object.ReferenceEquals(lhs, null);
+            if (ReferenceEquals(rhs, null))
+                return !ReferenceEquals(lhs, null);
 
             return lhs.instanceID != rhs.instanceID;
         }
@@ -585,7 +585,7 @@ namespace PathOS
             if(!entity.visible && !entity.entityRef.alwaysKnown)
             {
                 float rGen = Mathf.Sqrt(Random.Range(0.0f, 1.0f)) 
-                    * PathOS.Constants.Memory.POS_VARIANCE;
+                    * Constants.Memory.POS_VARIANCE;
 
                 float thetaGen = Random.Range(0.0f, 1.0f) * 2.0f * Mathf.PI;
 
@@ -633,11 +633,11 @@ namespace PathOS
         public bool EqualsSimilar(ExploreMemory rhs, PathOSAgent agent)
         {
             return (originPoint - rhs.originPoint).magnitude 
-                <= PathOS.Constants.Navigation.EXPLORE_PATH_POS_THRESHOLD_FAC
-                   * agent.exploreThreshold
+                <= Constants.Navigation.EXPLORE_PATH_POS_THRESHOLD_FAC
+                   * agent.tuning.exploreThreshold
                 && Vector3.Angle(direction, rhs.direction) 
-                <= PathOS.Constants.Navigation.EXPLORE_PATH_DEG_THRESHOLD_FAC
-                   * agent.exploreDegrees;
+                <= Constants.Navigation.EXPLORE_PATH_DEG_THRESHOLD_FAC
+                   * agent.tuning.exploreDegrees;
         }
     }
 }

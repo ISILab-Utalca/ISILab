@@ -311,8 +311,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             if (obj.TryGetComponent<LBSGenerated>(out LBSGenerated lbsGen))
             {
-                if (lbsGen.BundleRef.HasAnyFlag(Bundle.EElementFlag.Character)) return;
-                if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
+                if (lbsGen.BundleRef is not null) 
+                {
+                    if (lbsGen.BundleRef.HasAnyFlag(Bundle.EElementFlag.Character)) return;
+                    if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
+                }
+
             }
 
             if (!obj.isStatic) obj.isStatic = true;

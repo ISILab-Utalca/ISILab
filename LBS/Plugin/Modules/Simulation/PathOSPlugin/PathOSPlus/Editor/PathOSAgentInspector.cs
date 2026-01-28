@@ -21,6 +21,7 @@ namespace PathOS
         private GUIStyle foldoutStyle = GUIStyle.none;
         private GUIStyle boldStyle = GUIStyle.none;
 
+        private SerializedProperty tuningProp;
         private SerializedProperty experienceScale;
         private SerializedProperty timeScale;
         private SerializedProperty heuristicList;
@@ -38,6 +39,10 @@ namespace PathOS
         private SerializedProperty exploreThreshold;
         private SerializedProperty exploreTargetMargin;
 
+
+
+
+
         private Dictionary<Heuristic, string> heuristicLabels;
 
         private List<string> profileNames = new List<string>();
@@ -49,8 +54,10 @@ namespace PathOS
             agent = (PathOSAgent)target;
             serial = new SerializedObject(agent);
 
+            tuningProp = serial.FindProperty("tuning");
+
             timeScale = serial.FindProperty("timeScale");
-            experienceScale = serial.FindProperty("experienceScale");
+            experienceScale = tuningProp.FindPropertyRelative("experienceScale");
             heuristicList = serial.FindProperty("heuristicScales");
 
             freezeAgent = serial.FindProperty("freezeAgent");
@@ -65,8 +72,9 @@ namespace PathOS
             agent.RefreshHeuristicList();
 
             heuristicLabels = new Dictionary<Heuristic, string>();
+            agent.heuristics ??= agent.GetComponent<HeuristicOS>();
 
-            foreach (HeuristicScale curScale in agent.heuristicScales)
+            foreach (HeuristicScale curScale in agent.heuristics.heuristicScales)
             {
                 string label = curScale.heuristic.ToString();
 
@@ -100,11 +108,11 @@ namespace PathOS
             {
                 EditorGUILayout.PropertyField(experienceScale);
 
-                for (int i = 0; i < agent.heuristicScales.Count; ++i)
+                for (int i = 0; i < agent.heuristics.heuristicScales.Count; ++i)
                 {
-                    agent.heuristicScales[i].scale = EditorGUILayout.Slider(
-                         heuristicLabels[agent.heuristicScales[i].heuristic],
-                         agent.heuristicScales[i].scale, 0.0f, 1.0f);
+                    agent.heuristics.heuristicScales[i].scale = EditorGUILayout.Slider(
+                         heuristicLabels[agent.heuristics.heuristicScales[i].heuristic],
+                         agent.heuristics.heuristicScales[i].scale, 0.0f, 1.0f);
                 }
 
                 boldStyle = EditorStyles.boldLabel;
@@ -141,16 +149,16 @@ namespace PathOS
                     }
 
                     Undo.RecordObject(agent, "Apply Agent Profile");
-                    for (int i = 0; i < agent.heuristicScales.Count; ++i)
+                    for (int i = 0; i < agent.heuristics.heuristicScales.Count; ++i)
                     {
-                        if (ranges.ContainsKey(agent.heuristicScales[i].heuristic))
+                        if (ranges.ContainsKey(agent.heuristics.heuristicScales[i].heuristic))
                         {
-                            HeuristicRange hr = ranges[agent.heuristicScales[i].heuristic];
-                            agent.heuristicScales[i].scale = Random.Range(hr.range.min, hr.range.max);
+                            HeuristicRange hr = ranges[agent.heuristics.heuristicScales[i].heuristic];
+                            agent.heuristics.heuristicScales[i].scale = Random.Range(hr.range.min, hr.range.max);
                         }
                     }
 
-                    agent.experienceScale = Random.Range(profile.expRange.min, profile.expRange.max);
+                    agent.tuning.experienceScale = Random.Range(profile.expRange.min, profile.expRange.max);
                 }
 
                 EditorGUILayout.EndHorizontal();

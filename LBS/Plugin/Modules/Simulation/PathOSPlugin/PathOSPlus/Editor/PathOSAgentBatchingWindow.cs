@@ -23,14 +23,14 @@ namespace PathOS
         private const string editorPrefsID = "PathOSAgentBatching";
 
         private const int pathDisplayLength = 32;
-        private GUIStyle errorStyle = new GUIStyle();
-        private GUIStyle headerStyle = new GUIStyle();
+        private GUIStyle errorStyle = new();
+        private GUIStyle headerStyle = new();
 
         private static char[] commaSep = { ',' };
 
         /* Basic Settings */
         [SerializeField]
-        private PathOSAgent agentReference;
+        private PathOSAgent agent;
 
         [SerializeField]
         private bool hasAgent;
@@ -80,12 +80,10 @@ namespace PathOS
         }
 
         [SerializeField]
-        private List<RuntimeAgentReference> instantiatedAgents =
-            new List<RuntimeAgentReference>();
+        private List<RuntimeAgentReference> instantiatedAgents = new();
 
         [SerializeField]
-        private List<RuntimeAgentReference> existingSceneAgents =
-            new List<RuntimeAgentReference>();
+        private List<RuntimeAgentReference> existingSceneAgents = new();
 
         //Max number of agents to be simulated simultaneously.
         private const int MAX_AGENTS_SIMULTANEOUS = 8;
@@ -100,44 +98,41 @@ namespace PathOS
 
         private string[] heuristicModeLabels =
         {
-        "Fixed Values",
-        "Random Within Range",
-        "Load from File"
-    };
+            "Fixed Values",
+            "Random Within Range",
+            "Load from File"
+        };
 
         [SerializeField]
         private HeuristicMode heuristicMode;
 
-        private Dictionary<PathOS.Heuristic, string> heuristicLabels =
-            new Dictionary<PathOS.Heuristic, string>();
+        private Dictionary<Heuristic, string> heuristicLabels = new();
 
         [SerializeField]
-        private List<PathOS.HeuristicScale> fixedHeuristics =
-            new List<PathOS.HeuristicScale>();
+        private List<HeuristicScale> fixedHeuristics = new();
 
-        private Dictionary<PathOS.Heuristic, float> fixedLookup =
-            new Dictionary<PathOS.Heuristic, float>();
+        private Dictionary<Heuristic, float> fixedLookup = new();
 
         [SerializeField]
         private float fixedExp;
 
         [SerializeField]
-        private List<PathOS.HeuristicRange> rangeHeuristics =
-            new List<PathOS.HeuristicRange>();
+        private List<HeuristicRange> rangeHeuristics =
+            new();
 
-        private Dictionary<PathOS.Heuristic, PathOS.FloatRange> rangeLookup =
-            new Dictionary<PathOS.Heuristic, PathOS.FloatRange>();
+        private Dictionary<Heuristic, FloatRange> rangeLookup =
+            new();
 
         private const string customProfile = "Custom...";
 
         [SerializeField]
         private string selectedProfile = customProfile;
 
-        private List<string> profileNames = new List<string>();
+        private List<string> profileNames = new();
         private int profileIndex = 0;
 
         [SerializeField]
-        private PathOS.FloatRange rangeExp;
+        private FloatRange rangeExp;
 
         [SerializeField]
         private string loadHeuristicsFile = "--";
@@ -150,15 +145,15 @@ namespace PathOS
         private class HeuristicSet
         {
             public float exp;
-            public List<PathOS.HeuristicScale> scales =
-                new List<PathOS.HeuristicScale>();
+            public List<HeuristicScale> scales =
+                new();
 
-            public Dictionary<PathOS.Heuristic, float> heuristics
-                = new Dictionary<PathOS.Heuristic, float>();
+            public Dictionary<Heuristic, float> heuristics
+                = new();
         }
 
         private List<HeuristicSet> loadedHeuristics =
-            new List<HeuristicSet>();
+            new();
 
         private int loadAgentIndex = 0;
 
@@ -201,13 +196,13 @@ namespace PathOS
             //Otherwise, re-grab the agent's instance ID.
             if (hasAgent)
             {
-                if (agentReference != null)
-                    agentID = agentReference.GetInstanceID();
+                if (agent != null)
+                    agentID = agent.GetInstanceID();
                 else
-                    agentReference = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+                    agent = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
             }
 
-            hasAgent = agentReference != null;
+            hasAgent = agent != null;
 
             //loading in the data
             Scene scene = SceneManager.GetActiveScene();
@@ -219,23 +214,23 @@ namespace PathOS
             loadPrefabFile = PlayerPrefs.GetString(scene.name + " prefabFileName");
 
             //Build the heuristic lookups.
-            foreach (PathOS.Heuristic heuristic in
-                System.Enum.GetValues(typeof(PathOS.Heuristic)))
+            foreach (Heuristic heuristic in
+                System.Enum.GetValues(typeof(Heuristic)))
             {
                 fixedLookup.Add(heuristic, 0.0f);
-                rangeLookup.Add(heuristic, new PathOS.FloatRange { min = 0.0f, max = 1.0f });
+                rangeLookup.Add(heuristic, new FloatRange { min = 0.0f, max = 1.0f });
             }
 
-            System.Array heuristics = System.Enum.GetValues(typeof(PathOS.Heuristic));
+            System.Array heuristics = System.Enum.GetValues(typeof(Heuristic));
 
             //Check that we have the correct number of heuristics.
             //(Included to future-proof against changes to the list).
             if (fixedHeuristics.Count != heuristics.Length)
             {
                 fixedHeuristics.Clear();
-                foreach (PathOS.Heuristic heuristic in heuristics)
+                foreach (Heuristic heuristic in heuristics)
                 {
-                    fixedHeuristics.Add(new PathOS.HeuristicScale(heuristic, 0.0f));
+                    fixedHeuristics.Add(new HeuristicScale(heuristic, 0.0f));
                 }
             }
 
@@ -243,9 +238,9 @@ namespace PathOS
             if (rangeHeuristics.Count != heuristics.Length)
             {
                 rangeHeuristics.Clear();
-                foreach (PathOS.Heuristic heuristic in heuristics)
+                foreach (Heuristic heuristic in heuristics)
                 {
-                    rangeHeuristics.Add(new PathOS.HeuristicRange(heuristic));
+                    rangeHeuristics.Add(new HeuristicRange(heuristic));
                 }
             }
 
@@ -256,7 +251,7 @@ namespace PathOS
             SyncProfileNames();
 
             //Labels for heuristic fields.
-            foreach (PathOS.Heuristic heuristic in heuristics)
+            foreach (Heuristic heuristic in heuristics)
             {
                 string label = heuristic.ToString();
 
@@ -270,9 +265,9 @@ namespace PathOS
             if (loadPrefabFile == "")
                 loadPrefabFile = "--";
 
-            PathOS.UI.TruncateStringHead(loadHeuristicsFile,
+            UI.TruncateStringHead(loadHeuristicsFile,
                 ref shortHeuristicsFile, pathDisplayLength);
-            PathOS.UI.TruncateStringHead(loadPrefabFile,
+            UI.TruncateStringHead(loadPrefabFile,
                 ref shortPrefabFile, pathDisplayLength);
 
             errorStyle.normal.textColor = Color.red;
@@ -440,7 +435,7 @@ namespace PathOS
                 {
                     loadPrefabFile = EditorUtility.OpenFilePanel("Select Prefab...", Application.dataPath, "prefab");
 
-                    PathOS.UI.TruncateStringHead(loadPrefabFile, ref shortPrefabFile, pathDisplayLength);
+                    UI.TruncateStringHead(loadPrefabFile, ref shortPrefabFile, pathDisplayLength);
 
                     CheckPrefabFile();
                 };
@@ -528,14 +523,14 @@ namespace PathOS
 
                     EditorGUILayout.Space(2);
                     EditorGUILayout.LabelField("Experience Scale");
-                    PathOS.EditorUI.FullMinMaxSlider("",
+                    EditorUI.FullMinMaxSlider("",
                         ref rangeExp.min, ref rangeExp.max);
 
                     for (int i = 0; i < rangeHeuristics.Count; ++i)
                     {
                         EditorGUILayout.Space(2);
                         EditorGUILayout.LabelField(heuristicLabels[rangeHeuristics[i].heuristic]);
-                        PathOS.EditorUI.FullMinMaxSlider(
+                        EditorUI.FullMinMaxSlider(
                             "",
                             ref rangeHeuristics[i].range.min,
                             ref rangeHeuristics[i].range.max);
@@ -560,7 +555,7 @@ namespace PathOS
                         loadHeuristicsFile = EditorUtility.OpenFilePanel("Select CSV...",
                             Application.dataPath, "csv");
 
-                        PathOS.UI.TruncateStringHead(loadHeuristicsFile,
+                        UI.TruncateStringHead(loadHeuristicsFile,
                             ref shortHeuristicsFile, pathDisplayLength);
 
                         CheckHeuristicsFile();
@@ -602,7 +597,7 @@ namespace PathOS
                         //Initialize settings for logging to a single directory.
                         PlayerPrefs.SetInt(OGLogManager.fileIndexId, 0);
                         PlayerPrefs.SetString(OGLogManager.directoryOverrideId,
-                            "Batch-" + PathOS.UI.GetFormattedTimestamp());
+                            "Batch-" + UI.GetFormattedTimestamp());
                         PlayerPrefs.Save();
 
                         //If simultaneous simulation is enabled, set any existing agents
@@ -724,8 +719,7 @@ namespace PathOS
         //Load custom agent profile for defining motive ranges.
         private void LoadProfile(AgentProfile profile)
         {
-            Dictionary<Heuristic, FloatRange> profileLookup =
-                new Dictionary<Heuristic, FloatRange>();
+            Dictionary<Heuristic, FloatRange> profileLookup = new();
 
             foreach (HeuristicRange hr in profile.heuristicRanges)
             {
@@ -765,7 +759,7 @@ namespace PathOS
         {
             loadedHeuristics.Clear();
 
-            StreamReader s = new StreamReader(loadHeuristicsFile);
+            StreamReader s = new(loadHeuristicsFile);
             string line = "";
             string[] lineContents;
             int lineNumber = 0;
@@ -776,10 +770,10 @@ namespace PathOS
                 if (!s.EndOfStream)
                     line = s.ReadLine();
 
-                List<PathOS.Heuristic> heuristics = new List<PathOS.Heuristic>();
+                List<Heuristic> heuristics = new();
 
-                foreach (PathOS.Heuristic heuristic in
-                    System.Enum.GetValues(typeof(PathOS.Heuristic)))
+                foreach (Heuristic heuristic in
+                    System.Enum.GetValues(typeof(Heuristic)))
                 {
                     heuristics.Add(heuristic);
                 }
@@ -803,13 +797,13 @@ namespace PathOS
                         continue;
                     }
 
-                    HeuristicSet newSet = new HeuristicSet();
+                    HeuristicSet newSet = new();
 
                     newSet.exp = float.Parse(lineContents[0]);
 
                     for (int i = 0; i < heuristics.Count; ++i)
                     {
-                        newSet.scales.Add(new PathOS.HeuristicScale(
+                        newSet.scales.Add(new HeuristicScale(
                             heuristics[i], float.Parse(lineContents[i + 1])));
                     }
 
@@ -828,25 +822,25 @@ namespace PathOS
         //Grab fixed heuristic values from the agent reference specified.
         private void LoadHeuristicsFromAgent()
         {
-            if (null == agentReference)
-                return;
+            if (null == agent) return;
 
-            foreach (PathOS.HeuristicScale scale in agentReference.heuristicScales)
+
+            foreach (HeuristicScale scale in agent.heuristics.heuristicScales)
             {
                 fixedLookup[scale.heuristic] = scale.scale;
             }
 
-            foreach (PathOS.HeuristicScale scale in fixedHeuristics)
+            foreach (HeuristicScale scale in fixedHeuristics)
             {
                 scale.scale = fixedLookup[scale.heuristic];
             }
 
-            fixedExp = agentReference.experienceScale;
+            fixedExp = agent.tuning.experienceScale;
         }
 
         private void SyncFixedLookup()
         {
-            foreach (PathOS.HeuristicScale scale in fixedHeuristics)
+            foreach (HeuristicScale scale in fixedHeuristics)
             {
                 fixedLookup[scale.heuristic] = scale.scale;
             }
@@ -854,7 +848,7 @@ namespace PathOS
 
         private void SyncRangeLookup()
         {
-            foreach (PathOS.HeuristicRange range in rangeHeuristics)
+            foreach (HeuristicRange range in rangeHeuristics)
             {
                 rangeLookup[range.heuristic] = range.range;
             }
@@ -862,8 +856,10 @@ namespace PathOS
 
         private void GrabAgentReference()
         {
-            if (hasAgent && null == agentReference)
-                agentReference = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+            if (hasAgent && null == agent)
+            {
+                agent = EditorUtility.InstanceIDToObject(agentID) as PathOSAgent;
+            }
         }
 
         //Apply motive values to the agent in-scene.
@@ -871,12 +867,12 @@ namespace PathOS
         {
             GrabAgentReference();
 
-            if (null == agentReference)
+            if (null == agent)
                 return;
 
-            Undo.RecordObject(agentReference, "Set Agent Heuristics");
+            Undo.RecordObject(agent, "Set Agent Heuristics");
 
-            SetHeuristics(agentReference);
+            SetHeuristics(agent);
         }
 
         //Apply heuristics to the given agent.
@@ -888,25 +884,25 @@ namespace PathOS
 
                     SyncFixedLookup();
 
-                    foreach (PathOS.HeuristicScale scale in agent.heuristicScales)
+                    foreach (HeuristicScale scale in agent.heuristics.heuristicScales)
                     {
                         scale.scale = fixedLookup[scale.heuristic];
                     }
 
-                    agent.experienceScale = fixedExp;
+                    agent.tuning.experienceScale = fixedExp;
                     break;
 
                 case HeuristicMode.RANGE:
 
                     SyncRangeLookup();
 
-                    foreach (PathOS.HeuristicScale scale in agent.heuristicScales)
+                    foreach (HeuristicScale scale in agent.heuristics.heuristicScales)
                     {
-                        PathOS.FloatRange range = rangeLookup[scale.heuristic];
+                        FloatRange range = rangeLookup[scale.heuristic];
                         scale.scale = Random.Range(range.min, range.max);
                     }
 
-                    agent.experienceScale = Random.Range(rangeExp.min, rangeExp.max);
+                    agent.tuning.experienceScale = Random.Range(rangeExp.min, rangeExp.max);
                     break;
 
                 case HeuristicMode.LOAD:
@@ -914,14 +910,14 @@ namespace PathOS
                     int ind = loadAgentIndex % loadedHeuristics.Count;
                     loadedHeuristics[ind].heuristics.Clear();
 
-                    foreach (PathOS.HeuristicScale scale in loadedHeuristics[ind].scales)
+                    foreach (HeuristicScale scale in loadedHeuristics[ind].scales)
                     {
                         loadedHeuristics[ind].heuristics.Add(scale.heuristic, scale.scale);
                     }
 
-                    agent.experienceScale = loadedHeuristics[ind].exp;
+                    agent.tuning.experienceScale = loadedHeuristics[ind].exp;
 
-                    foreach (PathOS.HeuristicScale scale in agent.heuristicScales)
+                    foreach (HeuristicScale scale in agent.heuristics.heuristicScales)
                     {
                         scale.scale = loadedHeuristics[ind].heuristics[scale.heuristic];
                     }
@@ -997,13 +993,11 @@ namespace PathOS
 
         private void InstantiateAgents(int count)
         {
-            if (!validPrefabFile)
-                return;
+            if (!validPrefabFile) return;
 
             PathOSAgent prefab = AssetDatabase.LoadAssetAtPath<PathOSAgent>(GetLocalPrefabFile());
 
-            if (null == prefab)
-                return;
+            if (null == prefab) return;
 
             for (int i = 0; i < count; ++i)
             {
@@ -1012,8 +1006,8 @@ namespace PathOS
                 newAgent.name = "Temporary Batch Agent " +
                     (instantiatedAgents.Count).ToString();
 
-                instantiatedAgents.Add(new RuntimeAgentReference(
-                    newAgent.GetComponent<PathOSAgent>()));
+                instantiatedAgents.Add(
+                    new RuntimeAgentReference(newAgent.GetComponent<PathOSAgent>()));
             }
         }
 
@@ -1029,7 +1023,7 @@ namespace PathOS
                     instantiatedAgents[instantiatedAgents.Count - 1].UpdateReference();
 
                     if (instantiatedAgents[instantiatedAgents.Count - 1].agent)
-                        Object.DestroyImmediate(
+                        DestroyImmediate(
                             instantiatedAgents[instantiatedAgents.Count - 1].agent.gameObject);
                 }
 

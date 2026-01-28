@@ -82,12 +82,8 @@ namespace ISILab.LBS.VisualElements.Editor
         #region CONSTRUCTORS
         public Generator3DPanel()
         {
-            Generator ??= new Generator3D();
             Generator = LBSSettings.Instance.generator;
-
             _settings ??= Generator.settings;
-            visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Generator3DPanel");
-            visualTree.CloneTree(this);
 
             LoadVisualElement();
             PostLoad();
@@ -107,6 +103,9 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void LoadVisualElement()
         {
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("Generator3DPanel");
+            visualTree.CloneTree(this);
+
             // room's name
             _nameField = this.Q<LBSCustomTextField>("ObjName");
             _nameField.RegisterValueChangedCallback(evt =>
