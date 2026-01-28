@@ -576,7 +576,8 @@ namespace ISILab.LBS.VisualElements
 
             if (targetTemplate.layer.Clone() is LBSLayer newLayer)
             {
-                newLayer.Name = targetTemplate.templateName;
+                string safeName = targetTemplate.templateName.Replace("/", " ").Replace("\\", " ");
+                newLayer.Name = safeName;
                 LBSMainWindow.Instance.layerPanel.AddLayer(newLayer);
                 return newLayer;
             }
