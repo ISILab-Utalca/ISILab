@@ -21,9 +21,11 @@ namespace PathOS
         private GUIStyle foldoutStyle = GUIStyle.none;
         private GUIStyle boldStyle = GUIStyle.none;
 
-        private SerializedProperty tuningProp;
+        private SerializedProperty tuning;
         private SerializedProperty experienceScale;
         private SerializedProperty timeScale;
+
+        private SerializedProperty heuristics;
         private SerializedProperty heuristicList;
 
         private bool showPlayerCharacteristics = true;
@@ -39,40 +41,40 @@ namespace PathOS
         private SerializedProperty exploreThreshold;
         private SerializedProperty exploreTargetMargin;
 
-
-
-
-
         private Dictionary<Heuristic, string> heuristicLabels;
 
-        private List<string> profileNames = new List<string>();
+        private List<string> profileNames = new();
         private int profileIndex = 0;
 
         private void OnEnable()
         {
-            //target = GameObject.FindWithTag("PathOSAgent");
             agent = (PathOSAgent)target;
             serial = new SerializedObject(agent);
 
-            tuningProp = serial.FindProperty("tuning");
-
             timeScale = serial.FindProperty("timeScale");
-            experienceScale = tuningProp.FindPropertyRelative("experienceScale");
-            heuristicList = serial.FindProperty("heuristicScales");
 
             freezeAgent = serial.FindProperty("freezeAgent");
+            
+            tuning = serial.FindProperty("tuning");
 
-            exploreDegrees = serial.FindProperty("exploreDegrees");
-            invisibleExploreDegrees = serial.FindProperty("invisibleExploreDegrees");
-            lookDegrees = serial.FindProperty("lookDegrees");
-            visitThreshold = serial.FindProperty("visitThreshold");
-            exploreThreshold = serial.FindProperty("exploreThreshold");
-            exploreTargetMargin = serial.FindProperty("exploreTargetMargin");
+
+            experienceScale = tuning.FindPropertyRelative("experienceScale");
+            exploreDegrees = tuning.FindPropertyRelative("exploreDegrees");
+            invisibleExploreDegrees = tuning.FindPropertyRelative("invisibleExploreDegrees");
+            lookDegrees = tuning.FindPropertyRelative("lookDegrees");
+            visitThreshold = tuning.FindPropertyRelative("visitThreshold");
+            exploreThreshold = tuning.FindPropertyRelative("exploreThreshold");
+            exploreTargetMargin = tuning.FindPropertyRelative("exploreTargetMargin");
+
+            heuristics = serial.FindProperty("heuristics");
+            heuristicList = heuristics.FindPropertyRelative("heuristicScales");
+
 
             agent.RefreshHeuristicList();
 
             heuristicLabels = new Dictionary<Heuristic, string>();
             agent.heuristics ??= agent.GetComponent<HeuristicOS>();
+
 
             foreach (HeuristicScale curScale in agent.heuristics.heuristicScales)
             {
@@ -82,8 +84,8 @@ namespace PathOS
                 heuristicLabels.Add(curScale.heuristic, label);
             }
 
-            if (null == PathOSProfileWindow.profiles)
-                PathOSProfileWindow.ReadPrefsData();
+            if (null == PathOSProfileWindow.profiles) PathOSProfileWindow.ReadPrefsData();
+
         }
 
         public override void OnInspectorGUI()
@@ -107,12 +109,30 @@ namespace PathOS
             if (showPlayerCharacteristics)
             {
                 EditorGUILayout.PropertyField(experienceScale);
-
-                for (int i = 0; i < agent.heuristics.heuristicScales.Count; ++i)
+                if (agent?.heuristics?.heuristicScales != null && heuristicLabels != null)
                 {
-                    agent.heuristics.heuristicScales[i].scale = EditorGUILayout.Slider(
-                         heuristicLabels[agent.heuristics.heuristicScales[i].heuristic],
-                         agent.heuristics.heuristicScales[i].scale, 0.0f, 1.0f);
+                    for (int i = 0; i < agent.heuristics.heuristicScales.Count; ++i)
+                    {
+                        HeuristicScale entry = agent.heuristics.heuristicScales[i];
+                        Heuristic heuristic = entry.heuristic;
+
+                        // Self-healing label lookup
+                        if (!heuristicLabels.TryGetValue(heuristic, out string label))
+                        {
+                            label = heuristic.ToString();
+                            heuristicLabels[heuristic] = label;
+                        }
+
+                        entry.scale = EditorGUILayout.Slider(
+                            label,
+                            entry.scale,
+                            0.0f,
+                            1.0f
+                        );
+
+                        // Struct-safe reassignment
+                        agent.heuristics.heuristicScales[i] = entry;
+                    }
                 }
 
                 boldStyle = EditorStyles.boldLabel;

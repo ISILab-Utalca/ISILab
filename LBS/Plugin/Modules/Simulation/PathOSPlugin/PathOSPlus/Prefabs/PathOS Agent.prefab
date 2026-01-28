@@ -1411,7 +1411,7 @@ MonoBehaviour:
   tuning:
     timeScale: 1
     freezeAgent: 0
-    experienceScale: 0
+    experienceScale: 1
     visitThreshold: 1
     exploreDegrees: 5
     invisibleExploreDegrees: 30
@@ -1473,7 +1473,7 @@ MonoBehaviour:
     cautionIndex: 0
     aggressionIndex: 0
     adrenalineIndex: 0
-  heuristics: {fileID: 0}
+  heuristics: {fileID: 6174427600414373231}
   timeScale: 1
   freezeAgent: 0
 --- !u!114 &114482611139781848
@@ -1602,8 +1602,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f5eb6153e34647b8bf1bada478604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heuristicScales: []
-  modifiableHeuristicScales: []
+  heuristicScales:
+  - heuristic: 0
+    scale: 1
+  - heuristic: 10
+    scale: 1
+  - heuristic: 15
+    scale: 1
+  - heuristic: 20
+    scale: 1
+  - heuristic: 25
+    scale: 1
+  - heuristic: 30
+    scale: 1
+  - heuristic: 35
+    scale: 1
+  modifiableHeuristicScales:
+  - heuristic: 0
+    scale: 0
+  - heuristic: 10
+    scale: 0
+  - heuristic: 15
+    scale: 0
+  - heuristic: 20
+    scale: 0
+  - heuristic: 25
+    scale: 0
+  - heuristic: 30
+    scale: 0
+  - heuristic: 35
+    scale: 0
 --- !u!1 &1218624666145408
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,5 +28,19 @@ namespace PathOS
         {
             if (unreachableReference.Count > 0) unreachableReference.Clear();
         }
+
+        internal void AddUnreachable(Vector3 target)
+        {
+            for (int i = 0; i < unreachableReference.Count; ++i)
+            {
+                if (Vector3.SqrMagnitude(target - unreachableReference[i])
+                    < Constants.Navigation.UNREACHABLE_POS_SIMILARITY_SQR)
+                    return;
+            }
+
+            unreachableReference.Add(target);
+        }
+
+
     }
 }

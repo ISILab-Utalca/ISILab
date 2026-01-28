@@ -1,13 +1,9 @@
-﻿using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
+﻿
+using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
 using NinePenguins;
-using OGVis;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.XR;
-using static OGVis.PlayerLog;
 
 /*
 PathOSAgent.cs 
@@ -19,6 +15,7 @@ namespace PathOS
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(PathOSAgentMemory))]
     [RequireComponent(typeof(PathOSAgentEyes))]
+    [RequireComponent(typeof(HeuristicOS))]
     public class PathOSAgent : MonoBehaviour
     {
         #region FIELDS
@@ -39,7 +36,7 @@ namespace PathOS
         [HideInInspector] public HealthState healthState = new();
 
 
-        private NavMeshAgent navAgent;
+        internal NavMeshAgent navAgent;
         public HeuristicOS heuristics = new();
 
         private GameObject cameraObject;
@@ -164,7 +161,7 @@ namespace PathOS
         public void RecalibratePath()
         {
             navAgent.ResetPath();
-            ResetDestinationSelf();
+            navigationState.ResetDestinationSelf(this);
             //ComputeNewDestination();
         }
 
@@ -172,31 +169,10 @@ namespace PathOS
         {
             if (cameraObject != null) cameraObject.transform.position = new Vector3(transform.position.x, 15.0f, transform.position.z);
         }
-
         public void ToggleCameraFollow()
         {
             cameraFollow = !cameraFollow;
         }
-
-        private void UpdateLookTime()
-        {
-            navigationState.lookTime = navigationState.baseLookTime;
-
-            //Actual look time can fluctuate based on the agent's caution and the 
-            //danger in the current area.
-            float lookTimeScale = memory.ScoreHazards(GetPosition()) *
-                heuristics.heuristicScaleLookup[Heuristic.CAUTION];
-
-            float a = navigationState.baseLookTime;
-
-            float max = Constants.Behaviour.LOOK_TIME_MAX;
-            float min = Constants.Behaviour.LOOK_TIME_MIN_CAUTION;
-            float alpha = lookTimeScale;
-
-            float b = Mathf.Lerp(max, min, alpha);
-            navigationState.lookTime = Mathf.Min(a,b);
-        }
-
         private float RouteComputeTimeCalculated()
         {
             return Constants.Navigation.ROUTE_COMPUTE_BASE
@@ -227,36 +203,6 @@ namespace PathOS
                 if (weights.ContainsKey(heuristic)) weight = weights[heuristic];
                 heuristics.modifiableHeuristicScales.Add(new HeuristicScale(heuristic, weight));
             }
-        }
-
-        public void UpdateWeightsBasedOnHealth()
-        {
-            //if (health <= 50.0f)
-            //{
-            //Variables for calculations
-            float newCaution = 0, newAggression = 0, newAdrenaline = 0;
-            float h = 1.0f - (healthState.health / 100.0f);
-
-            //Updates the caution
-            newCaution = Mathf.Lerp(heuristics.heuristicScaleLookup[Heuristic.CAUTION], 1.0f, h);
-            if (newCaution > 1.0f) newCaution = 1.0f;
-            heuristics.modifiableHeuristicScales[healthState.cautionIndex].scale = newCaution;
-
-            //Cuts aggression/adrenaline by half
-            newAggression = Mathf.Lerp(heuristics.heuristicScaleLookup[Heuristic.AGGRESSION], (heuristics.heuristicScaleLookup[Heuristic.AGGRESSION] * 0.25f), h);
-            if (newAggression <= 0) newAggression = 0.0f;
-            heuristics.modifiableHeuristicScales[healthState.aggressionIndex].scale = newAggression;
-
-            newAdrenaline = Mathf.Lerp(heuristics.heuristicScaleLookup[Heuristic.ADRENALINE], (heuristics.heuristicScaleLookup[Heuristic.ADRENALINE] * 0.25f), h);
-            if (newAdrenaline <= 0) newAdrenaline = 0.0f;
-            heuristics.modifiableHeuristicScales[healthState.adrenalineIndex].scale = newAdrenaline;
-            //}
-            //else
-            //{
-            //    modifiableHeuristicScales[cautionIndex].scale = heuristicScaleLookup[Heuristic.CAUTION];
-            //    modifiableHeuristicScales[aggressionIndex].scale = heuristicScaleLookup[Heuristic.AGGRESSION];
-            //    modifiableHeuristicScales[adrenalineIndex].scale = heuristicScaleLookup[Heuristic.ADRENALINE];
-            //}
         }
 
         //Update the agent's target position.
@@ -425,8 +371,8 @@ namespace PathOS
                     memoryState.memWaypoint.x = memoryState.memPathWaypoints[0].x;
                     memoryState.memWaypoint.z = memoryState.memPathWaypoints[0].z;
                 }
-                else
-                    RouteDestination();
+                else navigationState.RouteDestination(this);
+
 
                 //Once something has been selected as a destination,
                 //commit it to long-term memory.
@@ -440,7 +386,6 @@ namespace PathOS
                 NPDebug.LogMessage("Position: " + navAgent.transform.position +
                     ", Destination: " + navigationState.currentDest);
         }
-
         public PerceivedEntity GetDestinationEntity() => navigationState.currentDest.entity;
 
         //maxScore is updated if the entity achieves a higher score.
@@ -799,7 +744,7 @@ namespace PathOS
                     navigationState.currentDest.entity.entityType);
 
                     //Updates weights based on the player's health
-                    UpdateWeightsBasedOnHealth();
+                    heuristics.UpdateWeightsBasedOnHealth(this);
                 }
             }
 
@@ -843,7 +788,7 @@ namespace PathOS
                     if (memoryState.memPathWaypoints.Count == 0)
                     {
                         memoryState.onMemPath = false;
-                        RouteDestination();
+                        navigationState.RouteDestination(this);
                     }
                     else
                     {
@@ -858,14 +803,14 @@ namespace PathOS
                 MakeEntityDestinationAccurate();
             //Debug.LogWarning(!pathResolved + " && " + NavmeshPathIncomplete());
             //Targeting update. This prevents the agent from getting stuck.
-            if (!navigationState.pathResolved && NavmeshPathIncomplete())
+            if (navigationState.NavmeshPathIncomplete(this))
             {
                 //If we're following a memory path,
                 //abort and route to the final target on the Navmesh.
                 if (memoryState.onMemPath)
                 {
                     memoryState.onMemPath = false;
-                    RouteDestination();
+                    navigationState.RouteDestination(this);
                 }
                 //If we're dealing with an entity...
                 else if (navigationState.currentDest.entity != null)
@@ -887,8 +832,7 @@ namespace PathOS
                         Vector3 targetPos = entity.perceivedPos;
                         targetPos.y = 0.0f;
 
-                        if (Vector3.SqrMagnitude(agentPos - targetPos)
-                            >= adjVisitSqr)
+                        if (Vector3.SqrMagnitude(agentPos - targetPos) >= adjVisitSqr)
                             memory.MakeUnreachable(entity);
 
                         //Reset the number of times we've changed our mind
@@ -900,7 +844,7 @@ namespace PathOS
                 else
                 {
                     //This will prevent the agent from retargeting the current destination.
-                    AddUnreachable(navigationState.currentDest.pos);
+                    explorationState.AddUnreachable(navigationState.currentDest.pos);
                     navigationState.changeTargetCount = 0;
                 }
 
@@ -922,7 +866,7 @@ namespace PathOS
             {
                 navigationState.lookTimer = 0.0f;
                 navigationState.lookingAround = true;
-                StartCoroutine(LookAround());
+                StartCoroutine(navigationState.LookAround(this));
             }
 
             //Set the agent's completion flag.
@@ -940,17 +884,6 @@ namespace PathOS
             }
         }
 
-        private void RouteDestination()
-        {
-            navAgent.SetDestination(navigationState.currentDest.pos);
-            navigationState.pathResolved = false;
-        }
-        private void ResetDestinationSelf()
-        {
-            navigationState.currentDest.pos = GetPosition();
-            navigationState.currentDest.entity = null;
-            navigationState.currentDest.accurate = true;
-        }
 
         private void MakeEntityDestinationAccurate()
         {
@@ -975,100 +908,14 @@ namespace PathOS
             if (!reachable)
             {
                 memory.MakeUnreachable(navigationState.currentDest.entity);
-                ResetDestinationSelf();
+                navigationState.ResetDestinationSelf(this);
             }
 
             navigationState.currentDest.accurate = true;
-            RouteDestination();
+            navigationState.RouteDestination(this);
         }
 
-        private void AddUnreachable(Vector3 target)
-        {
-            for (int i = 0; i < explorationState.unreachableReference.Count; ++i)
-            {
-                if (Vector3.SqrMagnitude(target - explorationState.unreachableReference[i])
-                    < Constants.Navigation.UNREACHABLE_POS_SIMILARITY_SQR)
-                    return;
-            }
-
-            explorationState.unreachableReference.Add(target);
-        }
-
-
-        private void PerceptionUpdate()
-        {
-            UpdateLookTime();
-        }
-
-        private bool NavmeshPathIncomplete()
-        {
-            return !navAgent.pathPending && !navAgent.hasPath
-                && navAgent.pathStatus == NavMeshPathStatus.PathPartial
-                && !navAgent.isPathStale;
-        }
-
-        //Inelegant and brute-force "animation" of the agent to look around.
-        //In the future this should add non-determinism and preferably be abstracted somewhere else.
-        //And cleaned up. Probably.
-        IEnumerator LookAround()
-        {
-            navAgent.isStopped = true;
-            navAgent.updateRotation = false;
-
-            //Simple 90-degree sweep centred on current heading.
-            Quaternion home = transform.rotation;
-            Quaternion right = Quaternion.AngleAxis(tuning.lookDegrees, Vector3.up) * home;
-            Quaternion left = Quaternion.AngleAxis(-tuning.lookDegrees, Vector3.up) * home;
-
-            float lookingTime = 0.5f;
-            float lookingTimer = 0.0f;
-
-            while (lookingTimer < lookingTime)
-            {
-                transform.rotation = Quaternion.Slerp(home, right, lookingTimer / lookingTime);
-                lookingTimer += Time.deltaTime;
-                yield return null;
-            }
-
-            lookingTimer = 0.0f;
-
-            while (lookingTimer < lookingTime)
-            {
-                lookingTimer += Time.deltaTime;
-                yield return null;
-            }
-
-            lookingTimer = 0.0f;
-
-            while (lookingTimer < lookingTime)
-            {
-                transform.rotation = Quaternion.Slerp(right, left, lookingTimer / lookingTime);
-                lookingTimer += Time.deltaTime;
-                yield return null;
-            }
-
-            lookingTimer = 0.0f;
-
-            while (lookingTimer < lookingTime)
-            {
-                lookingTimer += Time.deltaTime;
-                yield return null;
-            }
-
-            lookingTimer = 0.0f;
-
-            while (lookingTimer < lookingTime)
-            {
-                transform.rotation = Quaternion.Slerp(left, home, lookingTimer / lookingTime);
-                lookingTimer += Time.deltaTime;
-                yield return null;
-            }
-
-            lookingTimer = 0.0f;
-            navigationState.lookingAround = false;
-            navAgent.updateRotation = true;
-            navAgent.isStopped = false;
-        }
+        private void PerceptionUpdate() => navigationState.UpdateLookTime(this);
 
         public Vector3 GetTargetPosition() => navigationState.currentDest.pos;
 
@@ -1083,3 +930,4 @@ namespace PathOS
     }
 
 }
+
