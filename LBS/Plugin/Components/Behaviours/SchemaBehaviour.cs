@@ -1,21 +1,59 @@
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Extensions;
 using ISILab.DevTools.Macros;
-using ISILab.LBS.Plugin.Components.Data;
-using Newtonsoft.Json;
-using UnityEngine;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
+using Newtonsoft.Json;
 using System;
-using ISILab.LBS.Characteristics;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.MemoryProfiler;
+using UnityEngine;
+using UnityEngine.XR;
+using static UnityEditor.PlayerSettings;
 
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
+    [Serializable]
+    public class SchemaStoreData
+    {
+        [SerializeField]
+        Zone zone;
+
+        [SerializeField]
+        List<ZoneStoreData> zonesData = new();
+
+        public class ZoneStoreData
+        {
+            [SerializeField]
+            LBSTile tile;
+            [SerializeField]
+            List<string> connections = new();
+
+            public ZoneStoreData(LBSTile tile, List<string> connections)
+            {
+                this.tile = tile;
+                this.connections = connections;
+            }
+
+        }
+
+        public SchemaStoreData(Zone zone)
+        {
+           this.zone = zone;
+        }
+
+        public void AddZoneData(LBSTile tile, List<string> connections)
+        {
+            zonesData.Add(new ZoneStoreData(tile, connections));
+        }
+    }
+
     [Serializable]
     public struct DirConnection
     {
@@ -132,7 +170,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
         typeof(ConnectedZonesModule))]
-    public class SchemaBehaviour : LBSBehaviour
+    public class SchemaBehaviour : LBSBehaviour, IObjectData
     {
         #region READONLY-FIELDS
         
@@ -617,6 +655,38 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
             RequestFullRepaint(currentTiles, createdTiles);
             return true;
+        }
+
+        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        {
+            HashSet<object> objs = new();
+
+            (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+
+            foreach (var zone in ZonesWithTiles)
+            {
+                SchemaStoreData ssd = new(zone);
+                for (int i = corners.min.x; i <= corners.max.x; i++)
+                {
+                    for (int j = corners.min.y; j <= corners.max.y; j++)
+                    {
+                        Vector2Int Pos = new Vector2Int(i, j);
+                        if (zone.Positions.Contains(Pos))
+                        {
+                            LBSTile tile = tileMap.GetTile(Pos);
+                            if (tile != null)
+                            {
+                                List<string> conns = GetConnections(tile);
+                                ssd.AddZoneData(tile, conns);
+                            }
+                        }
+                    }
+                }
+
+                objs.Add(ssd);
+            }
+
+            return objs.ToArray();
         }
 
         #endregion
