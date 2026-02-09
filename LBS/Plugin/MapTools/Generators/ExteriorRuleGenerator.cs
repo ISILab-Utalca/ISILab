@@ -102,7 +102,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 //Get current bundle
                 var currentBundle = pair?.Item1?.Owner;
-                Debug.Log(chosenTile.Position.x + " | " + chosenTile.Position.y + " : " + currentBundle);
+                //Debug.Log(chosenTile.Position.x + " | " + chosenTile.Position.y + " : " + currentBundle);
 
                 //Then see if it has a selector. If not, we go for random!
 
