@@ -19,11 +19,13 @@ namespace LBS.VisualElements
         private VectorImage iconNotificationsOn; 
         private VectorImage iconNotificationsOff;
         private static int fadeTime = 5;
-        
-        //public class NotifierViewerFactory : UxmlFactory<NotifierViewer, UxmlTraits> { }
-        
+        private static VisualTreeAsset VisualTree;
+
         public NotifierViewer()
         {
+            VisualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("NotifierViewer");
+            VisualTree.CloneTree(this);
+
             // to overlap other visual elements
             // Set up the container styles
             style.position = Position.Absolute;

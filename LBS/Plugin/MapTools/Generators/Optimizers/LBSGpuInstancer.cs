@@ -1,48 +1,109 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
     public class LBSGpuInstancer : MonoBehaviour
     {
-        [System.Serializable]
+        [Serializable]
         public class SubMeshBatch
         {
+            [SerializeField]
             public Mesh mesh;
+
+            [SerializeField]
             public int subMeshIndex;
+
+            [SerializeField]
             public Material material;
 
-            // per-instance transforms (world space)
+            [SerializeField]
             public List<Matrix4x4> matrices = new();
+            
+            [SerializeField][HideInInspector] 
+            public List<Matrix4x4[]> chunks = new();
 
-            // cached chunks of ≤1023
-            [HideInInspector] public List<Matrix4x4[]> chunks = new();
+            public SubMeshBatch(Mesh mesh, int sub, Material mat)
+            {
+                this.mesh = mesh;
+                this.subMeshIndex = sub;
+                this.material = mat;
+            }
+
+            public override bool Equals(object obj)
+            {
+                if (obj is not SubMeshBatch other) return false;
+                return mesh == other.mesh &&
+                       subMeshIndex == other.subMeshIndex &&
+                       material == other.material;
+            }
+
+            public override int GetHashCode()
+            {
+                unchecked
+                {
+                    int hash = 17;
+                    hash = hash * 23 + (mesh ? mesh.GetHashCode() : 0);
+                    hash = hash * 23 + subMeshIndex.GetHashCode();
+                    hash = hash * 23 + (material ? material.GetHashCode() : 0);
+                    return hash;
+                }
+            }
         }
 
-        [SerializeField] private List<SubMeshBatch> batches = new();
+        #region FIELDS
+
+        [SerializeField] 
+        private List<SubMeshBatch> batches = new();
 
         private RenderParams _renderParams;
-        private bool _initialized;
 
-        public void AddInstance(
-        Mesh mesh,
-        int subMesh,
-        Material material,
-        Matrix4x4 localToWorld)
+        #endregion
+
+        #region METHODS
+
+        private void Awake() => Build();
+
+        void LateUpdate()
         {
-            SubMeshBatch batch = batches.Find(b =>
-                b.mesh == mesh &&
-                b.subMeshIndex == subMesh &&
-                b.material == material);
+
+            foreach (SubMeshBatch batch in batches)
+            {
+                if (batch.mesh == null || batch.material == null) continue;
+
+                foreach (Matrix4x4[] chunk in batch.chunks)
+                {
+                    RenderParams rp = new(batch.material)
+                    {
+                        matProps = _renderParams.matProps
+                    };
+                    Graphics.RenderMeshInstanced(rp, batch.mesh, batch.subMeshIndex, chunk);
+                }
+            }
+        }
+
+        private static SubMeshBatch FindBatch(List<SubMeshBatch> batches, Mesh mesh, int subMesh, Material material)
+        {
+            foreach (SubMeshBatch batch in batches)
+            {
+                if (batch.mesh == mesh && batch.subMeshIndex == subMesh && batch.material == material)
+                {
+                    return batch;
+                }
+            }
+
+            return null;
+        }
+
+
+        public void AddBatch(Mesh mesh, int subMesh, Material material, Matrix4x4 localToWorld)
+        {
+            SubMeshBatch batch = FindBatch(batches, mesh, subMesh, material);
 
             if (batch == null)
             {
-                batch = new SubMeshBatch
-                {
-                    mesh = mesh,
-                    subMeshIndex = subMesh,
-                    material = material
-                };
+                batch = new SubMeshBatch(mesh, subMesh, material);
                 batches.Add(batch);
             }
 
@@ -53,6 +114,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             foreach (SubMeshBatch batch in batches)
             {
+                batch.chunks ??= new List<Matrix4x4[]>();
                 batch.chunks.Clear();
 
                 int count = batch.matrices.Count;
@@ -77,32 +139,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 matProps = new MaterialPropertyBlock()
             };
-
-            _initialized = true;
         }
 
-        private void Awake()
-        {
-            Build();
-        }
-
-        void LateUpdate()
-        {
-
-            foreach (SubMeshBatch batch in batches)
-            {
-                if (batch.mesh == null || batch.material == null) continue;
-                
-                foreach (Matrix4x4[] chunk in batch.chunks)
-                {
-                    RenderParams rp = new(batch.material)
-                    {
-                        matProps = _renderParams.matProps
-                    };
-                    Graphics.RenderMeshInstanced(rp, batch.mesh, batch.subMeshIndex, chunk);
-                }
-            }
-        }
+        #endregion
     }
 }
 

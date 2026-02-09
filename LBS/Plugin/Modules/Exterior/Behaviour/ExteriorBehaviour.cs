@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
@@ -9,15 +6,19 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.Behaviours
 {
     [Serializable]
     [RequieredModule(typeof(TileMapModule),
                     typeof(ConnectedTileMapModule))]
-    public class ExteriorBehaviour : LBSBehaviour
+    public class ExteriorBehaviour : LBSBehaviour, IObjectData
     {
         #region FIELDS
         [JsonProperty, SerializeReference, SerializeField, HideInInspector]
@@ -216,6 +217,24 @@ namespace ISILab.LBS.Behaviours
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        {
+            HashSet<object> objs = new();
+
+            (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+
+            for (int i = corners.min.x; i <= corners.max.x; i++)
+            {
+                for (int j = corners.min.y; j <= corners.max.y; j++)
+                {
+                    LBSTile tile = GetTile(new Vector2Int(i, j));
+                    if (tile != null) objs.Add(tile);
+                }
+            }
+
+            return objs.ToArray();
         }
 
         #endregion

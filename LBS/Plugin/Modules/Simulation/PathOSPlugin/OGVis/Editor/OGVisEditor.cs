@@ -52,8 +52,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Editor
         private GUIContent toggleTimeSliceLabel = new GUIContent("Use Time Range",
             "Only include data within the range\nspecified in the filtering tab");
 
-        private PathOSAgent agentReference;
-        private List<PathOS.Heuristic> heuristics = new List<PathOS.Heuristic>();
+        private PathOSAgent agent;
+        private List<Heuristic> heuristics = new List<Heuristic>();
 
         private SerializedProperty propShowIndividual;
         private SerializedProperty propShowIndividualInteractions;
@@ -388,17 +388,17 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Editor
 
                 if (pLog.showDetail)
                 {
-                    agentReference = EditorGUILayout.ObjectField("Agent to update: ",
-                        agentReference, typeof(PathOSAgent), true) as PathOSAgent;
+                    agent = EditorGUILayout.ObjectField("Agent to update: ",
+                        agent, typeof(PathOSAgent), true) as PathOSAgent;
 
                     if (GUILayout.Button("Copy motives to agent")
-                        && agentReference != null)
+                        && agent != null)
                     {
-                        Undo.RecordObject(agentReference, "Copy motives to agent");
+                        Undo.RecordObject(agent, "Copy motives to agent");
 
-                        agentReference.experienceScale = pLog.experience;
+                        agent.tuning.experienceScale = pLog.experience;
 
-                        foreach (PathOS.HeuristicScale scale in agentReference.heuristicScales)
+                        foreach (HeuristicScale scale in agent.heuristics.heuristicScales)
                         {
                             if (pLog.heuristics.ContainsKey(scale.heuristic))
                                 scale.scale = pLog.heuristics[scale.heuristic];
@@ -410,10 +410,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Editor
                     EditorGUILayout.LabelField(pLog.experience.ToString());
                     EditorGUILayout.EndHorizontal();
 
-                    foreach (KeyValuePair<PathOS.Heuristic, float> stat in pLog.heuristics)
+                    foreach (KeyValuePair<Heuristic, float> stat in pLog.heuristics)
                     {
                         EditorGUILayout.BeginHorizontal();
-                        EditorGUILayout.LabelField(PathOS.UI.heuristicLabels[stat.Key] + ":",
+                        EditorGUILayout.LabelField(UI.heuristicLabels[stat.Key] + ":",
                             GUILayout.Width(84.0f));
                         EditorGUILayout.LabelField(stat.Value.ToString());
                         EditorGUILayout.EndHorizontal();

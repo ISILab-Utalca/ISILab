@@ -1,7 +1,11 @@
-using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager;
+using LBS.VisualElements;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Panel
@@ -12,8 +16,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         private Toggle layerToggle;
         private Toggle gen3DToggle;
         private Toggle qAssisToggle;
-        private Toggle plusToggle;
-
+        
         
         private static List<Toggle> inspectorToggleTabs = new();
         public Toggle layerDataTab;
@@ -21,31 +24,32 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         public Toggle behaviorTab;
         
         private Toggle tagWindowButton;
+        private Toggle blueprintWindowButton;
         private Toggle bundleWindowButton;
-        
-        private VisualElement toggleButtonsGroup;
-        
+
+        private static VisualTreeAsset visualTreeAsset;
+
+
         #region EVENTS
         //public LBSBoolEvent toggleEvent; //Experimental!
         #endregion
-        
+
         #region ACTION EVENTS
-        
+
         //public event Action<ChangeEvent<bool>> OnTogglePressed;
-        
+
         #endregion
-        
+
         public LBSSideBarPanel(): base()
         {
             
-            VisualTreeAsset visualTreeAsset = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSSideBarPanel");
+            visualTreeAsset = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSSideBarPanel");
             visualTreeAsset.CloneTree(this);
-            this.name = "LBSSideBarPanel";
+            name = "LBSSideBarPanel";
             
             layerToggle = this.Q<Toggle>("LayerToggle");
             gen3DToggle = this.Q<Toggle>("Gen3DToggle");
             qAssisToggle = this.Q<Toggle>("QAssisToggle");
-            plusToggle =  this.Q<Toggle>("PlusToggle");
             
             layerDataTab = this.Q<Toggle>("LayerDataButton");
             assistantTab = this.Q<Toggle>("AssistantButton");
@@ -57,17 +61,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             
             tagWindowButton = this.Q<Toggle>("TagButton");
             bundleWindowButton = this.Q<Toggle>("BundlesButton");
-            
-            toggleButtonsGroup = this.Q<VisualElement>("ToggleButtonContainer");
-
-            // gen3DToggle.RegisterValueChangedCallback<bool>( _evt =>
-            // {
-            //     //toggleEvent = new LBSBoolEvent(_evt.target, _evt.newValue);
-            //     //this.SendEvent(toggleEvent);
-            //     OnTogglePressed?.Invoke(_evt);
-            //     _evt.StopPropagation();
-            // });
-            
+            blueprintWindowButton = this.Q<Toggle>("BlueprintButton");            
         }
 
         public void Bind(LBSMainWindow _mainWindow){
@@ -108,7 +102,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                     BundleManagerWindow.ShowWindow();
                     bundleWindowButton.SetValueWithoutNotify(true);
                 });
-                
+
+                blueprintWindowButton.RegisterCallback<ChangeEvent<bool>>(_evt =>
+                {
+                    var display = _evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                    _mainWindow.blueprintPanel.style.display = display;
+                    ToolKit.Instance.DisplayManipulator(typeof(CaptureInArea), display);
+                    ToolKit.Instance.SetTarget(_mainWindow.blueprintPanel);
+                });
+                ToolKit.Instance.DisplayManipulator(typeof(CaptureInArea), DisplayStyle.None);
             }
         }
         

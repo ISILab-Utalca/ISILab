@@ -126,7 +126,7 @@ namespace PathOS
                 //Additionally, the *current* target cannot be forgotten.
                 if (!entity.entity.visible
                     && entity.forgettable
-                    && entity.impressionTime >= agent.forgetTime
+                    && entity.impressionTime >= agent.memoryState.forgetTime
                     && !PerceivedEntity.SameEntity(targetEntity, entity))
                 {
                     entities.RemoveAt(i);
@@ -141,11 +141,11 @@ namespace PathOS
 
             //Forget any non-visible entities that aren't in long-term memory 
             //over the STM size cap.
-            if (stm.Count > agent.stmSize)
+            if (stm.Count > agent.memoryState.stmSize)
             {
                 stm.Sort((m1, m2) => m1.impressionTime.CompareTo(m2.impressionTime));
 
-                while (stm.Count > agent.stmSize)
+                while (stm.Count > agent.memoryState.stmSize)
                 {
                     entities.Remove(stm[stm.Count - 1]);
                     stm.RemoveAt(stm.Count - 1);
@@ -185,8 +185,8 @@ namespace PathOS
 
                 //Paths are ejected from memory if they are forgotten,
                 //or if back-end navmesh logic has determined they cannot be reached.
-                if (paths[i].impressionTime >= agent.forgetTime
-                    || agent.IsUnreachable(paths[i].estimatedDest))
+                if (paths[i].impressionTime >= agent.memoryState.forgetTime
+                    || agent.explorationState.IsUnreachable(paths[i].estimatedDest))
                     paths.RemoveAt(i);
             }
         }
@@ -323,7 +323,7 @@ namespace PathOS
                 }
             }
 
-            if (paths.Count >= agent.stmSize)
+            if (paths.Count >= agent.memoryState.stmSize)
             {
                 if (path.score < minScore)
                     return;

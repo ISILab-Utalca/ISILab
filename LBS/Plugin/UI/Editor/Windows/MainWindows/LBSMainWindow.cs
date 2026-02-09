@@ -10,6 +10,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal.Editor;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
@@ -148,7 +149,9 @@ namespace ISILab.LBS.Editor.Windows
         public LayersPanel layerPanel;
         public Generator3DPanel gen3DPanel;
         public QuickAssistantPanel quickAssistantPanel;
+        public BlueprintPanel blueprintPanel;
         public VisualElement extraPanel;
+        public VisualElement bottomPanel;
         public VisualElement inspectorPanelContainer;
 
         private VisualElement helpOverlayAnchor;
@@ -239,6 +242,7 @@ namespace ISILab.LBS.Editor.Windows
             subPanelScrollView = rootVisualElement.Q<ScrollView>("SubPanelScrollView");
 
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
+            bottomPanel = rootVisualElement.Q<VisualElement>("BottomPanel");
             taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
         }
 
@@ -417,6 +421,11 @@ namespace ISILab.LBS.Editor.Windows
             extraPanel.Add(quickAssistantPanel);
             quickAssistantPanel.style.display = DisplayStyle.None;
             quickAssistantPanel.Setup(layerTemplates);
+
+            blueprintPanel ??=  new BlueprintPanel();
+            bottomPanel.Add(blueprintPanel);
+            blueprintPanel.style.display = DisplayStyle.None;
+
 
             #endregion
 
