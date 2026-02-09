@@ -96,40 +96,40 @@ namespace ISILab.LBS.Editor
 
         protected override VisualElement CreateVisualElement()
         {
-            return this;
-            var ve = new VisualElement();
-            config = new MAPEliteConfiguration();
-            content = new MAPEliteContent(assistant);
+            return this; // to prevent having the Mape Elites Window inside the inspector (it currently works as a pop up)
+            //var ve = new VisualElement();
+            //config = new MAPEliteConfiguration();
+            //content = new MAPEliteContent(assistant);
 
-            config.OnCalculate += Run;
-            config.OnContinue += Continue;
-            config.OnPressetChange += (p) =>
-            {
-                ChangePresset();
-                ToolKit.Instance.SetActive(typeof(MapEliteAreaSelector));
-            };
+            //config.OnCalculate += Run;
+            //config.OnContinue += Continue;
+            //config.OnPressetChange += (p) =>
+            //{
+            //    ChangePresset();
+            //    ToolKit.Instance.SetActive(typeof(MapEliteAreaSelector));
+            //};
 
-            content.OnSelectOption += (s) =>
-            {
-                // Save history version to revert
-                var level = LBSController.CurrentLevel;
-                EditorGUI.BeginChangeCheck();
-                Undo.RegisterCompleteObjectUndo(level, "Select Suggestion");
+            //content.OnSelectOption += (s) =>
+            //{
+            //    // Save history version to revert
+            //    var level = LBSController.CurrentLevel;
+            //    EditorGUI.BeginChangeCheck();
+            //    Undo.RegisterCompleteObjectUndo(level, "Select Suggestion");
 
-                // Apply suggestion
-                assistant.ApplySuggestion(s);
+            //    // Apply suggestion
+            //    assistant.ApplySuggestion(s);
 
-                // Mark as dirty
-                if (EditorGUI.EndChangeCheck())
-                {
-                    EditorUtility.SetDirty(level);
-                }
-                assistant.OwnerLayer.OnChangeUpdate();
-            };
+            //    // Mark as dirty
+            //    if (EditorGUI.EndChangeCheck())
+            //    {
+            //        EditorUtility.SetDirty(level);
+            //    }
+            //    assistant.OwnerLayer.OnChangeUpdate();
+            //};
             
-            ve.Add(content);
-            ve.Add(config);
-            return ve;
+            //ve.Add(content);
+            //ve.Add(config);
+            //return ve;
         }
 
         public void SetTools(ToolKit toolkit)

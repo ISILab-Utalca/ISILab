@@ -93,7 +93,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.ViewElements
                     EditorUtility.SetDirty(level);
                 }
 
-                DrawManager.Instance.RedrawLayer(Note.OwnerLayer);
+                MainView.Instance.ClearLayerContainer(Note.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(noteBehaviour, Note.OwnerLayer);
             });
 
             collapseBtn.RegisterCallback<ClickEvent>(evt =>

@@ -128,7 +128,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles.Tools
                     commandsBuffer.Dispose();
                     TryDisposeMatrix();
                     throw new NotImplementedException();
-                    break;
+                    //break;
                 }
                 case GenerationMode.GpuBach:
                 {

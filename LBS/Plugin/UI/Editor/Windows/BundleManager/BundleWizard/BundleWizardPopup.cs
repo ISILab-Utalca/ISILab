@@ -268,25 +268,25 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             {
                 case "Interior Layer":
                     bundle.LayerContentFlags    = BundleFlags.Interior;
-                    bundle.Type                 = Bundle.TagType.Structural;
+                    //bundle.Type                 = Bundle.TagType.Structural;
                     bundle.Color                = default;
                     break;
 
                 case "Exterior Layer":
                     bundle.LayerContentFlags    = BundleFlags.Exterior;
-                    bundle.Type                 = Bundle.TagType.Structural;
+                    //bundle.Type                 = Bundle.TagType.Structural;
                     bundle.Color                = default;
                     break;
 
                 case "Population Layer":
                     bundle.LayerContentFlags    = BundleFlags.Population;
-                    bundle.Type                 = Bundle.TagType.Element;
+                    //bundle.Type                 = Bundle.TagType.Element;
                     bundle.Color                = new Color().RandomColorHSV();
                     break;
 
                 default:
                     bundle.LayerContentFlags    = default;
-                    bundle.Type                 = default;
+                    //bundle.Type                 = default;
                     bundle.Color                = default;
                     break;
             }

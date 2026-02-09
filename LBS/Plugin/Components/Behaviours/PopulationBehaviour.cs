@@ -44,8 +44,8 @@ namespace ISILab.LBS.Behaviours
         [SerializeField, JsonIgnore, HideInInspector]
         private BundleTileMap _bundleTileMap;
 
-        [SerializeField, JsonRequired, HideInInspector]
-        private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
+        //[SerializeField, JsonRequired, HideInInspector]
+        //private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
 
         [SerializeField, JsonRequired, HideInInspector]
         private string bundleRefGuid = "668e6768d7619b3459df4f6378dfa3bb";
