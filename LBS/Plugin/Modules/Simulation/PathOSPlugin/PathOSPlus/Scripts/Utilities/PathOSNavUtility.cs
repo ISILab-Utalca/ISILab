@@ -465,10 +465,10 @@ namespace PathOS
                     || gridX > visitedGrid.GetLength(0)
                     || gridZ > visitedGrid.GetLength(1))
                 {
-                    NPDebug.LogError("Navmesh sample location outside of grid bounds!\n" +
-                        "Check that navmesh is baked properly. Otherwise there is an " +
-                        "issue with PathOS' Navmesh border detection!",
-                        typeof(NavmeshMemoryMapper));
+                    //NPDebug.LogError("Navmesh sample location outside of grid bounds!\n" +
+                    //    "Check that navmesh is baked properly. Otherwise there is an " +
+                    //    "issue with PathOS' Navmesh border detection!",
+                    //    typeof(NavmeshMemoryMapper));
 
                     return;
                 }
