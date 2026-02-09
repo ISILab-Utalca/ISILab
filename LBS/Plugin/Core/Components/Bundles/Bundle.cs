@@ -55,10 +55,6 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             id = Guid.NewGuid().ToString();
             return id;
         }
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
         public object Clone()
         {
             return new Asset(this.obj, this.probability);
