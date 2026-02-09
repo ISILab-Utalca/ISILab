@@ -77,14 +77,8 @@ namespace ISILab.LBS.AI.Categorization
 
             public MainTagField(string fieldName, string tagName, LBSCharacteristic tagChar) : base(fieldName)
             {
-                var t = tagChar.GetType();
-                UnityEngine.Assertions.Assert.IsTrue(t.Equals(typeof(LBSTagsCharacteristic)));
-
                 this.tagName = tagName;
                 this.tagChar = tagChar;
-
-                var t2 = this.tagChar.GetType();
-                UnityEngine.Assertions.Assert.IsTrue(t2.Equals(typeof(LBSTagsCharacteristic)));
 
                 SetField();
             }
@@ -149,6 +143,46 @@ namespace ISILab.LBS.AI.Categorization
             public override object GetValue() => tagsFields.Select(tag => tag.GetValue());
         }
 
+        [Serializable]
+        public class IntegerConfigurationField : EvaluatorConfigurationField
+        {
+            [SerializeField]
+            int value;
+
+            IntegerField field;
+
+            public IntegerField Field
+            {
+                get
+                {
+                    if (field is null)
+                        SetField();
+                    return field;
+                }
+            }
+
+            public IntegerConfigurationField(string fieldName, int value) : base(fieldName)
+            {
+                this.value = value;
+
+                SetField();
+            }
+
+            public override VisualElement GetField() => Field;
+
+            protected override void SetField()
+            {
+                field = new IntegerField(name);
+                field.value = value;
+                field.RegisterValueChangedCallback(evt =>
+                {
+                    value = field.value;
+                });
+            }
+
+            public override object GetValue() => value;
+        }
+
         [SerializeReference]
         public object target;
         [SerializeReference]
@@ -166,7 +200,7 @@ namespace ISILab.LBS.AI.Categorization
             }
             else
             {
-                config = ScriptableObject.CreateInstance<EvaluatorConfiguration>();
+                config = CreateInstance<EvaluatorConfiguration>();
                 AssetDatabase.CreateAsset(config, fullPath);
                 AssetDatabase.SaveAssets();
             }
@@ -193,7 +227,6 @@ namespace ISILab.LBS.AI.Categorization
         {
             object val = fields.Find(f => f.name.Equals(name)).GetValue();
             var t = val.GetType();
-            //UnityEngine.Assertions.Assert.IsTrue(t.Equals(typeof(LBSTagsCharacteristic)));
 
             var ret = (val as IEnumerable<object>).Select(v => (T)v);
             return ret;

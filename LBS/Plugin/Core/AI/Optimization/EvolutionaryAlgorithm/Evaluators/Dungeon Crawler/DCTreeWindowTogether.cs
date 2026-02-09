@@ -32,8 +32,8 @@ namespace ISILab.AI.Categorization
         public string Tooltip => "DC Tree Window Together Evaluator\n\n" +
             "This evaluator aims to ensure that each window has only one tree next to it and in its surroundings.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
-            "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Any type of Interior Layer.\n";// +
+            //"- Vertex-Based Exterior Layers.";
 
         public static EvaluatorConfiguration config;
 
@@ -42,7 +42,8 @@ namespace ISILab.AI.Categorization
         [SerializeField, SerializeReference]
         public LBSCharacteristic treeCharacteristic;
 
-        private const int TreeDistance = 3;
+        [SerializeField]
+        private int treeDistance = 3;
 
         public float Evaluate(IOptimizable evaluable)
         {
@@ -58,6 +59,8 @@ namespace ISILab.AI.Categorization
             }
 
             LBSLayer layer = CombinedLayer;
+
+            if (layer is null) return 0.0f;
 
             ConnectedTileMapModule connectedTM = null;
             SectorizedTileMapModule sectorTM = null;
@@ -105,7 +108,7 @@ namespace ISILab.AI.Categorization
             float satisfiedWindows = 0;
             float totalWindows = 0;
 
-            foreach (var pair in sectorTM.PairTiles)
+            foreach (TileZonePair pair in sectorTM.PairTiles)
             {
                 LBSTile tile = pair.Tile;
                 Vector2Int currentPos = tile.Position;
@@ -143,10 +146,10 @@ namespace ISILab.AI.Categorization
             if (totalWindows == 0) return 0.0f;
 
             float penalties = 0;
-            foreach (var tPos in treeList)
+            foreach (Vector2Int tPos in treeList)
             {
                 float dist = ManhattanDistance(tPos, windowLocations);
-                if (dist > 0 && dist < TreeDistance)
+                if (dist > 0 && dist < treeDistance)
                 {
                     penalties += 0.5f;
                 }
@@ -187,6 +190,8 @@ namespace ISILab.AI.Categorization
             colliderCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Collider"));
             treeCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Tree"));
 
+            treeDistance = 3;
+
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
 
@@ -196,6 +201,8 @@ namespace ISILab.AI.Categorization
 
             colliderCharacteristic = config.GetValue<LBSCharacteristic>("Obstacle");
             treeCharacteristic = config.GetValue<LBSCharacteristic>("Target");
+
+            treeDistance = config.GetValue<int>("Threshold");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
@@ -203,7 +210,8 @@ namespace ISILab.AI.Categorization
             var list = new List<EvaluatorConfigurationField>
             {
                 new MainTagField("Obstacle", colliderCharacteristic.FirstTag().Label, colliderCharacteristic),
-                new MainTagField("Target", treeCharacteristic.FirstTag().Label, treeCharacteristic)
+                new MainTagField("Target", treeCharacteristic.FirstTag().Label, treeCharacteristic),
+                new IntegerConfigurationField("Threshold", treeDistance)
             };
 
             return list;
