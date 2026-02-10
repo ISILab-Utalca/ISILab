@@ -1,8 +1,12 @@
 using ISILab.AI.Optimization;
+using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -13,7 +17,7 @@ using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
-    public class SingleRatio : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
+    public class PairRatio : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -37,7 +41,9 @@ namespace ISILab.AI.Categorization
         #region CHARACTERISTIC FIELDS
 
         [SerializeField, SerializeReference]
-        public LBSCharacteristic itemCharacteristic;
+        public LBSCharacteristic item1Characteristic;
+        [SerializeField, SerializeReference]
+        public LBSCharacteristic item2Characteristic;
 
         [SerializeField]
         public float targetRatio;
@@ -65,91 +71,43 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
-            int itemCount = 0;
-            int validGenes = genes.Count;
+            /* Search for your tagged elements. */
+            int item1Count = 0, item2Count = 0;
             for (int i = 0; i < genes.Count; i++)
             {
                 if (chrom.IsInvalid(i))
-                {
-                    validGenes--;
                     continue;
-                }
                 if (genes[i] is not null)
                 {
-                    if (genes[i].HasTag(itemCharacteristic.FirstTag()))
-                        itemCount++;
+                    if (genes[i].HasTag(item1Characteristic.FirstTag()))
+                        item1Count++;
+                    else if (genes[i].HasTag(item2Characteristic.FirstTag()))
+                        item2Count++;
                 }
             }
 
-            float currentRatio = (float)itemCount / (float)validGenes;
+            // TODO: NEEDS PROPERLY TESTING!!!!!
+            float currentRatio = (float)item1Count / (float)item2Count;
 
-            int approxTarget10 = Mathf.RoundToInt(targetRatio * 10f);
-
-            if (targetRatio <= 0.5f)
+            if(currentRatio < targetRatio)
             {
-                if(currentRatio < targetRatio)
-                {
-                    float fact = currentRatio / targetRatio;
-                    fitness = fact * fact;
-                }
-                else
-                {
-                    int steps = 5 - approxTarget10;
-                    int exp = 2;
-                    List<int> expList = new() { 2, 3 };
-                    if(steps == 1)
-                    {
-                        exp = expList[steps];
-                    }
-                    else
-                    {
-                        for (int i = 2; i <= steps; i++)
-                        {
-                            exp = expList.Sum();
-                            expList.Add(exp);
-                        }
-                    }
-
-                    float fraction = (1f - currentRatio) / (1f - targetRatio);
-                    float OGFraction = fraction;
-                    for (int i = 1; i < exp; i++)
-                        fraction *= OGFraction;
-                    fitness = Mathf.Abs(fraction);
-                }
+                float fact = currentRatio / targetRatio;
+                fitness = fact * fact;
             }
             else
             {
-                if(currentRatio > targetRatio)
-                {
-                    float fact = (1f - currentRatio) / (1f - targetRatio);
-                    fitness = fact * fact;
-                }
-                else
-                {
-                    int steps = approxTarget10 - 5;
-                    int exp = 2;
-                    List<int> expList = new() { 2, 3 };
-                    if (steps == 1)
-                    {
-                        exp = expList[steps];
-                    }
-                    else
-                    {
-                        for (int i = 2; i <= steps; i++)
-                        {
-                            exp = expList.Sum();
-                            expList.Add(exp);
-                        }
-                    }
+                // Creating this formula was a pain in the neck (Thank you, Geogebra).
+                // Modify it by your own responsibility.
+                float offset = targetRatio * 0.2f;
+                float displacer = 1f - targetRatio;
+                float multiplier = 1f + 12f / targetRatio;
 
-                    float fraction = currentRatio / targetRatio;
-                    float OGFraction = fraction;
-                    for (int i = 1; i < exp; i++)
-                        fraction *= OGFraction;
-                    fitness = Mathf.Abs(fraction);
-                }
+                float logParam = currentRatio + offset + displacer;
+                float den = Mathf.Log10(logParam) * multiplier;
+
+                fitness = 1f / den;
             }
-                
+
             UnityEngine.Assertions.Assert.IsFalse(fitness == float.NaN);
             return fitness;
         }
@@ -169,10 +127,12 @@ namespace ISILab.AI.Categorization
 
         public void InitializeDefault()
         {
-            itemCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Chest"));
+            /* Initialize here all your LBSCharacteristic fields. */
+            item1Characteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Chest"));
+            item2Characteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Enemies"));
 
-            targetRatio = 0.1f;
-        
+            targetRatio = 0.5f;
+
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
 
@@ -184,33 +144,67 @@ namespace ISILab.AI.Categorization
         {
             CreateOrUpdateConfiguration(ref config, GetType());
 
-            itemCharacteristic = config.GetValue<LBSCharacteristic>("Item");
-            targetRatio = config.GetValue<float>("Ratio");
+            item1Characteristic = config.GetValue<LBSCharacteristic>("Item 1");
+            item2Characteristic = config.GetValue<LBSCharacteristic>("Item 2");
+
+            targetRatio =
+                config.GetValue<float>("Value 1") /
+                config.GetValue<float>("Value 2");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
+            float mult = 1f;
+            float remain = 1f;
+            while (remain > 0f)
+            {
+                remain = targetRatio % mult;
+                mult *= 10f;
+            }
+
+            int num = (int)(targetRatio * mult);
+            int den = (int)mult;
+            int gcd = GCD(num, den);
+            num /= gcd;
+            den /= gcd;
+
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic),
-                new FloatConfigurationField("Ratio", targetRatio, 0.0f, 1.0f)
+                new MainTagField("Item 1", item1Characteristic.FirstTag().Label, item1Characteristic),
+                new MainTagField("Item 2", item2Characteristic.FirstTag().Label, item2Characteristic),
+                new IntegerConfigurationField("Value 1", num, 1, 20),
+                new IntegerConfigurationField("Value 2", den, 1, 20)
             };
 
             return list;
+
+            static int GCD(int a, int b)
+            {
+                while(a != 0 && b != 0)
+                {
+                    if (a > b)
+                        a %= b;
+                    else
+                        b %= a;
+                }
+
+                return a | b;
+            }
         }
 
         #endregion
 
         public object Clone()
         {
-            var clone = new SingleRatio();
+            var clone = new PairRatio();
 
             clone.ContextLayers = new List<LBSLayer>(ContextLayers);
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
 
-            clone.itemCharacteristic = itemCharacteristic;
+            clone.item1Characteristic = item1Characteristic;
+            clone.item2Characteristic = item2Characteristic;
 
             clone.targetRatio = targetRatio;
 
