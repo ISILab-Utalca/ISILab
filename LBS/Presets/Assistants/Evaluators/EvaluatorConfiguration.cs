@@ -149,7 +149,15 @@ namespace ISILab.LBS.AI.Categorization
             [SerializeField]
             int value;
 
+            [SerializeField]
+            bool useSlider;
+            [SerializeField]
+            int minValue;
+            [SerializeField]
+            int maxValue;
+
             IntegerField field;
+            SliderInt slider;
 
             public IntegerField Field
             {
@@ -161,6 +169,16 @@ namespace ISILab.LBS.AI.Categorization
                 }
             }
 
+            public SliderInt Slider
+            {
+                get
+                {
+                    if(slider is null)
+                        SetField();
+                    return slider;
+                }
+            }
+
             public IntegerConfigurationField(string fieldName, int value) : base(fieldName)
             {
                 this.value = value;
@@ -168,16 +186,132 @@ namespace ISILab.LBS.AI.Categorization
                 SetField();
             }
 
-            public override VisualElement GetField() => Field;
+            public IntegerConfigurationField(string fieldName, int value, int minValue, int maxValue) : base(fieldName)
+            {
+                this.value = value;
+                this.minValue = minValue;
+                this.maxValue = maxValue;
+
+                useSlider = true;
+
+                SetField();
+            }
+
+            public override VisualElement GetField() => useSlider ? Slider : Field;
 
             protected override void SetField()
             {
-                field = new IntegerField(name);
-                field.value = value;
-                field.RegisterValueChangedCallback(evt =>
+                if (useSlider)
                 {
-                    value = field.value;
-                });
+                    slider = new SliderInt(name, minValue, maxValue);
+                    slider.value = value;
+                    slider.showInputField = true;
+                    slider.RegisterValueChangedCallback(evt =>
+                    {
+                        if (slider.value < minValue)
+                            slider.SetValueWithoutNotify(minValue);
+                        else if (slider.value > maxValue)
+                            slider.SetValueWithoutNotify(maxValue);
+
+                        value = slider.value;
+                    });
+                }
+                else
+                {
+                    field = new IntegerField(name);
+                    field.value = value;
+                    field.RegisterValueChangedCallback(evt =>
+                    {
+                        value = field.value;
+                    });
+                }
+            }
+
+            public override object GetValue() => value;
+        }
+
+        [Serializable]
+        public class FloatConfigurationField : EvaluatorConfigurationField
+        {
+            [SerializeField]
+            float value;
+
+            [SerializeField]
+            bool useSlider;
+            [SerializeField]
+            float minValue;
+            [SerializeField]
+            float maxValue;
+
+            FloatField field;
+            Slider slider;
+
+            public FloatField Field
+            {
+                get
+                {
+                    if (field is null)
+                        SetField();
+                    return field;
+                }
+            }
+
+            public Slider Slider
+            {
+                get
+                {
+                    if (slider is null)
+                        SetField();
+                    return slider;
+                }
+            }
+
+            public FloatConfigurationField(string fieldName, float value) : base(fieldName)
+            {
+                this.value = value;
+
+                SetField();
+            }
+
+            public FloatConfigurationField(string fieldName, float value, float minValue, float maxValue) : base(fieldName)
+            {
+                this.value = value;
+                this.minValue = minValue;
+                this.maxValue = maxValue;
+
+                useSlider = true;
+
+                SetField();
+            }
+
+            public override VisualElement GetField() => useSlider ? Slider : Field;
+
+            protected override void SetField()
+            {
+                if (useSlider)
+                {
+                    slider = new Slider(name, minValue, maxValue);
+                    slider.value = value;
+                    slider.showInputField = true;
+                    slider.RegisterValueChangedCallback(evt =>
+                    {
+                        if (slider.value < minValue)
+                            slider.SetValueWithoutNotify(minValue);
+                        else if (slider.value > maxValue)
+                            slider.SetValueWithoutNotify(maxValue);
+
+                        value = slider.value;
+                    });
+                }
+                else
+                {
+                    field = new FloatField(name);
+                    field.value = value;
+                    field.RegisterValueChangedCallback(evt =>
+                    {
+                        value = field.value;
+                    });
+                }
             }
 
             public override object GetValue() => value;

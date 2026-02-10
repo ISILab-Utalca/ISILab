@@ -15,9 +15,9 @@ MonoBehaviour:
   target:
     rid: 3359370255690367991
   fields:
-  - rid: 7729149147417153034
-  - rid: 7729149147417153035
-  - rid: 7729149147417153036
+  - rid: 7729149150681368213
+  - rid: 7729149150681368214
+  - rid: 7729149150681368215
   references:
     version: 2
     RefIds:
@@ -25,26 +25,29 @@ MonoBehaviour:
       type: {class: DCTreeWindowTogether, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         colliderCharacteristic:
-          rid: 7729149147417153037
+          rid: 7729149150681368216
         treeCharacteristic:
-          rid: 7729149147417153038
+          rid: 7729149150681368217
         treeDistance: 3
-    - rid: 7729149147417153034
+    - rid: 7729149150681368213
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Obstacle
         tagName: Collider
-    - rid: 7729149147417153035
+    - rid: 7729149150681368214
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Target
         tagName: Tree
-    - rid: 7729149147417153036
+    - rid: 7729149150681368215
       type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Threshold
-        value: 4
-    - rid: 7729149147417153037
+        value: 3
+        useSlider: 1
+        minValue: 1
+        maxValue: 20
+    - rid: 7729149150681368216
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
@@ -52,7 +55,7 @@ MonoBehaviour:
         - tagName: Collider
           value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
           tagGUID: 261af09a46f50a647b4fb33a0e989c66
-    - rid: 7729149147417153038
+    - rid: 7729149150681368217
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}

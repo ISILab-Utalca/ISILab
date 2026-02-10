@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c337e8961ec74a145bc9c98971225b30, type: 3}
+  m_Name: SingleRatio configuration
+  m_EditorClassIdentifier: 
+  target:
+    rid: 7729149167595421788
+  fields:
+  - rid: 7729149167595421789
+  - rid: 7729149167595421790
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 7729149167595421788
+      type: {class: SingleRatio, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        itemCharacteristic:
+          rid: -2
+        targetRatio: 0
+    - rid: 7729149167595421789
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Item
+        tagName: Chest
+    - rid: 7729149167595421790
+      type: {class: EvaluatorConfiguration/FloatConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Ratio
+        value: 0.6
+        useSlider: 1
+        minValue: 0
+        maxValue: 1

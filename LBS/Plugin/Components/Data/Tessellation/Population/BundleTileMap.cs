@@ -534,6 +534,9 @@ namespace ISILab.LBS.Modules
 
         public Rect GetBounds()
         {
+            if (TileGroup.Count == 0)
+                return Rect.zero;
+
             var x = TileGroup.Min(t => t.Position.x);
             var y = TileGroup.Max(t => t.Position.y);
 

@@ -31,7 +31,7 @@ namespace ISILab.AI.Categorization
 
         public string Tooltip => "DC Tree Window Together Evaluator\n\n" +
             "This evaluator aims to ensure that each window has only one tree next to it and in its surroundings.\n\n" +
-            "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
+            "This evaluator currently REQUIRES as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n";// +
             //"- Vertex-Based Exterior Layers.";
 
@@ -179,10 +179,9 @@ namespace ISILab.AI.Categorization
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
-            var ctx = (IContextualEvaluator)this;
-            CombinedInteriorLayer = ctx.InteriorLayers(selection);
-            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
-            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            CombinedInteriorLayer = (this as IContextualEvaluator).InteriorLayers(selection);
+            CombinedExteriorLayer = (this as IContextualEvaluator).ExteriorLayers(selection);
+            CombinedLayer = (this as IContextualEvaluator).MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
         }
 
         public void InitializeDefault()
@@ -211,7 +210,7 @@ namespace ISILab.AI.Categorization
             {
                 new MainTagField("Obstacle", colliderCharacteristic.FirstTag().Label, colliderCharacteristic),
                 new MainTagField("Target", treeCharacteristic.FirstTag().Label, treeCharacteristic),
-                new IntegerConfigurationField("Threshold", treeDistance)
+                new IntegerConfigurationField("Threshold", treeDistance, 1, 20)
             };
 
             return list;
@@ -220,11 +219,16 @@ namespace ISILab.AI.Categorization
         public object Clone()
         {
             var clone = new DCTreeWindowTogether();
+
             clone.ContextLayers = new List<LBSLayer>(ContextLayers);
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
+
             clone.treeCharacteristic = treeCharacteristic;
+
+            clone.treeDistance = treeDistance;
+
             return clone;
         }
     }
