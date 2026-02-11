@@ -86,10 +86,13 @@ namespace ISILab.AI.Categorization
                 }
             }
 
+            if(item1Count == 0 || item2Count == 0) 
+                return targetRatio == 1f && item1Count == item2Count ? 1f : 0f;
+
             // TODO: NEEDS PROPERLY TESTING!!!!!
             float currentRatio = (float)item1Count / (float)item2Count;
 
-            if(currentRatio < targetRatio)
+            if(currentRatio <= targetRatio)
             {
                 float fact = currentRatio / targetRatio;
                 fitness = fact * fact;
@@ -148,21 +151,25 @@ namespace ISILab.AI.Categorization
             item2Characteristic = config.GetValue<LBSCharacteristic>("Item 2");
 
             targetRatio =
-                config.GetValue<float>("Value 1") /
-                config.GetValue<float>("Value 2");
+                (float)config.GetValue<int>("Value 1") /
+                (float)config.GetValue<int>("Value 2");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
-            float mult = 1f;
-            float remain = 1f;
-            while (remain > 0f)
+            decimal mult = 1m;
+            decimal remain = 1m;
+            decimal decimalRatio = (decimal)targetRatio;
+            while (remain > 0m)
             {
-                remain = targetRatio % mult;
-                mult *= 10f;
+                remain = decimalRatio % mult;
+                mult /= 10m;
+                if (mult <= 1.0E-26m) break;
             }
 
-            int num = (int)(targetRatio * mult);
+            mult = 0.1m / mult;
+
+            int num = (int)(decimalRatio * mult);
             int den = (int)mult;
             int gcd = GCD(num, den);
             num /= gcd;

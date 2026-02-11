@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c337e8961ec74a145bc9c98971225b30, type: 3}
+  m_Name: PairRatio configuration
+  m_EditorClassIdentifier: 
+  target:
+    rid: 7729149191026377603
+  fields:
+  - rid: 7729149191026377604
+  - rid: 7729149191026377605
+  - rid: 7729149191026377606
+  - rid: 7729149191026377607
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 7729149191026377603
+      type: {class: PairRatio, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        item1Characteristic:
+          rid: -2
+        item2Characteristic:
+          rid: -2
+        targetRatio: 0
+    - rid: 7729149191026377604
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Item 1
+        tagName: Chest
+    - rid: 7729149191026377605
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Item 2
+        tagName: Enemies
+    - rid: 7729149191026377606
+      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Value 1
+        value: 7
+        useSlider: 1
+        minValue: 1
+        maxValue: 20
+    - rid: 7729149191026377607
+      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Value 2
+        value: 2
+        useSlider: 1
+        minValue: 1
+        maxValue: 20
