@@ -109,24 +109,25 @@ namespace ISILab.AI.Categorization
             }
 
             int[,] distances = new int[size, size];
-            bool[,] toIgnore = new bool[size, size];
+            //bool[,] toIgnore = new bool[size, size];
 
             if (layer is not null)
             {
-                var sectorMod = layer.GetModule<SectorizedTileMapModule>();
-                foreach (var pair in sectorMod.PairTiles)
-                {
-                    if (!tilePos.ContainsKey(pair.Tile.Position))
-                        tilePos.Add(pair.Tile.Position, pair.Tile);
-                }
                 switch (layer.ID)
                 {
                     case "Interior":
                     case "Exterior":
+                        var sectorMod = layer.GetModule<SectorizedTileMapModule>();
+                        foreach (TileZonePair pair in sectorMod.PairTiles)
+                        {
+                            if (!tilePos.ContainsKey(pair.Tile.Position))
+                                tilePos.Add(pair.Tile.Position, pair.Tile);
+                        }
                         string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                        var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
                         for (int i = 0; i < size; i++)
                         {
-                            FloodFill(POIs[i], POIs, i, ref distances, chrom, layer.GetModule<SectorizedTileMapModule>(), layer.GetModule<ConnectedTileMapModule>(moduleID));
+                            FloodFill(POIs[i], POIs, i, ref distances, chrom, sectorMod, connectedMod);
                         }
                         break;
                     default:
@@ -215,7 +216,7 @@ namespace ISILab.AI.Categorization
             var remaining = new HashSet<int>();
             var closed = new HashSet<int>();
 
-            foreach (var tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
+            foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
             {
                 int index = chrom.ToIndex(tile.Position - chrom.Rect.position);
                 if (index < 0) continue;
@@ -252,7 +253,7 @@ namespace ISILab.AI.Categorization
                     closed.Add(current);
 
                     if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
-                    var currentConnections = connectedTM.GetConnections(currentTile);
+                    List<string> currentConnections = connectedTM.GetConnections(currentTile);
 
                     for (int k = 0; k < dirCount; k++)
                     {
@@ -299,7 +300,7 @@ namespace ISILab.AI.Categorization
                     }
                 }
 
-                foreach (var step in nextStep) remainingStep.Enqueue(step);
+                foreach (int step in nextStep) remainingStep.Enqueue(step);
             }
         }
 
@@ -307,8 +308,8 @@ namespace ISILab.AI.Categorization
         {
             for (int i = from; i < others.Count; i++) 
             {
-                var v1 = chrom.ToMatrixPosition(startPos);
-                var v2 = chrom.ToMatrixPosition(others[i]);
+                Vector2Int v1 = chrom.ToMatrixPosition(startPos);
+                Vector2Int v2 = chrom.ToMatrixPosition(others[i]);
 
                 distances[i, from] = distances[from, i] = Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
             }

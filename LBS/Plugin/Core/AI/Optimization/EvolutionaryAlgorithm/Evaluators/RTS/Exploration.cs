@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace ISILab.AI.Categorization
 {
-    [System.Serializable]
+    [Obsolete("Currently not in use."), Serializable]
     public class Exploration : IRangedEvaluator
     {
         public float MaxValue => 1;

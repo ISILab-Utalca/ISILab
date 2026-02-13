@@ -317,6 +317,65 @@ namespace ISILab.LBS.AI.Categorization
             public override object GetValue() => value;
         }
 
+        [Serializable]
+        public class MinMaxConfigurationField : EvaluatorConfigurationField
+        {
+            [SerializeField]
+            Vector2 value;
+
+            [SerializeField]
+            float lowLimit;
+            [SerializeField]
+            float highLimit;
+
+            MinMaxSlider slider;
+
+            public float Min
+            {
+                get => value.x;
+                set => this.value.x = value;
+            }
+
+            public float Max
+            {
+                get => value.y;
+                set => this.value.y = value;
+            }
+
+            public MinMaxSlider Slider
+            {
+                get
+                {
+                    if (slider is null)
+                        SetField();
+                    return slider;
+                }
+            }
+
+            public MinMaxConfigurationField(string fieldName, float minValue, float maxValue, float lowLimit, float highLimit) : base(fieldName)
+            {
+                Min = minValue;
+                Max = maxValue;
+                this.lowLimit = lowLimit;
+                this.highLimit = highLimit;
+
+                SetField();
+            }
+
+            public override VisualElement GetField() => Slider;
+
+            protected override void SetField()
+            {
+                slider = new MinMaxSlider(name, Min, Max, lowLimit, highLimit);
+                slider.RegisterValueChangedCallback(evt =>
+                {
+                    value = evt.newValue;
+                });
+            }
+
+            public override object GetValue() => value;
+        }
+
         [SerializeReference]
         public object target;
         [SerializeReference]

@@ -1,8 +1,12 @@
 using ISILab.AI.Optimization;
+using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -13,7 +17,8 @@ using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
-    public class PairRatio : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
+    [System.Obsolete("Not implemented yet.")]
+    public class DistanceRange : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -33,6 +38,7 @@ namespace ISILab.AI.Categorization
 
         public static EvaluatorConfiguration config;
 
+        /* Place here any LBSCharacteristic type field required for your evaluator to work. */
         #region CHARACTERISTIC FIELDS
 
         [SerializeField, SerializeReference]
@@ -41,7 +47,9 @@ namespace ISILab.AI.Categorization
         public LBSCharacteristic item2Characteristic;
 
         [SerializeField]
-        public float targetRatio;
+        private float min;
+        [SerializeField]
+        private float max;
 
         #endregion
 
@@ -66,6 +74,7 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            /* Search for your tagged elements. */
             int item1Count = 0, item2Count = 0;
             for (int i = 0; i < genes.Count; i++)
             {
@@ -80,32 +89,36 @@ namespace ISILab.AI.Categorization
                 }
             }
 
-            if(item1Count == 0 || item2Count == 0) 
-                return targetRatio == 1f && item1Count == item2Count ? 1f : 0f;
+            /* You can use the necessary modules for your evaluator to work. */
 
-            float currentRatio = (float)item1Count / (float)item2Count;
+            /**
+            string connectedModuleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+            string sectorModuleID = "";
+            ConnectedTileMapModule connectedTM = layer.GetModule<ConnectedTileMapModule>(connectedModuleID);
+            SectorizedTileMapModule sectorTM = layer.GetModule<SectorizedTileMapModule>(sectorModuleID);
+            **/
 
-            if(currentRatio <= targetRatio)
+            if (layer is not null)
             {
-                float fact = currentRatio / targetRatio;
-                fitness = fact * fact;
+                //fitness = EvaluateWithContext(defaultCharacteristicIndex, chrom, null);
             }
             else
             {
-                // Creating this formula was a pain in the neck (Thank you, Geogebra).
-                // Modify it by your own responsibility.
-                float offset = targetRatio * 0.2f;
-                float displacer = 1f - targetRatio;
-                float multiplier = 1f + 12f / targetRatio;
-
-                float logParam = currentRatio + offset + displacer;
-                float den = Mathf.Log10(logParam) * multiplier;
-
-                fitness = 1f / den;
+                //fitness = EvaluateWithoutContext(defaultCharacteristicIndex, chrom);
             }
 
             UnityEngine.Assertions.Assert.IsFalse(fitness == float.NaN);
             return fitness;
+        }
+
+        float EvaluateWithContext(int index, BundleTilemapChromosome chrom, params LBSModule[] modules)
+        {
+            throw new System.NotImplementedException("Default evaluation method not overwritten.");
+        }
+
+        float EvaluateWithoutContext(int index, BundleTilemapChromosome chrom)
+        {
+            throw new System.NotImplementedException("Default evaluation method not overwritten.");
         }
 
         #endregion
@@ -124,11 +137,8 @@ namespace ISILab.AI.Categorization
         public void InitializeDefault()
         {
             /* Initialize here all your LBSCharacteristic fields. */
-            item1Characteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Chest"));
-            item2Characteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Enemies"));
-
-            targetRatio = 0.5f;
-
+            item1Characteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("TAG NAME"));
+        
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
 
@@ -140,63 +150,24 @@ namespace ISILab.AI.Categorization
         {
             CreateOrUpdateConfiguration(ref config, GetType());
 
-            item1Characteristic = config.GetValue<LBSCharacteristic>("Item 1");
-            item2Characteristic = config.GetValue<LBSCharacteristic>("Item 2");
-
-            targetRatio =
-                (float)config.GetValue<int>("Value 1") /
-                (float)config.GetValue<int>("Value 2");
+            item1Characteristic = config.GetValue<LBSCharacteristic>("FIELD NAME");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
-            decimal mult = 1m;
-            decimal remain = 1m;
-            decimal decimalRatio = (decimal)targetRatio;
-            while (remain > 0m)
-            {
-                remain = decimalRatio % mult;
-                mult /= 10m;
-                if (mult <= 1.0E-26m) break;
-            }
-
-            mult = 0.1m / mult;
-
-            int num = (int)(decimalRatio * mult);
-            int den = (int)mult;
-            int gcd = GCD(num, den);
-            num /= gcd;
-            den /= gcd;
-
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField("Item 1", item1Characteristic.FirstTag().Label, item1Characteristic),
-                new MainTagField("Item 2", item2Characteristic.FirstTag().Label, item2Characteristic),
-                new IntegerConfigurationField("Value 1", num, 1, 20),
-                new IntegerConfigurationField("Value 2", den, 1, 20)
+                new MainTagField("FIELD NAME", item1Characteristic.FirstTag().Label, item1Characteristic)
             };
 
             return list;
-
-            static int GCD(int a, int b)
-            {
-                while(a != 0 && b != 0)
-                {
-                    if (a > b)
-                        a %= b;
-                    else
-                        b %= a;
-                }
-
-                return a | b;
-            }
         }
 
         #endregion
 
         public object Clone()
         {
-            var clone = new PairRatio();
+            var clone = new DistanceRange();
 
             clone.ContextLayers = new List<LBSLayer>(ContextLayers);
             clone.CombinedLayer = CombinedLayer;
@@ -204,10 +175,6 @@ namespace ISILab.AI.Categorization
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
 
             clone.item1Characteristic = item1Characteristic;
-            clone.item2Characteristic = item2Characteristic;
-
-            clone.targetRatio = targetRatio;
-
             return clone;
         }
     }
