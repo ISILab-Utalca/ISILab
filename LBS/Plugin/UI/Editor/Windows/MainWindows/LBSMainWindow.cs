@@ -10,6 +10,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal.Editor;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
@@ -37,10 +38,19 @@ namespace ISILab.LBS.Editor.Windows
     {
 #if UNITY_EDITOR_WIN
         [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetCursorPos(int X, int Y);
 
         [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool GetCursorPos(out POINT lpPoint);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr MonitorFromPoint(POINT pt, uint dwFlags);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFO lpmi);
 
         [StructLayout(LayoutKind.Sequential)]
         public struct POINT
@@ -48,7 +58,28 @@ namespace ISILab.LBS.Editor.Windows
             public int X;
             public int Y;
         }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct MONITORINFO
+        {
+            public uint cbSize;
+            public RECT rcMonitor;
+            public RECT rcWork;
+            public uint dwFlags;
+        }
+
+        private const uint MONITOR_DEFAULTTONEAREST = 2;
 #endif
+
 
         #region PROPERTIES
 
@@ -118,7 +149,9 @@ namespace ISILab.LBS.Editor.Windows
         public LayersPanel layerPanel;
         public Generator3DPanel gen3DPanel;
         public QuickAssistantPanel quickAssistantPanel;
+        public BlueprintPanel blueprintPanel;
         public VisualElement extraPanel;
+        public VisualElement bottomPanel;
         public VisualElement inspectorPanelContainer;
 
         private VisualElement helpOverlayAnchor;
@@ -209,6 +242,7 @@ namespace ISILab.LBS.Editor.Windows
             subPanelScrollView = rootVisualElement.Q<ScrollView>("SubPanelScrollView");
 
             extraPanel = rootVisualElement.Q<VisualElement>("ExtraPanel");
+            bottomPanel = rootVisualElement.Q<VisualElement>("BottomPanel");
             taskOverlay = rootVisualElement.Q<LBSWaitTaskOverlay>("TaskOverlay");
         }
 
@@ -387,6 +421,11 @@ namespace ISILab.LBS.Editor.Windows
             extraPanel.Add(quickAssistantPanel);
             quickAssistantPanel.style.display = DisplayStyle.None;
             quickAssistantPanel.Setup(layerTemplates);
+
+            blueprintPanel ??=  new BlueprintPanel();
+            bottomPanel.Add(blueprintPanel);
+            blueprintPanel.style.display = DisplayStyle.None;
+
 
             #endregion
 
@@ -645,33 +684,49 @@ namespace ISILab.LBS.Editor.Windows
             if (targetElement == null) return;
 
             POINT currentScreenPos;
+            int screenLeftLimit = 0;
+            int screenRightLimit = 0;
+
 #if UNITY_EDITOR_WIN
             GetCursorPos(out currentScreenPos);
+            IntPtr hMonitor = MonitorFromPoint(currentScreenPos, MONITOR_DEFAULTTONEAREST);
+            MONITORINFO mi = new MONITORINFO();
+            mi.cbSize = (uint)Marshal.SizeOf(mi);
+
+            if (GetMonitorInfo(hMonitor, ref mi))
+            {
+                screenLeftLimit = mi.rcMonitor.Left;
+                screenRightLimit = mi.rcMonitor.Right;
+            }
+            else
+            {
+                screenLeftLimit = 0;
+                screenRightLimit = Screen.currentResolution.width;
+            }
 #else
             currentScreenPos = new POINT { X = (int)evt.mousePosition.x, Y = (int)evt.mousePosition.y }; 
+            screenLeftLimit = 0;
+            screenRightLimit = Screen.currentResolution.width;
 #endif
 
-            Resolution currentRes = Screen.currentResolution;
-
-            int screenMargin = 10;
+            int margin = 5;
             bool needWarp = false;
             int newScreenX = currentScreenPos.X;
 
-            if (currentScreenPos.X <= screenMargin)
+            if (currentScreenPos.X <= screenLeftLimit + margin)
             {
-                newScreenX = currentRes.width - screenMargin - 5;
+                newScreenX = screenRightLimit - margin - 5;
                 needWarp = true;
             }
-            else if (currentScreenPos.X >= currentRes.width - screenMargin)
+            else if (currentScreenPos.X >= screenRightLimit - margin)
             {
-                newScreenX = screenMargin + 5;
+                newScreenX = screenLeftLimit + margin + 5;
                 needWarp = true;
             }
 
             if (!needWarp) return;
 
             IsWarpingCursor = true;
-
             Event fakeUp = new Event();
             fakeUp.type = EventType.MouseUp;
             fakeUp.button = 2;
@@ -690,7 +745,6 @@ namespace ISILab.LBS.Editor.Windows
 #endif
 
             targetElement.CaptureMouse();
-
             float deltaJump = (newScreenX - currentScreenPos.X);
             float pixelsPerPoint = EditorGUIUtility.pixelsPerPoint;
             float uiDelta = deltaJump / pixelsPerPoint;

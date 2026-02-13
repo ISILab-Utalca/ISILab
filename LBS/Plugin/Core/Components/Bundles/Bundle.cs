@@ -55,10 +55,6 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             id = Guid.NewGuid().ToString();
             return id;
         }
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
         public object Clone()
         {
             return new Asset(this.obj, this.probability);
@@ -72,6 +68,11 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             if (other.probability != probability) return false;
             if (other.ID != ID) return false;
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(obj, probability);
         }
     }
 

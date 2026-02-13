@@ -11,8 +11,6 @@ using System.Linq;
 using ISILab.Commons;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
-using UnityEngine.Rendering;
 using static ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule;
 using Object = UnityEngine.Object;
 
@@ -260,6 +258,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     foreach (ScatterAreaBase sa in scatterAreas)
                     {
                         sa.generationMode = ScatterAreaBase.GenerationMode.SingleCachedMesh;
+                        //sa.RunCommand();
                     }
                     return;
                 case OptimizationGenMode.GpuInstancing:
@@ -267,6 +266,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     foreach (ScatterAreaBase sa in scatterAreas)
                     {
                         sa.generationMode = ScatterAreaBase.GenerationMode.GpuBach;
+                        //sa.RunCommand();
                     }
                     return;
             }
@@ -311,8 +311,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             if (obj.TryGetComponent<LBSGenerated>(out LBSGenerated lbsGen))
             {
-                if (lbsGen.BundleRef.HasAnyFlag(Bundle.EElementFlag.Character)) return;
-                if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
+                if (lbsGen.BundleRef is not null) 
+                {
+                    if (lbsGen.BundleRef.HasAnyFlag(Bundle.EElementFlag.Character)) return;
+                    if (LBSAssetMacro.BundleHasTag(lbsGen.BundleRef, "NoBake")) return;
+                }
+
             }
 
             if (!obj.isStatic) obj.isStatic = true;

@@ -12,6 +12,7 @@ using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
 using LBS.VisualElements;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Macros;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -83,7 +84,7 @@ namespace ISILab.LBS.VisualElements
 
         private void InitializeVisuals(TileBundleGroup tile)
         {
-            Bundle bundle = tile.BundleData.Bundle;
+            Bundle bundle = LBSAssetMacro.LoadAssetByGuid<Bundle>(tile.GetGuid());
             _backgroundColor = bundle.Color;
             SetColor(bundle.Color);
             SetImage(bundle.Icon);

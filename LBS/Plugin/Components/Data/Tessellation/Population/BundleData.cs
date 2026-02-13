@@ -4,6 +4,7 @@ using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
 using Newtonsoft.Json;
@@ -40,7 +41,7 @@ namespace LBS.Components.TileMap // FIX: change namespace to ISILab.LBS.Bundle
                 if(string.IsNullOrEmpty(guid))
                 {
                     //Debug.LogWarning($"No GUID stored for this Bundle Data: {bundleName}");
-                    //guid = LBSAssetMacro.GetGuidFromAsset(bundle);
+                    guid = LBSAssetMacro.GetGuidFromAsset(bundle);
                 }
                 return guid;
             }
@@ -54,13 +55,10 @@ namespace LBS.Components.TileMap // FIX: change namespace to ISILab.LBS.Bundle
         {
             get
             {
+                bundle = AssetMacro.LoadAssetByGuid<Bundle>(GUID);
                 if (bundle == null)
-                {
-                    bundle = AssetMacro.LoadAssetByGuid<Bundle>(GUID);
-                    if (bundle == null)
-                        bundle = LBSAssetsStorage.Instance.Get<Bundle>().Find(b => b.name == bundleName); // For compatibility
-                }
-                    
+                    bundle = LBSAssetsStorage.Instance.Get<Bundle>().Find(b => b.name == bundleName); // For compatibility
+
                 return bundle;
             }
         }

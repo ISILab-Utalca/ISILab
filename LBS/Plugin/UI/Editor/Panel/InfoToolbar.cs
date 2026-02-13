@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
+using LBS.VisualElements;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Panel
@@ -8,7 +9,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
     [UxmlElement]
     public partial class InfoToolbar: VisualElement
     {
-        public VisualTreeAsset VisualTree;
+        private static VisualTreeAsset VisualTree;
         
         private LBSToolbarButton clearNotificationButton;
         private LBSToolbarButton disableNotificationButton;
@@ -18,7 +19,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         
         private Label selectedLabel;
         
-        private TemplateContainer notificationContainer;
+        private NotifierViewer notificationContainer;
         
         private Label spacer;
         private Label gridText;
@@ -31,7 +32,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
 
         public InfoToolbar()
         {
-            VisualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("InfoToolbar");
+            VisualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("InfoToolbar");
             VisualTree.CloneTree(this);
             
             this.name = "InfoToolbarWidget";
@@ -45,7 +46,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             
             selectedLabel = this.Q<Label>("SelectedLabel");
             
-            notificationContainer = this.Q<TemplateContainer>("NotifierViewer");
+            notificationContainer = this.Q<NotifierViewer>("NotifierViewer");
             
             spacer = this.Q<Label>("Spacer");
             gridText = this.Q<Label>("GridText");

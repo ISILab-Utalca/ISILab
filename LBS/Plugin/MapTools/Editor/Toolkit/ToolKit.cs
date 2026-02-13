@@ -235,7 +235,7 @@ namespace LBS.VisualElements
             tools[tool.Manipulator.GetType()] = (tool, button);
 
             button.AddGroupEvent(() => SetActive(tool.Manipulator.GetType()));
-            button.SetColorGroup(LBSSettings.Instance.view.toolkitNormal, LBSSettings.Instance.view.newToolkitSelected);
+            //button.SetColorGroup(LBSSettings.Instance.view.toolkitNormal, LBSSettings.Instance.view.newToolkitSelected); // Not used 
             
             SetUpAdderRemover(tool);
 
@@ -389,6 +389,26 @@ namespace LBS.VisualElements
             }
             
             separators.Add(separator);
+        }
+
+        internal void DisplayManipulator(Type manipulatorType, DisplayStyle display)
+        {
+            foreach ((LBSTool tool, ToolButton button) in tools.Values)
+            {
+                if (button == null) continue;
+                if (tool.Manipulator == null) continue;
+
+
+                Type type = tool.Manipulator.GetType();
+                if (type is null) continue;
+
+                if (manipulatorType == type)
+                {
+                    button.style.display = display;
+                }
+            }
+            // if the manipulator is not displayed it should be unselected
+            if (display == DisplayStyle.None) SetActive(typeof(SelectManipulator));
         }
     }
 }

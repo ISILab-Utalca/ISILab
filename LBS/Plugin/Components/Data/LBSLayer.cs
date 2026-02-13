@@ -425,8 +425,62 @@ namespace LBS.Components
                 Assert.IsTrue(RemoveModule(GetModule<ConnectedTileMapModule>("TempConnectedModule")));
             }
         }
-        
-                    
+
+
+        #endregion
+
+        #region Types Boolean
+
+        public bool IsExteriorLayer(ConnectedTileMapModule.ConnectedTileType type)
+        {
+            ExteriorBehaviour eb = GetBehaviour<ExteriorBehaviour>();
+            if (eb is null) return false;
+            return eb.GridType == type;
+        }
+
+        public bool IsPopulationLayer()
+        {
+            PopulationBehaviour pb = GetBehaviour<PopulationBehaviour>();
+            return pb != null;
+        }
+
+        public bool IsQuestLayer()
+        {
+            QuestBehaviour qb = GetBehaviour<QuestBehaviour>();
+            return qb != null;
+        }
+
+        public bool IsInteriorLayer()
+        {
+            SchemaBehaviour sb = GetBehaviour<SchemaBehaviour>();
+            return sb != null;
+        }
+
+        /// <summary>
+        /// Get all objects from the different modules, behaviors and assistants
+        /// </summary>
+        /// <param name="s">Start Position</param>
+        /// <param name="e">End Position</param>
+        /// <returns></returns>
+        public object[] GetObjects(Vector2Int s, Vector2Int e)
+        {
+            List<object> objs = new();
+
+            //Components
+            List<object> components = new();
+            components.AddRange(modules);
+            components.AddRange(behaviours);
+            components.AddRange(assistants);
+            
+            foreach (var component in components)
+            {
+                if (component is IObjectData obd) 
+                    objs.AddRange(obd.GetObjects(s, e));
+            }
+            
+            return objs.ToArray();
+        }
+
         #endregion
     }
 }

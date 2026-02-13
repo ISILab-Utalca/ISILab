@@ -1348,6 +1348,7 @@ GameObject:
   - component: {fileID: 522043049304101139}
   - component: {fileID: 3152074107646236388}
   - component: {fileID: 8364658052575852833}
+  - component: {fileID: 6174427600414373231}
   m_Layer: 2
   m_Name: PathOS Agent
   m_TagString: PathOSAgent
@@ -1407,69 +1408,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ce937a59a90e74fba6431216287456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tuning:
+    timeScale: 1
+    freezeAgent: 0
+    experienceScale: 1
+    visitThreshold: 1
+    exploreDegrees: 5
+    invisibleExploreDegrees: 30
+    lookDegrees: 60
+    exploreThreshold: 2
+    exploreTargetMargin: 25
+  healthTuning:
+    maxHealth: 100
+    lowEnemyDamage:
+      min: 10
+      max: 30
+    medEnemyDamage:
+      min: 30
+      max: 50
+    highEnemyDamage:
+      min: 50
+      max: 70
+    bossEnemyDamage:
+      min: 70
+      max: 100
+    hazardDamage:
+      min: 10
+      max: 20
+    lowHealthGain:
+      min: 10
+      max: 30
+    medHealthGain:
+      min: 30
+      max: 60
+    highHealthGain:
+      min: 70
+      max: 100
+  memoryTuning:
+    forgetTime: 0
+    stmSize: 0
+    baseMemPathChance: 0.5
+  navigationState:
+    routeTimer: 0
+    perceptionTimer: 0
+    baseLookTime: 30
+    lookTime: 30
+    lookTimer: 0
+    lookingAround: 0
+    pathResolved: 1
+    changeTargetCount: 0
+  explorationState:
+    cumulativeEntityScore: 0
+    pastCumulativeEntityScore: 0
+    assessedGoalsInit: 0
+    unreachableReference: []
+  memoryState:
+    memPathChance: 0
+    onMemPath: 0
+    memPathWaypoints: []
+    memWaypoint: {x: 0, y: 0, z: 0}
+  healthState:
+    health: 0
+    dead: 0
+    cautionIndex: 0
+    aggressionIndex: 0
+    adrenalineIndex: 0
+  heuristics: {fileID: 6174427600414373231}
   timeScale: 1
   freezeAgent: 0
-  experienceScale: 1
-  heuristicScales:
-  - heuristic: 0
-    scale: 1
-  - heuristic: 10
-    scale: 1
-  - heuristic: 15
-    scale: 1
-  - heuristic: 20
-    scale: 1
-  - heuristic: 25
-    scale: 1
-  - heuristic: 30
-    scale: 1
-  - heuristic: 35
-    scale: 1
-  modifiableHeuristicScales:
-  - heuristic: 0
-    scale: 0
-  - heuristic: 10
-    scale: 0
-  - heuristic: 15
-    scale: 0
-  - heuristic: 20
-    scale: 0
-  - heuristic: 25
-    scale: 0
-  - heuristic: 30
-    scale: 0
-  - heuristic: 35
-    scale: 0
-  visitThreshold: 1
-  exploreDegrees: 5
-  invisibleExploreDegrees: 30
-  lookDegrees: 60
-  exploreThreshold: 2
-  exploreTargetMargin: 25
-  lowEnemyDamage:
-    min: 10
-    max: 30
-  medEnemyDamage:
-    min: 30
-    max: 50
-  highEnemyDamage:
-    min: 50
-    max: 70
-  bossEnemyDamage:
-    min: 70
-    max: 100
-  hazardDamage:
-    min: 10
-    max: 20
-  lowHealthGain:
-    min: 10
-    max: 30
-  medHealthGain:
-    min: 30
-    max: 60
-  highHealthGain:
-    min: 70
-    max: 100
 --- !u!114 &114482611139781848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1503,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camType: 0
   cam: {fileID: 20951506076577970}
+  lastCamera: {fileID: 20951506076577970}
+  lastCamParent: {fileID: 4905807406101670}
+  lastCamPos: {x: 14.241206, y: 0.992, z: -20.813318}
+  lastCamRot: {x: -0, y: -0.3710924, z: 0, w: 0.92859596}
   visSizeThreshold: 0.04
   navmeshCastDistance: 50
   navmeshCastHeight: 0.75
@@ -1580,6 +1590,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6174427600414373231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088327799159616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682f5eb6153e34647b8bf1bada478604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heuristicScales:
+  - heuristic: 0
+    scale: 1
+  - heuristic: 10
+    scale: 1
+  - heuristic: 15
+    scale: 1
+  - heuristic: 20
+    scale: 1
+  - heuristic: 25
+    scale: 1
+  - heuristic: 30
+    scale: 1
+  - heuristic: 35
+    scale: 1
+  modifiableHeuristicScales:
+  - heuristic: 0
+    scale: 0
+  - heuristic: 10
+    scale: 0
+  - heuristic: 15
+    scale: 0
+  - heuristic: 20
+    scale: 0
+  - heuristic: 25
+    scale: 0
+  - heuristic: 30
+    scale: 0
+  - heuristic: 35
+    scale: 0
 --- !u!1 &1218624666145408
 GameObject:
   m_ObjectHideFlags: 0

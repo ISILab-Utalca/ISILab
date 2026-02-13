@@ -14,6 +14,11 @@ namespace ISILab.LBS.Modules
         public List<object> GetSelected(Vector2Int position);
     }
 
+    public interface IObjectData
+    {
+        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition);
+    }
+
     [System.Serializable]
     public abstract class LBSModule : ICloneable
     {

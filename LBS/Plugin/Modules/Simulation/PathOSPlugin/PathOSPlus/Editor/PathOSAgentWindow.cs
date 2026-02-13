@@ -24,7 +24,7 @@ namespace PathOS
 
         //Component variables
         [SerializeField]
-        private PathOSAgent agentReference;
+        private PathOSAgent agent;
         private PathOSAgentMemory memoryReference;
         private PathOSAgentEyes eyeReference;
         private PathOSAgentRenderer rendererReference;
@@ -121,7 +121,7 @@ namespace PathOS
         }
         public void OnWindowOpen()
         {
-            if (agentReference == null)
+            if (agent == null)
             {
                 EditorGUILayout.HelpBox("AGENT REFERENCE REQUIRED", MessageType.Error);
                 agentInitialized = false;
@@ -134,17 +134,17 @@ namespace PathOS
                 GUI.backgroundColor = redColor;
                 if (GUILayout.Button("Recalibrate Agent Path"))
                 {
-                    agentReference.RecalibratePath();
+                    agent.RecalibratePath();
                 }
 
                 if (GUILayout.Button("Toggle Whether Game Camera Follows Agent"))
                 {
-                    agentReference.ToggleCameraFollow();
+                    agent.ToggleCameraFollow();
                 }
 
                 if (GUILayout.Button("Reset Game Camera"))
                 {
-                    agentReference.ResetCamera();
+                    agent.ResetCamera();
                 }
 
                 GUI.backgroundColor = bgColor;
@@ -156,25 +156,25 @@ namespace PathOS
             EditorGUILayout.Space();
 
             //Todo: clean this up!
-            memoryReference = agentReference.GetComponent<PathOSAgentMemory>();
-            eyeReference = agentReference.GetComponent<PathOSAgentEyes>();
-            rendererReference = agentReference.GetComponent<PathOSAgentRenderer>();
+            memoryReference = agent.GetComponent<PathOSAgentMemory>();
+            eyeReference = agent.GetComponent<PathOSAgentEyes>();
+            rendererReference = agent.GetComponent<PathOSAgentRenderer>();
 
             if (!agentInitialized) InitializeAgent();
 
-            Selection.objects = new Object[] { agentReference.gameObject };
+            Selection.objects = new Object[] { agent.gameObject };
 
             // [GABO DEBUG] To check for editor duplication bug due to CreateWindow(). Could be placed anywhere, tbh.
             //var totalEditors = Resources.FindObjectsOfTypeAll<Editor>();
             //int totalEditorCount = totalEditors.Count();
             //Debug.LogWarning($"Conteo totalEditorCount: {totalEditorCount}");
             // END DEBUG
-            agentGameObjectEditor = agentGameObjectEditor == null ? Editor.CreateEditor(agentReference.gameObject) : agentGameObjectEditor;
-            currentAgentEditor = currentAgentEditor == null ? Editor.CreateEditor(agentReference) : currentAgentEditor;
+            agentGameObjectEditor = agentGameObjectEditor == null ? Editor.CreateEditor(agent.gameObject) : agentGameObjectEditor;
+            currentAgentEditor = currentAgentEditor == null ? Editor.CreateEditor(agent) : currentAgentEditor;
             currentMemoryEditor = currentMemoryEditor == null ? Editor.CreateEditor(memoryReference) : currentMemoryEditor;
             currentEyeEditor = currentEyeEditor == null ? Editor.CreateEditor(eyeReference) : currentEyeEditor;
             currentRendererEditor = currentRendererEditor == null ? Editor.CreateEditor(rendererReference) : currentRendererEditor;
-            currentTransformEditor = currentTransformEditor == null ? Editor.CreateEditor(agentReference.gameObject.transform) : currentTransformEditor;
+            currentTransformEditor = currentTransformEditor == null ? Editor.CreateEditor(agent.gameObject.transform) : currentTransformEditor;
 
             //// Shows the created Editor beneath CustomEditor
             agentGameObjectEditor.DrawHeader();
@@ -228,7 +228,7 @@ namespace PathOS
 
         private void InitializeAgent()
         {
-            serial = new SerializedObject(agentReference);
+            serial = new SerializedObject(agent);
             experienceScale = serial.FindProperty("experienceScale");
             timeScale = serial.FindProperty("timeScale");
             freezeAgent = serial.FindProperty("freezeAgent");
@@ -239,11 +239,11 @@ namespace PathOS
             exploreThreshold = serial.FindProperty("exploreThreshold");
             exploreTargetMargin = serial.FindProperty("exploreTargetMargin");
 
-            agentReference.RefreshHeuristicList();
+            agent.RefreshHeuristicList();
 
             heuristicLabels = new Dictionary<Heuristic, string>();
 
-            foreach (HeuristicScale curScale in agentReference.heuristicScales)
+            foreach (HeuristicScale curScale in agent.heuristics.heuristicScales)
             {
                 string label = curScale.heuristic.ToString();
 
@@ -277,11 +277,11 @@ namespace PathOS
             {
                 EditorGUILayout.PropertyField(experienceScale);
 
-                for (int i = 0; i < agentReference.heuristicScales.Count; ++i)
+                for (int i = 0; i < agent.heuristics.heuristicScales.Count; ++i)
                 {
-                    agentReference.heuristicScales[i].scale = EditorGUILayout.Slider(
-                         heuristicLabels[agentReference.heuristicScales[i].heuristic],
-                         agentReference.heuristicScales[i].scale, 0.0f, 1.0f);
+                    agent.heuristics.heuristicScales[i].scale = EditorGUILayout.Slider(
+                         heuristicLabels[agent.heuristics.heuristicScales[i].heuristic],
+                         agent.heuristics.heuristicScales[i].scale, 0.0f, 1.0f);
                 }
 
                 boldStyle = EditorStyles.boldLabel;
@@ -317,17 +317,17 @@ namespace PathOS
                             profile.heuristicRanges[i]);
                     }
 
-                    Undo.RecordObject(agentReference, "Apply Agent Profile");
-                    for (int i = 0; i < agentReference.heuristicScales.Count; ++i)
+                    Undo.RecordObject(agent, "Apply Agent Profile");
+                    for (int i = 0; i < agent.heuristics.heuristicScales.Count; ++i)
                     {
-                        if (ranges.ContainsKey(agentReference.heuristicScales[i].heuristic))
+                        if (ranges.ContainsKey(agent.heuristics.heuristicScales[i].heuristic))
                         {
-                            HeuristicRange hr = ranges[agentReference.heuristicScales[i].heuristic];
-                            agentReference.heuristicScales[i].scale = Random.Range(hr.range.min, hr.range.max);
+                            HeuristicRange hr = ranges[agent.heuristics.heuristicScales[i].heuristic];
+                            agent.heuristics.heuristicScales[i].scale = Random.Range(hr.range.min, hr.range.max);
                         }
                     }
 
-                    agentReference.experienceScale = Random.Range(profile.expRange.min, profile.expRange.max);
+                    agent.tuning.experienceScale = Random.Range(profile.expRange.min, profile.expRange.max);
                 }
 
                 EditorGUILayout.EndHorizontal();
@@ -350,7 +350,7 @@ namespace PathOS
 
             if (GUI.changed && !EditorApplication.isPlaying)
             {
-                EditorUtility.SetDirty(agentReference);
+                EditorUtility.SetDirty(agent);
                 EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
             }
         }
@@ -358,7 +358,7 @@ namespace PathOS
         //Todo: get rid of these bools
         public void OnResourceOpen()
         {
-            if (agentReference == null)
+            if (agent == null)
             {
                 EditorGUILayout.BeginVertical("Box");
                 EditorGUILayout.HelpBox("AGENT REFERENCE REQUIRED", MessageType.Error);
@@ -374,7 +374,7 @@ namespace PathOS
             //Doing the initialization
             if (!agentInitialized) InitializeAgent();
 
-            Selection.objects = new Object[] { agentReference.gameObject };
+            Selection.objects = new Object[] { agent.gameObject };
 
             serial.Update();
 
@@ -383,37 +383,37 @@ namespace PathOS
             EditorGUILayout.LabelField("Enemy Damage Values", EditorStyles.boldLabel);
             EditorGUILayout.Space(15);
 
-            DrawUIRow(enemy_low, 30, 25, "Low Enemy Damage", ref agentReference.lowEnemyDamage);
+            DrawUIRow(enemy_low, 30, 25, "Low Enemy Damage", ref agent.healthTuning.lowEnemyDamage);
 
             EditorGUILayout.Space(20);
-            DrawUIRow(enemy_med, 30, 25, "Medium Enemy Damage", ref agentReference.medEnemyDamage);
+            DrawUIRow(enemy_med, 30, 25, "Medium Enemy Damage", ref agent.healthTuning.medEnemyDamage);
 
             EditorGUILayout.Space(20);
-            DrawUIRow(enemy_high, 30, 25, "High Enemy Damage", ref agentReference.highEnemyDamage);
+            DrawUIRow(enemy_high, 30, 25, "High Enemy Damage", ref agent.healthTuning.highEnemyDamage);
 
             EditorGUILayout.Space(20);
-            DrawUIRow(enemy_boss, 30, 25, "Boss Enemy Damage", ref agentReference.bossEnemyDamage);
+            DrawUIRow(enemy_boss, 30, 25, "Boss Enemy Damage", ref agent.healthTuning.bossEnemyDamage);
 
             EditorGUILayout.Space(20);
-            DrawUIRow(enemy_hazard, 30, 25, "Hazard Damage", ref agentReference.hazardDamage);
+            DrawUIRow(enemy_hazard, 30, 25, "Hazard Damage", ref agent.healthTuning.hazardDamage);
 
             EditorGUILayout.Space(15);
             EditorGUILayout.LabelField("Resource Values", EditorStyles.boldLabel);
             EditorGUILayout.Space(15);
 
-            DrawUIRow(health_low, 30, 25, "Low Health Gain", ref agentReference.lowHealthGain);
+            DrawUIRow(health_low, 30, 25, "Low Health Gain", ref agent.healthTuning.lowHealthGain);
 
             EditorGUILayout.Space(20);
-            DrawUIRow(health_med, 30, 25, "Medium Health Gain", ref agentReference.medHealthGain);
+            DrawUIRow(health_med, 30, 25, "Medium Health Gain", ref agent.healthTuning.medHealthGain);
 
             EditorGUILayout.Space(20);
-            DrawUIRow(health_high, 30, 25, "High Health Gain", ref agentReference.highHealthGain);
+            DrawUIRow(health_high, 30, 25, "High Health Gain", ref agent.healthTuning.highHealthGain);
 
             serial.ApplyModifiedProperties();
 
             if (GUI.changed && !EditorApplication.isPlaying)
             {
-                EditorUtility.SetDirty(agentReference);
+                EditorUtility.SetDirty(agent);
                 EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
             }
 
@@ -435,7 +435,7 @@ namespace PathOS
         }
         public void SetAgentReference(PathOSAgent reference)
         {
-            agentReference = reference;
+            agent = reference;
         }
     }
 }

@@ -1,10 +1,7 @@
 using ISILab.Commons.Attributes;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 using ISILab.DevTools.Macros;
 using UnityEngine;
 using UnityEngine.UIElements;
-using PathOS;
 
 namespace ISILab.LBS.Components
 {
@@ -19,12 +16,7 @@ namespace ISILab.LBS.Components
         protected VectorImage icon;
         [SerializeField]
         protected Color color;
-        //[Header("Simulation")]
-        //[Space]
-        //[SerializeField]
-        //protected EntityType defaultType = EntityType.ET_NONE;
-        //[SerializeField]
-        //protected List<EntityType> admissibleTypes = new List<EntityType>();
+
         #endregion
 
         #region PROPERTIES
@@ -71,20 +63,6 @@ namespace ISILab.LBS.Components
                 OnChangeColor?.Invoke(this);
             }
         }
-
-        //public EntityType EntityType
-        //{
-        //    get => defaultType;
-        //    internal set // Quiza no deberia haber un setter, pero se usa en PathOSTag.ToLBSTag. No se si sirva de mucho pero lo dejare como internal por ahora
-        //    {
-        //        if(defaultType == value) return;
-        //
-        //        defaultType = value;
-        //        OnChangeEntityType?.Invoke(this);
-        //    }
-        //}
-        //
-        //public List<EntityType> AdmissibleEntityTypes { get => admissibleTypes; }
         #endregion
 
         #region EVENTS
@@ -106,13 +84,7 @@ namespace ISILab.LBS.Components
         public override bool Equals(object other)
         {
             if (other is not LBSTag obj) return false;
-            //if(other == null) return false;
-            //var obj = other as LBSTag;
-            //if(obj == null) return false;
-
             return Equals(label, obj.Label);
-                //&& icon .Equals(obj.icon)
-                //&& color.Equals(obj.color);
         }
 
         public override int GetHashCode()

@@ -19,7 +19,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationBehaviour : LBSBehaviour
+    public class PopulationBehaviour : LBSBehaviour, IObjectData
     {
         #region FIELDS
         
@@ -44,8 +44,8 @@ namespace ISILab.LBS.Behaviours
         [SerializeField, JsonIgnore, HideInInspector]
         private BundleTileMap _bundleTileMap;
 
-        [SerializeField, JsonRequired, HideInInspector]
-        private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
+        //[SerializeField, JsonRequired, HideInInspector]
+        //private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
 
         [SerializeField, JsonRequired, HideInInspector]
         private string bundleRefGuid = "668e6768d7619b3459df4f6378dfa3bb";
@@ -450,6 +450,24 @@ namespace ISILab.LBS.Behaviours
                 LBSDirection.Right => directions[3],
                 _ => directions[0]
             };
+        }
+
+        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        {
+            HashSet<object> objs = new();
+
+            (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+
+            for (int i = corners.min.x; i <= corners.max.x; i++)
+            {
+                for (int j = corners.min.y; j <= corners.max.y; j++)
+                {
+                    TileBundleGroup tbg = _bundleTileMap.GetGroup(new Vector2(i, j));
+                    if (tbg != null) objs.Add(tbg);
+                }
+            }
+
+            return objs.ToArray();
         }
 
         #endregion

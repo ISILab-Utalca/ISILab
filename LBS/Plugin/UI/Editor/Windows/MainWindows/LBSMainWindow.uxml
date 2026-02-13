@@ -20,6 +20,9 @@
                     </ui:ScrollView>
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:ScrollView name="ScrollView" mode="Horizontal" picking-mode="Ignore" style="padding-left: 0; margin-left: 0; width: auto; align-self: stretch; flex-grow: 1; max-height: none;">
+                <ui:VisualElement name="BottomPanel" picking-mode="Ignore" style="flex-grow: 1; width: auto; height: auto; align-self: flex-end;" />
+            </ui:ScrollView>
             <ISILab.LBS.Editor.Windows.LBSWaitTaskOverlay name="WaitOverlay" step="3" show-rect="false" style="position: absolute; flex-grow: 1; width: 100%; height: 100%; overflow: hidden;" />
         </ui:VisualElement>
         <ui:VisualElement picking-mode="Ignore" name="InspectorNExtrabar" style="width: auto; height: auto; overflow: hidden; position: relative; flex-direction: row-reverse; flex-wrap: nowrap; flex-shrink: 1; align-items: stretch; justify-content: flex-start; flex-grow: 0; visibility: visible; align-self: stretch; max-width: none; right: auto; left: 0; min-width: 50px;">

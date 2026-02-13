@@ -47,6 +47,8 @@ namespace ISILab.LBS.Plugin.Components.Bundles.Tools
         private RenderParams renderParams = new RenderParams();
 
 
+        private void Awake() => RunCommand();
+
         public virtual void RunCommand()
         {
             print("RunCommand");
@@ -128,7 +130,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles.Tools
                     commandsBuffer.Dispose();
                     TryDisposeMatrix();
                     throw new NotImplementedException();
-                    break;
+                    //break;
                 }
                 case GenerationMode.GpuBach:
                 {
