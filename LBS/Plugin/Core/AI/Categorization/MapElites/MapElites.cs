@@ -437,7 +437,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Categorization
 
             foreach (var s in samples)
             {
-                evaluables.Add(new MappedIEvaluable(s, XEvaluator.Evaluate(s), YEvaluator.Evaluate(s)));
+                float xFitness = Optimizer.Evaluator.Equals(XEvaluator) ? (float)s.Fitness : XEvaluator.Evaluate(s);
+                float yFitness = Optimizer.Evaluator.Equals(YEvaluator) ? (float)s.Fitness : XEvaluator.Equals(YEvaluator) ? xFitness : YEvaluator.Evaluate(s);
+                evaluables.Add(new MappedIEvaluable(s, xFitness, yFitness));
             }
 
             return evaluables;
