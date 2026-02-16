@@ -138,6 +138,7 @@ namespace ISILab.LBS.AI.Categorization
             public MainTagField(Tuple<string, LBSCharacteristic> tagNameAndChar) : this("", tagNameAndChar.Item1, tagNameAndChar.Item2) { }
 
             public override VisualElement GetField() => Field;
+
             protected override void SetField()
             {
                 field = new ObjectField(name);
