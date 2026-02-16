@@ -37,8 +37,6 @@ namespace ISILab.AI.Categorization
 
         public static EvaluatorConfiguration config;
 
-        const int minColonySize = 2;
-
         #region CHARACTERISTIC FIELDS
 
         [SerializeField, SerializeReference]
@@ -46,6 +44,9 @@ namespace ISILab.AI.Categorization
 
         [SerializeField]
         private int maxDist;
+
+        [SerializeField]
+        private int minColonySize;
 
         #endregion
 
@@ -225,6 +226,7 @@ namespace ISILab.AI.Categorization
             itemCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Enemies"));
 
             maxDist = 6;
+            minColonySize = 2;
         
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
@@ -239,6 +241,7 @@ namespace ISILab.AI.Categorization
 
             itemCharacteristic = config.GetValue<LBSCharacteristic>("Item");
             maxDist = config.GetValue<int>("Max Distance");
+            minColonySize = config.GetValue<int>("Min Colony Size");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
@@ -246,7 +249,8 @@ namespace ISILab.AI.Categorization
             var list = new List<EvaluatorConfigurationField>
             {
                 new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic),
-                new IntegerConfigurationField("Max Distance", maxDist, 2, 20)
+                new IntegerConfigurationField("Max Distance", maxDist, 2, 20),
+                new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10)
             };
 
             return list;
@@ -266,6 +270,7 @@ namespace ISILab.AI.Categorization
             clone.itemCharacteristic = itemCharacteristic;
 
             clone.maxDist = maxDist;
+            clone.minColonySize = minColonySize;
 
             return clone;
         }

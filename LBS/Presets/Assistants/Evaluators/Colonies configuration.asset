@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: Colonies configuration
   m_EditorClassIdentifier: 
   target:
-    rid: 7729149220222403566
+    rid: 4351225284468671215
   fields:
-  - rid: 7729149220222403567
-  - rid: 7729149220222403568
+  - rid: 4351225286591783695
+  - rid: 4351225286591783696
+  - rid: 4351225286591783697
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 7729149220222403566
+    - rid: 4351225284468671215
       type: {class: Colonies, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         itemCharacteristic:
-          rid: -2
-        maxDist: 0
-    - rid: 7729149220222403567
+          rid: 4351225286591783698
+        maxDist: 6
+        minColonySize: 2
+    - rid: 4351225286591783695
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Item
         tagName: Enemies
-    - rid: 7729149220222403568
+    - rid: 4351225286591783696
       type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Max Distance
@@ -41,3 +41,19 @@ MonoBehaviour:
         useSlider: 1
         minValue: 2
         maxValue: 20
+    - rid: 4351225286591783697
+      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Min Colony Size
+        value: 2
+        useSlider: 1
+        minValue: 2
+        maxValue: 10
+    - rid: 4351225286591783698
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Enemies
+          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
+          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe

@@ -33,7 +33,6 @@ namespace ISILab.AI.Categorization
 
         public static EvaluatorConfiguration config;
 
-        /* Place here any LBSCharacteristic type field required for your evaluator to work. */
         #region CHARACTERISTIC FIELDS
 
         [SerializeField, SerializeReference]

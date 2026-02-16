@@ -230,7 +230,6 @@ namespace ISILab.AI.Categorization
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
-            var thisTarget = config.target as DCExploration; // (!) Las chars de thisTarget son null
             var POIs = new List<Tuple<string, LBSCharacteristic>>();
             for(int i = 0; i < pointsOfInterest.Count; i++)
                 POIs.Add(new(pointsOfInterest[i].FirstTag().Label, pointsOfInterest[i]));
