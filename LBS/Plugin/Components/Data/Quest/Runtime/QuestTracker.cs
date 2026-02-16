@@ -16,7 +16,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// Graph assigned in the QuestRuleGeneration script - assigns the LBS Quest Layer Graph
         /// </summary>
         [SerializeField, SerializeReference]
-        private QuestGraph questGraph; 
+        private QuestGraph questGraph;
+
+        public QuestTrigger currentQuest;
 
         /// <summary>
         /// Custom event to add logic, for the completion of the quest
@@ -42,7 +44,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// </summary>
         public event Action OnQuestAdvance; 
         #endregion
-
 
         #region METHODS
         private void Awake()
@@ -71,6 +72,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             InitializeTriggers();
             InitializeBranches();
             ActivateRootTrigger();
+
+
+            foreach(var quest in GetComponentsInChildren<QuestTrigger>())
+            {
+                //Debug.Log("initializing " + quest.name);
+            }
         }
 
         private void InitializeTriggers()
@@ -141,7 +148,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
             if (rootObjective == null) return;
             
-            ActivateTrigger(rootObjective.Trigger);
+            currentQuest = ActivateTrigger(rootObjective.Trigger);
         }
 
         private QuestTrigger GetTrigger(GraphNode node)
@@ -202,7 +209,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 
                 var destTrigger = branch.DestinationObject?.GetComponent<QuestTrigger>();
                 if (destTrigger == null) continue;
-                ActivateTrigger(destTrigger);
+                currentQuest = ActivateTrigger(destTrigger);
             }
         }
 
@@ -215,18 +222,19 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 var nextTrigger = GetTrigger(destination);
                 if (nextTrigger == null) continue;
-                ActivateTrigger(nextTrigger);
+                currentQuest = ActivateTrigger(nextTrigger);
             }
         }
 
-        private void ActivateTrigger(QuestTrigger trigger)
+        private QuestTrigger ActivateTrigger(QuestTrigger trigger)
         {
-            if (trigger == null) return;
+            if (trigger == null) return null;
 
             trigger.gameObject.SetActive(true);
-            if (trigger.Node == null) return;
+            if (trigger.Node == null) return null;
             
             trigger.Node.QuestState = QuestState.Active;
+            return trigger;
         }
         #endregion
     }
