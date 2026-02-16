@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace ISILab.AI.Categorization
 {
-    [System.Serializable]
+    [Obsolete("Currently not in use."), Serializable]
     public class ResourcesSafetyFairness : IRangedEvaluator
     {
         public float MaxValue => 1;

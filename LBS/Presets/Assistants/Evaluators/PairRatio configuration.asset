@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c337e8961ec74a145bc9c98971225b30, type: 3}
+  m_Name: PairRatio configuration
+  m_EditorClassIdentifier: 
+  target:
+    rid: 7729149191026377603
+  fields:
+  - rid: 7729149213346890051
+  - rid: 7729149213346890052
+  - rid: 7729149213346890053
+  - rid: 7729149213346890054
+  references:
+    version: 2
+    RefIds:
+    - rid: 7729149191026377603
+      type: {class: PairRatio, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        item1Characteristic:
+          rid: 7729149213346890055
+        item2Characteristic:
+          rid: 7729149213346890056
+        targetRatio: 0.5
+    - rid: 7729149213346890051
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Item 1
+        tagName: Chest
+    - rid: 7729149213346890052
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Item 2
+        tagName: Enemies
+    - rid: 7729149213346890053
+      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Value 1
+        value: 1
+        useSlider: 1
+        minValue: 1
+        maxValue: 20
+    - rid: 7729149213346890054
+      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Value 2
+        value: 2
+        useSlider: 1
+        minValue: 1
+        maxValue: 20
+    - rid: 7729149213346890055
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Chest
+          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
+          tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
+    - rid: 7729149213346890056
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Enemies
+          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
+          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe

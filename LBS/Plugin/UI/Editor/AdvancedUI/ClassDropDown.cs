@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine.UIElements;
 using ISILab.Commons.Utility;
 using ISILab.LBS.CustomComponents;
+using System.Reflection;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -97,25 +98,27 @@ namespace ISILab.LBS.VisualElements
         {
             choices.Clear();
 
-            List<Type> types = null;
+            IEnumerable<Type> types = null;
 
             if (Type.IsClass)
             {
-                types = Reflection.GetAllSubClassOf(Type).ToList();
+                types = Reflection.GetAllSubClassOf(Type);
             }
             else if (Type.IsInterface)
             {
-                types = Reflection.GetAllImplementationsOf(Type).ToList();
+                types = Reflection.GetAllImplementationsOf(Type);
             }
+
+            types = types.Where(t => t.GetCustomAttribute(typeof(ObsoleteAttribute), false) is null);
 
             if (filterAbstract)
             {
-                types = types.Where(t => !t.IsAbstract).ToList();
+                types = types.Where(t => !t.IsAbstract);
             }
 
             var options = types.Select(t => t.Name).ToList();
 
-            this.types = types;
+            this.types = types.ToList();
             choices = options;
         }
 

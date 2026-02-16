@@ -77,14 +77,8 @@ namespace ISILab.LBS.AI.Categorization
 
             public MainTagField(string fieldName, string tagName, LBSCharacteristic tagChar) : base(fieldName)
             {
-                var t = tagChar.GetType();
-                UnityEngine.Assertions.Assert.IsTrue(t.Equals(typeof(LBSTagsCharacteristic)));
-
                 this.tagName = tagName;
                 this.tagChar = tagChar;
-
-                var t2 = this.tagChar.GetType();
-                UnityEngine.Assertions.Assert.IsTrue(t2.Equals(typeof(LBSTagsCharacteristic)));
 
                 SetField();
             }
@@ -149,6 +143,239 @@ namespace ISILab.LBS.AI.Categorization
             public override object GetValue() => tagsFields.Select(tag => tag.GetValue());
         }
 
+        [Serializable]
+        public class IntegerConfigurationField : EvaluatorConfigurationField
+        {
+            [SerializeField]
+            int value;
+
+            [SerializeField]
+            bool useSlider;
+            [SerializeField]
+            int minValue;
+            [SerializeField]
+            int maxValue;
+
+            IntegerField field;
+            SliderInt slider;
+
+            public IntegerField Field
+            {
+                get
+                {
+                    if (field is null)
+                        SetField();
+                    return field;
+                }
+            }
+
+            public SliderInt Slider
+            {
+                get
+                {
+                    if(slider is null)
+                        SetField();
+                    return slider;
+                }
+            }
+
+            public IntegerConfigurationField(string fieldName, int value) : base(fieldName)
+            {
+                this.value = value;
+
+                SetField();
+            }
+
+            public IntegerConfigurationField(string fieldName, int value, int minValue, int maxValue) : base(fieldName)
+            {
+                this.value = value;
+                this.minValue = minValue;
+                this.maxValue = maxValue;
+
+                useSlider = true;
+
+                SetField();
+            }
+
+            public override VisualElement GetField() => useSlider ? Slider : Field;
+
+            protected override void SetField()
+            {
+                if (useSlider)
+                {
+                    slider = new SliderInt(name, minValue, maxValue);
+                    slider.value = value;
+                    slider.showInputField = true;
+                    slider.RegisterValueChangedCallback(evt =>
+                    {
+                        if (slider.value < minValue)
+                            slider.SetValueWithoutNotify(minValue);
+                        else if (slider.value > maxValue)
+                            slider.SetValueWithoutNotify(maxValue);
+
+                        value = slider.value;
+                    });
+                }
+                else
+                {
+                    field = new IntegerField(name);
+                    field.value = value;
+                    field.RegisterValueChangedCallback(evt =>
+                    {
+                        value = field.value;
+                    });
+                }
+            }
+
+            public override object GetValue() => value;
+        }
+
+        [Serializable]
+        public class FloatConfigurationField : EvaluatorConfigurationField
+        {
+            [SerializeField]
+            float value;
+
+            [SerializeField]
+            bool useSlider;
+            [SerializeField]
+            float minValue;
+            [SerializeField]
+            float maxValue;
+
+            FloatField field;
+            Slider slider;
+
+            public FloatField Field
+            {
+                get
+                {
+                    if (field is null)
+                        SetField();
+                    return field;
+                }
+            }
+
+            public Slider Slider
+            {
+                get
+                {
+                    if (slider is null)
+                        SetField();
+                    return slider;
+                }
+            }
+
+            public FloatConfigurationField(string fieldName, float value) : base(fieldName)
+            {
+                this.value = value;
+
+                SetField();
+            }
+
+            public FloatConfigurationField(string fieldName, float value, float minValue, float maxValue) : base(fieldName)
+            {
+                this.value = value;
+                this.minValue = minValue;
+                this.maxValue = maxValue;
+
+                useSlider = true;
+
+                SetField();
+            }
+
+            public override VisualElement GetField() => useSlider ? Slider : Field;
+
+            protected override void SetField()
+            {
+                if (useSlider)
+                {
+                    slider = new Slider(name, minValue, maxValue);
+                    slider.value = value;
+                    slider.showInputField = true;
+                    slider.RegisterValueChangedCallback(evt =>
+                    {
+                        if (slider.value < minValue)
+                            slider.SetValueWithoutNotify(minValue);
+                        else if (slider.value > maxValue)
+                            slider.SetValueWithoutNotify(maxValue);
+
+                        value = slider.value;
+                    });
+                }
+                else
+                {
+                    field = new FloatField(name);
+                    field.value = value;
+                    field.RegisterValueChangedCallback(evt =>
+                    {
+                        value = field.value;
+                    });
+                }
+            }
+
+            public override object GetValue() => value;
+        }
+
+        [Serializable]
+        public class MinMaxConfigurationField : EvaluatorConfigurationField
+        {
+            [SerializeField]
+            Vector2 value;
+
+            [SerializeField]
+            float lowLimit;
+            [SerializeField]
+            float highLimit;
+
+            MinMaxSlider slider;
+
+            public float Min
+            {
+                get => value.x;
+                set => this.value.x = value;
+            }
+
+            public float Max
+            {
+                get => value.y;
+                set => this.value.y = value;
+            }
+
+            public MinMaxSlider Slider
+            {
+                get
+                {
+                    if (slider is null)
+                        SetField();
+                    return slider;
+                }
+            }
+
+            public MinMaxConfigurationField(string fieldName, float minValue, float maxValue, float lowLimit, float highLimit) : base(fieldName)
+            {
+                Min = minValue;
+                Max = maxValue;
+                this.lowLimit = lowLimit;
+                this.highLimit = highLimit;
+
+                SetField();
+            }
+
+            public override VisualElement GetField() => Slider;
+
+            protected override void SetField()
+            {
+                slider = new MinMaxSlider(name, Min, Max, lowLimit, highLimit);
+                slider.RegisterValueChangedCallback(evt =>
+                {
+                    value = evt.newValue;
+                });
+            }
+
+            public override object GetValue() => value;
+        }
+
         [SerializeReference]
         public object target;
         [SerializeReference]
@@ -166,7 +393,7 @@ namespace ISILab.LBS.AI.Categorization
             }
             else
             {
-                config = ScriptableObject.CreateInstance<EvaluatorConfiguration>();
+                config = CreateInstance<EvaluatorConfiguration>();
                 AssetDatabase.CreateAsset(config, fullPath);
                 AssetDatabase.SaveAssets();
             }
@@ -193,7 +420,6 @@ namespace ISILab.LBS.AI.Categorization
         {
             object val = fields.Find(f => f.name.Equals(name)).GetValue();
             var t = val.GetType();
-            //UnityEngine.Assertions.Assert.IsTrue(t.Equals(typeof(LBSTagsCharacteristic)));
 
             var ret = (val as IEnumerable<object>).Select(v => (T)v);
             return ret;
