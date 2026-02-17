@@ -13,6 +13,10 @@ namespace Samples.Editor.General
         // PointerManipulator.
         public class DragAndDropManipulator : PointerManipulator
         {
+            public enum DragAndDropMode { SINGLE_BUNDLE, MULTIPLE_BUNDLES };
+
+            private string defaultText;
+
             // The Label in the window that shows the stored asset, if any.
             Label dropLabel;
             // The stored asset object, if any.
@@ -25,13 +29,22 @@ namespace Samples.Editor.General
 
             // SEBASTIAN: Callback to pass objects to the wizard tab
             System.Action<List<Object>> RetrieveObjectsAction;
-
-            public DragAndDropManipulator(VisualElement root, System.Action<List<Object>> retrieveObjectsAction = null)
+            
+            public DragAndDropManipulator(VisualElement root, DragAndDropMode mode, System.Action<List<Object>> retrieveObjectsAction = null)
             {
                 // The target of the manipulator, the object to which to register all callbacks, is the drop area.
                 target = root.Q<VisualElement>(className: "drop-area");
                 dropLabel = root.Q<Label>(className: "drop-area__label");
                 RetrieveObjectsAction = retrieveObjectsAction;
+
+                if (mode == DragAndDropMode.SINGLE_BUNDLE)
+                {
+                    defaultText = "Drag any number of GameObjects here to turn them into a \n\n SINGLE bundle";
+                }
+                else if (mode == DragAndDropMode.MULTIPLE_BUNDLES)
+                {
+                    defaultText = "Drag any number of GameObjects here to turn them into MULTIPLE bundles";
+                }
             }
 
             protected override void RegisterCallbacksOnTarget()
@@ -100,18 +113,18 @@ namespace Samples.Editor.General
 
                 // Change the appearance of the drop area if the user drags something over the drop area and holds it
                 // there.
-                dropLabel.text = $"Dropping '{draggedName}'...";
+                //dropLabel.text = $"Dropping '{draggedName}'...";
+
+                //visual change
                 target.AddToClassList("drop-area--dropping");
             }
 
             // This method runs if a user makes the pointer leave the bounds of the target while a drag is in progress.
             void OnDragLeave(DragLeaveEvent _)
             {
-                assetPath = string.Empty;
-                assetPaths = null;
-                droppedObject = null;
-                droppedObjects = null;
-                dropLabel.text = "Drag an asset here...";
+                //dropLabel.text = defaultText;
+
+                //visual change
                 target.RemoveFromClassList("drop-area--dropping");
             }
 
@@ -124,9 +137,9 @@ namespace Samples.Editor.General
             // This method runs when a user drops a dragged object onto the target.
             void OnDragPerform(DragPerformEvent _)
             {
+                
                 // Set droppedObject and draggedName fields to refer to dragged object.
-                droppedObject = DragAndDrop.objectReferences[0];
-
+                //droppedObject = DragAndDrop.objectReferences[0];
                 droppedObjects = DragAndDrop.objectReferences.ToList();
 
                 RetrieveObjectsAction?.Invoke(droppedObjects);
@@ -148,9 +161,22 @@ namespace Samples.Editor.General
                 }
 
                 // Visually update target to indicate that it now stores an asset.
-                dropLabel.text = $"Containing '{draggedName}'...\n\n" +
-                    $"(You can also drag from here)";
+                //dropLabel.text = defaultText;
+                //dropLabel.text = $"Containing '{draggedName}'...\n\n" +
+                //    $"(You can also drag from here)";
+                
+                //visual change
                 target.RemoveFromClassList("drop-area--dropping");
+
+                ResetLists();
+            }
+
+            void ResetLists()
+            {
+                assetPath = string.Empty;
+                assetPaths?.Clear();
+                droppedObject = null;
+                droppedObjects?.Clear();
             }
         }
     }
