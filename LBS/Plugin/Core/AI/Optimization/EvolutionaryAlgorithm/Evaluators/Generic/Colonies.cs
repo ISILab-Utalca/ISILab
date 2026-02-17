@@ -37,8 +37,6 @@ namespace ISILab.AI.Categorization
 
         public static EvaluatorConfiguration config;
 
-        const int minColonySize = 2;
-
         #region CHARACTERISTIC FIELDS
 
         [SerializeField, SerializeReference]
@@ -46,6 +44,9 @@ namespace ISILab.AI.Categorization
 
         [SerializeField]
         private int maxDist;
+
+        [SerializeField]
+        private int minColonySize;
 
         #endregion
 
@@ -111,13 +112,13 @@ namespace ISILab.AI.Categorization
                         var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
                         for (int i = 0; i < size; i++)
                         {
-                            FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                            EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
                         }
                         break;
                     default:
                         for (int i = 0; i < size; i++)
                         {
-                            Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
+                            EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
                         }
                         break;
                 }
@@ -126,7 +127,7 @@ namespace ISILab.AI.Categorization
             {
                 for (int i = 0; i < size; i++)
                 {
-                    Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
+                    EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
                 }
             }
 
@@ -207,117 +208,6 @@ namespace ISILab.AI.Categorization
             return fitness;
         }
 
-        public void FloodFill(int startPos, List<int> others, int from, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
-        {
-            if (from >= others.Count)
-                return;
-
-            List<int> remainingOthers = new List<int>(others);
-            remainingOthers.RemoveRange(0, from);
-            remainingOthers.Remove(startPos);
-
-            var remaining = new HashSet<int>();
-            var closed = new HashSet<int>();
-
-            foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
-            {
-                int index = chrom.ToIndex(tile.Position - chrom.Rect.position);
-                if (index < 0) continue;
-                remaining.Add(index);
-            }
-
-            var remainingStep = new Queue<int>();
-            remainingStep.Enqueue(startPos);
-
-            List<Vector2Int> dirs = Directions.Bidimencional.Edges;
-            int dirCount = dirs.Count;
-            int[] inverseIndices = new int[dirCount];
-            for (int k = 0; k < dirCount; k++)
-            {
-                inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
-            }
-
-            int i;
-            for (i = 0; remaining.Count > 0; i++)
-            {
-                if (remainingStep.Count == 0)
-                    break;
-
-                HashSet<int> nextStepCheck = new HashSet<int>();
-                List<int> nextStep = new List<int>();
-
-                while (remainingStep.Count > 0)
-                {
-                    int current = remainingStep.Dequeue();
-
-                    Vector2Int currentPos = chrom.ToMatrixPosition(current) + Vector2Int.RoundToInt(chrom.Rect.position);
-
-                    remaining.Remove(current);
-                    closed.Add(current);
-
-                    if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
-                    List<string> currentConnections = connectedTM.GetConnections(currentTile);
-
-                    for (int k = 0; k < dirCount; k++)
-                    {
-                        string currentConnection = currentConnections[k];
-
-                        if (!((currentConnection.Length == 4 && currentConnection == "Door") ||
-                              (currentConnection.Length == 5 && currentConnection == "Empty")))
-                            continue;
-
-                        Vector2Int dir = dirs[k];
-                        Vector2Int newPos = currentPos + dir;
-                        int index = chrom.ToIndex(newPos - chrom.Rect.position);
-
-                        if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index))
-                            continue;
-
-                        Zone otherZone = sectorizedTM.GetZone(newPos);
-                        if (otherZone is null) continue;
-
-                        if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
-
-                        int invIndex = inverseIndices[k];
-                        if (invIndex == -1) continue;
-
-                        string connection = connectedTM.GetConnections(newTile)[invIndex];
-
-                        if (!((connection.Length == 4 && connection == "Door") ||
-                              (connection.Length == 5 && connection == "Empty")))
-                            continue;
-
-                        for (int j = from; j < others.Count; j++)
-                        {
-                            if (index == others[j])
-                            {
-                                distances[from, j] = distances[j, from] = i + 1;
-                                remainingOthers.Remove(index);
-                                if (remainingOthers.Count == 0) return;
-                                break;
-                            }
-                        }
-
-                        nextStep.Add(index);
-                        nextStepCheck.Add(index);
-                    }
-                }
-
-                foreach (int step in nextStep) remainingStep.Enqueue(step);
-            }
-        }
-
-        public void Manhattan(int startPos, List<int> others, int from, ref int[,] distances, BundleTilemapChromosome chrom)
-        {
-            for (int i = from; i < others.Count; i++)
-            {
-                Vector2Int v1 = chrom.ToMatrixPosition(startPos);
-                Vector2Int v2 = chrom.ToMatrixPosition(others[i]);
-
-                distances[i, from] = distances[from, i] = Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
-            }
-        }
-
         #endregion
 
         #region INITIALIZATION
@@ -336,6 +226,7 @@ namespace ISILab.AI.Categorization
             itemCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Enemies"));
 
             maxDist = 6;
+            minColonySize = 2;
         
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
@@ -350,6 +241,7 @@ namespace ISILab.AI.Categorization
 
             itemCharacteristic = config.GetValue<LBSCharacteristic>("Item");
             maxDist = config.GetValue<int>("Max Distance");
+            minColonySize = config.GetValue<int>("Min Colony Size");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
@@ -357,7 +249,8 @@ namespace ISILab.AI.Categorization
             var list = new List<EvaluatorConfigurationField>
             {
                 new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic),
-                new IntegerConfigurationField("Max Distance", maxDist, 2, 20)
+                new IntegerConfigurationField("Max Distance", maxDist, 2, 20),
+                new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10)
             };
 
             return list;
@@ -377,6 +270,7 @@ namespace ISILab.AI.Categorization
             clone.itemCharacteristic = itemCharacteristic;
 
             clone.maxDist = maxDist;
+            clone.minColonySize = minColonySize;
 
             return clone;
         }

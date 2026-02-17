@@ -387,7 +387,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             IEnumerable<LBSTile> tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
             foreach(LBSTile tile in tiles)
             {
-                HashSet<string> set = connectedTM.GetPair(tile).Connections.ToHashSet();
+                HashSet<string> set = connectedTM.GetPair(tile).Connections.ToHashSet(); // Null ref (Simulation Layer create)
                 foreach(string conn in set)
                     if(lists.ContainsKey(conn))
                         lists[conn].Add(tile);

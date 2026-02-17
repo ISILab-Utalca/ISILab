@@ -123,7 +123,6 @@ namespace ISILab.AI.Categorization
 
         public void InitializeDefault()
         {
-            /* Initialize here all your LBSCharacteristic fields. */
             item1Characteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Chest"));
             item2Characteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Enemies"));
 
@@ -143,53 +142,54 @@ namespace ISILab.AI.Categorization
             item1Characteristic = config.GetValue<LBSCharacteristic>("Item 1");
             item2Characteristic = config.GetValue<LBSCharacteristic>("Item 2");
 
-            targetRatio =
-                (float)config.GetValue<int>("Value 1") /
-                (float)config.GetValue<int>("Value 2");
+            targetRatio = config.GetValue<float>("Ratio");
+                //(float)config.GetValue<int>("Value 1") /
+                //(float)config.GetValue<int>("Value 2");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
-            decimal mult = 1m;
-            decimal remain = 1m;
-            decimal decimalRatio = (decimal)targetRatio;
-            while (remain > 0m)
-            {
-                remain = decimalRatio % mult;
-                mult /= 10m;
-                if (mult <= 1.0E-26m) break;
-            }
+            //decimal mult = 1m;
+            //decimal remain = 1m;
+            //decimal decimalRatio = (decimal)targetRatio;
+            //while (remain > 0m)
+            //{
+            //    remain = decimalRatio % mult;
+            //    mult /= 10m;
+            //    if (mult <= 1.0E-26m) break;
+            //}
 
-            mult = 0.1m / mult;
+            //mult = 0.1m / mult;
 
-            int num = (int)(decimalRatio * mult);
-            int den = (int)mult;
-            int gcd = GCD(num, den);
-            num /= gcd;
-            den /= gcd;
+            //int num = (int)(decimalRatio * mult);
+            //int den = (int)mult;
+            //int gcd = GCD(num, den);
+            //num /= gcd;
+            //den /= gcd;
 
             var list = new List<EvaluatorConfigurationField>
             {
                 new MainTagField("Item 1", item1Characteristic.FirstTag().Label, item1Characteristic),
                 new MainTagField("Item 2", item2Characteristic.FirstTag().Label, item2Characteristic),
-                new IntegerConfigurationField("Value 1", num, 1, 20),
-                new IntegerConfigurationField("Value 2", den, 1, 20)
+                new FloatConfigurationField("Ratio", targetRatio, 0.05f, 20.00f)
+                //new IntegerConfigurationField("Value 1", num, 1, 20),
+                //new IntegerConfigurationField("Value 2", den, 1, 20),
             };
 
             return list;
 
-            static int GCD(int a, int b)
-            {
-                while(a != 0 && b != 0)
-                {
-                    if (a > b)
-                        a %= b;
-                    else
-                        b %= a;
-                }
+            //static int GCD(int a, int b)
+            //{
+                //while(a != 0 && b != 0)
+                //{
+                    //if (a > b)
+                        //a %= b;
+                    //else
+                        //b %= a;
+                //}
 
-                return a | b;
-            }
+                //return a | b;
+            //}
         }
 
         #endregion

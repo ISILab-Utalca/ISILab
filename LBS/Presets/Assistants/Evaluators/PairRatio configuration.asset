@@ -15,48 +15,31 @@ MonoBehaviour:
   target:
     rid: 7729149191026377603
   fields:
-  - rid: 7729149213346890051
-  - rid: 7729149213346890052
-  - rid: 7729149213346890053
-  - rid: 7729149213346890054
+  - rid: 4351225286591783683
+  - rid: 4351225286591783684
+  - rid: 4351225286591783685
   references:
     version: 2
     RefIds:
-    - rid: 7729149191026377603
-      type: {class: PairRatio, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        item1Characteristic:
-          rid: 7729149213346890055
-        item2Characteristic:
-          rid: 7729149213346890056
-        targetRatio: 0.5
-    - rid: 7729149213346890051
+    - rid: 4351225286591783683
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Item 1
         tagName: Chest
-    - rid: 7729149213346890052
+    - rid: 4351225286591783684
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Item 2
         tagName: Enemies
-    - rid: 7729149213346890053
-      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+    - rid: 4351225286591783685
+      type: {class: EvaluatorConfiguration/FloatConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
-        name: Value 1
-        value: 1
+        name: Ratio
+        value: 0.5
         useSlider: 1
-        minValue: 1
+        minValue: 0.05
         maxValue: 20
-    - rid: 7729149213346890054
-      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
-      data:
-        name: Value 2
-        value: 2
-        useSlider: 1
-        minValue: 1
-        maxValue: 20
-    - rid: 7729149213346890055
+    - rid: 4351225286591783686
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
@@ -64,7 +47,7 @@ MonoBehaviour:
         - tagName: Chest
           value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
           tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
-    - rid: 7729149213346890056
+    - rid: 4351225286591783687
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
@@ -72,3 +55,11 @@ MonoBehaviour:
         - tagName: Enemies
           value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
           tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
+    - rid: 7729149191026377603
+      type: {class: PairRatio, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        item1Characteristic:
+          rid: 4351225286591783686
+        item2Characteristic:
+          rid: 4351225286591783687
+        targetRatio: 0.5
