@@ -29,8 +29,9 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
 
-        public string Tooltip => "DC Custom Evaluator\n\n" +
-            "Explain the purpose of your Custom Evaluator and how it works.\n\n" +
+        public string Tooltip => "Colonies Evaluator\n\n" +
+            "This evaluator aims to group items of a certain type into colonies, keeping the members within a maximum distance.\n\n" +
+            "By default this evaluator groups Enemies-tagged items at most 6 spaces apart.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
@@ -248,9 +249,9 @@ namespace ISILab.AI.Categorization
         {
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic),
-                new IntegerConfigurationField("Max Distance", maxDist, 2, 20),
-                new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10)
+                new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic, "Item to group."),
+                new IntegerConfigurationField("Max Distance", maxDist, 2, 20, "Maximum distance desired between items of the same colony."),
+                new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10, "Minimum number of members a colony should have to be considered as such.")
             };
 
             return list;

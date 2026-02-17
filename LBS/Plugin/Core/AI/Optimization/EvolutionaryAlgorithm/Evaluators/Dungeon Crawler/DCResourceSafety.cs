@@ -222,8 +222,8 @@ namespace ISILab.AI.Categorization
                 res.Add(new(resources[i].FirstTag().Label, resources[i]));
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic),
-                new GroupedTagsField("Resources", res)
+                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic, "Main item to be compared with every resource."),
+                new GroupedTagsField("Resources", res, "Resources to be secured.")
             };
 
             return list;

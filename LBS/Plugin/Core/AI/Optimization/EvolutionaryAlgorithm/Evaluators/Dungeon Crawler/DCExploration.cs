@@ -6,7 +6,6 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
@@ -14,7 +13,6 @@ using LBS.Components.TileMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
@@ -235,9 +233,9 @@ namespace ISILab.AI.Categorization
                 POIs.Add(new(pointsOfInterest[i].FirstTag().Label, pointsOfInterest[i]));
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic),
+                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic, "Main item to be compared with every POI."),
                 new MainTagField("Obstacle", colliderCharacteristic.FirstTag().Label, colliderCharacteristic),
-                new GroupedTagsField("PointsOfInterest", POIs)
+                new GroupedTagsField("PointsOfInterest", POIs, "Items to distribute throughout the level.")
             };
 
             return list;
