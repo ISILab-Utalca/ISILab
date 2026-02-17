@@ -15,6 +15,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using ISILab.Extensions;
 
 namespace LBS.VisualElements
 {
@@ -118,17 +119,27 @@ namespace LBS.VisualElements
             var rn = new RemoveNote();
             LBSTool removeNoteTool = new LBSTool(rn);
 
+            var cia = new CaptureInArea();
+            LBSTool captureInAreaTool = new LBSTool(cia);
+
             an.SetRemover(rn);
 
             ActivateTool(selectTool,layer);
             ActivateTool(addNoteTool,layer);
             ActivateTool(removeNoteTool, layer);
+            ActivateTool(captureInAreaTool, layer);
 
             selectTool.Init(layer, this);
             addNoteTool.Init(layer, this);
             removeNoteTool.Init(layer, this);
+            captureInAreaTool.Init(layer, this);
+
+            DisplayManipulator(
+                typeof(CaptureInArea), 
+                LBSMainWindow.Instance.blueprintPanel.style.display.value);
+
         }
-        
+
         public object GetActiveManipulator()
         {
             //return content; No idea why this was returning a Visual Element

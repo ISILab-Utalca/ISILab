@@ -34,8 +34,8 @@ namespace ISILab.LBS.Manipulators
                 areaObjs.AddRange(layer.GetObjects(StartPosition, EndPosition));
             }
 
-            object[] objs = areaObjs.ToArray();
-            Debug.Log($"Captured {objs.Length} objects.");
+            capturedObjects = areaObjs.ToArray();
+    
             // Use the objects to save them and create a blueprint
         }
     }
