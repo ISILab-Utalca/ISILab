@@ -1,21 +1,17 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
-using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
     [UxmlElement]
-    public partial class BlueprintPanel : LBSCustomEditor
+    public partial class BlueprintPanel : VisualElement
     {
         #region VIEW ELEMENTS
         LBSCustomButton deleteButton;
@@ -42,9 +38,27 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         }
         #endregion
 
+        #region STATIC METHODS
+
+        private static BlueprintPanel _instance;
+        public static BlueprintPanel Instance
+        {
+            get
+            {
+                return _instance;
+            }
+            set
+            {
+                if (_instance is null) _instance = value;
+            }
+        }
+        #endregion
+
         #region CONSTRUCTORS
         public BlueprintPanel() : base()
         {
+            Instance = this;
+
             visualTreeAsset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("BlueprintPanel");
             visualTreeAsset.CloneTree(this);
             name = "BlueprintPanel";
@@ -55,6 +69,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             deleteButton.clicked += OnDeleteButtonClicked;
             cpatureButton.clicked += OnCaptureButtonClicked;
+
+            this.pickingMode = PickingMode.Ignore; 
 
         }
 
@@ -91,16 +107,44 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         }
 
 
-        public override void SetInfo(object paramTarget)
+        public void SetPreviewTexture(Texture2D tex)
         {
-            throw new NotImplementedException();
+            VisualElement preview = new VisualElement();
+            preview.style.backgroundImage = new StyleBackground(tex);
+            Add(preview);
         }
 
-        protected override VisualElement CreateVisualElement()
-        {
-            throw new NotImplementedException();
-        }
+
         #endregion
 
+        public static void CaptureElement(VisualElement element, Rect localRect, Action<Texture2D> done)
+        {
+            var panel = element.panel;
+            if (panel == null)
+                return;
+
+            // Convert element-local → screen space
+            Vector2 min = localRect.min;
+            Vector2 max = localRect.max;
+
+            Rect screenRect = new Rect(min, max - min);
+
+            // wait for repaint
+            EditorApplication.delayCall += () =>
+            {
+                Debug.Log((int)screenRect.width + "," + (int)screenRect.height);
+                var tex = new Texture2D((int)screenRect.width, (int)screenRect.height, TextureFormat.RGBA32, false);
+
+                tex.ReadPixels(new Rect(
+                    screenRect.x,
+                    Screen.height - screenRect.y - screenRect.height,
+                    screenRect.width,
+                    screenRect.height), 0, 0);
+
+                tex.Apply();
+
+                done?.Invoke(tex);
+            };
+        }
     }
 }

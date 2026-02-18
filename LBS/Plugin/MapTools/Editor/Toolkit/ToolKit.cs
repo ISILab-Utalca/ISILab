@@ -107,9 +107,9 @@ namespace LBS.VisualElements
         #endregion
 
         #region METHODS
-        
+
         public void InitGeneralTools(LBSLayer layer)
-        { 
+        {
             var sm = new SelectManipulator();
             LBSTool selectTool = new LBSTool(sm);
 
@@ -124,8 +124,8 @@ namespace LBS.VisualElements
 
             an.SetRemover(rn);
 
-            ActivateTool(selectTool,layer);
-            ActivateTool(addNoteTool,layer);
+            ActivateTool(selectTool, layer);
+            ActivateTool(addNoteTool, layer);
             ActivateTool(removeNoteTool, layer);
             ActivateTool(captureInAreaTool, layer);
 
@@ -135,8 +135,10 @@ namespace LBS.VisualElements
             captureInAreaTool.Init(layer, this);
 
             DisplayManipulator(
-                typeof(CaptureInArea), 
+                typeof(CaptureInArea),
                 LBSMainWindow.Instance.blueprintPanel.style.display.value);
+            captureInAreaTool.OnSelect += () => cia.ClearArea();
+            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
 
         }
 
