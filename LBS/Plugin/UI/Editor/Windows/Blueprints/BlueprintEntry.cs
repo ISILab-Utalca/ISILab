@@ -10,7 +10,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     {
         #region VIEW ELEMENTS
         LBSCustomLabelIcon defaultMessage;
-        LBSCustomImage blueprintImage;
+        VisualElement blueprintImage;
         #endregion
 
         #region FIELDS
@@ -26,7 +26,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 defaultMessage.style.display = value == null ? DisplayStyle.Flex : DisplayStyle.None;
                 blueprintImage.style.display = value != null ? DisplayStyle.Flex : DisplayStyle.None;
 
-                blueprintImage.image = value;
+                blueprintImage.style.backgroundImage = value;
             }
         }
         #endregion
@@ -37,12 +37,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         {
             visualTreeAsset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("BlueprintEntry");
             visualTreeAsset.CloneTree(this);
-            name = "BlueprintEntry";
-        
+            
             defaultMessage = this.Q<LBSCustomLabelIcon>("DefaultMessage");
-            blueprintImage = this.Q<LBSCustomImage>("BlueprintImage");
-
-            BlueprintImage = null;
+            blueprintImage = this.Q<VisualElement>("BlueprintImage");
         }
 
         #endregion

@@ -5,6 +5,7 @@ using ISILab.LBS.Manipulators;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -39,25 +40,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #endregion
 
         #region STATIC METHODS
-
         private static BlueprintPanel _instance;
-        public static BlueprintPanel Instance
-        {
-            get
-            {
-                return _instance;
-            }
-            set
-            {
-                if (_instance is null) _instance = value;
-            }
-        }
+        public static BlueprintPanel Instance => _instance;
+
         #endregion
 
         #region CONSTRUCTORS
         public BlueprintPanel() : base()
         {
-            Instance = this;
+            _instance = this;
 
             visualTreeAsset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("BlueprintPanel");
             visualTreeAsset.CloneTree(this);
@@ -70,8 +61,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             deleteButton.clicked += OnDeleteButtonClicked;
             cpatureButton.clicked += OnCaptureButtonClicked;
 
-            this.pickingMode = PickingMode.Ignore; 
-
+            pickingMode = PickingMode.Ignore;
         }
 
         private void OnDeleteButtonClicked()
@@ -89,7 +79,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             if (capturedObjects.Length == 0) return;
 
             object[] objs = new object[] { selectedArea ?? new object() };
-            var newInstance = ScriptableObject.CreateInstance<ISILab.LBS.Components.Blueprint>();
+            ISILab.LBS.Components.Blueprint newInstance = ScriptableObject.CreateInstance<ISILab.LBS.Components.Blueprint>();
 
             // --- Count by type ---
             Dictionary<Type, int> typeCounter = new();
@@ -100,7 +90,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             }
 
 
-            foreach(var tc in typeCounter)
+            foreach(KeyValuePair<Type, int> tc in typeCounter)
             {
                 Debug.Log("Type:" + tc.Key.ToString() + "|| Count:" + tc.Value);
             }
@@ -109,42 +99,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         public void SetPreviewTexture(Texture2D tex)
         {
-            VisualElement preview = new VisualElement();
-            preview.style.backgroundImage = new StyleBackground(tex);
-            Add(preview);
-        }
+            BlueprintEntry blueprintEntry = this.Q<BlueprintEntry>();
+            blueprintEntry.BlueprintImage = tex;
 
+        }
 
         #endregion
-
-        public static void CaptureElement(VisualElement element, Rect localRect, Action<Texture2D> done)
-        {
-            var panel = element.panel;
-            if (panel == null)
-                return;
-
-            // Convert element-local → screen space
-            Vector2 min = localRect.min;
-            Vector2 max = localRect.max;
-
-            Rect screenRect = new Rect(min, max - min);
-
-            // wait for repaint
-            EditorApplication.delayCall += () =>
-            {
-                Debug.Log((int)screenRect.width + "," + (int)screenRect.height);
-                var tex = new Texture2D((int)screenRect.width, (int)screenRect.height, TextureFormat.RGBA32, false);
-
-                tex.ReadPixels(new Rect(
-                    screenRect.x,
-                    Screen.height - screenRect.y - screenRect.height,
-                    screenRect.width,
-                    screenRect.height), 0, 0);
-
-                tex.Apply();
-
-                done?.Invoke(tex);
-            };
-        }
     }
 }
