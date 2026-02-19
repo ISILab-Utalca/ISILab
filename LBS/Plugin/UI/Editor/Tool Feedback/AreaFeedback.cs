@@ -19,6 +19,10 @@ namespace ISILab.LBS.VisualElements
 
         #endregion
         
+
+        public Vector2 StartPosition { get => startPosition; }
+        public Vector2 EndPosition { get => endPosition; }
+
         public AreaFeedback(Vector2Int p1, Vector2Int p2) : base(p1, p2) { }
 
         public AreaFeedback() : base()
