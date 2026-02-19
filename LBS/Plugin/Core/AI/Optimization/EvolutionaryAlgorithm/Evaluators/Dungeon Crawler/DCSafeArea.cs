@@ -205,8 +205,8 @@ namespace ISILab.AI.Categorization
         {
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic),
-                new MainTagField("Danger", enemiesCharacteristic.FirstTag().Label, enemiesCharacteristic)
+                new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic, "Main item to be compared with every danger."),
+                new MainTagField("Danger", enemiesCharacteristic.FirstTag().Label, enemiesCharacteristic, "Dangerous item to move away.")
             };
 
             return list;

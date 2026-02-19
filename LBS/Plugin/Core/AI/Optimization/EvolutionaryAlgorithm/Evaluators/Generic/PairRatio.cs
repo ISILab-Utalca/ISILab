@@ -25,8 +25,9 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
 
-        public string Tooltip => "DC Custom Evaluator\n\n" +
-            "Explain the purpose of your Custom Evaluator and how it works.\n\n" +
+        public string Tooltip => "Pair Ratio Evaluator \n\n" +
+            "This evaluator aims to balance the frequency of two item types according to a defined ratio.\n\n" +
+            "By default the evaluator balance Chest-tagged and Enemies-tagged items in a relation of 1:2.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
@@ -169,9 +170,9 @@ namespace ISILab.AI.Categorization
 
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField("Item 1", item1Characteristic.FirstTag().Label, item1Characteristic),
-                new MainTagField("Item 2", item2Characteristic.FirstTag().Label, item2Characteristic),
-                new FloatConfigurationField("Ratio", targetRatio, 0.05f, 20.00f)
+                new MainTagField("Item 1", item1Characteristic.FirstTag().Label, item1Characteristic, "First item to balance."),
+                new MainTagField("Item 2", item2Characteristic.FirstTag().Label, item2Characteristic, "Second item to balance."),
+                new FloatConfigurationField("Ratio", targetRatio, 0.05f, 20.00f, "How many times should the first item appear for each instance of the second item in the level?")
                 //new IntegerConfigurationField("Value 1", num, 1, 20),
                 //new IntegerConfigurationField("Value 2", den, 1, 20),
             };

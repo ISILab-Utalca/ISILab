@@ -13,33 +13,45 @@ MonoBehaviour:
   m_Name: PairRatio configuration
   m_EditorClassIdentifier: 
   target:
-    rid: 7729149191026377603
+    rid: 4351225289813000197
   fields:
-  - rid: 4351225286591783683
-  - rid: 4351225286591783684
-  - rid: 4351225286591783685
+  - rid: 4351225304896241941
+  - rid: 4351225304896241942
+  - rid: 4351225304896241943
   references:
     version: 2
     RefIds:
-    - rid: 4351225286591783683
+    - rid: 4351225289813000197
+      type: {class: PairRatio, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        item1Characteristic:
+          rid: 4351225304896241944
+        item2Characteristic:
+          rid: 4351225304896241945
+        targetRatio: 0.5
+    - rid: 4351225304896241941
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Item 1
+        tooltip: First item to balance.
         tagName: Chest
-    - rid: 4351225286591783684
+    - rid: 4351225304896241942
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Item 2
+        tooltip: Second item to balance.
         tagName: Enemies
-    - rid: 4351225286591783685
+    - rid: 4351225304896241943
       type: {class: EvaluatorConfiguration/FloatConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Ratio
+        tooltip: How many times should the first item appear for each instance of
+          the second item in the level?
         value: 0.5
         useSlider: 1
         minValue: 0.05
         maxValue: 20
-    - rid: 4351225286591783686
+    - rid: 4351225304896241944
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
@@ -47,7 +59,7 @@ MonoBehaviour:
         - tagName: Chest
           value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
           tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
-    - rid: 4351225286591783687
+    - rid: 4351225304896241945
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
@@ -55,11 +67,3 @@ MonoBehaviour:
         - tagName: Enemies
           value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
           tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
-    - rid: 7729149191026377603
-      type: {class: PairRatio, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        item1Characteristic:
-          rid: 4351225286591783686
-        item2Characteristic:
-          rid: 4351225286591783687
-        targetRatio: 0.5
