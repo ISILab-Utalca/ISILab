@@ -15,7 +15,7 @@ namespace ISILab.LBS.VisualElements
 
         public DataContent(VisualElement content, string name)
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("DataContent");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("DataContent");
             visualTree.CloneTree(this);
 
             // Foldout
