@@ -534,16 +534,22 @@ namespace ISILab.LBS.Modules
 
         public Rect GetBounds()
         {
-            if (TileGroup.Count == 0)
-                return Rect.zero;
+            if (TileGroup == null) return new Rect();
 
-            var x = TileGroup.Min(t => t.Position.x);
-            var y = TileGroup.Max(t => t.Position.y);
+            var tiles = TileGroup.Where(t => t != null).ToList();
+            if (tiles.Count == 0) return new Rect();
 
-            var width = TileGroup.Max(t => t.Position.x) - x + 1;
-            var height = TileGroup.Max(t => t.Position.y) - y + 1;
+            var xMin = tiles.Min(t => t.Position.x);
+            var yMin = tiles.Min(t => t.Position.y);
+            var xMax = tiles.Max(t => t.Position.x);
+            var yMax = tiles.Max(t => t.Position.y);
 
-            return new Rect(x, y, width, height);
+            return new Rect(
+                xMin,
+                yMin,
+                xMax - xMin + 1,
+                yMax - yMin + 1
+            );
         }
 
         public Vector2 GetCenter()
