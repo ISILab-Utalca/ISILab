@@ -738,7 +738,7 @@ namespace ISILab.LBS.VisualElements.Editor
         private void ResetSuggestion()
         {
             if (originalTileMap == null) return;
-            if (LayerPopulation.Tilemap == null)
+            if (LayerPopulation.TileBundleGroup == null)
             {
                 LBSMainWindow.MessageNotify(
                     new LBSLog("Layer tile map not found.")); return;

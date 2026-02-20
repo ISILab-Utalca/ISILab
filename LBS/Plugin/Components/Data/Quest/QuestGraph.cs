@@ -1,20 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.AI.Grammar;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
-using LBS.Components;
-using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace ISILab.LBS.Modules
 {
     [Serializable]
-    public class QuestGraph : LBSModule, ICloneable, ISelectable
+    public class QuestGraph : LBSModule, ICloneable, ISelectable, IObjectData
     {
         #region FIELDS
         [SerializeField, SerializeReference]
@@ -674,9 +675,68 @@ namespace ISILab.LBS.Modules
         public override void Clear() => throw new NotImplementedException();
         public override Rect GetBounds() => throw new NotImplementedException();
         public override void Rewrite(LBSModule other) => throw new NotImplementedException();
+
+        public object[] GetObjects(Vector2Int startPosition, Vector2Int endPosition)
+        {
+            (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(startPosition, endPosition);
+
+            List<GraphNode> graphNodesClone = new();
+            List<QuestEdge> graphEdgesClone = new();
+            QuestNode rootClone = null;
+
+            foreach (GraphNode node in GraphNodes)
+            {
+                Vector2Int nodePos = Vector2Int.zero;
+                if (node is QuestNode qn)
+                {
+                    nodePos = qn.Data.Area.position.ToInt();
+                }
+                bool inside =
+                    nodePos.x >= corners.min.x &&
+                    nodePos.x <= corners.max.x &&
+                    nodePos.y >= corners.min.y &&
+                    nodePos.y <= corners.max.y;
+
+                if (!inside)
+                    continue;
+
+                GraphNode nodeClone = node.Clone() as GraphNode;
+                graphNodesClone.Add(nodeClone);
+
+                if (node is QuestNode questNode && Root == node)
+                {
+                    rootClone = nodeClone as QuestNode;
+                }
+            }
+
+            foreach (QuestEdge edge in GraphEdges)
+            {
+                bool fromInside = graphNodesClone.Exists(n => edge.From.Contains(n));
+                bool toInside = graphNodesClone.Exists(n => n.ID == edge.To.ID);
+
+                if (fromInside && toInside)
+                {
+                    QuestEdge edgeClone = edge.Clone() as QuestEdge;
+                    graphEdgesClone.Add(edgeClone);
+                }
+            }
+
+            return new object[]
+            {
+                graphNodesClone,
+                graphEdgesClone,
+                rootClone
+            };
+        }
+
+
+        public void LoadObjects(object[] objects)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
-        
+
         #endregion
-        
+
     }
 }

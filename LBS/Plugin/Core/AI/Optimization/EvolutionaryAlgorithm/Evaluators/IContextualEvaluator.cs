@@ -143,7 +143,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 var tempBehavior = populationLayer.Behaviours.Find(b => b.GetType().Equals(typeof(PopulationBehaviour))) as PopulationBehaviour;
                 var combinedBehavior = combinedLayer.Behaviours.Find(b => b.GetType().Equals(typeof(PopulationBehaviour))) as PopulationBehaviour;
 
-                foreach (TileBundleGroup group in tempBehavior.Tilemap)
+                foreach (TileBundleGroup group in tempBehavior.TileBundleGroup)
                 {
                     var tileCheck = new List<TileBundleGroup>();
                     //Check every tile in the group and see if there's anything in their locations.

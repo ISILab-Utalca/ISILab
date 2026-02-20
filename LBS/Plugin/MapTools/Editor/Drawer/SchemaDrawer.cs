@@ -139,6 +139,7 @@ namespace ISILab.LBS.Drawers
                 }
                 else
                 {
+     
                     tView = GetTileView(tile, tz.Zone, tc.Connections, teselationSize);
                     tView.layer = schema.OwnerLayer.index;
                     // Stores using LBSTile as key

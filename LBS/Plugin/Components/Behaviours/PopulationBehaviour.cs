@@ -8,7 +8,6 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,7 +79,7 @@ namespace ISILab.LBS.Behaviours
         #region PROPERTIES
 
         [JsonIgnore]
-        public List<TileBundleGroup> Tilemap => _bundleTileMap is not null ? _bundleTileMap.Groups : new List<TileBundleGroup>();
+        public List<TileBundleGroup> TileBundleGroup => _bundleTileMap is not null ? _bundleTileMap.Groups : new List<TileBundleGroup>();
 
         [JsonIgnore]
         public BundleTileMap BundleTilemap
@@ -94,6 +93,8 @@ namespace ISILab.LBS.Behaviours
                 _bundleTileMap = value;
             }
         }
+
+        public TileMapModule TileMap => tileMap;
 
         public Bundle MainBundle
         {
@@ -282,8 +283,8 @@ namespace ISILab.LBS.Behaviours
 
         public void Clear()
         {
-            if (Tilemap.Count == 0) return;
-            foreach (TileBundleGroup group in Tilemap)
+            if (TileBundleGroup.Count == 0) return;
+            foreach (TileBundleGroup group in TileBundleGroup)
             {
                 _bundleTileMap.RemoveGroup(group);
             }
@@ -306,12 +307,12 @@ namespace ISILab.LBS.Behaviours
 
         public override void CheckKeys()
         {
-            UpdateKeys(Tilemap.ToList<object>());
+            UpdateKeys(TileBundleGroup.ToList<object>());
         }
 
         public void UpdateKeys()
         {
-            UpdateKeys(Tilemap.ToList<object>());
+            UpdateKeys(TileBundleGroup.ToList<object>());
         }
 
         private void ReplaceTile(TileBundleGroup tile)
@@ -454,20 +455,47 @@ namespace ISILab.LBS.Behaviours
 
         public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
         {
-            HashSet<object> objs = new();
-
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+            
+            BundleTileMap bundleTileMapClone = BundleTilemap.Clone() as BundleTileMap;
+            bundleTileMapClone.Clear();
 
-            for (int i = corners.min.x; i <= corners.max.x; i++)
+            TileMapModule tileMapClone = new TileMapModule();// TileMap.Clone() as TileMapModule;
+            tileMapClone.Clear();
+
+            for (int x = corners.min.x; x <= corners.max.x; x++)
             {
-                for (int j = corners.min.y; j <= corners.max.y; j++)
+                for (int y = corners.min.y; y <= corners.max.y; y++)
                 {
-                    TileBundleGroup tbg = _bundleTileMap.GetGroup(new Vector2(i, j));
-                    if (tbg != null) objs.Add(tbg);
+                    Vector2Int pos = new Vector2Int(x, y);
+
+                    LBSTile tile = tileMap.GetTile(pos);
+                    if (tile != null)
+                    {
+                        LBSTile tileClone = tile.Clone() as LBSTile;
+                        tileMapClone.AddTile(tileClone);
+                    }
+
+                    TileBundleGroup tbg = _bundleTileMap.GetGroup(pos);
+                    if (tbg != null)
+                    {
+                        TileBundleGroup tbgClone = tbg.Clone() as TileBundleGroup;
+                        bundleTileMapClone.AddGroup(tbgClone);
+                    }
                 }
             }
 
-            return objs.ToArray();
+            return new object[] 
+            { 
+                tileMapClone, 
+                bundleTileMapClone 
+            };
+            
+        }
+
+        public void LoadObjects(object[] objects)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
