@@ -25,8 +25,9 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
 
-        public string Tooltip => "DC Custom Evaluator\n\n" +
-            "Explain the purpose of your Custom Evaluator and how it works.\n\n" +
+        public string Tooltip => "Single Ratio Evaluator\n\n" +
+            "This evaluator aims to balance the frequency of items of a certain type in relation to the entire map space.\n\n" +
+            "By default the evaluator balance Chest-tagged items with a ratio of 1 element for each 10 spaces.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
@@ -191,8 +192,8 @@ namespace ISILab.AI.Categorization
         {
             var list = new List<EvaluatorConfigurationField>
             {
-                new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic),
-                new FloatConfigurationField("Ratio", targetRatio, 0.0f, 1.0f)
+                new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic, "Item whose frequency shall be changed."),
+                new FloatConfigurationField("Ratio", targetRatio, 0.0f, 1.0f, "How frequently should the object appear in the level?")
             };
 
             return list;

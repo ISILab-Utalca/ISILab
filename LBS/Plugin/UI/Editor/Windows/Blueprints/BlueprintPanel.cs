@@ -1,22 +1,18 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
-using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager;
-using ISILab.LBS.VisualElements;
-using LBS;
-using LBS.VisualElements;
 using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
     [UxmlElement]
-    public partial class BlueprintPanel : LBSCustomEditor, IToolProvider
+    public partial class BlueprintPanel : VisualElement
     {
         #region VIEW ELEMENTS
         LBSCustomButton deleteButton;
@@ -33,9 +29,27 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         #endregion
 
+        #region PROPERTIES
+        public CaptureInArea CaptureManipulator
+        {
+            set
+            {
+                _captureArea = value;
+            }
+        }
+        #endregion
+
+        #region STATIC METHODS
+        private static BlueprintPanel _instance;
+        public static BlueprintPanel Instance => _instance;
+
+        #endregion
+
         #region CONSTRUCTORS
         public BlueprintPanel() : base()
         {
+            _instance = this;
+
             visualTreeAsset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("BlueprintPanel");
             visualTreeAsset.CloneTree(this);
             name = "BlueprintPanel";
@@ -47,9 +61,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             deleteButton.clicked += OnDeleteButtonClicked;
             cpatureButton.clicked += OnCaptureButtonClicked;
 
-            // Make the manipulator to pick the capture area
-            SetTools(ToolKit.Instance);
-
+            pickingMode = PickingMode.Ignore;
         }
 
         private void OnDeleteButtonClicked()
@@ -62,29 +74,36 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         private void OnCaptureButtonClicked()
         {
+            if (_captureArea is null) return;
+            var capturedObjects = _captureArea.capturedObjects;
+            if (capturedObjects.Length == 0) return;
+
             object[] objs = new object[] { selectedArea ?? new object() };
-            ScriptableObject.CreateInstance<ISILab.LBS.Components.Blueprint>();
+            ISILab.LBS.Components.Blueprint newInstance = ScriptableObject.CreateInstance<ISILab.LBS.Components.Blueprint>();
+
+            // --- Count by type ---
+            Dictionary<Type, int> typeCounter = new();
+            foreach(var co in capturedObjects)
+            {
+                if (typeCounter.ContainsKey(co.GetType())) typeCounter[co.GetType()]++;
+                else typeCounter.Add(co.GetType(), 1);
+            }
+
+
+            foreach(KeyValuePair<Type, int> tc in typeCounter)
+            {
+                Debug.Log("Type:" + tc.Key.ToString() + "|| Count:" + tc.Value);
+            }
         }
 
-        public void SetTools(ToolKit toolkit)
+
+        public void SetPreviewTexture(Texture2D tex)
         {
-            _captureArea = new CaptureInArea();
-            LBSTool t = new LBSTool(_captureArea);
-            //t4.OnSelect += LBSInspectorPanel.ActivateBehaviourTab
-            toolkit.ActivateTool(t, null, _captureArea);
+            BlueprintEntry blueprintEntry = this.Q<BlueprintEntry>();
+            blueprintEntry.BlueprintImage = tex;
 
         }
 
-        public override void SetInfo(object paramTarget)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override VisualElement CreateVisualElement()
-        {
-            throw new NotImplementedException();
-        }
         #endregion
-
     }
 }

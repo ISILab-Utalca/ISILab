@@ -30,9 +30,20 @@ namespace ISILab.LBS.AI.Categorization
             /// </summary>
             public string name;
 
-            public EvaluatorConfigurationField(string fieldName)
+            /// <summary>
+            /// Short description of the field's purpose.
+            /// </summary>
+            public string tooltip;
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="fieldName">Identifier of the field.</param>
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public EvaluatorConfigurationField(string fieldName, string tooltip = "")
             {
                 name = fieldName;
+                this.tooltip = tooltip;
             }
 
             /// <summary>
@@ -117,7 +128,8 @@ namespace ISILab.LBS.AI.Categorization
             /// <param name="fieldName">Identifier of the field.</param>
             /// <param name="tagName">Name of the LBSTag.</param>
             /// <param name="tagChar">Characteristic containing the LBSTag.</param>
-            public MainTagField(string fieldName, string tagName, LBSCharacteristic tagChar) : base(fieldName)
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public MainTagField(string fieldName, string tagName, LBSCharacteristic tagChar, string tooltip = "") : base(fieldName, tooltip)
             {
                 this.tagName = tagName;
                 this.tagChar = tagChar;
@@ -129,19 +141,22 @@ namespace ISILab.LBS.AI.Categorization
             /// </summary>
             /// <param name="fieldName">Identifier of the field <b>and</b> tag.</param>
             /// <param name="tagChar">Characteristic containing the LBSTag.</param>
-            public MainTagField(string fieldName, LBSCharacteristic tagChar) : this(fieldName, fieldName, tagChar) { }
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public MainTagField(string fieldName, LBSCharacteristic tagChar, string tooltip = "") : this(fieldName, fieldName, tagChar, tooltip) { }
 
             /// <summary>
             /// Constructor for a special case of Tag Field that does not uses a name.
             /// </summary>
             /// <param name="tagNameAndChar">A tuple containing the name of the LBSTag and its characteristic.</param>
-            public MainTagField(Tuple<string, LBSCharacteristic> tagNameAndChar) : this("", tagNameAndChar.Item1, tagNameAndChar.Item2) { }
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public MainTagField(Tuple<string, LBSCharacteristic> tagNameAndChar, string tooltip = "") : this("", tagNameAndChar.Item1, tagNameAndChar.Item2, tooltip) { }
 
             public override VisualElement GetField() => Field;
 
             protected override void SetField()
             {
                 field = new ObjectField(name);
+                field.tooltip = tooltip;
                 field.objectType = typeof(LBSTag);
                 if(field.value == null)
                     field.SetValueWithoutNotify(LBSAssetMacro.GetLBSTag(tagName));
@@ -191,7 +206,8 @@ namespace ISILab.LBS.AI.Categorization
             /// </summary>
             /// <param name="groupName">Identifier of the group field.</param>
             /// <param name="tagsNamesAndChars">Pairs of tags names and their respective characteristics.</param>
-            public GroupedTagsField(string groupName, List<Tuple<string, LBSCharacteristic>> tagsNamesAndChars) : base(groupName)
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public GroupedTagsField(string groupName, List<Tuple<string, LBSCharacteristic>> tagsNamesAndChars, string tooltip = "") : base(groupName, tooltip)
             {
                 foreach(Tuple<string, LBSCharacteristic> nameAndChar in tagsNamesAndChars)
                     tagsFields.Add(new MainTagField(nameAndChar));
@@ -204,6 +220,7 @@ namespace ISILab.LBS.AI.Categorization
             protected override void SetField()
             {
                 list = new ListView();
+                list.tooltip = tooltip;
                 list.itemsSource = tagsFields;
                 list.makeItem = () => new VisualElement();
                 list.bindItem = (item, i) =>
@@ -289,7 +306,8 @@ namespace ISILab.LBS.AI.Categorization
             /// </summary>
             /// <param name="fieldName">Identifier of the field.</param>
             /// <param name="value">Initial value of the field.</param>
-            public IntegerConfigurationField(string fieldName, int value) : base(fieldName)
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public IntegerConfigurationField(string fieldName, int value, string tooltip = "") : base(fieldName, tooltip)
             {
                 this.value = value;
 
@@ -304,7 +322,8 @@ namespace ISILab.LBS.AI.Categorization
             /// <param name="value">Initial value of the field.</param>
             /// <param name="minValue">The minimum value accepted by the slider.</param>
             /// <param name="maxValue">The maximum value accepted by the slider.</param>
-            public IntegerConfigurationField(string fieldName, int value, int minValue, int maxValue) : base(fieldName)
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public IntegerConfigurationField(string fieldName, int value, int minValue, int maxValue, string tooltip = "") : base(fieldName, tooltip)
             {
                 this.value = value;
                 this.minValue = minValue;
@@ -322,6 +341,7 @@ namespace ISILab.LBS.AI.Categorization
                 if (useSlider)
                 {
                     slider = new SliderInt(name, minValue, maxValue);
+                    slider.tooltip = tooltip;
                     slider.value = value;
                     slider.showInputField = true;
                     slider.RegisterValueChangedCallback(evt =>
@@ -337,6 +357,7 @@ namespace ISILab.LBS.AI.Categorization
                 else
                 {
                     field = new IntegerField(name);
+                    field.tooltip = tooltip;
                     field.value = value;
                     field.RegisterValueChangedCallback(evt =>
                     {
@@ -421,7 +442,8 @@ namespace ISILab.LBS.AI.Categorization
             /// </summary>
             /// <param name="fieldName">Identifier of the field.</param>
             /// <param name="value">Initial value of the field.</param>
-            public FloatConfigurationField(string fieldName, float value) : base(fieldName)
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public FloatConfigurationField(string fieldName, float value, string tooltip = "") : base(fieldName, tooltip)
             {
                 this.value = value;
 
@@ -436,7 +458,8 @@ namespace ISILab.LBS.AI.Categorization
             /// <param name="value">Initial value of the field.</param>
             /// <param name="minValue">The minimum value accepted by the slider.</param>
             /// <param name="maxValue">The maximum value accepted by the slider.</param>
-            public FloatConfigurationField(string fieldName, float value, float minValue, float maxValue) : base(fieldName)
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public FloatConfigurationField(string fieldName, float value, float minValue, float maxValue, string tooltip = "") : base(fieldName, tooltip)
             {
                 this.value = value;
                 this.minValue = minValue;
@@ -454,6 +477,7 @@ namespace ISILab.LBS.AI.Categorization
                 if (useSlider)
                 {
                     slider = new Slider(name, minValue, maxValue);
+                    slider.tooltip = tooltip;
                     slider.value = value;
                     slider.showInputField = true;
                     slider.RegisterValueChangedCallback(evt =>
@@ -469,6 +493,7 @@ namespace ISILab.LBS.AI.Categorization
                 else
                 {
                     field = new FloatField(name);
+                    field.tooltip = tooltip;
                     field.value = value;
                     field.RegisterValueChangedCallback(evt =>
                     {
@@ -549,7 +574,8 @@ namespace ISILab.LBS.AI.Categorization
             /// <param name="maxValue">Initial maximum value of the field.</param>
             /// <param name="lowLimit">The lowest value accepted by the slider.</param>
             /// <param name="highLimit">The highest value accepted by the slider.</param>
-            public MinMaxConfigurationField(string fieldName, float minValue, float maxValue, float lowLimit, float highLimit) : base(fieldName)
+            /// <param name="tooltip">Short description of the field's purpose.</param>
+            public MinMaxConfigurationField(string fieldName, float minValue, float maxValue, float lowLimit, float highLimit, string tooltip = "") : base(fieldName, tooltip)
             {
                 Min = minValue;
                 Max = maxValue;
@@ -564,6 +590,7 @@ namespace ISILab.LBS.AI.Categorization
             protected override void SetField()
             {
                 slider = new MinMaxSlider(name, Min, Max, lowLimit, highLimit);
+                slider.tooltip = tooltip;
                 slider.RegisterValueChangedCallback(evt =>
                 {
                     value = evt.newValue;

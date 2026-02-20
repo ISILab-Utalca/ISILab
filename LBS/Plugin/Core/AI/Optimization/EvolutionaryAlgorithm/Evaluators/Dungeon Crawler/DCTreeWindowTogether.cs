@@ -209,7 +209,7 @@ namespace ISILab.AI.Categorization
             var list = new List<EvaluatorConfigurationField>
             {
                 new MainTagField("Obstacle", colliderCharacteristic.FirstTag().Label, colliderCharacteristic),
-                new MainTagField("Target", treeCharacteristic.FirstTag().Label, treeCharacteristic),
+                new MainTagField("Target", treeCharacteristic.FirstTag().Label, treeCharacteristic, "Item to place near windows."),
                 new IntegerConfigurationField("Threshold", treeDistance, 1, 20)
             };
 

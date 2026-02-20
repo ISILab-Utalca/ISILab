@@ -3,8 +3,10 @@
 using ISILab.AI.Categorization;
 using ISILab.Commons;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -121,6 +123,48 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 Vector2Int v2 = chrom.ToMatrixPosition(others[i]);
 
                 distances[i, from] = distances[from, i] = Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
+            }
+        }
+
+        public static class JPSPlus
+        {
+            public static void JPSPreprocess(BundleTilemapChromosome chrom, ConnectedTileMapModule connectedTM)
+            {
+                List<Vector2Int> edges = Directions.Bidimencional.Edges;
+                List<Vector2Int> dirs = Directions.Bidimencional.All;
+
+                List<Tuple<Vector2Int, List<Vector2Int>>> primaryJumpPoints = new();
+
+                IEnumerable<Tuple<TileConnectionsPair, int>> impassables = connectedTM.GetAllPairsWithConnections(SchemaBehaviour.Wall, SchemaBehaviour.Window).Where(t => chrom.ToIndex(t.Item1.Tile.Position) != -1);
+
+                foreach(Tuple<TileConnectionsPair, int> impassable in impassables)
+                {
+                    int dir = impassable.Item2;
+                    int dir1 = (dir + 1) % 4,
+                        dir2 = (dir + 3) % 4;
+                    Vector2Int possibleJP1 = impassable.Item1.Tile.Position + edges[dir1],
+                                possibleJP2 = impassable.Item1.Tile.Position + edges[dir2];
+                    if (chrom.ToIndex(possibleJP1) != 1 && connectedTM.GetPair(possibleJP1) is not null)
+                    {
+                        Vector2Int forcedNeigh = possibleJP1 + edges[dir];
+                        if(chrom.ToIndex(forcedNeigh) != 1 && connectedTM.GetPair(forcedNeigh) is not null)
+                            primaryJumpPoints.Add(new(possibleJP1, new() { edges[dir1] }));
+                    }
+                    if (chrom.ToIndex(possibleJP2) != 1 && connectedTM.GetPair(possibleJP2) is not null)
+                    {
+                        Vector2Int forcedNeigh = possibleJP2 + edges[dir];
+                        if (chrom.ToIndex(forcedNeigh) != 1 && connectedTM.GetPair(forcedNeigh) is not null)
+                            primaryJumpPoints.Add(new(possibleJP2, new() { edges[dir2] }));
+                    }
+                }
+
+                for(int i = 0; i < chrom.GetGenes().Length; i++)
+                {
+                    TileConnectionsPair pair = connectedTM.GetPair(chrom.ToMatrixPosition(i));
+                    if(pair is null) continue;
+                    List<string> conns = pair.Connections;
+
+                }
             }
         }
     }

@@ -107,10 +107,19 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                 {
                     var display = _evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
                     _mainWindow.blueprintPanel.style.display = display;
-                    ToolKit.Instance.DisplayManipulator(typeof(CaptureInArea), display);
-                    ToolKit.Instance.SetTarget(_mainWindow.blueprintPanel);
+                    var toolEntry = ToolKit.Instance.GetTool(typeof(CaptureInArea));
+                    if (toolEntry.Key is null) 
+                        return;
+                    var captureTool = toolEntry.Value.Item1;
+                    if (captureTool is null) 
+                        return;
+                    var captureMani = captureTool.Manipulator;
+                    if (captureMani is null) 
+                        return;
+                    _mainWindow.blueprintPanel.CaptureManipulator = (CaptureInArea)captureMani;
+                    // button change
+                    toolEntry.Value.Item2.style.display = display;
                 });
-                ToolKit.Instance.DisplayManipulator(typeof(CaptureInArea), DisplayStyle.None);
             }
         }
         
