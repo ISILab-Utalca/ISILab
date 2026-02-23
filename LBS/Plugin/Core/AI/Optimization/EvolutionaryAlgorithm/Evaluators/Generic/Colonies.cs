@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.AI.Categorization
 {
@@ -111,10 +112,20 @@ namespace ISILab.AI.Categorization
                         }
                         string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
                         var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
-                        for (int i = 0; i < size; i++)
+                        for(int i = 0; i < size; i++)
                         {
-                            EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                            for(int j = i; j < size; j++)
+                            {
+                                if (i == j)
+                                    distances[i, i] = 0;
+                                else
+                                    distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+                            }
                         }
+                        //for (int i = 0; i < size; i++)
+                        //{
+                        //    EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                        //}
                         break;
                     default:
                         for (int i = 0; i < size; i++)
@@ -220,6 +231,9 @@ namespace ISILab.AI.Categorization
             CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
             CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
             CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            if (CombinedLayer is null) return;
+            string moduleID = CombinedLayer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+            CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection);
         }
 
         public void InitializeDefault()

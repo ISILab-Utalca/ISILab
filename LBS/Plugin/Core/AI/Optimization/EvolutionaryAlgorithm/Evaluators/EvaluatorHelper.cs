@@ -2,6 +2,7 @@
 
 using ISILab.AI.Categorization;
 using ISILab.Commons;
+using ISILab.Commons.Extensions;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
@@ -13,6 +14,62 @@ using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
 {
+    public class PriorityQueue<KeyType, PriorityType> where PriorityType : IComparable
+    {
+        struct Element<SubClassKeyType, SubClassPriorityType> where SubClassPriorityType : IComparable
+        {
+            public SubClassKeyType key;
+            public SubClassPriorityType priority;
+
+            public Element(SubClassKeyType key, SubClassPriorityType priority)
+            {
+                this.key = key;
+                this.priority = priority;
+            }
+        }
+
+        List<Element<KeyType, PriorityType>> queue = new List<Element<KeyType, PriorityType>>();
+
+        public void Push(KeyType arg_key, PriorityType arg_priority)
+        {
+            Element<KeyType, PriorityType> new_elem = new Element<KeyType, PriorityType>(arg_key, arg_priority);
+
+            int index = 0;
+            foreach (var element in queue)
+            {
+                // if my new element's priority is less than than the element in this location
+                if (new_elem.priority.CompareTo(element.priority) < 0)
+                {
+                    break;
+                }
+
+                ++index;
+            }
+
+            // Insert at the found index
+            queue.Insert(index, new_elem);
+        }
+
+        public KeyType Pop()
+        {
+            if (IsEmpty())
+            {
+                throw new UnityException("Attempted to pop off an empty queue");
+            }
+
+            Element<KeyType, PriorityType> top = queue[0];
+
+            queue.RemoveAt(0);
+
+            return top.key;
+        }
+
+        public bool IsEmpty()
+        {
+            return queue.Count == 0;
+        }
+    }
+
     public static class EvaluatorHelper
     {
         public static void FloodFill(int startPos, List<int> others, int from, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
@@ -128,24 +185,24 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         public static class JPSPlus
         {
-            public static Dictionary<Vector2Int, int[]> JPSPreprocessDistances(BundleTilemapChromosome chrom, ConnectedTileMapModule connectedTM)
+            public static Dictionary<Vector2Int, int[]> JPSPreprocessDistances(Rect area, ConnectedTileMapModule connectedTM)
             {
                 List<Vector2Int> edges = Directions.Bidimencional.Edges;
                 List<Vector2Int> allDirs = Directions.Bidimencional.All;
 
                 Dictionary<Vector2Int, List<Vector2Int>> primaryJumpPoints = new();
-                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.Pairs.Where(tcp => chrom.Rect.Contains(tcp.Tile.Position)).ToDictionary(tcp => tcp.Tile.Position, tcp => new int[8]);
+                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.Pairs.Where(tcp => area.Contains(tcp.Tile.Position)).ToDictionary(tcp => tcp.Tile.Position, tcp => new int[8]);
 
                 List<string> impassableConnections = new() { SchemaBehaviour.Wall, SchemaBehaviour.Window };
 
-                int xMin = (int)chrom.Rect.xMin,
-                    xMax = (int)chrom.Rect.xMax,
-                    yMin = (int)chrom.Rect.yMin,
-                    yMax = (int)chrom.Rect.yMax;
+                int xMin = (int)area.xMin,
+                    xMax = (int)area.xMax,
+                    yMin = (int)area.yMin,
+                    yMax = (int)area.yMax;
 
                 /// PRIMARY JUMP POINTS
 
-                IEnumerable<Tuple<TileConnectionsPair, int>> impassables = connectedTM.GetAllPairsWithConnections(impassableConnections.ToArray()).Where(t => chrom.ToIndex(t.Item1.Tile.Position) != -1);
+                List<Tuple<TileConnectionsPair, int>> impassables = connectedTM.GetAllPairsWithConnections(impassableConnections.ToArray()).Where(t => area.Contains(t.Item1.Tile.Position)).ToList();
 
                 foreach(Tuple<TileConnectionsPair, int> impassable in impassables)
                 {
@@ -158,19 +215,23 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                     void FindPrimaryJumpPointAtDirection(int JPDir)
                     {
-                        if (!impassableConnections.Contains(parentConns[JPDir]))
+                        if (impassableConnections.Contains(parentConns[JPDir])) return;
+
+                        Vector2Int possibleJP = impassable.Item1.Tile.Position + edges[JPDir];
+                        TileConnectionsPair JPNode = connectedTM.GetPair(possibleJP);
+
+                        if (area.GlobalToIndex(possibleJP) == 1 || JPNode is null || impassableConnections.Contains(JPNode.Connections[dir])) return;
+
+                        Vector2Int forcedNeigh = possibleJP + edges[dir];
+
+                        if (area.GlobalToIndex(forcedNeigh) == 1 || connectedTM.GetPair(forcedNeigh) is null) return;
+
+                        if (primaryJumpPoints.TryGetValue(possibleJP, out List<Vector2Int> JPDirs))
                         {
-                            Vector2Int possibleJP = impassable.Item1.Tile.Position + edges[JPDir];
-                            TileConnectionsPair JPNode = connectedTM.GetPair(possibleJP);
-                            if (chrom.GlobalToIndex(possibleJP) != 1 && JPNode is not null && !impassableConnections.Contains(JPNode.Connections[dir]))
-                            {
-                                Vector2Int forcedNeigh = possibleJP + edges[dir];
-                                if (chrom.GlobalToIndex(forcedNeigh) != 1 && connectedTM.GetPair(forcedNeigh) is not null)
-                                    if (primaryJumpPoints.TryGetValue(possibleJP, out List<Vector2Int> JPDirs))
-                                        JPDirs.Add(edges[JPDir]);
-                                    else primaryJumpPoints.Add(possibleJP, new() { edges[JPDir] });
-                            }
+                            if (JPDirs.Contains(edges[JPDir])) return;
+                            JPDirs.Add(edges[JPDir]);
                         }
+                        else primaryJumpPoints.Add(possibleJP, new() { edges[JPDir] });
                     }
                 }
 
@@ -254,7 +315,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     {
                         Vector2Int currentNodePos = new Vector2Int(x, y);
                         TileConnectionsPair currentNode = connectedTM.GetPair(currentNodePos);
-                        const int dir4 = 1, dir8 = dir4 * 2;
+                        const int dir4 = 3, dir8 = dir4 * 2;
 
                         if (currentNode is null)
                         {
@@ -287,7 +348,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     {
                         Vector2Int currentNodePos = new Vector2Int(x, y);
                         TileConnectionsPair currentNode = connectedTM.GetPair(currentNodePos);
-                        const int dir4 = 3, dir8 = dir4 * 2;
+                        const int dir4 = 1, dir8 = dir4 * 2;
 
                         if (currentNode is null)
                         {
@@ -314,7 +375,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                 }
 
-                /// DIAGONAL JUMP POINTS (WIP)
+                /// DIAGONAL JUMP POINTS
 
                 int d8, d8low, d8high, d4low, d4high;
                 Vector2Int nodePos;
@@ -328,8 +389,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         node = connectedTM.GetPair(nodePos);
                         if (node is null) continue;
 
-                        CalcDiagDist(3, x == xMin,      y == xMin, nodePos, node);
-                        CalcDiagDist(1, x == xMax - 1,  y == yMin, nodePos, node);
+                        CalcDiagDist(5, x == xMin,      y == xMin, nodePos, node);
+                        CalcDiagDist(7, x == xMax - 1,  y == yMin, nodePos, node);
                     }
                 }
 
@@ -341,8 +402,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         node = connectedTM.GetPair(nodePos);
                         if (node is null) continue;
 
-                        CalcDiagDist(5, x == xMin,      y == yMax - 1, nodePos, node);
-                        CalcDiagDist(7, x == xMax - 1,  y == yMax - 1, nodePos, node);
+                        CalcDiagDist(3, x == xMin,      y == yMax - 1, nodePos, node);
+                        CalcDiagDist(1, x == xMax - 1,  y == yMax - 1, nodePos, node);
                     }
                 }
 
@@ -385,9 +446,160 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 return JPDistances;
             }
         
-            public static void JPSRun(Dictionary<Vector2Int, int[]> JPDistances)
+            public class JPSNode
             {
-                // TODO
+                public JPSNode parent;
+
+                public Vector2Int pos;
+
+                public int givenCost;
+
+                public int finalCost;
+
+                public int fromDir;
+
+                public JPSNode() { }
+
+                public JPSNode(Vector2Int pos) { this.pos = pos; }
+            }
+
+            private static List<int[]> validDirLookUpTable = new()
+            {
+                new[] {6, 7, 0, 1, 2},
+                new[] {0, 1, 2},
+                new[] {0, 1, 2, 3, 4},
+                new[] {2, 3, 4},
+                new[] {2, 3, 4, 5, 6},
+                new[] {4, 5, 6},
+                new[] {4, 5, 6, 7, 0},
+                new[] {6, 7, 0}
+            };
+
+            public static int JPSRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM)
+            {
+                int cost = 0;
+                if (connectedTM is null) return -1;
+
+                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.PathfindDistances;
+
+                PriorityQueue<JPSNode, int> open = new();
+
+                JPSNode startNode = connectedTM.JPSNodes[startInd];
+                startNode.parent = null;
+                startNode.givenCost = 0;
+                startNode.finalCost = 0;
+
+                open.Push(startNode, 0);
+
+                Vector2Int goalPos = area.ToGlobalPosition(goalInd);
+
+                List<int> targetJumpPoints = new List<int>();
+
+                while (!open.IsEmpty())
+                {
+                    JPSNode current = open.Pop();
+                    JPSNode parent = current.parent;
+                    int[] nodeDistances = JPDistances[current.pos];
+
+                    if(current.pos == goalPos)
+                        return cost;
+
+                    int[] dirs = current.parent is null ? new[] { 0, 1, 2, 3, 4, 5, 6, 7 } : validDirLookUpTable[current.fromDir];
+                    foreach(int dir in dirs)
+                    {
+                        JPSNode newSuccesor = null;
+                        int givenCost = 0;
+
+                        int maxGoalDiff = Mathf.Max(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y)),
+                            minGoalDiff = Mathf.Min(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y));
+                        if(dir % 2 == 0 &&
+                            GoalAtDirection(current.pos, dir, goalPos, true) &&
+                            maxGoalDiff <= Mathf.Abs(nodeDistances[dir]))
+                        {
+                            newSuccesor = connectedTM.JPSNodes[goalInd];
+                            givenCost = current.givenCost + maxGoalDiff;
+                        }
+                        else if(dir % 2 == 1 &&
+                            GoalAtDirection(current.pos, dir, goalPos) &&
+                            minGoalDiff <= Mathf.Abs(nodeDistances[dir]))
+                        {
+                            // TARGET JUMP POINT
+                            newSuccesor = GetNodeAtDist(current.pos, dir, minGoalDiff);
+                            givenCost = current.givenCost + Mathf.Max(Mathf.Abs(newSuccesor.pos.x - goalPos.x), Mathf.Abs(newSuccesor.pos.y - goalPos.y));
+                        }
+                        else if (nodeDistances[dir] > 0)
+                        {
+                            newSuccesor = GetNodeAtDist(current.pos, dir, nodeDistances[dir]);
+                            givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - goalPos.x), Mathf.Abs(newSuccesor.pos.y - goalPos.y)) + current.givenCost;
+                        }
+
+                        if(newSuccesor is not null)
+                        {
+                            newSuccesor.parent = current;
+                            newSuccesor.givenCost = givenCost;
+                            newSuccesor.fromDir = dir;
+
+                            int dx = goalPos.x - newSuccesor.pos.x,
+                                dy = goalPos.y - newSuccesor.pos.y;
+                            newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+                            cost = newSuccesor.finalCost;
+
+                            open.Push(newSuccesor, newSuccesor.finalCost);
+                        }
+                    }
+                }
+
+                while(targetJumpPoints.Count > 0)
+                {
+                    connectedTM.JPSNodes[targetJumpPoints[0]] = null;
+                    targetJumpPoints.RemoveAt(0);
+                }
+
+                return cost;
+
+                bool GoalAtDirection(Vector2Int pos, int dir, Vector2Int goalPos, bool exact = false)
+                {
+                    if (dir < 0 && dir >= 8) return false;
+
+                    int dx = goalPos.x - pos.x,
+                        dy = goalPos.y - pos.y;
+                    bool equalMagnitude = Mathf.Abs(dy) == Mathf.Abs(dx);
+
+                    bool[] returns = new bool[]
+                    {
+                        dy == 0 && dx > 0,
+                        dy < 0  && dx > 0   && (equalMagnitude || !exact),
+                        dy < 0  && dx == 0,
+                        dy < 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy == 0 && dx < 0,
+                        dy > 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy > 0  && dx == 0,
+                        dy > 0  && dx > 0   && (equalMagnitude || !exact)
+                    };
+
+                    return returns[dir];
+                }
+
+                JPSNode GetNodeAtDist(Vector2Int pos, int dir, int dist)
+                {
+                    JPSNode newNode = null;
+                    List<Vector2Int> dirs = Directions.Bidimencional.All;
+                    Vector2Int move = dirs[dir] * dist;
+                    Vector2Int newPos = pos + move;
+
+                    if(connectedTM.JPSNodes[area.GlobalToIndex(newPos)] is null)
+                    {
+                        newNode = new JPSNode(newPos);
+                        connectedTM.JPSNodes[area.GlobalToIndex(newPos)] = newNode;
+                        targetJumpPoints.Add(area.GlobalToIndex(newPos));
+                    }
+                    else
+                    {
+                        newNode = connectedTM.JPSNodes[area.GlobalToIndex(newPos)];
+                    }
+                        
+                    return newNode;
+                }
             }
         }
     }
