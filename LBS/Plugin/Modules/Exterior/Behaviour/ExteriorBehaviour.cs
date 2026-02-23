@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -221,20 +220,53 @@ namespace ISILab.LBS.Behaviours
 
         public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
         {
-            HashSet<object> objs = new();
-
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            for (int i = corners.min.x; i <= corners.max.x; i++)
+            TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
+            tileMapClone.Clear();
+
+            ConnectedTileMapModule connectionsClone = Connections.Clone() as ConnectedTileMapModule;
+            connectionsClone.Clear();
+
+            for (int x = corners.min.x; x <= corners.max.x; x++)
             {
-                for (int j = corners.min.y; j <= corners.max.y; j++)
+                for (int y = corners.min.y; y <= corners.max.y; y++)
                 {
-                    LBSTile tile = GetTile(new Vector2Int(i, j));
-                    if (tile != null) objs.Add(tile);
+                    Vector2Int pos = new Vector2Int(x, y);
+
+                    // Tile
+                    LBSTile tile = GetTile(pos);
+                    if (tile != null)
+                    {
+                        LBSTile tileClone = tile.Clone() as LBSTile;
+                        tileMapClone.AddTile(tileClone);
+                    }
+
+                    // Connection
+                    TileConnectionsPair pair = Connections.GetPair(pos);
+                    if (pair != null)
+                    {
+                        TileConnectionsPair pairClone = pair.Clone() as TileConnectionsPair;
+                        connectionsClone.AddPair(
+                            pairClone.Tile,
+                            pairClone.Connections,
+                            pairClone.EditedByIA
+                        );
+                    }
                 }
             }
 
-            return objs.ToArray();
+            return new object[]
+            {
+                tileMapClone,
+                connectionsClone
+            };
+
+        }
+
+        public void LoadObjects(object[] objects)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

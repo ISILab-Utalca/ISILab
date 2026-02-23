@@ -175,7 +175,7 @@ namespace ISILab.LBS.Drawers
 
         private void LoadAllTiles(PopulationBehaviour population, MainView view)
         {
-            foreach (TileBundleGroup tileBundleGroup in population.Tilemap)
+            foreach (TileBundleGroup tileBundleGroup in population.TileBundleGroup)
             {
                 PopulationTileView tileView;
                 List<GraphElement> previousElement = view.GetElementsFromLayer(population.OwnerLayer, tileBundleGroup.LocationKey);

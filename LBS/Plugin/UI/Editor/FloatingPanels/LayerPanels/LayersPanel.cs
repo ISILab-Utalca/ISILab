@@ -34,7 +34,12 @@ namespace ISILab.LBS.VisualElements.Editor
         
         private const float UnfocusOpacity = 0.33f;
         private readonly List<int> _dragAffected = new();
-       
+
+        #endregion
+
+        #region PROPERTIES
+      
+        public List<LayerTemplate> Templates => _templates;
 
         #endregion
 

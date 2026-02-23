@@ -12,47 +12,12 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
-using UnityEngine.XR;
 using static UnityEditor.PlayerSettings;
 
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
-    [Serializable]
-    public class SchemaStoreData
-    {
-        [SerializeField]
-        Zone zone;
-
-        [SerializeField]
-        List<ZoneStoreData> zonesData = new();
-
-        public class ZoneStoreData
-        {
-            [SerializeField]
-            LBSTile tile;
-            [SerializeField]
-            List<string> connections = new();
-
-            public ZoneStoreData(LBSTile tile, List<string> connections)
-            {
-                this.tile = tile;
-                this.connections = connections;
-            }
-
-        }
-
-        public SchemaStoreData(Zone zone)
-        {
-           this.zone = zone;
-        }
-
-        public void AddZoneData(LBSTile tile, List<string> connections)
-        {
-            zonesData.Add(new ZoneStoreData(tile, connections));
-        }
-    }
+    
 
     [Serializable]
     public struct DirConnection
@@ -259,6 +224,10 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         
         [JsonIgnore]
         public List<LBSTile> Tiles => tileMap.Tiles;
+
+        public TileMapModule TileMap => tileMap;
+
+        public ConnectedTileMapModule TileConnections => tileConnections;
 
         public static List<string> Connections => connections;
 
@@ -664,34 +633,69 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
         {
-            HashSet<object> objs = new();
-
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            foreach (var zone in ZonesWithTiles)
+            TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
+            tileMapClone.Clear();
+
+            SectorizedTileMapModule areasClone = areas.Clone() as SectorizedTileMapModule;
+            areasClone.Clear();
+
+            ConnectedTileMapModule tileConnectionsClone = TileConnections.Clone() as ConnectedTileMapModule;
+            TileConnections.Clear();
+
+
+            foreach (Zone zone in ZonesWithTiles)
             {
-                SchemaStoreData ssd = new(zone);
-                for (int i = corners.min.x; i <= corners.max.x; i++)
+                for (int x = corners.min.x; x <= corners.max.x; x++)
                 {
-                    for (int j = corners.min.y; j <= corners.max.y; j++)
+                    for (int y = corners.min.y; y <= corners.max.y; y++)
                     {
-                        Vector2Int Pos = new Vector2Int(i, j);
-                        if (zone.Positions.Contains(Pos))
+                        Vector2Int pos = new Vector2Int(x, y);
+                        if (zone.Positions.Contains(pos))
                         {
-                            LBSTile tile = tileMap.GetTile(Pos);
+
+                            // Tile
+                            LBSTile tile = GetTile(pos);
                             if (tile != null)
                             {
-                                List<string> conns = GetConnections(tile);
-                                ssd.AddZoneData(tile, conns);
+                                LBSTile tileClone = tile.Clone() as LBSTile;
+                                tileMapClone.AddTile(tileClone);
+
+                                // Area
+                                Zone zoneClone = zone.Clone() as Zone;
+                                areasClone.AddTile(tileClone, zoneClone);
+
+                            }
+
+                            // Connection
+                            TileConnectionsPair pair = TileConnections.GetPair(pos);
+                            if (pair != null)
+                            {
+                                TileConnectionsPair pairClone = pair.Clone() as TileConnectionsPair;
+                                tileConnectionsClone.AddPair(
+                                    pairClone.Tile,
+                                    pairClone.Connections,
+                                    pairClone.EditedByIA
+                                );
                             }
                         }
                     }
                 }
 
-                objs.Add(ssd);
             }
 
-            return objs.ToArray();
+            return new object[] 
+            { 
+                tileConnectionsClone,
+                areasClone,
+                tileMapClone
+            };
+        }
+
+        public void LoadObjects(object[] objects)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
