@@ -32,6 +32,8 @@ namespace ISILab.AI.Categorization
             return (int)(pos.y * Rect.width + pos.x);
         }
 
+        public int GlobalToIndex(Vector2 pos) => ToIndex(pos - Rect.position);
+
         /// <summary>
         /// Converts an index in a 1D array to a 2D position.
         /// </summary>
@@ -40,5 +42,7 @@ namespace ISILab.AI.Categorization
         {
             return new Vector2Int((int)(index % Rect.width), (int)(index / Rect.width));
         }
+
+        public Vector2Int ToGlobalPosition(int index) => ToMatrixPosition(index) + Vector2Int.RoundToInt(Rect.position);
     }
 }
