@@ -1,5 +1,6 @@
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.VisualElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -17,14 +18,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         private string path;
 
         private Label toChange;
+        private WarningPanel warningPanel;
 
         public void Init()
         {
             toChange = this.Q<Label>("LabelInfo");
+            warningPanel = this.Q<WarningPanel>("warningPanel");
 
             newBundles = Builder.newSubBundles.Count;
             assignedBundles = Builder.newAssignBundles.Count;
-            //path = 
 
             SetInfoSummary();
 
@@ -33,7 +35,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         private void SetInfoSummary()
         {
-            infoSummary = LBSSettings.Instance.paths.bundleFolderPath +" \n\n" + (assignedBundles).ToString()+ "\n\n" + newBundles.ToString()+ "\n\n" + (assignedBundles-newBundles).ToString();
+            warningPanel.Text = "New main bundle \"" + Builder.bundleName + "\" succesfully created";
+
+            infoSummary = LBSSettings.Instance.paths.bundleFolderPath + "/" + Builder.bundleName + ".asset" 
+                          + " \n\n" + (assignedBundles).ToString()+ "\n\n" + newBundles.ToString()+ "\n\n" + (assignedBundles-newBundles).ToString();
         }
 
         public void Revert()
