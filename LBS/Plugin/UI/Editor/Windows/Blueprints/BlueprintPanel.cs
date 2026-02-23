@@ -1,6 +1,8 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,23 +44,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             set
             {
 
-                if (_captureArea == value) return;
-
-                if (_captureArea != null)
+                if (_captureArea == value)
                 {
-                    _captureArea.CaptureComplete = null;
-                    captureButton.clicked -= OnCaptureButtonClicked;
+                    _captureArea.CaptureComplete = CaptureComplete;
                 }
 
                 _captureArea = value;
-
-                if (_captureArea != null)
+                if (_captureArea != null) 
                 {
                     _captureArea.CaptureComplete = CaptureComplete;
-                    captureButton.clicked += OnCaptureButtonClicked;
-                }
+            }
             }
         }
+
+        public ISILab.LBS.Components.Blueprint SelectedBlueprint { get => selectedBlueprint; }
 
         #endregion
 
@@ -82,13 +81,54 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             scrollView = this.Q<ScrollView>("BlueprintScrollView");
 
             deleteButton.clicked += OnDeleteButtonClicked;
+            captureButton.clicked += OnCaptureButtonClicked;
 
             pickingMode = PickingMode.Ignore;
+            LoadBlueprints();
         }
         #endregion
 
         #region METHODS
-        private void OnCaptureButtonClicked() => _captureArea?.DoCapture();
+
+        void LoadBlueprints()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:ISILab.LBS.Components.Blueprint");
+            scrollView.Clear();
+
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+
+                var bp = AssetDatabase.LoadAssetAtPath<ISILab.LBS.Components.Blueprint>(path);
+
+                if (bp == null)
+                    continue;
+
+                BlueprintEntry entry = new BlueprintEntry();
+                entry.Blueprint = bp;
+                entry.RegisterCallbackOnce<MouseDownEvent>((evt) =>
+                {
+                    selectedBlueprint = entry.Blueprint;
+                    Debug.Log("BP:" + selectedBlueprint.BlueprintName);
+                });
+
+
+                scrollView.Add(entry);
+            }
+        }
+
+        public void OnCaptureButtonClicked()
+        {
+            bool validCapture = _captureArea != null && _captureArea.DoCapture();
+            if (validCapture)
+            {
+                LBSMainWindow.MessageNotify(new Core.Settings.LBSLog("Blueprint capture, a new Blueprint Scriptable Object has been stored.", LogType.Log));
+            }
+            else
+            {
+                LBSMainWindow.MessageNotify(new Core.Settings.LBSLog("There are no valid objects to capture in that area of the graph.", LogType.Error));  
+            }
+        }
 
         private void OnDeleteButtonClicked()
         {
@@ -132,6 +172,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             AssetDatabase.Refresh();
 
             Debug.Log($"New Blueprint <{newInstance.BlueprintName}> created at: {assetPath}");
+            
+            LoadBlueprints();
         }
 
 

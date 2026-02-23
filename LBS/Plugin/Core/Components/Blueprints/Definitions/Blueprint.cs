@@ -5,7 +5,6 @@ namespace ISILab.LBS.Components
 {
     public class Blueprint : ScriptableObject
     {
-        [Header("Editable")]
         [SerializeField] 
         private string blueprintName = "New Blueprint";
 

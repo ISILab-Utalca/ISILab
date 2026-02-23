@@ -630,6 +630,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
+            HashSet<object> validObjects = new();
+
             TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
             tileMapClone.Clear();
 
@@ -637,17 +639,17 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             areasClone.Clear();
 
             ConnectedTileMapModule tileConnectionsClone = TileConnections.Clone() as ConnectedTileMapModule;
-            TileConnections.Clear();
+            tileConnectionsClone.Clear();
 
 
-            foreach (Zone zone in ZonesWithTiles)
+            foreach (TileZonePair tzp in areas.PairTiles)
             {
                 for (int x = corners.min.x; x <= corners.max.x; x++)
                 {
                     for (int y = corners.min.y; y <= corners.max.y; y++)
                     {
                         Vector2Int pos = new Vector2Int(x, y);
-                        if (zone.Positions.Contains(pos))
+                        if (tzp.Tile.Position == (pos))
                         {
 
                             // Tile
@@ -658,8 +660,11 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                                 tileMapClone.AddTile(tileClone);
 
                                 // Area
-                                Zone zoneClone = zone.Clone() as Zone;
+                                Zone zoneClone = tzp.Zone.Clone() as Zone;
                                 areasClone.AddTile(tileClone, zoneClone);
+
+                                validObjects.Add(tileMapClone);
+                                validObjects.Add(areasClone);
 
                             }
 
@@ -673,6 +678,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                                     pairClone.Connections,
                                     pairClone.EditedByIA
                                 );
+
+                                validObjects.Add(tileConnectionsClone);
                             }
                         }
                     }
@@ -680,12 +687,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
             }
 
-            return new object[] 
-            { 
-                tileConnectionsClone,
-                areasClone,
-                tileMapClone
-            };
+            return validObjects.ToArray();
         }
 
         public void LoadObjects(object[] objects)

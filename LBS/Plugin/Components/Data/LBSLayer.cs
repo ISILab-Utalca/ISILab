@@ -475,8 +475,12 @@ namespace LBS.Components
             
             foreach (object component in components)
             {
-                if (component is IObjectData obd) 
-                    objs.AddRange(obd.GetObjects(s, e));
+                if (component is IObjectData obd)
+                {
+                    var compObjects = obd.GetObjects(s, e);
+                    if (compObjects.Any()) objs.AddRange(compObjects);
+                    objs.AddRange(compObjects);
+                }
             }
             
             return objs.ToArray();
