@@ -1,3 +1,4 @@
+
 using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
@@ -7,18 +8,13 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.VisualElements.Editor;
 using LBS;
 using LBS.VisualElements;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 

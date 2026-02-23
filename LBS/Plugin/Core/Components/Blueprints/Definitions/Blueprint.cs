@@ -1,12 +1,8 @@
-using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace ISILab.LBS.Components
 {
-
-
     public class Blueprint : ScriptableObject
     {
         [Header("Editable")]
@@ -37,9 +33,5 @@ namespace ISILab.LBS.Components
             get => previewImage;
             set => previewImage = value;
         }
-
     }
-
-
-
 }

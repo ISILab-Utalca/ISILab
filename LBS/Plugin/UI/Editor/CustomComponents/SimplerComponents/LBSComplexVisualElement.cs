@@ -14,7 +14,6 @@ namespace ISILab.LBS.CustomComponents
         public LBSComplexVisualElement()
         {
             AddToClassList("lbs-component");
-            
         }
         
         public VisualTreeAsset GetVisualTreeForThis()

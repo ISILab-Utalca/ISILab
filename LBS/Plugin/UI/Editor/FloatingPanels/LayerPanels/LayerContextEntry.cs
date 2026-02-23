@@ -96,7 +96,7 @@ namespace ISILab.LBS.VisualElements.Editor
                         if (referenceBehaviorPop == null) continue;
 
                         //Every group in the reference behavior is checked. If there's a population asset in any location that belongs to the reference behavior, it'll enable the warning.
-                        foreach (TileBundleGroup group in referenceBehaviorPop.Tilemap)
+                        foreach (TileBundleGroup group in referenceBehaviorPop.TileBundleGroup)
                         {
                             var groupBounds = group.GetBounds();
                             for(int i= (int)groupBounds.x; i< (int)groupBounds.x+(int)groupBounds.width; i++)

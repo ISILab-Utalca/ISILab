@@ -28,7 +28,14 @@
                 <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetCharacteristMenu name="SetCharacteristicsMenu" class="lbs-wizard-menu-content" />
             </ui:Tab>
             <ui:Tab label="5 - Summary" name="Step5">
-                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSummaryMenu name="SummaryMenu" />
+                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSummaryMenu name="SummaryMenu">
+                    <ISILab.LBS.VisualElements.WarningPanel current-warning-type="Success" />
+                    <ui:VisualElement name="columnasTexto" style="flex-grow: 1; flex-direction: row; -unity-text-align: upper-center;">
+                        <ui:Label text="Path:&#10;&#10;Total Bundles:&#10;&#10;&#x9;• New Bundles:&#10;&#10;&#x9;• Associated bundles:" name="LabelTexto" style="font-size: 12px; flex-direction: column; -unity-text-align: upper-left;" />
+                        <ui:VisualElement style="flex-grow: 1; width: auto; max-width: 20px;" />
+                        <ui:Label text="a&#10;&#10;b&#10;&#10;c&#10;&#10;d" name="LabelInfo" style="-unity-text-align: upper-left; width: 37px;" />
+                    </ui:VisualElement>
+                </ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSummaryMenu>
             </ui:Tab>
         </ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.LBSCustomTabView>
         <ui:VisualElement name="WizardButtons" class="lbs-group-box" style="flex-grow: 1; max-height: 32px; flex-direction: row; justify-content: flex-end; min-height: 32px;">
