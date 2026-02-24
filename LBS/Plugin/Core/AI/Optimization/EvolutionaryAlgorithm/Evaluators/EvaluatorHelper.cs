@@ -29,7 +29,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
             foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
             {
-                int index = chrom.ToIndex(tile.Position - chrom.Rect.position);
+                int index = chrom.GlobalToIndex(tile.Position);
                 if (index < 0) continue;
                 remaining.Add(index);
             }
@@ -58,7 +58,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 {
                     int current = remainingStep.Dequeue();
 
-                    Vector2Int currentPos = chrom.ToMatrixPosition(current) + Vector2Int.RoundToInt(chrom.Rect.position);
+                    Vector2Int currentPos = chrom.ToGlobalPosition(current);
 
                     remaining.Remove(current);
                     closed.Add(current);
@@ -76,7 +76,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                         Vector2Int dir = dirs[k];
                         Vector2Int newPos = currentPos + dir;
-                        int index = chrom.ToIndex(newPos - chrom.Rect.position);
+                        int index = chrom.GlobalToIndex(newPos);
 
                         if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index))
                             continue;
@@ -128,43 +128,266 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         public static class JPSPlus
         {
-            public static void JPSPreprocess(BundleTilemapChromosome chrom, ConnectedTileMapModule connectedTM)
+            public static Dictionary<Vector2Int, int[]> JPSPreprocessDistances(BundleTilemapChromosome chrom, ConnectedTileMapModule connectedTM)
             {
                 List<Vector2Int> edges = Directions.Bidimencional.Edges;
-                List<Vector2Int> dirs = Directions.Bidimencional.All;
+                List<Vector2Int> allDirs = Directions.Bidimencional.All;
 
-                List<Tuple<Vector2Int, List<Vector2Int>>> primaryJumpPoints = new();
+                Dictionary<Vector2Int, List<Vector2Int>> primaryJumpPoints = new();
+                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.Pairs.Where(tcp => chrom.Rect.Contains(tcp.Tile.Position)).ToDictionary(tcp => tcp.Tile.Position, tcp => new int[8]);
 
-                IEnumerable<Tuple<TileConnectionsPair, int>> impassables = connectedTM.GetAllPairsWithConnections(SchemaBehaviour.Wall, SchemaBehaviour.Window).Where(t => chrom.ToIndex(t.Item1.Tile.Position) != -1);
+                List<string> impassableConnections = new() { SchemaBehaviour.Wall, SchemaBehaviour.Window };
+
+                int xMin = (int)chrom.Rect.xMin,
+                    xMax = (int)chrom.Rect.xMax,
+                    yMin = (int)chrom.Rect.yMin,
+                    yMax = (int)chrom.Rect.yMax;
+
+                /// PRIMARY JUMP POINTS
+
+                IEnumerable<Tuple<TileConnectionsPair, int>> impassables = connectedTM.GetAllPairsWithConnections(impassableConnections.ToArray()).Where(t => chrom.ToIndex(t.Item1.Tile.Position) != -1);
 
                 foreach(Tuple<TileConnectionsPair, int> impassable in impassables)
                 {
                     int dir = impassable.Item2;
-                    int dir1 = (dir + 1) % 4,
-                        dir2 = (dir + 3) % 4;
-                    Vector2Int possibleJP1 = impassable.Item1.Tile.Position + edges[dir1],
-                                possibleJP2 = impassable.Item1.Tile.Position + edges[dir2];
-                    if (chrom.ToIndex(possibleJP1) != 1 && connectedTM.GetPair(possibleJP1) is not null)
+
+                    List<string> parentConns = impassable.Item1.Connections;
+
+                    FindPrimaryJumpPointAtDirection((dir + 1) % 4);
+                    FindPrimaryJumpPointAtDirection((dir + 3) % 4);
+
+                    void FindPrimaryJumpPointAtDirection(int JPDir)
                     {
-                        Vector2Int forcedNeigh = possibleJP1 + edges[dir];
-                        if(chrom.ToIndex(forcedNeigh) != 1 && connectedTM.GetPair(forcedNeigh) is not null)
-                            primaryJumpPoints.Add(new(possibleJP1, new() { edges[dir1] }));
-                    }
-                    if (chrom.ToIndex(possibleJP2) != 1 && connectedTM.GetPair(possibleJP2) is not null)
-                    {
-                        Vector2Int forcedNeigh = possibleJP2 + edges[dir];
-                        if (chrom.ToIndex(forcedNeigh) != 1 && connectedTM.GetPair(forcedNeigh) is not null)
-                            primaryJumpPoints.Add(new(possibleJP2, new() { edges[dir2] }));
+                        if (!impassableConnections.Contains(parentConns[JPDir]))
+                        {
+                            Vector2Int possibleJP = impassable.Item1.Tile.Position + edges[JPDir];
+                            TileConnectionsPair JPNode = connectedTM.GetPair(possibleJP);
+                            if (chrom.GlobalToIndex(possibleJP) != 1 && JPNode is not null && !impassableConnections.Contains(JPNode.Connections[dir]))
+                            {
+                                Vector2Int forcedNeigh = possibleJP + edges[dir];
+                                if (chrom.GlobalToIndex(forcedNeigh) != 1 && connectedTM.GetPair(forcedNeigh) is not null)
+                                    if (primaryJumpPoints.TryGetValue(possibleJP, out List<Vector2Int> JPDirs))
+                                        JPDirs.Add(edges[JPDir]);
+                                    else primaryJumpPoints.Add(possibleJP, new() { edges[JPDir] });
+                            }
+                        }
                     }
                 }
 
-                for(int i = 0; i < chrom.GetGenes().Length; i++)
+                /// STRAIGHT JUMP POINTS
+
+                for(int y = yMin; y < yMax; y++)
                 {
-                    TileConnectionsPair pair = connectedTM.GetPair(chrom.ToMatrixPosition(i));
-                    if(pair is null) continue;
-                    List<string> conns = pair.Connections;
+                    int jumpDistance = -1;
+                    bool jumpPointSeen = false;
 
+                    for(int x = xMin; x < xMax; x++)
+                    {
+                        Vector2Int currentNodePos = new Vector2Int(x, y);
+                        TileConnectionsPair currentNode = connectedTM.GetPair(currentNodePos);
+                        const int dir4 = 2, dir8 = dir4 * 2;
+
+                        if(currentNode is null)
+                        {
+                            jumpDistance = -1;
+                            jumpPointSeen = false;
+                            continue;
+                        }
+
+                        jumpDistance++;
+
+                        if (impassableConnections.Contains(currentNode.Connections[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = false;
+                        }
+
+                        JPDistances[currentNodePos][dir8] = jumpPointSeen ? jumpDistance : -jumpDistance;
+
+                        if(primaryJumpPoints.TryGetValue(currentNodePos, out List<Vector2Int> JPDirs) && JPDirs.Contains(edges[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = true;
+                        }
+                    }
+
+                    jumpDistance = -1;
+                    jumpPointSeen = false;
+
+                    for (int x = xMax - 1; x >= xMin; x--)
+                    {
+                        Vector2Int currentNodePos = new Vector2Int(x, y);
+                        TileConnectionsPair currentNode = connectedTM.GetPair(currentNodePos);
+                        const int dir4 = 0, dir8 = dir4 * 2;
+
+                        if (currentNode is null)
+                        {
+                            jumpDistance = -1;
+                            jumpPointSeen = false;
+                            continue;
+                        }
+
+                        jumpDistance++;
+
+                        if (impassableConnections.Contains(currentNode.Connections[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = false;
+                        }
+
+                        JPDistances[currentNodePos][dir8] = jumpPointSeen ? jumpDistance : -jumpDistance;
+
+                        if (primaryJumpPoints.TryGetValue(currentNodePos, out List<Vector2Int> JPDirs) && JPDirs.Contains(edges[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = true;
+                        }
+                    }
                 }
+
+                for (int x = xMin; x < xMax; x++)
+                {
+                    int jumpDistance = -1;
+                    bool jumpPointSeen = false;
+
+                    for (int y = yMin; y < yMax; y++)
+                    {
+                        Vector2Int currentNodePos = new Vector2Int(x, y);
+                        TileConnectionsPair currentNode = connectedTM.GetPair(currentNodePos);
+                        const int dir4 = 1, dir8 = dir4 * 2;
+
+                        if (currentNode is null)
+                        {
+                            jumpDistance = -1;
+                            jumpPointSeen = false;
+                            continue;
+                        }
+
+                        jumpDistance++;
+
+                        if (impassableConnections.Contains(currentNode.Connections[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = false;
+                        }
+
+                        JPDistances[currentNodePos][dir8] = jumpPointSeen ? jumpDistance : -jumpDistance;
+
+                        if (primaryJumpPoints.TryGetValue(currentNodePos, out List<Vector2Int> JPDirs) && JPDirs.Contains(edges[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = true;
+                        }
+                    }
+
+                    jumpDistance = -1;
+                    jumpPointSeen = false;
+
+                    for (int y = yMax - 1; y >= yMin; y--)
+                    {
+                        Vector2Int currentNodePos = new Vector2Int(x, y);
+                        TileConnectionsPair currentNode = connectedTM.GetPair(currentNodePos);
+                        const int dir4 = 3, dir8 = dir4 * 2;
+
+                        if (currentNode is null)
+                        {
+                            jumpDistance = -1;
+                            jumpPointSeen = false;
+                            continue;
+                        }
+
+                        jumpDistance++;
+
+                        if (impassableConnections.Contains(currentNode.Connections[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = false;
+                        }
+
+                        JPDistances[currentNodePos][dir8] = jumpPointSeen ? jumpDistance : -jumpDistance;
+
+                        if (primaryJumpPoints.TryGetValue(currentNodePos, out List<Vector2Int> JPDirs) && JPDirs.Contains(edges[dir4]))
+                        {
+                            jumpDistance = 0;
+                            jumpPointSeen = true;
+                        }
+                    }
+                }
+
+                /// DIAGONAL JUMP POINTS (WIP)
+
+                int d8, d8low, d8high, d4low, d4high;
+                Vector2Int nodePos;
+                TileConnectionsPair node;
+
+                for (int y = yMin; y < yMax; y++)
+                {
+                    for (int x = xMin; x < xMax; x++)
+                    {
+                        nodePos = new Vector2Int(x, y);
+                        node = connectedTM.GetPair(nodePos);
+                        if (node is null) continue;
+
+                        CalcDiagDist(3, x == xMin,      y == xMin, nodePos, node);
+                        CalcDiagDist(1, x == xMax - 1,  y == yMin, nodePos, node);
+                    }
+                }
+
+                for (int y = yMax - 1; y >= yMin; y--)
+                {
+                    for (int x = xMin; x < xMax; x++)
+                    {
+                        nodePos = new Vector2Int(x, y);
+                        node = connectedTM.GetPair(nodePos);
+                        if (node is null) continue;
+
+                        CalcDiagDist(5, x == xMin,      y == yMax - 1, nodePos, node);
+                        CalcDiagDist(7, x == xMax - 1,  y == yMax - 1, nodePos, node);
+                    }
+                }
+
+                void SetDirection(uint dir)
+                {
+                    d8 = (int)dir % 8;
+                    d8low = (d8 + 7) % 8;
+                    d8high = (d8 + 1) % 8;
+                    d4low = d8 / 2;
+                    d4high = (d4low + 1) % 4;
+                }
+
+                void CalcDiagDist(uint dir, bool xBorder, bool yBorder, Vector2Int nodePos, TileConnectionsPair node)
+                {
+                    SetDirection(dir);
+
+                    Vector2Int nextPos = nodePos + allDirs[d8];
+                    TileConnectionsPair next = connectedTM.GetPair(nextPos);
+
+                    if (xBorder || yBorder ||
+                        !(JPDistances.ContainsKey(nodePos + allDirs[d8]) && JPDistances.ContainsKey(nodePos + allDirs[d8low]) && JPDistances.ContainsKey(nodePos + allDirs[d8high])) ||
+                        impassableConnections.Contains(node.Connections[d4low]) || impassableConnections.Contains(node.Connections[d4high]) ||
+                        impassableConnections.Contains(next.Connections[(d4low + 2) % 4]) || impassableConnections.Contains(next.Connections[(d4high + 2) % 4]))
+                    {
+                        JPDistances[nodePos][d8] = 0;
+                    }
+                    else if (JPDistances[nextPos][d8low] > 0 || JPDistances[nextPos][d8high] > 0)
+                    {
+                        JPDistances[nodePos][d8] = 1;
+                    }
+                    else
+                    {
+                        int nextDist = JPDistances[nextPos][d8];
+                        if (nextDist > 0)
+                            JPDistances[nodePos][d8] = nextDist + 1;
+                        else JPDistances[nodePos][d8] = nextDist - 1;
+                    }
+                }
+
+                return JPDistances;
+            }
+        
+            public static void JPSRun(Dictionary<Vector2Int, int[]> JPDistances)
+            {
+                // TODO
             }
         }
     }

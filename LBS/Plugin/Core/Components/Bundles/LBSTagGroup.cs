@@ -14,7 +14,10 @@ namespace ISILab.LBS
             Element, // Ej: Furniture, Enemies, 
                      // Distinction, // (characteristics)Ej: Destroyed, Blooded, Dirty,
         }
-
+        
+        
+        
+        
         #region FIELDS
         [SerializeField]
         private List<LBSTag> tags = new List<LBSTag>();

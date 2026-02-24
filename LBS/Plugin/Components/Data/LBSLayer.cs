@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Utility;
 using ISILab.Extensions;
 using ISILab.LBS;
@@ -11,8 +8,12 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static ISILab.LBS.Modules.IObjectData;
 
 namespace LBS.Components    
 {
@@ -472,7 +473,7 @@ namespace LBS.Components
             components.AddRange(behaviours);
             components.AddRange(assistants);
             
-            foreach (var component in components)
+            foreach (object component in components)
             {
                 if (component is IObjectData obd) 
                     objs.AddRange(obd.GetObjects(s, e));

@@ -323,7 +323,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             var dictionary = ElementActionDictionary.Definitions.Keys
                 .ToDictionary(entryDef => entryDef, _ => new HashSet<TileBundleGroup>());
 
-            foreach (var tile in populationLayer.Tilemap)
+            foreach (var tile in populationLayer.TileBundleGroup)
             {
                 var flag = tile.BundleData.Bundle.ElementFlag;
                 foreach (ElementFlagToAction flagToAction in dictionary.Keys)

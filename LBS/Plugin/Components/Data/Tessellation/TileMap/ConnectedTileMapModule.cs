@@ -131,9 +131,15 @@ namespace ISILab.LBS.Modules
 
         public List<string> GetConnections(LBSTile tile)
         {
-            var p = GetPair(tile);
+            TileConnectionsPair p = GetPair(tile);
             if(p is null) return new List<string>();
-            //if (p == null) return null;
+            return p.Connections;
+        }
+
+        public List<string> GetConnections(Vector2Int pos)
+        {
+            TileConnectionsPair p = GetPair(pos);
+            if (p is null) return new List<string>();
             return p.Connections;
         }
 
