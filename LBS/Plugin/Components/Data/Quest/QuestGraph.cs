@@ -680,6 +680,8 @@ namespace ISILab.LBS.Modules
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(startPosition, endPosition);
 
+            HashSet<object> validObjects = new();
+
             List<GraphNode> graphNodesClone = new();
             List<QuestEdge> graphEdgesClone = new();
             QuestNode rootClone = null;
@@ -702,10 +704,12 @@ namespace ISILab.LBS.Modules
 
                 GraphNode nodeClone = node.Clone() as GraphNode;
                 graphNodesClone.Add(nodeClone);
+                validObjects.Add(graphNodesClone);
 
                 if (node is QuestNode questNode && Root == node)
                 {
                     rootClone = nodeClone as QuestNode;
+                    validObjects.Add(rootClone);
                 }
             }
 
@@ -718,15 +722,11 @@ namespace ISILab.LBS.Modules
                 {
                     QuestEdge edgeClone = edge.Clone() as QuestEdge;
                     graphEdgesClone.Add(edgeClone);
+                    validObjects.Add(graphEdgesClone);
                 }
             }
 
-            return new object[]
-            {
-                graphNodesClone,
-                graphEdgesClone,
-                rootClone
-            };
+            return validObjects.ToArray();
         }
 
 

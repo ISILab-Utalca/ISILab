@@ -11,6 +11,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #region VIEW ELEMENTS
         LBSCustomLabelIcon defaultMessage;
         VisualElement blueprintImage;
+        ISILab.LBS.Components.Blueprint blueprint;
         #endregion
 
         #region FIELDS
@@ -27,6 +28,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 blueprintImage.style.display = value != null ? DisplayStyle.Flex : DisplayStyle.None;
 
                 blueprintImage.style.backgroundImage = value;
+            }
+        }
+
+        public ISILab.LBS.Components.Blueprint Blueprint
+        {
+            get
+            {
+                return blueprint;
+            }
+
+            internal set
+            {
+                blueprint = value;
+                BlueprintImage = blueprint.PreviewImage;
             }
         }
         #endregion
