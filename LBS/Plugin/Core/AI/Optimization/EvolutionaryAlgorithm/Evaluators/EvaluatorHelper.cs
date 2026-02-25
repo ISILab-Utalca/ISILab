@@ -68,6 +68,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         {
             return queue.Count == 0;
         }
+
+        public bool Contains(KeyType key)
+        {
+            return queue.Any(e => e.key.Equals(key));
+        }
     }
 
     public static class EvaluatorHelper
@@ -210,21 +215,27 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                     List<string> parentConns = impassable.Item1.Connections;
 
-                    FindPrimaryJumpPointAtDirection((dir + 1) % 4);
-                    FindPrimaryJumpPointAtDirection((dir + 3) % 4);
+                    FindPrimaryJumpPointAtDirection(impassable.Item1.Tile.Position, parentConns, dir, (dir + 1) % 4);
+                    FindPrimaryJumpPointAtDirection(impassable.Item1.Tile.Position, parentConns, dir, (dir + 3) % 4);
 
-                    void FindPrimaryJumpPointAtDirection(int JPDir)
+                    void FindPrimaryJumpPointAtDirection(Vector2Int parentPos, List<string> parentConns, int sideDir, int JPDir, int c = 0)
                     {
+                        if (c > 2)
+                        {
+                            Debug.LogWarning("Recursion limit reached. Aborting.");
+                            return;
+                        }
+
                         if (impassableConnections.Contains(parentConns[JPDir])) return;
 
-                        Vector2Int possibleJP = impassable.Item1.Tile.Position + edges[JPDir];
+                        Vector2Int possibleJP = parentPos + edges[JPDir];
                         TileConnectionsPair JPNode = connectedTM.GetPair(possibleJP);
 
-                        if (area.GlobalToIndex(possibleJP) == 1 || JPNode is null || impassableConnections.Contains(JPNode.Connections[dir])) return;
+                        if (area.GlobalToIndex(possibleJP) == -1 || JPNode is null || impassableConnections.Contains(JPNode.Connections[sideDir])) return;
 
-                        Vector2Int forcedNeigh = possibleJP + edges[dir];
+                        Vector2Int forcedNeigh = possibleJP + edges[sideDir];
 
-                        if (area.GlobalToIndex(forcedNeigh) == 1 || connectedTM.GetPair(forcedNeigh) is null) return;
+                        if (area.GlobalToIndex(forcedNeigh) == -1 || connectedTM.GetPair(forcedNeigh) is null) return;
 
                         if (primaryJumpPoints.TryGetValue(possibleJP, out List<Vector2Int> JPDirs))
                         {
@@ -232,6 +243,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             JPDirs.Add(edges[JPDir]);
                         }
                         else primaryJumpPoints.Add(possibleJP, new() { edges[JPDir] });
+
+                        FindPrimaryJumpPointAtDirection(possibleJP, JPNode.Connections, (JPDir + 2) % 4, sideDir, c + 1);
                     }
                 }
 
@@ -477,8 +490,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
             public static int JPSRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM)
             {
-                int cost = 0;
-                if (connectedTM is null) return -1;
+                int cost = -1;
+                if (connectedTM is null) return cost;
 
                 Dictionary<Vector2Int, int[]> JPDistances = connectedTM.PathfindDistances;
 
@@ -502,7 +515,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     int[] nodeDistances = JPDistances[current.pos];
 
                     if(current.pos == goalPos)
-                        return cost;
+                    {
+                        cost = current.givenCost;
+                        break;
+                    }
 
                     int[] dirs = current.parent is null ? new[] { 0, 1, 2, 3, 4, 5, 6, 7 } : validDirLookUpTable[current.fromDir];
                     foreach(int dir in dirs)
@@ -525,15 +541,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         {
                             // TARGET JUMP POINT
                             newSuccesor = GetNodeAtDist(current.pos, dir, minGoalDiff);
-                            givenCost = current.givenCost + Mathf.Max(Mathf.Abs(newSuccesor.pos.x - goalPos.x), Mathf.Abs(newSuccesor.pos.y - goalPos.y));
+                            givenCost = current.givenCost + Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y));
                         }
                         else if (nodeDistances[dir] > 0)
                         {
                             newSuccesor = GetNodeAtDist(current.pos, dir, nodeDistances[dir]);
-                            givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - goalPos.x), Mathf.Abs(newSuccesor.pos.y - goalPos.y)) + current.givenCost;
+                            givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y)) + current.givenCost;
                         }
 
-                        if(newSuccesor is not null)
+                        if(newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
                         {
                             newSuccesor.parent = current;
                             newSuccesor.givenCost = givenCost;
@@ -542,7 +558,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             int dx = goalPos.x - newSuccesor.pos.x,
                                 dy = goalPos.y - newSuccesor.pos.y;
                             newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
-                            cost = newSuccesor.finalCost;
 
                             open.Push(newSuccesor, newSuccesor.finalCost);
                         }
@@ -557,6 +572,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 return cost;
 
+                /// LOCAL FUNCTIONS
+
                 bool GoalAtDirection(Vector2Int pos, int dir, Vector2Int goalPos, bool exact = false)
                 {
                     if (dir < 0 && dir >= 8) return false;
@@ -568,13 +585,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     bool[] returns = new bool[]
                     {
                         dy == 0 && dx > 0,
-                        dy < 0  && dx > 0   && (equalMagnitude || !exact),
-                        dy < 0  && dx == 0,
-                        dy < 0  && dx < 0   && (equalMagnitude || !exact),
-                        dy == 0 && dx < 0,
-                        dy > 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy > 0  && dx > 0   && (equalMagnitude || !exact),
                         dy > 0  && dx == 0,
-                        dy > 0  && dx > 0   && (equalMagnitude || !exact)
+                        dy > 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy == 0 && dx < 0,
+                        dy < 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy < 0  && dx == 0,
+                        dy < 0  && dx > 0   && (equalMagnitude || !exact)
                     };
 
                     return returns[dir];

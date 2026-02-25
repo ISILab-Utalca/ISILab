@@ -112,9 +112,9 @@ namespace ISILab.AI.Categorization
                         }
                         string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
                         var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
-                        for(int i = 0; i < size; i++)
+                        for (int i = 0; i < size; i++)
                         {
-                            for(int j = i; j < size; j++)
+                            for (int j = i; j < size; j++)
                             {
                                 if (i == j)
                                     distances[i, i] = 0;
@@ -142,6 +142,17 @@ namespace ISILab.AI.Categorization
                     EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
                 }
             }
+
+            string l = "";
+            for(int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    l += $"[{distances[i, j]}] ";
+                }
+                l += "\n";
+            }
+            //Debug.Log(l);
 
             // COLONY CONSTRUCTION
 
