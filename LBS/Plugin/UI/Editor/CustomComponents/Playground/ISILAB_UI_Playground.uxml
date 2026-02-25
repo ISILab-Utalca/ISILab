@@ -88,7 +88,11 @@
                         <uie:ColorField label="Color" value="#00FFFFFF" />
                         <ISILab.LBS.VisualElements.SimulationTagPallete />
                         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup />
+                        <ui:ScrollView>
+                            <ui:FloatField label="Float Field" value="42.2" />
+                        </ui:ScrollView>
                     </ui:VisualElement>
+                    <ui:ScrollView />
                     <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
                         <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
                             <ISILab.LBS.CustomComponents.LBSCustomListView show-add-remove-footer="true" data-source-path="List&lt;float&gt;" />

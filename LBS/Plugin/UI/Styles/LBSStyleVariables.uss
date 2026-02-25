@@ -30,7 +30,9 @@
     --lbs-default-selectable-hover-color: rgb(88,88,88);
     
     --lbs-default-white-overlay-color: rgba(255, 255, 255, 0.2);
+    --lbs-default-white-clear-overlay-color: rgba(255, 255, 255, 0.67);
     --lbs-default-dark-overlay-color: rgba(0, 0, 0, 0.2);
+    --lbs-default-darker-overlay-color: rgba(0, 0, 0, 0.67);
     
     --lbs-selection-neutral-blue-color: rgb(54, 123, 245);
     --lbs-selection-focus-blue-color: rgb(44,93,135);
@@ -60,7 +62,7 @@
     --lbs-selectable-hover-color: rgb(88,88,88);
 
     --lbs-white-overlay-color: var(--lbs-default-white-overlay-color);
-    --lbs-dark-overlay-color: var(--lbs-default-dark-overlay-color);
+    --lbs-dark-overlay-color: var(--lbs-default-darker-overlay-color, --lbs-default-dark-overlay-color);
 
     --graph-thin-line-color: rgba(196, 196, 196, 0.02);
     --graph-thick-line-color: rgba(196, 196, 196, 0.1);
