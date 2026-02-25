@@ -1779,7 +1779,6 @@ Toggle > .lbs-default-icon {
     padding-right: 8px;
     padding-bottom: 39px;
     padding-left: 10px;
-
 }
 
 .lbs-post-it TextInput {
@@ -1821,4 +1820,11 @@ Toggle > .lbs-default-icon {
 
 .lbs-random-int-field TextField {
     flex-grow: 0.3;
+}
+
+.lbs-show-white-spaces {
+    white-space: pre-wrap;
+    /*white-space: nowrap;*/
+    overflow: visible;
+    -unity-text-overflow-position: start;
 }
