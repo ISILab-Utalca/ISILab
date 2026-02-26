@@ -121,7 +121,23 @@ namespace ISILab.AI.Categorization
                             case IDistanceEvaluator.PathfindingAlgorithm.Flood_Fill:
                                 for (int i = 0; i < size; i++)
                                 {
-                                    EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                    List<int> knownDist = new List<int>();
+                                    List<int> others = new List<int>();
+                                    for(int j = i + 1; j < size; j++)
+                                    {
+                                        if( DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
+                                        {
+                                            distances[j, i] = distances[i, j];
+                                            knownDist.Add(j);
+                                        } 
+                                        else if(DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
+                                        {
+                                            distances[i, j] = distances[j, i];
+                                            knownDist.Add(j);
+                                        }
+                                    }
+                                    others = itemIndices.Except(knownDist).ToList();
+                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
                                 }
                                 break;
                             case IDistanceEvaluator.PathfindingAlgorithm.JPS_Plus:
@@ -131,6 +147,10 @@ namespace ISILab.AI.Categorization
                                     {
                                         if (i == j)
                                             distances[i, i] = 0;
+                                        else if (DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
+                                            distances[j, i] = distances[i, j];
+                                        else if (DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
+                                            distances[i, j] = distances[j, i];
                                         else
                                             distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
                                     }
@@ -154,6 +174,14 @@ namespace ISILab.AI.Categorization
                 }
             }
 
+            int news = 0;
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    if(DistancePool.TryAdd((itemIndices[i], itemIndices[j]), distances[i, j]))
+                        news++;
+            Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
+            //Debug.Log("Pool Size: " + DistancePool.Count);
+
             string l = "";
             for(int i = 0; i < size; i++)
             {
@@ -163,7 +191,7 @@ namespace ISILab.AI.Categorization
                 }
                 l += "\n";
             }
-            Debug.Log(l);
+            //Debug.Log(l);
 
             // COLONY CONSTRUCTION
 
