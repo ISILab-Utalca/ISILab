@@ -222,7 +222,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     {
                         if (c > 2)
                         {
-                            Debug.LogWarning("Recursion limit reached. Aborting.");
+                            //Debug.LogWarning("Recursion limit reached. Aborting.");
                             return;
                         }
 
@@ -476,7 +476,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 public JPSNode(Vector2Int pos) { this.pos = pos; }
             }
 
-            private static List<int[]> validDirLookUpTable = new()
+            private static readonly List<int[]> validDirLookUpTable = new()
             {
                 new[] {6, 7, 0, 1, 2},
                 new[] {0, 1, 2},

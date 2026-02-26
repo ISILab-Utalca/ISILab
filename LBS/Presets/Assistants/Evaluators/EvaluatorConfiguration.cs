@@ -600,6 +600,45 @@ namespace ISILab.LBS.AI.Categorization
             public override object GetValue() => value;
         }
 
+        [Serializable]
+        public class EnumConfigurationField : EvaluatorConfigurationField
+        {
+            [SerializeField]
+            Enum value;
+
+            EnumField field;
+
+            public EnumField Field
+            {
+                get
+                {
+                    if (field is null)
+                        SetField();
+                    return field;
+                }
+            }
+
+            public EnumConfigurationField(string fieldName, Enum value, string tooltip = "") : base(fieldName, tooltip)
+            {
+                this.value = value;
+                SetField();
+            }
+
+            public override VisualElement GetField() => Field;
+
+            protected override void SetField()
+            {
+                field = new EnumField(name, value);
+                field.tooltip = tooltip;
+                field.RegisterValueChangedCallback(evt =>
+                {
+                    value = evt.newValue;
+                });
+            }
+
+            public override object GetValue() => value;
+        }
+
         /// <summary>
         /// Instance of the evaluator to which the configuration belongs.
         /// </summary>

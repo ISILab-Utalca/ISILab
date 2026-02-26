@@ -165,7 +165,12 @@ namespace ISILab.LBS
             return layer;
         }
         
-     
+        public void AddLayerToContext(LBSLayer layer)
+        {
+            contextLayers.Add(layer);
+            layer.OnContextAddInvoke();
+        }
+
         public bool RemoveLayerFromContext(LBSLayer layer)
         {
             bool removed = contextLayers.Remove(layer);

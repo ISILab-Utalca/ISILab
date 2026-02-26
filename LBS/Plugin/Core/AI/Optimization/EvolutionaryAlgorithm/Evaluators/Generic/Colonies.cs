@@ -1,11 +1,9 @@
 using ISILab.AI.Optimization;
-using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
@@ -14,11 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.AI.Categorization
 {
-    public class Colonies : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
+    public class Colonies : IContextualEvaluator, IConfigurableEvaluator, IDistanceEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -37,6 +34,8 @@ namespace ISILab.AI.Categorization
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
 
+        public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+
         public static EvaluatorConfiguration config;
 
         #region CHARACTERISTIC FIELDS
@@ -50,7 +49,12 @@ namespace ISILab.AI.Categorization
         [SerializeField]
         private int minColonySize;
 
+        [SerializeField]
+        public IDistanceEvaluator.PathfindingAlgorithm searchType;
+
         #endregion
+
+
 
         #region EVALUATION
 
@@ -112,20 +116,27 @@ namespace ISILab.AI.Categorization
                         }
                         string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
                         var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
-                        for (int i = 0; i < size; i++)
+                        switch (searchType)
                         {
-                            for (int j = i; j < size; j++)
-                            {
-                                if (i == j)
-                                    distances[i, i] = 0;
-                                else
-                                    distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
-                            }
+                            case IDistanceEvaluator.PathfindingAlgorithm.Flood_Fill:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                }
+                                break;
+                            case IDistanceEvaluator.PathfindingAlgorithm.JPS_Plus:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    for (int j = i; j < size; j++)
+                                    {
+                                        if (i == j)
+                                            distances[i, i] = 0;
+                                        else
+                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+                                    }
+                                }
+                                break;
                         }
-                        //for (int i = 0; i < size; i++)
-                        //{
-                        //    EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
-                        //}
                         break;
                     default:
                         for (int i = 0; i < size; i++)
@@ -152,7 +163,7 @@ namespace ISILab.AI.Categorization
                 }
                 l += "\n";
             }
-            //Debug.Log(l);
+            Debug.Log(l);
 
             // COLONY CONSTRUCTION
 
@@ -253,6 +264,8 @@ namespace ISILab.AI.Categorization
 
             maxDist = 6;
             minColonySize = 2;
+
+            searchType = IDistanceEvaluator.PathfindingAlgorithm.JPS_Plus;
         
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
@@ -268,12 +281,15 @@ namespace ISILab.AI.Categorization
             itemCharacteristic = config.GetValue<LBSCharacteristic>("Item");
             maxDist = config.GetValue<int>("Max Distance");
             minColonySize = config.GetValue<int>("Min Colony Size");
+
+            searchType = (IDistanceEvaluator.PathfindingAlgorithm)config.GetValue<System.Enum>("Pathfinding Algorithm");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
             var list = new List<EvaluatorConfigurationField>
             {
+                new EnumConfigurationField("Pathfinding Algorithm", searchType),
                 new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic, "Item to group."),
                 new IntegerConfigurationField("Max Distance", maxDist, 2, 20, "Maximum distance desired between items of the same colony."),
                 new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10, "Minimum number of members a colony should have to be considered as such.")
@@ -297,6 +313,10 @@ namespace ISILab.AI.Categorization
 
             clone.maxDist = maxDist;
             clone.minColonySize = minColonySize;
+
+            clone.searchType = searchType;
+
+            clone.DistancePool = DistancePool;
 
             return clone;
         }

@@ -157,6 +157,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             if (evaluator is null) return;
 
+            if (evaluator is IDistanceEvaluator dEval)
+                dEval.DistancePool = new();
+
             var contextualChoice = evaluator as IContextualEvaluator;
             var configurableChoice = evaluator as IConfigurableEvaluator;
             contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);
@@ -410,6 +413,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                                 }
                             }
                         }
+                        break;
+                    case "Population":
+
                         break;
                     default:
                         Debug.LogError($"Invalid tiles calculation not implemented for layers of type: {contextLayers[i].ID}");
