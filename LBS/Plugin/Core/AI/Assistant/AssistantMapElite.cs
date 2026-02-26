@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Unity.Burst;
 using UnityEditor;
 using UnityEngine;
 
@@ -490,9 +491,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 CalcInvalids(RawToolRect, Data.ContextLayers)
             );
 
-            float scoreX = (float)mapElites.XEvaluator.Evaluate(tempChromosome);
-            float scoreY = (float)mapElites.YEvaluator.Evaluate(tempChromosome);
-            float fitness = (float)mapElites.Optimizer.Evaluator.Evaluate(tempChromosome);
+            Type op = mapElites.Optimizer.Evaluator.GetType()
+                , x = mapElites.XEvaluator.GetType()
+                , y = mapElites.YEvaluator.GetType();
+            float fitness   = (float)mapElites.Optimizer.Evaluator.Evaluate(tempChromosome);
+            float scoreX    = op == x ? fitness : (float)mapElites.XEvaluator.Evaluate(tempChromosome);
+            float scoreY    = op == y ? fitness : x == y ? scoreX : (float)mapElites.YEvaluator.Evaluate(tempChromosome);
 
             return new Vector3(scoreX, scoreY, fitness);
         }
