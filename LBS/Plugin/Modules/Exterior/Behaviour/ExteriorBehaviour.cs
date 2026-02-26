@@ -222,6 +222,8 @@ namespace ISILab.LBS.Behaviours
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
+            HashSet<object> validObjects = new();
+
             TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
             tileMapClone.Clear();
 
@@ -240,6 +242,7 @@ namespace ISILab.LBS.Behaviours
                     {
                         LBSTile tileClone = tile.Clone() as LBSTile;
                         tileMapClone.AddTile(tileClone);
+                        validObjects.Add(tileMapClone);
                     }
 
                     // Connection
@@ -252,15 +255,13 @@ namespace ISILab.LBS.Behaviours
                             pairClone.Connections,
                             pairClone.EditedByIA
                         );
+
+                        validObjects.Add(connectionsClone);
                     }
                 }
             }
 
-            return new object[]
-            {
-                tileMapClone,
-                connectionsClone
-            };
+            return validObjects.ToArray();
 
         }
 

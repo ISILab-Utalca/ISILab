@@ -8,12 +8,14 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
     [UxmlElement]
     public partial class LBSBaseListGroup : LBSComplexVisualElement
     {
-
+        
         private bool isEmpty = false;
         
         // VisualElement references
         private LBSCustomButton overlayButton;
-
+        private Label titleLabel;
+        
+      
         [UxmlAttribute]
         public bool IsEmpty
         {
@@ -43,7 +45,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                overlayButton.SetEnabled(false);
                overlayButton.style.display = new StyleEnum<DisplayStyle>(DisplayStyle.None);
             });
-            
+
+            titleLabel = this.Q<Label>("TitleLabel");
+
         }
         
         

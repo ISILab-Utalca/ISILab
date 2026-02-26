@@ -19,7 +19,7 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
             if (list is { Length: > 0 })    // Selection not empty
             {
                 IEnumerable<GameObject> validPrefabs = list.Where(go => IsPrefab(go));
-                CreateBundleFromPrefab(validPrefabs);
+                CreateBundleFromPrefabs(validPrefabs);
                 return;
             }
             
@@ -49,7 +49,7 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
             //ProjectWindowUtil.CreateAsset(obj, "New Bundle.asset");
         }
 
-        private static void CreateBundleFromPrefab(IEnumerable<GameObject> prefabs)
+        private static void CreateBundleFromPrefabs(IEnumerable<GameObject> prefabs)
         {
             string name = null;
             Bundle obj = ScriptableObject.CreateInstance<Bundle>();
@@ -113,22 +113,9 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
 
         public static Bundle CreateBundleWithInstance(Bundle instance, string baseName = "New_Bundle")
         {
-            /* 
-            string folderPath = LBSSettings.Instance.paths.bundleFolderPath;
-            // 1. ASEGURAR QUE LA CARPETA EXISTE
-            // Si la ruta es "Assets/Folder/Subfolder", esto creará todas las carpetas faltantes.
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-                // Refrescamos la base de datos para que Unity "vea" la nueva carpeta
-                AssetDatabase.Refresh();
-            }
-            */
-
             AssetDatabase.Refresh();
             string name = baseName;
             int counter = 0;
-            //string path = "Assets/" + name + ".asset";
             string path = LBSSettings.Instance.paths.bundleFolderPath + "/" + name + ".asset";
             while (AssetDatabase.AssetPathExists(path))
             {
@@ -139,8 +126,22 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
 
             instance.BundleName = name;
 
+            CreateFolderPath(LBSSettings.Instance.paths.bundleFolderPath,name);
             AssetDatabase.CreateAsset(instance, path);
             return instance;
+        }
+
+        public static void CreateFolderPath(string desiredPath, string fileName)
+        {
+            string fullPath = Path.Combine(desiredPath, fileName);
+            if (!AssetDatabase.IsValidFolder(desiredPath))
+            {
+                // Esta función de System.IO crea toda la cadena de carpetas de una vez
+                Directory.CreateDirectory(desiredPath);
+
+                // Importante: Refrescar el AssetDatabase para que Unity reconozca las nuevas carpetas
+                AssetDatabase.Refresh();
+            }
         }
 
         #endregion

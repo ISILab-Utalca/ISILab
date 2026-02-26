@@ -4,6 +4,7 @@
         <ui:VisualElement name="InternalBorder" class="lbs-notificator" style="border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(255, 255, 255, 0.2); border-right-color: rgba(255, 255, 255, 0.2); border-top-color: rgba(255, 255, 255, 0.2); border-bottom-color: rgba(255, 255, 255, 0.2); flex-direction: row; align-items: center; padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px; flex-grow: 1; -unity-text-align: upper-left; border-top-left-radius: 1.5px; border-top-right-radius: 1.5px; border-bottom-right-radius: 1.5px; border-bottom-left-radius: 1.5px; overflow: hidden; flex-shrink: 1;">
             <ui:VisualElement name="Icon" style="background-image: resource(&apos;Icons/Vectorial/QuestIcons/Icon=Warning&apos;); width: 32px; height: 100%; flex-grow: 1; max-width: 32px; max-height: 32px; -unity-background-image-tint-color: rgb(255, 255, 255); -unity-background-scale-mode: scale-to-fit;" />
             <ui:Label tabindex="-1" text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." display-tooltip-when-elided="true" name="Text" style="-unity-text-align: middle-left; flex-grow: 0; flex-wrap: wrap; white-space: normal; flex-shrink: 1; padding-left: 4px; height: 100%;" />
+            <ui:VisualElement name="ContentContainer" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

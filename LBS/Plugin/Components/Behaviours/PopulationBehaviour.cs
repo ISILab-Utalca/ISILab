@@ -456,7 +456,9 @@ namespace ISILab.LBS.Behaviours
         public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
-            
+
+            HashSet<object> validObjects = new();
+
             BundleTileMap bundleTileMapClone = BundleTilemap.Clone() as BundleTileMap;
             bundleTileMapClone.Clear();
 
@@ -474,6 +476,7 @@ namespace ISILab.LBS.Behaviours
                     {
                         LBSTile tileClone = tile.Clone() as LBSTile;
                         tileMapClone.AddTile(tileClone);
+                        validObjects.Add(tileMapClone);
                     }
 
                     TileBundleGroup tbg = _bundleTileMap.GetGroup(pos);
@@ -481,15 +484,12 @@ namespace ISILab.LBS.Behaviours
                     {
                         TileBundleGroup tbgClone = tbg.Clone() as TileBundleGroup;
                         bundleTileMapClone.AddGroup(tbgClone);
+                        validObjects.Add(bundleTileMapClone);
                     }
                 }
             }
 
-            return new object[] 
-            { 
-                tileMapClone, 
-                bundleTileMapClone 
-            };
+            return validObjects.ToArray();
             
         }
 

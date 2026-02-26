@@ -39,6 +39,16 @@ namespace ISILab.LBS.VisualElements
         private VisualElement iconVisualElement;
         private VisualElement externalBorder;
         
+        private VisualElement _content;
+
+        public override VisualElement contentContainer
+        {
+            get
+            {
+                return _content;
+            }
+        }
+
         #endregion
 
         #region PROPERTIES
@@ -133,11 +143,10 @@ namespace ISILab.LBS.VisualElements
             this.externalBorder = this.Q<VisualElement>("ExternalBorder");
             this.labelVisualElement = this.Q<Label>("Text");
             this.iconVisualElement = this.Q<VisualElement>("Icon");
-            
+            _content = this.Q<VisualElement>("ContentContainer");
             Text = _text;
             labelVisualElement.text = this.Text;
         }
-        
         #endregion
     }
 }

@@ -5,6 +5,7 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System;
@@ -28,6 +29,7 @@ namespace ISILab.LBS.Manipulators
         private Texture2D captureBlueprintImage;
         private List<BlueprintStorable> capturedBlueprintData = new();
         private BlueprintFeedback areaFeedback;
+
         #endregion
 
         #region PROPERTIES
@@ -57,11 +59,15 @@ namespace ISILab.LBS.Manipulators
             areaFeedback.SetColor(LBSSettings.Instance.view.warningColor); 
         }
 
-        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) => ClearArea();
+        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
+        {
+            ClearArea();
+        }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if(AutoCapture) DoCapture();
+            if (AutoCapture) BlueprintPanel.Instance.OnCaptureButtonClicked();
+   
         }
 
         public bool DoCapture()
@@ -79,7 +85,8 @@ namespace ISILab.LBS.Manipulators
             {
 
                 object[] layerObjs = layer.GetObjects(AreaStart, AreaEnd);
-
+                if (!layerObjs.Any()) continue;
+                
                 BlueprintStorable data = new BlueprintStorable(layer.Name, layer.ID, layerObjs);
                 CapturedBlueprintData.Add(data);
 
@@ -109,13 +116,18 @@ namespace ISILab.LBS.Manipulators
                 {
                     areaFeedback.SetDisplay(true);
                     captureBlueprintImage = tex;
-                    CaptureComplete.Invoke();
+                    // rebind action if missing
+                    if (CaptureComplete == null) BlueprintPanel.Instance.CaptureManipulator = this;
+                    CaptureComplete?.Invoke();
                 }
             );
             return true;
         }
 
-        public void ClearArea() => MainView.Instance.RemoveElement(areaFeedback);
+        public void ClearArea()
+        {
+            MainView.Instance.RemoveElement(areaFeedback);
+        }
 
         #endregion
 
