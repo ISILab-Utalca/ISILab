@@ -1468,8 +1468,7 @@ Toggle > .lbs-default-icon {
 
 .lbs-toolbar-button {
     border-width: 1px 1px 1px 1px;
-    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
-    background-color: var(--lbs-base-solid-gray-color);
+
     flex-direction: row;
     padding-left: 4px;
     padding-right: 4px;
@@ -1481,6 +1480,11 @@ Toggle > .lbs-default-icon {
     margin-left: 0;
 }
 
+.normal-color{
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
+    background-color: var(--lbs-base-solid-gray-color);
+}
+
 .lbs-toolbar-button:hover {
     background-color: var(--lbs-selectable-hover-color);
 }
@@ -1488,6 +1492,15 @@ Toggle > .lbs-default-icon {
 .lbs-toolbar-button:active {
     background-color: var(--lbs-selection-dark-blue-color);
 }
+
+.alert-color {
+    background-color: var(--lbs-default-background-container-red-color);
+}
+
+.alert-color:hover {
+    background-color: var(--lbs-default-neutral-red-color);
+}
+
 
 .lbs-window {
     flex-grow: 1;
