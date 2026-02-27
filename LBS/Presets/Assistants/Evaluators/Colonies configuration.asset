@@ -15,10 +15,10 @@ MonoBehaviour:
   target:
     rid: 4351225289813000193
   fields:
-  - rid: 4351225510892929024
-  - rid: 4351225510892929025
-  - rid: 4351225510892929026
-  - rid: 4351225510892929027
+  - rid: 4351225531786854613
+  - rid: 4351225531786854614
+  - rid: 4351225531786854615
+  - rid: 4351225531786854616
   references:
     version: 2
     RefIds:
@@ -26,22 +26,37 @@ MonoBehaviour:
       type: {class: Colonies, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         itemCharacteristic:
-          rid: 4351225510892929028
+          rid: 4351225531786854617
         maxDist: 6
         minColonySize: 2
         searchType: 1
-    - rid: 4351225510892929024
+    - rid: 4351225531786854613
       type: {class: EvaluatorConfiguration/EnumConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Pathfinding Algorithm
-        tooltip: 
-    - rid: 4351225510892929025
+        tooltip: 'Method to use for calculating distances between items.
+
+
+          <b>>
+          Flood Fill:</b> Preferable for laberynthin levels.
+
+          <b>> Jump
+          Point Search Plus (JPS+):</b> Preferable for open areas with few obstacles.
+
+
+          <i>(You
+          should not be particularly concerned about this parameter if your level
+          is small-sized or has few items.)</i>'
+        value: 1
+        typeName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,
+          LBS, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null
+    - rid: 4351225531786854614
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Item
         tooltip: Item to group.
         tagName: Enemies
-    - rid: 4351225510892929026
+    - rid: 4351225531786854615
       type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Max Distance
@@ -50,7 +65,7 @@ MonoBehaviour:
         useSlider: 1
         minValue: 2
         maxValue: 20
-    - rid: 4351225510892929027
+    - rid: 4351225531786854616
       type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Min Colony Size
@@ -60,7 +75,7 @@ MonoBehaviour:
         useSlider: 1
         minValue: 2
         maxValue: 10
-    - rid: 4351225510892929028
+    - rid: 4351225531786854617
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}

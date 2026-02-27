@@ -14,10 +14,10 @@ namespace ISILab.LBS.Tests
     {
         const string pathfindRoom = "69adc1e45b1df6645a15c4293b4f58ad";
 
-        const IDistanceEvaluator.PathfindingAlgorithm FF = IDistanceEvaluator.PathfindingAlgorithm.Flood_Fill;
-        const IDistanceEvaluator.PathfindingAlgorithm JPS = IDistanceEvaluator.PathfindingAlgorithm.JPS_Plus;
+        const PathfindingAlgorithm FF = PathfindingAlgorithm.Flood_Fill;
+        const PathfindingAlgorithm JPS = PathfindingAlgorithm.JPS_Plus;
 
-        private void PathfindFloodFill(Type type, int mapSize, int enemyQuantity, int wallQuantity, IDistanceEvaluator.PathfindingAlgorithm searchType)
+        private void PathfindFloodFill(Type type, int mapSize, int enemyQuantity, int wallQuantity, PathfindingAlgorithm searchType)
         {
             IRangedEvaluator evaluator = Activator.CreateInstance(type) as IRangedEvaluator;
             BundleTilemapChromosome chromosome = null;

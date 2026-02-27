@@ -50,7 +50,7 @@ namespace ISILab.AI.Categorization
         private int minColonySize;
 
         [SerializeField]
-        public IDistanceEvaluator.PathfindingAlgorithm searchType;
+        public PathfindingAlgorithm searchType;
 
         #endregion
 
@@ -118,7 +118,7 @@ namespace ISILab.AI.Categorization
                         var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
                         switch (searchType)
                         {
-                            case IDistanceEvaluator.PathfindingAlgorithm.Flood_Fill:
+                            case PathfindingAlgorithm.Flood_Fill:
                                 for (int i = 0; i < size; i++)
                                 {
                                     List<int> knownDist = new List<int>();
@@ -140,7 +140,7 @@ namespace ISILab.AI.Categorization
                                     EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
                                 }
                                 break;
-                            case IDistanceEvaluator.PathfindingAlgorithm.JPS_Plus:
+                            case PathfindingAlgorithm.JPS_Plus:
                                 for (int i = 0; i < size; i++)
                                 {
                                     for (int j = i; j < size; j++)
@@ -293,7 +293,7 @@ namespace ISILab.AI.Categorization
             maxDist = 6;
             minColonySize = 2;
 
-            searchType = IDistanceEvaluator.PathfindingAlgorithm.JPS_Plus;
+            searchType = PathfindingAlgorithm.JPS_Plus;
         
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
@@ -310,14 +310,18 @@ namespace ISILab.AI.Categorization
             maxDist = config.GetValue<int>("Max Distance");
             minColonySize = config.GetValue<int>("Min Colony Size");
 
-            searchType = (IDistanceEvaluator.PathfindingAlgorithm)config.GetValue<System.Enum>("Pathfinding Algorithm");
+            searchType = (PathfindingAlgorithm)config.GetValue<System.Enum>("Pathfinding Algorithm");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
             var list = new List<EvaluatorConfigurationField>
             {
-                new EnumConfigurationField("Pathfinding Algorithm", searchType),
+                new EnumConfigurationField("Pathfinding Algorithm", searchType, 
+                "Method to use for calculating distances between items.\n\n" +
+                "<b>> Flood Fill:</b> Preferable for laberynthin levels.\n" +
+                "<b>> Jump Point Search Plus (JPS+):</b> Preferable for open areas with few obstacles.\n" +
+                "\n<i>(You should not be particularly concerned about this parameter if your level is small-sized or has few items.)</i>"),
                 new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic, "Item to group."),
                 new IntegerConfigurationField("Max Distance", maxDist, 2, 20, "Maximum distance desired between items of the same colony."),
                 new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10, "Minimum number of members a colony should have to be considered as such.")

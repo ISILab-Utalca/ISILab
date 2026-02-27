@@ -600,19 +600,35 @@ namespace ISILab.LBS.AI.Categorization
             public override object GetValue() => value;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Serializable]
         public class EnumConfigurationField : EvaluatorConfigurationField
         {
             [SerializeField]
-            Enum value;
+            int value;
+            [SerializeField]
+            string typeName;
 
+            Type type;
             EnumField field;
+
+            public Type EnumType
+            {
+                get
+                {
+                    if (type == null && !string.IsNullOrEmpty(typeName))
+                        type = Type.GetType(typeName);
+                    return type;
+                }
+            }
 
             public EnumField Field
             {
                 get
                 {
-                    if (field is null)
+                    if (field is null || field.value is null)
                         SetField();
                     return field;
                 }
@@ -620,7 +636,9 @@ namespace ISILab.LBS.AI.Categorization
 
             public EnumConfigurationField(string fieldName, Enum value, string tooltip = "") : base(fieldName, tooltip)
             {
-                this.value = value;
+                this.value = Convert.ToInt32(value);
+                type = value.GetType();
+                typeName = type.AssemblyQualifiedName;
                 SetField();
             }
 
@@ -628,11 +646,12 @@ namespace ISILab.LBS.AI.Categorization
 
             protected override void SetField()
             {
-                field = new EnumField(name, value);
+                field = new EnumField(name);
+                field.Init((Enum)Enum.ToObject(EnumType, value));
                 field.tooltip = tooltip;
                 field.RegisterValueChangedCallback(evt =>
                 {
-                    value = evt.newValue;
+                    value = Convert.ToInt32(evt.newValue);
                 });
             }
 
