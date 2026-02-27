@@ -3,6 +3,7 @@ using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
@@ -13,8 +14,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
@@ -135,7 +134,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
         typeof(ConnectedZonesModule))]
-    public class SchemaBehaviour : LBSBehaviour, IObjectData
+    public class SchemaBehaviour : LBSBehaviour, IBlueprintable
     {
         #region READONLY-FIELDS
         
@@ -626,11 +625,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             return true;
         }
 
-        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public BlueprintData[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<object> validObjects = new();
+            List<BlueprintData> validObjects = new();
+            List<Type> AddedTypes = new();
 
             TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
             tileMapClone.Clear();
@@ -641,56 +641,52 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             ConnectedTileMapModule tileConnectionsClone = TileConnections.Clone() as ConnectedTileMapModule;
             tileConnectionsClone.Clear();
 
-
-            foreach (TileZonePair tzp in areas.PairTiles)
+            for (int x = corners.min.x; x <= corners.max.x; x++)
             {
-                for (int x = corners.min.x; x <= corners.max.x; x++)
+                for (int y = corners.min.y; y <= corners.max.y; y++)
                 {
-                    for (int y = corners.min.y; y <= corners.max.y; y++)
+                    Vector2Int pos = new Vector2Int(x, y);
+
+                    LBSTile tile = GetTile(pos);
+                    if (tile != null)
                     {
-                        Vector2Int pos = new Vector2Int(x, y);
-                        if (tzp.Tile.Position == (pos))
+                        LBSTile tileClone = tile.Clone() as LBSTile;
+                        tileMapClone.AddTile(tileClone);
+
+                        TileZonePair tzp = areas.GetPairTile(pos);
+                        if (tzp != null)
                         {
-
-                            // Tile
-                            LBSTile tile = GetTile(pos);
-                            if (tile != null)
-                            {
-                                LBSTile tileClone = tile.Clone() as LBSTile;
-                                tileMapClone.AddTile(tileClone);
-
-                                // Area
-                                Zone zoneClone = tzp.Zone.Clone() as Zone;
-                                areasClone.AddTile(tileClone, zoneClone);
-
-                                validObjects.Add(tileMapClone);
-                                validObjects.Add(areasClone);
-
-                            }
-
-                            // Connection
-                            TileConnectionsPair pair = TileConnections.GetPair(pos);
-                            if (pair != null)
-                            {
-                                TileConnectionsPair pairClone = pair.Clone() as TileConnectionsPair;
-                                tileConnectionsClone.AddPair(
-                                    pairClone.Tile,
-                                    pairClone.Connections,
-                                    pairClone.EditedByIA
-                                );
-
-                                validObjects.Add(tileConnectionsClone);
-                            }
+                            Zone zoneClone = tzp.Zone.Clone() as Zone;
+                            areasClone.AddTile(tileClone, zoneClone);
                         }
                     }
-                }
 
+                    TileConnectionsPair pair = TileConnections.GetPair(pos);
+                    if (pair != null)
+                    {
+                        TileConnectionsPair pairClone = pair.Clone() as TileConnectionsPair;
+                        tileConnectionsClone.AddPair(
+                            pairClone.Tile,
+                            pairClone.Connections,
+                            pairClone.EditedByIA
+                        );
+                    }
+                }
             }
+
+            if (!tileMapClone.IsEmpty())
+                validObjects.Add(new BlueprintData(tileMapClone, corners.min, corners.max));
+
+            if (!areasClone.IsEmpty())
+                validObjects.Add(new BlueprintData(areasClone, corners.min, corners.max));
+
+            if (!tileConnectionsClone.IsEmpty())
+                validObjects.Add(new BlueprintData(tileConnectionsClone, corners.min, corners.max));
 
             return validObjects.ToArray();
         }
 
-        public void LoadObjects(object[] objects)
+        public void LoadObjects(BlueprintData[] objects)
         {
             throw new NotImplementedException();
         }

@@ -84,7 +84,7 @@ namespace ISILab.LBS.Manipulators
             foreach (LBSLayer layer in LBSMainWindow.Instance.GetLayers())
             {
 
-                object[] layerObjs = layer.GetObjects(AreaStart, AreaEnd);
+                BlueprintData[] layerObjs = layer.GetObjects(AreaStart, AreaEnd);
                 if (!layerObjs.Any()) continue;
                 
                 BlueprintStorable data = new BlueprintStorable(layer.Name, layer.ID, layerObjs);

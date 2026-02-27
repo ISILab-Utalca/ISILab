@@ -21,22 +21,22 @@ namespace ISILab.LBS.Components
 
         /*List of object(Module, behavior, assistant, etc) and their content of objects*/
         [SerializeField]
-        List<object> data;
+        List<BlueprintData> data;
         #endregion
 
         #region PROPERTIES
         public string LayerName { get => layerName; set => layerName = value; }
         public string LayerID { get => layerID; set => layerID = value; }
-        public List<object> Data { get => data; set => data = value; }
+        public List<BlueprintData> Data { get => data; set => data = value; }
         #endregion
 
-        public BlueprintStorable(string layerName, string layerTemplateGUID, object[] objs)
+        public BlueprintStorable(string layerName, string layerTemplateGUID, BlueprintData[] objs)
         {
             if (objs == null || !objs.Any()) return;
             
             LayerName = layerName;
             LayerID = layerTemplateGUID;
-            Data = new List<object>(objs);
+            Data = new List<BlueprintData>(objs);
         }
     }
 }

@@ -145,6 +145,7 @@ namespace ISILab.LBS.Manipulators
         public Action OnManipulationStart;
         public Action OnManipulationUpdate;
         public Action OnManipulationEnd;
+        public Action<Vector2Int> OnManipulationMove;
         public Action OnManipulationRightClick;
         public Action OnManipulationRightClickEnd;
         public Action OnManipulationLeftClickCtrl;
@@ -321,7 +322,9 @@ namespace ISILab.LBS.Manipulators
                 Vector2 pos = LBSLayer.ToFixedPosition(_moveClickPosition);
                 LBSMainWindow.GridPosition(pos);
             }
-   
+
+            OnManipulationMove?.Invoke(_moveClickPosition);
+
             // button functionalities
             if (@event.button != 0 && @event.button != 1)
                 return;

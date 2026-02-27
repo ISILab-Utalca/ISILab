@@ -9,13 +9,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     public partial class BlueprintEntry : VisualElement
     {
         #region VIEW ELEMENTS
+        LBSCustomLabel blueprintLabel;
         LBSCustomLabelIcon defaultMessage;
         VisualElement blueprintImage;
-        ISILab.LBS.Components.Blueprint blueprint;
         #endregion
 
         #region FIELDS
         private static VisualTreeAsset visualTreeAsset;
+        ISILab.LBS.Components.Blueprint blueprint;
         #endregion
 
         #region PROPERTIES
@@ -42,6 +43,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 blueprint = value;
                 BlueprintImage = blueprint.PreviewImage;
+                blueprintLabel.text = blueprint.BlueprintName;
             }
         }
         #endregion
@@ -55,6 +57,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             
             defaultMessage = this.Q<LBSCustomLabelIcon>("DefaultMessage");
             blueprintImage = this.Q<VisualElement>("BlueprintImage");
+            blueprintLabel = this.Q<LBSCustomLabel>("BlueprintName");
         }
 
         #endregion

@@ -18,7 +18,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationBehaviour : LBSBehaviour, IObjectData
+    public class PopulationBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
         
@@ -453,16 +453,16 @@ namespace ISILab.LBS.Behaviours
             };
         }
 
-        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public BlueprintData[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<object> validObjects = new();
+            HashSet<BlueprintData> validObjects = new();
 
             BundleTileMap bundleTileMapClone = BundleTilemap.Clone() as BundleTileMap;
             bundleTileMapClone.Clear();
 
-            TileMapModule tileMapClone = new TileMapModule();// TileMap.Clone() as TileMapModule;
+            TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
             tileMapClone.Clear();
 
             for (int x = corners.min.x; x <= corners.max.x; x++)
@@ -476,7 +476,14 @@ namespace ISILab.LBS.Behaviours
                     {
                         LBSTile tileClone = tile.Clone() as LBSTile;
                         tileMapClone.AddTile(tileClone);
-                        validObjects.Add(tileMapClone);
+
+                        validObjects.Add(
+                            new BlueprintData(
+                                tileMapClone, 
+                                corners.min, 
+                                corners.max
+                                )
+                            );
                     }
 
                     TileBundleGroup tbg = _bundleTileMap.GetGroup(pos);
@@ -484,7 +491,14 @@ namespace ISILab.LBS.Behaviours
                     {
                         TileBundleGroup tbgClone = tbg.Clone() as TileBundleGroup;
                         bundleTileMapClone.AddGroup(tbgClone);
-                        validObjects.Add(bundleTileMapClone);
+
+                        validObjects.Add(
+                            new BlueprintData(
+                                bundleTileMapClone, 
+                                corners.min, 
+                                corners.max
+                                )
+                            );
                     }
                 }
             }
@@ -493,7 +507,7 @@ namespace ISILab.LBS.Behaviours
             
         }
 
-        public void LoadObjects(object[] objects)
+        public void LoadObjects(BlueprintData[] objects)
         {
             throw new NotImplementedException();
         }
