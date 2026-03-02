@@ -46,12 +46,12 @@ namespace ISILab.LBS.CustomComponents
                 {
                     case HintType.Normal:
                         ClearClassList();
-                        AddToClassList("lbs-toolbar-button");
+                        AddToClassList(lbsClassName);
                         AddToClassList("normal-color");
                         break;
                     case HintType.Error:
                         ClearClassList();
-                        AddToClassList("lbs-toolbar-button");
+                        AddToClassList(lbsClassName);
                         AddToClassList("alert-color");
                         break;
                 }
