@@ -47,8 +47,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         {
             warningPanel.Text = "New main bundle \"" + Builder.bundleName + "\" succesfully created";
 
-            Debug.Log(Builder.bundleName);
-
             CLIPath.TextR = LBSSettings.Instance.paths.bundleFolderPath + "/" + Builder.bundleName + ".asset";
             CLITBundles.TextR = (assignedBundles).ToString();
             CLINBundles.TextR = newBundles.ToString();
