@@ -46,10 +46,12 @@ namespace ISILab.LBS.Tests
                 //if (enemyQuantity >= 1) levelData.AddLayerToContext(levelData.Layers.Find(l => l.Name.Equals("Population 1")));
                 //if (enemyQuantity >= 2) levelData.AddLayerToContext(levelData.Layers.Find(l => l.Name.Equals("Population 2")));
                 //if (enemyQuantity >= 3) levelData.AddLayerToContext(levelData.Layers.Find(l => l.Name.Equals("Population 3")));
+                //LBSLayer populationLayer = levelData.Layers.Find(l => l.Name.Equals("Population " + enemyQuantity));
+                //if(populationLayer is not null) levelData.AddLayerToContext(populationLayer);
                 LBSLayer wallLayer = levelData.Layers.Find(l => l.Name.Equals("Walls " + wallQuantity));
                 if(wallLayer is not null) levelData.AddLayerToContext(wallLayer);
 
-                SetUpMAPElitesTest(pathfindRoom, dungeonPresetPath, evaluator, new DCResourceSafety(), new DCSafeArea(), "Population 1", GetArea(mapSize));
+                SetUpMAPElitesTest(pathfindRoom, dungeonPresetPath, evaluator, new DCResourceSafety(), new DCSafeArea(), "Population " + enemyQuantity, GetArea(mapSize));
                 chromosome = GetChromosomeFromAssistant();
                 if(evaluator is Colonies colonies)
                     colonies.searchType = searchType;

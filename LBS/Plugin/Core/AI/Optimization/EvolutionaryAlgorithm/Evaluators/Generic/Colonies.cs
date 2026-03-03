@@ -202,7 +202,7 @@ namespace ISILab.AI.Categorization
                 for (int j = 0; j < size; j++)
                     if(DistancePool.TryAdd((itemIndices[i], itemIndices[j]), distances[i, j]))
                         news++;
-            Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
+            //Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
             //Debug.Log("Pool Size: " + DistancePool.Count);
 
             string l = "";
