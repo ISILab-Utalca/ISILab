@@ -55,9 +55,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         private void OpenPathInProject()
         {
-            //string folderPath = LBSSettings.Instance.paths.bundleFolderPath + "/" + Builder.bundleName + ".asset";
-            string folderPath = LBSSettings.Instance.paths.bundleFolderPath;
+            Debug.Log(Builder.bundleName);
 
+            string folderPath = LBSSettings.Instance.paths.bundleFolderPath + "/" + Builder.bundleName + ".asset";
+            //string folderPath = LBSSettings.Instance.paths.bundleFolderPath;
             UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(folderPath);
 
             if (obj != null)
