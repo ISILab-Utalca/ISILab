@@ -3,6 +3,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager;
+using ISILab.LBS.VisualElements;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using UnityEngine;
@@ -103,22 +104,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                     bundleWindowButton.SetValueWithoutNotify(true);
                 });
 
-                blueprintWindowButton.RegisterCallback<ChangeEvent<bool>>(_evt =>
+                blueprintWindowButton.RegisterCallback<ChangeEvent<bool>>((evt) =>
                 {
-                    var display = _evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
-                    _mainWindow.blueprintPanel.style.display = display;
-                    var toolEntry = ToolKit.Instance.GetTool(typeof(CaptureInArea));
-                    if (toolEntry.Key is null) 
-                        return;
-                    var captureTool = toolEntry.Value.Item1;
-                    if (captureTool is null) 
-                        return;
-                    var captureMani = captureTool.Manipulator;
-                    if (captureMani is null) 
-                        return;
-                    _mainWindow.blueprintPanel.CaptureManipulator = (CaptureInArea)captureMani;
-                    // button change
-                    toolEntry.Value.Item2.style.display = display;
+                    _mainWindow.blueprintPanel.OnActivate(evt);
                 });
             }
         }

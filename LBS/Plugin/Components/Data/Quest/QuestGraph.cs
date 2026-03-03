@@ -3,19 +3,16 @@ using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Components.Data;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace ISILab.LBS.Modules
 {
     [Serializable]
-    public class QuestGraph : LBSModule, ICloneable, ISelectable, IObjectData
+    public class QuestGraph : LBSModule, ICloneable, ISelectable, IBlueprintable
     {
         #region FIELDS
         [SerializeField, SerializeReference]
@@ -676,11 +673,11 @@ namespace ISILab.LBS.Modules
         public override Rect GetBounds() => throw new NotImplementedException();
         public override void Rewrite(LBSModule other) => throw new NotImplementedException();
 
-        public object[] GetObjects(Vector2Int startPosition, Vector2Int endPosition)
+        public BlueprintData[] GetObjects(Vector2Int startPosition, Vector2Int endPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(startPosition, endPosition);
 
-            HashSet<object> validObjects = new();
+            HashSet<BlueprintData> validObjects = new();
 
             List<GraphNode> graphNodesClone = new();
             List<QuestEdge> graphEdgesClone = new();
@@ -704,12 +701,26 @@ namespace ISILab.LBS.Modules
 
                 GraphNode nodeClone = node.Clone() as GraphNode;
                 graphNodesClone.Add(nodeClone);
-                validObjects.Add(graphNodesClone);
+
+                validObjects.Add(
+                    new BlueprintData(
+                        graphNodesClone,
+                        corners.min,
+                        corners.max
+                        )
+                    );
 
                 if (node is QuestNode questNode && Root == node)
                 {
                     rootClone = nodeClone as QuestNode;
-                    validObjects.Add(rootClone);
+
+                    validObjects.Add(
+                        new BlueprintData(
+                            rootClone,
+                            corners.min, 
+                            corners.max
+                            )
+                        );
                 }
             }
 
@@ -722,7 +733,14 @@ namespace ISILab.LBS.Modules
                 {
                     QuestEdge edgeClone = edge.Clone() as QuestEdge;
                     graphEdgesClone.Add(edgeClone);
-                    validObjects.Add(graphEdgesClone);
+
+                    validObjects.Add(
+                        new BlueprintData(
+                            graphEdgesClone, 
+                            corners.min,
+                            corners.max
+                            )
+                        );
                 }
             }
 
@@ -730,7 +748,7 @@ namespace ISILab.LBS.Modules
         }
 
 
-        public void LoadObjects(object[] objects)
+        public void LoadObjects(BlueprintData[] objects)
         {
             throw new NotImplementedException();
         }

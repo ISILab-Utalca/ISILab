@@ -2,6 +2,7 @@ using ISILab.Commons.Utility;
 using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
@@ -13,7 +14,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
-using static ISILab.LBS.Modules.IObjectData;
 
 namespace LBS.Components    
 {
@@ -463,9 +463,9 @@ namespace LBS.Components
         /// <param name="s">Start Position</param>
         /// <param name="e">End Position</param>
         /// <returns></returns>
-        public object[] GetObjects(Vector2Int s, Vector2Int e)
+        public BlueprintData[] GetObjects(Vector2Int s, Vector2Int e)
         {
-            List<object> objs = new();
+            List<BlueprintData> objs = new();
 
             //Components
             List<object> components = new();
@@ -475,7 +475,7 @@ namespace LBS.Components
             
             foreach (object component in components)
             {
-                if (component is IObjectData obd)
+                if (component is IBlueprintable obd)
                 {
                     var compObjects = obd.GetObjects(s, e);
                     if (compObjects.Any()) objs.AddRange(compObjects);
