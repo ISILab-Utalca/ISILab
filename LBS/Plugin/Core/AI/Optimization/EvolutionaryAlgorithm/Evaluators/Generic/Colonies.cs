@@ -26,15 +26,19 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedLayer { get; set; } = null;
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
+        public LBSLayer CombinedPopulationLayer { get; set; } = null;
 
         public string Tooltip => "Colonies Evaluator\n\n" +
             "This evaluator aims to group items of a certain type into colonies, keeping the members within a maximum distance.\n\n" +
             "By default this evaluator groups Enemies-tagged items at most 6 spaces apart.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Vertex-Based Exterior Layers.\n" +
+            "- Any type of Population Layer.";
 
         public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+
+        public List<int> permaIndices = null;
 
         public static EvaluatorConfiguration config;
 
@@ -77,6 +81,12 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaIndices = permaIndices is null && bundleTM is not null;
+            permaIndices ??= new List<int>();
+
             List<int> itemIndices = new();
             for (int i = 0; i < genes.Count; i++)
             {
@@ -87,9 +97,22 @@ namespace ISILab.AI.Categorization
                     if (genes[i].HasTag(itemCharacteristic.FirstTag()))
                     {
                         itemIndices.Add(i);
+                        continue;
                     }
                 }
+
+                if (!checkPermaIndices) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (groups.Contains(group)) continue;
+                if (group is not null && group.BundleData.HasTag(itemCharacteristic.FirstTag()))
+                {
+                    permaIndices.Add(i);
+                    groups.Add(group);
+                }
             }
+
+            itemIndices.AddRange(permaIndices);
 
             int size = itemIndices.Count;
 
@@ -179,7 +202,7 @@ namespace ISILab.AI.Categorization
                 for (int j = 0; j < size; j++)
                     if(DistancePool.TryAdd((itemIndices[i], itemIndices[j]), distances[i, j]))
                         news++;
-            Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
+            //Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
             //Debug.Log("Pool Size: " + DistancePool.Count);
 
             string l = "";
@@ -277,10 +300,13 @@ namespace ISILab.AI.Categorization
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
-            var contextualEvaluator = this as IContextualEvaluator;
-            CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
-            CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
-            CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            IContextualEvaluator ctx = this;
+            CombinedInteriorLayer = ctx.InteriorLayers(selection);
+            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
+            CombinedPopulationLayer = ctx.PopulationLayers();
+            permaIndices = null;
+            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+
             if (CombinedLayer is null) return;
             string moduleID = CombinedLayer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
             CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection);
@@ -310,7 +336,7 @@ namespace ISILab.AI.Categorization
             maxDist = config.GetValue<int>("Max Distance");
             minColonySize = config.GetValue<int>("Min Colony Size");
 
-            searchType = (PathfindingAlgorithm)config.GetValue<System.Enum>("Pathfinding Algorithm");
+            searchType = config.GetValue<PathfindingAlgorithm>("Pathfinding Algorithm");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
@@ -340,6 +366,7 @@ namespace ISILab.AI.Categorization
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
+            clone.CombinedPopulationLayer = CombinedPopulationLayer;
 
             clone.itemCharacteristic = itemCharacteristic;
 
@@ -349,6 +376,8 @@ namespace ISILab.AI.Categorization
             clone.searchType = searchType;
 
             clone.DistancePool = DistancePool;
+
+            clone.permaIndices = permaIndices;
 
             return clone;
         }

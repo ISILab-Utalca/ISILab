@@ -29,6 +29,7 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedLayer { get; set; } = null;
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
+        public LBSLayer CombinedPopulationLayer { get; set; } = null;
 
         public string Tooltip => "DC Custom Evaluator\n\n" +
             "Explain the purpose of your Custom Evaluator and how it works.\n\n" +
@@ -128,10 +129,11 @@ namespace ISILab.AI.Categorization
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
-            var contextualEvaluator = this as IContextualEvaluator;
-            CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
-            CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
-            CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            IContextualEvaluator ctx = this;
+            CombinedInteriorLayer = ctx.InteriorLayers(selection);
+            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
+            CombinedPopulationLayer = ctx.PopulationLayers();
+            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
         }
 
         public void InitializeDefault()
@@ -173,6 +175,7 @@ namespace ISILab.AI.Categorization
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
+            clone.CombinedPopulationLayer = CombinedPopulationLayer;
 
             clone.item1Characteristic = item1Characteristic;
             return clone;
