@@ -100,7 +100,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                 {
                     OnToggleButtonClick();
                     BundleManagerWindow.ShowWindow();
-                    bundleWindowButton.SetValueWithoutNotify(true);
+                    bundleWindowButton.SetValueWithoutNotify(false);
                 });
 
                 blueprintWindowButton.RegisterCallback<ChangeEvent<bool>>(_evt =>

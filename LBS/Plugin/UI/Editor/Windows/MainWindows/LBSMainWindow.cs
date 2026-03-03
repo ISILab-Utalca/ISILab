@@ -389,6 +389,7 @@ namespace ISILab.LBS.Editor.Windows
 
             #region PANELS - INSPECTOR, EXTRA, LAYERS, GENERATOR
 
+            // THE ORDER IN WHICH THIS PANELS ARE ADDED DECIDES THEIR VERTICAL ORDER
 
             inspectorManager.InitTabs(ref layerTemplates);
             
@@ -413,14 +414,14 @@ namespace ISILab.LBS.Editor.Windows
                 OnSelectedLayerChange(null);
             };
 
-            gen3DPanel ??= new Generator3DPanel();
-            extraPanel.Add(gen3DPanel);
-            gen3DPanel.style.display = DisplayStyle.None;
-
             quickAssistantPanel = new QuickAssistantPanel();
             extraPanel.Add(quickAssistantPanel);
             quickAssistantPanel.style.display = DisplayStyle.None;
             quickAssistantPanel.Setup(layerTemplates);
+
+            gen3DPanel ??= new Generator3DPanel();
+            extraPanel.Add(gen3DPanel);
+            gen3DPanel.style.display = DisplayStyle.None;
 
             blueprintPanel ??=  new BlueprintPanel();
             bottomPanel.Add(blueprintPanel);
