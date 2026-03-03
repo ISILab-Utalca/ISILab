@@ -17,7 +17,7 @@ namespace ISILab.LBS.Behaviours
     [Serializable]
     [RequieredModule(typeof(TileMapModule),
                     typeof(ConnectedTileMapModule))]
-    public class ExteriorBehaviour : LBSBehaviour, IObjectData
+    public class ExteriorBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
         [JsonProperty, SerializeReference, SerializeField, HideInInspector]
@@ -218,11 +218,11 @@ namespace ISILab.LBS.Behaviours
             return base.GetHashCode();
         }
 
-        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public BlueprintData[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<object> validObjects = new();
+            HashSet<BlueprintData> validObjects = new();
 
             TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
             tileMapClone.Clear();
@@ -242,7 +242,14 @@ namespace ISILab.LBS.Behaviours
                     {
                         LBSTile tileClone = tile.Clone() as LBSTile;
                         tileMapClone.AddTile(tileClone);
-                        validObjects.Add(tileMapClone);
+
+                        validObjects.Add(
+                            new BlueprintData(
+                                tileMapClone,
+                                corners.min,
+                                corners.max
+                                )
+                            );
                     }
 
                     // Connection
@@ -256,7 +263,13 @@ namespace ISILab.LBS.Behaviours
                             pairClone.EditedByIA
                         );
 
-                        validObjects.Add(connectionsClone);
+                        validObjects.Add(
+                            new BlueprintData(
+                                connectionsClone,
+                                corners.min,
+                                corners.max
+                                )
+                            );
                     }
                 }
             }
@@ -265,7 +278,7 @@ namespace ISILab.LBS.Behaviours
 
         }
 
-        public void LoadObjects(object[] objects)
+        public void LoadObjects(BlueprintData[] objects)
         {
             throw new NotImplementedException();
         }

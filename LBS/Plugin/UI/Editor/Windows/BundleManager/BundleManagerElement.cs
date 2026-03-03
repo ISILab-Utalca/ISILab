@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Internal;
 using UnityEditor;
@@ -18,7 +19,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
         // External references
         private Bundle _bundleRef;
         private ListView _listRef;
-        private Button _deleteButton;
+        private LBSToolbarButton _deleteButton;
         
         // Internal references
         private readonly Label _bundleName;
@@ -41,7 +42,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             _bundleIcon = this.Q<IMGUIContainer>("BundleIcon");
             _mainIcon = this.Q<IMGUIContainer>("MasterIcon");
             _warningIcon = this.Q<IMGUIContainer>("WarningIcon");
-            _deleteButton = this.Q<Button>("DeleteButton");
+            _deleteButton = this.Q<LBSToolbarButton>("DeleteButton");
             
             this.AddToClassList("lbs-list-item");
             
@@ -52,14 +53,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
         public BundleManagerElement(int _size, int _gapSize): this()
         {
             // Set size for visualElements
-            //this.style.height = size - gapSize;
-            //this.Q<VisualElement>("DeleteButton").style.height = size - gapSize;
+            this.style.height = _size - _gapSize;
         }
 
         public void SetBundleReference(Bundle bundle, ListView list, bool mainBundle)
         {
             _bundleRef = bundle;
-            
             _bundleName.text = bundle == null ? "Empty Bundle" : _bundleRef.name;
             
             _listRef = list;

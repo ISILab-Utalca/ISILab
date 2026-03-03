@@ -1,11 +1,9 @@
 using ISILab.AI.Optimization;
-using ISILab.Commons;
 using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
@@ -14,11 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.AI.Categorization
 {
-    public class Colonies : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
+    public class Colonies : IContextualEvaluator, IConfigurableEvaluator, IDistanceEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -29,13 +26,19 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedLayer { get; set; } = null;
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
+        public LBSLayer CombinedPopulationLayer { get; set; } = null;
 
         public string Tooltip => "Colonies Evaluator\n\n" +
             "This evaluator aims to group items of a certain type into colonies, keeping the members within a maximum distance.\n\n" +
             "By default this evaluator groups Enemies-tagged items at most 6 spaces apart.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Vertex-Based Exterior Layers.\n" +
+            "- Any type of Population Layer.";
+
+        public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+
+        public List<int> permaIndices = null;
 
         public static EvaluatorConfiguration config;
 
@@ -50,7 +53,12 @@ namespace ISILab.AI.Categorization
         [SerializeField]
         private int minColonySize;
 
+        [SerializeField]
+        public PathfindingAlgorithm searchType;
+
         #endregion
+
+
 
         #region EVALUATION
 
@@ -73,6 +81,12 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaIndices = permaIndices is null && bundleTM is not null;
+            permaIndices ??= new List<int>();
+
             List<int> itemIndices = new();
             for (int i = 0; i < genes.Count; i++)
             {
@@ -83,9 +97,22 @@ namespace ISILab.AI.Categorization
                     if (genes[i].HasTag(itemCharacteristic.FirstTag()))
                     {
                         itemIndices.Add(i);
+                        continue;
                     }
                 }
+
+                if (!checkPermaIndices) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (groups.Contains(group)) continue;
+                if (group is not null && group.BundleData.HasTag(itemCharacteristic.FirstTag()))
+                {
+                    permaIndices.Add(i);
+                    groups.Add(group);
+                }
             }
+
+            itemIndices.AddRange(permaIndices);
 
             int size = itemIndices.Count;
 
@@ -112,20 +139,47 @@ namespace ISILab.AI.Categorization
                         }
                         string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
                         var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
-                        for (int i = 0; i < size; i++)
+                        switch (searchType)
                         {
-                            for (int j = i; j < size; j++)
-                            {
-                                if (i == j)
-                                    distances[i, i] = 0;
-                                else
-                                    distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
-                            }
+                            case PathfindingAlgorithm.Flood_Fill:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    List<int> knownDist = new List<int>();
+                                    List<int> others = new List<int>();
+                                    for(int j = i + 1; j < size; j++)
+                                    {
+                                        if( DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
+                                        {
+                                            distances[j, i] = distances[i, j];
+                                            knownDist.Add(j);
+                                        } 
+                                        else if(DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
+                                        {
+                                            distances[i, j] = distances[j, i];
+                                            knownDist.Add(j);
+                                        }
+                                    }
+                                    others = itemIndices.Except(knownDist).ToList();
+                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                }
+                                break;
+                            case PathfindingAlgorithm.JPS_Plus:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    for (int j = i; j < size; j++)
+                                    {
+                                        if (i == j)
+                                            distances[i, i] = 0;
+                                        else if (DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
+                                            distances[j, i] = distances[i, j];
+                                        else if (DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
+                                            distances[i, j] = distances[j, i];
+                                        else
+                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+                                    }
+                                }
+                                break;
                         }
-                        //for (int i = 0; i < size; i++)
-                        //{
-                        //    EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
-                        //}
                         break;
                     default:
                         for (int i = 0; i < size; i++)
@@ -142,6 +196,14 @@ namespace ISILab.AI.Categorization
                     EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
                 }
             }
+
+            int news = 0;
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    if(DistancePool.TryAdd((itemIndices[i], itemIndices[j]), distances[i, j]))
+                        news++;
+            //Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
+            //Debug.Log("Pool Size: " + DistancePool.Count);
 
             string l = "";
             for(int i = 0; i < size; i++)
@@ -238,10 +300,13 @@ namespace ISILab.AI.Categorization
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
-            var contextualEvaluator = this as IContextualEvaluator;
-            CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
-            CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
-            CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            IContextualEvaluator ctx = this;
+            CombinedInteriorLayer = ctx.InteriorLayers(selection);
+            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
+            CombinedPopulationLayer = ctx.PopulationLayers();
+            permaIndices = null;
+            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+
             if (CombinedLayer is null) return;
             string moduleID = CombinedLayer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
             CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection);
@@ -253,6 +318,8 @@ namespace ISILab.AI.Categorization
 
             maxDist = 6;
             minColonySize = 2;
+
+            searchType = PathfindingAlgorithm.JPS_Plus;
         
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
@@ -268,12 +335,19 @@ namespace ISILab.AI.Categorization
             itemCharacteristic = config.GetValue<LBSCharacteristic>("Item");
             maxDist = config.GetValue<int>("Max Distance");
             minColonySize = config.GetValue<int>("Min Colony Size");
+
+            searchType = config.GetValue<PathfindingAlgorithm>("Pathfinding Algorithm");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
             var list = new List<EvaluatorConfigurationField>
             {
+                new EnumConfigurationField("Pathfinding Algorithm", searchType, 
+                "Method to use for calculating distances between items.\n\n" +
+                "<b>> Flood Fill:</b> Preferable for laberynthin levels.\n" +
+                "<b>> Jump Point Search Plus (JPS+):</b> Preferable for open areas with few obstacles.\n" +
+                "\n<i>(You should not be particularly concerned about this parameter if your level is small-sized or has few items.)</i>"),
                 new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic, "Item to group."),
                 new IntegerConfigurationField("Max Distance", maxDist, 2, 20, "Maximum distance desired between items of the same colony."),
                 new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10, "Minimum number of members a colony should have to be considered as such.")
@@ -292,11 +366,18 @@ namespace ISILab.AI.Categorization
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
+            clone.CombinedPopulationLayer = CombinedPopulationLayer;
 
             clone.itemCharacteristic = itemCharacteristic;
 
             clone.maxDist = maxDist;
             clone.minColonySize = minColonySize;
+
+            clone.searchType = searchType;
+
+            clone.DistancePool = DistancePool;
+
+            clone.permaIndices = permaIndices;
 
             return clone;
         }

@@ -1467,8 +1467,8 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-toolbar-button {
+    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     border-width: 1px 1px 1px 1px;
-
     flex-direction: row;
     padding-left: 4px;
     padding-right: 4px;
@@ -1481,24 +1481,27 @@ Toggle > .lbs-default-icon {
 }
 
 .normal-color{
-    border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
     background-color: var(--lbs-base-solid-gray-color);
 }
 
-.lbs-toolbar-button:hover {
-    background-color: var(--lbs-selectable-hover-color);
+.normal-color:hover {
+    background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
 }
 
-.lbs-toolbar-button:active {
+.normal-color:active {
     background-color: var(--lbs-selection-dark-blue-color);
 }
 
-.alert-color {
+.alert-color{
     background-color: var(--lbs-default-background-container-red-color);
 }
 
 .alert-color:hover {
     background-color: var(--lbs-default-neutral-red-color);
+}
+
+.alert-color:active {
+    background-color: var(--lbs-default-hightlight-red-color);
 }
 
 

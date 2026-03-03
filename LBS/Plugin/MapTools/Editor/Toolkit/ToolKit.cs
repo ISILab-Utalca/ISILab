@@ -16,6 +16,8 @@ using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using ISILab.Extensions;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
+using UnityEditor.UIElements;
 
 namespace LBS.VisualElements
 {
@@ -110,37 +112,82 @@ namespace LBS.VisualElements
 
         public void InitGeneralTools(LBSLayer layer)
         {
-            var sm = new SelectManipulator();
-            LBSTool selectTool = new LBSTool(sm);
+            (LBSManipulator manipulator, LBSTool tool) CreateTool<T>()
+            where T : LBSManipulator, new()
+            {
+                var manipulator = new T();
+                var tool = new LBSTool(manipulator);
 
-            var an = new AddNote();
-            LBSTool addNoteTool = new LBSTool(an);
+                ActivateTool(tool, layer);
+                tool.Init(layer, this);
 
-            var rn = new RemoveNote();
-            LBSTool removeNoteTool = new LBSTool(rn);
+                return (manipulator, tool);
+            }
 
-            var cia = new CaptureInArea();
-            LBSTool captureInAreaTool = new LBSTool(cia);
+            (LBSManipulator mani, LBSTool tool) select = CreateTool<SelectManipulator>();
+            (LBSManipulator mani, LBSTool tool) add = CreateTool<AddNote>();
+            (LBSManipulator mani, LBSTool tool) remove = CreateTool<RemoveNote>();
+            (LBSManipulator mani, LBSTool tool) capture = CreateTool<CaptureInArea>();
+            (LBSManipulator mani, LBSTool tool) print = CreateTool<PrintInArea>();
 
-            an.SetRemover(rn);
+            add.mani.SetRemover(remove.mani);
 
-            ActivateTool(selectTool, layer);
-            ActivateTool(addNoteTool, layer);
-            ActivateTool(removeNoteTool, layer);
-            ActivateTool(captureInAreaTool, layer);
 
-            selectTool.Init(layer, this);
-            addNoteTool.Init(layer, this);
-            removeNoteTool.Init(layer, this);
-            captureInAreaTool.Init(layer, this);
+            // blueprint set up
+            BlueprintPanel bpPanel = LBSMainWindow.Instance.blueprintPanel;
+            if (bpPanel is not null) 
+                bpPanel.Bind(this, 
+                    capture.mani as CaptureInArea, 
+                    print.mani as PrintInArea);
+           
 
-            DisplayManipulator(
-                typeof(CaptureInArea),
-                LBSMainWindow.Instance.blueprintPanel.style.display.value);
-            captureInAreaTool.OnSelect += () => cia.ClearArea();
-            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
+            /*
+  var sm = new SelectManipulator();
+  LBSTool selectTool = new LBSTool(sm);
 
+  var an = new AddNote();
+  LBSTool addNoteTool = new LBSTool(an);
+
+  var rn = new RemoveNote();
+  LBSTool removeNoteTool = new LBSTool(rn);
+
+  var cia = new CaptureInArea();
+  LBSTool captureInAreaTool = new LBSTool(cia);
+
+  var pia = new PrintInArea();
+  LBSTool printInAreaTool = new LBSTool(pia);
+
+  an.SetRemover(rn);
+
+  ActivateTool(selectTool, layer);
+  ActivateTool(addNoteTool, layer);
+  ActivateTool(removeNoteTool, layer);
+  ActivateTool(captureInAreaTool, layer);
+  ActivateTool(printInAreaTool, layer);
+
+  selectTool.Init(layer, this);
+  addNoteTool.Init(layer, this);
+  removeNoteTool.Init(layer, this);
+  captureInAreaTool.Init(layer, this);
+  printInAreaTool.Init(layer, this);
+
+
+  var bpPanel = LBSMainWindow.Instance.blueprintPanel;
+  var blueprintVisilibilty = bpPanel.style.display.value;
+  bpPanel.CaptureManipulator = cia;
+  bpPanel.PrintArea = pia;
+  DisplayManipulator(typeof(CaptureInArea), blueprintVisilibilty);
+  DisplayManipulator(typeof(PrintInArea), blueprintVisilibilty);
+
+  captureInAreaTool.OnSelect += () => cia.ClearArea();
+  captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
+  printInAreaTool.OnSelect += () => pia.ClearPreview();
+  printInAreaTool.OnDeselect += () => pia.ClearPreview();
+  */
         }
+
+
+
 
         public object GetActiveManipulator()
         {
@@ -199,7 +246,7 @@ namespace LBS.VisualElements
             // Set the new current tool and focus it
             current = foundTool.Value;
 
-            foreach (var btn in content.Children())
+            foreach (VisualElement btn in content.Children())
             {
                 if (btn is ToolButton b)
                     b.SetValueWithoutNotify(false);
@@ -308,11 +355,11 @@ namespace LBS.VisualElements
             
             current.Item2?.OnBlur();
 
-            var father = tools.Values.First().Item2.Father;
-            var children = father.Children();
+            VisualElement father = tools.Values.First().Item2.Father;
+            IEnumerable<VisualElement> children = father.Children();
             List<VisualElement> toRemove = new();
 
-            foreach (var child in children)
+            foreach (VisualElement child in children)
             {
                 if (child.style.display == DisplayStyle.None)
                 {

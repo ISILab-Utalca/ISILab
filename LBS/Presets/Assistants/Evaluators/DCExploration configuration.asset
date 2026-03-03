@@ -15,9 +15,9 @@ MonoBehaviour:
   target:
     rid: 3359370251585192494
   fields:
-  - rid: 4351225306371340651
-  - rid: 4351225306371340652
-  - rid: 4351225306371340653
+  - rid: 4351225486943985146
+  - rid: 4351225486943985147
+  - rid: 4351225486943985148
   references:
     version: 2
     RefIds:
@@ -35,42 +35,6 @@ MonoBehaviour:
         - rid: 4351225306371340659
         - rid: 4351225306371340660
         - rid: 4351225306371340661
-    - rid: 4351225306371340651
-      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
-      data:
-        name: Player
-        tooltip: Main item that will be compared with every POI
-        tagName: Player
-    - rid: 4351225306371340652
-      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
-      data:
-        name: Obstacle
-        tooltip: 
-        tagName: Collider
-    - rid: 4351225306371340653
-      type: {class: EvaluatorConfiguration/GroupedTagsField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
-      data:
-        name: PointsOfInterest
-        tooltip: Items to distribute throughout the level.
-        tagsFields:
-        - name: 
-          tooltip: 
-          tagName: Chest
-        - name: 
-          tooltip: 
-          tagName: Axe
-        - name: 
-          tooltip: 
-          tagName: Hammer
-        - name: 
-          tooltip: 
-          tagName: Sword
-        - name: 
-          tooltip: 
-          tagName: Food
-        - name: 
-          tooltip: 
-          tagName: Tree
     - rid: 4351225306371340654
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
@@ -135,3 +99,39 @@ MonoBehaviour:
         - tagName: Tree
           value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
           tagGUID: 0147d0d479179b04a8c825d8159e70ce
+    - rid: 4351225486943985146
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Player
+        tooltip: Main item to be compared with every POI.
+        tagName: Player
+    - rid: 4351225486943985147
+      type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Obstacle
+        tooltip: 
+        tagName: Collider
+    - rid: 4351225486943985148
+      type: {class: EvaluatorConfiguration/GroupedTagsField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: PointsOfInterest
+        tooltip: Items to distribute throughout the level.
+        tagsFields:
+        - name: 
+          tooltip: 
+          tagName: Chest
+        - name: 
+          tooltip: 
+          tagName: Axe
+        - name: 
+          tooltip: 
+          tagName: Hammer
+        - name: 
+          tooltip: 
+          tagName: Sword
+        - name: 
+          tooltip: 
+          tagName: Food
+        - name: 
+          tooltip: 
+          tagName: Tree

@@ -75,6 +75,19 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 }
             }
         }
+        
+        
+        private LBSCustomListItem listItemTemplate;
+        [UxmlAttribute]
+        public LBSCustomListItem ListItemTemplate
+        {
+            get => listItemTemplate;
+            set
+            {
+                listItemTemplate = value;
+                if (listView != null) listView.itemTemplate = value.visualTreeAssetSource; // such a hack!
+            }
+        }
 
         public LBSBaseListGroup() : base()
         {
@@ -85,7 +98,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             arrowSideIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("83eafacbab9ab554299bc4d0f124d980"));
             
             overlayButton = this.Q<LBSCustomButton>("EmptyOverlayButton");
-            overlayButton.RegisterCallback<ClickEvent>(evt =>
+            overlayButton.RegisterCallback<ClickEvent>(_evt =>
             {
                isEmpty = false; 
                overlayButton.SetEnabled(false);
@@ -97,8 +110,8 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             listView = this.Q<LBSCustomListView>("ListView");
           
             expandArrowButton = this.Q<Button>("ExpandButton");
-            expandArrowButton.RegisterCallback<ClickEvent>(evt =>
-            {
+            expandArrowButton.RegisterCallback<ClickEvent>(_evt =>
+            { 
                 IsFoldoutExpanded = !IsFoldoutExpanded;
             });
 

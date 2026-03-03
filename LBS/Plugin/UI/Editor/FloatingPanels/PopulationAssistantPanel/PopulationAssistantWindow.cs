@@ -989,8 +989,9 @@ namespace ISILab.LBS.VisualElements.Editor
             }
             else
             {
-                Data.ContextLayers.Add(objectLayer);
-                objectLayer.OnContextAddInvoke();
+                Data.AddLayerToContext(objectLayer);
+                //Data.ContextLayers.Add(objectLayer);
+                //objectLayer.OnContextAddInvoke();
             }
             layerList.Rebuild();
 
