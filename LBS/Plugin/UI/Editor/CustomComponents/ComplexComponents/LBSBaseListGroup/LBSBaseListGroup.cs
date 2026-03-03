@@ -110,8 +110,8 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             listView = this.Q<LBSCustomListView>("ListView");
           
             expandArrowButton = this.Q<Button>("ExpandButton");
-            expandArrowButton.RegisterCallback<ClickEvent>(evt =>
-            {
+            expandArrowButton.RegisterCallback<ClickEvent>(_evt =>
+            { 
                 IsFoldoutExpanded = !IsFoldoutExpanded;
             });
 

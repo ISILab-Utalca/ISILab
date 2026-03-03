@@ -1485,7 +1485,7 @@ Toggle > .lbs-default-icon {
 }
 
 .normal-color:hover {
-    background-color: var(--lbs-selectable-hover-color);
+    background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
 }
 
 .normal-color:active {
