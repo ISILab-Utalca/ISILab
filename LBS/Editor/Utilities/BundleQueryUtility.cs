@@ -52,7 +52,7 @@ namespace LBS.Components
                 var bundle = AssetDatabase.LoadAssetAtPath<Bundle>(path);
                 if (bundle == null) continue;
 
-                if (IsValidExteriorBundle(bundle, characteristicType))
+                if (IsValidExteriorBundle(bundle, characteristicType, includeChildren))
                 {
                     result.Add(bundle);
                 }
@@ -61,14 +61,14 @@ namespace LBS.Components
             return result.OrderBy(b => b.name, StringComparer.OrdinalIgnoreCase).ToList();
         }
 
-        private static bool IsValidExteriorBundle(Bundle bundle, Type charType)
+        private static bool IsValidExteriorBundle(Bundle bundle, Type charType, bool includeChildren = true)
         {
             if (bundle == null) return false;
 
             var getChildrenCharacteristicsMethod = typeof(Bundle).GetMethod("GetChildrenCharacteristics");
             var getCharacteristicsMethod = typeof(Bundle).GetMethod("GetCharacteristics");
 
-            if (getChildrenCharacteristicsMethod != null)
+            if (includeChildren && getChildrenCharacteristicsMethod != null)
             {
                 var genericMethod = getChildrenCharacteristicsMethod.MakeGenericMethod(charType);
                 if (genericMethod.Invoke(bundle, null) is IList groups && groups.Count > 0) return true;

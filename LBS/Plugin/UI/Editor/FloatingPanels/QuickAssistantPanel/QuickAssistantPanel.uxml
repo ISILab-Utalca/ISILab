@@ -5,14 +5,14 @@
             <ui:VisualElement name="VisualElement" class="lbs-default-label-icon" style="background-image: url(&quot;project://database/Assets/ISILab/LBS/Plugin/UI/Editor/FloatingPanels/QuickAssistantPanel/QuickAssistantRobot.svg?fileID=7388822144124034973&amp;guid=9bb39f5c43af73c44b40481f864bacef&amp;type=3#QuickAssistantRobot&quot;); -unity-background-image-tint-color: rgb(120, 255, 212);" />
             <ISILab.LBS.CustomComponents.LBSCustomLabel name="TittleLabel" text="Quick Assistant" style="color: rgb(120, 255, 212); -unity-font-style: bold;" />
         </ui:VisualElement>
-        <ISILab.LBS.CustomComponents.LBSCustomDropdown name="LayerType" label="Layer Type" icon-position="None" choices="Exterior,Interior" />
+        <ISILab.LBS.CustomComponents.LBSCustomDropdown name="LayerType" label="Layer Type" icon-position="None" choices="Exterior,Interior" index="0" />
         <ISILab.LBS.CustomComponents.LBSCustomButton name="RunButton" icon-color="#5CF900FF" button-tint="#317D14FF" style="height: 35px; margin-top: 5px; margin-bottom: 5px;">
             <ISILab.LBS.CustomComponents.LBSCustomImage l-b-s-image="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/FloatingPanels/QuickAssistantPanel/PlayQuickAssistant.svg?fileID=7388822144124034973&amp;guid=ae41c9e092b1e5e4f85381b251cf15db&amp;type=3#PlayQuickAssistant" style="width: 17px; height: 16px; align-items: center; position: absolute; top: 8px; left: 4px;" />
             <ISILab.LBS.CustomComponents.LBSCustomLabel text="Run Assistant!" style="-unity-text-align: middle-left; position: absolute; top: 9px; left: 24px;" />
         </ISILab.LBS.CustomComponents.LBSCustomButton>
         <ISILab.LBS.CustomComponents.LBSCustomLabel name="Advise" text="This action will create a new layer!" style="font-size: 10px; opacity: 0.7; padding-bottom: 3px; padding-top: 3px; -unity-text-outline-width: 0; -unity-text-outline-color: rgb(255, 255, 255); color: rgb(205, 205, 205); -unity-font-style: bold;" />
-        <ISILab.LBS.VisualElements.WarningPanel current-warning-type="Warning" text="Requiere an exterior bundle!" name="ExteriorWarning" style="border-left-width: 3px; border-left-color: rgb(255, 200, 0); -unity-font-style: bold; text-overflow: clip; -unity-text-align: upper-left; flex-grow: 1; -unity-text-outline-color: rgb(255, 220, 180); -unity-text-outline-width: 0.5px; position: relative; height: 40px; width: auto; display: none;" />
-        <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Assistant Settings" name="FoldoutSettings" style="opacity: 1; display: flex;">
+        <ISILab.LBS.VisualElements.WarningPanel current-warning-type="Warning" text="Requiere an exterior bundle!" name="ExteriorWarning" style="border-left-width: 3px; border-left-color: rgb(255, 200, 0); -unity-font-style: bold; text-overflow: clip; -unity-text-align: upper-left; flex-grow: 1; -unity-text-outline-color: rgb(255, 220, 180); -unity-text-outline-width: 0.5px; position: relative; height: 40px; width: auto; display: none; -unity-slice-type: sliced;" />
+        <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Assistant Settings" name="FoldoutSettings" value="false">
             <ui:VisualElement name="ContainerExterior" style="display: none;">
                 <ui:VisualElement name="ExtBasicConfig" style="flex-grow: 1; padding-bottom: 2px; padding-top: 2px; border-top-width: 0; border-right-width: 0; border-bottom-width: 1px; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-left-color: rgb(123, 123, 123); border-right-color: rgb(123, 123, 123); border-top-color: rgb(123, 123, 123); border-bottom-color: rgb(123, 123, 123);">
                     <ISILab.LBS.CustomComponents.LBSCustomEnumField name="ExtType" label="Type" type="ISILab.LBS.Modules.ConnectedTileMapModule+ConnectedTileType, LBS" tooltip="Defines the tile type" />
@@ -41,5 +41,32 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
+        <ui:VisualElement name="ContainerPopulation" style="display: flex;">
+            <ui:VisualElement name="PopMapConfig" style="flex-grow: 1; padding-bottom: 2px; padding-top: 2px;">
+                <ISILab.LBS.CustomComponents.LBSCustomTextField name="ExtSeed" label="Seed" value="113458684567" />
+                <ISILab.LBS.Plugin.UI.Editor.CustomComponents.LBSCustomIntSlider label="Area Size Width" high-value="40" value="1" name="ExtWidth" low-value="1" tooltip="Defines the width size of the map" />
+                <ISILab.LBS.Plugin.UI.Editor.CustomComponents.LBSCustomIntSlider label="Area Size Height" high-value="40" value="1" name="ExtHeight" low-value="1" tooltip="Defines the height size of the map" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Space" style="flex-grow: 1; border-top-width: 2px; border-left-color: rgb(123, 123, 123); border-right-color: rgb(123, 123, 123); border-top-color: rgb(123, 123, 123); border-bottom-color: rgb(123, 123, 123); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2px; margin-bottom: 2px; border-bottom-width: 0;" />
+            <ui:VisualElement name="MapContextConfig" style="flex-grow: 0; overflow: visible;">
+                <ui:VisualElement name="LayersElement" style="flex-grow: 1; flex-direction: row; background-color: rgba(42, 42, 42, 0); align-self: auto; justify-content: space-between; white-space: normal; align-items: center; align-content: auto;">
+                    <ui:Label text="Layer Context" style="justify-content: flex-start; margin-left: 3px;" />
+                    <ui:Button text="Select" name="AddLayerButton" style="background-color: rgb(88, 106, 55); margin-right: 3px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="LayerContextContainer" style="flex-grow: 1;">
+                    <ui:ListView name="LayerList" reorderable="true" show-foldout-header="false" show-add-remove-footer="false" allow-remove="false" allow-add="false" reorder-mode="Animated" show-border="true" horizontal-scrolling="false" show-bound-collection-size="true" fixed-item-height="32" virtualization-method="DynamicHeight" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Space" style="flex-grow: 1; border-top-width: 2px; border-left-color: rgb(123, 123, 123); border-right-color: rgb(123, 123, 123); border-top-color: rgb(123, 123, 123); border-bottom-color: rgb(123, 123, 123); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2px; margin-bottom: 2px; border-bottom-width: 0;" />
+            <ui:VisualElement name="PopItemConfig" style="flex-grow: 1; padding-bottom: 2px; padding-top: 2px; margin-top: 2px;">
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField label="Main Bundle" type="ISILab.LBS.Plugin.Components.Bundles.Bundle, LBS" icon-side="None" use-custom-filter="false" name="PopMainBundle" tooltip="Defines the tyle bundle" style="align-items: stretch; justify-content: flex-start; align-self: stretch; margin-top: 0; margin-bottom: 0; margin-left: 3px; margin-right: 3px; padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0;" />
+                <ui:VisualElement name="TagToggleContainer" style="flex-grow: 1;">
+                    <ui:ListView name="TagList" reorderable="true" show-foldout-header="false" show-add-remove-footer="false" allow-remove="false" allow-add="false" reorder-mode="Animated" show-border="true" horizontal-scrolling="false" show-bound-collection-size="true" fixed-item-height="32" virtualization-method="DynamicHeight" style="border-top-width: 1px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ExtFlags" style="flex-grow: 1; padding-bottom: 2px; padding-top: 2px; border-top-width: 1px; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-left-color: rgb(123, 123, 123); border-right-color: rgb(123, 123, 123); border-top-color: rgb(123, 123, 123); border-bottom-color: rgb(123, 123, 123); margin-top: 2px;">
+                <uie:EnumFlagsField label="Flags" value="-1" type="UnityEngine.UIElements.UsageHints, UnityEngine.UIElementsModule" name="ExtFlag" style="display: flex;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
