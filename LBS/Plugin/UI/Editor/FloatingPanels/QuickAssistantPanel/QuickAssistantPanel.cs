@@ -1,4 +1,5 @@
 using ISILab.AI.Categorization;
+using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
@@ -20,14 +21,17 @@ using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
+using LBS.Components.TileMap;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.VisualElements
@@ -67,7 +71,7 @@ namespace ISILab.LBS.VisualElements
 
         private LBSCustomObjectField _popMainBundle;
         private LBSCustomTextField _popSeed;
-        private List<KeyValuePair<LBSTag, bool>> _popTagList;
+        private List<KeyValuePair<LBSTag, BoolIntPair>> _popTagList;
         private ListView _popToggleView;
         private Button _popSelectContextButton;
         private ListView _popContextView;
@@ -206,6 +210,8 @@ namespace ISILab.LBS.VisualElements
         }
         private void LoadPopulationContainer()
         {
+            _popSeed = _containerPopulation.Q<LBSCustomTextField>("PopSeed");
+
             _popMainBundle = _containerPopulation.Q<LBSCustomObjectField>("PopMainBundle");
             if (_popMainBundle != null)
             {
@@ -234,7 +240,7 @@ namespace ISILab.LBS.VisualElements
                        foreach (var tag in cTags.Tags)
                        {
                            if (_popTagList.Exists(t => t.Key == tag)) continue;
-                           _popTagList.Add(new KeyValuePair<LBSTag, bool>(tag, true));
+                           _popTagList.Add(new KeyValuePair<LBSTag, BoolIntPair>(tag, new (true, 1)));
                        }
                    }
                    _popToggleView.Rebuild();
@@ -248,11 +254,12 @@ namespace ISILab.LBS.VisualElements
             _popToggleView.makeItem += () => new QATagToggle();
             _popToggleView.bindItem = (element, index) =>
             {
-                var toggle = element as Toggle;
+                var toggle = element as QATagToggle;
                 if (toggle == null) return;
 
-                toggle.label = _popTagList[index].Key.Label;
-                toggle.value = _popTagList[index].Value;
+                toggle.Toggle.label = _popTagList[index].Key.Label;
+                toggle.Toggle.value= _popTagList[index].Value.boolean;
+                toggle.Quantity.value = _popTagList[index].Value.integer;
             };
 
             _popSelectContextButton = _containerPopulation.Q<Button>("AddLayerButton");
@@ -290,7 +297,6 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region LOGIC METHODS
-
         private void UpdateVisibility(string mode)
         {
             bool showExterior = mode == "Exterior";
@@ -349,6 +355,8 @@ namespace ISILab.LBS.VisualElements
         #region POPULATION LAYER METHODS
         private void GeneratePopulationProcess()
         {
+            Random.InitState(int.Parse(_popSeed.value));
+
             Bundle selectedBundle = _popMainBundle.value as Bundle;
             if (selectedBundle == null)
             {
@@ -356,35 +364,147 @@ namespace ISILab.LBS.VisualElements
                 return;
             }
 
-            LBSLayer newLayer = CreateBaseLayer("Population");
-            if (newLayer == null) return;
+            LBSLayer popLayer = CreateBaseLayer("Population");
+            if (popLayer == null) return;
 
-            LBSLayer[] contextLayers = Data.contextLayers.ToArray();
-
-            foreach(LBSLayer layer in contextLayers)
+            // Loop around tags
+            var tagList = _popTagList.ToArray();
+            for (int i = 0; i < tagList.Length; i++)
             {
-                var schema = layer.GetBehaviour<SchemaBehaviour>();
-                if (schema is not null)
-                {
-                    continue;
-                }
+                LBSTag tag = tagList[i].Key;
+                BoolIntPair pair = tagList[i].Value;
+                if (!pair.boolean) continue;
 
-                var exterior = layer.GetBehaviour<SchemaBehaviour>();
-                if (exterior is not null)
+
+                List<Vector2Int> allSchemaPositions = new();
+                bool schemaPositionsRead = false;
+
+                List<Vector2Int> allExteriorPositions = new();
+                bool exteriorPositionsRead = false;
+
+                for (int j = 0; j < pair.integer; j++)
                 {
-                    continue;
+                    // Randomly choose contextLayer
+                    LBSLayer[] contextLayers = Data.contextLayers.ToArray();
+                    int n = Random.Range(0, contextLayers.Length);
+                    var contextLayer = contextLayers[n];
+
+                    // Spawn items on interior
+                    var schema = contextLayer.GetBehaviour<SchemaBehaviour>();
+                    if (schema is not null)
+                    {
+                        // Get avaliable spaces in layer
+                        if (!schemaPositionsRead)
+                        {
+                            foreach (var zone in schema.Zones)
+                            {
+                                var zoneTiles = schema.GetTiles(zone).ToArray();
+                                foreach (var tile in zoneTiles)
+                                {
+                                    allSchemaPositions.Add(tile.Position);
+                                }
+                            }
+                            schemaPositionsRead = true;
+                            if (allSchemaPositions.Count == 0)
+                            {
+                                Debug.LogWarning("[QuickAssistantPanel]: GeneratePopulationProcess couldn't find avaliable spaces to populate a schema context layer.");
+                                continue;
+                            }
+                        }
+
+                        // Place item
+                        popLayer = PopulationPlaceItem(popLayer, selectedBundle, tag, ref allSchemaPositions);
+                        continue;
+                    }
+
+                    // Spawn items on exterior
+                    var exterior = contextLayer.GetBehaviour<ExteriorBehaviour>();
+                    if (exterior is not null)
+                    {
+                        // Get avaliable spaces in layer
+                        if (!exteriorPositionsRead)
+                        {
+                            foreach (var tile in exterior.Tiles)
+                            {
+                                //if(exterior)
+                                allExteriorPositions.Add(tile.Position);
+                            }
+                            exteriorPositionsRead = true;
+                            if (allExteriorPositions.Count == 0)
+                            {
+                                Debug.LogWarning("[QuickAssistantPanel]: GeneratePopulationProcess couldn't find avaliable spaces to populate a exterior context layer.");
+                                continue;
+                            }
+                        }
+
+                        // Place item
+                        popLayer = PopulationPlaceItem(popLayer, selectedBundle, tag, ref allExteriorPositions);
+                        continue;
+                    }
                 }
             }
+
+            FinalizeLayer(popLayer);
         }
 
-        private LBSLayer RunSchemaPopulation(LBSLayer layer, SchemaBehaviour schema)
+        private LBSLayer PopulationPlaceItem(LBSLayer populationLayer, Bundle mainBundle, LBSTag tag, ref List<Vector2Int> allPositions)
         {
-            foreach (var zone in schema.ZonesWithTiles)
+            // Get population Behaviour
+            var popBehaviour = populationLayer.GetBehaviour<PopulationBehaviour>();
+            if (popBehaviour is null)
             {
-                var positions = zone.Positions.ToArray();
+                Debug.LogWarning("[QuickAssistantPanel]: PopulationPlaceItem couldn't find a PopulationBehaviour on input layer.");
+                return populationLayer; 
             }
 
-            return layer;
+            // Choose random position
+            int n = Random.Range(0, allPositions.Count);
+            Vector2Int randomPos = allPositions[n];
+
+            // Add item
+            var tileGroup = popBehaviour.AddTileGroup(
+                randomPos,
+                new BundleData(ChooseRandomItemByTag(mainBundle, tag)),
+                RandomRotation(),
+                null).TileGroup;
+
+            // Remove positions from list
+            foreach (var tile in tileGroup)
+            {
+                allPositions.Remove(tile.Position);
+            }
+
+            return populationLayer;
+        }
+
+        private Bundle ChooseRandomItemByTag(Bundle mainBundle, LBSTag tag)
+        {
+            List<Bundle> items = new ();
+            foreach(Bundle b in mainBundle.ChildsBundles)
+            {
+                if (b.GetHasTagCharacteristic(tag.label))
+                {
+                    items.Add(b);
+                }
+            }
+
+            return items[Random.Range(0, items.Count)];
+        }
+
+        private Vector2 RandomRotation()
+        {
+            switch (Random.Range(0, 4))
+            {
+                case 0:
+                    return new Vector2(1, 0);
+                case 1:
+                    return new Vector2(-1, 0);
+                case 2:
+                    return new Vector2(0, 1);
+                case 3:
+                    return new Vector2(0, -1);
+            }
+            return new Vector2(1, 0);
         }
 
         private void AddLayerMenu()
@@ -782,36 +902,15 @@ namespace ISILab.LBS.VisualElements
         }
         #endregion
         #endregion
+    }
 
-        private void AddLayerMenu()
+    struct BoolIntPair
+    {
+        public bool boolean;
+        public int integer;
+        public BoolIntPair(bool b, int i)
         {
-            GenericMenu menu = new GenericMenu();
-            foreach (LBSLayer layer in Data.Layers)
-            {
-                // It only takes InteriorLayers as context, but can be adapted to consider others
-                if (layer.GetBehaviour<SchemaBehaviour>() is null) continue;
-                menu.AddItem(new GUIContent(layer.Name), Data.ContextLayers.Contains(layer), ToggleLayerContext, layer);
-            }
-            menu.ShowAsContext();
-        }
-        private void ToggleLayerContext(object layer)
-        {
-            LBSLayer objectLayer = layer as LBSLayer;
-            if (objectLayer == null)
-            {
-                Debug.LogError("Object Layer was null.");
-                return;
-            }
-
-            if (Data.ContextLayers.Contains(layer))
-            {
-                Data.RemoveLayerFromContext(objectLayer);
-            }
-            else
-            {
-                Data.AddLayerToContext(objectLayer);
-            }
-            _popContextView.Rebuild();
+            boolean = b; integer = i;
         }
     }
 }

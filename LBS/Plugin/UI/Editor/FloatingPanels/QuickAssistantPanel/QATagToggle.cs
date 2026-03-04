@@ -11,8 +11,8 @@ namespace ISILab.LBS.VisualElements
         private Toggle toggle;
         private IntegerField quantity;
 
-        public Toggle Toggle => toggle;
-        public IntegerField Quantity => quantity;
+        public Toggle Toggle { get => toggle; set { toggle = value; } }
+        public IntegerField Quantity { get => quantity; set { quantity = value; } }
 
         private const string UXML_NAME = "QATagToggle";
         private static VisualTreeAsset visualTree;
@@ -23,8 +23,8 @@ namespace ISILab.LBS.VisualElements
             if (visualTree != null) visualTree.CloneTree(this);
             else Debug.LogError($"[QATagToggle] No se encontró el UXML: {UXML_NAME}");
 
-            toggle = this.Q<Toggle>("Toggle");
-            quantity = this.Q<IntegerField>("IntegerField");
+            toggle = this.Q<Toggle>("TagToggle");
+            quantity = this.Q<IntegerField>("QuantityField");
         }
     }
 }
