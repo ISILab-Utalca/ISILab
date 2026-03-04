@@ -86,7 +86,7 @@ namespace ISILab.LBS.VisualElements
         {
             visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>(UXML_NAME);
             if (visualTree != null) visualTree.CloneTree(this);
-            else Debug.LogError($"[QuickAssistantPanel] No se encontró el UXML: {UXML_NAME}");
+            else Debug.LogError($"[QuickAssistantPanel] No se encontrï¿½ el UXML: {UXML_NAME}");
             LoadVisualElements();
             InitDefaultState();
         }
@@ -204,7 +204,6 @@ namespace ISILab.LBS.VisualElements
                 _intMode.Init(InteriorGenerationMode.GridWalker);
             }
         }
-
         private void LoadPopulationContainer()
         {
             _popMainBundle = _containerPopulation.Q<LBSCustomObjectField>("PopMainBundle");
@@ -218,13 +217,35 @@ namespace ISILab.LBS.VisualElements
                     (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
                 };
             }
-            _popMainBundle.RegisterValueChangedCallback(OnPopMainBundleChanged);
+            _popMainBundle.RegisterValueChangedCallback(
+               (ChangeEvent<Object> evt) =>
+               {
+                   _popTagList.Clear();
+                   Bundle newBundle = evt.newValue as Bundle;
+                   if (newBundle == null)
+                   {
+                       _popToggleView.Rebuild();
+                       return;
+                   }
+
+                   var children = newBundle.GetChildrenCharacteristics<LBSTagsCharacteristic>();
+                   foreach (var cTags in children)
+                   {
+                       foreach (var tag in cTags.Tags)
+                       {
+                           if (_popTagList.Exists(t => t.Key == tag)) continue;
+                           _popTagList.Add(new KeyValuePair<LBSTag, bool>(tag, true));
+                       }
+                   }
+                   _popToggleView.Rebuild();
+               }
+            );
 
             _popToggleView = _containerPopulation.Q<ListView>("TagList");
             _popTagList = new();
             _popToggleView.itemsSource = _popTagList;
             _popToggleView.reorderable = false;
-            _popToggleView.makeItem += () => new Toggle();
+            _popToggleView.makeItem += () => new QATagToggle();
             _popToggleView.bindItem = (element, index) =>
             {
                 var toggle = element as Toggle;
@@ -261,28 +282,6 @@ namespace ISILab.LBS.VisualElements
             };
         }
 
-        private void OnPopMainBundleChanged(ChangeEvent<Object> evt)
-        {
-            _popTagList.Clear();
-            Bundle newBundle = evt.newValue as Bundle;
-            if (newBundle == null)
-            {
-                _popToggleView.Rebuild(); 
-                return;
-            }
-
-            var children = newBundle.GetChildrenCharacteristics<LBSTagsCharacteristic>();
-            foreach(var cTags in children)
-            {
-                foreach (var tag in cTags.Tags)
-                {
-                    if (_popTagList.Exists(t => t.Key == tag)) continue;
-                    _popTagList.Add(new KeyValuePair<LBSTag, bool>(tag, true));
-                }
-            }
-            _popToggleView.Rebuild();
-        }
-
         private void InitDefaultState()
         {
             if (_layerTypeSelector != null) _layerTypeSelector.index = -1;
@@ -292,37 +291,14 @@ namespace ISILab.LBS.VisualElements
 
         #region LOGIC METHODS
 
-        private void AutoAssignExteriorBundle(ConnectedTileMapModule.ConnectedTileType type)
-        {
-            if (_templates == null || _templates.Count == 0 || _extThemeBundle == null) return;
-
-            string typeKeyword = (type == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
-
-            var match = _templates.FirstOrDefault(t =>
-                t.templateName.Contains("Exterior") &&
-                t.templateName.Contains(typeKeyword));
-
-            if (match == null)
-            {
-                match = _templates.FirstOrDefault(t => t.templateName.Contains("Exterior"));
-            }
-
-            if (match != null)
-            {
-                var exteriorBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
-
-                if (exteriorBehaviour != null && exteriorBehaviour.Bundle != null)
-                {
-                    _extThemeBundle.value = exteriorBehaviour.Bundle;
-                }
-            }
-        }
         private void UpdateVisibility(string mode)
         {
             bool showExterior = mode == "Exterior";
             bool showInterior = mode == "Interior";
+            bool showPopulation = mode == "Population";
             if (_containerExterior != null) _containerExterior.style.display = showExterior ? DisplayStyle.Flex : DisplayStyle.None;
             if (_containerInterior != null) _containerInterior.style.display = showInterior ? DisplayStyle.Flex : DisplayStyle.None;
+            if (_containerPopulation != null) _containerPopulation.style.display = showPopulation ? DisplayStyle.Flex : DisplayStyle.None;
             if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.None;
         }
 
@@ -332,33 +308,119 @@ namespace ISILab.LBS.VisualElements
             string mode = _layerTypeSelector.value.ToString();
             if (mode == "Exterior") GenerateExteriorProcess();
             else if (mode == "Interior") GenerateInteriorProcess();
+            else if (mode == "Population") GeneratePopulationProcess();
         }
 
-        private void GenerateExteriorProcess()
+        private LBSLayer CreateBaseLayer(string primaryKeyword, string secondaryKeyword = null)
         {
-            Bundle selectedBundle = _extThemeBundle.value as Bundle;
+            if (_templates == null || _templates.Count == 0) return null;
+            var candidates = _templates.Where(t => t.templateName.Contains(primaryKeyword)).ToList();
+            if (candidates.Count == 0) return null;
+
+            LayerTemplate targetTemplate = null;
+            if (!string.IsNullOrEmpty(secondaryKeyword))
+                targetTemplate = candidates.FirstOrDefault(t => t.templateName.Contains(secondaryKeyword));
+            if (targetTemplate == null) targetTemplate = candidates[0];
+
+            if (targetTemplate.layer.Clone() is LBSLayer newLayer)
+            {
+                string safeName = targetTemplate.templateName.Replace("/", " ").Replace("\\", " ");
+                newLayer.Name = safeName;
+                LBSMainWindow.Instance.layerPanel.AddLayer(newLayer);
+                return newLayer;
+            }
+            return null;
+        }
+
+        private void FinalizeLayer(LBSLayer layer)
+        {
+            if (LBS.loadedLevel != null) EditorUtility.SetDirty(LBS.loadedLevel);
+            layer.OnChangeUpdate();
+            if (DrawManager.Instance != null) DrawManager.Instance.RedrawLayer(layer);
+
+            LBSMainWindow.Instance._selectedLayer = layer;
+            if (LBSInspectorPanel.Instance != null)
+            {
+                LBSInspectorPanel.Instance.SetTarget(layer);
+                LBSInspectorPanel.ActivateBehaviourTab();
+            }
+        }
+
+        #region POPULATION LAYER METHODS
+        private void GeneratePopulationProcess()
+        {
+            Bundle selectedBundle = _popMainBundle.value as Bundle;
             if (selectedBundle == null)
             {
                 if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.Flex;
                 return;
             }
 
-            var selectedType = (ConnectedTileMapModule.ConnectedTileType)_extType.value;
-            string typeKeyword = (selectedType == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
-
-            LBSLayer newLayer = CreateBaseLayer("Exterior", typeKeyword);
+            LBSLayer newLayer = CreateBaseLayer("Population");
             if (newLayer == null) return;
 
-            var exteriorBehaviour = newLayer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
-            if (exteriorBehaviour != null) exteriorBehaviour.Bundle = selectedBundle;
+            LBSLayer[] contextLayers = Data.contextLayers.ToArray();
 
-            List<Vector2Int> generatedPositions = FillLayerWithEmptyTiles(newLayer, _extWidth.value, _extHeight.value);
-            RunWFC(newLayer, selectedBundle, generatedPositions);
+            foreach(LBSLayer layer in contextLayers)
+            {
+                var schema = layer.GetBehaviour<SchemaBehaviour>();
+                if (schema is not null)
+                {
+                    continue;
+                }
 
-            FinalizeLayer(newLayer);
-            Debug.Log($"[QuickAssistant] Exterior generado.");
+                var exterior = layer.GetBehaviour<SchemaBehaviour>();
+                if (exterior is not null)
+                {
+                    continue;
+                }
+            }
         }
 
+        private LBSLayer RunSchemaPopulation(LBSLayer layer, SchemaBehaviour schema)
+        {
+            foreach (var zone in schema.ZonesWithTiles)
+            {
+                var positions = zone.Positions.ToArray();
+            }
+
+            return layer;
+        }
+
+        private void AddLayerMenu()
+        {
+            GenericMenu menu = new GenericMenu();
+            foreach (LBSLayer layer in Data.Layers)
+            {
+                // It only takes InteriorLayers as context, but can be adapted to consider others
+                if (layer.GetBehaviour<SchemaBehaviour>() is null && layer.GetBehaviour<ExteriorBehaviour>() is null) continue;
+                menu.AddItem(new GUIContent(layer.Name), Data.ContextLayers.Contains(layer), ToggleLayerContext, layer);
+            }
+            menu.ShowAsContext();
+        }
+
+        private void ToggleLayerContext(object layer)
+        {
+            LBSLayer objectLayer = layer as LBSLayer;
+            if (objectLayer == null)
+            {
+                Debug.LogError("Object Layer was null.");
+                return;
+            }
+
+            if (Data.ContextLayers.Contains(layer))
+            {
+                Data.RemoveLayerFromContext(objectLayer);
+            }
+            else
+            {
+                Data.AddLayerToContext(objectLayer);
+            }
+            _popContextView.Rebuild();
+        }
+        #endregion
+
+        #region INTERIOR LAYER METHODS
         private void GenerateInteriorProcess()
         {
             int roomSize = _intRoomSize.value;
@@ -402,22 +464,9 @@ namespace ISILab.LBS.VisualElements
             }
         }
 
-        private void FinalizeLayer(LBSLayer layer)
-        {
-            if (LBS.loadedLevel != null) EditorUtility.SetDirty(LBS.loadedLevel);
-            layer.OnChangeUpdate();
-            if (DrawManager.Instance != null) DrawManager.Instance.RedrawLayer(layer);
-
-            LBSMainWindow.Instance._selectedLayer = layer;
-            if (LBSInspectorPanel.Instance != null)
-            {
-                LBSInspectorPanel.Instance.SetTarget(layer);
-                LBSInspectorPanel.ActivateBehaviourTab();
-            }
-        }
         private async void RunHillClimbingOptimization(LBSLayer layer)
         {
-            Debug.Log("[QuickAssistant] Iniciando Optimización IA...");
+            Debug.Log("[QuickAssistant] Iniciando Optimizaciï¿½n IA...");
 
             Undo.RegisterCompleteObjectUndo(LBSController.CurrentLevel, "Quick Optimization");
 
@@ -479,7 +528,7 @@ namespace ISILab.LBS.VisualElements
                 optimizer.OnDetachLayer(layer);
                 FinalizeLayer(layer);
 
-                Debug.Log("[QuickAssistant] Optimización Finalizada.");
+                Debug.Log("[QuickAssistant] Optimizaciï¿½n Finalizada.");
             }
         }
 
@@ -642,6 +691,59 @@ namespace ISILab.LBS.VisualElements
                 }
             }
         }
+        #endregion
+
+        #region EXTERIOR LAYER METHODS
+        private void GenerateExteriorProcess()
+        {
+            Bundle selectedBundle = _extThemeBundle.value as Bundle;
+            if (selectedBundle == null)
+            {
+                if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.Flex;
+                return;
+            }
+
+            var selectedType = (ConnectedTileMapModule.ConnectedTileType)_extType.value;
+            string typeKeyword = (selectedType == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
+
+            LBSLayer newLayer = CreateBaseLayer("Exterior", typeKeyword);
+            if (newLayer == null) return;
+
+            var exteriorBehaviour = newLayer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
+            if (exteriorBehaviour != null) exteriorBehaviour.Bundle = selectedBundle;
+
+            List<Vector2Int> generatedPositions = FillLayerWithEmptyTiles(newLayer, _extWidth.value, _extHeight.value);
+            RunWFC(newLayer, selectedBundle, generatedPositions);
+
+            FinalizeLayer(newLayer);
+            Debug.Log($"[QuickAssistant] Exterior generado.");
+        }
+
+        private void AutoAssignExteriorBundle(ConnectedTileMapModule.ConnectedTileType type)
+        {
+            if (_templates == null || _templates.Count == 0 || _extThemeBundle == null) return;
+
+            string typeKeyword = (type == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
+
+            var match = _templates.FirstOrDefault(t =>
+            t.templateName.Contains("Exterior") &&
+            t.templateName.Contains(typeKeyword));
+
+            if (match == null)
+            {
+                match = _templates.FirstOrDefault(t => t.templateName.Contains("Exterior"));
+            }
+
+            if (match != null)
+            {
+                var exteriorBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
+
+                if (exteriorBehaviour != null && exteriorBehaviour.Bundle != null)
+                {
+                    _extThemeBundle.value = exteriorBehaviour.Bundle;
+                }
+            }
+        }
 
         private List<Vector2Int> FillLayerWithEmptyTiles(LBSLayer layer, int width, int height)
         {
@@ -676,29 +778,9 @@ namespace ISILab.LBS.VisualElements
             wfc.SafeMode = true;
             bool hasChanceRules = bundle.GetCharacteristics<LBSDirectionedChance>().Count > 0;
             bool success = hasChanceRules ? wfc.ExecuteChance() : wfc.TryExecute(out string log, out LogType type);
-            if (!success) Debug.LogWarning($"[QuickAssistant] WFC terminó con advertencias.");
+            if (!success) Debug.LogWarning($"[QuickAssistant] WFC terminï¿½ con advertencias.");
         }
-
-        private LBSLayer CreateBaseLayer(string primaryKeyword, string secondaryKeyword = null)
-        {
-            if (_templates == null || _templates.Count == 0) return null;
-            var candidates = _templates.Where(t => t.templateName.Contains(primaryKeyword)).ToList();
-            if (candidates.Count == 0) return null;
-
-            LayerTemplate targetTemplate = null;
-            if (!string.IsNullOrEmpty(secondaryKeyword))
-                targetTemplate = candidates.FirstOrDefault(t => t.templateName.Contains(secondaryKeyword));
-            if (targetTemplate == null) targetTemplate = candidates[0];
-
-            if (targetTemplate.layer.Clone() is LBSLayer newLayer)
-            {
-                string safeName = targetTemplate.templateName.Replace("/", " ").Replace("\\", " ");
-                newLayer.Name = safeName;
-                LBSMainWindow.Instance.layerPanel.AddLayer(newLayer);
-                return newLayer;
-            }
-            return null;
-        }
+        #endregion
         #endregion
 
         private void AddLayerMenu()
