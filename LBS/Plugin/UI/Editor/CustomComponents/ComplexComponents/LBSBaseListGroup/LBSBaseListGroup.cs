@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ISILab.LBS.CustomComponents;
 using UnityEditor;
 using UnityEditor.VersionControl;using UnityEngine;
@@ -88,6 +89,21 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 if (listView != null) listView.itemTemplate = value.visualTreeAssetSource; // such a hack!
             }
         }
+
+
+        private List<LBSCustomListItem> listItems;
+
+        [UxmlObjectReference("LBSCustomListItem")]
+        public List<LBSCustomListItem> ListItems
+        {
+            get => listItems;
+            set
+            {
+                listItems = value;
+            }
+        }
+        
+        
 
         public LBSBaseListGroup() : base()
         {
