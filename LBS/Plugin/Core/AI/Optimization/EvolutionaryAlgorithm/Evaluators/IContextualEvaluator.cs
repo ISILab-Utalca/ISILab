@@ -182,7 +182,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
             if (!interiorExists)
             {
-                exteriorLayer.GetModule<SectorizedTileMapModule>().RecalculateZonesProximity(selection, exteriorLayer.GetModule<ConnectedTileMapModule>("TempConnectedModule"));
+                var connectedTM = exteriorLayer.GetModule<ConnectedTileMapModule>("TempConnectedModule");
+                //connectedTM.InitializePathfinding(selection);
+                exteriorLayer.GetModule<SectorizedTileMapModule>().RecalculateZonesProximity(selection, connectedTM);
                 return exteriorLayer;
             }
 

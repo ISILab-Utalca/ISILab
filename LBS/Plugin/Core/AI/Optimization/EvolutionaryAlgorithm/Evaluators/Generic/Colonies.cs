@@ -58,11 +58,89 @@ namespace ISILab.AI.Categorization
 
         #endregion
 
+        public struct Colony
+        {
+            public int[] members;
+            public int center;
 
+            public int Size => members.Length;
+
+            public Colony(params int[] members)
+            {
+                this.members = members;
+                center = -1;
+            }
+            
+            public int GetCenter(ChromosomeBase2D chromosome)
+            {
+                if (members.Length == 0) return -1;
+                if (members.Length == 1) return members[0];
+
+                List<Vector2> positions = members.Select(m => chromosome.ToMatrixPosition(m).ToFloat()).ToList();
+                Vector2 avg = positions.Average();
+                Vector2 trueCenter = avg;
+                Vector2Int centerPosInt = trueCenter.ToInt(true);
+                if (InvalidPos(centerPosInt))
+                {
+                    Queue<Vector2Int> dirsPriority = new();
+                    Vector2 diff = trueCenter - centerPosInt;
+                    Vector2Int xOffset = Vector2Int.right.Multiply(Mathf.Sign(diff.x), true);
+                    Vector2Int yOffset = Vector2Int.up.Multiply(Mathf.Sign(diff.y), true);
+                    Vector2Int xNeigh = centerPosInt + xOffset;
+                    Vector2Int yNeigh = centerPosInt + yOffset;
+
+                    if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
+                    {
+                        if(positions.Contains(xNeigh))
+                            return chromosome.ToIndex(xNeigh);
+                        dirsPriority.Enqueue(xNeigh);
+                        dirsPriority.Enqueue(yNeigh);
+                    }
+                    else
+                    {
+                        if (positions.Contains(yNeigh))
+                            return chromosome.ToIndex(yNeigh);
+                        dirsPriority.Enqueue(yNeigh);
+                        dirsPriority.Enqueue(xNeigh);
+                    }
+                    dirsPriority.Enqueue(centerPosInt + xOffset + yOffset);
+
+                    bool invalid = true;
+                    while(invalid && dirsPriority.Count > 0)
+                    {
+                        centerPosInt = dirsPriority.Dequeue();
+                        invalid = InvalidPos(centerPosInt);
+                    }
+
+                    if (invalid)
+                    {
+                        PriorityQueue<Vector2, float> memsPriority = new();
+                        foreach (Vector2 memPos in positions)
+                        {
+                            memsPriority.Push(memPos, Vector2.SqrMagnitude(memPos - trueCenter));
+                        }
+                        centerPosInt = memsPriority.Pop().ToInt();
+                    }
+                }
+
+                return chromosome.ToIndex(centerPosInt);
+
+                bool InvalidPos(Vector2Int pos) => chromosome.IsInvalid(chromosome.ToIndex(pos));
+            }
+
+            public Colony SetCenter(ChromosomeBase2D chromosome)
+            {
+                center = GetCenter(chromosome);
+                return this;
+            }
+
+            public int this[int i] => members[i];
+        }
 
         #region EVALUATION
+        public float Evaluate(IOptimizable evaluable) => NEWEvaluate(evaluable);
 
-        public float Evaluate(IOptimizable evaluable)
+        public float NEWEvaluate(IOptimizable evaluable)
         {
             var chrom = evaluable as BundleTilemapChromosome;
 
@@ -122,7 +200,14 @@ namespace ISILab.AI.Categorization
                 return 0.0f;
             }
 
+            List<Colony> colonies = new();
             int[,] distances = new int[size, size];
+
+            SectorizedTileMapModule sectorMod = null;
+            Dictionary<Vector2Int, LBSTile> tilePos = null;
+            string moduleID = null;
+            ConnectedTileMapModule connectedMod = null;
+            List<int> skip = new();
 
             if (layer is not null)
             {
@@ -130,53 +215,43 @@ namespace ISILab.AI.Categorization
                 {
                     case "Interior":
                     case "Exterior":
-                        var sectorMod = layer.GetModule<SectorizedTileMapModule>();
-                        Dictionary<Vector2Int, LBSTile> tilePos = new();
+                        sectorMod = layer.GetModule<SectorizedTileMapModule>();
+                        tilePos = new Dictionary<Vector2Int, LBSTile>();
                         foreach (TileZonePair pair in sectorMod.PairTiles)
                         {
                             if (!tilePos.ContainsKey(pair.Tile.Position))
                                 tilePos.Add(pair.Tile.Position, pair.Tile);
                         }
-                        string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
-                        var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
+                        moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                        connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
                         switch (searchType)
                         {
                             case PathfindingAlgorithm.Flood_Fill:
                                 for (int i = 0; i < size; i++)
                                 {
-                                    List<int> knownDist = new List<int>();
-                                    List<int> others = new List<int>();
-                                    for(int j = i + 1; j < size; j++)
-                                    {
-                                        if( DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
-                                        {
-                                            distances[j, i] = distances[i, j];
-                                            knownDist.Add(j);
-                                        } 
-                                        else if(DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
-                                        {
-                                            distances[i, j] = distances[j, i];
-                                            knownDist.Add(j);
-                                        }
-                                    }
-                                    others = itemIndices.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                    if (skip.Contains(i)) continue;
+                                    EvaluatorHelper.PartialFloodFill(maxDist, itemIndices[i], itemIndices.Except(skip).ToList(), i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                    colonies.Add(new(found.ToArray()));
+                                    //colonies[^1] = colonies[^1].SetCenter(chrom);
+                                    skip.AddRange(found.Select(f => itemIndices.IndexOf(f)));
                                 }
                                 break;
                             case PathfindingAlgorithm.JPS_Plus:
                                 for (int i = 0; i < size; i++)
                                 {
-                                    for (int j = i; j < size; j++)
+                                    distances[i, i] = 0;
+                                    //if (skip.Contains(i)) continue;
+                                    List<int> members = new() { itemIndices[i] };
+                                    for (int j = i + 1; j < size; j++)
                                     {
-                                        if (i == j)
-                                            distances[i, i] = 0;
-                                        else if (DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
-                                            distances[j, i] = distances[i, j];
-                                        else if (DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
-                                            distances[i, j] = distances[j, i];
-                                        else
-                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+                                        if (skip.Contains(j)) continue;
+                                        distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+                                        if (distances[i, j] < 0) continue; // Not found at specified distance
+                                        members.Add(itemIndices[j]); // Add to incoming colony
+                                        skip.Add(j);
                                     }
+                                    colonies.Add(new(members.ToArray()));
+                                    //colonies[^1] = colonies[^1].SetCenter(chrom);
                                 }
                                 break;
                         }
@@ -184,7 +259,11 @@ namespace ISILab.AI.Categorization
                     default:
                         for (int i = 0; i < size; i++)
                         {
-                            EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
+                            //if(skip.Contains(i)) continue;
+                            EvaluatorHelper.PartialManhattan(maxDist, itemIndices[i], itemIndices.Except(skip).ToList(), i, out List<int> found, ref distances, chrom);
+                            colonies.Add(new(found.ToArray()));
+                            //colonies[^1] = colonies[^1].SetCenter(chrom);
+                            skip.AddRange(found.Select(f => itemIndices.IndexOf(f)));
                         }
                         break;
                 }
@@ -193,20 +272,16 @@ namespace ISILab.AI.Categorization
             {
                 for (int i = 0; i < size; i++)
                 {
-                    EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
+                    //if (skip.Contains(i)) continue;
+                    EvaluatorHelper.PartialManhattan(maxDist, itemIndices[i], itemIndices.Except(skip).ToList(), i, out List<int> found, ref distances, chrom);
+                    colonies.Add(new(found.ToArray()));
+                    //colonies[^1] = colonies[^1].SetCenter(chrom);
+                    skip.AddRange(found.Select(f => itemIndices.IndexOf(f)));
                 }
             }
 
-            int news = 0;
-            for (int i = 0; i < size; i++)
-                for (int j = 0; j < size; j++)
-                    if(DistancePool.TryAdd((itemIndices[i], itemIndices[j]), distances[i, j]))
-                        news++;
-            //Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
-            //Debug.Log("Pool Size: " + DistancePool.Count);
-
             string l = "";
-            for(int i = 0; i < size; i++)
+            for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
                 {
@@ -216,71 +291,61 @@ namespace ISILab.AI.Categorization
             }
             //Debug.Log(l);
 
-            // COLONY CONSTRUCTION
+            //int colonyCount = colonies.Count;
+            //int[,] colonyDist = new int[colonyCount, colonyCount];
+            //List<int> colonyItems = colonies.Select(c => c.center).ToList();
+            //if (layer is not null)
+            //{
+            //    switch (layer.ID)
+            //    {
+            //        case "Interior":
+            //        case "Exterior":
+            //            switch (searchType)
+            //            {
+            //                case PathfindingAlgorithm.Flood_Fill:
+            //                    for (int i = 0; i < colonyCount; i++)
+            //                    {
+            //                        EvaluatorHelper.FloodFill(colonyItems[i], colonyItems, i, ref colonyDist, tilePos, chrom, sectorMod, connectedMod);
+            //                    }
+            //                    break;
+            //                case PathfindingAlgorithm.JPS_Plus:
+            //                    for (int i = 0; i < colonyCount; i++)
+            //                    {
+            //                        colonyDist[i, i] = 0;
+            //                        for (int j = i + 1; j < colonyCount; j++)
+            //                        {
+            //                            colonyDist[i, j] = colonyDist[j, i] = EvaluatorHelper.JPSPlus.JPSRun(colonyItems[i], colonyItems[j], chrom.Rect, connectedMod);
+            //                        }
+            //                    }
+            //                    break;
+            //            }
+            //            break;
+            //        default:
+            //            for (int i = 0; i < colonyCount; i++)
+            //            {
+            //                EvaluatorHelper.Manhattan(colonyItems[i], colonyItems, i, ref colonyDist, chrom);
+            //            }
+            //            break;
+            //    }
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < colonyCount; i++)
+            //    {
+            //        EvaluatorHelper.Manhattan(colonyItems[i], colonyItems, i, ref colonyDist, chrom);
+            //    }
+            //}
 
-            List<List<int>> colonies = new();
-            List<int> members = new();
-
-            while(members.Count < size)
+            foreach(Colony colony in colonies)
             {
-                List<int> distSum = new();
-                List<List<int>> nearest = new();
-                List<int> coreSuitability = new();
-                List<int> suitables = new();
-                int maxSuitableScore = 0;
-                for (int i = 0; i < size; i++)
-                {
-                    distSum.Add(0);
-                    nearest.Add(new());
-                    coreSuitability.Add(0);
-                    if (members.Contains(i)) continue;
-                    for (int j = 0; j < size; j++)
-                    {
-                        if (i == j || members.Contains(j)) continue;
-                        int d = distances[i, j];
-                        distSum[i] += d;
-                        if (d <= maxDist)
-                        {
-                            nearest[i].Add(j);
-                            coreSuitability[i]++;
-                        }
-                    }
+                if(colony.Size < minColonySize) continue;
 
-                    if (coreSuitability[i] > maxSuitableScore)
-                    {
-                        suitables.Clear();
-                        suitables.Add(i);
-                        maxSuitableScore = coreSuitability[i];
-                    }
-                    else if (coreSuitability[i] == maxSuitableScore)
-                        suitables.Add(i);
-                }
-
-                int bestDist = distSum[suitables[0]];
-                int core = suitables[0];
-                for (int i = 1; i < suitables.Count; i++)
-                {
-                    if (distSum[suitables[i]] < bestDist)
-                    {
-                        bestDist = distSum[suitables[i]];
-                        core = suitables[i];
-                    }
-                }
-
-                colonies.Add(new() { core });
-                colonies[^1].AddRange(nearest[core]);
-                members.AddRange(colonies[^1]);
-
-                // Colony scoring
-
-                if (colonies[^1].Count < minColonySize) continue;
-
-                int cSize = colonies[^1].Count;
+                int cSize = colony.Size;
                 int maxScore = (cSize * cSize - cSize) / 2;
                 int score = maxScore;
                 for (int i = 0; i < cSize - 1; i++)
                     for (int j = i + 1; j < cSize; j++)
-                        if (distances[colonies[^1][i], colonies[^1][j]] > maxDist)
+                        if (distances[itemIndices.IndexOf(colony[i]), itemIndices.IndexOf(colony[j])] > maxDist)
                             score--;
 
                 float colonyFitness = (float)score / (float)maxScore;
@@ -380,6 +445,237 @@ namespace ISILab.AI.Categorization
             clone.permaIndices = permaIndices;
 
             return clone;
+        }
+
+        public float OLDEvaluate(IOptimizable evaluable)
+        {
+            var chrom = evaluable as BundleTilemapChromosome;
+
+            if (chrom is null)
+            {
+                throw new System.Exception("Wrong Chromosome Type");
+            }
+            if (chrom.IsEmpty())
+            {
+                return 0.0f;
+            }
+
+            LBSLayer layer = CombinedLayer;
+
+            float fitness = 0;
+
+            List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
+
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaIndices = permaIndices is null && bundleTM is not null;
+            permaIndices ??= new List<int>();
+
+            List<int> itemIndices = new();
+            for (int i = 0; i < genes.Count; i++)
+            {
+                if (chrom.IsInvalid(i))
+                    continue;
+                if (genes[i] is not null)
+                {
+                    if (genes[i].HasTag(itemCharacteristic.FirstTag()))
+                    {
+                        itemIndices.Add(i);
+                        continue;
+                    }
+                }
+
+                if (!checkPermaIndices) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (groups.Contains(group)) continue;
+                if (group is not null && group.BundleData.HasTag(itemCharacteristic.FirstTag()))
+                {
+                    permaIndices.Add(i);
+                    groups.Add(group);
+                }
+            }
+
+            itemIndices.AddRange(permaIndices);
+
+            int size = itemIndices.Count;
+
+            if (size <= 1)
+            {
+                Debug.LogWarning("No enough items found to make colonies.");
+                return 0.0f;
+            }
+
+            int[,] distances = new int[size, size];
+
+            if (layer is not null)
+            {
+                switch (layer.ID)
+                {
+                    case "Interior":
+                    case "Exterior":
+                        var sectorMod = layer.GetModule<SectorizedTileMapModule>();
+                        Dictionary<Vector2Int, LBSTile> tilePos = new();
+                        foreach (TileZonePair pair in sectorMod.PairTiles)
+                        {
+                            if (!tilePos.ContainsKey(pair.Tile.Position))
+                                tilePos.Add(pair.Tile.Position, pair.Tile);
+                        }
+                        string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                        var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
+                        switch (searchType)
+                        {
+                            case PathfindingAlgorithm.Flood_Fill:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    List<int> knownDist = new List<int>();
+                                    List<int> others = new List<int>();
+                                    for (int j = i + 1; j < size; j++)
+                                    {
+                                        if (DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
+                                        {
+                                            distances[j, i] = distances[i, j];
+                                            knownDist.Add(j);
+                                        }
+                                        else if (DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
+                                        {
+                                            distances[i, j] = distances[j, i];
+                                            knownDist.Add(j);
+                                        }
+                                    }
+                                    others = itemIndices.Except(knownDist).ToList();
+                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                }
+                                break;
+                            case PathfindingAlgorithm.JPS_Plus:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    for (int j = i; j < size; j++)
+                                    {
+                                        if (i == j)
+                                            distances[i, i] = 0;
+                                        else if (DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
+                                            distances[j, i] = distances[i, j];
+                                        else if (DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
+                                            distances[i, j] = distances[j, i];
+                                        else
+                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+                                    }
+                                }
+                                break;
+                        }
+                        break;
+                    default:
+                        for (int i = 0; i < size; i++)
+                        {
+                            EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
+                }
+            }
+
+            int news = 0;
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    if (DistancePool.TryAdd((itemIndices[i], itemIndices[j]), distances[i, j]))
+                        news++;
+            //Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
+            //Debug.Log("Pool Size: " + DistancePool.Count);
+
+            string l = "";
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    l += $"[{distances[i, j]}] ";
+                }
+                l += "\n";
+            }
+            //Debug.Log(l);
+
+            // COLONY CONSTRUCTION
+
+            List<List<int>> colonies = new();
+            List<int> members = new();
+
+            while (members.Count < size)
+            {
+                List<int> distSum = new();
+                List<List<int>> nearest = new();
+                List<int> coreSuitability = new();
+                List<int> suitables = new();
+                int maxSuitableScore = 0;
+                for (int i = 0; i < size; i++)
+                {
+                    distSum.Add(0);
+                    nearest.Add(new());
+                    coreSuitability.Add(0);
+                    if (members.Contains(i)) continue;
+                    for (int j = 0; j < size; j++)
+                    {
+                        if (i == j || members.Contains(j)) continue;
+                        int d = distances[i, j];
+                        distSum[i] += d;
+                        if (d <= maxDist)
+                        {
+                            nearest[i].Add(j);
+                            coreSuitability[i]++;
+                        }
+                    }
+
+                    if (coreSuitability[i] > maxSuitableScore)
+                    {
+                        suitables.Clear();
+                        suitables.Add(i);
+                        maxSuitableScore = coreSuitability[i];
+                    }
+                    else if (coreSuitability[i] == maxSuitableScore)
+                        suitables.Add(i);
+                }
+
+                int bestDist = distSum[suitables[0]];
+                int core = suitables[0];
+                for (int i = 1; i < suitables.Count; i++)
+                {
+                    if (distSum[suitables[i]] < bestDist)
+                    {
+                        bestDist = distSum[suitables[i]];
+                        core = suitables[i];
+                    }
+                }
+
+                colonies.Add(new() { core });
+                colonies[^1].AddRange(nearest[core]);
+                members.AddRange(colonies[^1]);
+
+                // Colony scoring
+
+                if (colonies[^1].Count < minColonySize) continue;
+
+                int cSize = colonies[^1].Count;
+                int maxScore = (cSize * cSize - cSize) / 2;
+                int score = maxScore;
+                for (int i = 0; i < cSize - 1; i++)
+                    for (int j = i + 1; j < cSize; j++)
+                        if (distances[colonies[^1][i], colonies[^1][j]] > maxDist)
+                            score--;
+
+                float colonyFitness = (float)score / (float)maxScore;
+                fitness += colonyFitness;
+            }
+
+            fitness /= colonies.Count;
+
+            UnityEngine.Assertions.Assert.IsFalse(fitness == float.NaN);
+            return fitness;
         }
     }
 }

@@ -177,6 +177,128 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
         }
 
+        public static void PartialFloodFill(int limit, int startPos, List<int> others, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
+        {
+            found = new List<int>() { startPos };
+
+            if (from >= others.Count)
+                return;
+
+            List<int> remainingOthers = new List<int>(others);
+            remainingOthers.RemoveRange(0, from);
+            remainingOthers.Remove(startPos);
+
+            var remaining = new HashSet<int>();
+            var closed = new HashSet<int>();
+
+            foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
+            {
+                int index = chrom.GlobalToIndex(tile.Position);
+                if (index < 0) continue;
+                remaining.Add(index);
+            }
+
+            var remainingStep = new Queue<int>();
+            remainingStep.Enqueue(startPos);
+
+            Dictionary<int, int> allowedSteps = new() { [startPos] = limit };
+
+            List<Vector2Int> dirs = Directions.Bidimencional.Edges;
+            int dirCount = dirs.Count;
+            int[] inverseIndices = new int[dirCount];
+            for (int k = 0; k < dirCount; k++)
+            {
+                inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
+            }
+
+            int i; // Distancia recorrida
+            for (i = 0; remaining.Count > 0 && remainingStep.Count > 0; i++) // Casillas que falta por revisar
+            {
+                if (remainingStep.Count == 0)
+                    break;
+
+                HashSet<int> nextStepCheck = new HashSet<int>();
+                List<int> nextStep = new List<int>();
+
+                while (remainingStep.Count > 0) // Casillas que deben revisar sus vecinos en esta iteracion. Todas tienen distancia == i
+                {
+                    int current = remainingStep.Dequeue();
+
+                    Vector2Int currentPos = chrom.ToGlobalPosition(current);
+
+                    remaining.Remove(current);
+                    closed.Add(current);
+
+                    if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
+                    List<string> currentConnections = connectedTM.GetConnections(currentTile);
+
+                    for (int k = 0; k < dirCount; k++)
+                    {
+                        string currentConnection = currentConnections[k];
+
+                        if (!((currentConnection.Length == 4 && currentConnection == "Door") ||
+                              (currentConnection.Length == 5 && currentConnection == "Empty")))
+                            continue;
+
+                        Vector2Int dir = dirs[k];
+                        Vector2Int newPos = currentPos + dir;
+                        int index = chrom.GlobalToIndex(newPos);
+
+                        //if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index)) // Quiza en vez de nextStepCheck simplemente se pueda revisar nextStep
+                        //    continue;
+
+                        if (index < 0) continue;
+                        if (nextStepCheck.Contains(index) || closed.Contains(index))
+                        {
+                            if (allowedSteps[index] < allowedSteps[current] - 1)
+                            {
+                                allowedSteps.Remove(index);
+                            }
+                            else continue;
+                        }
+
+                        Zone otherZone = sectorizedTM.GetZone(newPos);
+                        if (otherZone is null) continue;
+
+                        if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
+
+                        int invIndex = inverseIndices[k];
+                        if (invIndex == -1) continue;
+
+                        string connection = connectedTM.GetConnections(newTile)[invIndex];
+
+                        if (!((connection.Length == 4 && connection == "Door") ||
+                              (connection.Length == 5 && connection == "Empty")))
+                            continue;
+
+                        allowedSteps.Add(index, allowedSteps[current] - 1);
+
+                        for (int j = from; j < others.Count; j++)
+                        {
+                            if (index == others[j])
+                            {
+                                distances[from, j] = distances[j, from] = i + 1;
+                                remainingOthers.Remove(index);
+                                found.Add(index);
+                                if (remainingOthers.Count == 0) return;
+                                allowedSteps[index] = limit;
+                                break;
+                            }
+                        }
+
+                        nextStep.Add(index);
+                        nextStepCheck.Add(index);
+                    }
+                }
+
+                foreach (int step in nextStep)
+                    if (allowedSteps[step] > 0)
+                        remainingStep.Enqueue(step);
+                    else
+                        allowedSteps.Remove(step);
+            }
+        }
+
         public static void Manhattan(int startPos, List<int> others, int from, ref int[,] distances, BundleTilemapChromosome chrom)
         {
             for (int i = from; i < others.Count; i++)
@@ -185,6 +307,28 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 Vector2Int v2 = chrom.ToMatrixPosition(others[i]);
 
                 distances[i, from] = distances[from, i] = Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
+            }
+        }
+
+        public static void PartialManhattan(int limit, int startPos, List<int> others, int from, out List<int> found, ref int[,] distances, BundleTilemapChromosome chrom)
+        {
+            found = new List<int>();
+            Dictionary<int, int> allowedSteps = new() { [startPos] = limit };
+            for (int i = from; i < others.Count; i++)
+            {
+                Vector2Int v1 = chrom.ToMatrixPosition(startPos);
+                Vector2Int v2 = chrom.ToMatrixPosition(others[i]);
+
+                int dist = Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
+                if(dist > limit)
+                {
+                    distances[i, from] = distances[from, i] = 0;
+                }
+                else
+                {
+                    distances[i, from] = distances[from, i] = dist;
+                    found.Add(others[i]);
+                }
             }
         }
 
@@ -615,6 +759,137 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         newNode = connectedTM.JPSNodes[area.GlobalToIndex(newPos)];
                     }
                         
+                    return newNode;
+                }
+            }
+
+            public static int PartialJPSRun(int limit, int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM)
+            {
+                int cost = -1;
+                if (connectedTM is null) return cost;
+
+                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.PathfindDistances;
+
+                PriorityQueue<JPSNode, int> open = new();
+
+                JPSNode startNode = connectedTM.JPSNodes[startInd];
+                startNode.parent = null;
+                startNode.givenCost = 0;
+                startNode.finalCost = 0;
+
+                open.Push(startNode, 0);
+
+                Vector2Int goalPos = area.ToGlobalPosition(goalInd);
+
+                List<int> targetJumpPoints = new List<int>();
+
+                while (!open.IsEmpty())
+                {
+                    JPSNode current = open.Pop();
+                    JPSNode parent = current.parent;
+                    int[] nodeDistances = JPDistances[current.pos];
+
+                    if (current.pos == goalPos)
+                    {
+                        cost = current.givenCost;
+                        break;
+                    }
+
+                    int[] dirs = current.parent is null ? new[] { 0, 1, 2, 3, 4, 5, 6, 7 } : validDirLookUpTable[current.fromDir];
+                    foreach (int dir in dirs)
+                    {
+                        JPSNode newSuccesor = null;
+                        int givenCost = 0;
+
+                        int maxGoalDiff = Mathf.Max(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y)),
+                            minGoalDiff = Mathf.Min(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y));
+                        if (dir % 2 == 0 &&
+                            GoalAtDirection(current.pos, dir, goalPos, true) &&
+                            maxGoalDiff <= Mathf.Abs(nodeDistances[dir]))
+                        {
+                            newSuccesor = connectedTM.JPSNodes[goalInd];
+                            givenCost = current.givenCost + maxGoalDiff;
+                        }
+                        else if (dir % 2 == 1 &&
+                            GoalAtDirection(current.pos, dir, goalPos) &&
+                            minGoalDiff <= Mathf.Abs(nodeDistances[dir]))
+                        {
+                            // TARGET JUMP POINT
+                            newSuccesor = GetNodeAtDist(current.pos, dir, minGoalDiff);
+                            givenCost = current.givenCost + Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y));
+                        }
+                        else if (nodeDistances[dir] > 0)
+                        {
+                            newSuccesor = GetNodeAtDist(current.pos, dir, nodeDistances[dir]);
+                            givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y)) + current.givenCost;
+                        }
+
+                        if (givenCost <= limit && newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                        {
+                            newSuccesor.parent = current;
+                            newSuccesor.givenCost = givenCost;
+                            newSuccesor.fromDir = dir;
+
+                            int dx = goalPos.x - newSuccesor.pos.x,
+                                dy = goalPos.y - newSuccesor.pos.y;
+                            newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+
+                            open.Push(newSuccesor, newSuccesor.finalCost);
+                        }
+                    }
+                }
+
+                while (targetJumpPoints.Count > 0)
+                {
+                    connectedTM.JPSNodes[targetJumpPoints[0]] = null;
+                    targetJumpPoints.RemoveAt(0);
+                }
+
+                return cost;
+
+                /// LOCAL FUNCTIONS
+
+                bool GoalAtDirection(Vector2Int pos, int dir, Vector2Int goalPos, bool exact = false)
+                {
+                    if (dir < 0 && dir >= 8) return false;
+
+                    int dx = goalPos.x - pos.x,
+                        dy = goalPos.y - pos.y;
+                    bool equalMagnitude = Mathf.Abs(dy) == Mathf.Abs(dx);
+
+                    bool[] returns = new bool[]
+                    {
+                        dy == 0 && dx > 0,
+                        dy > 0  && dx > 0   && (equalMagnitude || !exact),
+                        dy > 0  && dx == 0,
+                        dy > 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy == 0 && dx < 0,
+                        dy < 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy < 0  && dx == 0,
+                        dy < 0  && dx > 0   && (equalMagnitude || !exact)
+                    };
+
+                    return returns[dir];
+                }
+
+                JPSNode GetNodeAtDist(Vector2Int pos, int dir, int dist)
+                {
+                    JPSNode newNode = null;
+                    List<Vector2Int> dirs = Directions.Bidimencional.All;
+                    Vector2Int move = dirs[dir] * dist;
+                    Vector2Int newPos = pos + move;
+
+                    if (connectedTM.JPSNodes[area.GlobalToIndex(newPos)] is null)
+                    {
+                        newNode = new JPSNode(newPos);
+                        connectedTM.JPSNodes[area.GlobalToIndex(newPos)] = newNode;
+                        targetJumpPoints.Add(area.GlobalToIndex(newPos));
+                    }
+                    else
+                    {
+                        newNode = connectedTM.JPSNodes[area.GlobalToIndex(newPos)];
+                    }
+
                     return newNode;
                 }
             }
