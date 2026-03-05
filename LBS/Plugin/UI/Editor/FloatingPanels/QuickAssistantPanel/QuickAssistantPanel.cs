@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Unity.Properties;
 using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -50,31 +51,7 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomButton _runButton;
         private WarningPanel _exteriorWarning;
         private LBSCustomFoldout _foldoutSettings;
-        private VisualElement _containerExterior;
-        private VisualElement _containerInterior;
-        private VisualElement _containerPopulation;
-
-        private LBSCustomEnumField _extType;
-        private LBSCustomObjectField _extThemeBundle;
-        private LBSCustomTextField _extSeed;
-        private LBSCustomIntSlider _extWidth;
-        private LBSCustomIntSlider _extHeight;
-        private EnumFlagsField _extFlags;
-
-        private LBSCustomTextField _intSeed;
-        private LBSCustomIntSlider _intRoomSize;
-        private LBSCustomIntSlider _intRoomCount;
-        private LBSCustomToggleField _intMultiFloor;
-        private LBSCustomToggleField _intOptimized;
-        private LBSCustomEnumField _intMode;
-        private EnumFlagsField _intFlags;
-
-        private LBSCustomObjectField _popMainBundle;
-        private LBSCustomTextField _popSeed;
-        private List<KeyValuePair<LBSTag, BoolIntPair>> _popTagList;
-        private ListView _popToggleView;
-        private Button _popSelectContextButton;
-        private ListView _popContextView;
+        private List<QuickAssistantContainer> _containerList;
         #endregion
 
         #region PROPERTIES
@@ -82,7 +59,6 @@ namespace ISILab.LBS.VisualElements
         private const string UXML_NAME = "QuickAssistantPanel";
         public LBSButtonListFilter BundlePickerWindow { get; set; }
         private List<LayerTemplate> _templates;
-        private LBSLevelData Data => LBS.loadedLevel.data;
         #endregion
 
         #region CONSTRUCTORS
@@ -116,174 +92,37 @@ namespace ISILab.LBS.VisualElements
             _runButton = this.Q<LBSCustomButton>("RunButton");
             _exteriorWarning = this.Q<WarningPanel>("ExteriorWarning");
             _foldoutSettings = this.Q<LBSCustomFoldout>("FoldoutSettings");
-            _containerExterior = this.Q<VisualElement>("ContainerExterior");
-            _containerInterior = this.Q<VisualElement>("ContainerInterior");
-            _containerPopulation = this.Q<VisualElement>("ContainerPopulation");
 
-            if (_containerExterior != null)
+            if(_foldoutSettings is not null)
             {
-                LoadExteriorConainer();
-            }
+                _containerList = new();
 
-            if (_containerInterior != null)
-            {
-                LoadInteriorContainer();
-            }
+                // Exterior container
+                var extContainer = new ExteriorContainer(_templates.FindAll(lt => lt.templateName.Contains("Exterior")));
+                _containerList.Add(extContainer);
+                _foldoutSettings.AddContent(extContainer);
 
-            if(_containerPopulation != null)
-            {
-                LoadPopulationContainer();
+                // Interior container
+                var intContainer = new InteriorContainer(_templates.FindAll(lt => lt.templateName.Contains("Interior")));
+                _containerList.Add(intContainer);
+                _foldoutSettings.AddContent(intContainer);
+                
+                // Exterior container
+                var popContainer = new PopulationContainer(_templates.FindAll(lt => lt.templateName.Contains("Population")));
+                _containerList.Add(popContainer);
+                _foldoutSettings.AddContent(popContainer);
             }
 
             _layerTypeSelector?.RegisterValueChangedCallback(evt => UpdateVisibility(evt.newValue?.ToString()));
             if (_runButton != null) _runButton.clicked += GenerateLayer;
         }
 
-        private void LoadExteriorConainer()
-        {
-            _extType = _containerExterior.Q<LBSCustomEnumField>("ExtType");
-            _extType?.RegisterValueChangedCallback(evt =>
-            {
-                if (evt.newValue != null)
-                {
-                    AutoAssignExteriorBundle((ConnectedTileMapModule.ConnectedTileType)evt.newValue);
-                }
-            });
-            _extThemeBundle = _containerExterior.Q<LBSCustomObjectField>("ExtThemeBundle");
-            if (_extThemeBundle != null)
-            {
-                _extThemeBundle.objectType = typeof(Bundle);
-                _extThemeBundle.UseCustomFilter = true;
-                _extThemeBundle.CustomFilter = pick =>
-                {
-                    var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
-                    (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
-                };
-            }
-
-            _extSeed = _containerExterior.Q<LBSCustomTextField>("ExtSeed");
-            if (_extSeed != null) _extSeed.style.display = DisplayStyle.None;
-
-            _extWidth = _containerExterior.Q<LBSCustomIntSlider>("ExtWidth");
-            _extHeight = _containerExterior.Q<LBSCustomIntSlider>("ExtHeight");
-
-            _extFlags = _containerExterior.Q<EnumFlagsField>("ExtFlag");
-            if (_extFlags != null)
-            {
-                if (_extFlags.parent != null) _extFlags.parent.style.display = DisplayStyle.None;
-                else _extFlags.style.display = DisplayStyle.None;
-            }
-        }
-        private void LoadInteriorContainer()
-        {
-            _intSeed = _containerInterior.Q<LBSCustomTextField>("IntSeed");
-            if (_intSeed != null) _intSeed.style.display = DisplayStyle.None;
-
-            _intRoomSize = _containerInterior.Q<LBSCustomIntSlider>("IntRoomSize");
-            _intRoomCount = _containerInterior.Q<LBSCustomIntSlider>("IntRoomCount");
-
-            _intMultiFloor = _containerInterior.Q<LBSCustomToggleField>("IntMultiFloor");
-            if (_intMultiFloor != null) _intMultiFloor.style.display = DisplayStyle.None;
-
-            _intFlags = _containerInterior.Q<EnumFlagsField>("IntFlag");
-            if (_intFlags != null)
-            {
-                if (_intFlags.parent != null) _intFlags.parent.style.display = DisplayStyle.None;
-                else _intFlags.style.display = DisplayStyle.None;
-            }
-
-            _intOptimized = _containerInterior.Q<LBSCustomToggleField>("IntOptimized");
-
-            _intMode = _containerInterior.Q<LBSCustomEnumField>("IntMode");
-            if (_intMode != null)
-            {
-                _intMode.Init(InteriorGenerationMode.GridWalker);
-            }
-        }
-        private void LoadPopulationContainer()
-        {
-            _popSeed = _containerPopulation.Q<LBSCustomTextField>("PopSeed");
-
-            _popMainBundle = _containerPopulation.Q<LBSCustomObjectField>("PopMainBundle");
-            if (_popMainBundle != null)
-            {
-                _popMainBundle.objectType = typeof(Bundle);
-                _popMainBundle.UseCustomFilter = true;
-                _popMainBundle.CustomFilter = pick =>
-                {
-                    var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainPopulationBundle>(includeChildren: true);
-                    (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
-                };
-            }
-            _popMainBundle.RegisterValueChangedCallback(
-               (ChangeEvent<Object> evt) =>
-               {
-                   Bundle newBundle = evt.newValue as Bundle;
-                   UpdateTagList(newBundle);
-               }
-            );
-
-            _popToggleView = _containerPopulation.Q<ListView>("TagList");
-            _popTagList = new();
-            _popToggleView.itemsSource = _popTagList;
-            _popToggleView.reorderable = false;
-            _popToggleView.makeItem += () => new QuickAssistantToggle();
-            _popToggleView.bindItem = (element, index) =>
-            {
-                var toggle = element as QuickAssistantToggle;
-                if (toggle == null) return;
-
-                toggle.Label = _popTagList[index].Key.Label;
-                toggle.Value = _popTagList[index].Value.boolean;
-                toggle.Quantity = _popTagList[index].Value.integer;
-            };
-
-            _popSelectContextButton = _containerPopulation.Q<Button>("AddLayerButton");
-            _popSelectContextButton.clicked += AddLayerMenu;
-
-            _popContextView = _containerPopulation.Q<ListView>("LayerList");
-            _popContextView.itemsSource = Data.contextLayers;
-            _popContextView.reorderable = false;
-            _popContextView.makeItem += () => new LayerContextEntry();
-            _popContextView.bindItem = (element, index) =>
-            {
-                var layerContextVE = element as LayerContextEntry;
-                if (layerContextVE == null) return;
-
-                layerContextVE.UpdateData(Data.ContextLayers[index]);
-                LBSLayer layer = layerContextVE.LayerReference;
-                Data.OnContextChanged += (_) =>
-                {
-                    _popContextView.Rebuild();
-                };
-                layerContextVE.EvaluateOverlap(Data.ContextLayers);
-                layerContextVE.OnRemoveButtonClicked = null;
-                layerContextVE.OnRemoveButtonClicked += () =>
-                {
-                    ToggleLayerContext(layer);
-                };
-            };
-        }
-
         private void InitDefaultState()
         {
-            if (_extType != null)
+            foreach(var container in _containerList)
             {
-                AutoAssignExteriorBundle((ConnectedTileMapModule.ConnectedTileType)_extType.value);
+                container.InitialSetup();
             }
-
-            var match = _templates.FirstOrDefault(t => t.templateName.Contains("Population"));
-            if (match != null)
-            {
-                var populationBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is PopulationBehaviour) as PopulationBehaviour;
-
-                if (populationBehaviour != null && populationBehaviour.MainBundle != null)
-                {
-                    _popMainBundle.value = populationBehaviour.MainBundle;
-                    UpdateTagList(populationBehaviour.MainBundle);
-                }
-            }
-
             if (_layerTypeSelector != null) _layerTypeSelector.index = -1;
             UpdateVisibility(null);
         }
@@ -295,9 +134,11 @@ namespace ISILab.LBS.VisualElements
             bool showExterior = mode == "Exterior";
             bool showInterior = mode == "Interior";
             bool showPopulation = mode == "Population";
-            if (_containerExterior != null) _containerExterior.style.display = showExterior ? DisplayStyle.Flex : DisplayStyle.None;
-            if (_containerInterior != null) _containerInterior.style.display = showInterior ? DisplayStyle.Flex : DisplayStyle.None;
-            if (_containerPopulation != null) _containerPopulation.style.display = showPopulation ? DisplayStyle.Flex : DisplayStyle.None;
+
+            foreach (var container in _containerList)
+            {
+                container.style.display = (container.PrimaryKeyword == mode) ? DisplayStyle.Flex : DisplayStyle.None;
+            }
             if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.None;
         }
 
@@ -307,22 +148,11 @@ namespace ISILab.LBS.VisualElements
             LBSLayer newLayer = null;
 
             string mode = _layerTypeSelector.value.ToString();
-            if (mode == "Exterior")
+            var container = _containerList.FirstOrDefault( c => c.PrimaryKeyword == mode);
+            if(container is not null)
             {
-                var selectedType = (ConnectedTileMapModule.ConnectedTileType)_extType.value;
-                string typeKeyword = (selectedType == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
-                newLayer = CreateBaseLayer("Exterior", typeKeyword);
-                await GenerateExteriorProcess(newLayer);
-            }
-            else if (mode == "Interior")
-            {
-                newLayer = CreateBaseLayer("Interior");
-                await GenerateInteriorProcess(newLayer);
-            }
-            else if (mode == "Population")
-            {
-                newLayer = CreateBaseLayer("Population");
-                await GeneratePopulationProcess(newLayer);
+                newLayer = CreateBaseLayer(container.PrimaryKeyword, container.SecondaryKeyword);
+                await container.GenerateLayerProcess(newLayer);
             }
 
             FinalizeLayer(newLayer);
@@ -375,579 +205,7 @@ namespace ISILab.LBS.VisualElements
             }
         }
 
-        #region POPULATION LAYER METHODS
-        private async Task GeneratePopulationProcess(LBSLayer newLayer)
-        {
-            if (newLayer == null) return;
-
-            Random.InitState(int.Parse(_popSeed.value));
-
-            Bundle selectedBundle = _popMainBundle.value as Bundle;
-            if (selectedBundle == null)
-            {
-                if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.Flex;
-                return;
-            }
-
-            // Loop around tags
-            var tagList = _popTagList.ToArray();
-            for (int i = 0; i < tagList.Length; i++)
-            {
-                LBSTag tag = tagList[i].Key;
-                BoolIntPair pair = tagList[i].Value;
-                if (!pair.boolean) continue;
-
-
-                List<Vector2Int> allSchemaPositions = new();
-                bool schemaPositionsRead = false;
-
-                List<Vector2Int> allExteriorPositions = new();
-                bool exteriorPositionsRead = false;
-
-                for (int j = 0; j < pair.integer; j++)
-                {
-                    // Randomly choose contextLayer
-                    LBSLayer[] contextLayers = Data.contextLayers.ToArray();
-                    int n = Random.Range(0, contextLayers.Length);
-                    var contextLayer = contextLayers[n];
-
-                    // Spawn items on interior
-                    var schema = contextLayer.GetBehaviour<SchemaBehaviour>();
-                    if (schema is not null)
-                    {
-                        // Get avaliable spaces in layer
-                        if (!schemaPositionsRead)
-                        {
-                            foreach (var zone in schema.Zones)
-                            {
-                                var zoneTiles = schema.GetTiles(zone).ToArray();
-                                foreach (var tile in zoneTiles)
-                                {
-                                    allSchemaPositions.Add(tile.Position);
-                                }
-                            }
-                            schemaPositionsRead = true;
-                            if (allSchemaPositions.Count == 0)
-                            {
-                                Debug.LogWarning("[QuickAssistantPanel]: GeneratePopulationProcess couldn't find avaliable spaces to populate a schema context layer.");
-                                continue;
-                            }
-                        }
-
-                        // Place item
-                        newLayer = PopulationPlaceItem(newLayer, selectedBundle, tag, ref allSchemaPositions);
-                        continue;
-                    }
-
-                    // Spawn items on exterior
-                    var exterior = contextLayer.GetBehaviour<ExteriorBehaviour>();
-                    if (exterior is not null)
-                    {
-                        // Get avaliable spaces in layer
-                        if (!exteriorPositionsRead)
-                        {
-                            foreach (var tile in exterior.Tiles)
-                            {
-                                //if(exterior)
-                                allExteriorPositions.Add(tile.Position);
-                            }
-                            exteriorPositionsRead = true;
-                            if (allExteriorPositions.Count == 0)
-                            {
-                                Debug.LogWarning("[QuickAssistantPanel]: GeneratePopulationProcess couldn't find avaliable spaces to populate a exterior context layer.");
-                                continue;
-                            }
-                        }
-
-                        // Place item
-                        newLayer = PopulationPlaceItem(newLayer, selectedBundle, tag, ref allExteriorPositions);
-                        continue;
-                    }
-                }
-            }
-            return;
-        }
-
-        private LBSLayer PopulationPlaceItem(LBSLayer populationLayer, Bundle mainBundle, LBSTag tag, ref List<Vector2Int> allPositions)
-        {
-            // Get population Behaviour
-            var popBehaviour = populationLayer.GetBehaviour<PopulationBehaviour>();
-            if (popBehaviour is null)
-            {
-                Debug.LogWarning("[QuickAssistantPanel]: PopulationPlaceItem couldn't find a PopulationBehaviour on input layer.");
-                return populationLayer; 
-            }
-
-            // Choose random position
-            int n = Random.Range(0, allPositions.Count);
-            Vector2Int randomPos = allPositions[n];
-
-            // Add item
-            var tileGroup = popBehaviour.AddTileGroup(
-                randomPos,
-                new BundleData(ChooseRandomItemByTag(mainBundle, tag)),
-                RandomRotation(),
-                null).TileGroup;
-
-            // Remove positions from list
-            foreach (var tile in tileGroup)
-            {
-                allPositions.Remove(tile.Position);
-            }
-
-            return populationLayer;
-        }
-
-        private Bundle ChooseRandomItemByTag(Bundle mainBundle, LBSTag tag)
-        {
-            List<Bundle> items = new ();
-            foreach(Bundle b in mainBundle.ChildsBundles)
-            {
-                if (b.GetHasTagCharacteristic(tag.label))
-                {
-                    items.Add(b);
-                }
-            }
-
-            return items[Random.Range(0, items.Count)];
-        }
-
-        private Vector2 RandomRotation()
-        {
-            switch (Random.Range(0, 4))
-            {
-                case 0:
-                    return new Vector2(1, 0);
-                case 1:
-                    return new Vector2(-1, 0);
-                case 2:
-                    return new Vector2(0, 1);
-                case 3:
-                    return new Vector2(0, -1);
-            }
-            return new Vector2(1, 0);
-        }
-
-        private void AddLayerMenu()
-        {
-            GenericMenu menu = new GenericMenu();
-            foreach (LBSLayer layer in Data.Layers)
-            {
-                // It only takes InteriorLayers as context, but can be adapted to consider others
-                if (layer.GetBehaviour<SchemaBehaviour>() is null && layer.GetBehaviour<ExteriorBehaviour>() is null) continue;
-                menu.AddItem(new GUIContent(layer.Name), Data.ContextLayers.Contains(layer), ToggleLayerContext, layer);
-            }
-            menu.ShowAsContext();
-        }
-
-        private void ToggleLayerContext(object layer)
-        {
-            LBSLayer objectLayer = layer as LBSLayer;
-            if (objectLayer == null)
-            {
-                Debug.LogError("Object Layer was null.");
-                return;
-            }
-
-            if (Data.ContextLayers.Contains(layer))
-            {
-                Data.RemoveLayerFromContext(objectLayer);
-            }
-            else
-            {
-                Data.AddLayerToContext(objectLayer);
-            }
-            _popContextView.Rebuild();
-        }
-
-        private void UpdateTagList(Bundle newBundle)
-        {
-            _popTagList.Clear();
-            if (newBundle == null)
-            {
-                _popToggleView.Rebuild();
-                return;
-            }
-
-            var children = newBundle.GetChildrenCharacteristics<LBSTagsCharacteristic>();
-            foreach (var cTags in children)
-            {
-                foreach (var tag in cTags.Tags)
-                {
-                    if (_popTagList.Exists(t => t.Key == tag)) continue;
-                    _popTagList.Add(new KeyValuePair<LBSTag, BoolIntPair>(tag, new(true, 1)));
-                }
-            }
-            _popToggleView.Rebuild();
-        }
-        #endregion
-
-        #region INTERIOR LAYER METHODS
-        private async Task GenerateInteriorProcess(LBSLayer newLayer)
-        {
-            if (newLayer == null) return;
-
-            int roomSize = _intRoomSize.value;
-            int maxRooms = _intRoomCount.value;
-            InteriorGenerationMode currentMode = (InteriorGenerationMode)_intMode.value;
-            bool useOptimization = _intOptimized.value;
-
-            var schema = newLayer.GetBehaviour<SchemaBehaviour>();
-            if (schema == null) return;
-
-            Debug.Log($"[QuickAssistant] Generando Semilla Interior ({currentMode})...");
-
-            switch (currentMode)
-            {
-                case InteriorGenerationMode.GridWalker:
-                    Dictionary<Vector2Int, Zone> gridLayout = new Dictionary<Vector2Int, Zone>();
-                    int gridUnitStep = roomSize + 2;
-                    PlaceRoomsGridWalker(schema, gridLayout, maxRooms, roomSize, gridUnitStep);
-                    schema.RecalculateWalls();
-                    ConnectGridNeighbors(newLayer, gridLayout);
-                    break;
-
-                case InteriorGenerationMode.Spiral:
-                    List<Zone> spiralRooms = new List<Zone>();
-                    int separationPadding = 2;
-                    GenerateSpiralRooms(schema, spiralRooms, maxRooms, roomSize, separationPadding);
-                    schema.RecalculateWalls();
-                    ConnectSpiralChain(newLayer, spiralRooms);
-                    break;
-            }
-
-            //FinalizeLayer(newLayer);
-            Debug.Log("[QuickAssistant] Semilla generada y guardada.");
-
-            if (useOptimization)
-            {
-                await RunHillClimbingOptimization(newLayer);
-            }
-        }
-
-        private async Task RunHillClimbingOptimization(LBSLayer layer)
-        {
-            Debug.Log("[QuickAssistant] Iniciando Optimizaci�n IA...");
-
-            Undo.RegisterCompleteObjectUndo(LBSController.CurrentLevel, "Quick Optimization");
-
-            var optimizer = new HillClimbingAssistant(System.Guid.NewGuid().ToString(), "AutoOptimizer", Color.cyan);
-            optimizer.OnAttachLayer(layer);
-
-            var tokenSource = new System.Threading.CancellationTokenSource();
-            var token = tokenSource.Token;
-
-            ToolBarMain taskBar = LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>();
-
-            if (taskBar != null)
-            {
-                taskBar.EnableProcess(true, "Quick Assistant Optimization");
-            }
-            else
-            {
-                EditorUtility.DisplayProgressBar("Quick Assistant", "Iniciando...", 0f);
-            }
-            try
-            {
-                await Task.Run(() =>
-                {
-                    try
-                    {
-                        optimizer.TryExecute(out string log, out LogType type, (progress) =>
-                        {
-                            EditorApplication.delayCall += () =>
-                            {
-                                if (taskBar != null)
-                                {
-                                    taskBar.SetProgressPercent(progress);
-                                }
-                                else
-                                {
-                                    EditorUtility.DisplayProgressBar("Quick Assistant", $"Optimizando... {progress * 100:F0}%", progress);
-                                }
-                            };
-                        }, token);
-                    }
-                    catch (System.Exception ex)
-                    {
-                        Debug.LogWarning($"HillClimbing Error: {ex.Message}");
-                    }
-                });
-            }
-            finally
-            {
-                if (taskBar != null)
-                {
-                    taskBar.EnableProcess(false);
-                }
-                else
-                {
-                    EditorUtility.ClearProgressBar();
-                }
-
-                tokenSource.Dispose();
-                optimizer.OnDetachLayer(layer);
-                //FinalizeLayer(layer);
-
-                Debug.Log("[QuickAssistant] Optimizaci�n Finalizada.");
-            }
-        }
-
-        private void PlaceRoomsGridWalker(SchemaBehaviour schema, Dictionary<Vector2Int, Zone> grid, int maxRooms, int roomSize, int step)
-        {
-            List<Vector2Int> potentialSpots = new List<Vector2Int>();
-            Vector2Int currentGridPos = Vector2Int.zero;
-
-            AddRoomAtGrid(schema, grid, currentGridPos, roomSize, step);
-            UpdatePotentialSpots(potentialSpots, grid, currentGridPos);
-
-            int safety = 0;
-            while (grid.Count < maxRooms && safety < 1000 && potentialSpots.Count > 0)
-            {
-                safety++;
-                int index = Random.Range(0, potentialSpots.Count);
-                Vector2Int candidate = potentialSpots[index];
-                potentialSpots.RemoveAt(index);
-
-                if (!grid.ContainsKey(candidate))
-                {
-                    AddRoomAtGrid(schema, grid, candidate, roomSize, step);
-                    UpdatePotentialSpots(potentialSpots, grid, candidate);
-                }
-            }
-        }
-
-        private void ConnectGridNeighbors(LBSLayer layer, Dictionary<Vector2Int, Zone> grid)
-        {
-            var graphModule = layer.GetModule<ConnectedZonesModule>();
-            if (graphModule == null) return;
-
-            Vector2Int[] directions = { Vector2Int.up, Vector2Int.right };
-
-            foreach (var kvp in grid)
-            {
-                Vector2Int currentPos = kvp.Key;
-                Zone currentZone = kvp.Value;
-
-                foreach (var dir in directions)
-                {
-                    Vector2Int neighborPos = currentPos + dir;
-                    if (grid.TryGetValue(neighborPos, out Zone neighborZone))
-                    {
-                        if (!graphModule.EdgesConnected(currentZone, neighborZone))
-                            graphModule.AddEdge(currentZone, neighborZone);
-                    }
-                }
-            }
-        }
-
-        private void AddRoomAtGrid(SchemaBehaviour schema, Dictionary<Vector2Int, Zone> grid, Vector2Int gridPos, int size, int step)
-        {
-            Zone newZone = schema.AddZone();
-            ApplyStyles(schema, newZone);
-            Vector2Int worldPos = gridPos * step;
-            Vector2Int startTilePos = worldPos - new Vector2Int(size / 2, size / 2);
-            CreateRoomTiles(schema, newZone, startTilePos, size);
-            grid.Add(gridPos, newZone);
-        }
-
-        private void UpdatePotentialSpots(List<Vector2Int> spots, Dictionary<Vector2Int, Zone> grid, Vector2Int center)
-        {
-            Vector2Int[] dirs = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
-            foreach (var dir in dirs)
-            {
-                Vector2Int neighbor = center + dir;
-                if (!grid.ContainsKey(neighbor) && !spots.Contains(neighbor)) spots.Add(neighbor);
-            }
-        }
-
-        private void GenerateSpiralRooms(SchemaBehaviour schema, List<Zone> rooms, int maxRooms, int roomSize, int padding)
-        {
-            for (int i = 0; i < maxRooms; i++)
-            {
-                Zone newZone = schema.AddZone();
-                ApplyStyles(schema, newZone);
-
-                if (PlaceRoomSpiral(schema, newZone, roomSize, padding))
-                {
-                    rooms.Add(newZone);
-                }
-                else
-                {
-                    schema.RemoveZone(newZone);
-                    break;
-                }
-            }
-        }
-
-        private void ConnectSpiralChain(LBSLayer layer, List<Zone> rooms)
-        {
-            if (rooms.Count < 2) return;
-            var graphModule = layer.GetModule<ConnectedZonesModule>();
-            if (graphModule == null) return;
-
-            for (int i = 0; i < rooms.Count - 1; i++)
-            {
-                if (!graphModule.EdgesConnected(rooms[i], rooms[i + 1]))
-                    graphModule.AddEdge(rooms[i], rooms[i + 1]);
-            }
-            if (rooms.Count > 2)
-            {
-                if (!graphModule.EdgesConnected(rooms[0], rooms[rooms.Count - 1]))
-                    graphModule.AddEdge(rooms[0], rooms[rooms.Count - 1]);
-            }
-        }
-
-        private bool PlaceRoomSpiral(SchemaBehaviour schema, Zone zone, int size, int padding)
-        {
-            float angleStep = 0.5f; float radiusStep = 0.5f;
-            float currentAngle = 0; float currentRadius = 0;
-            int maxAttempts = 500;
-
-            for (int i = 0; i < maxAttempts; i++)
-            {
-                int x = Mathf.RoundToInt(currentRadius * Mathf.Cos(currentAngle));
-                int y = Mathf.RoundToInt(currentRadius * Mathf.Sin(currentAngle));
-                Vector2Int startPos = new Vector2Int(x, y) - new Vector2Int(size / 2, size / 2);
-
-                if (IsAreaFree(schema, startPos, size, padding))
-                {
-                    CreateRoomTiles(schema, zone, startPos, size);
-                    return true;
-                }
-                currentAngle += angleStep;
-                currentRadius += radiusStep * 0.2f;
-            }
-            return false;
-        }
-
-        private void ApplyStyles(SchemaBehaviour schema, Zone zone)
-        {
-            if (schema.PressetInsideStyle != null) zone.InsideStyles = new List<string>() { schema.PressetInsideStyle.Name };
-            if (schema.PressetOutsideStyle != null) zone.OutsideStyles = new List<string>() { schema.PressetOutsideStyle.Name };
-        }
-
-        private bool IsAreaFree(SchemaBehaviour schema, Vector2Int startPos, int size, int padding)
-        {
-            for (int x = -padding; x < size + padding; x++)
-            {
-                for (int y = -padding; y < size + padding; y++)
-                {
-                    if (schema.GetTile(startPos + new Vector2Int(x, y)) != null) return false;
-                }
-            }
-            return true;
-        }
-
-        private void CreateRoomTiles(SchemaBehaviour schema, Zone zone, Vector2Int startPos, int size)
-        {
-            var defaultConnections = new List<string> { "Empty", "Empty", "Empty", "Empty" };
-            var defaultMeta = new List<bool> { true, true, true, true };
-            for (int x = 0; x < size; x++)
-            {
-                for (int y = 0; y < size; y++)
-                {
-                    LBSTile newTile = schema.AddTile(startPos + new Vector2Int(x, y), zone);
-                    if (newTile != null) schema.AddConnections(newTile, defaultConnections, defaultMeta);
-                }
-            }
-        }
-        #endregion
-
-        #region EXTERIOR LAYER METHODS
-        private async Task GenerateExteriorProcess(LBSLayer newLayer)
-        {
-            Bundle selectedBundle = _extThemeBundle.value as Bundle;
-            if (selectedBundle == null)
-            {
-                if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.Flex;
-                return;
-            }
-
-            if (newLayer == null) return;
-
-            var exteriorBehaviour = newLayer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
-            if (exteriorBehaviour != null) exteriorBehaviour.Bundle = selectedBundle;
-
-            List<Vector2Int> generatedPositions = FillLayerWithEmptyTiles(newLayer, _extWidth.value, _extHeight.value);
-            RunWFC(newLayer, selectedBundle, generatedPositions);
-
-            //FinalizeLayer(newLayer);
-            Debug.Log($"[QuickAssistant] Exterior generado.");
-        }
-
-        private void AutoAssignExteriorBundle(ConnectedTileMapModule.ConnectedTileType type)
-        {
-            if (_templates == null || _templates.Count == 0 || _extThemeBundle == null) return;
-
-            string typeKeyword = (type == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
-
-            var match = _templates.FirstOrDefault(t =>
-            t.templateName.Contains("Exterior") &&
-            t.templateName.Contains(typeKeyword));
-
-            if (match == null)
-            {
-                match = _templates.FirstOrDefault(t => t.templateName.Contains("Exterior"));
-            }
-
-            if (match != null)
-            {
-                var exteriorBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
-
-                if (exteriorBehaviour != null && exteriorBehaviour.Bundle != null)
-                {
-                    _extThemeBundle.value = exteriorBehaviour.Bundle;
-                }
-            }
-        }
-
-        private List<Vector2Int> FillLayerWithEmptyTiles(LBSLayer layer, int width, int height)
-        {
-            var tileMap = layer.GetModule<TileMapModule>();
-            var connectedMap = layer.GetModule<ConnectedTileMapModule>();
-            var positions = new List<Vector2Int>();
-            if (tileMap == null || connectedMap == null) return positions;
-
-            var emptyConnections = new List<string> { "", "", "", "" };
-            var emptyMeta = new List<bool> { false, false, false, false };
-
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    Vector2Int pos = new Vector2Int(x, y);
-                    positions.Add(pos);
-                    LBSTile newTile = new LBSTile(pos);
-                    tileMap.AddTile(newTile);
-                    connectedMap.AddPair(newTile, emptyConnections, emptyMeta);
-                }
-            }
-            return positions;
-        }
-
-        private void RunWFC(LBSLayer layer, Bundle bundle, List<Vector2Int> positions)
-        {
-            AssistantWFC wfc = new AssistantWFC(System.Guid.NewGuid().ToString(), "QuickWFC", Color.white, bundle);
-            wfc.OwnerLayer = layer;
-            wfc.Positions = positions;
-            wfc.OverrideValues = true;
-            wfc.SafeMode = true;
-            bool hasChanceRules = bundle.GetCharacteristics<LBSDirectionedChance>().Count > 0;
-            bool success = hasChanceRules ? wfc.ExecuteChance() : wfc.TryExecute(out string log, out LogType type);
-            if (!success) Debug.LogWarning($"[QuickAssistant] WFC termin� con advertencias.");
-        }
-        #endregion
         #endregion
     }
 
-    struct BoolIntPair
-    {
-        public bool boolean;
-        public int integer;
-        public BoolIntPair(bool b, int i)
-        {
-            boolean = b; integer = i;
-        }
-    }
 }
