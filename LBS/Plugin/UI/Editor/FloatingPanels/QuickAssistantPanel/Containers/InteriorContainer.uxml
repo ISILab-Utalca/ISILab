@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="ContainerInterior" style="display: none;">
+        <ui:VisualElement name="IntMapConfig" style="flex-grow: 1; padding-bottom: 2px; padding-top: 2px; border-top-width: 0; border-right-width: 0; border-bottom-width: 1px; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-left-color: rgb(123, 123, 123); border-right-color: rgb(123, 123, 123); border-top-color: rgb(123, 123, 123); border-bottom-color: rgb(123, 123, 123);">
+            <ISILab.LBS.CustomComponents.LBSCustomTextField name="IntSeed" label="Seed" value="5" />
+            <ISILab.LBS.Plugin.UI.Editor.CustomComponents.LBSCustomIntSlider label="Room Size" high-value="20" value="1" name="IntRoomSize" low-value="1" tooltip="Defines the size of both axis (can change base on the assistant)" />
+            <ISILab.LBS.Plugin.UI.Editor.CustomComponents.LBSCustomIntSlider label="Max Room Count" high-value="20" value="1" name="IntRoomCount" low-value="1" tooltip="Defines the room number on the level" />
+            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" label="Multiples Floor?" name="IntMultiFloor" />
+            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" label="Optimize?" name="IntOptimized" tooltip="Defines whether you want to sort the rooms" />
+            <ISILab.LBS.CustomComponents.LBSCustomEnumField name="IntMode" label="Rooms Mode" type="ISILab.LBS.VisualElements.QuickAssistantPanel+InteriorGenerationMode, LBS.Editor" tooltip="Defines the zone distribution mode" />
+        </ui:VisualElement>
+        <ui:VisualElement name="IntFlags" style="flex-grow: 1; padding-bottom: 2px; padding-top: 2px; border-top-width: 0; border-right-width: 0; border-bottom-width: 1px; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-left-color: rgb(123, 123, 123); border-right-color: rgb(123, 123, 123); border-top-color: rgb(123, 123, 123); border-bottom-color: rgb(123, 123, 123);">
+            <uie:EnumFlagsField label="Flags" value="-1" type="UnityEngine.UIElements.UsageHints, UnityEngine.UIElementsModule" name="IntFlag" style="display: flex;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

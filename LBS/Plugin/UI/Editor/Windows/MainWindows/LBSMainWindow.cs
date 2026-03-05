@@ -417,10 +417,9 @@ namespace ISILab.LBS.Editor.Windows
             extraPanel.Add(gen3DPanel);
             gen3DPanel.style.display = DisplayStyle.None;
 
-            quickAssistantPanel = new QuickAssistantPanel();
+            quickAssistantPanel = new QuickAssistantPanel(layerTemplates);
             extraPanel.Add(quickAssistantPanel);
             quickAssistantPanel.style.display = DisplayStyle.None;
-            quickAssistantPanel.Setup(layerTemplates);
 
             blueprintPanel ??=  new BlueprintPanel();
             bottomPanel.Add(blueprintPanel);

@@ -88,35 +88,27 @@ namespace ISILab.LBS.VisualElements
         #region CONSTRUCTORS
         public QuickAssistantPanel()
         {
+            Builder(null);
+        }
+        public QuickAssistantPanel(List<LayerTemplate> templates)
+        {
+            Builder(templates);
+        }
+        private void Builder(List<LayerTemplate> templates)
+        {
+
             visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>(UXML_NAME);
             if (visualTree != null) visualTree.CloneTree(this);
             else Debug.LogError($"[QuickAssistantPanel] No se encontr� el UXML: {UXML_NAME}");
+
+            if (templates is null) _templates = new List<LayerTemplate>();
+            else _templates = templates;
             LoadVisualElements();
             InitDefaultState();
         }
         #endregion
 
         #region INITIALIZATION
-        public void Setup(List<LayerTemplate> templates)
-        {
-            _templates = templates;
-
-            if (_extType != null)
-            {
-                AutoAssignExteriorBundle((ConnectedTileMapModule.ConnectedTileType)_extType.value);
-            }
-
-            var match = _templates.FirstOrDefault(t => t.templateName.Contains("Population"));
-            if (match != null)
-            {
-                var populationBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is PopulationBehaviour) as PopulationBehaviour;
-
-                if (populationBehaviour != null && populationBehaviour.MainBundle != null)
-                {
-                    _popMainBundle.value = populationBehaviour.MainBundle;
-                }
-            }
-        }
 
         private void LoadVisualElements()
         {
@@ -226,24 +218,8 @@ namespace ISILab.LBS.VisualElements
             _popMainBundle.RegisterValueChangedCallback(
                (ChangeEvent<Object> evt) =>
                {
-                   _popTagList.Clear();
                    Bundle newBundle = evt.newValue as Bundle;
-                   if (newBundle == null)
-                   {
-                       _popToggleView.Rebuild();
-                       return;
-                   }
-
-                   var children = newBundle.GetChildrenCharacteristics<LBSTagsCharacteristic>();
-                   foreach (var cTags in children)
-                   {
-                       foreach (var tag in cTags.Tags)
-                       {
-                           if (_popTagList.Exists(t => t.Key == tag)) continue;
-                           _popTagList.Add(new KeyValuePair<LBSTag, BoolIntPair>(tag, new (true, 1)));
-                       }
-                   }
-                   _popToggleView.Rebuild();
+                   UpdateTagList(newBundle);
                }
             );
 
@@ -251,15 +227,15 @@ namespace ISILab.LBS.VisualElements
             _popTagList = new();
             _popToggleView.itemsSource = _popTagList;
             _popToggleView.reorderable = false;
-            _popToggleView.makeItem += () => new QATagToggle();
+            _popToggleView.makeItem += () => new QuickAssistantToggle();
             _popToggleView.bindItem = (element, index) =>
             {
-                var toggle = element as QATagToggle;
+                var toggle = element as QuickAssistantToggle;
                 if (toggle == null) return;
 
-                toggle.Toggle.label = _popTagList[index].Key.Label;
-                toggle.Toggle.value= _popTagList[index].Value.boolean;
-                toggle.Quantity.value = _popTagList[index].Value.integer;
+                toggle.Label = _popTagList[index].Key.Label;
+                toggle.Value = _popTagList[index].Value.boolean;
+                toggle.Quantity = _popTagList[index].Value.integer;
             };
 
             _popSelectContextButton = _containerPopulation.Q<Button>("AddLayerButton");
@@ -291,6 +267,23 @@ namespace ISILab.LBS.VisualElements
 
         private void InitDefaultState()
         {
+            if (_extType != null)
+            {
+                AutoAssignExteriorBundle((ConnectedTileMapModule.ConnectedTileType)_extType.value);
+            }
+
+            var match = _templates.FirstOrDefault(t => t.templateName.Contains("Population"));
+            if (match != null)
+            {
+                var populationBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is PopulationBehaviour) as PopulationBehaviour;
+
+                if (populationBehaviour != null && populationBehaviour.MainBundle != null)
+                {
+                    _popMainBundle.value = populationBehaviour.MainBundle;
+                    UpdateTagList(populationBehaviour.MainBundle);
+                }
+            }
+
             if (_layerTypeSelector != null) _layerTypeSelector.index = -1;
             UpdateVisibility(null);
         }
@@ -308,20 +301,47 @@ namespace ISILab.LBS.VisualElements
             if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.None;
         }
 
-        private void GenerateLayer()
+        private async void GenerateLayer()
         {
             if (_layerTypeSelector == null || _layerTypeSelector.value == null) return;
+            LBSLayer newLayer = null;
+
             string mode = _layerTypeSelector.value.ToString();
-            if (mode == "Exterior") GenerateExteriorProcess();
-            else if (mode == "Interior") GenerateInteriorProcess();
-            else if (mode == "Population") GeneratePopulationProcess();
+            if (mode == "Exterior")
+            {
+                var selectedType = (ConnectedTileMapModule.ConnectedTileType)_extType.value;
+                string typeKeyword = (selectedType == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
+                newLayer = CreateBaseLayer("Exterior", typeKeyword);
+                await GenerateExteriorProcess(newLayer);
+            }
+            else if (mode == "Interior")
+            {
+                newLayer = CreateBaseLayer("Interior");
+                await GenerateInteriorProcess(newLayer);
+            }
+            else if (mode == "Population")
+            {
+                newLayer = CreateBaseLayer("Population");
+                await GeneratePopulationProcess(newLayer);
+            }
+
+            FinalizeLayer(newLayer);
         }
 
         private LBSLayer CreateBaseLayer(string primaryKeyword, string secondaryKeyword = null)
         {
-            if (_templates == null || _templates.Count == 0) return null;
+            if (_templates == null || _templates.Count == 0)
+            {
+                Debug.LogWarning("[QuickAssistantPanle]: Template Layers weren't found in project or weren't assigned to this instance.");
+                return null;
+            }
+
             var candidates = _templates.Where(t => t.templateName.Contains(primaryKeyword)).ToList();
-            if (candidates.Count == 0) return null;
+            if (candidates.Count == 0)
+            {
+                Debug.LogWarning($"[QuickAssistantPanle]: Couldn't find a template Layer with {primaryKeyword} in its name.");
+                return null;
+            }
 
             LayerTemplate targetTemplate = null;
             if (!string.IsNullOrEmpty(secondaryKeyword))
@@ -335,11 +355,14 @@ namespace ISILab.LBS.VisualElements
                 LBSMainWindow.Instance.layerPanel.AddLayer(newLayer);
                 return newLayer;
             }
+            Debug.LogWarning($"[QuickAssistantPanle]: Couldn't clone Layer to create a new one.");
             return null;
         }
 
         private void FinalizeLayer(LBSLayer layer)
         {
+            if (layer is null) return;
+
             if (LBS.loadedLevel != null) EditorUtility.SetDirty(LBS.loadedLevel);
             layer.OnChangeUpdate();
             if (DrawManager.Instance != null) DrawManager.Instance.RedrawLayer(layer);
@@ -353,8 +376,10 @@ namespace ISILab.LBS.VisualElements
         }
 
         #region POPULATION LAYER METHODS
-        private void GeneratePopulationProcess()
+        private async Task GeneratePopulationProcess(LBSLayer newLayer)
         {
+            if (newLayer == null) return;
+
             Random.InitState(int.Parse(_popSeed.value));
 
             Bundle selectedBundle = _popMainBundle.value as Bundle;
@@ -363,9 +388,6 @@ namespace ISILab.LBS.VisualElements
                 if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.Flex;
                 return;
             }
-
-            LBSLayer popLayer = CreateBaseLayer("Population");
-            if (popLayer == null) return;
 
             // Loop around tags
             var tagList = _popTagList.ToArray();
@@ -413,7 +435,7 @@ namespace ISILab.LBS.VisualElements
                         }
 
                         // Place item
-                        popLayer = PopulationPlaceItem(popLayer, selectedBundle, tag, ref allSchemaPositions);
+                        newLayer = PopulationPlaceItem(newLayer, selectedBundle, tag, ref allSchemaPositions);
                         continue;
                     }
 
@@ -438,13 +460,12 @@ namespace ISILab.LBS.VisualElements
                         }
 
                         // Place item
-                        popLayer = PopulationPlaceItem(popLayer, selectedBundle, tag, ref allExteriorPositions);
+                        newLayer = PopulationPlaceItem(newLayer, selectedBundle, tag, ref allExteriorPositions);
                         continue;
                     }
                 }
             }
-
-            FinalizeLayer(popLayer);
+            return;
         }
 
         private LBSLayer PopulationPlaceItem(LBSLayer populationLayer, Bundle mainBundle, LBSTag tag, ref List<Vector2Int> allPositions)
@@ -538,18 +559,38 @@ namespace ISILab.LBS.VisualElements
             }
             _popContextView.Rebuild();
         }
+
+        private void UpdateTagList(Bundle newBundle)
+        {
+            _popTagList.Clear();
+            if (newBundle == null)
+            {
+                _popToggleView.Rebuild();
+                return;
+            }
+
+            var children = newBundle.GetChildrenCharacteristics<LBSTagsCharacteristic>();
+            foreach (var cTags in children)
+            {
+                foreach (var tag in cTags.Tags)
+                {
+                    if (_popTagList.Exists(t => t.Key == tag)) continue;
+                    _popTagList.Add(new KeyValuePair<LBSTag, BoolIntPair>(tag, new(true, 1)));
+                }
+            }
+            _popToggleView.Rebuild();
+        }
         #endregion
 
         #region INTERIOR LAYER METHODS
-        private void GenerateInteriorProcess()
+        private async Task GenerateInteriorProcess(LBSLayer newLayer)
         {
+            if (newLayer == null) return;
+
             int roomSize = _intRoomSize.value;
             int maxRooms = _intRoomCount.value;
             InteriorGenerationMode currentMode = (InteriorGenerationMode)_intMode.value;
             bool useOptimization = _intOptimized.value;
-
-            LBSLayer newLayer = CreateBaseLayer("Interior");
-            if (newLayer == null) return;
 
             var schema = newLayer.GetBehaviour<SchemaBehaviour>();
             if (schema == null) return;
@@ -575,16 +616,16 @@ namespace ISILab.LBS.VisualElements
                     break;
             }
 
-            FinalizeLayer(newLayer);
+            //FinalizeLayer(newLayer);
             Debug.Log("[QuickAssistant] Semilla generada y guardada.");
 
             if (useOptimization)
             {
-                RunHillClimbingOptimization(newLayer);
+                await RunHillClimbingOptimization(newLayer);
             }
         }
 
-        private async void RunHillClimbingOptimization(LBSLayer layer)
+        private async Task RunHillClimbingOptimization(LBSLayer layer)
         {
             Debug.Log("[QuickAssistant] Iniciando Optimizaci�n IA...");
 
@@ -646,7 +687,7 @@ namespace ISILab.LBS.VisualElements
 
                 tokenSource.Dispose();
                 optimizer.OnDetachLayer(layer);
-                FinalizeLayer(layer);
+                //FinalizeLayer(layer);
 
                 Debug.Log("[QuickAssistant] Optimizaci�n Finalizada.");
             }
@@ -814,7 +855,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region EXTERIOR LAYER METHODS
-        private void GenerateExteriorProcess()
+        private async Task GenerateExteriorProcess(LBSLayer newLayer)
         {
             Bundle selectedBundle = _extThemeBundle.value as Bundle;
             if (selectedBundle == null)
@@ -823,10 +864,6 @@ namespace ISILab.LBS.VisualElements
                 return;
             }
 
-            var selectedType = (ConnectedTileMapModule.ConnectedTileType)_extType.value;
-            string typeKeyword = (selectedType == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
-
-            LBSLayer newLayer = CreateBaseLayer("Exterior", typeKeyword);
             if (newLayer == null) return;
 
             var exteriorBehaviour = newLayer.Behaviours.FirstOrDefault(b => b is ExteriorBehaviour) as ExteriorBehaviour;
@@ -835,7 +872,7 @@ namespace ISILab.LBS.VisualElements
             List<Vector2Int> generatedPositions = FillLayerWithEmptyTiles(newLayer, _extWidth.value, _extHeight.value);
             RunWFC(newLayer, selectedBundle, generatedPositions);
 
-            FinalizeLayer(newLayer);
+            //FinalizeLayer(newLayer);
             Debug.Log($"[QuickAssistant] Exterior generado.");
         }
 

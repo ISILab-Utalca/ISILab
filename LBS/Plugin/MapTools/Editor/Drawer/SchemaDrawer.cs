@@ -59,6 +59,7 @@ namespace ISILab.LBS.Drawers
             {
                 TileZonePair tz = zonesMod.GetPairTile(newTile);
                 TileConnectionsPair tc = connectionsMod.GetPair(newTile);
+                if (tz is null || tc is null) continue;
 
                 SchemaTileView tView;
                 List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, newTile);
