@@ -17,10 +17,12 @@ using LBS.Components.TileMap;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -38,6 +40,7 @@ namespace ISILab.LBS.VisualElements
 
         private LBSCustomObjectField _popMainBundle;
         private LBSCustomTextField _popSeed;
+        private LBSCustomToggleField _masterToggle;
         private List<KeyValuePair<LBSTag, BoolIntPair>> _popTagList;
         private ListView _popToggleView;
         private Button _popSelectContextButton;
@@ -92,9 +95,25 @@ namespace ISILab.LBS.VisualElements
                 toggle.Quantity = _popTagList[index].Value.integer;
                 toggle.SetToggleAction((value) =>
                 {
-                    _popTagList[index] = new (_popTagList[index].Key, new (value, _popTagList[index].Value.integer));
+                    _popTagList[index] = new(_popTagList[index].Key, new(value, _popTagList[index].Value.integer));
+                });
+                toggle.SetQuantityFieldAction((value) =>
+                {
+                    _popTagList[index] = new(_popTagList[index].Key, new(_popTagList[index].Value.boolean, value));
                 });
             };
+
+            _masterToggle = this.Q<LBSCustomToggleField>("MasterToggle");
+            _masterToggle.value = true;
+            _masterToggle.label = "";
+            _masterToggle.RegisterValueChangedCallback((evt) =>
+            {
+                for (int i = 0; i < _popTagList.Count; i++)
+                {
+                    _popTagList[i] = new(_popTagList[i].Key, new(evt.newValue, _popTagList[i].Value.integer));
+                }
+                _popToggleView.RefreshItems();
+            });
 
             _popSelectContextButton = this.Q<Button>("AddLayerButton");
             _popSelectContextButton.clicked += AddLayerMenu;
@@ -141,63 +160,27 @@ namespace ISILab.LBS.VisualElements
         public override async Task GenerateLayerProcess(LBSLayer newLayer)
         {
             if (newLayer == null) return;
-
             Random.InitState(int.Parse(_popSeed.value));
 
             Bundle selectedBundle = _popMainBundle.value as Bundle;
             if (selectedBundle == null)
             {
-                //if (_exteriorWarning != null) _exteriorWarning.style.display = DisplayStyle.Flex;
+                Debug.LogError("[QuickAssistantPanel] Population bundle is null.");
                 return;
             }
 
-            // Get list of behaviours by layer
-            LBSLayer[] contextLayers = Data.contextLayers.ToArray();
-            List<SchemaBehaviour> interiorContexts = new ();
-            List<ExteriorBehaviour> exteriorContexts = new();
-
-            foreach(var layer in contextLayers)
-            {
-                var schema = layer.GetBehaviour<SchemaBehaviour>();
-                if (schema is not null)
-                {
-                    interiorContexts.Add(schema);
-                    continue;
-                }
-
-                var exterior = layer.GetBehaviour<ExteriorBehaviour>();
-                if (exterior is not null)
-                {
-                    exteriorContexts.Add(exterior);
-                    continue;
-                }
-            }
-
             // Get avaliable positions
+            LBSLayer[] contextLayers = Data.contextLayers.ToArray();
             List<Vector2Int> avaliablePositions = new ();
-            foreach(var schema in interiorContexts)
+            List<Vector2Int> blockedPositions = new();
+            foreach (var layer in contextLayers)
             {
-                foreach (var zone in schema.Zones)
-                {
-                    var zoneTiles = schema.GetTiles(zone).ToArray();
-                    foreach (var tile in zoneTiles)
-                    {
-                        if (avaliablePositions.Contains(tile.Position)) continue;
-                        avaliablePositions.Add(tile.Position);
-                    }
-                }
+                GetContextPositions(avaliablePositions, blockedPositions, layer);
             }
-            foreach (var exterior in exteriorContexts)
-            {
-                foreach (var tile in exterior.Tiles)
-                {
-                    if (avaliablePositions.Contains(tile.Position)) continue;
-                    avaliablePositions.Add(tile.Position);
-                }
-            }
+            avaliablePositions.RemoveAll(p => blockedPositions.Contains(p));
 
             // Instance objects by tag
-            var tagList = _popTagList.ToArray();
+            var tagList = _popTagList.GetRange(0, _popTagList.Count).ToArray();
             for (int i = 0; i < tagList.Length; i++)
             {
                 LBSTag tag = tagList[i].Key;
@@ -225,6 +208,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region LOGIC METHODS
+
         private void UpdateTagList(Bundle newBundle)
         {
             _popTagList.Clear();
@@ -252,7 +236,9 @@ namespace ISILab.LBS.VisualElements
             foreach (LBSLayer layer in Data.Layers)
             {
                 // It only takes InteriorLayers as context, but can be adapted to consider others
-                if (layer.GetBehaviour<SchemaBehaviour>() is null && layer.GetBehaviour<ExteriorBehaviour>() is null) continue;
+                if (layer.GetBehaviour<SchemaBehaviour>() is null &&
+                    layer.GetBehaviour<ExteriorBehaviour>() is null &&
+                    layer.GetBehaviour<PopulationBehaviour>() is null) continue;
                 menu.AddItem(new GUIContent(layer.Name), Data.ContextLayers.Contains(layer), ToggleLayerContext, layer);
             }
             menu.ShowAsContext();
@@ -277,6 +263,83 @@ namespace ISILab.LBS.VisualElements
             }
             _popContextView.Rebuild();
         }
+        private void GetContextPositions(List<Vector2Int> allPositions, List<Vector2Int> blockedPositions, LBSLayer contextLayer)
+        {
+            var schema = contextLayer.GetBehaviour<SchemaBehaviour>();
+            if (schema is not null)
+            {
+                foreach (var zone in schema.Zones)
+                {
+                    var zoneTiles = schema.GetTiles(zone).ToArray();
+                    foreach (var tile in zoneTiles)
+                    {
+                        if (allPositions.Contains(tile.Position)) continue;
+                        allPositions.Add(tile.Position);
+                    }
+                }
+                return;
+            }
+
+            var exterior = contextLayer.GetBehaviour<ExteriorBehaviour>();
+            var module = contextLayer.GetModule<ConnectedTileMapModule>();
+            if (exterior is not null && module is not null)
+            {
+                // Get navigable tags
+                var characteristics = exterior.Bundle.GetCharacteristics<LBSNavigableTags>();
+                List<LBSTag> navTags = new();
+                if (characteristics.Count > 0)
+                {
+                    var pairs = characteristics[0].NavigableTagsRef.ToList();
+                    pairs.RemoveAll(tag => !tag.Value);
+                    foreach (var p in pairs)
+                    {
+                        navTags.Add(p.Key);
+                    }
+                }
+
+                // Get tiles
+                foreach (var pair in module.Pairs)
+                {
+                    // Check if tile is navigable
+                    int navigablePoints = 0;
+                    foreach (var connection in pair.Connections)
+                    {
+                        foreach (var tag in navTags)
+                        {
+                            if (connection == tag.label)
+                            {
+                                navigablePoints++;
+                                break;
+                            }
+                        }
+                    }
+
+                    // Adds tile to positions
+                    if (navigablePoints >= 3)
+                    {
+                        var tile = pair.Tile;
+                        if (allPositions.Contains(tile.Position)) continue;
+                        allPositions.Add(tile.Position);
+                    }
+                }
+                return;
+            }
+
+            var population = contextLayer.GetBehaviour<PopulationBehaviour>();
+            if (population is not null)
+            {
+                foreach (var group in population.BundleTilemap.Groups)
+                {
+                    foreach (var tile in group.TileGroup)
+                    {
+                        if (blockedPositions.Contains(tile.Position)) continue;
+                        blockedPositions.Add(tile.Position);
+                    }
+                }
+                return;
+            }
+            return;
+        }
 
         private LBSLayer PopulationPlaceItem(LBSLayer populationLayer, LBSTag tag, List<Vector2Int> allPositions, Bundle[] itemPool)
         {
@@ -289,15 +352,19 @@ namespace ISILab.LBS.VisualElements
             }
 
             // Choose random position
+            if (allPositions.Count < 1) return populationLayer;
             int n = Random.Range(0, allPositions.Count);
             Vector2Int randomPos = allPositions[n];
 
             // Add item
-            var tileGroup = popBehaviour.AddTileGroup(
+            var tileBundleGroup = popBehaviour.AddTileGroup(
                 randomPos,
                 new BundleData(itemPool[Random.Range(0, itemPool.Length)]),
                 RandomRotation(),
-                null).TileGroup;
+                null);
+
+            if (tileBundleGroup is null) return populationLayer;
+            var tileGroup = tileBundleGroup.TileGroup;
 
             // Remove positions from list
             foreach (var tile in tileGroup)

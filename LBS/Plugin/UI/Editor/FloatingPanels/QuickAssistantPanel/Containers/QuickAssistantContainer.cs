@@ -10,10 +10,9 @@ namespace ISILab.LBS.VisualElements
     {
         public abstract string PrimaryKeyword{ get; }
         public abstract string SecondaryKeyword { get; }
+        
         public abstract void LoadVisualElements();
-
         public abstract void InitialSetup();
-
         public abstract Task GenerateLayerProcess(LBSLayer newLayer);
     }
 }

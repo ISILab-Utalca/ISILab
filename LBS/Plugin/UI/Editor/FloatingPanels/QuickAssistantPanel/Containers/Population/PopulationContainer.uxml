@@ -17,6 +17,7 @@
         <ui:VisualElement name="PopItemConfig" style="flex-grow: 1; padding-bottom: 2px; padding-top: 2px; margin-top: 2px;">
             <ISILab.LBS.CustomComponents.LBSCustomObjectField label="Main Bundle" type="ISILab.LBS.Plugin.Components.Bundles.Bundle, LBS" icon-side="None" use-custom-filter="false" name="PopMainBundle" tooltip="Defines the tyle bundle" style="align-items: stretch; justify-content: flex-start; align-self: stretch; margin-top: 0; margin-bottom: 0; margin-left: 3px; margin-right: 3px; padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0;" />
             <ui:VisualElement name="TagToggleContainer" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField name="MasterToggle" style="justify-content: space-around;" />
                 <ui:ListView name="TagList" reorderable="true" show-foldout-header="false" show-add-remove-footer="false" allow-remove="false" allow-add="false" reorder-mode="Animated" show-border="true" horizontal-scrolling="false" show-bound-collection-size="true" fixed-item-height="32" virtualization-method="DynamicHeight" style="border-top-width: 1px;" />
             </ui:VisualElement>
         </ui:VisualElement>
