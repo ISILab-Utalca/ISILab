@@ -1,3 +1,4 @@
+using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using LBS.Components;
 using System;
@@ -74,6 +75,7 @@ namespace ISILab.LBS.Behaviours
         }
 
         public override void CheckKeys() { }
+
 
         #endregion
     }

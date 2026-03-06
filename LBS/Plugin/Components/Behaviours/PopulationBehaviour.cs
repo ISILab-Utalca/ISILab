@@ -18,7 +18,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationBehaviour : LBSBehaviour, IBlueprintable
+    public class PopulationBehaviour : LBSBehaviour
     {
         #region FIELDS
         
@@ -453,7 +453,7 @@ namespace ISILab.LBS.Behaviours
             };
         }
 
-        public BlueprintData[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public override BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
@@ -503,13 +503,33 @@ namespace ISILab.LBS.Behaviours
                 }
             }
 
+            validObjects.Add(new BlueprintData(Clone(), corners.min, corners.max));
             return validObjects.ToArray();
             
         }
 
-        public void LoadObjects(BlueprintData[] objects)
+        public override void LoadBlueprintData(BlueprintData[] objects)
         {
-            throw new NotImplementedException();
+
+        }
+
+        public override void ApplyBlueprintOffset(Vector2Int offset)
+        {
+            if (TileMap.Tiles.Count == 0) return;
+
+            // x is correct but for Y we need to get the highest Y
+            Vector2Int origin = TileMap.Tiles[0].Position;
+            foreach (var tile in tileMap.Tiles)
+            {
+                if (tile.y > origin.y) origin.y = tile.y;
+            }
+
+            // delta from starting tile
+            Vector2Int delta = offset - origin;
+            foreach (var tbg in TileMap.Tiles)
+            {
+                tbg.Position += delta;
+            }
         }
 
         #endregion

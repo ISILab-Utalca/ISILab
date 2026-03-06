@@ -45,34 +45,41 @@ namespace ISILab.LBS.Macros
             Action restore = DisplayGraphOnly(window, graph);
             EditorApplication.delayCall += () =>
             {
-                float dpi = EditorGUIUtility.pixelsPerPoint;
+                // makes sure that visual elements are completely hidden when capturing within the graph
+                window.Repaint();
 
-                // Convert capture area (content space) → panel space
-                Rect panelRect = graph.contentViewContainer
-                    .ChangeCoordinatesTo(window.rootVisualElement, captureArea);
-
-                // Panel height (needed because ReadPixels uses bottom-left origin)
-                float panelHeight = window.rootVisualElement.worldBound.height;
-
-                // Convert to pixel space
-                int x = Mathf.RoundToInt(panelRect.x * dpi);
-                int y = Mathf.RoundToInt((panelHeight - panelRect.y - panelRect.height) * dpi);
-                int width = Mathf.RoundToInt(panelRect.width * dpi);
-                int height = Mathf.RoundToInt(panelRect.height * dpi);
-
-                if (width <= 0 || height <= 0)
+                EditorApplication.delayCall += () =>
                 {
-                    Debug.LogWarning("Capture rect invalid.");
+                    float dpi = EditorGUIUtility.pixelsPerPoint;
+
+                    // Convert capture area (content space) → panel space
+                    Rect panelRect = graph.contentViewContainer
+                        .ChangeCoordinatesTo(window.rootVisualElement, captureArea);
+
+                    // Panel height (needed because ReadPixels uses bottom-left origin)
+                    float panelHeight = window.rootVisualElement.worldBound.height;
+
+                    // Convert to pixel space
+                    int x = Mathf.RoundToInt(panelRect.x * dpi);
+                    int y = Mathf.RoundToInt((panelHeight - panelRect.y - panelRect.height) * dpi);
+                    int width = Mathf.RoundToInt(panelRect.width * dpi);
+                    int height = Mathf.RoundToInt(panelRect.height * dpi);
+
+                    if (width <= 0 || height <= 0)
+                    {
+                        Debug.LogWarning("Capture rect invalid.");
+                        restore?.Invoke();
+                        return;
+                    }
+
+                    Texture2D tex = new Texture2D(width, height, TextureFormat.ARGB32, false);
+                    tex.ReadPixels(new Rect(x, y, width, height), 0, 0);
+                    tex.Apply();
+
                     restore?.Invoke();
-                    return;
-                }
-
-                Texture2D tex = new Texture2D(width, height, TextureFormat.ARGB32, false);
-                tex.ReadPixels(new Rect(x, y, width, height), 0, 0);
-                tex.Apply();
-
-                restore?.Invoke();
-                onCaptured?.Invoke(tex);
+                    onCaptured?.Invoke(tex);
+                };
+            
             };
         }
 

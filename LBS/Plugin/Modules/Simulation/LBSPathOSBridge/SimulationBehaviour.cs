@@ -274,6 +274,21 @@ namespace ISILab.LBS.Behaviours
             return base.GetHashCode();
         }
 
+        public override void ApplyBlueprintOffset(Vector2Int offset)
+        {
+            //
+        }
+
+        public override BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
+        {
+            return new BlueprintData[] { };
+        }
+
+        public override void LoadBlueprintData(BlueprintData[] objects)
+        {
+            //
+        }
+
         #endregion
     }
 }

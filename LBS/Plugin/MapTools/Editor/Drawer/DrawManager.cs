@@ -1,18 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Drawers;
 using ISILab.LBS.Drawers.Editor;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.VisualElements;
-using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using UnityEditor.Experimental.GraphView;
-using UnityEngine;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
@@ -56,7 +50,7 @@ namespace ISILab.LBS
             if (layer == null) return;
 
             UpdateVisibility(layer);
-            
+
             // Draw behaviours and assistants (if both share same drawer system)
             DrawVisibleComponents(layer.Behaviours, layer);
             DrawVisibleComponents(layer.Assistants, layer);

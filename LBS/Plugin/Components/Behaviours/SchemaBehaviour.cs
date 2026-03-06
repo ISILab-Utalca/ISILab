@@ -134,7 +134,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
         typeof(ConnectedZonesModule))]
-    public class SchemaBehaviour : LBSBehaviour, IBlueprintable
+    public class SchemaBehaviour : LBSBehaviour
     {
         #region READONLY-FIELDS
         
@@ -625,7 +625,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             return true;
         }
 
-        public BlueprintData[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public override BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
@@ -653,7 +653,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                         LBSTile tileClone = tile.Clone() as LBSTile;
                         tileMapClone.AddTile(tileClone);
 
-                        TileZonePair tzp = areas.GetPairTile(pos);
+                        TileZonePair tzp = areas.GetPairTile(tile);
                         if (tzp != null)
                         {
                             Zone zoneClone = tzp.Zone.Clone() as Zone;
@@ -665,6 +665,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                     if (pair != null)
                     {
                         TileConnectionsPair pairClone = pair.Clone() as TileConnectionsPair;
+                   
                         tileConnectionsClone.AddPair(
                             pairClone.Tile,
                             pairClone.Connections,
@@ -683,12 +684,33 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             if (!tileConnectionsClone.IsEmpty())
                 validObjects.Add(new BlueprintData(tileConnectionsClone, corners.min, corners.max));
 
+            validObjects.Add(new BlueprintData(Clone(), corners.min, corners.max));
             return validObjects.ToArray();
         }
 
-        public void LoadObjects(BlueprintData[] objects)
+
+        public override void ApplyBlueprintOffset(Vector2Int offset)
         {
-            throw new NotImplementedException();
+            if (TileMap.Tiles.Count == 0) return;
+
+            // x is correct but for Y we need to get the highest Y
+            Vector2Int origin = TileMap.Tiles[0].Position;
+            foreach(var tile in tileMap.Tiles)
+            {
+                if (tile.y > origin.y) origin.y = tile.y;
+            }
+
+            // delta from starting tile
+            Vector2Int delta = offset - origin;
+            foreach (var tbg in TileMap.Tiles)
+            {
+                tbg.Position += delta;
+            }
+        }
+
+        public override void LoadBlueprintData(BlueprintData[] objects)
+        {
+
         }
 
         #endregion

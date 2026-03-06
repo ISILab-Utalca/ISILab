@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.DevTools.Macros;
+using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -253,5 +254,15 @@ namespace ISILab.LBS.Behaviours
         {
             OnBehaviourUpdated?.Invoke(obj);
         }
+
+        // applies offset to componenets
+        public virtual void ApplyBlueprintOffset(Vector2Int offset) { }
+        // meant to get objects in a given area within a component that get stored in a blueprint
+        public virtual BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
+        {
+            return new BlueprintData[]{ };
+        }
+        // pass blueprint objects into a component which then loads them if the objeccts are valid for the component.
+        public virtual void LoadBlueprintData(BlueprintData[] objects) { }
     }
 }

@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -465,25 +466,24 @@ namespace LBS.Components
         /// <returns></returns>
         public BlueprintData[] GetObjects(Vector2Int s, Vector2Int e)
         {
-            List<BlueprintData> objs = new();
-
-            //Components
-            List<object> components = new();
-            components.AddRange(modules);
-            components.AddRange(behaviours);
-            components.AddRange(assistants);
-            
-            foreach (object component in components)
+            List<BlueprintData> objs = new();        
+            foreach (LBSBehaviour bh in Behaviours)
             {
-                if (component is IBlueprintable obd)
-                {
-                    var compObjects = obd.GetObjects(s, e);
-                    if (compObjects.Any()) objs.AddRange(compObjects);
-                    objs.AddRange(compObjects);
-                }
+                var compObjects = bh.GetBlueprintData(s, e);
+                if (compObjects.Any()) objs.AddRange(compObjects);
+                objs.AddRange(compObjects);
             }
             
             return objs.ToArray();
+        }
+
+        public void OffsetLayer(Vector2Int offset)
+        {
+ 
+            foreach (LBSBehaviour bh in Behaviours)
+            {
+                bh.ApplyBlueprintOffset(offset);
+            }
         }
 
         #endregion

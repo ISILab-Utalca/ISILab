@@ -26,27 +26,31 @@ namespace ISILab.LBS.Manipulators
         #endregion
 
         #region FIELDS
-        private Texture2D captureBlueprintImage;
         private List<BlueprintStorable> capturedBlueprintData = new();
         private BlueprintFeedback areaFeedback;
 
         #endregion
 
         #region PROPERTIES
-        public Texture2D CaptureBlueprintImage => captureBlueprintImage;
         public List<BlueprintStorable> CapturedBlueprintData => capturedBlueprintData;
         protected override string IconGuid { get => "089a07d25e2a0a347b3e1ad8e0c2818b"; }
+
+      
 
         #endregion
 
 
 
         #region ACTIONS
-        public Action CaptureComplete;
+        public Action<List<BlueprintStorable>, Texture2D, Vector2Int> CaptureComplete;
         #endregion
 
         #region CONSTRUCTORS
-        public CaptureInArea():base(){}
+        public CaptureInArea():base()
+        {
+            Name = "Create blueprint";
+            Description = "Select an area in the graph to store its data as a Blueprint.";
+        }
 
         #endregion
 
@@ -66,7 +70,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if (AutoCapture) BlueprintPanel.Instance.OnCaptureButtonClicked();
+            if (AutoCapture) DoCapture();
    
         }
 
@@ -77,6 +81,20 @@ namespace ISILab.LBS.Manipulators
 
             Vector2Int AreaStart = areaFeedback.StartPosition.ToInt();
             Vector2Int AreaEnd = areaFeedback.EndPosition.ToInt();
+
+            // remove the border offset as we only need the objects at the start position to end position
+            // the offset is the base tilesize (100,100). So if 
+            // selecting tile 0,0
+            // area is 0,0 to 100, 100
+            // area tiles are 0,0 to 1,1.
+            // but we only need the selected, must remove base tile offset,
+            // therefore subtract graph tile size
+            Vector2Int tileSize = new Vector2Int(100, 100);
+            Vector2Int size = AreaEnd - AreaStart;
+
+            if (size.x > tileSize.x) AreaEnd.x -= tileSize.x;
+            if (size.y > tileSize.y) AreaEnd.y -= tileSize.y;
+
 
             CloneRefs.Start();
 
@@ -108,6 +126,10 @@ namespace ISILab.LBS.Manipulators
             // Failed to find any storable objects
             if (!CapturedBlueprintData.Any()) return false;
 
+            // ensure are is within graph
+         //   if (!graphRect.Contains(rect.min) || !graphRect.Contains(rect.max)) 
+          //      return false;
+
             LBSVisualElementHelper.CaptureGraphView(
                 LBSMainWindow.Instance,
                 MainView.Instance,
@@ -115,10 +137,7 @@ namespace ISILab.LBS.Manipulators
                 tex =>
                 {
                     areaFeedback.SetDisplay(true);
-                    captureBlueprintImage = tex;
-                    // rebind action if missing
-                    if (CaptureComplete == null) BlueprintPanel.Instance.CaptureManipulator = this;
-                    CaptureComplete?.Invoke();
+                    CaptureComplete?.Invoke(CapturedBlueprintData, tex, rect.size.ToInt());
                 }
             );
             return true;

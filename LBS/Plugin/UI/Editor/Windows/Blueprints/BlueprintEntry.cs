@@ -1,7 +1,10 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
+using System;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
@@ -18,6 +21,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         private static VisualTreeAsset visualTreeAsset;
         ISILab.LBS.Components.Blueprint blueprint;
         #endregion
+
+        public Action OnSelect;
 
         #region PROPERTIES
         internal Texture2D BlueprintImage
@@ -58,8 +63,30 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             defaultMessage = this.Q<LBSCustomLabelIcon>("DefaultMessage");
             blueprintImage = this.Q<VisualElement>("BlueprintImage");
             blueprintLabel = this.Q<LBSCustomLabel>("BlueprintName");
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
         }
 
+
+        private void OnMouseDown(MouseDownEvent evt)
+        {
+            if (evt.button == 0)
+            {
+                OnSelect?.Invoke();
+                SetSelected(true);
+            }
+        }
+
+        public void SetSelected(bool value)
+        {
+            if (value)
+            {
+                AddToClassList("prop-state--checked");
+            }
+            else
+            {
+                RemoveFromClassList("prop-state--checked");
+            }
+        }
         #endregion
     }
 }
