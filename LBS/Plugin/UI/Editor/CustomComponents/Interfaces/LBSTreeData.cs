@@ -22,13 +22,18 @@ using UnityEngine.UIElements;
             ItemName = this.ToString();
         }
         
+        public LBSTreeData(int _id, string _name): this(){
+            Id = _id;
+            ItemName = _name;
+        }
+        
         [UxmlAttribute("id")] public int Id;
         
         [UxmlAttribute ("item-name")] public string ItemName;
         
         [UxmlObjectReference]
         public List<LBSTreeData> Children;
-
+        
         public virtual TreeViewItemData<string> AsTreeDataString()
         {
             List<TreeViewItemData<string>> childData  = new();
@@ -68,11 +73,9 @@ using UnityEngine.UIElements;
 
         public LBSTreeData FromString(string _rawValue)
         {
-            LBSTreeData data = new LBSTreeData();
             string[] rawSplit = _rawValue.Split("::");
-            data.Id = int.Parse(rawSplit[0]);
-            data.ItemName = rawSplit[1];
-            
+            LBSTreeData data =  new LBSTreeData(int.Parse(rawSplit[0]),rawSplit[1]);
             return data;
         }
     }
+
