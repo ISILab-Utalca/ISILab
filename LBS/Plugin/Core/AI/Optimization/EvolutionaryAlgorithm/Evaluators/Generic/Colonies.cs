@@ -38,7 +38,7 @@ namespace ISILab.AI.Categorization
 
         public Dictionary<(int, int), int> DistancePool { get; set; } = new();
 
-        public List<int> permaIndices = null;
+        public List<int> permaIndices = null; // Needed for using extra population layers as context
 
         public static EvaluatorConfiguration config;
 
@@ -207,6 +207,7 @@ namespace ISILab.AI.Categorization
             Dictionary<Vector2Int, LBSTile> tilePos = null;
             string moduleID = null;
             ConnectedTileMapModule connectedMod = null;
+
             List<int> skip = new();
 
             if (layer is not null)
@@ -291,51 +292,6 @@ namespace ISILab.AI.Categorization
             }
             //Debug.Log(l);
 
-            //int colonyCount = colonies.Count;
-            //int[,] colonyDist = new int[colonyCount, colonyCount];
-            //List<int> colonyItems = colonies.Select(c => c.center).ToList();
-            //if (layer is not null)
-            //{
-            //    switch (layer.ID)
-            //    {
-            //        case "Interior":
-            //        case "Exterior":
-            //            switch (searchType)
-            //            {
-            //                case PathfindingAlgorithm.Flood_Fill:
-            //                    for (int i = 0; i < colonyCount; i++)
-            //                    {
-            //                        EvaluatorHelper.FloodFill(colonyItems[i], colonyItems, i, ref colonyDist, tilePos, chrom, sectorMod, connectedMod);
-            //                    }
-            //                    break;
-            //                case PathfindingAlgorithm.JPS_Plus:
-            //                    for (int i = 0; i < colonyCount; i++)
-            //                    {
-            //                        colonyDist[i, i] = 0;
-            //                        for (int j = i + 1; j < colonyCount; j++)
-            //                        {
-            //                            colonyDist[i, j] = colonyDist[j, i] = EvaluatorHelper.JPSPlus.JPSRun(colonyItems[i], colonyItems[j], chrom.Rect, connectedMod);
-            //                        }
-            //                    }
-            //                    break;
-            //            }
-            //            break;
-            //        default:
-            //            for (int i = 0; i < colonyCount; i++)
-            //            {
-            //                EvaluatorHelper.Manhattan(colonyItems[i], colonyItems, i, ref colonyDist, chrom);
-            //            }
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-            //    for (int i = 0; i < colonyCount; i++)
-            //    {
-            //        EvaluatorHelper.Manhattan(colonyItems[i], colonyItems, i, ref colonyDist, chrom);
-            //    }
-            //}
-
             foreach(Colony colony in colonies)
             {
                 if(colony.Size < minColonySize) continue;
@@ -414,7 +370,7 @@ namespace ISILab.AI.Categorization
                 "<b>> Jump Point Search Plus (JPS+):</b> Preferable for open areas with few obstacles.\n" +
                 "\n<i>(You should not be particularly concerned about this parameter if your level is small-sized or has few items.)</i>"),
                 new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic, "Item to group."),
-                new IntegerConfigurationField("Max Distance", maxDist, 2, 20, "Maximum distance desired between items of the same colony."),
+                new IntegerConfigurationField("Max Distance", maxDist, 2, 15, "Maximum distance desired between items of the same colony."),
                 new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10, "Minimum number of members a colony should have to be considered as such.")
             };
 
@@ -447,6 +403,7 @@ namespace ISILab.AI.Categorization
             return clone;
         }
 
+        [System.Obsolete]
         public float OLDEvaluate(IOptimizable evaluable)
         {
             var chrom = evaluable as BundleTilemapChromosome;

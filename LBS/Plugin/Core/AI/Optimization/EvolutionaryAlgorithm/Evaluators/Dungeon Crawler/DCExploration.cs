@@ -19,7 +19,7 @@ using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 namespace ISILab.AI.Categorization
 {
     [System.Serializable]
-    public class DCExploration : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
+    public class DCExploration : IContextualEvaluator, IConfigurableEvaluator, IDistanceEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
@@ -41,6 +41,8 @@ namespace ISILab.AI.Categorization
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
 
+        public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+
         public static EvaluatorConfiguration config;
 
         [SerializeField, SerializeReference]
@@ -51,6 +53,9 @@ namespace ISILab.AI.Categorization
 
         [SerializeField, SerializeReference]
         public List<LBSCharacteristic> pointsOfInterest = new List<LBSCharacteristic>();
+
+        [SerializeField]
+        public PathfindingAlgorithm searchType;
 
         public float Evaluate(IOptimizable evaluable)
         {
@@ -106,7 +111,11 @@ namespace ISILab.AI.Categorization
             }
 
             int[,] distances = new int[size, size];
-            //bool[,] toIgnore = new bool[size, size];
+
+            SectorizedTileMapModule sectorMod = null;
+            Dictionary<Vector2Int, LBSTile> tilePos = null;
+            string moduleID = null;
+            ConnectedTileMapModule connectedMod = null;
 
             if (layer is not null)
             {
@@ -114,18 +123,53 @@ namespace ISILab.AI.Categorization
                 {
                     case "Interior":
                     case "Exterior":
-                        var sectorMod = layer.GetModule<SectorizedTileMapModule>();
-                        Dictionary<Vector2Int, LBSTile> tilePos = new();
+                        sectorMod = layer.GetModule<SectorizedTileMapModule>();
+                        tilePos = new Dictionary<Vector2Int, LBSTile>();
                         foreach (TileZonePair pair in sectorMod.PairTiles)
                         {
                             if (!tilePos.ContainsKey(pair.Tile.Position))
                                 tilePos.Add(pair.Tile.Position, pair.Tile);
                         }
-                        string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
-                        var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
-                        for (int i = 0; i < size; i++)
+                        moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                        connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
+                        switch (searchType)
                         {
-                            EvaluatorHelper.FloodFill(POIs[i], POIs, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                            case PathfindingAlgorithm.Flood_Fill:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    List<int> knownDist = new List<int>();
+                                    for (int j = i + 1; j < size; j++)
+                                    {
+                                        if (DistancePool.TryGetValue((POIs[i], POIs[j]), out distances[i, j]))
+                                        {
+                                            distances[j, i] = distances[i, j];
+                                            knownDist.Add(j);
+                                        }
+                                        else if (DistancePool.TryGetValue((POIs[j], POIs[i]), out distances[j, i]))
+                                        {
+                                            distances[i, j] = distances[j, i];
+                                            knownDist.Add(j);
+                                        }
+                                    }
+                                    List<int> others = POIs.Except(knownDist).ToList();
+                                    EvaluatorHelper.FloodFill(POIs[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                }
+                                break;
+                            case PathfindingAlgorithm.JPS_Plus:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    distances[i, i] = 0;
+                                    for(int j = i + 1; j < size; j++)
+                                    {
+                                        if (DistancePool.TryGetValue((POIs[i], POIs[j]), out distances[i, j]))
+                                            distances[j, i] = distances[i, j];
+                                        else if (DistancePool.TryGetValue((POIs[j], POIs[i]), out distances[j, i]))
+                                            distances[i, j] = distances[j, i];
+                                        else
+                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(POIs[i], POIs[j], chrom.Rect, connectedMod);
+                                    }
+                                }
+                                break;
                         }
                         break;
                     default:
@@ -143,8 +187,17 @@ namespace ISILab.AI.Categorization
                     EvaluatorHelper.Manhattan(POIs[i], POIs, i, ref distances, chrom);
                 }
             }
-         
+
+            int news = 0;
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    if (DistancePool.TryAdd((POIs[i], POIs[j]), distances[i, j]))
+                        news++;
+            //Debug.Log($"Added {news} new distances for a total of {DistancePool.Count}");
+            //Debug.Log("Pool Size: " + DistancePool.Count);
+
             List<float> neighborDistances = new List<float>();
+            float distSum = 0;
 
             for (int i = 0; i < size; i++)
             {
@@ -166,14 +219,13 @@ namespace ISILab.AI.Categorization
                 if (found)
                 {
                     neighborDistances.Add(closestDist);
+                    distSum += closestDist;
                 }
             }
 
             if (neighborDistances.Count < 2) return 0.0f;
 
-            float averageDist = 0;
-            foreach (float d in neighborDistances) averageDist += d;
-            averageDist /= neighborDistances.Count;
+            float averageDist = distSum / neighborDistances.Count;
 
             float totalError = 0;
             foreach (float d in neighborDistances)
@@ -181,12 +233,10 @@ namespace ISILab.AI.Categorization
                 totalError += Mathf.Abs(d - averageDist);
             }
 
-            float totalSum = averageDist * neighborDistances.Count;
-
-            if (totalSum == 0) return 0f;
+            if (distSum == 0) return 0f;
 
 
-            fitness = 1.0f - (totalError / totalSum);
+            fitness = 1.0f - (totalError / distSum);
 
             fitness = Mathf.Clamp01(fitness);
 
@@ -201,6 +251,10 @@ namespace ISILab.AI.Categorization
             CombinedExteriorLayer = ctx.ExteriorLayers(selection);
             CombinedPopulationLayer = ctx.PopulationLayers();
             CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+
+            if (CombinedLayer is null) return;
+            string moduleID = CombinedLayer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+            CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection);
         }
 
         public void InitializeDefault()
@@ -216,6 +270,8 @@ namespace ISILab.AI.Categorization
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Food")));
             pointsOfInterest.Add(new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("Tree")));
 
+            searchType = PathfindingAlgorithm.JPS_Plus;
+
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
 
@@ -227,6 +283,8 @@ namespace ISILab.AI.Categorization
             colliderCharacteristic = config.GetValue<LBSCharacteristic>("Obstacle");
             pointsOfInterest.Clear();
             pointsOfInterest.AddRange(config.GetValues<LBSCharacteristic>("PointsOfInterest"));
+
+            searchType = config.GetValue<PathfindingAlgorithm>("Pathfinding Algorithm");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
@@ -236,6 +294,11 @@ namespace ISILab.AI.Categorization
                 POIs.Add(new(pointsOfInterest[i].FirstTag().Label, pointsOfInterest[i]));
             var list = new List<EvaluatorConfigurationField>
             {
+                new EnumConfigurationField("Pathfinding Algorithm", searchType,
+                "Method to use for calculating distances between items.\n\n" +
+                "<b>> Flood Fill:</b> Preferable for laberynthin levels.\n" +
+                "<b>> Jump Point Search Plus (JPS+):</b> Preferable for open areas with few obstacles.\n" +
+                "\n<i>(You should not be particularly concerned about this parameter if your level is small-sized or has few items.)</i>"),
                 new MainTagField(playerCharacteristic.FirstTag().Label, playerCharacteristic, "Main item to be compared with every POI."),
                 new MainTagField("Obstacle", colliderCharacteristic.FirstTag().Label, colliderCharacteristic),
                 new GroupedTagsField("PointsOfInterest", POIs, "Items to distribute throughout the level.")
@@ -257,6 +320,11 @@ namespace ISILab.AI.Categorization
             clone.playerCharacteristic = playerCharacteristic;
             clone.colliderCharacteristic = colliderCharacteristic;
             clone.pointsOfInterest = new List<LBSCharacteristic>(pointsOfInterest);
+
+            clone.searchType = searchType;
+
+            clone.DistancePool = DistancePool;
+
             return clone;
         }
 
