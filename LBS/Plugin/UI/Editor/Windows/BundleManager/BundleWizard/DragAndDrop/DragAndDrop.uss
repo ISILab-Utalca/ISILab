@@ -1,32 +1,6 @@
 .background {
     flex-grow: 1;
-    background-color: rgba(30, 30, 30, 255);
-}
-
-.header {
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: rgba(112, 128, 144, 255);
-    border-left-color: rgba(211, 211, 211, 255);
-    border-right-color: rgba(211, 211, 211, 255);
-    border-top-color: rgba(211, 211, 211, 255);
-    border-bottom-color: rgba(211, 211, 211, 255);
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-}
-
-.header__label {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 255);
+    /*background-color: var(--lbs-default-base-solid-gray-color);*/
 }
 
 .drop-area {
@@ -41,27 +15,36 @@
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: rgba(112, 128, 144, 255);
-    border-left-color: rgba(211, 211, 211, 255);
-    border-right-color: rgba(211, 211, 211, 255);
-    border-top-color: rgba(211, 211, 211, 255);
-    border-bottom-color: rgba(211, 211, 211, 255);
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
+    background-color: var(--lbs-dark-purple-color);
+    border-left-color: var(--lbs-default-white-overlay-color);
+    border-right-color: var(--lbs-default-white-overlay-color);
+    border-top-color: var(--lbs-default-white-overlay-color);
+    border-bottom-color: var(--lbs-default-white-overlay-color);
+    border-left-width: var(--lbs-default-frame-border-radius);
+    border-right-width: var(--lbs-default-frame-border-radius);
+    border-top-width: var(--lbs-default-frame-border-radius);
+    border-bottom-width: var(--lbs-default-frame-border-radius);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    
+    /* Asegura que el Label absoluto se posicione respecto a este panel */
+    position: relative;
 }
 
 .drop-area--dropping {
     opacity: 0.4;
-    background-color: rgba(0, 100, 0, 255);
+    background-color: var(--lbs-light-green-color);
 }
 
 .drop-area__label {
     -unity-font-style: italic;
-    color: rgba(255, 255, 255, 255);
+    color: var(--lbs-text-color);
+
+
+    /* Saca al texto del cálculo de tamaño del panel */
+
+    /* Centra el texto visualmente sin empujar los bordes */
+    -unity-text-align: middle-center;
 }

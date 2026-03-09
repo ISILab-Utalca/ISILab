@@ -295,7 +295,7 @@ namespace LBS.VisualElements
             tools[tool.Manipulator.GetType()] = (tool, button);
 
             button.AddGroupEvent(() => SetActive(tool.Manipulator.GetType()));
-            button.SetColorGroup(LBSSettings.Instance.view.toolkitNormal, LBSSettings.Instance.view.newToolkitSelected);
+            //button.SetColorGroup(LBSSettings.Instance.view.toolkitNormal, LBSSettings.Instance.view.newToolkitSelected); // Not used 
             
             SetUpAdderRemover(tool);
 

@@ -268,13 +268,12 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public void RecalculateZonesProximity(Rect selection, ConnectedTileMapModule connectedTM = null)
         {
-
-            if (OwnerLayer == null) { Debug.Log("Owner layer null"); return; }
+            if (OwnerLayer is null) { Debug.Log("Owner layer null"); return; }
 
             var tilemap = OwnerLayer.GetModule<TileMapModule>();
-            if (tilemap == null) {Debug.Log("tilemap null"); return; }
+            if (tilemap is null) {Debug.Log("tilemap null"); return; }
             connectedTM ??= OwnerLayer.GetModule<ConnectedTileMapModule>();
-            if (connectedTM == null) { Debug.Log("ConnectedTM null"); return; }
+            if (connectedTM is null) { Debug.Log("ConnectedTM null"); return; }
 
             var zonesToCalc = new List<Zone>(ZonesWithTiles);
             for(int i = 0; i < zonesToCalc.Count; i++)
@@ -387,7 +386,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             IEnumerable<LBSTile> tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
             foreach(LBSTile tile in tiles)
             {
-                HashSet<string> set = connectedTM.GetPair(tile).Connections.ToHashSet();
+                HashSet<string> set = connectedTM.GetPair(tile).Connections.ToHashSet(); // Null ref (Simulation Layer create)
                 foreach(string conn in set)
                     if(lists.ContainsKey(conn))
                         lists[conn].Add(tile);

@@ -25,7 +25,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
         private Button rightSideButton;
         private Label titleLabel;
         private LBSCustomListView listView;
-        private VisualTreeAsset listItemTemplate;
 
         public static System.Action<object> OnRequestMove;
         #endregion
@@ -43,6 +42,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             }
         }
 
+        private VisualTreeAsset listItemTemplate;
         [UxmlAttribute]
         public VisualTreeAsset ListItemTemplate
         {
@@ -78,7 +78,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 
         public BundleManagerListGroup(ListView listView) : this()
         {
-            //TODO: Implement this constuctor            
+            //TODO: Implement this constructor            
         }
 
 
@@ -180,7 +180,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             list.SetDisplay((list.itemsSource is not null && list.itemsSource.Count > 0 && expanded)||forceExpanded);
             button.iconImage = Background.FromVectorImage(list.GetDisplay() ? arrowDownIcon : arrowSideIcon);
         }
-
     }
 }
 

@@ -1,17 +1,24 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <ui:Template name="DragAndDrop" src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/DragAndDrop/DragAndDrop.uxml?fileID=9197481963319205126&amp;guid=d098d59943b71c74faaf332e807af294&amp;type=3#DragAndDrop" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
-    <ui:VisualElement name="Overlay" style="flex-grow: 1; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.24); position: absolute; right: 0; left: 0; bottom: 1px; top: 0;" />
+    <ui:VisualElement name="Overlay" style="flex-grow: 1; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.24); position: absolute; right: 0; left: 0; bottom: -4px; top: 0;" />
     <ui:VisualElement name="VisualElement" class="lbs_popup" style="flex-grow: 1; padding-left: 12px; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; margin-top: 72px; margin-right: 72px; margin-bottom: 72px; margin-left: 72px;">
-        <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," enabled="false" style="height: 20px; opacity: 1; min-height: 20px; max-height: 20px;" />
-        <ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.LBSCustomTabView name="TabView" display-tabs="false" style="flex-grow: 1; display: flex; overflow: hidden;">
+        <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs name="WizardBreadcrumbs" titles=",,," enabled="false" focusable="false" style="height: 20px; opacity: 1; min-height: 20px; max-height: 20px;" />
+        <ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.LBSCustomTabView name="TabView" display-tabs="true" enabled="true" style="flex-grow: 1; display: flex; overflow: hidden;">
             <ui:Tab label="1 - New Main Bundle" closeable="false" name="Step1" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSelectBundleType name="SelectBundleTypeMenu" class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1;" />
+                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSelectBundleType name="SelectBundleTypeMenu" class="lbs-wizard-menu-content" style="justify-content: center; flex-grow: 1; padding-top: 32px; padding-right: 32px; padding-bottom: 32px; padding-left: 32px;" />
             </ui:Tab>
             <ui:Tab label="2 - Convert Prefabs/Assets" closeable="false" name="Step2" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
-                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetAssetsMenu name="SetAssetsMenu" class="lbs-wizard-menu-content" style="flex-direction: row; justify-content: space-around; align-content: stretch; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;">
-                    <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup title-text="New Bundles" name="NewBundles" style="flex-grow: 1; margin-left: 5px; margin-right: 5px; margin-top: -5px;" />
-                    <ui:Instance template="DragAndDrop" name="DragAndDropContainer" style="height: 100%; width: 60%; flex-direction: column; align-items: stretch; justify-content: space-between; -unity-text-align: upper-left; align-self: flex-start; flex-shrink: 0; flex-wrap: nowrap; align-content: flex-start;" />
+                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetAssetsMenu name="SetAssetsMenu" class="lbs-wizard-menu-content" style="flex-direction: row; justify-content: space-around; align-content: stretch; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; align-self: auto; align-items: stretch;">
+                    <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup title-text="New Bundles" name="NewBundles" style="flex-grow: 1; margin-left: 5px; margin-right: 5px; margin-top: -5px; flex-shrink: 1;" />
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; min-width: auto; min-height: auto; max-width: 50%; color: rgb(27, 27, 27); background-color: rgba(0, 0, 0, 0);">
+                        <ui:Instance template="DragAndDrop" name="DragAndDropContainerSB" style="height: 100%; width: 100%; flex-direction: column; align-items: stretch; justify-content: space-between; -unity-text-align: upper-left; align-self: flex-start; flex-shrink: 1; flex-wrap: nowrap; align-content: flex-start; flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                            <AttributeOverrides element-name="DropAreaLabel" text="Drag any number of GameObjects here to turn them into a SINGLE bundle" />
+                        </ui:Instance>
+                        <ui:Instance template="DragAndDrop" name="DragAndDropContainerMB" style="height: 100%; width: 100%; flex-direction: column; align-items: stretch; justify-content: space-between; -unity-text-align: upper-left; align-self: flex-start; flex-shrink: 1; flex-wrap: nowrap; align-content: flex-start; flex-grow: 1;">
+                            <AttributeOverrides element-name="DropAreaLabel" text="Drag any number of GameObjects here to turn them into DIFFERENT bundles" />
+                        </ui:Instance>
+                    </ui:VisualElement>
                 </ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetAssetsMenu>
             </ui:Tab>
             <ui:Tab label="3- Asign Bundles" closeable="false" name="Step3" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
@@ -20,8 +27,19 @@
             <ui:Tab label="4 - Add Characteristics" closeable="false" name="Step4" class="lbs-tab lbs-group-box" style="flex-grow: 1; align-items: stretch; align-content: center;">
                 <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetCharacteristMenu name="SetCharacteristicsMenu" class="lbs-wizard-menu-content" />
             </ui:Tab>
-            <ui:Tab label="5 - Summary" name="Step5">
-                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSummaryMenu name="SummaryMenu" />
+            <ui:Tab label="5 - Summary" name="Step5" class="lbs-tab lbs-group-box" style="flex-grow: 1;">
+                <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSummaryMenu name="SummaryMenu" style="align-self: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; height: 100%; align-items: stretch; align-content: auto; justify-content: center; flex-grow: 1; max-height: 100%; flex-basis: auto; flex-direction: column; flex-wrap: nowrap;">
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; align-self: auto; justify-content: center; padding-top: 32px; padding-right: 32px; padding-bottom: 32px; padding-left: 32px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; flex-direction: column; -unity-text-align: upper-left; right: 0%; bottom: 0%; top: 0; left: 0%; position: relative; height: auto; max-height: none; max-width: none; align-items: stretch;">
+                        <ISILab.LBS.VisualElements.WarningPanel current-warning-type="Success" name="warningPanel" style="flex-shrink: 0;" />
+                        <ISILab.LBS.CustomComponents.LBSCustomLabelItem name="LBSCustomLabelItemPath" text-l="Path" text-r="-" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;" />
+                        <ISILab.LBS.CustomComponents.LBSCustomLabelItem name="LBSCustomLabelItemTBundles" text-l="Total Bundles" text-r="-" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; white-space: pre-wrap;" />
+                        <ISILab.LBS.CustomComponents.LBSCustomLabelItem name="LBSCustomLabelItemNBundles" text-tab="&#x9;&#x9;" text-l="New Bundles" text-r="-" enable-rich-text="false" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;" />
+                        <ISILab.LBS.CustomComponents.LBSCustomLabelItem name="LBSCustomLabelItemABundles" text-tab="&#x9;&#x9;" text-l="Associated Bundles" text-r="-" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;" />
+                        <ui:VisualElement style="align-self: flex-end; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                            <ISILab.LBS.CustomComponents.LBSCustomButton button-tint="#636363FF" text="Open in Project" name="goToPath" enable-rich-text="false" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/BundleManager/Icon=GroupFolder.svg?fileID=7388822144124034973&amp;guid=5ee192dc957a4a5438b81746981ab72d&amp;type=3#Icon=GroupFolder" hover-color="#BDFFFCFF" pressed-color="#FF0005FF" style="flex-direction: row; width: 144px; height: auto; min-height: 25px; max-height: -56px;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSummaryMenu>
             </ui:Tab>
         </ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.LBSCustomTabView>
         <ui:VisualElement name="WizardButtons" class="lbs-group-box" style="flex-grow: 1; max-height: 32px; flex-direction: row; justify-content: flex-end; min-height: 32px;">

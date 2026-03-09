@@ -7,7 +7,7 @@ namespace ISILab.LBS.VisualElements
     public class PickerBase : VisualElement
     {
         private static Button _activeButton;
-        private readonly Color _color = LBSSettings.Instance.view.toolkitNormal;
+        //private readonly Color _color = LBSSettings.Instance.view.toolkitNormal;
         private readonly Color _selected = LBSSettings.Instance.view.newToolkitSelected;
 
         /// <summary>
@@ -19,10 +19,10 @@ namespace ISILab.LBS.VisualElements
         {
             if (_activeButton is not null)
             {
-                _activeButton.style.backgroundColor = _color; // deactivate previous
+                //_activeButton.style.backgroundColor = _color; // deactivate previous
             }
             _activeButton = button;
-            _activeButton.style.backgroundColor = _selected; // activate newest
+            //_activeButton.style.backgroundColor = _selected; // activate newest
         }
     }
 }

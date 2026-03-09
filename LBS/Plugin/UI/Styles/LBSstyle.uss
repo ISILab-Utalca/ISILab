@@ -1467,9 +1467,8 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-toolbar-button {
-    border-width: 1px 1px 1px 1px;
     border-color: var(--lbs-dark-overlay-color, var(--lbs-default-dark-overlay-color));
-    background-color: var(--lbs-base-solid-gray-color);
+    border-width: 1px 1px 1px 1px;
     flex-direction: row;
     padding-left: 4px;
     padding-right: 4px;
@@ -1481,13 +1480,30 @@ Toggle > .lbs-default-icon {
     margin-left: 0;
 }
 
-.lbs-toolbar-button:hover {
-    background-color: var(--lbs-selectable-hover-color);
+.normal-color{
+    background-color: var(--lbs-base-solid-gray-color);
 }
 
-.lbs-toolbar-button:active {
+.normal-color:hover {
+    background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
+}
+
+.normal-color:active {
     background-color: var(--lbs-selection-dark-blue-color);
 }
+
+.alert-color{
+    background-color: var(--lbs-default-background-container-red-color);
+}
+
+.alert-color:hover {
+    background-color: var(--lbs-default-neutral-red-color);
+}
+
+.alert-color:active {
+    background-color: var(--lbs-default-hightlight-red-color);
+}
+
 
 .lbs-window {
     flex-grow: 1;
@@ -1779,7 +1795,6 @@ Toggle > .lbs-default-icon {
     padding-right: 8px;
     padding-bottom: 39px;
     padding-left: 10px;
-
 }
 
 .lbs-post-it TextInput {
@@ -1821,4 +1836,11 @@ Toggle > .lbs-default-icon {
 
 .lbs-random-int-field TextField {
     flex-grow: 0.3;
+}
+
+.lbs-show-white-spaces {
+    white-space: pre-wrap;
+    /*white-space: nowrap;*/
+    overflow: visible;
+    -unity-text-overflow-position: start;
 }

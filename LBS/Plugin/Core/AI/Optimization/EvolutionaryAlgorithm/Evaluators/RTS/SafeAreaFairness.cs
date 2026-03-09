@@ -11,6 +11,7 @@ using UnityEngine;
 
 namespace ISILab.AI.Categorization
 {
+    [Obsolete("Currently not in use.")]
     public class SafeAreaFairness : IRangedEvaluator
     {
         public float MaxValue => 1;

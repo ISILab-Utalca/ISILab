@@ -7,7 +7,7 @@
     --lbs-selection-dark-red-color: rgb(200, 92, 82);
     
     --lbs-light-green-color: rgb(194, 246, 100);
-    --lbs-selection-dark-green-color: rgb(118, 151, 67);
+    --lbs-selection-dark-green-color: rgb(64, 91, 28);
     
     --lbs-light-yellow-color: rgb(247, 196, 64);
     --lbs-darker-selection-yellow-color: rgb(255, 142, 0);
@@ -16,6 +16,7 @@
     --lbs-selection-dark-teal-color: rgb(98, 139, 200);
     
     --lbs-light-purple-color: rgb(163, 160, 251);
+    --lbs-dark-purple-color: rgb(36, 35, 86);
 
     --lbs-default-icon-color: rgb(210,210,210);
     --lbs-default-text-color: rgb(220,220,220);
@@ -29,11 +30,17 @@
     --lbs-default-selectable-hover-color: rgb(88,88,88);
     
     --lbs-default-white-overlay-color: rgba(255, 255, 255, 0.2);
+    --lbs-default-white-clear-overlay-color: rgba(255, 255, 255, 0.67);
     --lbs-default-dark-overlay-color: rgba(0, 0, 0, 0.2);
+    --lbs-default-darker-overlay-color: rgba(0, 0, 0, 0.67);
     
     --lbs-selection-neutral-blue-color: rgb(54, 123, 245);
     --lbs-selection-focus-blue-color: rgb(44,93,135);
     --lbs-selection-dark-blue-color: rgb(24, 55, 110);
+
+    --lbs-default-background-container-red-color: rgb(65, 21, 21);
+    --lbs-default-neutral-red-color: rgb(135, 44, 46);
+    --lbs-default-hightlight-red-color: rgb(222, 74, 77);
     
     --lbs-quest-teal-color: rgb(0,255,174);
     --lbs-quest-rose-color: rgb(207,32,80);
@@ -59,14 +66,14 @@
     --lbs-selectable-hover-color: rgb(88,88,88);
 
     --lbs-white-overlay-color: var(--lbs-default-white-overlay-color);
-    --lbs-dark-overlay-color: var(--lbs-default-dark-overlay-color);
+    --lbs-dark-overlay-color: var(--lbs-default-darker-overlay-color, --lbs-default-dark-overlay-color);
 
     --graph-thin-line-color: rgba(196, 196, 196, 0.02);
     --graph-thick-line-color: rgba(196, 196, 196, 0.1);
 
     --lbs-selection-neutral-blue-color: rgb(54, 123, 245);
     --lbs-selection-dark-blue-color: rgb(31, 90, 194);
-
+    
     --lbs-main-blue-color: var(--lbs-selection-neutral-blue-color);
     --lbs-main-yellow-color: var(--lbs-light-yellow-color);
     --lbs-main-green-color: var(--lbs-light-green-color);

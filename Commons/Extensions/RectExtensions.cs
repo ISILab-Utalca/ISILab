@@ -34,5 +34,29 @@ namespace ISILab.Commons.Extensions
         /// <param name="rect"></param>
         /// <returns></returns>
         public static bool HasArea(this Rect rect) => rect.width > 0 && rect.height > 0;
+
+        /// <summary>
+        /// Converts a 2D position to an index in a 1D array.
+        /// </summary>
+        /// <param name="pos">The 2D position to convert.</param>
+        public static int ToIndex(this Rect rect, Vector2 pos)
+        {
+            if (pos.x < 0 || pos.x >= rect.width || pos.y < 0 || pos.y >= rect.height)
+                return -1;
+            return (int)(pos.y * rect.width + pos.x);
+        }
+
+        public static int GlobalToIndex(this Rect rect, Vector2 pos) => rect.ToIndex(pos - rect.position);
+
+        /// <summary>
+        /// Converts an index in a 1D array to a 2D position.
+        /// </summary>
+        /// <param name="index">The index in the 1D array to convert.</param>
+        public static Vector2Int ToMatrixPosition(this Rect rect, int index)
+        {
+            return new Vector2Int((int)(index % rect.width), (int)(index / rect.width));
+        }
+
+        public static Vector2Int ToGlobalPosition(this Rect rect, int index) => rect.ToMatrixPosition(index) + Vector2Int.RoundToInt(rect.position);
     }
 }

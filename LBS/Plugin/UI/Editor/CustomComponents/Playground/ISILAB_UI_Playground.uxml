@@ -1,8 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Template name="LBSHorizontalDivider" src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/StaticTemplateComponents/SimpleComponents/LBSHorizontalDivider.uxml?fileID=9197481963319205126&amp;guid=8e276661d37de8e41905231bb939b61a&amp;type=3#LBSHorizontalDivider" />
+    <ui:Template name="DragAndDrop" src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/Windows/BundleManager/BundleWizard/DragAndDrop/DragAndDrop.uxml?fileID=9197481963319205126&amp;guid=d098d59943b71c74faaf332e807af294&amp;type=3#DragAndDrop" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSOverrideStyle.uss?fileID=7433441132597879392&amp;guid=dc3922656bcc222469152418c1839f87&amp;type=3#LBSOverrideStyle" />
-    <ui:VisualElement name="VisualElement" class="alt" style="flex-grow: 1; flex-direction: row;">
+    <ui:VisualElement name="VisualElement" class="dark" style="flex-grow: 1; flex-direction: row;">
         <ui:VisualElement style="flex-grow: 1; width: 32px; max-width: 36px;">
             <ISILab.LBS.VisualElements.ButtonGroup>
                 <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/GrammarAssistant/Icon=Add.svg?fileID=7388822144124034973&amp;guid=ad8d08a3d465b3a438016713ae2f99c5&amp;type=3#Icon=Add" />
@@ -33,7 +34,9 @@
                             <ISILab.LBS.CustomComponents.LBSCustomEnumField label="CustomEnumField" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=EnumField.svg?fileID=7388822144124034973&amp;guid=ea38db42f43233b4894243942b78f176&amp;type=3#Icon=EnumField" icon-color="#FFFFFFFF" />
                         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
                     </ISILab.LBS.CustomComponents.LBSCustomFoldout>
-                    <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Log" name="WarningPanel" />
+                    <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Log" name="WarningPanel">
+                        <ISILab.LBS.CustomComponents.LBSCustomButton text="Sample" style="white-space: nowrap; text-overflow: clip; flex-grow: 0;" />
+                    </ISILab.LBS.VisualElements.WarningPanel>
                     <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Success" name="WarningPanel" />
                     <ISILab.LBS.VisualElements.WarningPanel text="The selected layer does not contain any assigned assistants or was unable to visually load the assistants it does have." current-warning-type="Error" name="WarningPanel" />
                     <ISILab.LBS.CustomComponents.LBSCustomLabel text="Selection lorem ipsum" hint-color="#FF000000" />
@@ -86,7 +89,12 @@
                         <ISILab.LBS.Plugin.UI.Editor.CustomComponents.LBSCustomEnumFlagField label="Flag" />
                         <uie:ColorField label="Color" value="#00FFFFFF" />
                         <ISILab.LBS.VisualElements.SimulationTagPallete />
+                        <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup />
+                        <ui:ScrollView>
+                            <ui:FloatField label="Float Field" value="42.2" />
+                        </ui:ScrollView>
                     </ui:VisualElement>
+                    <ui:ScrollView />
                     <ui:VisualElement class="lbs-panel" style="flex-grow: 1;">
                         <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/DevTools/Macros/PlaceholderUIVector.svg?fileID=7388822144124034973&amp;guid=5aa5737462342b24c866198641cdaf08&amp;type=3#PlaceholderUIVector">
                             <ISILab.LBS.CustomComponents.LBSCustomListView show-add-remove-footer="true" data-source-path="List&lt;float&gt;" />
@@ -96,7 +104,12 @@
                         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
                         <ISILab.LBS.Editor.Windows.LBSWaitTaskOverlay step="3" delay="21" style="flex-grow: 1;" />
                         <ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs section-titles="A,B,C,D" select-section="1" enabled="true" />
-                        <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup title-text="Table" focusable="true" style="height: 170px;" />
+                        <ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup title-text="Table" focusable="true" style="height: 170px;">
+                            <ui:VisualElement style="flex-grow: 1; flex-direction: row; width: 100%; justify-content: space-between; align-content: stretch;">
+                                <ui:Instance template="DragAndDrop" name="TemplateContainer" style="flex-grow: 1;" />
+                                <ui:Instance template="DragAndDrop" style="flex-grow: 1;" />
+                            </ui:VisualElement>
+                        </ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup>
                     </ui:VisualElement>
                 </ISILab.Commons.VisualElements.Editor.SplitView>
             </ISILab.Commons.VisualElements.Editor.SplitView>

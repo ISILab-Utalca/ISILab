@@ -122,7 +122,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 
                 CurrentStep--;
                 breadcrumbs.PopItem();
-
+                 
                 CurrentWizardTab.StepBack();
             }
 
@@ -130,7 +130,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             {
                 CheckIfLeavingFinalStep();
                 CurrentWizardTab.Step();
-                CurrentWizardTab.Builder.TryBuild();
+                
                 this.SetDisplay(false);
                 CleanUp();
             }
@@ -140,6 +140,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
                 CurrentWizardTab.Step();
                 CurrentStep++;
                 breadcrumbs.PushItem(CurrentBreadcrumb);
+                
+                //try build if in second to last screen
+                if (currentStep == breadcrumbLabels.Length-1)
+                    CurrentWizardTab.Builder.TryBuild();
+
+                //init after TryBuild so summaryScreen is updated on init
                 CurrentWizardTab.Init();
                 if (currentStep == 1)
                     CurrentWizardTab.Builder.SaveBundleFlag();
@@ -156,6 +162,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 
             void ToggleNextButton(bool showNext)
             {
+                backButton.SetDisplay(showNext);
                 nextButton.SetDisplay(showNext);
                 OKButton.SetDisplay(!showNext);
             }
@@ -268,25 +275,25 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
             {
                 case "Interior Layer":
                     bundle.LayerContentFlags    = BundleFlags.Interior;
-                    bundle.Type                 = Bundle.TagType.Structural;
+                    //bundle.Type                 = Bundle.TagType.Structural;
                     bundle.Color                = default;
                     break;
 
                 case "Exterior Layer":
                     bundle.LayerContentFlags    = BundleFlags.Exterior;
-                    bundle.Type                 = Bundle.TagType.Structural;
+                    //bundle.Type                 = Bundle.TagType.Structural;
                     bundle.Color                = default;
                     break;
 
                 case "Population Layer":
                     bundle.LayerContentFlags    = BundleFlags.Population;
-                    bundle.Type                 = Bundle.TagType.Element;
+                    //bundle.Type                 = Bundle.TagType.Element;
                     bundle.Color                = new Color().RandomColorHSV();
                     break;
 
                 default:
                     bundle.LayerContentFlags    = default;
-                    bundle.Type                 = default;
+                    //bundle.Type                 = default;
                     bundle.Color                = default;
                     break;
             }
@@ -297,9 +304,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
         /// </summary>
         public void TryBuild()
         {
+            string finalName = bundleName;
             Bundle main = ScriptableObject.CreateInstance<Bundle>();
             GetBundleConfiguration(ref main, layerType);
-            main = BundleMenuItem.CreateBundleWithInstance(main, bundleName);
+            main = BundleMenuItem.CreateBundleWithInstance(main, out finalName, bundleName);
+            bundleName = finalName;
             for(int i = 0; i < mainCharacteristics.Count; i++)
             {
                 main.AddCharacteristic(Activator.CreateInstance(mainCharacteristics[i]) as LBSCharacteristic);

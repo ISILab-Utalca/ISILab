@@ -1,3 +1,5 @@
+/*
+
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -61,3 +63,5 @@ namespace Samples.Editor.General
         }
     }
 }
+
+*/

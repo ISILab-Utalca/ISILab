@@ -54,8 +54,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
         public static BundleManagerWindow Instance { get; private set; }
 
         // Explicit height for every row so ListView can calculate how many items to actually display
-        private const int ItemHeight = 32;
-        private const int ItemGap = 2;
+        private const int ItemHeight = 24;
+        private const int ItemGap = 0;
 
         // References
         private VectorImage _arrowDown;

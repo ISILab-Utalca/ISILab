@@ -15,27 +15,54 @@ MonoBehaviour:
   target:
     rid: 3359370255690367991
   fields:
-  - rid: 3359370255922889387
-  - rid: 3359370255922889388
+  - rid: 7729149150681368213
+  - rid: 7729149150681368214
+  - rid: 7729149150681368215
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 3359370255690367991
       type: {class: DCTreeWindowTogether, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         colliderCharacteristic:
-          rid: -2
+          rid: 7729149150681368216
         treeCharacteristic:
-          rid: -2
-    - rid: 3359370255922889387
+          rid: 7729149150681368217
+        treeDistance: 3
+    - rid: 7729149150681368213
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Obstacle
+        tooltip: 
         tagName: Collider
-    - rid: 3359370255922889388
+    - rid: 7729149150681368214
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Target
+        tooltip: 
         tagName: Tree
+    - rid: 7729149150681368215
+      type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        name: Threshold
+        tooltip: 
+        value: 3
+        useSlider: 1
+        minValue: 1
+        maxValue: 20
+    - rid: 7729149150681368216
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Collider
+          value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
+          tagGUID: 261af09a46f50a647b4fb33a0e989c66
+    - rid: 7729149150681368217
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Tree
+          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
+          tagGUID: 0147d0d479179b04a8c825d8159e70ce

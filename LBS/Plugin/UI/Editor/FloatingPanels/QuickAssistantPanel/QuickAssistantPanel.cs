@@ -1,11 +1,14 @@
+using ISILab.AI.Categorization;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -15,15 +18,16 @@ using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using ISILab.LBS.Plugin.UI.Editor.CustomComponents;
 using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements;
+using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Plugin.Components.Data;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
 namespace ISILab.LBS.VisualElements
@@ -44,6 +48,7 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomFoldout _foldoutSettings;
         private VisualElement _containerExterior;
         private VisualElement _containerInterior;
+        private VisualElement _containerPopulation;
 
         private LBSCustomEnumField _extType;
         private LBSCustomObjectField _extThemeBundle;
@@ -59,6 +64,13 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomToggleField _intOptimized;
         private LBSCustomEnumField _intMode;
         private EnumFlagsField _intFlags;
+
+        private LBSCustomObjectField _popMainBundle;
+        private LBSCustomTextField _popSeed;
+        private List<KeyValuePair<LBSTag, bool>> _popTagList;
+        private ListView _popToggleView;
+        private Button _popSelectContextButton;
+        private ListView _popContextView;
         #endregion
 
         #region PROPERTIES
@@ -66,6 +78,7 @@ namespace ISILab.LBS.VisualElements
         private const string UXML_NAME = "QuickAssistantPanel";
         public LBSButtonListFilter BundlePickerWindow { get; set; }
         private List<LayerTemplate> _templates;
+        private LBSLevelData Data => LBS.loadedLevel.data;
         #endregion
 
         #region CONSTRUCTORS
@@ -86,8 +99,18 @@ namespace ISILab.LBS.VisualElements
 
             if (_extType != null)
             {
+                AutoAssignExteriorBundle((ConnectedTileMapModule.ConnectedTileType)_extType.value);
+            }
 
-                AutoAssignBundle((ConnectedTileMapModule.ConnectedTileType)_extType.value);
+            var match = _templates.FirstOrDefault(t => t.templateName.Contains("Population"));
+            if (match != null)
+            {
+                var populationBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is PopulationBehaviour) as PopulationBehaviour;
+
+                if (populationBehaviour != null && populationBehaviour.MainBundle != null)
+                {
+                    _popMainBundle.value = populationBehaviour.MainBundle;
+                }
             }
         }
 
@@ -99,72 +122,165 @@ namespace ISILab.LBS.VisualElements
             _foldoutSettings = this.Q<LBSCustomFoldout>("FoldoutSettings");
             _containerExterior = this.Q<VisualElement>("ContainerExterior");
             _containerInterior = this.Q<VisualElement>("ContainerInterior");
+            _containerPopulation = this.Q<VisualElement>("ContainerPopulation");
 
             if (_containerExterior != null)
             {
-                _extType = _containerExterior.Q<LBSCustomEnumField>("ExtType");
-                _extType?.RegisterValueChangedCallback(evt =>
-                {
-                    if (evt.newValue != null)
-                    {
-                        AutoAssignBundle((ConnectedTileMapModule.ConnectedTileType)evt.newValue);
-                    }
-                });
-                _extThemeBundle = _containerExterior.Q<LBSCustomObjectField>("ExtThemeBundle");
-                if (_extThemeBundle != null)
-                {
-                    _extThemeBundle.objectType = typeof(Bundle);
-                    _extThemeBundle.UseCustomFilter = true;
-                    _extThemeBundle.CustomFilter = pick =>
-                    {
-                        var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
-                        (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
-                    };
-                }
-
-                _extSeed = _containerExterior.Q<LBSCustomTextField>("ExtSeed");
-                if (_extSeed != null) _extSeed.style.display = DisplayStyle.None;
-
-                _extWidth = _containerExterior.Q<LBSCustomIntSlider>("ExtWidth");
-                _extHeight = _containerExterior.Q<LBSCustomIntSlider>("ExtHeight");
-
-                _extFlags = _containerExterior.Q<EnumFlagsField>("ExtFlag");
-                if (_extFlags != null)
-                {
-                    if (_extFlags.parent != null) _extFlags.parent.style.display = DisplayStyle.None;
-                    else _extFlags.style.display = DisplayStyle.None;
-                }
+                LoadExteriorConainer();
             }
 
             if (_containerInterior != null)
             {
-                _intSeed = _containerInterior.Q<LBSCustomTextField>("IntSeed");
-                if (_intSeed != null) _intSeed.style.display = DisplayStyle.None;
+                LoadInteriorContainer();
+            }
 
-                _intRoomSize = _containerInterior.Q<LBSCustomIntSlider>("IntRoomSize");
-                _intRoomCount = _containerInterior.Q<LBSCustomIntSlider>("IntRoomCount");
-
-                _intMultiFloor = _containerInterior.Q<LBSCustomToggleField>("IntMultiFloor");
-                if (_intMultiFloor != null) _intMultiFloor.style.display = DisplayStyle.None;
-
-                _intFlags = _containerInterior.Q<EnumFlagsField>("IntFlag");
-                if (_intFlags != null)
-                {
-                    if (_intFlags.parent != null) _intFlags.parent.style.display = DisplayStyle.None;
-                    else _intFlags.style.display = DisplayStyle.None;
-                }
-
-                _intOptimized = _containerInterior.Q<LBSCustomToggleField>("IntOptimized");
-
-                _intMode = _containerInterior.Q<LBSCustomEnumField>("IntMode");
-                if (_intMode != null)
-                {
-                    _intMode.Init(InteriorGenerationMode.GridWalker);
-                }
+            if(_containerPopulation != null)
+            {
+                LoadPopulationContainer();
             }
 
             _layerTypeSelector?.RegisterValueChangedCallback(evt => UpdateVisibility(evt.newValue?.ToString()));
             if (_runButton != null) _runButton.clicked += GenerateLayer;
+        }
+
+        private void LoadExteriorConainer()
+        {
+            _extType = _containerExterior.Q<LBSCustomEnumField>("ExtType");
+            _extType?.RegisterValueChangedCallback(evt =>
+            {
+                if (evt.newValue != null)
+                {
+                    AutoAssignExteriorBundle((ConnectedTileMapModule.ConnectedTileType)evt.newValue);
+                }
+            });
+            _extThemeBundle = _containerExterior.Q<LBSCustomObjectField>("ExtThemeBundle");
+            if (_extThemeBundle != null)
+            {
+                _extThemeBundle.objectType = typeof(Bundle);
+                _extThemeBundle.UseCustomFilter = true;
+                _extThemeBundle.CustomFilter = pick =>
+                {
+                    var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainExteriorBundle>(includeChildren: true);
+                    (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
+                };
+            }
+
+            _extSeed = _containerExterior.Q<LBSCustomTextField>("ExtSeed");
+            if (_extSeed != null) _extSeed.style.display = DisplayStyle.None;
+
+            _extWidth = _containerExterior.Q<LBSCustomIntSlider>("ExtWidth");
+            _extHeight = _containerExterior.Q<LBSCustomIntSlider>("ExtHeight");
+
+            _extFlags = _containerExterior.Q<EnumFlagsField>("ExtFlag");
+            if (_extFlags != null)
+            {
+                if (_extFlags.parent != null) _extFlags.parent.style.display = DisplayStyle.None;
+                else _extFlags.style.display = DisplayStyle.None;
+            }
+        }
+        private void LoadInteriorContainer()
+        {
+            _intSeed = _containerInterior.Q<LBSCustomTextField>("IntSeed");
+            if (_intSeed != null) _intSeed.style.display = DisplayStyle.None;
+
+            _intRoomSize = _containerInterior.Q<LBSCustomIntSlider>("IntRoomSize");
+            _intRoomCount = _containerInterior.Q<LBSCustomIntSlider>("IntRoomCount");
+
+            _intMultiFloor = _containerInterior.Q<LBSCustomToggleField>("IntMultiFloor");
+            if (_intMultiFloor != null) _intMultiFloor.style.display = DisplayStyle.None;
+
+            _intFlags = _containerInterior.Q<EnumFlagsField>("IntFlag");
+            if (_intFlags != null)
+            {
+                if (_intFlags.parent != null) _intFlags.parent.style.display = DisplayStyle.None;
+                else _intFlags.style.display = DisplayStyle.None;
+            }
+
+            _intOptimized = _containerInterior.Q<LBSCustomToggleField>("IntOptimized");
+
+            _intMode = _containerInterior.Q<LBSCustomEnumField>("IntMode");
+            if (_intMode != null)
+            {
+                _intMode.Init(InteriorGenerationMode.GridWalker);
+            }
+        }
+
+        private void LoadPopulationContainer()
+        {
+            _popMainBundle = _containerPopulation.Q<LBSCustomObjectField>("PopMainBundle");
+            if (_popMainBundle != null)
+            {
+                _popMainBundle.objectType = typeof(Bundle);
+                _popMainBundle.UseCustomFilter = true;
+                _popMainBundle.CustomFilter = pick =>
+                {
+                    var bundles = BundleQueryUtility.FindBundlesWithCharacteristic<LBSMainPopulationBundle>(includeChildren: true);
+                    (this as IBundleFilter).OpenFilterWindow(bundles, picked => pick(picked));
+                };
+            }
+            _popMainBundle.RegisterValueChangedCallback(OnPopMainBundleChanged);
+
+            _popToggleView = _containerPopulation.Q<ListView>("TagList");
+            _popTagList = new();
+            _popToggleView.itemsSource = _popTagList;
+            _popToggleView.reorderable = false;
+            _popToggleView.makeItem += () => new Toggle();
+            _popToggleView.bindItem = (element, index) =>
+            {
+                var toggle = element as Toggle;
+                if (toggle == null) return;
+
+                toggle.label = _popTagList[index].Key.Label;
+                toggle.value = _popTagList[index].Value;
+            };
+
+            _popSelectContextButton = _containerPopulation.Q<Button>("AddLayerButton");
+            _popSelectContextButton.clicked += AddLayerMenu;
+
+            _popContextView = _containerPopulation.Q<ListView>("LayerList");
+            _popContextView.itemsSource = Data.contextLayers;
+            _popContextView.reorderable = false;
+            _popContextView.makeItem += () => new LayerContextEntry();
+            _popContextView.bindItem = (element, index) =>
+            {
+                var layerContextVE = element as LayerContextEntry;
+                if (layerContextVE == null) return;
+
+                layerContextVE.UpdateData(Data.ContextLayers[index]);
+                LBSLayer layer = layerContextVE.LayerReference;
+                Data.OnContextChanged += (_) =>
+                {
+                    _popContextView.Rebuild();
+                };
+                layerContextVE.EvaluateOverlap(Data.ContextLayers);
+                layerContextVE.OnRemoveButtonClicked = null;
+                layerContextVE.OnRemoveButtonClicked += () =>
+                {
+                    ToggleLayerContext(layer);
+                };
+            };
+        }
+
+        private void OnPopMainBundleChanged(ChangeEvent<Object> evt)
+        {
+            _popTagList.Clear();
+            Bundle newBundle = evt.newValue as Bundle;
+            if (newBundle == null)
+            {
+                _popToggleView.Rebuild(); 
+                return;
+            }
+
+            var children = newBundle.GetChildrenCharacteristics<LBSTagsCharacteristic>();
+            foreach(var cTags in children)
+            {
+                foreach (var tag in cTags.Tags)
+                {
+                    if (_popTagList.Exists(t => t.Key == tag)) continue;
+                    _popTagList.Add(new KeyValuePair<LBSTag, bool>(tag, true));
+                }
+            }
+            _popToggleView.Rebuild();
         }
 
         private void InitDefaultState()
@@ -176,7 +292,7 @@ namespace ISILab.LBS.VisualElements
 
         #region LOGIC METHODS
 
-        private void AutoAssignBundle(ConnectedTileMapModule.ConnectedTileType type)
+        private void AutoAssignExteriorBundle(ConnectedTileMapModule.ConnectedTileType type)
         {
             if (_templates == null || _templates.Count == 0 || _extThemeBundle == null) return;
 
@@ -576,12 +692,44 @@ namespace ISILab.LBS.VisualElements
 
             if (targetTemplate.layer.Clone() is LBSLayer newLayer)
             {
-                newLayer.Name = targetTemplate.templateName;
+                string safeName = targetTemplate.templateName.Replace("/", " ").Replace("\\", " ");
+                newLayer.Name = safeName;
                 LBSMainWindow.Instance.layerPanel.AddLayer(newLayer);
                 return newLayer;
             }
             return null;
         }
         #endregion
+
+        private void AddLayerMenu()
+        {
+            GenericMenu menu = new GenericMenu();
+            foreach (LBSLayer layer in Data.Layers)
+            {
+                // It only takes InteriorLayers as context, but can be adapted to consider others
+                if (layer.GetBehaviour<SchemaBehaviour>() is null) continue;
+                menu.AddItem(new GUIContent(layer.Name), Data.ContextLayers.Contains(layer), ToggleLayerContext, layer);
+            }
+            menu.ShowAsContext();
+        }
+        private void ToggleLayerContext(object layer)
+        {
+            LBSLayer objectLayer = layer as LBSLayer;
+            if (objectLayer == null)
+            {
+                Debug.LogError("Object Layer was null.");
+                return;
+            }
+
+            if (Data.ContextLayers.Contains(layer))
+            {
+                Data.RemoveLayerFromContext(objectLayer);
+            }
+            else
+            {
+                Data.AddLayerToContext(objectLayer);
+            }
+            _popContextView.Rebuild();
+        }
     }
 }

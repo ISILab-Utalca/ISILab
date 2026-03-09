@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace ISILab.AI.Categorization
 {
-    [System.Serializable]
+    [Obsolete("Currently not in use."), Serializable]
     public class SafetyFairness : IRangedEvaluator
     {
         public float MaxValue => 1;
@@ -111,8 +111,9 @@ namespace ISILab.AI.Categorization
                 foreach (var dir in Directions.Bidimencional.Edges)
                 {
                     var pos = chrom.ToMatrixPosition(parent) + dir;
-                    if (pos.x >= chrom.Rect.width)
-                        ; // No se valida?
+
+                    if (pos.x >= chrom.Rect.width) { } // No se valida?
+
                     var index = chrom.ToIndex(pos);
 
                     if (index < 0 || index >= chrom.Length)

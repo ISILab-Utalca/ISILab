@@ -15,10 +15,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
     [UxmlElement]
     public partial class BundleWizardSetAssetsMenu : VisualElement, IBundleWizardTab
     {
-        private TemplateContainer dragAndDropContainer;
-        private VisualElement dragAndDropWindow;
-        private DragAndDropWindow.DragAndDropManipulator manipulator;
+        //SINGLE BUNDLE
+        private TemplateContainer dragAndDropContainerSB;
+        private VisualElement dragAndDropWindowSB;
+        private DragAndDropWindow.DragAndDropManipulator manipulatorSB;
 
+        //MULTPLE BUNDLES
+        private TemplateContainer dragAndDropContainerMB;
+        private VisualElement dragAndDropWindowMB;
+        private DragAndDropWindow.DragAndDropManipulator manipulatorMB;
+
+        //GENERATED BUNDLE'S LIST
         private ListView bundleList;
         private List<BundleManagerWindow.BundleContainer> bundleContainers = new();
         private BundleManagerListGroup bundleListGroup;
@@ -41,11 +48,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         /// Callback that retrieves Objects to be used as Assets for a new Bundle.
         /// </summary>
         /// <param name="objects"> Objects passed by a provider (e.g., <see cref="DragAndDropWindow.DragAndDropManipulator"/>) </param>
-        private void GetObjects(List<Object> objects)
+        private void GetSingleObject(List<Object> objects)
         {
             var prefabs = new List<GameObject>(objects.Select(o => o as GameObject)).RemoveEmpties();
 
-            Bundle bundle = SetBundle(prefabs);
+            Bundle bundle = SetSingleBundle(prefabs);
 
             bundleContainers.Add(new BundleManagerWindow.BundleContainer(bundle));
 
@@ -58,11 +65,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         }
 
         /// <summary>
-        /// Creates a child bundle instance, sets its Assets and do basic configuration.
+        /// Creates a single child bundle instance given a list of prefabs,
+        /// sets its Assets and do basic configuration.
         /// </summary>
         /// <param name="prefabs"> Prefabs to add as bundle assets. </param>
         /// <returns> The configured bundle instance. </returns>
-        private Bundle SetBundle(List<GameObject> prefabs)
+        private Bundle SetSingleBundle(List<GameObject> prefabs)
         {
             Bundle bundle = ScriptableObject.CreateInstance<Bundle>();
             prefabs.ForEach(pref => bundle.AddAsset(pref));
@@ -73,19 +81,78 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             return bundle;
         }
 
+        /// <summary>
+        /// Callback that retrieves Objects to be used as Assets for a new Bundle.
+        /// </summary>
+        /// <param name="objects"> Objects passed by a provider (e.g., <see cref="DragAndDropWindow.DragAndDropManipulator"/>) </param>
+        private void GetMultipleObjects(List<Object> objects)
+        {
+            var prefabs = new List<GameObject>(objects.Select(o => o as GameObject)).RemoveEmpties();
+
+            List<Bundle> bundles = SetMultipleBundles(prefabs);
+
+            foreach (Bundle b in bundles)
+            {
+                bundleContainers.Add(new BundleManagerWindow.BundleContainer(b));
+            }
+
+            bundleList.Rebuild();
+            bundleList.RefreshItems();
+
+            /*
+            string s = "";
+            prefabs.ForEach(o => s += AssetDatabase.GetAssetPath(o) + "\n");
+            Debug.Log(s);
+            */
+        }
+
+        // Ignacio: Need to test
+        /// <summary>
+        /// Creates a child bundle instance for each element of a given prefab list's,
+        /// sets its Assets and do basic configuration.
+        /// </summary>
+        /// <param name="prefabs"> Prefabs to make into bundle assets. </param>
+        /// <returns> The list of configured bundle instances. </returns>
+        private List<Bundle> SetMultipleBundles(List<GameObject> prefabs)
+        {
+            List<Bundle> bundles = new List<Bundle>();
+            Bundle tempBundle;
+
+            foreach (var pref in prefabs)
+            {
+                tempBundle = ScriptableObject.CreateInstance<Bundle>();
+                tempBundle.AddAsset(pref);
+                tempBundle.BundleName = pref.name;
+                Builder.GetBundleConfiguration(ref tempBundle, Builder.layerType);
+
+                bundles.Add(tempBundle);
+            }
+            
+            return bundles;
+        }
+
         public void Init()
         {
-            
-
             //Debug.Log("Init: " + GetType().Name);
             //Debug.Log("Builder data:\n\n" + Builder.ToString());
+            
+            //SINGLE BUNDLE
             try
             {
-                dragAndDropContainer = this.Q<TemplateContainer>();
-                dragAndDropWindow = dragAndDropContainer.Q<VisualElement>("DragAndDrop");
-                manipulator = new DragAndDropWindow.DragAndDropManipulator(dragAndDropContainer, GetObjects);
+                dragAndDropContainerSB = this.Q<TemplateContainer>("DragAndDropContainerSB");
+                dragAndDropWindowSB = dragAndDropContainerSB.Q<VisualElement>();
+                manipulatorSB = new DragAndDropWindow.DragAndDropManipulator(dragAndDropContainerSB, DragAndDropWindow.DragAndDropManipulator.DragAndDropMode.SINGLE_BUNDLE, GetSingleObject);
 
                 bundleListGroup = this.Q<BundleManagerListGroup>("NewBundles");
+            }
+            catch (System.Exception e) { Debug.LogException(e); }
+
+            //MULTIPLE BUNDLES
+            try
+            {
+                dragAndDropContainerMB = this.Q<TemplateContainer>("DragAndDropContainerMB");
+                dragAndDropWindowMB = dragAndDropContainerMB.Q<VisualElement>();
+                manipulatorMB = new DragAndDropWindow.DragAndDropManipulator(dragAndDropContainerMB, DragAndDropWindow.DragAndDropManipulator.DragAndDropMode.MULTIPLE_BUNDLES, GetMultipleObjects);
             }
             catch (System.Exception e) { Debug.LogException(e); }
 
@@ -117,7 +184,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
         public void Revert()
         {
-            manipulator.target = null;
+            manipulatorSB.target = null;
+            manipulatorMB.target = null;
 
             //tempBundles.Clear();
             bundleContainers.Clear();

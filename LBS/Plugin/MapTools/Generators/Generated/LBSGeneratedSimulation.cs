@@ -1,6 +1,5 @@
 using PathOS;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -14,6 +13,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public LevelEntity levelEntity;
         [HideInInspector]
         public bool hideAtStart = false;
+
+        public bool Visible => !agent.eyes.invisibleEntities.Contains(levelEntity);
 
         private void Start()
         {
@@ -30,6 +31,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public void ReactivateEntity()
         {
             agent.eyes.RemoveInvisibleEntity(levelEntity);
+            PerceivedEntity perceivedEt = agent.eyes.perceptionInfo.Find(et => et.entityRef.Equals(levelEntity));
+            if (perceivedEt == null)
+                return;
+            perceivedEt.perceivedPos = transform.position;
+            // These two lines probably have the same effect as agent.memory.entities.Add(new EntityMemory(perceivedEt)), but just in case.
+            agent.memory.Memorize(perceivedEt);
+            agent.memory.TryCommitLTM(perceivedEt);
+
+            // Possible improvement: Add to memory only if location is registered in the heatmap
         }
     }
 }

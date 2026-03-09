@@ -94,7 +94,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             for (int i = 0; i < doorPOIElements.Length; i++)
             {
                 var simComp = doorPOIElements[i].GetComponentInParent<LBSGeneratedSimulation>();
-                if (simComp == null) continue;
+                if (simComp == null || simComp.Visible) continue;
 
                 simComp.ReactivateEntity();
             }

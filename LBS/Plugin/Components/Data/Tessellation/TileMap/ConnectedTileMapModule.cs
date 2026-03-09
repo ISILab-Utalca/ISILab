@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility;
 using ISILab.Extensions;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-
 using Newtonsoft.Json;
 using UnityEngine;
+using static ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.JPSPlus;
 
 namespace ISILab.LBS.Modules
 {
@@ -39,6 +40,11 @@ namespace ISILab.LBS.Modules
 
         [JsonIgnore]
         public ConnectedTileType GridType => gridType;
+
+        [JsonIgnore]
+        public JPSNode[] JPSNodes { get; set; } = new JPSNode[0];
+        [JsonIgnore]
+        public Dictionary<Vector2Int, int[]> PathfindDistances { get; set; } = new();
         #endregion
 
         #region EVENTS
@@ -131,9 +137,15 @@ namespace ISILab.LBS.Modules
 
         public List<string> GetConnections(LBSTile tile)
         {
-            var p = GetPair(tile);
+            TileConnectionsPair p = GetPair(tile);
             if(p is null) return new List<string>();
-            //if (p == null) return null;
+            return p.Connections;
+        }
+
+        public List<string> GetConnections(Vector2Int pos)
+        {
+            TileConnectionsPair p = GetPair(pos);
+            if (p is null) return new List<string>();
             return p.Connections;
         }
 
@@ -160,6 +172,31 @@ namespace ISILab.LBS.Modules
             OnChanged?.Invoke(this, new List<object>() { pair }, null);
             OnRemovePair?.Invoke(this, pair);
         }
+
+        public void InitializePathfinding() => InitializePathfinding(GetBounds());
+
+        public void InitializePathfinding(Rect selection)
+        {
+            int w = (int)selection.width;
+            int h = (int)selection.height;
+
+            JPSNodes = new JPSNode[w * h];
+            for(int i = (int)selection.xMin; i < (int)selection.xMax; i++)
+            {
+                for(int j = (int)selection.yMin; j < (int)selection.yMax; j++)
+                {
+                    Vector2Int pos = new Vector2Int(i, j);
+                    if (GetPair(pos) is not null)
+                    {
+                        JPSNodes[selection.GlobalToIndex(pos)] = new JPSNode(pos);
+                    }
+                }
+            }
+
+            PathfindDistances = JPSPreprocessDistances(selection, this);
+        }
+
+
 
         public override Rect GetBounds()
         {
