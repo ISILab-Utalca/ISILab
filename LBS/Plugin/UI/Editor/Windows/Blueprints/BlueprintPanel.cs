@@ -16,16 +16,28 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
+    public enum blueprintAddMode
+    {
+        [Tooltip("Adds by finding or creating a layer with the same TYPE.")]
+        ByType,
+
+        [Tooltip("Adds by finding or creating a layer with the same NAME (and type).")]
+        ByName,
+
+        [Tooltip("Always creates a NEW layer of the same TYPE, ignoring existing ones.")]
+        New
+    }
+
     [UxmlElement]
     public partial class BlueprintPanel : VisualElement
     {
         #region VIEW ELEMENTS
         LBSCustomButton deleteButton;
         LBSCustomButton captureButton;
+        LBSCustomEnumField addModeField;
         ScrollView scrollView;
         
         static VisualTreeAsset visualTreeAsset;
@@ -45,6 +57,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         private CaptureInArea _captureArea;
         private PrintInArea _printArea;
         private List<BlueprintEntry> entries = new();
+        [SerializeField]
+        private blueprintAddMode activeAddMode = blueprintAddMode.ByName;
         #endregion
 
         #region PROPERTIES
@@ -117,6 +131,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             captureButton = this.Q<LBSCustomButton>("CaptureButton");
             scrollView = this.Q<ScrollView>("BlueprintScrollView");
 
+            addModeField = this.Q<LBSCustomEnumField>("AddMode");
+            addModeField.RegisterCallback<ChangeEvent<Enum>>(evt =>
+            {
+                if (evt.newValue is blueprintAddMode mode)
+                {
+                    activeAddMode = mode;
+                    var field = typeof(blueprintAddMode).GetField(activeAddMode.ToString());
+                    var attr = (TooltipAttribute)Attribute.GetCustomAttribute(field, typeof(TooltipAttribute));
+
+                    addModeField.tooltip = attr?.tooltip;
+                }
+            });
+
+            addModeField.SetValueWithoutNotify(activeAddMode);
             deleteButton.clicked += DeleteSelectedBlueprint;
             captureButton.clicked += CaptureBlueprint;
 
@@ -149,8 +177,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     foreach (var entry in entries) entry.SetSelected(false);
                     SelectedBlueprint = bp;
                 };
-
-                Debug.Log($"Entry Created: {bp.BlueprintName}  InstanceID: {bp.GetInstanceID()}");
 
                 scrollView.Add(entry);
                 entries.Add(entry);
@@ -185,20 +211,19 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             Texture2D captureImage, 
             Vector2Int size)
         {
-            if (capturedObjects is null && !capturedObjects.Any())
-            
+            if (capturedObjects == null || !capturedObjects.Any())
             {
                 LBSMainWindow.MessageNotify(
                     new Core.Settings.LBSLog("There are no valid objects to capture in that area of the graph.", 
                     LogType.Error));
                 return;
             }
-            
+
 
             ISILab.LBS.Components.Blueprint newInstance =
                 ScriptableObject.CreateInstance<ISILab.LBS.Components.Blueprint>();
 
-            newInstance.StorableData = capturedObjects;
+            newInstance.StorableData = new List<BlueprintStorable>(capturedObjects);
             newInstance.PreviewImage = captureImage;
             newInstance.Size = size;
 
@@ -227,8 +252,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             LBSMainWindow.MessageNotify(
                 new Core.Settings.LBSLog("Blueprint capture, a new Blueprint Scriptable Object has been stored.",
                 LogType.Log));
-            Debug.Log($"New Blueprint <{newInstance.BlueprintName}> created at: {assetPath}");
-            
+      
             LoadBlueprints();
         }
 
@@ -292,8 +316,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             if (SelectedBlueprint is null) return;
             previewLayer = new LBSLayer();
-
-            MainView.Instance.AddContainer(previewLayer);
+                
             CloneRefs.Start();
             foreach (BlueprintStorable storable in selectedBlueprint.StorableData)
             {
@@ -303,54 +326,47 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     if (entry.Object is LBSModule module)
                     {
                         LBSModule mClone = (LBSModule)module.Clone();
+                        if (previewLayer.Modules.Contains(mClone)) continue;
                         previewLayer.AddModule(mClone);
                     }
                     if (entry.Object is LBSBehaviour behaviour)
                     {
                         LBSBehaviour bhClone = (LBSBehaviour)behaviour.Clone();
+                        if (previewLayer.Behaviours.Contains(bhClone)) continue;
                         previewLayer.AddBehaviour(bhClone);
                     }
                 }
             }
             CloneRefs.End();
+
+            DrawManager.Instance.RedrawLayer(previewLayer);
         }
 
         internal void RedrawSelectedBlueprint(Vector2Int offset)
         {
-            if (previewLayer is null)
-            {
-                return;
-            }
-            if (selectedBlueprint is null)
-            {
-                return;
-            }
-
-            DrawManager.Instance.UpdateLayer(previewLayer);
+            if (previewLayer == null || selectedBlueprint == null) return;
 
             Vector2Int gridSpace = previewLayer.ToFixedPosition(offset);
-            if (OffsetGrid == gridSpace) return;
-            OffsetGrid = gridSpace;
+            if (OffsetGrid != gridSpace)
+            {
+                OffsetGrid = gridSpace;
 
-            CreateOffsetLayer();
-        }
+                CreateBlueprintPreviewLayer();
 
-        private void CreateOffsetLayer()
-        {
-            CreateBlueprintPreviewLayer();
-            // passing coordinates in grid space
-            // update all positions on the preview layer data(cloned safe for mutation)
-            previewLayer.OffsetLayer(OffsetGrid);
-            DrawManager.Instance.RedrawLayer(previewLayer);
+                // passing coordinates in grid space
+                // update all positions on the preview layer data(cloned safe for mutation)
+                previewLayer.OffsetLayer(OffsetGrid);
+
+                DrawManager.Instance.UpdateLayer(previewLayer);
+            }
+
         }
 
         private void ClearVisualization()
         {
-            if (previewLayer == null)
-                return;
+            if (previewLayer == null) return;
 
-            MainView.Instance.RemoveContainer(previewLayer);
-            previewLayer = null;
+            DrawManager.Instance.ClearLayer(previewLayer);
         }
 
         #endregion

@@ -1,10 +1,13 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using System;
-using UnityEditor.UIElements;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
@@ -49,8 +52,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 blueprint = value;
                 BlueprintImage = blueprint.PreviewImage;
                 blueprintLabel.text = blueprint.BlueprintName;
+                tooltip = MakeTooltip();
             }
         }
+
+
         #endregion
 
         #region CONSTRUCTORS
@@ -87,6 +93,44 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 RemoveFromClassList("prop-state--checked");
             }
         }
+        private string MakeTooltip()
+        {
+            if (blueprint == null)
+                return "Empty blueprint slot";
+
+            Dictionary<Type, string> dict = new()
+            {
+                { typeof(SchemaBehaviour), "Interior Layer" },
+                { typeof(ExteriorBehaviour), "Exterior Layer" },
+                { typeof(PopulationBehaviour), "Population Layer" },
+                { typeof(QuestBehaviour), "Quest Layer" },
+            };
+
+            HashSet<Type> registeredTypes = new();
+
+            string tooltip = "Layers:\n";
+
+            foreach (BlueprintStorable storable in blueprint.StorableData)
+            {
+                if (!storable.Data.Any()) continue;
+
+                foreach (BlueprintData entry in storable.Data)
+                {
+                    if (entry.Object == null) continue;
+
+                    Type type = entry.Object.GetType();
+
+                    if (!registeredTypes.Contains(type) && dict.ContainsKey(type))
+                    {
+                        registeredTypes.Add(type);
+                        tooltip += $"- {dict[type]}\n";
+                    }
+                }
+            }
+
+            return tooltip;
+        }
+
         #endregion
     }
 }

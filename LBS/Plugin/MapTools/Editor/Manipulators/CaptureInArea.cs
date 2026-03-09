@@ -81,20 +81,16 @@ namespace ISILab.LBS.Manipulators
 
             Vector2Int AreaStart = areaFeedback.StartPosition.ToInt();
             Vector2Int AreaEnd = areaFeedback.EndPosition.ToInt();
+            /** Tesselation clamping adds bordering tiles, subtracting 1 will keep it within 
+             * a single tile size*/
+            var teselleationAreaStart = AreaStart;
+            var tesellationAreaEnd = AreaEnd;
 
-            // remove the border offset as we only need the objects at the start position to end position
-            // the offset is the base tilesize (100,100). So if 
-            // selecting tile 0,0
-            // area is 0,0 to 100, 100
-            // area tiles are 0,0 to 1,1.
-            // but we only need the selected, must remove base tile offset,
-            // therefore subtract graph tile size
-            Vector2Int tileSize = new Vector2Int(100, 100);
-            Vector2Int size = AreaEnd - AreaStart;
+            tesellationAreaEnd.x -= 100;
+            tesellationAreaEnd.y -= 100;
 
-            if (size.x > tileSize.x) AreaEnd.x -= tileSize.x;
-            if (size.y > tileSize.y) AreaEnd.y -= tileSize.y;
-
+            Debug.Log("Start: " + AreaStart);
+            Debug.Log("End: " + AreaEnd);
 
             CloneRefs.Start();
 
@@ -102,7 +98,7 @@ namespace ISILab.LBS.Manipulators
             foreach (LBSLayer layer in LBSMainWindow.Instance.GetLayers())
             {
 
-                BlueprintData[] layerObjs = layer.GetObjects(AreaStart, AreaEnd);
+                BlueprintData[] layerObjs = layer.GetObjects(teselleationAreaStart, tesellationAreaEnd);
                 if (!layerObjs.Any()) continue;
                 
                 BlueprintStorable data = new BlueprintStorable(layer.Name, layer.ID, layerObjs);

@@ -504,6 +504,7 @@ namespace ISILab.LBS.Behaviours
             }
 
             validObjects.Add(new BlueprintData(Clone(), corners.min, corners.max));
+
             return validObjects.ToArray();
             
         }

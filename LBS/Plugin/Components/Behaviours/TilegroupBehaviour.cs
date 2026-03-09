@@ -3,6 +3,7 @@ using ISILab.LBS.Modules;
 using LBS.Components;
 using System;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -76,7 +77,13 @@ namespace ISILab.LBS.Behaviours
 
         public override void CheckKeys() { }
 
-
+        public override BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
+        {
+            return new BlueprintData[]
+            {
+                new BlueprintData(Clone(), StartPosition, EndPosition)
+            };
+        }
         #endregion
     }
 }

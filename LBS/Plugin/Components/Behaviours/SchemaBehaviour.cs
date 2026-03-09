@@ -653,7 +653,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                         LBSTile tileClone = tile.Clone() as LBSTile;
                         tileMapClone.AddTile(tileClone);
 
-                        TileZonePair tzp = areas.GetPairTile(tile);
+                        TileZonePair tzp = areas.GetPairTile(pos);
                         if (tzp != null)
                         {
                             Zone zoneClone = tzp.Zone.Clone() as Zone;

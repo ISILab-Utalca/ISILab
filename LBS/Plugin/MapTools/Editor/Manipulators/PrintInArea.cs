@@ -27,6 +27,7 @@ namespace ISILab.LBS.Manipulators
         private BlueprintFeedback previewAreaFeedback; 
         private List<Feedback> previews = new List<Feedback>();
         private Vector2Int FeedbackPosition;
+        internal static object AddingMode;
         #endregion
 
         #region PROPERTIES
