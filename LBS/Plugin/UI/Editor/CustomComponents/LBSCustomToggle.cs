@@ -11,6 +11,8 @@ namespace ISILab.LBS.CustomComponents
         private VisualElement m_Input;
         private Toggle toggle;
 
+        public LBSCustomToggle() : this("LBS Toggle") { }
+
         public LBSCustomToggle(string label) : base(label, null)
         {
             RemoveFromClassList(ussClassName);
