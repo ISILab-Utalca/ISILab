@@ -291,11 +291,11 @@ namespace ISILab.AI.Categorization
                                     List<int> members = new();// { itemIndices[i] };
                                     for (int j = i + 1; j < size; j++)
                                     {
-                                        if (filter.Contains(j)) continue;
+                                        if (filter.Contains(itemIndices[j])) continue;
                                         distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
                                         if (distances[i, j] < 0) continue; // Not found at specified distance
-                                        if(!skip.Contains(j)) members.Add(itemIndices[j]); // Add to incoming colony
-                                        skip.Add(j);
+                                        if(!skip.Contains(itemIndices[j])) members.Add(itemIndices[j]); // Add to incoming colony
+                                        skip.Add(itemIndices[j]);
                                     }
                                     colony.members.AddRange(members);
                                     //colonies.Add(new(members));
