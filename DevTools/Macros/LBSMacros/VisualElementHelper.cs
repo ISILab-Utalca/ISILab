@@ -49,9 +49,6 @@ namespace ISILab.LBS.Macros
             void WaitFrames()
             {
                 frames++;
-
-                
-
                 if (frames < 5) return;
                 EditorApplication.update -= WaitFrames;
 

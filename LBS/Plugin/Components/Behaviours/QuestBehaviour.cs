@@ -1,17 +1,19 @@
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
 {
     [RequieredModule(typeof(QuestGraph))]
-    public class QuestBehaviour : LBSBehaviour
+    public class QuestBehaviour : LBSBehaviour, IBlueprintable
     {
         public Type activeGraphNodeType = null;
         public string ActionToSet { get; set; }
@@ -54,7 +56,7 @@ namespace ISILab.LBS.Behaviours
             UpdateKeys(Graph.GraphNodes.ToList<object>());
         }
 
-        public override void ApplyBlueprintOffset(Vector2Int offset)
+        public void OffsetObject(Vector2Int offset)
         {
             foreach (var node in Graph.GraphNodes)
             {
@@ -62,15 +64,12 @@ namespace ISILab.LBS.Behaviours
             }
         }
 
-        public override BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
+        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<BlueprintData> validObjects = new();
-
-            List<GraphNode> graphNodesClone = new();
-            List<QuestEdge> graphEdgesClone = new();
-            QuestNode rootClone = null;
+            List<GraphNode> nodesToRemove = Graph.GraphNodes;
+            List<QuestEdge> edgesToRemove = Graph.GraphEdges;
 
             foreach (GraphNode node in Graph.GraphNodes)
             {
@@ -85,60 +84,27 @@ namespace ISILab.LBS.Behaviours
                     nodePos.y >= corners.min.y &&
                     nodePos.y <= corners.max.y;
 
-                if (!inside)
-                    continue;
-
-                GraphNode nodeClone = node.Clone() as GraphNode;
-                graphNodesClone.Add(nodeClone);
-
-                validObjects.Add(
-                    new BlueprintData(
-                        graphNodesClone,
-                        corners.min,
-                        corners.max
-                        )
-                    );
-
-                if (node is QuestNode questNode && Graph.Root == node)
+                if (inside)
                 {
-                    rootClone = nodeClone as QuestNode;
-
-                    validObjects.Add(
-                        new BlueprintData(
-                            rootClone,
-                            corners.min,
-                            corners.max
-                            )
-                        );
+                    nodesToRemove.Remove(node);
                 }
+            
             }
 
             foreach (QuestEdge edge in Graph.GraphEdges)
             {
-                bool fromInside = graphNodesClone.Exists(n => edge.From.Contains(n));
-                bool toInside = graphNodesClone.Exists(n => n.ID == edge.To.ID);
+                bool fromInside = nodesToRemove.Exists(n => edge.From.Contains(n));
+                bool toInside = nodesToRemove.Exists(n => n.ID == edge.To.ID);
 
                 if (fromInside && toInside)
                 {
-                    QuestEdge edgeClone = edge.Clone() as QuestEdge;
-                    graphEdgesClone.Add(edgeClone);
-
-                    validObjects.Add(
-                        new BlueprintData(
-                            graphEdgesClone,
-                            corners.min,
-                            corners.max
-                            )
-                        );
+                    edgesToRemove.Remove(edge);
                 }
             }
 
-            return validObjects.ToArray();
+            foreach (var node in nodesToRemove) Graph.RemoveQuestNode(node);
+            foreach (var edge in edgesToRemove) Graph.RemoveEdge(edge);
         }
 
-        public override void LoadBlueprintData(BlueprintData[] objects)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

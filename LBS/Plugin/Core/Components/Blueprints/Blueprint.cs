@@ -1,3 +1,4 @@
+using LBS.Components;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace ISILab.LBS.Components
 
         // Store all of the layer data types
         [SerializeField, SerializeReference]
-        private List<BlueprintStorable> storableData = new();
+        private List<LBSLayer> layers;
 
         public string BlueprintName
         {
@@ -38,15 +39,11 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public List<BlueprintStorable> StorableData
+        public List<LBSLayer> Layers
         {
-            get => storableData;
-            set
-            {
-                storableData = value;
-                EditorUtility.SetDirty(this);
-                AssetDatabase.SaveAssets();
-            }
+            get => layers;
+
+            set => layers = value;
         }
 
         public Texture2D PreviewImage

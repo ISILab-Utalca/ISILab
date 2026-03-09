@@ -2,12 +2,11 @@ using ISILab.Commons.Extensions;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;
@@ -18,123 +17,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
 
-    [Serializable]
-    public struct DirConnection
-    {
-        public int direction;
-        public string connection;
-
-        public DirConnection(int direction, string connection)
-        {
-            this.direction = direction;
-            this.connection = connection;
-        }
-
-        public override bool Equals(object other)
-        {
-            if (other is DirConnection od)
-            {
-                return od.connection == connection && od.direction == direction;
-            }
-            return false;
-        }
-    }
-
-
-    [Serializable]
-    public class ConnectionData
-    {
-        // addons from the tilegroup that was used to generate this object in the LBS tool
-        [SerializeField, SerializeReference]
-        public LBSTile tile;
-
-        [SerializeField, SerializeReference]
-        public LBSLayer layer;
-
-        /// <summary>
-        /// First value is the direction <see cref="LBSDirection.Connections"/> index.
-        /// Second value is the connection <see cref="SchemaBehaviour.Connections"/>.
-        /// </summary>
-        /// 
-        [SerializeField]
-        public List<DirConnection> connections;
-
-        public ConnectionData()
-        {
-            connections = new();
-            layer = null;
-            tile = null;
-        }
-
-        public ConnectionData(LBSLayer layer ,LBSTile tile, List<DirConnection> connections = null)
-        {
-            this.connections = new();
-            if(connections is not null) this.connections = connections;
-            this.tile = tile;
-            this.layer = layer;
-        }
-
-        public bool Equals(ConnectionData other)
-        {
-            foreach (DirConnection conn in other.connections)
-            {
-                if (Equals(other.tile, conn)) return true;
-            }
-          
-            return false;
-        }
-
-        private bool Equals(LBSTile otherTile, DirConnection connection)
-        {
-            // no tile cant be equal
-            if (tile is null) return false;
-            if (!tile.Equals(otherTile)) return false;
-            foreach (DirConnection conn in connections)
-            {
-                if (conn.Equals(connection)) return true;
-            }
-
-            return false;
-        }
-
-        public bool IsConected(List<DirConnection> otherConns)
-        {
-            foreach(var conn in connections)
-            {
-                foreach(var oConn in otherConns)
-                {
-                    if (oConn.connection != conn.connection) continue;
-
-                    bool bIsConnected = false;
-                    switch (LBSDirection.ToString(conn.direction))
-                    {
-                        case LBSDirection.Up: 
-                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Down);
-                            break;
-                        case LBSDirection.Down:
-                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Up);
-                            break;
-                        case LBSDirection.Right:
-                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Left);
-                            break;
-                        case LBSDirection.Left:
-                            bIsConnected = oConn.direction == LBSDirection.ToInt(LBSDirection.Right);
-                            break;
-                    }
-                    if (bIsConnected) return true;
-                }
-            }
-            return false;
-
-        }
-    }
-
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
         typeof(ConnectedZonesModule))]
-    public class SchemaBehaviour : LBSBehaviour
+    public class SchemaBehaviour : LBSBehaviour, IBlueprintable
     {
         #region READONLY-FIELDS
         
@@ -625,21 +513,15 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             return true;
         }
 
-        public override BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
+        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            List<BlueprintData> validObjects = new();
-            List<Type> AddedTypes = new();
+            List<LBSTile> tilesToRemove = tileMap.Tiles;
+            List<TileZonePair> tileZonePairsToRemove = areas.PairTiles;
+            List<TileConnectionsPair> tileConnectionsPairsToRemove = TileConnections.Pairs;
+            List<Zone> zonesToRemove = areas.Zones;
 
-            TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
-            tileMapClone.Clear();
-
-            SectorizedTileMapModule areasClone = areas.Clone() as SectorizedTileMapModule;
-            areasClone.Clear();
-
-            ConnectedTileMapModule tileConnectionsClone = TileConnections.Clone() as ConnectedTileMapModule;
-            tileConnectionsClone.Clear();
 
             for (int x = corners.min.x; x <= corners.max.x; x++)
             {
@@ -648,48 +530,23 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                     Vector2Int pos = new Vector2Int(x, y);
 
                     LBSTile tile = GetTile(pos);
-                    if (tile != null)
-                    {
-                        LBSTile tileClone = tile.Clone() as LBSTile;
-                        tileMapClone.AddTile(tileClone);
-
-                        TileZonePair tzp = areas.GetPairTile(pos);
-                        if (tzp != null)
-                        {
-                            Zone zoneClone = tzp.Zone.Clone() as Zone;
-                            areasClone.AddTile(tileClone, zoneClone);
-                        }
-                    }
-
+                    tilesToRemove.Remove(tile);
                     TileConnectionsPair pair = TileConnections.GetPair(pos);
-                    if (pair != null)
-                    {
-                        TileConnectionsPair pairClone = pair.Clone() as TileConnectionsPair;
-                   
-                        tileConnectionsClone.AddPair(
-                            pairClone.Tile,
-                            pairClone.Connections,
-                            pairClone.EditedByIA
-                        );
-                    }
+                    tileConnectionsPairsToRemove.Remove(pair);
+                    TileZonePair tzp = areas.GetPairTile(pos);
+                    tileZonePairsToRemove.Remove(tzp);
+                    zonesToRemove.Remove(tzp?.Zone);
                 }
             }
 
-            if (!tileMapClone.IsEmpty())
-                validObjects.Add(new BlueprintData(tileMapClone, corners.min, corners.max));
-
-            if (!areasClone.IsEmpty())
-                validObjects.Add(new BlueprintData(areasClone, corners.min, corners.max));
-
-            if (!tileConnectionsClone.IsEmpty())
-                validObjects.Add(new BlueprintData(tileConnectionsClone, corners.min, corners.max));
-
-            validObjects.Add(new BlueprintData(Clone(), corners.min, corners.max));
-            return validObjects.ToArray();
+            foreach (var tile in tilesToRemove) tileMap.RemoveTile(tile);
+            foreach (var tzp in tileZonePairsToRemove) areas.RemovePair(tzp.Tile);
+            foreach (var pair in tileConnectionsPairsToRemove) TileConnections.RemoveTile(pair.Tile);
+            foreach (var zone in zonesToRemove) areas.RemoveZone(zone);
         }
 
 
-        public override void ApplyBlueprintOffset(Vector2Int offset)
+        public void OffsetObject(Vector2Int offset)
         {
             if (TileMap.Tiles.Count == 0) return;
 
@@ -706,11 +563,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             {
                 tbg.Position += delta;
             }
-        }
-
-        public override void LoadBlueprintData(BlueprintData[] objects)
-        {
-
         }
 
         #endregion

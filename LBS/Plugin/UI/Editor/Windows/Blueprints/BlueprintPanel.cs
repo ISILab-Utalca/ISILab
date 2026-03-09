@@ -5,6 +5,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using ISILab.LBS.VisualElements;
 using LBS;
 using LBS.Components;
@@ -13,7 +14,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -39,26 +39,30 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         LBSCustomButton captureButton;
         LBSCustomEnumField addModeField;
         ScrollView scrollView;
-        
-        static VisualTreeAsset visualTreeAsset;
         #endregion
 
         #region CONSTS
 
         const string baseName = "Blueprint_";
         const string folderPath = "Assets/Blueprints";
-        private readonly Dictionary<GraphElement, Vector2> OgPositions = new();
-
+       
         #endregion
 
         #region FIELDS
 
         private ISILab.LBS.Components.Blueprint selectedBlueprint;
+       
         private CaptureInArea _captureArea;
         private PrintInArea _printArea;
+
         private List<BlueprintEntry> entries = new();
+        private List<LBSLayer> previewLayers = new();
+        
+        private Vector2Int OffsetGrid;
+
         [SerializeField]
         private blueprintAddMode activeAddMode = blueprintAddMode.ByName;
+        
         #endregion
 
         #region PROPERTIES
@@ -109,11 +113,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         #endregion
 
-        #region STATIC METHODS
+        #region STATICS
+        static VisualTreeAsset visualTreeAsset;
         private static BlueprintPanel _instance;
-        private LBSLayer previewLayer;
-        private Vector2Int OffsetGrid;
-
         public static BlueprintPanel Instance => _instance;
 
         #endregion
@@ -207,11 +209,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         }
 
         private void CaptureComplete(
-            List<BlueprintStorable> capturedObjects, 
+            List<LBSLayer> capturedLayers, 
             Texture2D captureImage, 
             Vector2Int size)
         {
-            if (capturedObjects == null || !capturedObjects.Any())
+            if (capturedLayers == null || !capturedLayers.Any())
             {
                 LBSMainWindow.MessageNotify(
                     new Core.Settings.LBSLog("There are no valid objects to capture in that area of the graph.", 
@@ -223,7 +225,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             ISILab.LBS.Components.Blueprint newInstance =
                 ScriptableObject.CreateInstance<ISILab.LBS.Components.Blueprint>();
 
-            newInstance.StorableData = new List<BlueprintStorable>(capturedObjects);
+            newInstance.Layers = new List<LBSLayer>(capturedLayers);
             newInstance.PreviewImage = captureImage;
             newInstance.Size = size;
 
@@ -315,38 +317,30 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             ClearVisualization();
 
             if (SelectedBlueprint is null) return;
-            previewLayer = new LBSLayer();
-                
+
             CloneRefs.Start();
-            foreach (BlueprintStorable storable in selectedBlueprint.StorableData)
+
+            foreach (var layer in SelectedBlueprint.Layers)
             {
-                if (!storable.Data.Any()) continue;
-                foreach (BlueprintData entry in storable.Data)
-                {
-                    if (entry.Object is LBSModule module)
-                    {
-                        LBSModule mClone = (LBSModule)module.Clone();
-                        if (previewLayer.Modules.Contains(mClone)) continue;
-                        previewLayer.AddModule(mClone);
-                    }
-                    if (entry.Object is LBSBehaviour behaviour)
-                    {
-                        LBSBehaviour bhClone = (LBSBehaviour)behaviour.Clone();
-                        if (previewLayer.Behaviours.Contains(bhClone)) continue;
-                        previewLayer.AddBehaviour(bhClone);
-                    }
-                }
+                var newPreview = layer.Clone() as LBSLayer;
+                previewLayers.Add(newPreview);
             }
+
+            // Should make a layer per type? or actually just as many layers as were made
             CloneRefs.End();
 
-            DrawManager.Instance.RedrawLayer(previewLayer);
+            foreach (var layer in previewLayers) DrawManager.Instance.RedrawLayer(layer);
+
         }
 
         internal void RedrawSelectedBlueprint(Vector2Int offset)
         {
-            if (previewLayer == null || selectedBlueprint == null) return;
+            if (!previewLayers.Any() || selectedBlueprint == null) return;
 
-            Vector2Int gridSpace = previewLayer.ToFixedPosition(offset);
+            var selectedLayer = LBSMainWindow.Instance._selectedLayer;
+            if(selectedLayer == null) return;
+
+            Vector2Int gridSpace = selectedLayer.ToFixedPosition(offset);
             if (OffsetGrid != gridSpace)
             {
                 OffsetGrid = gridSpace;
@@ -354,19 +348,22 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 CreateBlueprintPreviewLayer();
 
                 // passing coordinates in grid space
-                // update all positions on the preview layer data(cloned safe for mutation)
-                previewLayer.OffsetLayer(OffsetGrid);
+                foreach (var previewLayer in previewLayers)
+                {
+                    previewLayer.OffsetLayer(OffsetGrid);
+                    DrawManager.Instance.UpdateLayer(previewLayer);
+                }
 
-                DrawManager.Instance.UpdateLayer(previewLayer);
             }
 
         }
 
         private void ClearVisualization()
         {
-            if (previewLayer == null) return;
+            if (!previewLayers.Any()) return;
 
-            DrawManager.Instance.ClearLayer(previewLayer);
+            foreach (var previewLayer in previewLayers)
+                DrawManager.Instance.ClearLayer(previewLayer);
         }
 
         #endregion

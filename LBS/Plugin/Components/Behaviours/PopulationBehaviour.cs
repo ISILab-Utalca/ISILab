@@ -453,17 +453,13 @@ namespace ISILab.LBS.Behaviours
             };
         }
 
-        public override BlueprintData[] GetBlueprintData(Vector2Int StartPosition, Vector2Int EndPosition)
+        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<BlueprintData> validObjects = new();
 
-            BundleTileMap bundleTileMapClone = BundleTilemap.Clone() as BundleTileMap;
-            bundleTileMapClone.Clear();
-
-            TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
-            tileMapClone.Clear();
+            List<LBSTile> tilesToRemove = tileMap.Tiles;
+            List<TileBundleGroup> tbgToRemove = _bundleTileMap.Groups;
 
             for (int x = corners.min.x; x <= corners.max.x; x++)
             {
@@ -472,49 +468,19 @@ namespace ISILab.LBS.Behaviours
                     Vector2Int pos = new Vector2Int(x, y);
 
                     LBSTile tile = tileMap.GetTile(pos);
-                    if (tile != null)
-                    {
-                        LBSTile tileClone = tile.Clone() as LBSTile;
-                        tileMapClone.AddTile(tileClone);
-
-                        validObjects.Add(
-                            new BlueprintData(
-                                tileMapClone, 
-                                corners.min, 
-                                corners.max
-                                )
-                            );
-                    }
+                    tilesToRemove.Remove(tile);
 
                     TileBundleGroup tbg = _bundleTileMap.GetGroup(pos);
-                    if (tbg != null)
-                    {
-                        TileBundleGroup tbgClone = tbg.Clone() as TileBundleGroup;
-                        bundleTileMapClone.AddGroup(tbgClone);
-
-                        validObjects.Add(
-                            new BlueprintData(
-                                bundleTileMapClone, 
-                                corners.min, 
-                                corners.max
-                                )
-                            );
-                    }
+                    tbgToRemove.Remove(tbg);
                 }
             }
 
-            validObjects.Add(new BlueprintData(Clone(), corners.min, corners.max));
-
-            return validObjects.ToArray();
-            
-        }
-
-        public override void LoadBlueprintData(BlueprintData[] objects)
-        {
+            foreach (var tile in tilesToRemove) tileMap.RemoveTile(tile);
+            foreach (var tbg in tbgToRemove) _bundleTileMap.RemoveGroup(tbg);
 
         }
 
-        public override void ApplyBlueprintOffset(Vector2Int offset)
+        public void OffsetObject(Vector2Int offset)
         {
             if (TileMap.Tiles.Count == 0) return;
 
