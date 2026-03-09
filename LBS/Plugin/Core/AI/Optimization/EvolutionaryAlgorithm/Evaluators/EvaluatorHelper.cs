@@ -177,15 +177,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
         }
 
-        public static void PartialFloodFill(int limit, int startPos, List<int> others, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
+        public static void PartialFloodFill(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
         {
-            found = new List<int>() { startPos };
+            found = new List<int>() {  };
 
-            if (from >= others.Count)
-                return;
+            //if (from >= others.Count)
+            //    return;
 
-            List<int> remainingOthers = new List<int>(others);
-            remainingOthers.RemoveRange(0, from);
+            List<int> remainingOthers = new List<int>(others.Except(filtered));
+            //remainingOthers.RemoveRange(0, from);
             remainingOthers.Remove(startPos);
 
             var remaining = new HashSet<int>();
@@ -275,10 +275,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                         for (int j = from; j < others.Count; j++)
                         {
+                            if(filtered.Contains(others[j])) continue;
                             if (index == others[j])
                             {
                                 distances[from, j] = distances[j, from] = i + 1;
                                 remainingOthers.Remove(index);
+                                //if (!filtered.Contains(index))
                                 found.Add(index);
                                 if (remainingOthers.Count == 0) return;
                                 allowedSteps[index] = limit;
@@ -313,7 +315,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         public static void PartialManhattan(int limit, int startPos, List<int> others, int from, out List<int> found, ref int[,] distances, BundleTilemapChromosome chrom)
         {
             found = new List<int>();
-            Dictionary<int, int> allowedSteps = new() { [startPos] = limit };
             for (int i = from; i < others.Count; i++)
             {
                 Vector2Int v1 = chrom.ToMatrixPosition(startPos);
@@ -322,7 +323,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 int dist = Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
                 if(dist > limit)
                 {
-                    distances[i, from] = distances[from, i] = 0;
+                    distances[i, from] = distances[from, i] = -1;
                 }
                 else
                 {
