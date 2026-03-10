@@ -10,6 +10,7 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -140,7 +141,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         Vector2Int newPos = currentPos + dir;
                         int index = chrom.GlobalToIndex(newPos);
 
-                        if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index))
+                        if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index) || remainingStep.Contains(index))
                             continue;
 
                         Zone otherZone = sectorizedTM.GetZone(newPos);
@@ -247,7 +248,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         //if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index)) // Quiza en vez de nextStepCheck simplemente se pueda revisar nextStep
                         //    continue;
 
-                        if (index < 0) continue;
+                        if (index < 0 || remainingStep.Contains(index)) continue;
                         if (nextStepCheck.Contains(index) || closed.Contains(index))
                         {
                             if (allowedSteps[index] < allowedSteps[current] - 1)
@@ -276,6 +277,149 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         for (int j = from; j < others.Count; j++)
                         {
                             if(filtered.Contains(others[j])) continue;
+                            if (index == others[j])
+                            {
+                                distances[from, j] = distances[j, from] = i + 1;
+                                remainingOthers.Remove(index);
+                                //if (!filtered.Contains(index))
+                                found.Add(index);
+                                if (remainingOthers.Count == 0) return;
+                                allowedSteps[index] = limit;
+                                break;
+                            }
+                        }
+
+                        nextStep.Add(index);
+                        nextStepCheck.Add(index);
+                    }
+                }
+
+                foreach (int step in nextStep)
+                    if (allowedSteps[step] > 0)
+                        remainingStep.Enqueue(step);
+                    else
+                        allowedSteps.Remove(step);
+            }
+        }
+
+        public static void PartialFloodFillChebyshev(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
+        {
+            found = new List<int>() { };
+
+            //if (from >= others.Count)
+            //    return;
+
+            List<int> remainingOthers = new List<int>(others.Except(filtered));
+            //remainingOthers.RemoveRange(0, from);
+            remainingOthers.Remove(startPos);
+
+            var remaining = new HashSet<int>();
+            var closed = new HashSet<int>();
+
+            foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
+            {
+                int index = chrom.GlobalToIndex(tile.Position);
+                if (index < 0) continue;
+                remaining.Add(index);
+            }
+
+            var remainingStep = new Queue<int>();
+            remainingStep.Enqueue(startPos);
+
+            Dictionary<int, int> allowedSteps = new() { [startPos] = limit };
+
+            List<Vector2Int> dirs = Directions.Bidimencional.All;
+            int dirCount = dirs.Count;
+            int[] inverseIndices = new int[dirCount];
+            for (int k = 0; k < dirCount; k++)
+            {
+                inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
+            }
+
+            int i; // Distancia recorrida
+            for (i = 0; remaining.Count > 0 && remainingStep.Count > 0; i++) // Casillas que falta por revisar
+            {
+                if (remainingStep.Count == 0)
+                    break;
+
+                HashSet<int> nextStepCheck = new HashSet<int>();
+                List<int> nextStep = new List<int>();
+
+                while (remainingStep.Count > 0) // Casillas que deben revisar sus vecinos en esta iteracion. Todas tienen distancia == i
+                {
+                    int current = remainingStep.Dequeue();
+
+                    Vector2Int currentPos = chrom.ToGlobalPosition(current);
+
+                    remaining.Remove(current);
+                    closed.Add(current);
+
+                    if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
+                    List<string> currentConnections = connectedTM.GetConnections(currentTile);
+
+                    for (int k = 0; k < dirCount; k++)
+                    {
+                        List<string> currentDirConnections = new() { currentConnections[k / 2] };
+                        if (k % 2 != 0) currentDirConnections.Add(currentConnections[(k / 2 + 1) % 4]);
+
+                        bool impassable = false;
+                        foreach(string conn in currentDirConnections)
+                        {
+                            if (!((conn.Length == 4 && conn == "Door") ||
+                              (conn.Length == 5 && conn == "Empty")))
+                            {
+                                impassable = true;
+                                break;
+                            }
+                        }
+                        if (impassable) continue;
+                        
+                        Vector2Int dir = dirs[k];
+                        Vector2Int newPos = currentPos + dir;
+                        int index = chrom.GlobalToIndex(newPos);
+
+                        //if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index)) // Quiza en vez de nextStepCheck simplemente se pueda revisar nextStep
+                        //    continue;
+
+                        if (index < 0 || remainingStep.Contains(index)) continue;
+                        if (nextStepCheck.Contains(index) || closed.Contains(index))
+                        {
+                            if (allowedSteps[index] < allowedSteps[current] - 1)
+                            {
+                                allowedSteps.Remove(index);
+                            }
+                            else continue;
+                        }
+
+                        Zone otherZone = sectorizedTM.GetZone(newPos);
+                        if (otherZone is null) continue;
+
+                        if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
+
+                        int invIndex = inverseIndices[k];
+                        if (invIndex == -1) continue;
+
+                        List<string> newConnections = connectedTM.GetConnections(newTile);
+                        List<string> newDirConnections = new() { newConnections[invIndex / 2] };
+                        if (k % 2 != 0) newDirConnections.Add(newConnections[(invIndex / 2 + 1) % 4]);
+                        //string connection = connectedTM.GetConnections(newTile)[invIndex];
+
+                        foreach(string conn in newDirConnections)
+                        {
+                            if (!((conn.Length == 4 && conn == "Door") ||
+                              (conn.Length == 5 && conn == "Empty")))
+                            {
+                                impassable = true;
+                                break;
+                            }
+                        }
+                        if (impassable) continue;
+
+                        allowedSteps.Add(index, allowedSteps[current] - 1); // ArgumentException: An item with the same key has already been added.
+
+                        for (int j = from; j < others.Count; j++)
+                        {
+                            if (filtered.Contains(others[j])) continue;
                             if (index == others[j])
                             {
                                 distances[from, j] = distances[j, from] = i + 1;

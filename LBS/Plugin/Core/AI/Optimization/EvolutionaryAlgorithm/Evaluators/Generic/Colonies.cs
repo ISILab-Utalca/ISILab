@@ -263,7 +263,7 @@ namespace ISILab.AI.Categorization
                                         filter.Add(colony.center);
                                     }
                                     distances[i, i] = 0;
-                                    EvaluatorHelper.PartialFloodFill(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                    EvaluatorHelper.PartialFloodFillChebyshev(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod);
                                     colony.members.AddRange(found.Except(skip));
                                     skip.UnionWith(found);
                                 }
