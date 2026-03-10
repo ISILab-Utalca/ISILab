@@ -10,7 +10,6 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -180,7 +179,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         public static void PartialFloodFill(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
         {
-            found = new List<int>() {  };
+            found = new List<int>() { };
 
             //if (from >= others.Count)
             //    return;
@@ -276,7 +275,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                         for (int j = from; j < others.Count; j++)
                         {
-                            if(filtered.Contains(others[j])) continue;
+                            if (filtered.Contains(others[j])) continue;
                             if (index == others[j])
                             {
                                 distances[from, j] = distances[j, from] = i + 1;
@@ -363,17 +362,17 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         if (k % 2 != 0) currentDirConnections.Add(currentConnections[(k / 2 + 1) % 4]);
 
                         bool impassable = false;
-                        foreach(string conn in currentDirConnections)
+                        foreach (string conn in currentDirConnections)
                         {
                             if (!((conn.Length == 4 && conn == "Door") ||
-                              (conn.Length == 5 && conn == "Empty")))
+                                (conn.Length == 5 && conn == "Empty")))
                             {
                                 impassable = true;
                                 break;
                             }
                         }
                         if (impassable) continue;
-                        
+
                         Vector2Int dir = dirs[k];
                         Vector2Int newPos = currentPos + dir;
                         int index = chrom.GlobalToIndex(newPos);
@@ -382,11 +381,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         //    continue;
 
                         if (index < 0 || remainingStep.Contains(index)) continue;
+                        bool updateSteps = false;
                         if (nextStepCheck.Contains(index) || closed.Contains(index))
                         {
                             if (allowedSteps[index] < allowedSteps[current] - 1)
                             {
-                                allowedSteps.Remove(index);
+                                updateSteps = true;
                             }
                             else continue;
                         }
@@ -404,7 +404,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         if (k % 2 != 0) newDirConnections.Add(newConnections[(invIndex / 2 + 1) % 4]);
                         //string connection = connectedTM.GetConnections(newTile)[invIndex];
 
-                        foreach(string conn in newDirConnections)
+                        foreach (string conn in newDirConnections)
                         {
                             if (!((conn.Length == 4 && conn == "Door") ||
                               (conn.Length == 5 && conn == "Empty")))
@@ -415,6 +415,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         }
                         if (impassable) continue;
 
+                        if (updateSteps) allowedSteps.Remove(index);
                         allowedSteps.Add(index, allowedSteps[current] - 1); // ArgumentException: An item with the same key has already been added.
 
                         for (int j = from; j < others.Count; j++)
@@ -465,7 +466,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 Vector2Int v2 = chrom.ToMatrixPosition(others[i]);
 
                 int dist = Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
-                if(dist > limit)
+                if (dist > limit)
                 {
                     distances[i, from] = distances[from, i] = -1;
                 }
@@ -498,7 +499,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 List<Tuple<TileConnectionsPair, int>> impassables = connectedTM.GetAllPairsWithConnections(impassableConnections.ToArray()).Where(t => area.Contains(t.Item1.Tile.Position)).ToList();
 
-                foreach(Tuple<TileConnectionsPair, int> impassable in impassables)
+                foreach (Tuple<TileConnectionsPair, int> impassable in impassables)
                 {
                     int dir = impassable.Item2;
 
@@ -539,18 +540,18 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 /// STRAIGHT JUMP POINTS
 
-                for(int y = yMin; y < yMax; y++)
+                for (int y = yMin; y < yMax; y++)
                 {
                     int jumpDistance = -1;
                     bool jumpPointSeen = false;
 
-                    for(int x = xMin; x < xMax; x++)
+                    for (int x = xMin; x < xMax; x++)
                     {
                         Vector2Int currentNodePos = new Vector2Int(x, y);
                         TileConnectionsPair currentNode = connectedTM.GetPair(currentNodePos);
                         const int dir4 = 2, dir8 = dir4 * 2;
 
-                        if(currentNode is null)
+                        if (currentNode is null)
                         {
                             jumpDistance = -1;
                             jumpPointSeen = false;
@@ -567,7 +568,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                         JPDistances[currentNodePos][dir8] = jumpPointSeen ? jumpDistance : -jumpDistance;
 
-                        if(primaryJumpPoints.TryGetValue(currentNodePos, out List<Vector2Int> JPDirs) && JPDirs.Contains(edges[dir4]))
+                        if (primaryJumpPoints.TryGetValue(currentNodePos, out List<Vector2Int> JPDirs) && JPDirs.Contains(edges[dir4]))
                         {
                             jumpDistance = 0;
                             jumpPointSeen = true;
@@ -691,8 +692,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         node = connectedTM.GetPair(nodePos);
                         if (node is null) continue;
 
-                        CalcDiagDist(5, x == xMin,      y == xMin, nodePos, node);
-                        CalcDiagDist(7, x == xMax - 1,  y == yMin, nodePos, node);
+                        CalcDiagDist(5, x == xMin, y == xMin, nodePos, node);
+                        CalcDiagDist(7, x == xMax - 1, y == yMin, nodePos, node);
                     }
                 }
 
@@ -704,8 +705,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         node = connectedTM.GetPair(nodePos);
                         if (node is null) continue;
 
-                        CalcDiagDist(3, x == xMin,      y == yMax - 1, nodePos, node);
-                        CalcDiagDist(1, x == xMax - 1,  y == yMax - 1, nodePos, node);
+                        CalcDiagDist(3, x == xMin, y == yMax - 1, nodePos, node);
+                        CalcDiagDist(1, x == xMax - 1, y == yMax - 1, nodePos, node);
                     }
                 }
 
@@ -747,7 +748,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 return JPDistances;
             }
-        
+
             public class JPSNode
             {
                 public JPSNode parent;
@@ -803,28 +804,28 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     JPSNode parent = current.parent;
                     int[] nodeDistances = JPDistances[current.pos];
 
-                    if(current.pos == goalPos)
+                    if (current.pos == goalPos)
                     {
                         cost = current.givenCost;
                         break;
                     }
 
                     int[] dirs = current.parent is null ? new[] { 0, 1, 2, 3, 4, 5, 6, 7 } : validDirLookUpTable[current.fromDir];
-                    foreach(int dir in dirs)
+                    foreach (int dir in dirs)
                     {
                         JPSNode newSuccesor = null;
                         int givenCost = 0;
 
                         int maxGoalDiff = Mathf.Max(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y)),
                             minGoalDiff = Mathf.Min(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y));
-                        if(dir % 2 == 0 &&
+                        if (dir % 2 == 0 &&
                             GoalAtDirection(current.pos, dir, goalPos, true) &&
                             maxGoalDiff <= Mathf.Abs(nodeDistances[dir]))
                         {
                             newSuccesor = connectedTM.JPSNodes[goalInd];
                             givenCost = current.givenCost + maxGoalDiff;
                         }
-                        else if(dir % 2 == 1 &&
+                        else if (dir % 2 == 1 &&
                             GoalAtDirection(current.pos, dir, goalPos) &&
                             minGoalDiff <= Mathf.Abs(nodeDistances[dir]))
                         {
@@ -838,7 +839,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y)) + current.givenCost;
                         }
 
-                        if(newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                        if (newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
                         {
                             newSuccesor.parent = current;
                             newSuccesor.givenCost = givenCost;
@@ -853,7 +854,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                 }
 
-                while(targetJumpPoints.Count > 0)
+                while (targetJumpPoints.Count > 0)
                 {
                     connectedTM.JPSNodes[targetJumpPoints[0]] = null;
                     targetJumpPoints.RemoveAt(0);
@@ -893,7 +894,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     Vector2Int move = dirs[dir] * dist;
                     Vector2Int newPos = pos + move;
 
-                    if(connectedTM.JPSNodes[area.GlobalToIndex(newPos)] is null)
+                    if (connectedTM.JPSNodes[area.GlobalToIndex(newPos)] is null)
                     {
                         newNode = new JPSNode(newPos);
                         connectedTM.JPSNodes[area.GlobalToIndex(newPos)] = newNode;
@@ -903,7 +904,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     {
                         newNode = connectedTM.JPSNodes[area.GlobalToIndex(newPos)];
                     }
-                        
+
                     return newNode;
                 }
             }
