@@ -5,13 +5,14 @@ using UnityEditor.UIElements;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Toggle = UnityEngine.UIElements.Toggle;
+using System.Runtime.CompilerServices;
 
 namespace ISILab.LBS.CustomComponents
 {
     [UxmlElement]
     public partial class LBSCustomFoldout : Foldout
     {
-
+        
         //Foldout
         public const string FOLDOUT_USS = "lbs-foldout";
         public const string FOLDOUT_CONTENT_PANEL = "lbs-foldout-panel";
@@ -19,7 +20,7 @@ namespace ISILab.LBS.CustomComponents
         public const string FOLDOUT_CHECKMARK = "lbs-custom-foldout-checkmark";
         public const string ICON_USS_CLASS = "lbs-icon";
 
-        
+        public bool initialValue = true;
         
         private VectorImage arrowDownIcon;
         private VectorImage arrowSideIcon;
@@ -31,8 +32,6 @@ namespace ISILab.LBS.CustomComponents
         private VisualElement m_LeftIconElement;
         private VisualElement arrowVisualElement;
         private VisualElement content;
-
-
 
         [UxmlAttribute]
         public VectorImage LeftIcon
@@ -50,7 +49,18 @@ namespace ISILab.LBS.CustomComponents
                 }
             }
         }
-        
+
+        [UxmlAttribute]
+        public bool InitialValue
+        {
+            get => initialValue;
+            set
+            {
+                initialValue = value;
+                this.value = initialValue;
+                UpdateArrow(initialValue);
+            }
+        }
         
         public LBSCustomFoldout() : base()
         {
@@ -78,28 +88,12 @@ namespace ISILab.LBS.CustomComponents
             
             Label contentLabel = this.Q<Label>(classes: textUssClassName);
             contentLabel.AddToClassList("unity-base-field__label");
-            
-            
+
             arrowDownIcon = AssetMacro.LoadAssetByGuid<VectorImage>("b570a25de51f01c41bd82dbe5372bb3f");
             arrowSideIcon = AssetMacro.LoadAssetByGuid<VectorImage>("83eafacbab9ab554299bc4d0f124d980");
             dotsIcon = AssetMacro.LoadAssetByGuid<VectorImage>("4fc870f9e2f488d4bb2c1bffe1f5b751");
-            
-            if (arrowDownIcon != null)
-            {
-                if (value)
-                {
-                    arrowVisualElement.style.backgroundImage = new StyleBackground(arrowDownIcon);
-                }
-                else
-                {
-                    arrowVisualElement.style.backgroundImage = new StyleBackground(arrowSideIcon);
-                }
-            }
-            else
-            {
-                arrowVisualElement.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
-            }
-            
+
+            UpdateArrow(this.value);
             
             content.AddToClassList(FOLDOUT_CONTENT_PANEL);
             content.style.marginLeft = 0;
@@ -121,27 +115,38 @@ namespace ISILab.LBS.CustomComponents
                 toolbarButtonIcon.style.backgroundImage = new StyleBackground(dotsIcon);
             }
 
+            this.value = initialValue;
             mToggle.RegisterValueChangedCallback(OnChangeEvent);
-
         }
 
         void OnChangeEvent(ChangeEvent<bool> _evt)
         {
-            if (_evt.newValue)
-            {
-                arrowVisualElement.style.backgroundImage = new StyleBackground(arrowDownIcon);
-            }
-            else
-            {
-                arrowVisualElement.style.backgroundImage = new StyleBackground(arrowSideIcon);
-            }
-            
+            UpdateArrow(_evt.newValue);
             _evt.StopPropagation();
         }
 
         public void AddContent(VisualElement newContent)
         {
             content.Add(newContent);
+        }
+
+        private void UpdateArrow(bool isOpen)
+        {
+            if (arrowVisualElement != null && arrowDownIcon != null)
+            {
+                if (isOpen)
+                {
+                    arrowVisualElement.style.backgroundImage = new StyleBackground(arrowDownIcon);
+                }
+                else
+                {
+                    arrowVisualElement.style.backgroundImage = new StyleBackground(arrowSideIcon);
+                }
+            }
+            else
+            {
+                arrowVisualElement.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
+            }
         }
     }
 }

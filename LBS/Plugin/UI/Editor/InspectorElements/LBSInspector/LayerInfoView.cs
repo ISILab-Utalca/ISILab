@@ -23,19 +23,28 @@ namespace LBS.VisualElements
         private ObjectField objectField;
         private Vector2IntField sizeField;
 
-        
         public LayerInfoView()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LayerInfoView");
             visualTree.CloneTree(this);
 
             foldout = this.Q<Foldout>();
+            content = this.Q<VisualElement>("Content");
+
             foldout.RegisterCallback<ChangeEvent<bool>>((evt) =>
             {
                 content.SetDisplay(evt.newValue);
             });
 
-            content = this.Q<VisualElement>("Content");
+            /*
+            //initial state of the foldout
+            foldout.value = false;
+            content.SetDisplay(false);
+
+            this.RegisterCallback<AttachToPanelEvent>(evt => {
+                foldout.value = false; // Esto fuerza a la flecha a recalcularse cuando aparece en pantalla
+            });
+            */
 
             textField = this.Q<TextField>();
             textField.SetEnabled(false);
