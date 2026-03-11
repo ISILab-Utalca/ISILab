@@ -8,6 +8,7 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using Newtonsoft.Json;
+using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,8 @@ namespace LBS.Components
 
         [JsonIgnore] private LBSLevelData _parent;
 
-        [SerializeField, SerializeReference] private List<LBSModule> modules = new();
+        private int activeFloor = 0;
+        [SerializeField, SerializeReference] private LBSFloor[] modules = new LBSFloor[10];
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
@@ -39,7 +41,7 @@ namespace LBS.Components
 
         [SerializeField, JsonRequired] public int index;
         #endregion
-        
+
         #region Properties
         [JsonIgnore] public bool IsVisible { get => visible; set => visible = value; }
         [JsonIgnore] public bool IsBlocked { get => blocked; set => blocked = value; }
@@ -48,9 +50,9 @@ namespace LBS.Components
         [JsonIgnore] public LBSLevelData Parent { get => _parent; set => _parent = value; }
         [JsonIgnore] public string ID { get => id; set => id = value; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
+        [JsonIgnore] public int ActiveFloor { get => activeFloor; }
 
         // Return copies to protect internal lists
-        [JsonIgnore] public List<LBSModule> Modules => new(modules);
         [JsonIgnore] public List<LBSBehaviour> Behaviours => new(behaviours);
         [JsonIgnore] public List<LBSAssistant> Assistants => new(assistants);
         [JsonIgnore] public List<LBSGeneratorRule> GeneratorRules => new(generatorRules);
@@ -85,7 +87,10 @@ namespace LBS.Components
         #region Constructors
         public LBSLayer()
         {
-            modules ??= new List<LBSModule>();
+            for(int i = 0; i < modules.Length; i++)
+            {
+                modules[i] ??= new ();
+            }
             behaviours ??= new List<LBSBehaviour>();
             assistants ??= new List<LBSAssistant>();
             generatorRules ??= new List<LBSGeneratorRule>();
@@ -95,14 +100,17 @@ namespace LBS.Components
         }
 
         public LBSLayer(
-            IEnumerable<LBSModule> modules,
+            IEnumerable<LBSModule>[] modules,
             IEnumerable<LBSAssistant> assistant,
             IEnumerable<LBSGeneratorRule> rules,
             IEnumerable<LBSBehaviour> behaviours,
             LBSLevelData parent,
             string ID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
-            if (modules != null) foreach (LBSModule m in modules) AddModule(m);
+            for(int i = 0; i < modules.Length; i++)
+            {
+                if (modules[i] != null) foreach (LBSModule m in modules[i]) AddModule(m, i);
+            }
             if (assistant != null) foreach (LBSAssistant a in assistant) AddAssistant(a);
             if (rules != null) foreach (LBSGeneratorRule r in rules) AddGeneratorRule(r);
             if (behaviours != null) foreach (LBSBehaviour b in behaviours) AddBehaviour(b);
@@ -119,12 +127,19 @@ namespace LBS.Components
         #endregion
 
         #region modules
-        public bool AddModule(LBSModule module)
+        public List<LBSModule> Modules(int i = -1)
+        {
+            if (i < 0) i = activeFloor;
+            return new(modules[i].Modules);
+        }
+
+        public bool AddModule(LBSModule module, int levelIndex = -1)
         {
             if (module == null) return false;
-            if (modules.Contains(module)) return false;
+            if (levelIndex < 0) levelIndex = activeFloor;
+            if (modules[levelIndex].Modules.Contains(module)) return false;
 
-            modules.Add(module);
+            modules[levelIndex].Modules.Add(module);
             module.OnAttach(this);
             OnAddModule?.Invoke(this, module);
             return true;
@@ -134,25 +149,33 @@ namespace LBS.Components
         {
             if (module == null) return false;
 
-            var removed = modules.Remove(module);
-            if (removed)
+            bool removed = false;
+            for (int i = 0; i < modules.Length; i++)
             {
-                try { module.OnDetach(this); } catch { /* swallow detach errors */ }
-                OnRemoveModule?.Invoke(this, module);
+                removed = modules[i].Modules.Remove(module);
+                if (removed)
+                {
+                    try { module.OnDetach(this); } catch { /* swallow detach errors */ }
+                    OnRemoveModule?.Invoke(this, module);
+                }
+                else break;
             }
             return removed;
         }
 
-        public LBSModule GetModule(int indexPos) => modules[indexPos];
+        public LBSModule GetModule(int levelIndex, int posIndex) => modules[levelIndex].Modules[posIndex];
 
         public LBSModule GetModule(string moduleID)
-            => modules.FirstOrDefault(m => string.Equals(m?.ID, moduleID, StringComparison.Ordinal));
+            => modules[activeFloor].Modules.FirstOrDefault(m => string.Equals(m?.ID, moduleID, StringComparison.Ordinal));
 
-        public T GetModule<T>(string moduleID = "") where T : LBSModule
+        public T GetModule<T>(string moduleID = "", int index = -1) where T : LBSModule
         {
+            if (index < 0) index = activeFloor;
             if (string.IsNullOrEmpty(moduleID))
-                return modules.OfType<T>().FirstOrDefault();
-            return modules.FirstOrDefault(m => (m is T || Reflection.IsSubclassOfRawGeneric(typeof(T), m.GetType())) && m.ID == moduleID) as T;
+                return modules[index].Modules.OfType<T>().FirstOrDefault();
+
+            return modules[index].Modules.FirstOrDefault(
+                m => (m is T || Reflection.IsSubclassOfRawGeneric(typeof(T), m.GetType())) && m.ID == moduleID) as T;
         }
 
         public T GetRule<T>() where T : LBSGeneratorRule
@@ -164,26 +187,27 @@ namespace LBS.Components
         {
             if (module == null) return;
 
-            var idx = string.IsNullOrEmpty(key) ? modules.FindIndex(m => m is T) : modules.FindIndex(m => m is T && m.ID == key);
+            var idx = string.IsNullOrEmpty(key) ? 
+                modules[activeFloor].Modules.FindIndex(m => m is T) : modules[activeFloor].Modules.FindIndex(m => m is T && m.ID == key);
 
-            if (idx < 0 || idx >= modules.Count) throw new IndexOutOfRangeException("Module to replace not found.");
+            if (idx < 0 || idx >= modules[activeFloor].Modules.Count) throw new IndexOutOfRangeException("Module to replace not found.");
 
             // detach old then attach new
-            modules[idx].OnDetach(this);
-            modules[idx] = module;
-            modules[idx].OnAttach(this);
-            modules[idx].OwnerLayer = this;
+            modules[activeFloor].Modules[idx].OnDetach(this);
+            modules[activeFloor].Modules[idx] = module;
+            modules[activeFloor].Modules[idx].OnAttach(this);
+            modules[activeFloor].Modules[idx].OwnerLayer = this;
             OnReplaceModule?.Invoke(this, module);
         }
 
         public void ReplaceModule(LBSModule oldModule, LBSModule newModule)
         {
             if (oldModule == null || newModule == null) return;
-            var idx = modules.IndexOf(oldModule);
+            var idx = modules[activeFloor].Modules.IndexOf(oldModule);
             if (idx < 0) return;
 
             RemoveModule(oldModule);
-            modules.Insert(idx, newModule);
+            modules[activeFloor].Modules.Insert(idx, newModule);
             OnReplaceModule?.Invoke(this, newModule);
         }
         #endregion
@@ -206,8 +230,11 @@ namespace LBS.Components
             {
                 foreach (Type rt in req)
                 {
-                    if (modules.All(m => m.GetType() != rt))
-                        AddModule(Activator.CreateInstance(rt) as LBSModule);
+                    for (int i = 0; i < modules.Length; i++)
+                    {
+                        if (modules[i].Modules.All(m => m.GetType() != rt))
+                            AddModule(Activator.CreateInstance(rt) as LBSModule, i);
+                    }
                 }
             }
 
@@ -230,7 +257,7 @@ namespace LBS.Components
         }
         #endregion
 
-      #region Assistants
+        #region Assistants
         public void AddAssistant(LBSAssistant assistant)
         {
             if (assistant == null) return;
@@ -247,8 +274,11 @@ namespace LBS.Components
             {
                 foreach (Type rt in req)
                 {
-                    if (modules.All(m => m.GetType() != rt))
-                        AddModule(Activator.CreateInstance(rt) as LBSModule);
+                    for (int i = 0; i < modules.Length; i++)
+                    {
+                        if (modules.All(m => m.GetType() != rt))
+                            AddModule(Activator.CreateInstance(rt) as LBSModule, i);
+                    }
                 }
             }
 
@@ -286,7 +316,7 @@ namespace LBS.Components
         #region Utility
         public void Reload()
         {
-            foreach (LBSModule module in modules) module.OnAttach(this);
+            foreach (var level in modules) { foreach (LBSModule module in level.Modules) module.OnAttach(this); }
             foreach (LBSAssistant assistant in assistants) assistant.OnAttachLayer(this);
             // generator rules intentionally not auto-attached here
             foreach (LBSBehaviour behaviour in behaviours) behaviour.OnAttachLayer(this);
@@ -297,7 +327,10 @@ namespace LBS.Components
         public void RemoveAll()
         {
             // iterate safely from end to start
-            for (int i = modules.Count - 1; i >= 0; i--) RemoveModule(modules[i]);
+            for(int i = modules.Length - 1; i >= 0; i--)
+            {
+                for (int j = modules[i].Modules.Count - 1; j >= 0; j--) RemoveModule(modules[i].Modules[j]);
+            }
             for (int i = behaviours.Count - 1; i >= 0; i--) RemoveBehaviour(behaviours[i]);
             for (int i = assistants.Count - 1; i >= 0; i--) RemoveAssistant(assistants[i]);
             for (int i = generatorRules.Count - 1; i >= 0; i--) RemoveGeneratorRule(generatorRules[i]);
@@ -349,7 +382,7 @@ namespace LBS.Components
         public object Clone()
         {
             // Clone modules via provided helper, clone lists of polymorphic objects by calling Clone() on each
-            List<LBSModule> clonedModules = this.modules.Clone(); // assuming Clone extension returns List<LBSModule>
+            List<LBSModule>[] clonedModules = (List<LBSModule>[]) this.modules.Clone(); // assuming Clone extension returns List<LBSModule>
             List<LBSAssistant> clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
             List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
             List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
@@ -385,14 +418,6 @@ namespace LBS.Components
         #region Inits
         private void InitializeContextEvents()
         {
-            var multiLeveledModule = GetModule<MultiLevelModule>();
-            if(multiLeveledModule != null)
-            {
-                multiLeveledModule.FillEmptyLevels(modules);
-                multiLeveledModule.SetModulesByLevel(0, modules);
-                multiLeveledModule.PrintModuleMatrix();
-            }
-
             // Example: exterior-specific wiring
             if (ID != "Exterior") return;
 
@@ -415,7 +440,7 @@ namespace LBS.Components
             void VertexExteriorAdd()
             {
                 SectorizedTileMapModule sectorTM = new SectorizedTileMapModule();
-                Assert.IsTrue(AddModule(sectorTM));
+                Assert.IsTrue(AddModule(sectorTM, activeFloor));
 
                 // clone connectedTM as a temporary connected module
                 if (new List<LBSModule> { connectedTM }.Clone()[0] is ConnectedTileMapModule zoneConnected)
@@ -424,7 +449,7 @@ namespace LBS.Components
 
                     var floorTags = GetBehaviour<ExteriorBehaviour>()?.NavigableTags;
                     sectorTM.BuildFromExterior(connectedTM, zoneConnected, floorTags);
-                    Assert.IsTrue(AddModule(zoneConnected));
+                    Assert.IsTrue(AddModule(zoneConnected, activeFloor));
                 }
             }
 

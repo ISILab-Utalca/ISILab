@@ -200,7 +200,7 @@ namespace ISILab.LBS.VisualElements
 
             // Get selectable elements
             List<object> selected = new List<object>();
-            foreach (var module in layer.Modules)
+            foreach (var module in layer.Modules(layer.ActiveFloor))
             {
                 if (module is ISelectable selectable)
                 {

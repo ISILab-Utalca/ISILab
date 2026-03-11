@@ -142,7 +142,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
         typeof(ConnectedZonesModule),
-        typeof(MultiLevelModule),
         typeof(NoteModule))]
     public class SchemaBehaviour : LBSBehaviour, IObjectData
     {
@@ -703,7 +702,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         {
             throw new NotImplementedException();
         }
-
+        /*
         public void ChangeLevelRender(uint prevLevelIndex, uint nextLevelIndex)
         {
             List<LBSTile> oldTiles = new List<LBSTile>();
@@ -727,7 +726,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             }
 
             RequestFullRepaint(oldTiles, newTiles);
-        }
+        }//*/
 
         #endregion
     }

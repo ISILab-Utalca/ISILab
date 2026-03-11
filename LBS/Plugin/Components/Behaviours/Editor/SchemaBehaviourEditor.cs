@@ -69,7 +69,6 @@ namespace ISILab.LBS.Behaviours.Editor
             CreateVisualElement();
         }
 
-
         #endregion
 
         #region METHODS
@@ -128,7 +127,8 @@ namespace ISILab.LBS.Behaviours.Editor
             levelField = this.Q<LBSCustomUnsignedIntegerField>("LevelField");
             if (levelField != null)
             {
-                levelField.MinValue = 0;
+                levelField.style.display = DisplayStyle.None;
+                /*levelField.MinValue = 0;
 
                 var levelModule = behaviour.OwnerLayer.GetModule<MultiLevelModule>();
                 if (levelModule is null)
@@ -149,7 +149,7 @@ namespace ISILab.LBS.Behaviours.Editor
                         DrawManager.Instance.UpdateLayer(behaviour.OwnerLayer);
                         //behaviour
                     });
-                }
+                }//*/
             }
 
             // Area Pallete

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ISILab.LBS.Modules
 {
-    [Serializable]
+    /*[Serializable]
     public class MultiLevelModule : LBSModule//, ISelectable
     {
         public int CurrentLevel { get { return currentLevel; } }
@@ -46,7 +46,7 @@ namespace ISILab.LBS.Modules
         // Actions
         public void ChangeLevel(uint currentLevelIndex, uint nextLevelIndex)
         {
-            var activeModules = OwnerLayer.Modules;
+            var activeModules = OwnerLayer.Modules(currentLevel);
             activeModules.RemoveAll(m => m.GetType() == typeof(MultiLevelModule));
             
             var newModules = modulesByLevel[nextLevelIndex].Clone();
@@ -136,6 +136,6 @@ namespace ISILab.LBS.Modules
             }
             Debug.Log(s);
         }
-    }
+    }//*/
 
 }

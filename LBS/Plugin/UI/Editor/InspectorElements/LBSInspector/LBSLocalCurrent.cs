@@ -42,7 +42,7 @@ namespace ISILab.LBS.VisualElements
             foreach (LBSLayer refLayer in _layers)
             {
                 if (refLayer == null) continue;
-                foreach (LBSModule module in refLayer.Modules)
+                foreach (LBSModule module in refLayer.Modules(refLayer.ActiveFloor))
                 {
                     if (module is null) continue;
                     Type type = module.GetType();
@@ -78,11 +78,11 @@ namespace ISILab.LBS.VisualElements
                 return;    
             }
             
-            noContentPanel.SetDisplay(!_target.Modules.Any());
+            noContentPanel.SetDisplay(!_target.Modules(_target.ActiveFloor).Any());
             
             ToolKit.Instance.InitGeneralTools(_target);
             
-            modulesPanel.SetInfo(_target.Modules);
+            modulesPanel.SetInfo(_target.Modules(_target.ActiveFloor));
             layerInfoView.SetInfo(_target);
             
             
