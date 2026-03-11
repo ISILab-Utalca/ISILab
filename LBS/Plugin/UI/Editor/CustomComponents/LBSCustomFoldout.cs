@@ -138,6 +138,11 @@ namespace ISILab.LBS.CustomComponents
             
             _evt.StopPropagation();
         }
+
+        public void AddContent(VisualElement newContent)
+        {
+            content.Add(newContent);
+        }
     }
 }
 
