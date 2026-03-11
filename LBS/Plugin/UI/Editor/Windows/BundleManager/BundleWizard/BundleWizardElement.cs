@@ -25,8 +25,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         private LBSCustomButton _deleteButton;
 
 
-        private readonly IMGUIContainer _bundleIcon;
-        private readonly IMGUIContainer _selectIcon;
+        //private readonly IMGUIContainer _bundleIcon;
+        //private readonly IMGUIContainer _selectIcon;
 
         public Bundle BundleRef { get => _bundleRef; set => _bundleRef = value; }
         public ListView ListRef { get => _listRef; set => _listRef = value; }
@@ -51,8 +51,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             GetVisualTreeForThis();
 
-            _bundleIcon = this.Q<IMGUIContainer>("BundleIcon");
-            _selectIcon = this.Q<IMGUIContainer>("SelectIcon");
+            //_bundleIcon = this.Q<IMGUIContainer>("BundleIcon");
+            //_selectIcon = this.Q<IMGUIContainer>("SelectIcon");
 
             _nameField = this.Q<LBSCustomTextField>("NameField");
             
@@ -86,10 +86,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             _listRef = list;
 
+            /*
             if(bundle.Icon != null)
             {
                 _bundleIcon.style.backgroundImage = new StyleBackground(bundle.Icon);
             }
+           */
         }
 
         public void SetIconDisplay(string iconName, bool display)
@@ -98,12 +100,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             switch (iconName)
             {
+                /*
                 case "Bundle":
                     _bundleIcon.style.display = displayStyle;
                     break;
                 case "Select":
                     _selectIcon.style.display = displayStyle;
                     break;
+                */
             }
         }
 

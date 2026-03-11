@@ -1844,3 +1844,79 @@ Toggle > .lbs-default-icon {
     overflow: visible;
     -unity-text-overflow-position: start;
 }
+
+/*
+.lbs-custom-toggle .unity-toggle__input--checked .unity-toggle__checkmark,
+.lbs-custom-toggle .unity-toggle__checkmark,
+.lbs-custom-toggle:hover .unity-toggle__checkmark,
+.lbs-custom-toggle:active .unity-toggle__checkmark,
+.lbs-custom-toggle:focus .unity-toggle__checkmark {
+        background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon.png') !important;
+}
+*/
+
+
+    /* Atacamos todas las combinaciones posibles del input interno 
+.lbs-custom-toggle .unity-toggle__input:hover .unity-toggle__checkmark,
+.lbs-custom-toggle .unity-toggle__input--checked .unity-toggle__checkmark,
+.lbs-custom-toggle .unity-toggle__input--checked:hover .unity-toggle__checkmark,
+.lbs-custom-toggle .unity-toggle__input:active .unity-toggle__checkmark,
+.lbs-custom-toggle .unity-toggle__input:focus .unity-toggle__checkmark {
+    background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon.png') !important;
+
+}
+*/
+
+/*
+.lbs-custom-toggle > .unity-base-field__input > .unity-toggle__checkmark{ /* DEFAULT, FUNCIONA ""BIEN""
+        background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon.png');
+}
+*/
+
+/*
+.lbs-custom-toggle .unity-toggle__checkmark--checked ,
+.lbs-custom-toggle .unity-toggle__checkmark--checked:hover ,
+.lbs-custom-toggle .unity-toggle__checkmark:hover ,
+.lbs-custom-toggle .unity-toggle__checkmark:active ,
+.lbs-custom-toggle .unity-toggle__checkmark:focus ,
+*/
+
+/*
+.lbs-custom-toggle--checked .unity-toggle__checkmarks ,
+.lbs-custom-toggle--checked:hover .unity-toggle__checkmark ,
+.lbs-custom-toggle:hover .unity-toggle__checkmark ,
+.lbs-custom-toggle:active .unity-toggle__checkmark ,
+.lbs-custom-toggle:focus .unity-toggle__checkmark ,
+.lbs-custom-toggle .unity-toggle__checkmark {
+    background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon.png') !important;
+}
+
+.lbs-custom-toggle> .unity-base-field__input--checked > .unity-toggle__checkmarks ,
+.lbs-custom-toggle> .unity-base-field__input--checked:hover > .unity-toggle__checkmark ,
+.lbs-custom-toggle> .unity-base-field__input:hover > .unity-toggle__checkmark ,
+.lbs-custom-toggle> .unity-base-field__input:active > .unity-toggle__checkmark ,
+.lbs-custom-toggle> .unity-base-field__input:focus > .unity-toggle__checkmark ,
+.lbs-custom-toggle> .unity-base-field__input > .unity-toggle__checkmark {
+    background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon.png') !important;
+}
+
+*/
+
+.lbs-custom-toggle > .unity-toggle__input{
+    border-width: 1px;
+    border-color:transparent;
+}
+
+.lbs-custom-toggle:hover > .unity-toggle__input{
+    border-width: 1px;
+    border-color:green;
+    cursor: link;
+}
+
+.lbs-custom-toggle:checked > .unity-toggle__input > .unity-toggle__checkmark {
+    background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Characteristics_Boolean.png') !important;
+}
+
+.lbs-custom-toggle > .unity-toggle__input > .unity-toggle__checkmark {
+    background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon.png') !important;
+}

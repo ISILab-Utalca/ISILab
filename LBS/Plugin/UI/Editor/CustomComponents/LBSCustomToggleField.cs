@@ -51,7 +51,6 @@ namespace ISILab.LBS.CustomComponents
             m_Knob.AddToClassList(inputKnobUssClass);
             m_Input.Add(m_Knob);
             
-            
             RegisterCallback<ClickEvent>(_evt => OnClick(_evt));
             RegisterCallback<KeyDownEvent>(evt => OnKeydownEvent(evt));
             RegisterCallback<NavigationSubmitEvent>(evt => OnSubmit(evt));

@@ -48,6 +48,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             toggle = this.Q<Toggle>();
             charLabel = this.Q<Label>();
 
+            AddToClassList("lbs-wizard-char-element");
         }
 
         /// <summary>

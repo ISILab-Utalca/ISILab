@@ -47,12 +47,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             {
                 //this.menu = menu;
 
+                listGroup.style.flexShrink = 0;
                 listGroup.style.flexGrow = 1;
 
                 listGroup.GetListViewRef(out listView);
 
                 listGroup.TitleText = titleLable;
                 
+                listView.fixedItemHeight = 32;
                 listView.itemsSource = menu.allCharacteristics;
                 listView.makeItem = () => new BundleWizardCharacteristicElement();
                 listView.bindItem = (item, i) =>
