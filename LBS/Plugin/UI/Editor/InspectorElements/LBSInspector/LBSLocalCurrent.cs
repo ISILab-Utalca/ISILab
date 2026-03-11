@@ -44,6 +44,7 @@ namespace ISILab.LBS.VisualElements
                 if (refLayer == null) continue;
                 foreach (LBSModule module in refLayer.Modules)
                 {
+                    if (module is null) continue;
                     Type type = module.GetType();
 
                     if (type == typeof(BundleData)) continue;

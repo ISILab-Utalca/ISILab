@@ -187,7 +187,7 @@ namespace ISILab.LBS.Behaviours
         }
         
         /// <summary>
-        /// Get all new tiles' position that have been created since the last time they were retrieved.
+        /// Get all new tiles that have been created since the last time they were retrieved.
         /// The memory of new tiles will be cleared after calling this method.
         /// </summary>
         public virtual object[] RetrieveNewTiles()
@@ -205,7 +205,7 @@ namespace ISILab.LBS.Behaviours
         }
         
         /// <summary>
-        /// Get all tiles' position that   since the last time they were retrieved.
+        /// Get all tiles that are marked for erasing since the last time they were retrieved.
         /// The memory of new tiles will be cleared after calling this method.
         /// </summary>
         public virtual object[] RetrieveExpiredTiles()

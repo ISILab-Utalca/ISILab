@@ -19,6 +19,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
+using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.Behaviours.Editor
 {
@@ -40,7 +41,8 @@ namespace ISILab.LBS.Behaviours.Editor
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon = Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878"); 
+        private VectorImage icon = Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
+        private LBSCustomUnsignedIntegerField levelField;
         private SimplePallete areaPallete;
         private SimplePallete connectionPallete;
         private string zoneIconGuid = "76bf813a38668ce439887addd209058c";
@@ -121,6 +123,34 @@ namespace ISILab.LBS.Behaviours.Editor
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SchemaBehaviourEditor");
             visualTree.CloneTree(this);
+
+            // Level Field
+            levelField = this.Q<LBSCustomUnsignedIntegerField>("LevelField");
+            if (levelField != null)
+            {
+                levelField.MinValue = 0;
+
+                var levelModule = behaviour.OwnerLayer.GetModule<MultiLevelModule>();
+                if (levelModule is null)
+                {
+                    levelField.style.display = DisplayStyle.None;
+                }
+                else
+                {
+                    levelField.value = (uint) levelModule.CurrentLevel;
+                    levelField.MaxValue = (uint) levelModule.MaxLevel;
+                    levelField.RegisterValueChangedCallback(evt =>
+                    {
+                        if (evt.newValue > levelField.MaxValue || evt.newValue < levelField.MinValue) return; 
+
+                        levelModule.ChangeLevel(evt.previousValue, evt.newValue);
+                        SetAreaPallete();
+                        behaviour.ChangeLevelRender(evt.previousValue, evt.newValue);
+                        DrawManager.Instance.UpdateLayer(behaviour.OwnerLayer);
+                        //behaviour
+                    });
+                }
+            }
 
             // Area Pallete
             areaPallete = this.Q<SimplePallete>("ZonePallete");

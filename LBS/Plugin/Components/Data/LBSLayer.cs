@@ -385,6 +385,14 @@ namespace LBS.Components
         #region Inits
         private void InitializeContextEvents()
         {
+            var multiLeveledModule = GetModule<MultiLevelModule>();
+            if(multiLeveledModule != null)
+            {
+                multiLeveledModule.FillEmptyLevels(modules);
+                multiLeveledModule.SetModulesByLevel(0, modules);
+                multiLeveledModule.PrintModuleMatrix();
+            }
+
             // Example: exterior-specific wiring
             if (ID != "Exterior") return;
 

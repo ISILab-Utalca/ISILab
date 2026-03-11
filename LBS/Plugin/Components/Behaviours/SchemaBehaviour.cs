@@ -10,8 +10,10 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -139,7 +141,9 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
-        typeof(ConnectedZonesModule))]
+        typeof(ConnectedZonesModule),
+        typeof(MultiLevelModule),
+        typeof(NoteModule))]
     public class SchemaBehaviour : LBSBehaviour, IObjectData
     {
         #region READONLY-FIELDS
@@ -698,6 +702,31 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public void LoadObjects(object[] objects)
         {
             throw new NotImplementedException();
+        }
+
+        public void ChangeLevelRender(uint prevLevelIndex, uint nextLevelIndex)
+        {
+            List<LBSTile> oldTiles = new List<LBSTile>();
+            List<LBSTile> newTiles = new List<LBSTile>();
+            var multiLevelMod = OwnerLayer.GetModule<MultiLevelModule>();
+
+            if (multiLevelMod is null) return;
+
+            var prevMod = multiLevelMod.GetModulesByLevel((int)prevLevelIndex).Find(
+                m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
+            var nextMod = multiLevelMod.GetModulesByLevel((int)prevLevelIndex).Find(
+                m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
+
+            foreach (var pTile in prevMod.PairTiles)
+            {
+                oldTiles.Add(pTile.Tile);
+            }
+            foreach (var pTile in nextMod.PairTiles)
+            {
+                newTiles.Add(pTile.Tile);
+            }
+
+            RequestFullRepaint(oldTiles, newTiles);
         }
 
         #endregion
