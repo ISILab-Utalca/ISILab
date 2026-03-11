@@ -89,7 +89,7 @@ namespace ISILab.LBS.Manipulators
             tesellationAreaEnd.x -= 100;
             tesellationAreaEnd.y -= 100;
 
-            CloneRefs.Start();
+            ///CloneRefs.Start();
 
             capturedBlueprintData.Clear();
             // Should get all layers under the start and endposition 

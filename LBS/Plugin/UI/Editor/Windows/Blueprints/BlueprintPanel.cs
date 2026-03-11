@@ -183,6 +183,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 scrollView.Add(entry);
                 entries.Add(entry);
             }
+
+            ClearPreviews();
         }
 
 
@@ -314,20 +316,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         internal void CreateBlueprintPreviewLayer()
         {
       
-            ClearVisualization();
+            ClearPreviews();
 
             if (SelectedBlueprint is null) return;
-
-            CloneRefs.Start();
 
             foreach (var layer in SelectedBlueprint.Layers)
             {
                 var newPreview = layer.Clone() as LBSLayer;
                 previewLayers.Add(newPreview);
             }
-
-            // Should make a layer per type? or actually just as many layers as were made
-            CloneRefs.End();
 
             foreach (var layer in previewLayers) DrawManager.Instance.RedrawLayer(layer);
 
@@ -345,7 +342,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 OffsetGrid = gridSpace;
 
-                CreateBlueprintPreviewLayer();
+               // CreateBlueprintPreviewLayer();
 
                 // passing coordinates in grid space
                 foreach (var previewLayer in previewLayers)
@@ -358,12 +355,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         }
 
-        private void ClearVisualization()
+        private void ClearPreviews()
         {
             if (!previewLayers.Any()) return;
 
             foreach (var previewLayer in previewLayers)
                 DrawManager.Instance.ClearLayer(previewLayer);
+
+            previewLayers.Clear();
         }
 
         #endregion

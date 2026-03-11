@@ -3,6 +3,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -110,15 +111,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             string tooltip = "Layers:\n";
 
-            foreach (BlueprintStorable storable in blueprint.StorableData)
+            foreach (LBSLayer layer in blueprint.Layers)
             {
-                if (!storable.Data.Any()) continue;
-
-                foreach (BlueprintData entry in storable.Data)
+                foreach (LBSBehaviour bh in layer.Behaviours)
                 {
-                    if (entry.Object == null) continue;
+                    if (bh == null) continue;
 
-                    Type type = entry.Object.GetType();
+                    Type type = bh.GetType();
 
                     if (!registeredTypes.Contains(type) && dict.ContainsKey(type))
                     {
