@@ -5,6 +5,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -18,7 +19,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationBehaviour : LBSBehaviour
+    public class PopulationBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
         

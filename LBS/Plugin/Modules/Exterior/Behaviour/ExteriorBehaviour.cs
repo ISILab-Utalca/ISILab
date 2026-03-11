@@ -4,6 +4,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;
@@ -18,7 +19,7 @@ namespace ISILab.LBS.Behaviours
     [Serializable]
     [RequieredModule(typeof(TileMapModule),
                     typeof(ConnectedTileMapModule))]
-    public class ExteriorBehaviour : LBSBehaviour
+    public class ExteriorBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
         [JsonProperty, SerializeReference, SerializeField, HideInInspector]
@@ -238,7 +239,7 @@ namespace ISILab.LBS.Behaviours
 
                      // Connection
                     TileConnectionsPair pair = Connections.GetPair(pos);
-                    connectionsToRemove.Add(pair);
+                    connectionsToRemove.Remove(pair);
                 }
             }
 
