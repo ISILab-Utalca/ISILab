@@ -26,6 +26,8 @@ namespace ISILab.LBS.Manipulators
         private Blueprint blueprintToPrint;
         private BlueprintFeedback previewAreaFeedback; 
         private List<Feedback> previews = new List<Feedback>();
+        private Vector2Int FeedbackPosition;
+        internal static object AddingMode;
         #endregion
 
         #region PROPERTIES
@@ -39,7 +41,11 @@ namespace ISILab.LBS.Manipulators
 
 
         #region CONSTRUCTORS
-        public PrintInArea():base(){}
+        public PrintInArea():base()
+        {
+            Name = "Add blueprint";
+            Description = "Click in an area to instance the data of the current selected Blueprint.";
+        }
 
         #endregion
 
@@ -49,9 +55,14 @@ namespace ISILab.LBS.Manipulators
             previewAreaFeedback = new BlueprintFeedback();
             previewAreaFeedback.fixToTeselation = true;
             previewAreaFeedback.preview = true;
-            previewAreaFeedback.SetColor(LBSSettings.Instance.view.colorListen);
+            previewAreaFeedback.SetColor(Color.white);
 
-            OnManipulationEnd += ClearPreview;
+            OnManipulationEnd += () =>
+            {
+                MainView.Instance.RemoveElement(previewAreaFeedback);
+            };
+
+            //OnManipulationEnd += ClearPreview;
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -61,30 +72,35 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
-            ClearPreview();
+           // ClearPreview();
             LBSLayer selectedLayer = LBSMainWindow.Instance._selectedLayer;
-            if (blueprintToPrint is null || selectedLayer is null) return;
+            if (blueprintToPrint is null || selectedLayer is null) 
+            {
+                ClearPreview();
+                return; 
+            }
 
             base.OnMouseMove(element, movePosition, e);
 
-            var startPos = movePosition;
-            var corners = selectedLayer.ToFixedPosition(startPos, movePosition);
 
             //subtracting vector1 because default tile size is 1
-            var size = blueprintToPrint.GetSize() - Vector2Int.one;
-            var endPos = startPos + selectedLayer.FixedToPosition(size).ToInt();
-    
-            previewAreaFeedback.UpdatePositions(startPos, endPos);
+            var size = blueprintToPrint.Size;
+            FeedbackPosition = movePosition;
+            var corners = selectedLayer.ToFixedPosition(FeedbackPosition, FeedbackPosition - size);
+            
+            previewAreaFeedback.UpdatePositions(FeedbackPosition, FeedbackPosition + size-new Vector2Int(100,100));
             MainView.Instance.AddElement(previewAreaFeedback);
-            Debug.Log(
-                $"Blueprint Preview → Start: {startPos} | Size: {size} | End: {endPos}"
-            );
 
         }
 
         public void ClearPreview()
         {
             MainView.Instance.RemoveElement(previewAreaFeedback);
+        }
+
+        internal Vector2 GetRectPosition()
+        {
+            return previewAreaFeedback.StartPosition;
         }
 
         #endregion

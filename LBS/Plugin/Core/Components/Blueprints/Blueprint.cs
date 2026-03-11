@@ -1,3 +1,4 @@
+using LBS.Components;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -20,9 +21,12 @@ namespace ISILab.LBS.Components
 
         private Texture2D previewImageCache;
 
+        [SerializeField]
+        private Vector2Int size;
+
         // Store all of the layer data types
         [SerializeField, SerializeReference]
-        private List<BlueprintStorable> storableData = new();
+        private List<LBSLayer> layers;
 
         public string BlueprintName
         {
@@ -35,15 +39,11 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public List<BlueprintStorable> StorableData
+        public List<LBSLayer> Layers
         {
-            get => storableData;
-            set
-            {
-                storableData = value;
-                EditorUtility.SetDirty(this);
-                AssetDatabase.SaveAssets();
-            }
+            get => layers;
+
+            set => layers = value;
         }
 
         public Texture2D PreviewImage
@@ -78,24 +78,10 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public Vector2Int GetSize()
+        public Vector2Int Size
         {
-            if (storableData == null || storableData.Count == 0)
-                return Vector2Int.zero;
-
-            Vector2Int globalMin = new Vector2Int(int.MaxValue, int.MaxValue);
-            Vector2Int globalMax = new Vector2Int(int.MinValue, int.MinValue);
-
-            foreach (var sd in storableData)
-            {
-                foreach (var obj in sd.Data)
-                {
-                    globalMin = Vector2Int.Min(globalMin, obj.Min);
-                    globalMax = Vector2Int.Max(globalMax, obj.Max);
-                }
-            }
-
-            return globalMax - globalMin;
+            get { return size; }
+            set { size = value; }
         }
     }
 }

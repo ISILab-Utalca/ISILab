@@ -18,7 +18,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationBehaviour : LBSBehaviour, IBlueprintable
+    public class PopulationBehaviour : LBSBehaviour
     {
         #region FIELDS
         
@@ -453,17 +453,13 @@ namespace ISILab.LBS.Behaviours
             };
         }
 
-        public BlueprintData[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<BlueprintData> validObjects = new();
 
-            BundleTileMap bundleTileMapClone = BundleTilemap.Clone() as BundleTileMap;
-            bundleTileMapClone.Clear();
-
-            TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
-            tileMapClone.Clear();
+            List<LBSTile> tilesToRemove = tileMap.Tiles;
+            List<TileBundleGroup> tbgToRemove = _bundleTileMap.Groups;
 
             for (int x = corners.min.x; x <= corners.max.x; x++)
             {
@@ -472,44 +468,35 @@ namespace ISILab.LBS.Behaviours
                     Vector2Int pos = new Vector2Int(x, y);
 
                     LBSTile tile = tileMap.GetTile(pos);
-                    if (tile != null)
-                    {
-                        LBSTile tileClone = tile.Clone() as LBSTile;
-                        tileMapClone.AddTile(tileClone);
-
-                        validObjects.Add(
-                            new BlueprintData(
-                                tileMapClone, 
-                                corners.min, 
-                                corners.max
-                                )
-                            );
-                    }
+                    tilesToRemove.Remove(tile);
 
                     TileBundleGroup tbg = _bundleTileMap.GetGroup(pos);
-                    if (tbg != null)
-                    {
-                        TileBundleGroup tbgClone = tbg.Clone() as TileBundleGroup;
-                        bundleTileMapClone.AddGroup(tbgClone);
-
-                        validObjects.Add(
-                            new BlueprintData(
-                                bundleTileMapClone, 
-                                corners.min, 
-                                corners.max
-                                )
-                            );
-                    }
+                    tbgToRemove.Remove(tbg);
                 }
             }
 
-            return validObjects.ToArray();
-            
+            foreach (var tile in tilesToRemove) tileMap.RemoveTile(tile);
+            foreach (var tbg in tbgToRemove) _bundleTileMap.RemoveGroup(tbg);
+
         }
 
-        public void LoadObjects(BlueprintData[] objects)
+        public void OffsetObject(Vector2Int offset)
         {
-            throw new NotImplementedException();
+            if (TileMap.Tiles.Count == 0) return;
+
+            // x is correct but for Y we need to get the highest Y
+            Vector2Int origin = TileMap.Tiles[0].Position;
+            foreach (var tile in tileMap.Tiles)
+            {
+                if (tile.y > origin.y) origin.y = tile.y;
+            }
+
+            // delta from starting tile
+            Vector2Int delta = offset - origin;
+            foreach (var tbg in TileMap.Tiles)
+            {
+                tbg.Position += delta;
+            }
         }
 
         #endregion

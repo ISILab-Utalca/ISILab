@@ -12,7 +12,7 @@ using UnityEngine;
 namespace ISILab.LBS.Modules
 {
     [Serializable]
-    public class QuestGraph : LBSModule, ICloneable, ISelectable, IBlueprintable
+    public class QuestGraph : LBSModule, ICloneable, ISelectable
     {
         #region FIELDS
         [SerializeField, SerializeReference]
@@ -673,85 +673,7 @@ namespace ISILab.LBS.Modules
         public override Rect GetBounds() => throw new NotImplementedException();
         public override void Rewrite(LBSModule other) => throw new NotImplementedException();
 
-        public BlueprintData[] GetObjects(Vector2Int startPosition, Vector2Int endPosition)
-        {
-            (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(startPosition, endPosition);
-
-            HashSet<BlueprintData> validObjects = new();
-
-            List<GraphNode> graphNodesClone = new();
-            List<QuestEdge> graphEdgesClone = new();
-            QuestNode rootClone = null;
-
-            foreach (GraphNode node in GraphNodes)
-            {
-                Vector2Int nodePos = Vector2Int.zero;
-                if (node is QuestNode qn)
-                {
-                    nodePos = qn.Data.Area.position.ToInt();
-                }
-                bool inside =
-                    nodePos.x >= corners.min.x &&
-                    nodePos.x <= corners.max.x &&
-                    nodePos.y >= corners.min.y &&
-                    nodePos.y <= corners.max.y;
-
-                if (!inside)
-                    continue;
-
-                GraphNode nodeClone = node.Clone() as GraphNode;
-                graphNodesClone.Add(nodeClone);
-
-                validObjects.Add(
-                    new BlueprintData(
-                        graphNodesClone,
-                        corners.min,
-                        corners.max
-                        )
-                    );
-
-                if (node is QuestNode questNode && Root == node)
-                {
-                    rootClone = nodeClone as QuestNode;
-
-                    validObjects.Add(
-                        new BlueprintData(
-                            rootClone,
-                            corners.min, 
-                            corners.max
-                            )
-                        );
-                }
-            }
-
-            foreach (QuestEdge edge in GraphEdges)
-            {
-                bool fromInside = graphNodesClone.Exists(n => edge.From.Contains(n));
-                bool toInside = graphNodesClone.Exists(n => n.ID == edge.To.ID);
-
-                if (fromInside && toInside)
-                {
-                    QuestEdge edgeClone = edge.Clone() as QuestEdge;
-                    graphEdgesClone.Add(edgeClone);
-
-                    validObjects.Add(
-                        new BlueprintData(
-                            graphEdgesClone, 
-                            corners.min,
-                            corners.max
-                            )
-                        );
-                }
-            }
-
-            return validObjects.ToArray();
-        }
-
-
-        public void LoadObjects(BlueprintData[] objects)
-        {
-            throw new NotImplementedException();
-        }
+    
         #endregion
 
         #endregion

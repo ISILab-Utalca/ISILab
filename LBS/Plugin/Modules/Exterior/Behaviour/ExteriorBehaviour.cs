@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
 
 namespace ISILab.LBS.Behaviours
@@ -17,7 +18,7 @@ namespace ISILab.LBS.Behaviours
     [Serializable]
     [RequieredModule(typeof(TileMapModule),
                     typeof(ConnectedTileMapModule))]
-    public class ExteriorBehaviour : LBSBehaviour, IBlueprintable
+    public class ExteriorBehaviour : LBSBehaviour
     {
         #region FIELDS
         [JsonProperty, SerializeReference, SerializeField, HideInInspector]
@@ -218,17 +219,12 @@ namespace ISILab.LBS.Behaviours
             return base.GetHashCode();
         }
 
-        public BlueprintData[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<BlueprintData> validObjects = new();
-
-            TileMapModule tileMapClone = TileMap.Clone() as TileMapModule;
-            tileMapClone.Clear();
-
-            ConnectedTileMapModule connectionsClone = Connections.Clone() as ConnectedTileMapModule;
-            connectionsClone.Clear();
+            List<LBSTile> tilesToRemove = TileMap.Tiles;
+            List<TileConnectionsPair> connectionsToRemove = Connections.Pairs;
 
             for (int x = corners.min.x; x <= corners.max.x; x++)
             {
@@ -238,49 +234,35 @@ namespace ISILab.LBS.Behaviours
 
                     // Tile
                     LBSTile tile = GetTile(pos);
-                    if (tile != null)
-                    {
-                        LBSTile tileClone = tile.Clone() as LBSTile;
-                        tileMapClone.AddTile(tileClone);
+                    tilesToRemove.Remove(tile);
 
-                        validObjects.Add(
-                            new BlueprintData(
-                                tileMapClone,
-                                corners.min,
-                                corners.max
-                                )
-                            );
-                    }
-
-                    // Connection
+                     // Connection
                     TileConnectionsPair pair = Connections.GetPair(pos);
-                    if (pair != null)
-                    {
-                        TileConnectionsPair pairClone = pair.Clone() as TileConnectionsPair;
-                        connectionsClone.AddPair(
-                            pairClone.Tile,
-                            pairClone.Connections,
-                            pairClone.EditedByIA
-                        );
-
-                        validObjects.Add(
-                            new BlueprintData(
-                                connectionsClone,
-                                corners.min,
-                                corners.max
-                                )
-                            );
-                    }
+                    connectionsToRemove.Add(pair);
                 }
             }
 
-            return validObjects.ToArray();
-
+            foreach(var tile in tilesToRemove) TileMap.RemoveTile(tile);
+            foreach(var pair in connectionsToRemove) Connections.RemoveTile(pair.Tile);
         }
 
-        public void LoadObjects(BlueprintData[] objects)
+        public void OffsetObject(Vector2Int offset)
         {
-            throw new NotImplementedException();
+            if (TileMap.Tiles.Count == 0) return;
+
+            // x is correct but for Y we need to get the highest Y
+            Vector2Int origin = TileMap.Tiles[0].Position;
+            foreach (var tile in TileMap.Tiles)
+            {
+                if (tile.y > origin.y) origin.y = tile.y;
+            }
+
+            // delta from starting tile
+            Vector2Int delta = offset - origin;
+            foreach (var tbg in TileMap.Tiles)
+            {
+                tbg.Position += delta;
+            }
         }
 
         #endregion

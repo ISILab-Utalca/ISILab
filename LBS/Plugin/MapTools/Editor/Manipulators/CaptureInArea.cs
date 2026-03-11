@@ -5,7 +5,6 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor;
-using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System;
@@ -26,27 +25,31 @@ namespace ISILab.LBS.Manipulators
         #endregion
 
         #region FIELDS
-        private Texture2D captureBlueprintImage;
-        private List<BlueprintStorable> capturedBlueprintData = new();
+        private List<LBSLayer> capturedBlueprintData = new();
         private BlueprintFeedback areaFeedback;
 
         #endregion
 
         #region PROPERTIES
-        public Texture2D CaptureBlueprintImage => captureBlueprintImage;
-        public List<BlueprintStorable> CapturedBlueprintData => capturedBlueprintData;
+        public List<LBSLayer> CapturedBlueprintData => capturedBlueprintData;
         protected override string IconGuid { get => "089a07d25e2a0a347b3e1ad8e0c2818b"; }
+
+      
 
         #endregion
 
 
 
         #region ACTIONS
-        public Action CaptureComplete;
+        public Action<List<LBSLayer>, Texture2D, Vector2Int> CaptureComplete;
         #endregion
 
         #region CONSTRUCTORS
-        public CaptureInArea():base(){}
+        public CaptureInArea():base()
+        {
+            Name = "Create blueprint";
+            Description = "Select an area in the graph to store its data as a Blueprint.";
+        }
 
         #endregion
 
@@ -66,7 +69,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if (AutoCapture) BlueprintPanel.Instance.OnCaptureButtonClicked();
+            if (AutoCapture) DoCapture();
    
         }
 
@@ -77,19 +80,23 @@ namespace ISILab.LBS.Manipulators
 
             Vector2Int AreaStart = areaFeedback.StartPosition.ToInt();
             Vector2Int AreaEnd = areaFeedback.EndPosition.ToInt();
+            
+            /** Tesselation clamping adds bordering tiles, subtracting tilesize keeps the correct bounds
+             */
+            var teselleationAreaStart = AreaStart;
+            var tesellationAreaEnd = AreaEnd;
+
+            tesellationAreaEnd.x -= 100;
+            tesellationAreaEnd.y -= 100;
 
             CloneRefs.Start();
 
+            capturedBlueprintData.Clear();
             // Should get all layers under the start and endposition 
             foreach (LBSLayer layer in LBSMainWindow.Instance.GetLayers())
             {
-
-                BlueprintData[] layerObjs = layer.GetObjects(AreaStart, AreaEnd);
-                if (!layerObjs.Any()) continue;
-                
-                BlueprintStorable data = new BlueprintStorable(layer.Name, layer.ID, layerObjs);
-                CapturedBlueprintData.Add(data);
-
+                var layerClone = layer.GetAreaClone(teselleationAreaStart, tesellationAreaEnd);
+                capturedBlueprintData.Add(layerClone);
             }
 
             CloneRefs.End();
@@ -115,10 +122,7 @@ namespace ISILab.LBS.Manipulators
                 tex =>
                 {
                     areaFeedback.SetDisplay(true);
-                    captureBlueprintImage = tex;
-                    // rebind action if missing
-                    if (CaptureComplete == null) BlueprintPanel.Instance.CaptureManipulator = this;
-                    CaptureComplete?.Invoke();
+                    CaptureComplete?.Invoke(CapturedBlueprintData, tex, rect.size.ToInt());
                 }
             );
             return true;
