@@ -42,6 +42,7 @@ namespace ISILab.AI.Categorization
             "- Vertex-Based Exterior Layers.";
 
         public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+        public EvaluationInfo EvaluationInfo { get; set; } = new(1);
 
         public static EvaluatorConfiguration config;
 
@@ -56,6 +57,14 @@ namespace ISILab.AI.Categorization
 
         [SerializeField]
         public PathfindingAlgorithm searchType;
+
+        public float EvaluateWithInfo(IOptimizable evaluable, out EvaluationInfo evalInfo)
+        {
+            EvaluationInfo = new(1);
+            float result = Evaluate(evaluable);
+            evalInfo = EvaluationInfo;
+            return result;
+        }
 
         public float Evaluate(IOptimizable evaluable)
         {
@@ -132,6 +141,7 @@ namespace ISILab.AI.Categorization
                         }
                         moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
                         connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
+                        EvaluationInfo info = EvaluationInfo;
                         switch (searchType)
                         {
                             case PathfindingAlgorithm.Flood_Fill:
@@ -152,7 +162,8 @@ namespace ISILab.AI.Categorization
                                         }
                                     }
                                     List<int> others = POIs.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(POIs[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                    EvaluatorHelper.FloodFill(POIs[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluationInfo = info;
                                 }
                                 break;
                             case PathfindingAlgorithm.JPS_Plus:
@@ -166,7 +177,10 @@ namespace ISILab.AI.Categorization
                                         else if (DistancePool.TryGetValue((POIs[j], POIs[i]), out distances[j, i]))
                                             distances[i, j] = distances[j, i];
                                         else
-                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(POIs[i], POIs[j], chrom.Rect, connectedMod);
+                                        {
+                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(POIs[i], POIs[j], chrom.Rect, connectedMod, ref info);
+                                            EvaluationInfo = info;
+                                        }
                                     }
                                 }
                                 break;

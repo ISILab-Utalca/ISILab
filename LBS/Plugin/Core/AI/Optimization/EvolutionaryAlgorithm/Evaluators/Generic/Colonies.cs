@@ -1,3 +1,5 @@
+//#define EVAL_TEST
+
 using ISILab.AI.Optimization;
 using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
@@ -37,6 +39,8 @@ namespace ISILab.AI.Categorization
             "- Any type of Population Layer.";
 
         public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+
+        public EvaluationInfo EvaluationInfo { get; set; } = new EvaluationInfo(1);
 
         public List<int> permaIndices = null; // Needed for using extra population layers as context
 
@@ -152,7 +156,15 @@ namespace ISILab.AI.Categorization
         }
 
         #region EVALUATION
-        public float Evaluate(IOptimizable evaluable) => NEWEvaluate(evaluable);
+        public float Evaluate(IOptimizable evaluable) => OLDEvaluate(evaluable);
+
+        public float EvaluateWithInfo(IOptimizable evaluable, out EvaluationInfo evalInfo)
+        {
+            EvaluationInfo = new(1);
+            float result = Evaluate(evaluable);
+            evalInfo = EvaluationInfo;
+            return result;
+        }
 
         public float NEWEvaluate(IOptimizable evaluable)
         {
@@ -242,6 +254,7 @@ namespace ISILab.AI.Categorization
                         }
                         moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
                         connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
+                        EvaluationInfo info = EvaluationInfo;
                         switch (searchType)
                         {
                             case PathfindingAlgorithm.Flood_Fill:
@@ -263,7 +276,8 @@ namespace ISILab.AI.Categorization
                                         filter.Add(colony.center);
                                     }
                                     distances[i, i] = 0;
-                                    EvaluatorHelper.PartialFloodFillChebyshev(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                    EvaluatorHelper.PartialFloodFillChebyshev(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluationInfo = info;
                                     colony.members.AddRange(found.Except(skip));
                                     skip.UnionWith(found);
                                 }
@@ -292,7 +306,8 @@ namespace ISILab.AI.Categorization
                                     for (int j = i + 1; j < size; j++)
                                     {
                                         if (filter.Contains(itemIndices[j])) continue;
-                                        distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+                                        distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info);
+                                        EvaluationInfo = info;
                                         if (distances[i, j] < 0) continue; // Not found at specified distance
                                         if(!skip.Contains(itemIndices[j])) members.Add(itemIndices[j]); // Add to incoming colony
                                         skip.Add(itemIndices[j]);
@@ -472,11 +487,13 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+#if !EVAL_TEST
             BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
             List<TileBundleGroup> groups = new();
 
             bool checkPermaIndices = permaIndices is null && bundleTM is not null;
             permaIndices ??= new List<int>();
+#endif
 
             List<int> itemIndices = new();
             for (int i = 0; i < genes.Count; i++)
@@ -491,7 +508,7 @@ namespace ISILab.AI.Categorization
                         continue;
                     }
                 }
-
+#if !EVAL_TEST
                 if (!checkPermaIndices) continue;
 
                 TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
@@ -501,10 +518,11 @@ namespace ISILab.AI.Categorization
                     permaIndices.Add(i);
                     groups.Add(group);
                 }
+#endif
             }
-
+#if !EVAL_TEST
             itemIndices.AddRange(permaIndices);
-
+#endif
             int size = itemIndices.Count;
 
             if (size <= 1)
@@ -530,11 +548,13 @@ namespace ISILab.AI.Categorization
                         }
                         string moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
                         var connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
+                        EvaluationInfo info = EvaluationInfo;
                         switch (searchType)
                         {
                             case PathfindingAlgorithm.Flood_Fill:
                                 for (int i = 0; i < size; i++)
                                 {
+#if !EVAL_TEST
                                     List<int> knownDist = new List<int>();
                                     List<int> others = new List<int>();
                                     for (int j = i + 1; j < size; j++)
@@ -551,7 +571,11 @@ namespace ISILab.AI.Categorization
                                         }
                                     }
                                     others = itemIndices.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluationInfo = info;
+#else
+                                    EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
+#endif
                                 }
                                 break;
                             case PathfindingAlgorithm.JPS_Plus:
@@ -559,6 +583,7 @@ namespace ISILab.AI.Categorization
                                 {
                                     for (int j = i; j < size; j++)
                                     {
+#if !EVAL_TEST
                                         if (i == j)
                                             distances[i, i] = 0;
                                         else if (DistancePool.TryGetValue((itemIndices[i], itemIndices[j]), out distances[i, j]))
@@ -566,7 +591,11 @@ namespace ISILab.AI.Categorization
                                         else if (DistancePool.TryGetValue((itemIndices[j], itemIndices[i]), out distances[j, i]))
                                             distances[i, j] = distances[j, i];
                                         else
-                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod);
+#endif
+                                        {
+                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info);
+                                            EvaluationInfo = info;
+                                        }
                                     }
                                 }
                                 break;
@@ -587,6 +616,9 @@ namespace ISILab.AI.Categorization
                     EvaluatorHelper.Manhattan(itemIndices[i], itemIndices, i, ref distances, chrom);
                 }
             }
+#if EVAL_TEST
+            return 0.0f;
+#endif
 
             int news = 0;
             for (int i = 0; i < size; i++)

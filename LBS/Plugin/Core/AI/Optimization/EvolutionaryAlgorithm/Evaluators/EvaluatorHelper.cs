@@ -77,7 +77,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
     public static class EvaluatorHelper
     {
-        public static void FloodFill(int startPos, List<int> others, int from, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
+        public static void FloodFill(int startPos, List<int> others, int from, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
         {
             if (from >= others.Count)
                 return;
@@ -96,6 +96,19 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 remaining.Add(index);
             }
 
+            //List<TileZonePair> pairTiles = sectorizedTM.PairTiles;
+            //for (int i = 0; i < chrom.Rect.height; i++)
+            //{
+            //    for (int j = 0; j < chrom.Rect.width; j++)
+            //    {
+            //        int index = (int)chrom.Rect.height * i + j;
+            //        if (pairTiles.Any(tzp => tzp.Tile.Position.Equals(chrom.ToGlobalPosition(index))))
+            //            remaining.Add(index);
+            //    }
+            //}
+
+            //Debug.Log(remaining.Count);
+
             var remainingStep = new Queue<int>();
             remainingStep.Enqueue(startPos);
 
@@ -107,8 +120,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
             }
 
-            int i;
-            for (i = 0; remaining.Count > 0; i++)
+            //int i;
+            for (int i = 0; remaining.Count > 0; i++)
             {
                 if (remainingStep.Count == 0)
                     break;
@@ -157,6 +170,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                               (connection.Length == 5 && connection == "Empty")))
                             continue;
 
+                        evalInfo.visitedNodes++;
+
                         for (int j = from; j < others.Count; j++)
                         {
                             if (index == others[j])
@@ -177,7 +192,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
         }
 
-        public static void PartialFloodFill(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
+        public static void PartialFloodFill(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
         {
             found = new List<int>() { };
 
@@ -273,6 +288,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                         allowedSteps.Add(index, allowedSteps[current] - 1);
 
+                        evalInfo.visitedNodes++;
+
                         for (int j = from; j < others.Count; j++)
                         {
                             if (filtered.Contains(others[j])) continue;
@@ -301,7 +318,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
         }
 
-        public static void PartialFloodFillChebyshev(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM)
+        public static void PartialFloodFillChebyshev(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
         {
             found = new List<int>() { };
 
@@ -416,7 +433,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         if (impassable) continue;
 
                         if (updateSteps) allowedSteps.Remove(index);
-                        allowedSteps.Add(index, allowedSteps[current] - 1); // ArgumentException: An item with the same key has already been added.
+                        allowedSteps.Add(index, allowedSteps[current] - 1);
+
+                        evalInfo.visitedNodes++;
 
                         for (int j = from; j < others.Count; j++)
                         {
@@ -778,7 +797,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 new[] {6, 7, 0}
             };
 
-            public static int JPSRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM)
+            public static int JPSRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
             {
                 int cost = -1;
                 if (connectedTM is null) return cost;
@@ -850,6 +869,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
 
                             open.Push(newSuccesor, newSuccesor.finalCost);
+                            evalInfo.visitedNodes++;
                         }
                     }
                 }
@@ -909,7 +929,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 }
             }
 
-            public static int PartialJPSRun(int limit, int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM)
+            public static int PartialJPSRun(int limit, int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
             {
                 int cost = -1;
                 if (connectedTM is null) return cost;
@@ -981,6 +1001,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
 
                             open.Push(newSuccesor, newSuccesor.finalCost);
+                            evalInfo.visitedNodes++;
                         }
                     }
                 }
