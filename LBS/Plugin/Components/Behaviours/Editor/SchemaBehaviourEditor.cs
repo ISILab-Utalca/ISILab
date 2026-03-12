@@ -118,7 +118,6 @@ namespace ISILab.LBS.Behaviours.Editor
             behaviour.LevelChangedAction = () => {
                 SetAreaPallete();
                 SetConnectionPallete();
-                DrawManager.Instance.UpdateLayer(behaviour.OwnerLayer);
             };
 
             SetAreaPallete();
@@ -127,6 +126,7 @@ namespace ISILab.LBS.Behaviours.Editor
 
         protected override VisualElement CreateVisualElement()
         {
+
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SchemaBehaviourEditor");
             visualTree.CloneTree(this);
 

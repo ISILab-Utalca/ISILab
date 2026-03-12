@@ -1,5 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
+using ISILab.LBS;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
@@ -14,6 +15,7 @@ using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -57,6 +59,7 @@ namespace LBS.VisualElements
 
         private VisualElement content;
         private List<VisualElement> separators = new();
+
         private ToolButton nextFloorButton;
         private ToolButton prevFloorButton;
         private LBSCustomUnsignedIntegerField floorIndexField;
@@ -97,8 +100,10 @@ namespace LBS.VisualElements
         #region EVENTS
         public event Action<LBSLayer> OnEndAction;
         public event Action<LBSLayer> OnStartAction;
+        private EventCallback<ChangeEvent<bool>> _onNextFloorPressed;
+        private EventCallback<ChangeEvent<bool>> _onPrevFloorPressed;
         #endregion
-        
+
         #region CONSTRUCTOR
         public ToolKit()
         {
@@ -157,17 +162,28 @@ namespace LBS.VisualElements
             nextFloorButton.RegisterValueChangedCallback(evt =>
             {
                 if (!nextFloorButton.value) return;
-                layer.ChangeFloor(layer.ActiveFloor + 1);
-                floorIndexField.value = (uint)layer.ActiveFloor;
-                nextFloorButton.value = false;
+                int newFloor = layer.ActiveFloor + 1;
+                foreach (var l in LBSMainWindow.Instance.GetLayers())
+                {
+                    l.ChangeFloor(newFloor);
+                    DrawManager.Instance.UpdateLayer(l);
+                    floorIndexField.value = (uint)newFloor;
+                    nextFloorButton.value = false;
+                }
             });
+
             prevFloorButton.style.display = DisplayStyle.Flex;
             prevFloorButton.RegisterValueChangedCallback(evt =>
             {
                 if (!prevFloorButton.value) return;
-                layer.ChangeFloor(layer.ActiveFloor - 1);
-                floorIndexField.value = (uint)layer.ActiveFloor;
-                prevFloorButton.value = false;
+                int newFloor = layer.ActiveFloor - 1;
+                foreach (var l in LBSMainWindow.Instance.GetLayers())
+                {
+                    l.ChangeFloor(newFloor);
+                    DrawManager.Instance.UpdateLayer(l);
+                    floorIndexField.value = (uint)newFloor;
+                    prevFloorButton.value = false;
+                }
             });
 
             floorIndexField.style.display = DisplayStyle.Flex;
