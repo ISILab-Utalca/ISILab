@@ -208,8 +208,8 @@ namespace ISILab.AI.Categorization
                 if (!checkPermaIndices) continue;
 
                 TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
-                if (groups.Contains(group)) continue;
-                if (group is not null && group.BundleData.HasTag(itemCharacteristic.FirstTag()))
+                if (group is null || groups.Contains(group)) continue;
+                if (group.BundleData.HasTag(itemCharacteristic.FirstTag()))
                 {
                     permaIndices.Add(i);
                     groups.Add(group);

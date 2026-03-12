@@ -39,10 +39,13 @@ namespace ISILab.AI.Categorization
             "This evaluator aims to balance the distances between every player and every \"point of interest\" such as chests, weapons and other resources, in order to maximize the explorable space.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Vertex-Based Exterior Layers.\n" +
+            "- Any type of Population Layer.";
 
         public Dictionary<(int, int), int> DistancePool { get; set; } = new();
         public EvaluationInfo EvaluationInfo { get; set; } = new(1);
+
+        public List<int> permaIndices = null; // Needed for using extra population layers as context
 
         public static EvaluatorConfiguration config;
 
@@ -85,18 +88,26 @@ namespace ISILab.AI.Categorization
 
             var genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaIndices = permaIndices is null && bundleTM is not null;
+            permaIndices ??= new List<int>();
+
             List<int> POIs = new List<int>();
 
             for (int i = 0; i < genes.Count; i++)
             {
                 if (chrom.IsInvalid(i))
                     continue;
+                bool found = false;
                 if (genes[i] is not null)
                 {
                     LBSTag tag = playerCharacteristic?.FirstTag();
                     if (tag != null && genes[i].HasTag(tag))
                     {
                         POIs.Add(i);
+                        found = true;
                         continue;
                     }
                     foreach(var LBSChar in pointsOfInterest)
@@ -105,11 +116,25 @@ namespace ISILab.AI.Categorization
                         if (tagPOI != null && genes[i].HasTag(tagPOI))
                         {
                             POIs.Add(i);
+                            found = true;
                             break;
                         }
                     }
                 }
+
+                if (found || !checkPermaIndices) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (group is null || groups.Contains(group)) continue;
+                if (group.BundleData.HasTag(playerCharacteristic.FirstTag()) ||
+                    pointsOfInterest.Any(poiChar => poiChar is not null && group.BundleData.HasTag(poiChar.FirstTag())))
+                {
+                    permaIndices.Add(i);
+                    groups.Add(group);
+                }
             }
+
+            POIs.AddRange(permaIndices);
 
             int size = POIs.Count;
 
@@ -264,6 +289,7 @@ namespace ISILab.AI.Categorization
             CombinedInteriorLayer = ctx.InteriorLayers(selection);
             CombinedExteriorLayer = ctx.ExteriorLayers(selection);
             CombinedPopulationLayer = ctx.PopulationLayers();
+            permaIndices = null;
             CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
 
             if (CombinedLayer is null) return;
@@ -338,6 +364,8 @@ namespace ISILab.AI.Categorization
             clone.searchType = searchType;
 
             clone.DistancePool = DistancePool;
+
+            clone.permaIndices = permaIndices;
 
             return clone;
         }
