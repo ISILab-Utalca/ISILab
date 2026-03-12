@@ -1,11 +1,7 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using ISILab.LBS.VisualElements;
 using LBS;
 using LBS.Components;
@@ -92,7 +88,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 selectedBlueprint = value;
                 if(selectedBlueprint is null)
                 {
-                    if(PrintArea is not null)
+                    ClearPreviews();
+                    if (PrintArea is not null)
                     {
                         PrintArea.BlueprintToPrint = null;
                         PrintArea.ClearPreview();
@@ -106,6 +103,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                         ToolKit.Instance.SetActive(_printArea.GetType());
                         _printArea.BlueprintToPrint = SelectedBlueprint;
                     }
+                    // reset offset when picknig a new blueprint
+                    OffsetGrid = Vector2Int.zero;
                     CreateBlueprintPreviewLayer();
                 }
             }
@@ -157,38 +156,44 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         #region METHODS
 
+        private void CaptureBlueprint() => _captureArea?.DoCapture();
+
         public void LoadBlueprints()
         {
             string[] guids = AssetDatabase.FindAssets("t:ISILab.LBS.Components.Blueprint");
             scrollView.Clear();
             entries.Clear();
+
+            if (guids.Length == 0) return;
+
             foreach (string guid in guids)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
 
                 ISILab.LBS.Components.Blueprint bp = AssetDatabase.LoadAssetAtPath<ISILab.LBS.Components.Blueprint>(path);
 
-                if (bp == null)
+                if (bp == null || !bp.IsValid())
                     continue;
 
-                BlueprintEntry entry = new BlueprintEntry();
-                entry.Blueprint = bp;
+                BlueprintEntry bpEntry = new BlueprintEntry();
+                bpEntry.Blueprint = bp;
                 // deselect all entries when one of them is selected
-                entry.OnSelect += () =>
+                bpEntry.OnSelect += () =>
                 {
-                    foreach (var entry in entries) entry.SetSelected(false);
-                    SelectedBlueprint = bp;
+                    foreach (var entry in entries)
+                    {
+                        entry.SetSelected(false);
+                    }
+       
+                    SelectedBlueprint = bpEntry.Blueprint;
                 };
 
-                scrollView.Add(entry);
-                entries.Add(entry);
+                scrollView.Add(bpEntry);
+                entries.Add(bpEntry);
             }
 
             ClearPreviews();
         }
-
-
-        private void CaptureBlueprint() => _captureArea?.DoCapture();
 
         private void DeleteSelectedBlueprint()
         {
@@ -202,12 +207,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 return;
             }
 
+
             SelectedBlueprint = null;
 
-            AssetDatabase.DeleteAsset(assetPath);
-            AssetDatabase.Refresh();
+            if (AssetDatabase.DeleteAsset(assetPath))
+            {
+               // AssetDatabase.SaveAssets();
+               // AssetDatabase.Refresh();
+                LoadBlueprints();  
+            }
 
-            LoadBlueprints();
         }
 
         private void CaptureComplete(
@@ -295,9 +304,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             }
         }
 
-        internal void Bind(ToolKit ToolKit, CaptureInArea capture, PrintInArea print)
+        internal void Bind(ToolKit ToolKit, (LBSManipulator mani, LBSTool tool) captureTool, (LBSManipulator mani, LBSTool tool) printTool)
         {
             DisplayStyle visibility = style.display.value;
+
+            var capture = captureTool.mani as CaptureInArea;
+            var print = printTool.mani as PrintInArea;
 
             CaptureManipulator = capture;
             PrintArea = print;
@@ -305,10 +317,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             ToolKit.DisplayManipulator(capture.GetType(), visibility);
             ToolKit.DisplayManipulator(print.GetType(), visibility);
 
-            capture.OnManipulationStart += capture.ClearArea;
-            print.OnManipulationStart += print.ClearPreview;
-            capture.OnManipulationEnd += capture.ClearArea;
-            print.OnManipulationEnd += print.ClearPreview;
+            captureTool.tool.OnDeselect += capture.ClearArea;
+            captureTool.tool.OnSelect += capture.ClearArea;
+
+            printTool.tool.OnDeselect += print.ClearPreview;
+            printTool.tool.OnSelect += print.ClearPreview;
 
             print.OnManipulationMove = RedrawSelectedBlueprint;
         }
@@ -320,14 +333,40 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             if (SelectedBlueprint is null) return;
 
+            var mainAnchor = new Vector2Int(int.MaxValue, int.MinValue);
+
+
+            Vector2Int layesAnchor = new Vector2Int(int.MaxValue, int.MinValue);
             foreach (var layer in SelectedBlueprint.Layers)
             {
-                var newPreview = layer.Clone() as LBSLayer;
-                previewLayers.Add(newPreview);
+                if (layer is IBlueprintable blueprintable)
+                {
+                    Vector2Int anchor = blueprintable.GetAnchor();
+                    if (anchor.x < mainAnchor.x) mainAnchor.x = anchor.x;
+                    if (anchor.y > mainAnchor.y) mainAnchor.y = anchor.y;
+                }
+            
             }
 
-            foreach (var layer in previewLayers) DrawManager.Instance.RedrawLayer(layer);
+            foreach (var layer in SelectedBlueprint.Layers)
+            {
+                LBSLayer newPreview = layer.Clone() as LBSLayer;
+                if(newPreview != null)
+                {
+                    if (newPreview is IBlueprintable blueprintable)
+                    {
+                        blueprintable.SetPosition(mainAnchor, OffsetGrid);
+                    }
+                    previewLayers.Add(newPreview);
+                }
+               
+            }
 
+            foreach (var layer in previewLayers) 
+            {
+                DrawManager.Instance.RedrawLayer(layer);
+                //DrawManager.Instance.UpdateLayer(layer);
+            }
         }
 
         internal void RedrawSelectedBlueprint(Vector2Int offset)
@@ -342,15 +381,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 OffsetGrid = gridSpace;
 
-               // CreateBlueprintPreviewLayer();
-
-                // passing coordinates in grid space
-                foreach (var previewLayer in previewLayers)
-                {
-                    previewLayer.OffsetLayer(OffsetGrid);
-                    DrawManager.Instance.UpdateLayer(previewLayer);
-                }
-
+                CreateBlueprintPreviewLayer();
             }
 
         }

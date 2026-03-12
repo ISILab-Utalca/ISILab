@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
@@ -56,15 +57,8 @@ namespace ISILab.LBS.Behaviours
             UpdateKeys(Graph.GraphNodes.ToList<object>());
         }
 
-        public void OffsetObject(Vector2Int offset)
-        {
-            foreach (var node in Graph.GraphNodes)
-            {
-                node.Position += offset;
-            }
-        }
 
-        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
+        public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
@@ -104,7 +98,23 @@ namespace ISILab.LBS.Behaviours
 
             foreach (var node in nodesToRemove) Graph.RemoveQuestNode(node);
             foreach (var edge in edgesToRemove) Graph.RemoveEdge(edge);
+
+            return Graph.GraphNodes.Count > 0 || Graph.GraphEdges.Count > 0;
         }
 
+        public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
+        {
+            foreach (var node in Graph.GraphNodes)
+            {
+                var distanceToAnchor = node.Position - parentAnchor;
+                node.Position = delta;
+                node.Position += distanceToAnchor;
+            }
+        }
+
+        public Vector2Int GetAnchor()
+        {
+            return Vector2Int.zero;
+        }
     }
 }

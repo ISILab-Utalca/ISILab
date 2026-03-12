@@ -137,8 +137,8 @@ namespace LBS.VisualElements
             BlueprintPanel bpPanel = LBSMainWindow.Instance.blueprintPanel;
             if (bpPanel is not null) 
                 bpPanel.Bind(this, 
-                    capture.mani as CaptureInArea, 
-                    print.mani as PrintInArea);
+                    capture, 
+                    print);
            
 
             /*
