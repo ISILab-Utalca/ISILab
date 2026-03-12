@@ -13,6 +13,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
     {
         private Toggle toggle;
         private Label charLabel;
+        private string questionTooltipText;
+        private VisualElement questionTooltip;
 
         private int index;
         public EventCallback<ChangeEvent<bool>> toggleCallback;
@@ -28,6 +30,24 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         {
             get => charLabel;
             private set => charLabel = value;
+        }
+
+        /*
+        public string QuestionTooltipText
+        {
+            get => questionTooltipText;
+            private set
+            {
+                questionTooltipText = value;
+                QuestionTooltip.tooltip = value;
+            }
+        }
+        */
+
+        public VisualElement QuestionTooltip
+        {
+            get => questionTooltip;
+            private set => questionTooltip = value;
         }
 
         //public int Index
@@ -47,6 +67,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             toggle = this.Q<Toggle>();
             charLabel = this.Q<Label>();
+            questionTooltip = this.Q<VisualElement>("QuestionTooltip");
 
             AddToClassList("lbs-wizard-char-element");
         }
