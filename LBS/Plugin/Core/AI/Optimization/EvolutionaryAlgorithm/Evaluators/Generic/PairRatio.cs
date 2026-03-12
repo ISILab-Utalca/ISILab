@@ -3,6 +3,7 @@ using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -32,6 +33,10 @@ namespace ISILab.AI.Categorization
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
+
+        // Needed for using extra population layers as context
+        public int permaCount1 = -1;
+        public int permaCount2 = -1;
 
         public static EvaluatorConfiguration config;
 
@@ -68,6 +73,12 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaCount = (permaCount1 == -1 || permaCount2 == -1) && bundleTM is not null;
+            if (permaCount1 == -1 || permaCount2 == -1) permaCount1 = permaCount2 = 0;
+
             int item1Count = 0, item2Count = 0;
             for (int i = 0; i < genes.Count; i++)
             {
@@ -80,7 +91,25 @@ namespace ISILab.AI.Categorization
                     else if (genes[i].HasTag(item2Characteristic.FirstTag()))
                         item2Count++;
                 }
+
+                if (!checkPermaCount) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (group is null || groups.Contains(group)) continue;
+                if (group.BundleData.HasTag(item1Characteristic.FirstTag()))
+                {
+                    permaCount1++;
+                    groups.Add(group);
+                }
+                else if (group.BundleData.HasTag(item2Characteristic.FirstTag()))
+                {
+                    permaCount2++;
+                    groups.Add(group);
+                }
             }
+
+            item1Count += permaCount1;
+            item2Count += permaCount2;
 
             if(item1Count == 0 || item2Count == 0) 
                 return targetRatio == 1f && item1Count == item2Count ? 1f : 0f;
@@ -121,6 +150,7 @@ namespace ISILab.AI.Categorization
             CombinedInteriorLayer = ctx.InteriorLayers(selection);
             CombinedExteriorLayer = ctx.ExteriorLayers(selection);
             CombinedPopulationLayer = ctx.PopulationLayers();
+            permaCount1 = permaCount2 = -1;
             CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
         }
 
@@ -211,6 +241,9 @@ namespace ISILab.AI.Categorization
             clone.item2Characteristic = item2Characteristic;
 
             clone.targetRatio = targetRatio;
+
+            clone.permaCount1 = permaCount1;
+            clone.permaCount2 = permaCount2;
 
             return clone;
         }

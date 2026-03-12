@@ -3,6 +3,7 @@ using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -31,7 +32,10 @@ namespace ISILab.AI.Categorization
             "By default the evaluator balance Chest-tagged items with a ratio of 1 element for each 10 spaces.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Vertex-Based Exterior Layers." +
+            "- Any type of Population Layer.";
+
+        public int permaCount = -1; // Needed for using extra population layers as context
 
         public static EvaluatorConfiguration config;
 
@@ -66,6 +70,12 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaCount = permaCount == -1 && bundleTM is not null;
+            if (permaCount == -1) permaCount = 0;
+
             int itemCount = 0;
             int validGenes = genes.Count;
             for (int i = 0; i < genes.Count; i++)
@@ -78,9 +88,24 @@ namespace ISILab.AI.Categorization
                 if (genes[i] is not null)
                 {
                     if (genes[i].HasTag(itemCharacteristic.FirstTag()))
+                    {
                         itemCount++;
+                        continue;
+                    }
+                }
+
+                if (!checkPermaCount) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (group is null || groups.Contains(group)) continue;
+                if (group.BundleData.HasTag(itemCharacteristic.FirstTag()))
+                {
+                    permaCount++;
+                    groups.Add(group);
                 }
             }
+
+            itemCount += permaCount;
 
             float currentRatio = (float)itemCount / (float)validGenes;
 
@@ -166,6 +191,7 @@ namespace ISILab.AI.Categorization
             CombinedInteriorLayer = ctx.InteriorLayers(selection);
             CombinedExteriorLayer = ctx.ExteriorLayers(selection);
             CombinedPopulationLayer = ctx.PopulationLayers();
+            permaCount = -1;
             CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
         }
 
@@ -216,6 +242,8 @@ namespace ISILab.AI.Categorization
             clone.itemCharacteristic = itemCharacteristic;
 
             clone.targetRatio = targetRatio;
+
+            clone.permaCount = permaCount;
 
             return clone;
         }
