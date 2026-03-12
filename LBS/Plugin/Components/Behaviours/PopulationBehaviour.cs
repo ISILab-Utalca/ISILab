@@ -255,7 +255,7 @@ namespace ISILab.LBS.Behaviours
 
         public BundleData GetBundleData(LBSTile tile)
         {
-            return _bundleTileMap.GetGroup(tile).BundleData;
+            return _bundleTileMap.GetGroup(tile)?.BundleData;
         }
 
         public bool RotateTile(Vector2Int pos, Vector2 rotation)
@@ -337,6 +337,12 @@ namespace ISILab.LBS.Behaviours
             var other = obj as PopulationBehaviour;
 
             if (other == null) return false;
+
+            if (!this.Name.Equals(other.Name)) return false;
+
+            if(!OwnerLayer.Name.Equals(other.OwnerLayer.Name)) return false;
+
+            if(!OwnerLayer.ID.Equals(other.OwnerLayer.ID)) return false;
 
             return true;
         }

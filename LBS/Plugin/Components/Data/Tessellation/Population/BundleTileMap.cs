@@ -185,7 +185,7 @@ namespace ISILab.LBS.Modules
             //Then, find the specific tile and return the group
             foreach (TileBundleGroup group in groups)
             {
-                LBSTile searchTile = group.TileGroup.Find(t => t == tile);
+                LBSTile searchTile = group.TileGroup.Find(t => /*t==tile*/t.Equals(tile));
                 if (searchTile != null) { return group; }
             }
             return null;
