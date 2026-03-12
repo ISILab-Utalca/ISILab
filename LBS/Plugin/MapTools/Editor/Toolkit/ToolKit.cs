@@ -1,21 +1,23 @@
-using UnityEngine;
-using UnityEngine.UIElements;
-using System.Collections.Generic;
-using System;
-using System.Linq;
-using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.VisualElements.Editor;
-using ISILab.LBS.VisualElements;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.VisualElements;
+using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using ISILab.Extensions;
 
 namespace LBS.VisualElements
 {
@@ -55,6 +57,9 @@ namespace LBS.VisualElements
 
         private VisualElement content;
         private List<VisualElement> separators = new();
+        private ToolButton nextFloorButton;
+        private ToolButton prevFloorButton;
+        private LBSCustomUnsignedIntegerField floorIndexField;
 
         #endregion
 
@@ -101,6 +106,13 @@ namespace LBS.VisualElements
             visualTree.CloneTree(this);
             content = this.Q<VisualElement>("Content");
 
+            nextFloorButton = this.Q<ToolButton>("NextFloorButton");
+            nextFloorButton.style.display = DisplayStyle.None;
+            prevFloorButton = this.Q<ToolButton>("PrevFloorButton");
+            prevFloorButton.style.display = DisplayStyle.None;
+            floorIndexField = this.Q<LBSCustomUnsignedIntegerField>("FloorIndex");
+            floorIndexField.style.display = DisplayStyle.None;
+
             if (!Equals(instance, this))
                 instance = this;
         }
@@ -140,6 +152,26 @@ namespace LBS.VisualElements
             captureInAreaTool.OnSelect += () => cia.ClearArea();
             captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
 
+
+            nextFloorButton.style.display = DisplayStyle.Flex;
+            nextFloorButton.RegisterValueChangedCallback(evt =>
+            {
+                if (!nextFloorButton.value) return;
+                layer.ChangeFloor(layer.ActiveFloor + 1);
+                floorIndexField.value = (uint)layer.ActiveFloor;
+                nextFloorButton.value = false;
+            });
+            prevFloorButton.style.display = DisplayStyle.Flex;
+            prevFloorButton.RegisterValueChangedCallback(evt =>
+            {
+                if (!prevFloorButton.value) return;
+                layer.ChangeFloor(layer.ActiveFloor - 1);
+                floorIndexField.value = (uint)layer.ActiveFloor;
+                prevFloorButton.value = false;
+            });
+
+            floorIndexField.style.display = DisplayStyle.Flex;
+            floorIndexField.value = (uint)layer.ActiveFloor;
         }
 
         public object GetActiveManipulator()

@@ -3,5 +3,8 @@
     <ui:VisualElement name="VisualElement" class="lbs-compact-panel" style="min-height: 16px; max-height: none; min-width: 32px; max-width: none; flex-grow: 0; flex-shrink: 1; width: 48px;">
         <ui:Label tabindex="-1" text="Tools" display-tooltip-when-elided="true" class="lbs-sub-background" style="-unity-text-align: middle-center; min-width: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; font-size: 12px; min-height: 18px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px; padding-left: 1px; max-height: 18px; width: auto;" />
         <ISILab.LBS.VisualElements.ButtonGroup name="Content" />
+        <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowUp.svg?fileID=7388822144124034973&amp;guid=f1fc1f0912d5a60458848af61a94e118&amp;type=3#Icon=ArrowUp" name="NextFloorButton" />
+        <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField display-buttons="false" readonly="true" name="FloorIndex" />
+        <ISILab.LBS.VisualElements.ToolButton tool-icon-background="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowDown.svg?fileID=7388822144124034973&amp;guid=b570a25de51f01c41bd82dbe5372bb3f&amp;type=3#Icon=ArrowDown" name="PrevFloorButton" />
     </ui:VisualElement>
 </ui:UXML>

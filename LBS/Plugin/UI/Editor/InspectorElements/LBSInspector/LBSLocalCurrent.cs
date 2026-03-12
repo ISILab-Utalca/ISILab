@@ -42,7 +42,8 @@ namespace ISILab.LBS.VisualElements
             foreach (LBSLayer refLayer in _layers)
             {
                 if (refLayer == null) continue;
-                foreach (LBSModule module in refLayer.Modules(refLayer.ActiveFloor))
+                var modList = refLayer.Modules(refLayer.ActiveFloor);
+                foreach (LBSModule module in modList)
                 {
                     if (module is null) continue;
                     Type type = module.GetType();

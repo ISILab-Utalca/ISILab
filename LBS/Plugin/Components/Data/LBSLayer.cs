@@ -100,7 +100,7 @@ namespace LBS.Components
         }
 
         public LBSLayer(
-            IEnumerable<LBSModule>[] modules,
+            LBSFloor[] modules,
             IEnumerable<LBSAssistant> assistant,
             IEnumerable<LBSGeneratorRule> rules,
             IEnumerable<LBSBehaviour> behaviours,
@@ -109,7 +109,7 @@ namespace LBS.Components
         {
             for(int i = 0; i < modules.Length; i++)
             {
-                if (modules[i] != null) foreach (LBSModule m in modules[i]) AddModule(m, i);
+                if (modules[i] != null) foreach (LBSModule m in modules[i].Modules) AddModule(m, i);
             }
             if (assistant != null) foreach (LBSAssistant a in assistant) AddAssistant(a);
             if (rules != null) foreach (LBSGeneratorRule r in rules) AddGeneratorRule(r);
@@ -123,6 +123,25 @@ namespace LBS.Components
             TileSize = tileSize;
 
             InitializeContextEvents();
+        }
+        #endregion
+
+        #region Floors
+        public void ChangeFloor(int newFloor)
+        {
+            if (newFloor < 0 || newFloor >= 10) return;
+
+            var prevFloot = activeFloor;
+            activeFloor = newFloor;
+            foreach (var behaviour in Behaviours)
+            {
+                if(behaviour is SchemaBehaviour schema)
+                {
+                    schema.ChangeLevelRender(prevFloot, newFloor);
+                    schema.LevelChangedAction.Invoke();
+                }
+            }//*/
+            Reload();
         }
         #endregion
 
@@ -382,7 +401,7 @@ namespace LBS.Components
         public object Clone()
         {
             // Clone modules via provided helper, clone lists of polymorphic objects by calling Clone() on each
-            List<LBSModule>[] clonedModules = (List<LBSModule>[]) this.modules.Clone(); // assuming Clone extension returns List<LBSModule>
+            LBSFloor[] clonedModules = (LBSFloor[]) this.modules.Clone(); // assuming Clone extension returns List<LBSModule>
             List<LBSAssistant> clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
             List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
             List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();

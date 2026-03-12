@@ -183,10 +183,18 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [SerializeField, HideInInspector]
         private bool multiLayerConnections = true;
-        
+
         #endregion
 
         #region META-FIELDS
+        private Action levelChangedAction = null;
+        [JsonIgnore]
+        public Action LevelChangedAction
+        {
+            get => levelChangedAction;
+            set => levelChangedAction = value;
+        }
+
         private Zone roomToSet;
         [JsonIgnore]
         public Zone RoomToSet
@@ -236,6 +244,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [JsonIgnore]
         public List<Vector2Int> Directions => ISILab.Commons.Directions.Bidimencional.Edges;
+
         #endregion
 
         #region CONSTRUCTORS
@@ -702,18 +711,18 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         {
             throw new NotImplementedException();
         }
-        /*
-        public void ChangeLevelRender(uint prevLevelIndex, uint nextLevelIndex)
+        
+
+        public void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
         {
             List<LBSTile> oldTiles = new List<LBSTile>();
             List<LBSTile> newTiles = new List<LBSTile>();
-            var multiLevelMod = OwnerLayer.GetModule<MultiLevelModule>();
+            var prevModuleList = OwnerLayer.Modules(prevLevelIndex);
+            var nextModuleList = OwnerLayer.Modules(nextLevelIndex);
 
-            if (multiLevelMod is null) return;
-
-            var prevMod = multiLevelMod.GetModulesByLevel((int)prevLevelIndex).Find(
+            var prevMod = prevModuleList.Find(
                 m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
-            var nextMod = multiLevelMod.GetModulesByLevel((int)prevLevelIndex).Find(
+            var nextMod = nextModuleList.Find(
                 m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
 
             foreach (var pTile in prevMod.PairTiles)

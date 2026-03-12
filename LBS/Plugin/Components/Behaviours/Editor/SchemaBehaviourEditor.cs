@@ -114,6 +114,13 @@ namespace ISILab.LBS.Behaviours.Editor
         public override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as SchemaBehaviour;
+
+            behaviour.LevelChangedAction = () => {
+                SetAreaPallete();
+                SetConnectionPallete();
+                DrawManager.Instance.UpdateLayer(behaviour.OwnerLayer);
+            };
+
             SetAreaPallete();
             SetConnectionPallete();
         }
@@ -122,35 +129,6 @@ namespace ISILab.LBS.Behaviours.Editor
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SchemaBehaviourEditor");
             visualTree.CloneTree(this);
-
-            // Level Field
-            levelField = this.Q<LBSCustomUnsignedIntegerField>("LevelField");
-            if (levelField != null)
-            {
-                levelField.style.display = DisplayStyle.None;
-                /*levelField.MinValue = 0;
-
-                var levelModule = behaviour.OwnerLayer.GetModule<MultiLevelModule>();
-                if (levelModule is null)
-                {
-                    levelField.style.display = DisplayStyle.None;
-                }
-                else
-                {
-                    levelField.value = (uint) levelModule.CurrentLevel;
-                    levelField.MaxValue = (uint) levelModule.MaxLevel;
-                    levelField.RegisterValueChangedCallback(evt =>
-                    {
-                        if (evt.newValue > levelField.MaxValue || evt.newValue < levelField.MinValue) return; 
-
-                        levelModule.ChangeLevel(evt.previousValue, evt.newValue);
-                        SetAreaPallete();
-                        behaviour.ChangeLevelRender(evt.previousValue, evt.newValue);
-                        DrawManager.Instance.UpdateLayer(behaviour.OwnerLayer);
-                        //behaviour
-                    });
-                }//*/
-            }
 
             // Area Pallete
             areaPallete = this.Q<SimplePallete>("ZonePallete");
