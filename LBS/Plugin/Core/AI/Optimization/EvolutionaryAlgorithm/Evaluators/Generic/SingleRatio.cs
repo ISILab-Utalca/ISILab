@@ -32,7 +32,7 @@ namespace ISILab.AI.Categorization
             "By default the evaluator balance Chest-tagged items with a ratio of 1 element for each 10 spaces.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers." +
+            "- Vertex-Based Exterior Layers.\n" +
             "- Any type of Population Layer.";
 
         public int permaCount = -1; // Needed for using extra population layers as context

@@ -32,7 +32,8 @@ namespace ISILab.AI.Categorization
             "By default the evaluator balance Chest-tagged and Enemies-tagged items in a relation of 1:2.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Vertex-Based Exterior Layers.\n" +
+            "- Any type of Population Layer.";
 
         // Needed for using extra population layers as context
         public int permaCount1 = -1;
