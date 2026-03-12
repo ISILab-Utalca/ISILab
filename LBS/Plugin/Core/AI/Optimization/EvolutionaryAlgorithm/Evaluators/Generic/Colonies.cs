@@ -42,7 +42,7 @@ namespace ISILab.AI.Categorization
 
         public EvaluationInfo EvaluationInfo { get; set; } = new EvaluationInfo(1);
 
-        public List<int> permaIndices = null; // Needed for using extra population layers as context
+        private List<int> permaIndices = null; // Needed for using extra population layers as context
 
         public static EvaluatorConfiguration config;
 

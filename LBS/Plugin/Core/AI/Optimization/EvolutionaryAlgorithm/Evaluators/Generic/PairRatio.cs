@@ -36,8 +36,8 @@ namespace ISILab.AI.Categorization
             "- Any type of Population Layer.";
 
         // Needed for using extra population layers as context
-        public int permaCount1 = -1;
-        public int permaCount2 = -1;
+        private int permaCount1 = -1;
+        private int permaCount2 = -1;
 
         public static EvaluatorConfiguration config;
 

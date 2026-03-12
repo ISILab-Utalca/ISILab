@@ -35,7 +35,7 @@ namespace ISILab.AI.Categorization
             "- Vertex-Based Exterior Layers.\n" +
             "- Any type of Population Layer.";
 
-        public int permaCount = -1; // Needed for using extra population layers as context
+        private int permaCount = -1; // Needed for using extra population layers as context
 
         public static EvaluatorConfiguration config;
 

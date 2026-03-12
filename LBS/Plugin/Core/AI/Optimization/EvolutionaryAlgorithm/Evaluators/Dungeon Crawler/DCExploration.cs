@@ -45,7 +45,7 @@ namespace ISILab.AI.Categorization
         public Dictionary<(int, int), int> DistancePool { get; set; } = new();
         public EvaluationInfo EvaluationInfo { get; set; } = new(1);
 
-        public List<int> permaIndices = null; // Needed for using extra population layers as context
+        private List<int> permaIndices = null; // Needed for using extra population layers as context
 
         public static EvaluatorConfiguration config;
 
