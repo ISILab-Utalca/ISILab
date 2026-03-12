@@ -36,11 +36,14 @@ namespace LBS.VisualElements
                 content.SetDisplay(evt.newValue);
             });
 
+            
             /*
             //initial state of the foldout
             foldout.value = false;
+            
+            
             content.SetDisplay(false);
-
+            
             this.RegisterCallback<AttachToPanelEvent>(evt => {
                 foldout.value = false; // Esto fuerza a la flecha a recalcularse cuando aparece en pantalla
             });
