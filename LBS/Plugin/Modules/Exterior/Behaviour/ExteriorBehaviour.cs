@@ -256,8 +256,7 @@ namespace ISILab.LBS.Behaviours
             foreach (var tile in TileMap.Tiles)
             {
                 Vector2Int distanceToAnchor = tile.Position - parentAnchor;
-                tile.Position = delta;
-                tile.Position += distanceToAnchor;
+                tile.Position = delta + distanceToAnchor;
             }
         }
 

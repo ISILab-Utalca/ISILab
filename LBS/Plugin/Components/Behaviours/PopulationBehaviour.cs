@@ -491,8 +491,7 @@ namespace ISILab.LBS.Behaviours
                 foreach (var tile in tbg.TileGroup)
                 {
                     var distanceToAnchor = tile.Position - parentAnchor;
-                    tile.Position = delta;
-                    tile.Position += distanceToAnchor;
+                    tile.Position = delta + distanceToAnchor;
                 }
             }
         }

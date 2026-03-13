@@ -558,8 +558,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             foreach (var tile in TileMap.Tiles)
             {
                 var distanceToAnchor = tile.Position - parentAnchor;
-                tile.Position = delta;
-                tile.Position += distanceToAnchor;
+                tile.Position = delta + distanceToAnchor;
             }
         }
 
