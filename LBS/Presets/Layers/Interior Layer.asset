@@ -20,21 +20,24 @@ MonoBehaviour:
     iconGuid: 8c78cf0f5376fd846a188536ff3497ae
     id: Interior
     name: Layer Interior
-    modules:
-    - rid: 7571179374700920921
-    - rid: 7571179374700920922
-    - rid: 7571179374700920924
-    - rid: 7571179374700920925
-    - rid: 7236886954275243345
-    - rid: 5364625334832726463
+    floors:
+    - rid: 1508221279423169967
+    - rid: 1508221279423169968
+    - rid: 1508221279423169969
+    - rid: 1508221279423169970
+    - rid: 1508221279423169971
+    - rid: 1508221279423169972
+    - rid: 1508221279423169973
+    - rid: 1508221279423169974
+    - rid: 1508221279423169975
+    - rid: 1508221279423169976
     behaviours:
-    - rid: 7571179378660343913
-    - rid: 5364625334832726464
+    - rid: 1508221279423169977
     assistants:
-    - rid: 7236886954275243346
+    - rid: 1508221279423169978
     generatorRules:
-    - rid: 7571179378973868154
-    - rid: 7571179378973868224
+    - rid: 1508221279423169979
+    - rid: 1508221279423169980
     settings:
       useBundleSize: 0
       lightVolume: 0
@@ -43,447 +46,116 @@ MonoBehaviour:
       resize: {x: 0, y: 0}
       position: {x: 0, y: 0, z: 0}
       replacePrevious: 1
-      name: DEFAULT
+      buildLightProbes: 1
+      bakeLights: 0
+      optimization3d: 0
+      generatedRootName: Interior
       rootParentName: Root_Parent
     index: 0
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 5364625334832726463
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+    - rid: 1508221279423169967
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          - rid: 7236886954275243345
-          - rid: 5364625334832726463
-          behaviours:
-          - rid: 7571179378660343913
-          - rid: 5364625334832726464
-          assistants:
-          - rid: 7236886954275243346
-          generatorRules:
-          - rid: 7571179378973868154
-          - rid: 7571179378973868224
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-    - rid: 5364625334832726464
-      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+        modules:
+        - rid: 1508221279423169981
+        - rid: 1508221279423169982
+        - rid: 1508221279423169983
+        - rid: 1508221279423169984
+        - rid: 1508221279423169985
+        - rid: 1508221279423169986
+    - rid: 1508221279423169968
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        visible: 1
-        ownerLayerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          - rid: 7236886954275243345
-          - rid: 5364625334832726463
-          behaviours:
-          - rid: 7571179378660343913
-          - rid: 5364625334832726464
-          assistants:
-          - rid: 7236886954275243346
-          generatorRules:
-          - rid: 7571179378973868154
-          - rid: 7571179378973868224
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        colorTint: {r: 0, g: 0, b: 0, a: 0}
-        name: NoteBehaviour
-        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
-        icon: {fileID: 0}
-    - rid: 7236886954275243345
-      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+        modules:
+        - rid: 1508221279423169987
+        - rid: 1508221279423169988
+        - rid: 1508221279423169989
+        - rid: 1508221279423169990
+        - rid: 1508221279423169991
+        - rid: 1508221279423169992
+    - rid: 1508221279423169969
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        id: SectorizedTileMapModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          - rid: 7236886954275243345
-          behaviours:
-          - rid: 7571179378660343913
-          assistants:
-          - rid: 7236886954275243346
-          generatorRules:
-          - rid: 7571179378973868154
-          - rid: 7571179378973868224
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        zones: []
-        pairs: []
-    - rid: 7236886954275243346
-      type: {class: HillClimbingAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+        modules:
+        - rid: 1508221279423169993
+        - rid: 1508221279423169994
+        - rid: 1508221279423169995
+        - rid: 1508221279423169996
+        - rid: 1508221279423169997
+        - rid: 1508221279423169998
+    - rid: 1508221279423169970
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        visible: 1
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          - rid: 7236886954275243345
-          behaviours:
-          - rid: 7571179378660343913
-          assistants:
-          - rid: 7236886954275243346
-          generatorRules:
-          - rid: 7571179378973868154
-          - rid: 7571179378973868224
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        colorTint: {r: 0, g: 0, b: 0, a: 0}
-        name: HillClimbingAssistant
-        iconGuid: ad8feef201665454ca79e31b7d798ac3
-        icon: {fileID: 0}
-        visibleConstraints: 0
-        printClocks: 0
-    - rid: 7571179374700920921
-      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+        modules:
+        - rid: 1508221279423169999
+        - rid: 1508221279423170000
+        - rid: 1508221279423170001
+        - rid: 1508221279423170002
+        - rid: 1508221279423170003
+        - rid: 1508221279423170004
+    - rid: 1508221279423169971
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        id: TileMapModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920923
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          behaviours:
-          - rid: 7571179374700920926
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        tiles: []
-    - rid: 7571179374700920922
-      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+        modules:
+        - rid: 1508221279423170005
+        - rid: 1508221279423170006
+        - rid: 1508221279423170007
+        - rid: 1508221279423170008
+        - rid: 1508221279423170009
+        - rid: 1508221279423170010
+    - rid: 1508221279423169972
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        id: ConnectedTileMapModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920923
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          behaviours:
-          - rid: 7571179374700920926
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        connectedDirections: 4
-        gridType: 0
-        pairs: []
-    - rid: 7571179374700920923
-      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+        modules:
+        - rid: 1508221279423170011
+        - rid: 1508221279423170012
+        - rid: 1508221279423170013
+        - rid: 1508221279423170014
+        - rid: 1508221279423170015
+        - rid: 1508221279423170016
+    - rid: 1508221279423169973
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        id: SectorizedTileMapModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920923
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          behaviours:
-          - rid: 7571179374700920926
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        zones: []
-        pairs: []
-    - rid: 7571179374700920924
-      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+        modules:
+        - rid: 1508221279423170017
+        - rid: 1508221279423170018
+        - rid: 1508221279423170019
+        - rid: 1508221279423170020
+        - rid: 1508221279423170021
+        - rid: 1508221279423170022
+    - rid: 1508221279423169974
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        id: ConnectedZonesModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920923
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          behaviours:
-          - rid: 7571179374700920926
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        edges: []
-    - rid: 7571179374700920925
-      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+        modules:
+        - rid: 1508221279423170023
+        - rid: 1508221279423170024
+        - rid: 1508221279423170025
+        - rid: 1508221279423170026
+        - rid: 1508221279423170027
+        - rid: 1508221279423170028
+    - rid: 1508221279423169975
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        id: ConstrainsZonesModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920923
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          behaviours:
-          - rid: 7571179374700920926
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        pairs: []
-    - rid: 7571179374700920926
-      type: {class: SchemaBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+        modules:
+        - rid: 1508221279423170029
+        - rid: 1508221279423170030
+        - rid: 1508221279423170031
+        - rid: 1508221279423170032
+        - rid: 1508221279423170033
+        - rid: 1508221279423170034
+    - rid: 1508221279423169976
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
-        visible: 1
-        ownerLayerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920923
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          behaviours:
-          - rid: 7571179374700920926
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-        name: Schema behaviour
-        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
-        icon: {fileID: 7388822144124034973, guid: 87f2bb6f2c78b184a8ea2b6a5b14f878, type: 3}
-        pressetInsideStyle: Castle_Wooden
-        pressetOutsideStyle: Castle_Brick
-        multiLayerConnections: 1
-        conectionToSet: 
-    - rid: 7571179374700920927
-      type: {class: HillClimbingAssistant, ns: ISILab.LBS.Assistants, asm: LBS}
-      data:
-        visible: 1
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920923
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          behaviours:
-          - rid: 7571179374700920926
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
-        name: HillClimbing
-        iconGuid: ad8feef201665454ca79e31b7d798ac3
-        icon: {fileID: 7388822144124034973, guid: 2cf0d2907db06024190d079005239a75, type: 3}
-        visibleConstraints: 0
-        printClocks: 0
-    - rid: 7571179378660343912
-      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tesellation.Tilemap, asm: LBS}
-      data:
-        id: SectorizedTileMapModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          - rid: 7571179378660343912
-          behaviours:
-          - rid: 7571179378660343913
-          assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            name: DEFAULT
-            rootParentName: Root_Parent
-          index: 0
-        zones: []
-        pairs: []
-    - rid: 7571179378660343913
+        modules:
+        - rid: 1508221279423170035
+        - rid: 1508221279423170036
+        - rid: 1508221279423170037
+        - rid: 1508221279423170038
+        - rid: 1508221279423170039
+        - rid: 1508221279423170040
+    - rid: 1508221279423169977
       type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
       data:
         visible: 1
@@ -493,17 +165,24 @@ MonoBehaviour:
           iconGuid: 8c78cf0f5376fd846a188536ff3497ae
           id: Interior
           name: Layer Interior
-          modules:
-          - rid: 7571179374700920921
-          - rid: 7571179374700920922
-          - rid: 7571179374700920924
-          - rid: 7571179374700920925
-          - rid: 7571179378660343912
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
           behaviours:
-          - rid: 7571179378660343913
+          - rid: 1508221279423169977
           assistants:
-          - rid: 7571179374700920927
-          generatorRules: []
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
           settings:
             useBundleSize: 0
             lightVolume: 0
@@ -512,20 +191,2681 @@ MonoBehaviour:
             resize: {x: 0, y: 0}
             position: {x: 0, y: 0, z: 0}
             replacePrevious: 1
-            name: DEFAULT
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
             rootParentName: Root_Parent
           index: 0
-        colorTint: {r: 0.5294118, g: 0.84313726, b: 0.9647059, a: 1}
-        name: SchemaBehaviour
+        colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+        name: Schema behaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
-        icon: {fileID: 7388822144124034973, guid: e17eb0e02534666439fca8ea30b4d4e4, type: 3}
+        icon: {fileID: 0}
         pressetInsideStyleGuid: c61b774ce5ee4c640b93988da7937edc
         pressetOutsideStyleGuid: c0e28f3a70727474a81b860669e32870
         multiLayerConnections: 1
         conectionToSet: 
-    - rid: 7571179378973868154
+    - rid: 1508221279423169978
+      type: {class: HillClimbingAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
+        name: HillClimbing
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 0}
+        visibleConstraints: 0
+        printClocks: 0
+    - rid: 1508221279423169979
       type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data: 
-    - rid: 7571179378973868224
+    - rid: 1508221279423169980
       type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data: 
+    - rid: 1508221279423169981
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423169982
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423169983
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423169984
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423169985
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423169986
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423169987
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423169988
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423169989
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423169990
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423169991
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423169992
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423169993
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423169994
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423169995
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423169996
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423169997
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423169998
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423169999
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423170000
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423170001
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423170002
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423170003
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423170004
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423170005
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423170006
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423170007
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423170008
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423170009
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423170010
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423170011
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423170012
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423170013
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423170014
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423170015
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423170016
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423170017
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423170018
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423170019
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423170020
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423170021
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423170022
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423170023
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423170024
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423170025
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423170026
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423170027
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423170028
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423170029
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423170030
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423170031
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423170032
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423170033
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423170034
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []
+    - rid: 1508221279423170035
+      type: {class: TileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: TileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        tiles: []
+    - rid: 1508221279423170036
+      type: {class: ConnectedTileMapModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        connectedDirections: 4
+        gridType: 0
+        pairs: []
+    - rid: 1508221279423170037
+      type: {class: SectorizedTileMapModule, ns: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap, asm: LBS}
+      data:
+        id: SectorizedTileMapModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        zones: []
+        pairs: []
+    - rid: 1508221279423170038
+      type: {class: ConnectedZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConnectedZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        edges: []
+    - rid: 1508221279423170039
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 1508221279423170040
+      type: {class: ConstrainsZonesModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: ConstrainsZonesModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
+          id: Interior
+          name: Layer Interior
+          floors:
+          - rid: 1508221279423169967
+          - rid: 1508221279423169968
+          - rid: 1508221279423169969
+          - rid: 1508221279423169970
+          - rid: 1508221279423169971
+          - rid: 1508221279423169972
+          - rid: 1508221279423169973
+          - rid: 1508221279423169974
+          - rid: 1508221279423169975
+          - rid: 1508221279423169976
+          behaviours:
+          - rid: 1508221279423169977
+          assistants:
+          - rid: 1508221279423169978
+          generatorRules:
+          - rid: 1508221279423169979
+          - rid: 1508221279423169980
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Interior
+            rootParentName: Root_Parent
+          index: 0
+        pairs: []

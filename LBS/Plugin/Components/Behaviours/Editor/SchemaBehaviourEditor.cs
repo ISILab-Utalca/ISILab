@@ -19,6 +19,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
+using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.Behaviours.Editor
 {
@@ -40,7 +41,8 @@ namespace ISILab.LBS.Behaviours.Editor
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon = Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878"); 
+        private VectorImage icon = Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
+        private LBSCustomUnsignedIntegerField levelField;
         private SimplePallete areaPallete;
         private SimplePallete connectionPallete;
         private string zoneIconGuid = "76bf813a38668ce439887addd209058c";
@@ -66,7 +68,6 @@ namespace ISILab.LBS.Behaviours.Editor
             behaviour = target as SchemaBehaviour;
             CreateVisualElement();
         }
-
 
         #endregion
 
@@ -113,12 +114,19 @@ namespace ISILab.LBS.Behaviours.Editor
         public override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as SchemaBehaviour;
+
+            behaviour.LevelChangedAction = () => {
+                SetAreaPallete();
+                SetConnectionPallete();
+            };
+
             SetAreaPallete();
             SetConnectionPallete();
         }
 
         protected override VisualElement CreateVisualElement()
         {
+
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SchemaBehaviourEditor");
             visualTree.CloneTree(this);
 

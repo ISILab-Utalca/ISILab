@@ -10,8 +10,10 @@ using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 namespace ISILab.LBS.Plugin.Components.Behaviours
@@ -22,7 +24,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
-        typeof(ConnectedZonesModule))]
+        typeof(ConnectedZonesModule),
+        typeof(NoteModule))]
     public class SchemaBehaviour : LBSBehaviour, IBlueprintable
     {
         #region READONLY-FIELDS
@@ -63,10 +66,18 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [SerializeField, HideInInspector]
         private bool multiLayerConnections = true;
-        
+
         #endregion
 
         #region META-FIELDS
+        private Action levelChangedAction = null;
+        [JsonIgnore]
+        public Action LevelChangedAction
+        {
+            get => levelChangedAction;
+            set => levelChangedAction = value;
+        }
+
         private Zone roomToSet;
         [JsonIgnore]
         public Zone RoomToSet
@@ -116,6 +127,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [JsonIgnore]
         public List<Vector2Int> Directions => ISILab.Commons.Directions.Bidimencional.Edges;
+
         #endregion
 
         #region CONSTRUCTORS
@@ -462,7 +474,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                     var existingZone = GetZone(existingTile);
                     if (existingZone != zone)
                     {
-                        Debug.LogWarning($"Colisión con zona: {existingZone.ID}");
+                        Debug.LogWarning($"Colisiï¿½n con zona: {existingZone.ID}");
                         return false;
                     }
                 }
@@ -574,6 +586,31 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             }
             return anchor;
         }
+        
+
+        public void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+        {
+            List<LBSTile> oldTiles = new List<LBSTile>();
+            List<LBSTile> newTiles = new List<LBSTile>();
+            var prevModuleList = OwnerLayer.Modules(prevLevelIndex);
+            var nextModuleList = OwnerLayer.Modules(nextLevelIndex);
+
+            var prevMod = prevModuleList.Find(
+                m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
+            var nextMod = nextModuleList.Find(
+                m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
+
+            foreach (var pTile in prevMod.PairTiles)
+            {
+                oldTiles.Add(pTile.Tile);
+            }
+            foreach (var pTile in nextMod.PairTiles)
+            {
+                newTiles.Add(pTile.Tile);
+            }
+
+            RequestFullRepaint(oldTiles, newTiles);
+        }//*/
 
         #endregion
     }

@@ -1,19 +1,24 @@
-using UnityEngine;
-using UnityEngine.UIElements;
-using System.Collections.Generic;
-using System;
-using System.Linq;
-using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.VisualElements.Editor;
-using ISILab.LBS.VisualElements;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.VisualElements;
+using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.UIElements;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using ISILab.Extensions;
 using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
@@ -58,6 +63,10 @@ namespace LBS.VisualElements
         private VisualElement content;
         private List<VisualElement> separators = new();
 
+        private ToolButton nextFloorButton;
+        private ToolButton prevFloorButton;
+        private LBSCustomUnsignedIntegerField floorIndexField;
+
         #endregion
 
         #region SINGLETON
@@ -94,14 +103,23 @@ namespace LBS.VisualElements
         #region EVENTS
         public event Action<LBSLayer> OnEndAction;
         public event Action<LBSLayer> OnStartAction;
+        private EventCallback<ChangeEvent<bool>> _onNextFloorPressed;
+        private EventCallback<ChangeEvent<bool>> _onPrevFloorPressed;
         #endregion
-        
+
         #region CONSTRUCTOR
         public ToolKit()
         {
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ToolKit");
             visualTree.CloneTree(this);
             content = this.Q<VisualElement>("Content");
+
+            nextFloorButton = this.Q<ToolButton>("NextFloorButton");
+            nextFloorButton.style.display = DisplayStyle.None;
+            prevFloorButton = this.Q<ToolButton>("PrevFloorButton");
+            prevFloorButton.style.display = DisplayStyle.None;
+            floorIndexField = this.Q<LBSCustomUnsignedIntegerField>("FloorIndex");
+            floorIndexField.style.display = DisplayStyle.None;
 
             if (!Equals(instance, this))
                 instance = this;
@@ -139,51 +157,87 @@ namespace LBS.VisualElements
                 bpPanel.Bind(this, 
                     capture, 
                     print);
-           
+            
+            
+            var sm = new SelectManipulator();
+            LBSTool selectTool = new LBSTool(sm);
 
-            /*
-  var sm = new SelectManipulator();
-  LBSTool selectTool = new LBSTool(sm);
+            var an = new AddNote();
+            LBSTool addNoteTool = new LBSTool(an);
 
-  var an = new AddNote();
-  LBSTool addNoteTool = new LBSTool(an);
+            var rn = new RemoveNote();
+            LBSTool removeNoteTool = new LBSTool(rn);
 
-  var rn = new RemoveNote();
-  LBSTool removeNoteTool = new LBSTool(rn);
+            var cia = new CaptureInArea();
+            LBSTool captureInAreaTool = new LBSTool(cia);
 
-  var cia = new CaptureInArea();
-  LBSTool captureInAreaTool = new LBSTool(cia);
+            var pia = new PrintInArea();
+            LBSTool printInAreaTool = new LBSTool(pia);
 
-  var pia = new PrintInArea();
-  LBSTool printInAreaTool = new LBSTool(pia);
+            an.SetRemover(rn);
 
-  an.SetRemover(rn);
+            ActivateTool(selectTool, layer);
+            ActivateTool(addNoteTool, layer);
+            ActivateTool(removeNoteTool, layer);
+            ActivateTool(captureInAreaTool, layer);
+            ActivateTool(printInAreaTool, layer);
 
-  ActivateTool(selectTool, layer);
-  ActivateTool(addNoteTool, layer);
-  ActivateTool(removeNoteTool, layer);
-  ActivateTool(captureInAreaTool, layer);
-  ActivateTool(printInAreaTool, layer);
-
-  selectTool.Init(layer, this);
-  addNoteTool.Init(layer, this);
-  removeNoteTool.Init(layer, this);
-  captureInAreaTool.Init(layer, this);
-  printInAreaTool.Init(layer, this);
+            selectTool.Init(layer, this);
+            addNoteTool.Init(layer, this);
+            removeNoteTool.Init(layer, this);
+            captureInAreaTool.Init(layer, this);
+            printInAreaTool.Init(layer, this);
 
 
-  var bpPanel = LBSMainWindow.Instance.blueprintPanel;
-  var blueprintVisilibilty = bpPanel.style.display.value;
-  bpPanel.CaptureManipulator = cia;
-  bpPanel.PrintArea = pia;
-  DisplayManipulator(typeof(CaptureInArea), blueprintVisilibilty);
-  DisplayManipulator(typeof(PrintInArea), blueprintVisilibilty);
 
-  captureInAreaTool.OnSelect += () => cia.ClearArea();
-  captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
-  printInAreaTool.OnSelect += () => pia.ClearPreview();
-  printInAreaTool.OnDeselect += () => pia.ClearPreview();
-  */
+            var blueprintVisilibilty = bpPanel.style.display.value;
+            bpPanel.CaptureManipulator = cia;
+            bpPanel.PrintArea = pia;
+            DisplayManipulator(typeof(CaptureInArea), blueprintVisilibilty);
+            DisplayManipulator(typeof(PrintInArea), blueprintVisilibilty);
+
+            captureInAreaTool.OnSelect += () => cia.ClearArea();
+            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
+            printInAreaTool.OnSelect += () => pia.ClearPreview();
+            printInAreaTool.OnDeselect += () => pia.ClearPreview();
+            
+            DisplayManipulator(
+                typeof(CaptureInArea),
+                LBSMainWindow.Instance.blueprintPanel.style.display.value);
+            captureInAreaTool.OnSelect += () => cia.ClearArea();
+            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
+
+
+            nextFloorButton.style.display = DisplayStyle.Flex;
+            nextFloorButton.RegisterValueChangedCallback(evt =>
+            {
+                if (!nextFloorButton.value) return;
+                int newFloor = layer.ActiveFloor + 1;
+                foreach (var l in LBSMainWindow.Instance.GetLayers())
+                {
+                    l.ChangeFloor(newFloor);
+                    DrawManager.Instance.UpdateLayer(l);
+                    floorIndexField.value = (uint)newFloor;
+                    nextFloorButton.value = false;
+                }
+            });
+
+            prevFloorButton.style.display = DisplayStyle.Flex;
+            prevFloorButton.RegisterValueChangedCallback(evt =>
+            {
+                if (!prevFloorButton.value) return;
+                int newFloor = layer.ActiveFloor - 1;
+                foreach (var l in LBSMainWindow.Instance.GetLayers())
+                {
+                    l.ChangeFloor(newFloor);
+                    DrawManager.Instance.UpdateLayer(l);
+                    floorIndexField.value = (uint)newFloor;
+                    prevFloorButton.value = false;
+                }
+            });
+
+            floorIndexField.style.display = DisplayStyle.Flex;
+            floorIndexField.value = (uint)layer.ActiveFloor;
         }
 
 

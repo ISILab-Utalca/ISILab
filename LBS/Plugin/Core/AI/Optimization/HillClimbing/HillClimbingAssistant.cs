@@ -478,7 +478,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
         private void CreateHillClimbing()
         {
-            var adam = new OptimizableModules(OwnerLayer.Modules);
+            var adam = new OptimizableModules(OwnerLayer.Modules(OwnerLayer.ActiveFloor));
 
 
             var selection = new EliteSelection();
@@ -501,7 +501,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             // Set Owner
             OwnerLayer = layer;
 
-            var adam = new OptimizableModules(new List<LBSModule>(layer.Modules));
+            var adam = new OptimizableModules(new List<LBSModule>(layer.Modules(layer.ActiveFloor)));
 
             var selection = new EliteSelection();
             var termination = new FitnessStagnationTermination(1);
