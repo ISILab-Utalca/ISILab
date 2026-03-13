@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ISILab.LBS.CustomComponents;
 using UnityEditor;
 using UnityEditor.VersionControl;using UnityEngine;
@@ -89,6 +90,21 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             }
         }
 
+
+        private List<LBSCustomListItem> listItems;
+
+        [UxmlObjectReference("LBSCustomListItem")]
+        public List<LBSCustomListItem> ListItems
+        {
+            get => listItems;
+            set
+            {
+                listItems = value;
+            }
+        }
+        
+        
+
         public LBSBaseListGroup() : base()
         {
             GetVisualTreeForThis();
@@ -110,8 +126,8 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             listView = this.Q<LBSCustomListView>("ListView");
           
             expandArrowButton = this.Q<Button>("ExpandButton");
-            expandArrowButton.RegisterCallback<ClickEvent>(evt =>
-            {
+            expandArrowButton.RegisterCallback<ClickEvent>(_evt =>
+            { 
                 IsFoldoutExpanded = !IsFoldoutExpanded;
             });
 

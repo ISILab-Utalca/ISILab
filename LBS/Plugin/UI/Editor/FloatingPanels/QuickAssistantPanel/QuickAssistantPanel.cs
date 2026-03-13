@@ -27,7 +27,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Unity.Properties;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;

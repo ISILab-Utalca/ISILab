@@ -771,18 +771,18 @@ namespace ISILab.LBS.VisualElements.Editor
         //Update all squares in the grid
         private void UpdateContent()
         {
-            var veChildren = GetButtonResults(new List<PopulationAssistantButtonResult>(), gridContent);
+            List<PopulationAssistantButtonResult> veChildren = GetButtonResults(new List<PopulationAssistantButtonResult>(), gridContent);
             for (int i = 0; i < _assistant.toUpdate.Count &&
                             i < veChildren.Count; i++)
             {
-                var v = _assistant.toUpdate[i];
-                var index = (int)(v.y * _assistant.SampleWidth + v.x);
+                Vector2 v = _assistant.toUpdate[i];
+                int index = (int)(v.y * _assistant.SampleWidth + v.x);
 
                 SetBackgroundTexture(veChildren[index], _assistant.RawToolRect);
 
                 veChildren[index].Data = _assistant.Samples[(int)v.y, (int)v.x];
                 veChildren[index].Score = ((decimal)_assistant.Samples[(int)v.y, (int)v.x].Fitness).ToString("f4");
-                var t = veChildren[index].GetTexture();
+                Texture2D t = veChildren[index].GetTexture();
                 veChildren[index].SetTexture(veChildren[index].Data != null
                     ? veChildren[index].backgroundTexture.MergeTextures(t).FitSquare()
                     : DirectoryTools.GetAssetByName<Texture2D>("LoadingContent"));

@@ -389,6 +389,7 @@ namespace ISILab.LBS.Editor.Windows
 
             #region PANELS - INSPECTOR, EXTRA, LAYERS, GENERATOR
 
+            // THE ORDER IN WHICH THIS PANELS ARE ADDED DECIDES THEIR VERTICAL ORDER
 
             inspectorManager.InitTabs(ref layerTemplates);
             

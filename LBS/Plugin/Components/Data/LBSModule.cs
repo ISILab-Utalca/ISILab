@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using LBS.Components;
-using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -13,14 +11,7 @@ namespace ISILab.LBS.Modules
     {
         public List<object> GetSelected(Vector2Int position);
     }
-
-    public interface IObjectData
-    {
-        // meant to get objects in a given area within a component that get stored in a blueprint
-        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition);
-        // pass blueprint objects into a component which then loads them if the objeccts are valid for the component.
-        public void LoadObjects(object[] objects);
-    }
+  
 
     [System.Serializable]
     public abstract class LBSModule : ICloneable

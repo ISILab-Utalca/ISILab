@@ -1,5 +1,12 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using LBS.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,14 +16,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     public partial class BlueprintEntry : VisualElement
     {
         #region VIEW ELEMENTS
+        LBSCustomLabel blueprintLabel;
         LBSCustomLabelIcon defaultMessage;
         VisualElement blueprintImage;
-        ISILab.LBS.Components.Blueprint blueprint;
         #endregion
 
         #region FIELDS
         private static VisualTreeAsset visualTreeAsset;
+        ISILab.LBS.Components.Blueprint blueprint;
         #endregion
+
+        public Action OnSelect;
 
         #region PROPERTIES
         internal Texture2D BlueprintImage
@@ -42,8 +52,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 blueprint = value;
                 BlueprintImage = blueprint.PreviewImage;
+                blueprintLabel.text = blueprint.BlueprintName;
+                tooltip = MakeTooltip();
             }
         }
+
+
         #endregion
 
         #region CONSTRUCTORS
@@ -55,6 +69,65 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             
             defaultMessage = this.Q<LBSCustomLabelIcon>("DefaultMessage");
             blueprintImage = this.Q<VisualElement>("BlueprintImage");
+            blueprintLabel = this.Q<LBSCustomLabel>("BlueprintName");
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
+        }
+
+
+        private void OnMouseDown(MouseDownEvent evt)
+        {
+            if (evt.button == 0)
+            {
+                OnSelect?.Invoke();
+                SetSelected(true);
+            }
+        }
+
+        public void SetSelected(bool value)
+        {
+            if (value)
+            {
+                AddToClassList("prop-state--checked");
+            }
+            else
+            {
+                RemoveFromClassList("prop-state--checked");
+            }
+        }
+        private string MakeTooltip()
+        {
+            if (blueprint == null)
+                return "Empty blueprint slot";
+
+            Dictionary<Type, string> dict = new()
+            {
+                { typeof(SchemaBehaviour), "Interior Layer" },
+                { typeof(ExteriorBehaviour), "Exterior Layer" },
+                { typeof(PopulationBehaviour), "Population Layer" },
+                { typeof(QuestBehaviour), "Quest Layer" },
+            };
+
+            HashSet<Type> registeredTypes = new();
+
+            string tooltip = "Layers:\n";
+
+            foreach (LBSLayer layer in blueprint.Layers)
+            {
+                foreach (LBSBehaviour bh in layer.Behaviours)
+                {
+                    if (bh == null) continue;
+
+                    Type type = bh.GetType();
+
+                    if (!registeredTypes.Contains(type) && dict.ContainsKey(type))
+                    {
+                        registeredTypes.Add(type);
+                        tooltip += $"- {dict[type]}\n";
+                    }
+                }
+            }
+
+            return tooltip;
         }
 
         #endregion

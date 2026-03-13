@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <ui:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
-        <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="LBSCustomToggleField" />
-        <ui:IntegerField value="1" max-length="1000" name="QuantityField" style="width: 50px;" />
+    <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
+    <ui:VisualElement class="dark" style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
+        <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="LBSCustomToggleField" style="flex-grow: 1; align-self: center;" />
+        <ui:IntegerField value="1" max-length="1000" name="QuantityField" style="width: 50px; flex-grow: 0;" />
     </ui:VisualElement>
 </ui:UXML>

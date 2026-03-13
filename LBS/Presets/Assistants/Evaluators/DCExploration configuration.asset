@@ -15,103 +15,62 @@ MonoBehaviour:
   target:
     rid: 3359370251585192494
   fields:
-  - rid: 4351225486943985146
-  - rid: 4351225486943985147
-  - rid: 4351225486943985148
+  - rid: 5219712782119230206
+  - rid: 5219712782119230207
+  - rid: 5219712782119230208
+  - rid: 5219712782119230209
   references:
     version: 2
     RefIds:
     - rid: 3359370251585192494
       type: {class: DCExploration, ns: ISILab.AI.Categorization, asm: LBS}
       data:
+        permaIndices: 
         playerCharacteristic:
-          rid: 4351225306371340654
+          rid: 5219712782119230210
         colliderCharacteristic:
-          rid: 4351225306371340655
+          rid: 5219712782119230211
         pointsOfInterest:
-        - rid: 4351225306371340656
-        - rid: 4351225306371340657
-        - rid: 4351225306371340658
-        - rid: 4351225306371340659
-        - rid: 4351225306371340660
-        - rid: 4351225306371340661
-    - rid: 4351225306371340654
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+        - rid: 5219712782119230212
+        - rid: 5219712782119230213
+        - rid: 5219712782119230214
+        - rid: 5219712782119230215
+        - rid: 5219712782119230216
+        - rid: 5219712782119230217
+        searchType: 1
+    - rid: 5219712782119230206
+      type: {class: EvaluatorConfiguration/EnumConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Player
-          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
-          tagGUID: 975a57a1811d3f743838422b5c87c58a
-    - rid: 4351225306371340655
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Collider
-          value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
-          tagGUID: 261af09a46f50a647b4fb33a0e989c66
-    - rid: 4351225306371340656
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Chest
-          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
-          tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
-    - rid: 4351225306371340657
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Axe
-          value: {fileID: 11400000, guid: 90c0458b7a8ee514d9c7ba0ace177f05, type: 2}
-          tagGUID: 90c0458b7a8ee514d9c7ba0ace177f05
-    - rid: 4351225306371340658
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Hammer
-          value: {fileID: 11400000, guid: 1b5f81de2f3a4ac40a031e0d2f7ddd0b, type: 2}
-          tagGUID: 1b5f81de2f3a4ac40a031e0d2f7ddd0b
-    - rid: 4351225306371340659
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Sword
-          value: {fileID: 11400000, guid: b1c5ecf1473587a42ba9abcff06c1437, type: 2}
-          tagGUID: b1c5ecf1473587a42ba9abcff06c1437
-    - rid: 4351225306371340660
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Food
-          value: {fileID: 11400000, guid: b354587b73f945f4188c7dc7026de4ef, type: 2}
-          tagGUID: b354587b73f945f4188c7dc7026de4ef
-    - rid: 4351225306371340661
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Tree
-          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
-          tagGUID: 0147d0d479179b04a8c825d8159e70ce
-    - rid: 4351225486943985146
+        name: Pathfinding Algorithm
+        tooltip: 'Method to use for calculating distances between items.
+
+
+          <b>>
+          Flood Fill:</b> Preferable for laberynthin levels.
+
+          <b>> Jump
+          Point Search Plus (JPS+):</b> Preferable for open areas with few obstacles.
+
+
+          <i>(You
+          should not be particularly concerned about this parameter if your level
+          is small-sized or has few items.)</i>'
+        value: 1
+        typeName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,
+          LBS, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null
+    - rid: 5219712782119230207
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Player
         tooltip: Main item to be compared with every POI.
         tagName: Player
-    - rid: 4351225486943985147
+    - rid: 5219712782119230208
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: Obstacle
         tooltip: 
         tagName: Collider
-    - rid: 4351225486943985148
+    - rid: 5219712782119230209
       type: {class: EvaluatorConfiguration/GroupedTagsField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         name: PointsOfInterest
@@ -135,3 +94,67 @@ MonoBehaviour:
         - name: 
           tooltip: 
           tagName: Tree
+    - rid: 5219712782119230210
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 975a57a1811d3f743838422b5c87c58a
+    - rid: 5219712782119230211
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Collider
+          value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
+          tagGUID: 261af09a46f50a647b4fb33a0e989c66
+    - rid: 5219712782119230212
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Chest
+          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
+          tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
+    - rid: 5219712782119230213
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Axe
+          value: {fileID: 11400000, guid: 90c0458b7a8ee514d9c7ba0ace177f05, type: 2}
+          tagGUID: 90c0458b7a8ee514d9c7ba0ace177f05
+    - rid: 5219712782119230214
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Hammer
+          value: {fileID: 11400000, guid: 1b5f81de2f3a4ac40a031e0d2f7ddd0b, type: 2}
+          tagGUID: 1b5f81de2f3a4ac40a031e0d2f7ddd0b
+    - rid: 5219712782119230215
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Sword
+          value: {fileID: 11400000, guid: b1c5ecf1473587a42ba9abcff06c1437, type: 2}
+          tagGUID: b1c5ecf1473587a42ba9abcff06c1437
+    - rid: 5219712782119230216
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Food
+          value: {fileID: 11400000, guid: b354587b73f945f4188c7dc7026de4ef, type: 2}
+          tagGUID: b354587b73f945f4188c7dc7026de4ef
+    - rid: 5219712782119230217
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Tree
+          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
+          tagGUID: 0147d0d479179b04a8c825d8159e70ce

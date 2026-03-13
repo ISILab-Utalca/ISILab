@@ -5,6 +5,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
@@ -18,7 +19,7 @@ namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
     [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
-    public class PopulationBehaviour : LBSBehaviour, IObjectData
+    public class PopulationBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
         
@@ -254,7 +255,7 @@ namespace ISILab.LBS.Behaviours
 
         public BundleData GetBundleData(LBSTile tile)
         {
-            return _bundleTileMap.GetGroup(tile).BundleData;
+            return _bundleTileMap.GetGroup(tile)?.BundleData;
         }
 
         public bool RotateTile(Vector2Int pos, Vector2 rotation)
@@ -336,6 +337,12 @@ namespace ISILab.LBS.Behaviours
             var other = obj as PopulationBehaviour;
 
             if (other == null) return false;
+
+            if (!this.Name.Equals(other.Name)) return false;
+
+            if(!OwnerLayer.Name.Equals(other.OwnerLayer.Name)) return false;
+
+            if(!OwnerLayer.ID.Equals(other.OwnerLayer.ID)) return false;
 
             return true;
         }
@@ -453,17 +460,13 @@ namespace ISILab.LBS.Behaviours
             };
         }
 
-        public object[] GetObjects(Vector2Int StartPosition, Vector2Int EndPosition)
+        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            HashSet<object> validObjects = new();
 
-            BundleTileMap bundleTileMapClone = BundleTilemap.Clone() as BundleTileMap;
-            bundleTileMapClone.Clear();
-
-            TileMapModule tileMapClone = new TileMapModule();// TileMap.Clone() as TileMapModule;
-            tileMapClone.Clear();
+            List<LBSTile> tilesToRemove = tileMap.Tiles;
+            List<TileBundleGroup> tbgToRemove = _bundleTileMap.Groups;
 
             for (int x = corners.min.x; x <= corners.max.x; x++)
             {
@@ -472,30 +475,35 @@ namespace ISILab.LBS.Behaviours
                     Vector2Int pos = new Vector2Int(x, y);
 
                     LBSTile tile = tileMap.GetTile(pos);
-                    if (tile != null)
-                    {
-                        LBSTile tileClone = tile.Clone() as LBSTile;
-                        tileMapClone.AddTile(tileClone);
-                        validObjects.Add(tileMapClone);
-                    }
+                    tilesToRemove.Remove(tile);
 
                     TileBundleGroup tbg = _bundleTileMap.GetGroup(pos);
-                    if (tbg != null)
-                    {
-                        TileBundleGroup tbgClone = tbg.Clone() as TileBundleGroup;
-                        bundleTileMapClone.AddGroup(tbgClone);
-                        validObjects.Add(bundleTileMapClone);
-                    }
+                    tbgToRemove.Remove(tbg);
                 }
             }
 
-            return validObjects.ToArray();
-            
+            foreach (var tile in tilesToRemove) tileMap.RemoveTile(tile);
+            foreach (var tbg in tbgToRemove) _bundleTileMap.RemoveGroup(tbg);
+
         }
 
-        public void LoadObjects(object[] objects)
+        public void OffsetObject(Vector2Int offset)
         {
-            throw new NotImplementedException();
+            if (TileMap.Tiles.Count == 0) return;
+
+            // x is correct but for Y we need to get the highest Y
+            Vector2Int origin = TileMap.Tiles[0].Position;
+            foreach (var tile in tileMap.Tiles)
+            {
+                if (tile.y > origin.y) origin.y = tile.y;
+            }
+
+            // delta from starting tile
+            Vector2Int delta = offset - origin;
+            foreach (var tbg in TileMap.Tiles)
+            {
+                tbg.Position += delta;
+            }
         }
 
         #endregion

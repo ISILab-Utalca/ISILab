@@ -3,6 +3,7 @@ using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -24,13 +25,17 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedLayer { get; set; } = null;
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
+        public LBSLayer CombinedPopulationLayer { get; set; } = null;
 
         public string Tooltip => "Single Ratio Evaluator\n\n" +
             "This evaluator aims to balance the frequency of items of a certain type in relation to the entire map space.\n\n" +
             "By default the evaluator balance Chest-tagged items with a ratio of 1 element for each 10 spaces.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Vertex-Based Exterior Layers.\n" +
+            "- Any type of Population Layer.";
+
+        private int permaCount = -1; // Needed for using extra population layers as context
 
         public static EvaluatorConfiguration config;
 
@@ -65,6 +70,12 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaCount = permaCount == -1 && bundleTM is not null;
+            if (permaCount == -1) permaCount = 0;
+
             int itemCount = 0;
             int validGenes = genes.Count;
             for (int i = 0; i < genes.Count; i++)
@@ -77,9 +88,24 @@ namespace ISILab.AI.Categorization
                 if (genes[i] is not null)
                 {
                     if (genes[i].HasTag(itemCharacteristic.FirstTag()))
+                    {
                         itemCount++;
+                        continue;
+                    }
+                }
+
+                if (!checkPermaCount) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (group is null || groups.Contains(group)) continue;
+                if (group.BundleData.HasTag(itemCharacteristic.FirstTag()))
+                {
+                    permaCount++;
+                    groups.Add(group);
                 }
             }
+
+            itemCount += permaCount;
 
             float currentRatio = (float)itemCount / (float)validGenes;
 
@@ -161,10 +187,12 @@ namespace ISILab.AI.Categorization
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
-            var contextualEvaluator = this as IContextualEvaluator;
-            CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
-            CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
-            CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            IContextualEvaluator ctx = this;
+            CombinedInteriorLayer = ctx.InteriorLayers(selection);
+            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
+            CombinedPopulationLayer = ctx.PopulationLayers();
+            permaCount = -1;
+            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
         }
 
         public void InitializeDefault()
@@ -209,10 +237,13 @@ namespace ISILab.AI.Categorization
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
+            clone.CombinedPopulationLayer = CombinedPopulationLayer;
 
             clone.itemCharacteristic = itemCharacteristic;
 
             clone.targetRatio = targetRatio;
+
+            clone.permaCount = permaCount;
 
             return clone;
         }

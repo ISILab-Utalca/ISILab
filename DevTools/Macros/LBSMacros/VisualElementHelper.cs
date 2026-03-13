@@ -43,18 +43,22 @@ namespace ISILab.LBS.Macros
                 return;
 
             Action restore = DisplayGraphOnly(window, graph);
-            EditorApplication.delayCall += () =>
+
+            int frames = 0;
+            window.Repaint();
+            void WaitFrames()
             {
+                frames++;
+                if (frames < 5) return;
+                EditorApplication.update -= WaitFrames;
+
                 float dpi = EditorGUIUtility.pixelsPerPoint;
 
-                // Convert capture area (content space) → panel space
                 Rect panelRect = graph.contentViewContainer
                     .ChangeCoordinatesTo(window.rootVisualElement, captureArea);
 
-                // Panel height (needed because ReadPixels uses bottom-left origin)
                 float panelHeight = window.rootVisualElement.worldBound.height;
 
-                // Convert to pixel space
                 int x = Mathf.RoundToInt(panelRect.x * dpi);
                 int y = Mathf.RoundToInt((panelHeight - panelRect.y - panelRect.height) * dpi);
                 int width = Mathf.RoundToInt(panelRect.width * dpi);
@@ -73,9 +77,10 @@ namespace ISILab.LBS.Macros
 
                 restore?.Invoke();
                 onCaptured?.Invoke(tex);
-            };
-        }
+            }
 
+            EditorApplication.update += WaitFrames;
+        }
 
 
         /// <summary>

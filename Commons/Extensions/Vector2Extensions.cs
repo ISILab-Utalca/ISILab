@@ -6,9 +6,16 @@ namespace ISILab.Extensions
 {
     public static class Vector2Extensions
     {
-        public static Vector2Int ToInt(this Vector2 vector)
+        public static Vector2Int ToInt(this Vector2 vector, bool round = false)
         {
-            return new Vector2Int((int)vector.x, (int)vector.y);
+            return round ?
+                new Vector2Int(Mathf.RoundToInt(vector.x), Mathf.RoundToInt(vector.y)) :
+                new Vector2Int((int)vector.x, (int)vector.y);
+        }
+
+        public static Vector2 ToFloat(this Vector2Int vector)
+        {
+            return new Vector2(vector.x, vector.y);
         }
 
         public static List<Vector2> AsComponents(this Vector2 vector)
@@ -138,17 +145,17 @@ namespace ISILab.Extensions
             return false;
         }
 
-        public static Vector2Int Multiply(this Vector2Int vec, float value)
+        public static Vector2Int Multiply(this Vector2Int vec, float value, bool round = false)
         {
-            vec.x = (int)(vec.x * value);
-            vec.y = (int)(vec.y * value);
+            vec.x = round ? Mathf.RoundToInt(vec.x * value) : (int)(vec.x * value);
+            vec.y = round ? Mathf.RoundToInt(vec.y * value) : (int)(vec.y * value);
             return vec;
         }
 
         public static Vector2Int Divided(this Vector2Int vec, float value)
         {
-            vec.x = (int)(vec.x / value);
-            vec.y = (int)(vec.y / value);
+            vec.x = Mathf.RoundToInt(vec.x / value);
+            vec.y = Mathf.RoundToInt(vec.y / value);
             return vec;
         }
 
@@ -171,8 +178,8 @@ namespace ISILab.Extensions
 
         public static Vector2 Divided(this Vector2 vec, float value)
         {
-            vec.x = (int)(vec.x / value);
-            vec.y = (int)(vec.y / value);
+            vec.x /= value;
+            vec.y /= value;
             return vec;
         }
 
@@ -194,6 +201,32 @@ namespace ISILab.Extensions
             var max = Mathf.Abs(vec.x) > Mathf.Abs(vec.y) ? Mathf.Abs(vec.x) : Mathf.Abs(vec.y);
 
             return (max - min) + min * dist;
+        }
+
+        public static Vector2 Average(this IEnumerable<Vector2> vs)
+        {
+            float x = 0f, y = 0f;
+            int c = 0;
+            foreach(Vector2 v in vs)
+            {
+                x += v.x;
+                y += v.y;
+                c++;
+            }
+            return new Vector2(x, y).Divided(c);
+        }
+
+        public static Vector2Int Average(this IEnumerable<Vector2Int> vs)
+        {
+            int x = 0, y = 0;
+            int c = 0;
+            foreach (Vector2Int v in vs)
+            {
+                x += v.x;
+                y += v.y;
+                c++;
+            }
+            return new Vector2Int(x, y).Divided(c);
         }
     }
 

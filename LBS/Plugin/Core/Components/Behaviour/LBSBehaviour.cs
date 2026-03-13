@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.DevTools.Macros;
+using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
@@ -253,5 +254,6 @@ namespace ISILab.LBS.Behaviours
         {
             OnBehaviourUpdated?.Invoke(obj);
         }
-    }
+
+     }
 }

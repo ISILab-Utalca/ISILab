@@ -1,3 +1,4 @@
+using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using LBS.Components;
 using Color = UnityEngine.Color;
@@ -43,5 +44,7 @@ namespace ISILab.LBS.Behaviours
         }
 
         public override void CheckKeys() { } // Quest Behaviour does this for the rest of behaviours from the quest layer
+
+   
     }
 }

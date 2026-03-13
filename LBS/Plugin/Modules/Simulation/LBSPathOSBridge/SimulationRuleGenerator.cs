@@ -161,7 +161,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     currInstance = PrefabUtility.InstantiatePrefab(elementPrefab, levelMarkupContainer.transform) as GameObject;
                 }
 
-                string key = UI.entityLabels[tile.EntityType];
+                string key = PathOS.UI.entityLabels[tile.EntityType];
                 currInstance.name = key;
                 if (objectNames.ContainsKey(key))
                 {

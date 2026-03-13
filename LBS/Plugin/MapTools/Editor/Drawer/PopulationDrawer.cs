@@ -1,19 +1,20 @@
+using ISILab.Commons.Extensions;
+using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
-using ISILab.LBS.VisualElements.Editor;
+using LBS.Components;
+using LBS.Components.TileMap;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using LBS.Components;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using System.Runtime.InteropServices;
 
 namespace ISILab.LBS.Drawers
 {
@@ -249,6 +250,37 @@ namespace ISILab.LBS.Drawers
             UpdatePopulationTile(tileView, nTile, population);
 
              return tileView;
+        }
+
+        public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
+        {
+            var population = target as PopulationBehaviour;
+            var texture = new Texture2D((int)(sourceRect.width * tesselationSize.x), (int)(sourceRect.height * tesselationSize.y));
+            for(int i = 0; i < texture.GetPixels().Length / tesselationSize.x / tesselationSize.y; i++)
+            {
+                Vector2Int pos = sourceRect.ToMatrixPosition(i);
+                BundleData bundle = population.GetBundleData(pos + Vector2Int.RoundToInt(sourceRect.position));
+                if(bundle is null)
+                {
+                    var t = new Texture2D(1, 1);
+                    t.SetPixel(0, 0, new Color(0, 0, 0, 0));
+                    t.Apply();
+                    texture.InsertTextureInRect(t, pos.x * tesselationSize.x, pos.y * tesselationSize.y, tesselationSize.x, tesselationSize.y);
+                }
+                else
+                {
+                    Color color = bundle.Bundle.Color;
+
+                    Texture2D source = new Texture2D(tesselationSize.x, tesselationSize.y, TextureFormat.ARGB32, false);
+                    source.SetAllPixels(color);
+                    source.Apply();
+
+                    texture.InsertTextureInRect(source, pos.x * tesselationSize.x, pos.y * tesselationSize.y, tesselationSize.x, tesselationSize.y);
+                }
+            }
+
+            texture.Apply();
+            return texture;
         }
     }
 }

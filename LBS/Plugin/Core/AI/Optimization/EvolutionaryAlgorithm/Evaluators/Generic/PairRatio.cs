@@ -3,6 +3,7 @@ using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -24,13 +25,19 @@ namespace ISILab.AI.Categorization
         public LBSLayer CombinedLayer { get; set; } = null;
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
+        public LBSLayer CombinedPopulationLayer { get; set; } = null;
 
         public string Tooltip => "Pair Ratio Evaluator \n\n" +
             "This evaluator aims to balance the frequency of two item types according to a defined ratio.\n\n" +
             "By default the evaluator balance Chest-tagged and Enemies-tagged items in a relation of 1:2.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
-            "- Vertex-Based Exterior Layers.";
+            "- Vertex-Based Exterior Layers.\n" +
+            "- Any type of Population Layer.";
+
+        // Needed for using extra population layers as context
+        private int permaCount1 = -1;
+        private int permaCount2 = -1;
 
         public static EvaluatorConfiguration config;
 
@@ -67,6 +74,12 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaCount = (permaCount1 == -1 || permaCount2 == -1) && bundleTM is not null;
+            if (permaCount1 == -1 || permaCount2 == -1) permaCount1 = permaCount2 = 0;
+
             int item1Count = 0, item2Count = 0;
             for (int i = 0; i < genes.Count; i++)
             {
@@ -79,7 +92,25 @@ namespace ISILab.AI.Categorization
                     else if (genes[i].HasTag(item2Characteristic.FirstTag()))
                         item2Count++;
                 }
+
+                if (!checkPermaCount) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (group is null || groups.Contains(group)) continue;
+                if (group.BundleData.HasTag(item1Characteristic.FirstTag()))
+                {
+                    permaCount1++;
+                    groups.Add(group);
+                }
+                else if (group.BundleData.HasTag(item2Characteristic.FirstTag()))
+                {
+                    permaCount2++;
+                    groups.Add(group);
+                }
             }
+
+            item1Count += permaCount1;
+            item2Count += permaCount2;
 
             if(item1Count == 0 || item2Count == 0) 
                 return targetRatio == 1f && item1Count == item2Count ? 1f : 0f;
@@ -116,10 +147,12 @@ namespace ISILab.AI.Categorization
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
-            var contextualEvaluator = this as IContextualEvaluator;
-            CombinedInteriorLayer = contextualEvaluator.InteriorLayers(selection);
-            CombinedExteriorLayer = contextualEvaluator.ExteriorLayers(selection);
-            CombinedLayer = contextualEvaluator.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            IContextualEvaluator ctx = this;
+            CombinedInteriorLayer = ctx.InteriorLayers(selection);
+            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
+            CombinedPopulationLayer = ctx.PopulationLayers();
+            permaCount1 = permaCount2 = -1;
+            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
         }
 
         public void InitializeDefault()
@@ -203,11 +236,15 @@ namespace ISILab.AI.Categorization
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
+            clone.CombinedPopulationLayer = CombinedPopulationLayer;
 
             clone.item1Characteristic = item1Characteristic;
             clone.item2Characteristic = item2Characteristic;
 
             clone.targetRatio = targetRatio;
+
+            clone.permaCount1 = permaCount1;
+            clone.permaCount2 = permaCount2;
 
             return clone;
         }

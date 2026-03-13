@@ -3,6 +3,7 @@ using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
@@ -30,12 +31,16 @@ namespace ISILab.AI.Categorization
 
         public LBSLayer CombinedInteriorLayer { get; set; } = null;
         public LBSLayer CombinedExteriorLayer { get; set; } = null;
+        public LBSLayer CombinedPopulationLayer { get; set; } = null;
 
         public string Tooltip => "DC Resource Safety Evaluator\n\n" +
             "This evaluator aims to distribute chests, weapons and other resources in a way that most of them are in areas close to the players.\n\n" +
             "This evaluator currently supports as Context the combination of any of the following layer types:\n" +
             "- Any type of Interior Layer.\n" +
             "- Vertex-Based Exterior Layers.";
+
+        private List<int> permaIndices1 = null;
+        private List<int> permaIndices2 = null;
 
         public static EvaluatorConfiguration config;
 
@@ -64,6 +69,13 @@ namespace ISILab.AI.Categorization
 
             var genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            bool checkPermaIndices = (permaIndices1 is null || permaIndices2 is null) && bundleTM is not null;
+            permaIndices1 ??= new List<int>();
+            permaIndices2 ??= new List<int>();
+
             List<int> playersInd = new List<int>();
             List<int> resourcesInd = new List<int>();
 
@@ -71,7 +83,7 @@ namespace ISILab.AI.Categorization
             {
                 if (chrom.IsInvalid(i))
                     continue;
-                if (genes[i] != null)
+                if (genes[i] is not null)
                 {
                     if (genes[i].HasTag(playerCharacteristic.FirstTag()))
                     {
@@ -87,7 +99,25 @@ namespace ISILab.AI.Categorization
                         }
                     }
                 }
+
+                if (!checkPermaIndices) continue;
+
+                TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                if (group is null || groups.Contains(group)) continue;
+                if (group.BundleData.HasTag(playerCharacteristic.FirstTag()))
+                {
+                    permaIndices1.Add(i);
+                    groups.Add(group);
+                }
+                else if (resources.Any(resChar => resChar is not null && group.BundleData.HasTag(resChar.FirstTag())))
+                {
+                    permaIndices2.Add(i);
+                    groups.Add(group);
+                }
             }
+
+            playersInd.AddRange(permaIndices1);
+            resourcesInd.AddRange(permaIndices2);
 
             int bestPossibleScore = (int)(1.25f * resourcesInd.Count);
             int worstPossibleScore = (int)(2.00f * resourcesInd.Count);
@@ -186,9 +216,13 @@ namespace ISILab.AI.Categorization
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
         {
             ContextLayers = new List<LBSLayer>(contextLayers);
-            CombinedInteriorLayer = (this as IContextualEvaluator).InteriorLayers(selection);
-            CombinedExteriorLayer = (this as IContextualEvaluator).ExteriorLayers(selection);
-            CombinedLayer = (this as IContextualEvaluator).MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+            IContextualEvaluator ctx = this;
+            CombinedInteriorLayer = ctx.InteriorLayers(selection);
+            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
+            CombinedPopulationLayer = ctx.PopulationLayers();
+            permaIndices1 = null;
+            permaIndices2 = null;
+            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
         }
 
         public void InitializeDefault()
@@ -237,9 +271,14 @@ namespace ISILab.AI.Categorization
             clone.CombinedLayer = CombinedLayer;
             clone.CombinedInteriorLayer = CombinedInteriorLayer;
             clone.CombinedExteriorLayer = CombinedExteriorLayer;
+            clone.CombinedPopulationLayer = CombinedPopulationLayer;
 
             clone.playerCharacteristic = playerCharacteristic;
             clone.resources = new List<LBSCharacteristic>(resources);
+
+            clone.permaIndices1 = permaIndices1;
+            clone.permaIndices2 = permaIndices2;
+
             return clone;
         }
     }

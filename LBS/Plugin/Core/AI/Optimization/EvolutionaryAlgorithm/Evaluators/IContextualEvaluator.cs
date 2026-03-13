@@ -19,6 +19,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         public LBSLayer CombinedInteriorLayer { get; set; }
         public LBSLayer CombinedExteriorLayer { get; set; }
+        public LBSLayer CombinedPopulationLayer { get; set; }
 
         public void InitializeContext(List<LBSLayer> contextLayers, Rect selection);
 
@@ -125,11 +126,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         public LBSLayer PopulationLayers()
         {
-            if (ContextLayers.Count == 0) return null;
+            if (ContextLayers.Count == 0) return new LBSLayer();
 
             //If there's no population layers, return null
             var populationLayers = ContextLayers.FindAll(l => l.Behaviours.Any(b => b.GetType().Equals(typeof(PopulationBehaviour))));
-            if (populationLayers.Count == 0) return null;
+            if (populationLayers.Count == 0) return new LBSLayer();
 
             //Clone first
             var combinedLayer = populationLayers.First().Clone() as LBSLayer;
@@ -181,7 +182,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
             if (!interiorExists)
             {
-                exteriorLayer.GetModule<SectorizedTileMapModule>().RecalculateZonesProximity(selection, exteriorLayer.GetModule<ConnectedTileMapModule>("TempConnectedModule"));
+                var connectedTM = exteriorLayer.GetModule<ConnectedTileMapModule>("TempConnectedModule");
+                //connectedTM.InitializePathfinding(selection);
+                exteriorLayer.GetModule<SectorizedTileMapModule>().RecalculateZonesProximity(selection, connectedTM);
                 return exteriorLayer;
             }
 

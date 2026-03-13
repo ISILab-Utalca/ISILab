@@ -113,6 +113,12 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
 
         public static Bundle CreateBundleWithInstance(Bundle instance, string baseName = "New_Bundle")
         {
+            Debug.Log(instance.Name);
+            return CreateBundleWithInstance(instance, out _, baseName);
+        }
+
+        public static Bundle CreateBundleWithInstance(Bundle instance, out string nameRef, string baseName = "New_Bundle")
+        {
             AssetDatabase.Refresh();
             string name = baseName;
             int counter = 0;
@@ -124,9 +130,10 @@ namespace ISI_Lab.LBS.Plugin.Components.Bundles
                 path = LBSSettings.Instance.paths.bundleFolderPath + "/" + name + ".asset";
             }
 
+            nameRef = name;
             instance.BundleName = name;
 
-            CreateFolderPath(LBSSettings.Instance.paths.bundleFolderPath,name);
+            CreateFolderPath(LBSSettings.Instance.paths.bundleFolderPath, name);
             AssetDatabase.CreateAsset(instance, path);
             return instance;
         }
