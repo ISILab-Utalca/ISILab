@@ -14,11 +14,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.UI.Image;
+using Type = System.Type;
 
 namespace LBS.Components    
 {
     [Serializable]
-    public class LBSLayer : ICloneable
+    public class LBSLayer : ICloneable, IBlueprintable
     {
         #region Meta Fields
         [SerializeField, JsonRequired, HideInInspector] private bool visible = true;
@@ -475,29 +478,65 @@ namespace LBS.Components
             components.AddRange(clone.Modules);
             components.AddRange(clone.Behaviours);
             components.AddRange(clone.Assistants);
+            bool validLayer = false;
 
             foreach (object comp in components)
             {
                 if(comp is IBlueprintable blueprintable)
-                    blueprintable.KeepAreaData(s, e);
+                {
+                    bool hasData = blueprintable.CaptureAreaData(s, e);
+                    if(!validLayer && hasData) validLayer = true;
+                }
             }
 
-            return clone;
+            if(validLayer) return clone;
+            else return null;
         }
 
-        public void OffsetLayer(Vector2Int offset)
+        public Vector2Int GetAnchor()
+        {
+            var mainAnchor = new Vector2Int(int.MaxValue, int.MinValue);
+
+            List<object> components = new();
+            components.AddRange(Modules);
+            components.AddRange(Behaviours);
+            components.AddRange(Assistants);
+
+            foreach (object comp in components)
+            {
+                if (comp is IBlueprintable blueprintable)
+                {
+                    var anchor = blueprintable.GetAnchor();
+                    if (anchor.x < mainAnchor.x) mainAnchor.x = anchor.x;
+                    if (anchor.y > mainAnchor.y) mainAnchor.y = anchor.y;
+                }
+            }
+
+            return mainAnchor;
+        }
+
+        public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
         {
             List<object> components = new();
             components.AddRange(Modules);
             components.AddRange(Behaviours);
             components.AddRange(Assistants);
+
+
             foreach (object comp in components)
             {
                 if (comp is IBlueprintable blueprintable)
-                    blueprintable.OffsetObject(offset);
+                {
+                    blueprintable.SetPosition(parentAnchor, delta);
+                }
             }
         }
 
+        // never called
+        public bool CaptureAreaData(Vector2Int min, Vector2Int max)
+        {
+            return true;
+        }
         #endregion
     }
 }

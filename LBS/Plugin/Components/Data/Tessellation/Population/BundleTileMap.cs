@@ -24,6 +24,10 @@ namespace ISILab.LBS.Modules
         #region PROPERTIES
         [JsonIgnore]
         public List<TileBundleGroup> Groups => new List<TileBundleGroup>(groups);
+
+
+        [JsonIgnore]
+        public int GroupCount => Groups.Count;
         #endregion
 
         #region CONSTRUCTORS

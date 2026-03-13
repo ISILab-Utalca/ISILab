@@ -27,7 +27,7 @@ namespace ISILab.LBS.Manipulators
         #region FIELDS
         private List<LBSLayer> capturedBlueprintData = new();
         private BlueprintFeedback areaFeedback;
-
+        private bool Capturing = false;
         #endregion
 
         #region PROPERTIES
@@ -75,6 +75,9 @@ namespace ISILab.LBS.Manipulators
 
         public bool DoCapture()
         {
+            if (Capturing) return false;
+
+            Capturing = true;
             CapturedBlueprintData.Clear();
             areaFeedback.UpdatePositions(StartPosition, EndPosition);
 
@@ -89,20 +92,19 @@ namespace ISILab.LBS.Manipulators
             tesellationAreaEnd.x -= 100;
             tesellationAreaEnd.y -= 100;
 
-            ///CloneRefs.Start();
-
             capturedBlueprintData.Clear();
             // Should get all layers under the start and endposition 
             foreach (LBSLayer layer in LBSMainWindow.Instance.GetLayers())
             {
                 var layerClone = layer.GetAreaClone(teselleationAreaStart, tesellationAreaEnd);
-                capturedBlueprintData.Add(layerClone);
+                if (layerClone != null)
+                {
+                     capturedBlueprintData.Add(layerClone);
+                }
+               
             }
 
-            CloneRefs.End();
-
             MainView.Instance.AddElement(areaFeedback);
-
             Rect rect = Rect.MinMaxRect(
                 AreaStart.x,
                 AreaStart.y,
@@ -113,8 +115,11 @@ namespace ISILab.LBS.Manipulators
             areaFeedback.SetDisplay(false);
 
             // Failed to find any storable objects
-            if (!CapturedBlueprintData.Any()) return false;
-
+            if (!CapturedBlueprintData.Any())
+            {
+                Capturing = false;
+                return false;
+            }
             LBSVisualElementHelper.CaptureGraphView(
                 LBSMainWindow.Instance,
                 MainView.Instance,
@@ -123,6 +128,7 @@ namespace ISILab.LBS.Manipulators
                 {
                     areaFeedback.SetDisplay(true);
                     CaptureComplete?.Invoke(CapturedBlueprintData, tex, rect.size.ToInt());
+                    Capturing = false;
                 }
             );
             return true;
