@@ -155,12 +155,59 @@ namespace LBS.VisualElements
             BlueprintPanel bpPanel = LBSMainWindow.Instance.blueprintPanel;
             if (bpPanel is not null) 
                 bpPanel.Bind(this, 
-                    capture.mani as CaptureInArea, 
-                    print.mani as PrintInArea);
-           
+                    capture, 
+                    print);
+            
+            
+            var sm = new SelectManipulator();
+            LBSTool selectTool = new LBSTool(sm);
 
             var sm = new SelectManipulator();
             LBSTool selectTool = new LBSTool(sm);
+            var an = new AddNote();
+            LBSTool addNoteTool = new LBSTool(an);
+
+            var rn = new RemoveNote();
+            LBSTool removeNoteTool = new LBSTool(rn);
+
+            var cia = new CaptureInArea();
+            LBSTool captureInAreaTool = new LBSTool(cia);
+
+            var pia = new PrintInArea();
+            LBSTool printInAreaTool = new LBSTool(pia);
+
+            an.SetRemover(rn);
+
+            ActivateTool(selectTool, layer);
+            ActivateTool(addNoteTool, layer);
+            ActivateTool(removeNoteTool, layer);
+            ActivateTool(captureInAreaTool, layer);
+            ActivateTool(printInAreaTool, layer);
+
+            selectTool.Init(layer, this);
+            addNoteTool.Init(layer, this);
+            removeNoteTool.Init(layer, this);
+            captureInAreaTool.Init(layer, this);
+            printInAreaTool.Init(layer, this);
+
+
+
+            var blueprintVisilibilty = bpPanel.style.display.value;
+            bpPanel.CaptureManipulator = cia;
+            bpPanel.PrintArea = pia;
+            DisplayManipulator(typeof(CaptureInArea), blueprintVisilibilty);
+            DisplayManipulator(typeof(PrintInArea), blueprintVisilibilty);
+
+            captureInAreaTool.OnSelect += () => cia.ClearArea();
+            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
+            printInAreaTool.OnSelect += () => pia.ClearPreview();
+            printInAreaTool.OnDeselect += () => pia.ClearPreview();
+            
+            DisplayManipulator(
+                typeof(CaptureInArea),
+                LBSMainWindow.Instance.blueprintPanel.style.display.value);
+            captureInAreaTool.OnSelect += () => cia.ClearArea();
+            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
 
 
             nextFloorButton.style.display = DisplayStyle.Flex;
@@ -193,44 +240,6 @@ namespace LBS.VisualElements
 
             floorIndexField.style.display = DisplayStyle.Flex;
             floorIndexField.value = (uint)layer.ActiveFloor;
-            var an = new AddNote();
-            LBSTool addNoteTool = new LBSTool(an);
-
-            var rn = new RemoveNote();
-            LBSTool removeNoteTool = new LBSTool(rn);
-
-            var cia = new CaptureInArea();
-            LBSTool captureInAreaTool = new LBSTool(cia);
-
-            var pia = new PrintInArea();
-            LBSTool printInAreaTool = new LBSTool(pia);
-
-            an.SetRemover(rn);
-
-            ActivateTool(selectTool, layer);
-            ActivateTool(addNoteTool, layer);
-            ActivateTool(removeNoteTool, layer);
-            ActivateTool(captureInAreaTool, layer);
-            ActivateTool(printInAreaTool, layer);
-
-            selectTool.Init(layer, this);
-            addNoteTool.Init(layer, this);
-            removeNoteTool.Init(layer, this);
-            captureInAreaTool.Init(layer, this);
-            printInAreaTool.Init(layer, this);
-
-
-            var bpPanel = LBSMainWindow.Instance.blueprintPanel;
-            var blueprintVisilibilty = bpPanel.style.display.value;
-            bpPanel.CaptureManipulator = cia;
-            bpPanel.PrintArea = pia;
-            DisplayManipulator(typeof(CaptureInArea), blueprintVisilibilty);
-            DisplayManipulator(typeof(PrintInArea), blueprintVisilibilty);
-
-            captureInAreaTool.OnSelect += () => cia.ClearArea();
-            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
-            printInAreaTool.OnSelect += () => pia.ClearPreview();
-            printInAreaTool.OnDeselect += () => pia.ClearPreview();
         }
 
 

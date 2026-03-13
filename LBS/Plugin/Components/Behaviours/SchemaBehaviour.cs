@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.TerrainTools;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
@@ -23,7 +24,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
-        typeof(ConnectedZonesModule))]
+        typeof(ConnectedZonesModule),
+        typeof(NoteModule))]
     public class SchemaBehaviour : LBSBehaviour, IBlueprintable
     {
         #region READONLY-FIELDS
@@ -524,7 +526,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             return true;
         }
 
-        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
+        public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
@@ -554,26 +556,35 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             foreach (var tzp in tileZonePairsToRemove) areas.RemovePair(tzp.Tile);
             foreach (var pair in tileConnectionsPairsToRemove) TileConnections.RemoveTile(pair.Tile);
             foreach (var zone in zonesToRemove) areas.RemoveZone(zone);
+
+            return TileMap.Tiles.Count > 0 ||
+                areas.Zones.Count > 0 || 
+                TileConnections.Pairs.Count > 0 ||
+                areas.PairTiles.Count > 0;
         }
 
 
-        public void OffsetObject(Vector2Int offset)
+
+        public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
         {
-            if (TileMap.Tiles.Count == 0) return;
-
-            // x is correct but for Y we need to get the highest Y
-            Vector2Int origin = TileMap.Tiles[0].Position;
-            foreach(var tile in tileMap.Tiles)
+            foreach (var tile in TileMap.Tiles)
             {
-                if (tile.y > origin.y) origin.y = tile.y;
+                var distanceToAnchor = tile.Position - parentAnchor;
+                tile.Position = delta;
+                tile.Position += distanceToAnchor;
             }
+        }
 
-            // delta from starting tile
-            Vector2Int delta = offset - origin;
-            foreach (var tbg in TileMap.Tiles)
+        public Vector2Int GetAnchor()
+        {
+            Vector2Int anchor = new Vector2Int(int.MaxValue, int.MinValue);
+
+            foreach (var tile in TileMap.Tiles)
             {
-                tbg.Position += delta;
+                if (tile.Position.x < anchor.x) anchor.x = tile.Position.x;
+                if (tile.Position.y > anchor.y) anchor.y = tile.Position.y;
             }
+            return anchor;
         }
         
 

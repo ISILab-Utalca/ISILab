@@ -13,6 +13,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
+using static UnityEngine.GraphicsBuffer;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -220,7 +221,7 @@ namespace ISILab.LBS.Behaviours
             return base.GetHashCode();
         }
 
-        public void KeepAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
+        public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
@@ -245,25 +246,31 @@ namespace ISILab.LBS.Behaviours
 
             foreach(var tile in tilesToRemove) TileMap.RemoveTile(tile);
             foreach(var pair in connectionsToRemove) Connections.RemoveTile(pair.Tile);
+
+            return TileMap.TileCount > 0|| Connections.Pairs.Count > 0;
         }
 
-        public void OffsetObject(Vector2Int offset)
+        public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
         {
-            if (TileMap.Tiles.Count == 0) return;
-
-            // x is correct but for Y we need to get the highest Y
-            Vector2Int origin = TileMap.Tiles[0].Position;
+ 
             foreach (var tile in TileMap.Tiles)
             {
-                if (tile.y > origin.y) origin.y = tile.y;
+                Vector2Int distanceToAnchor = tile.Position - parentAnchor;
+                tile.Position = delta;
+                tile.Position += distanceToAnchor;
             }
+        }
 
-            // delta from starting tile
-            Vector2Int delta = offset - origin;
-            foreach (var tbg in TileMap.Tiles)
+        public Vector2Int GetAnchor()
+        {
+            Vector2Int anchor = new Vector2Int(int.MaxValue, int.MinValue);
+
+            foreach (var tile in TileMap.Tiles)
             {
-                tbg.Position += delta;
+                if (tile.Position.x < anchor.x) anchor.x = tile.Position.x;
+                if (tile.Position.y > anchor.y) anchor.y = tile.Position.y;
             }
+            return anchor;
         }
 
         #endregion

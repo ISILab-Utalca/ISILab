@@ -1,5 +1,7 @@
 using LBS.Components;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -82,6 +84,14 @@ namespace ISILab.LBS.Components
         {
             get { return size; }
             set { size = value; }
+        }
+
+        public bool IsValid()
+        {
+            return 
+                size != Vector2Int.zero &&
+                PreviewImage != null &&
+                layers.Any();
         }
     }
 }
