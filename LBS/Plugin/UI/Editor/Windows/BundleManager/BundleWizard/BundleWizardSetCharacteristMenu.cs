@@ -161,6 +161,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 
             charElement.CharLabel.text = charType.Name;
 
+            //test Tooltip
+            charElement.QuestionTooltip.tooltip = charType.Name;
+
             bool exclusiveChar = LBSCharacteristic.IsExclusive(charType, out List<List<Type>> exclusivenessGroups);
 
             Action<bool> toggleCallback = value =>
