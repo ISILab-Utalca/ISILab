@@ -77,6 +77,7 @@ namespace ISILab.LBS.Behaviours
 
         public override void CheckKeys() { }
 
+        public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex) { }
 
         #endregion
     }

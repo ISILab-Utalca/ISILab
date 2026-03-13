@@ -70,13 +70,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         #endregion
 
         #region META-FIELDS
-        private Action levelChangedAction = null;
-        [JsonIgnore]
-        public Action LevelChangedAction
-        {
-            get => levelChangedAction;
-            set => levelChangedAction = value;
-        }
 
         private Zone roomToSet;
         [JsonIgnore]
@@ -223,11 +216,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             areas.RemovePair(tile);
         }
 
+        /*
         public void RequestFullRepaint(List<LBSTile> olds, List<LBSTile> news)
         {
             olds.ForEach(t => RequestTileRemove(t));
             news.ForEach(t => RequestTilePaint(t));
-        }
+        }//*/
 
         public void SetConnection(LBSTile tile, int direction, string connection, bool editedByIA)
         {
@@ -588,7 +582,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         }
         
 
-        public void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+        override public void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
         {
             List<LBSTile> oldTiles = new List<LBSTile>();
             List<LBSTile> newTiles = new List<LBSTile>();

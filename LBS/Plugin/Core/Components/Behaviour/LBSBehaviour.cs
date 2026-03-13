@@ -1,18 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Behaviours
 {
     [Serializable]
-    public abstract class  LBSBehaviour : ICloneable
+    public abstract class LBSBehaviour : ICloneable
     {
         #region META-FIELDS
         [SerializeField, JsonRequired, HideInInspector]
@@ -22,19 +23,21 @@ namespace ISILab.LBS.Behaviours
         #region FIELDS
         [SerializeField, HideInInspector, JsonIgnore]
         private LBSLayer ownerLayerLayer;
-        
-        [SerializeField, JsonRequired] 
+
+        [SerializeField, JsonRequired]
         private Color colorTint;
         [SerializeField, JsonRequired]
         private string name;
-        
-        private HashSet<object> _keys = new ();
-        private HashSet<object> _newTiles = new ();
-        private HashSet<object> _expiredTiles = new ();
+
+        private HashSet<object> _keys = new();
+        private HashSet<object> _newTiles = new();
+        private HashSet<object> _expiredTiles = new();
+
+        private Action levelChangedAction = null;
         #endregion
 
         #region PROPERTIES
-        
+
         [JsonIgnore]
         public Color ColorTint
         {
@@ -50,13 +53,13 @@ namespace ISILab.LBS.Behaviours
         }
 
         [HideInInspector, SerializeField]
-        private string iconGuid; 
+        private string iconGuid;
 
         // although not serialized because this IClonable is stored within a list of LBSLayer template
         // unity does not keep references of objects in list of references of objects. Serialized to display in inspector
         [SerializeField]
-        private VectorImage icon; 
-        
+        private VectorImage icon;
+
         public VectorImage Icon
         {
             get
@@ -70,8 +73,8 @@ namespace ISILab.LBS.Behaviours
                 iconGuid = guid != string.Empty ? guid : LBSSettings.Instance.view.DebugVectorGUID;
             }
         }
-        
- 
+
+
         [JsonIgnore]
         public string IconGuid
         {
@@ -84,10 +87,16 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public HashSet<object> Keys => _keys ??= new HashSet<object>();
 
+        [JsonIgnore]
+        public Action LevelChangedAction
+        {
+            get => levelChangedAction;
+            set => levelChangedAction = value;
+        }
         #endregion
 
         #region CONSTRUCTORS
-        public LBSBehaviour(string IconGuid, string name, Color  colorTint)
+        public LBSBehaviour(string IconGuid, string name, Color colorTint)
         {
             this.IconGuid = IconGuid;
             this.name = name;
@@ -123,11 +132,11 @@ namespace ISILab.LBS.Behaviours
         public abstract void OnDetachLayer(LBSLayer layer);
 
         public abstract object Clone();
-        
+
         public abstract void OnGUI();
-        
+
         #endregion
-        
+
         #region VISUAL ELEMENTS HANDLING METHODS
         /* To optimally handle all the visual elements in display in the MainView of the LBS tool,
          * each behaviour has a HashSet of elements that it wants to draw, and a HashSet of elements
@@ -161,7 +170,7 @@ namespace ISILab.LBS.Behaviours
          *     If an action is supposed to make a VisualElement disappear, then the class used for its
          *     construction is again stored for later but in the _expiredTiles set.
         */
-        
+
         // These methods are a safer way of adding new objects to the sets
         protected void RequestTilePaint(object tile)
         {
@@ -181,12 +190,12 @@ namespace ISILab.LBS.Behaviours
             }
 
             if (!_keys.Remove(tile)) return false;
-            
+
             _expiredTiles ??= new HashSet<object>();
             _expiredTiles.Add(tile);
             return true;
         }
-        
+
         /// <summary>
         /// Get all new tiles that have been created since the last time they were retrieved.
         /// The memory of new tiles will be cleared after calling this method.
@@ -195,16 +204,16 @@ namespace ISILab.LBS.Behaviours
         {
             // If null create a new one
             _newTiles ??= new HashSet<object>();
-            
+
             // Turn into array
             object[] o = _newTiles.ToArray();
             // Clear memory
             _newTiles.Clear();
-            
+
             // Return array
             return o;
         }
-        
+
         /// <summary>
         /// Get all tiles that are marked for erasing since the last time they were retrieved.
         /// The memory of new tiles will be cleared after calling this method.
@@ -213,12 +222,12 @@ namespace ISILab.LBS.Behaviours
         {
             // If null create a new one
             _expiredTiles ??= new HashSet<object>();
-            
+
             // Turn into array
             object[] o = _expiredTiles.ToArray();
             // Clear memory
             _expiredTiles.Clear();
-            
+
             // Return array
             return o;
         }
@@ -232,14 +241,14 @@ namespace ISILab.LBS.Behaviours
             //Turn into array
             List<object> keyList = _keys.ToList();
 
-            foreach(object expiredObject in keyList)
+            foreach (object expiredObject in keyList)
             {
-                if(!currentList.Contains(expiredObject))
+                if (!currentList.Contains(expiredObject))
                 {
                     RequestTileRemove(expiredObject);
                 }
             }
-            foreach(object newObject in currentList)
+            foreach (object newObject in currentList)
             {
                 if (!keyList.Contains(newObject))
                 {
@@ -254,6 +263,15 @@ namespace ISILab.LBS.Behaviours
         {
             OnBehaviourUpdated?.Invoke(obj);
         }
-
-     }
+        public virtual void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+        {
+            Debug.Log($"[{name}]: ChangeLevelRender not defined.");
+            return;
+        }
+        public void RequestFullRepaint<T>(List<T> olds, List<T> news)
+        {
+            olds.ForEach(t => RequestTileRemove(t));
+            news.ForEach(t => RequestTilePaint(t));
+        }
+    }
 }

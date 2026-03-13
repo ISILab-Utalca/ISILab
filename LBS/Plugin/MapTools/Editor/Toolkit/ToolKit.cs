@@ -162,8 +162,6 @@ namespace LBS.VisualElements
             var sm = new SelectManipulator();
             LBSTool selectTool = new LBSTool(sm);
 
-            var sm = new SelectManipulator();
-            LBSTool selectTool = new LBSTool(sm);
             var an = new AddNote();
             LBSTool addNoteTool = new LBSTool(an);
 
@@ -228,14 +226,16 @@ namespace LBS.VisualElements
             prevFloorButton.RegisterValueChangedCallback(evt =>
             {
                 if (!prevFloorButton.value) return;
+                prevFloorButton.value = false;
+                if (layer.ActiveFloor - 1 < 0) return;
+
                 int newFloor = layer.ActiveFloor - 1;
                 foreach (var l in LBSMainWindow.Instance.GetLayers())
                 {
                     l.ChangeFloor(newFloor);
                     DrawManager.Instance.UpdateLayer(l);
-                    floorIndexField.value = (uint)newFloor;
-                    prevFloorButton.value = false;
                 }
+                floorIndexField.value = (uint)newFloor;
             });
 
             floorIndexField.style.display = DisplayStyle.Flex;

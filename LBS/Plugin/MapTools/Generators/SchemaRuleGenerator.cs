@@ -90,6 +90,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public override bool CheckViability(LBSLayer layer)
         {
             List<LBSLog> msgs = new List<LBSLog>();
+
+            //for(int i = 0; i < layer)
             SectorizedTileMapModule zonesMod = layer.GetModule<SectorizedTileMapModule>();
 
             foreach (Zone zone in zonesMod.Zones)
@@ -364,7 +366,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             foreach (Zone zone in zonesMod.Zones)
             {
                 Vector2 zonePos = zonesMod.ZoneCentroid(zone);
-                Vector2 zoneSize = zone.GetSize() * settings.scale;
+                Vector2 zoneSize = zone.GetSize() * (Vector2) settings.scale;
                 Vector3 basePos = settings.position;
                 Vector3 tilePos = new Vector3(zonePos.x * settings.scale.x, 0, zonePos.y * settings.scale.y);
                 Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;

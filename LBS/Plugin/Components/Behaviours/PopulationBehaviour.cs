@@ -518,6 +518,29 @@ namespace ISILab.LBS.Behaviours
             return anchor;
         }
 
+        override public void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+        {
+            List<TileBundleGroup> oldTiles = new List<TileBundleGroup>();
+            List<TileBundleGroup> newTiles = new List<TileBundleGroup>();
+            var prevModuleList = OwnerLayer.Modules(prevLevelIndex);
+            var nextModuleList = OwnerLayer.Modules(nextLevelIndex);
+
+            var prevMod = prevModuleList.Find(
+                m => m.GetType() == typeof(BundleTileMap)) as BundleTileMap;
+            var nextMod = nextModuleList.Find(
+                m => m.GetType() == typeof(BundleTileMap)) as BundleTileMap;
+
+            foreach (var pTile in prevMod.Groups)
+            {
+                oldTiles.Add(pTile);
+            }
+            foreach (var pTile in nextMod.Groups)
+            {
+                newTiles.Add(pTile);
+            }
+
+            RequestFullRepaint(oldTiles, newTiles);
+        }
         #endregion
     }
 

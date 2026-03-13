@@ -52,7 +52,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
             
         [SerializeField]
         [JsonConverter(typeof(Vector2Converter))]
-        public Vector2 scale = new Vector2(2, 2);
+        public Vector3 scale = new Vector3(2, 2, 2);
 
         [SerializeField]
         [JsonConverter(typeof(Vector2Converter))]

@@ -21,7 +21,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #region VIEW ELEMENTS
 
         private LBSCustomVector3Field _positionField;
-        private LBSCustomVector2Field _scaleField;
+        private LBSCustomVector3Field _scaleField;
 
         private LBSCustomTextField _nameField;
 
@@ -122,7 +122,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 LBSSettings.Instance.MarkSettingsAsDirty();
             });
 
-            _scaleField = this.Q<LBSCustomVector2Field>("TileSize");
+            _scaleField = this.Q<LBSCustomVector3Field>("TileSize");
             _scaleField.RegisterValueChangedCallback(evt =>
             {
                 _settings.scale = evt.newValue;

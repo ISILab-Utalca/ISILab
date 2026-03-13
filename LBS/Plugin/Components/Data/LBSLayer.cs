@@ -138,11 +138,8 @@ namespace LBS.Components
             activeFloor = newFloor;
             foreach (var behaviour in Behaviours)
             {
-                if(behaviour is SchemaBehaviour schema)
-                {
-                    schema.ChangeLevelRender(prevFloor, newFloor);
-                    schema.LevelChangedAction?.Invoke();
-                }
+                behaviour.ChangeLevelRender(prevFloor, newFloor);
+                behaviour.LevelChangedAction?.Invoke();
             }//*/
             Reload();
         }
