@@ -62,8 +62,8 @@ namespace ISILab.LBS.Behaviours
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            List<GraphNode> nodesToRemove = Graph.GraphNodes;
-            List<QuestEdge> edgesToRemove = Graph.GraphEdges;
+            List<GraphNode> nodesToRemove = new List<GraphNode>(Graph.GraphNodes);
+            List<QuestEdge> edgesToRemove = new List<QuestEdge>(Graph.GraphEdges);
 
             foreach (GraphNode node in Graph.GraphNodes)
             {
