@@ -72,7 +72,7 @@ namespace ISILab.LBS.VisualElements
             configurationButton.clicked += ShowConfiguration;
             Add(configurationButton);
 
-            static void ShowConfiguration() => Selection.activeObject = DCExploration.config;
+            static void ShowConfiguration() => EvaluatorConfigurationWindow.Create(DCExploration.config);//Selection.activeObject = DCExploration.config;
 
             return this;
 
