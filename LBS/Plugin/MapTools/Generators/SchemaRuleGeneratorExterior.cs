@@ -64,9 +64,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         public override bool CheckViability(LBSLayer layer)
         {
             var msgs = new List<LBSLog>();
-            var zonesMod = layer.GetModule<SectorizedTileMapModule>();
-
-            return zonesMod != null;
+            for (int i = 0; i < layer.FloorCount; i++)
+            {
+                var zonesMod = layer.GetModule<SectorizedTileMapModule>();
+                if (zonesMod != null) return true;
+            }
+            return false;
         }
 
         private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, List<string> connections, LBSTile tile)
@@ -176,6 +179,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return pivot;
         }
 
+        // ========================== GENERATE ==========================
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Init values

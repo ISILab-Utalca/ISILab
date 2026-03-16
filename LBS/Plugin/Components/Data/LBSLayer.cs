@@ -54,6 +54,7 @@ namespace LBS.Components
         [JsonIgnore] public string ID { get => id; set => id = value; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
+        [JsonIgnore] public int FloorCount { get => floors.Length; }
 
         // Return copies to protect internal lists
         [JsonIgnore] public List<LBSBehaviour> Behaviours => new(behaviours);
