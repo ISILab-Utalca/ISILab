@@ -83,6 +83,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #region PROPERTIES
         public CaptureInArea CaptureManipulator
         {
+            get => _captureArea;
             set
             {
                 _captureArea = value;

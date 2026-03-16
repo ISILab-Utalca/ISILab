@@ -130,6 +130,7 @@ namespace LBS.VisualElements
 
         public void InitGeneralTools(LBSLayer layer)
         {
+            // Manipulators & Tools setup
             (LBSManipulator manipulator, LBSTool tool) CreateTool<T>()
             where T : LBSManipulator, new()
             {
@@ -153,61 +154,24 @@ namespace LBS.VisualElements
 
             // blueprint set up
             BlueprintPanel bpPanel = LBSMainWindow.Instance.blueprintPanel;
-            if (bpPanel is not null) 
-                bpPanel.Bind(this, 
-                    capture, 
-                    print);
-            
-            
-            var sm = new SelectManipulator();
-            LBSTool selectTool = new LBSTool(sm);
-
-            var an = new AddNote();
-            LBSTool addNoteTool = new LBSTool(an);
-
-            var rn = new RemoveNote();
-            LBSTool removeNoteTool = new LBSTool(rn);
-
-            var cia = new CaptureInArea();
-            LBSTool captureInAreaTool = new LBSTool(cia);
-
-            var pia = new PrintInArea();
-            LBSTool printInAreaTool = new LBSTool(pia);
-
-            an.SetRemover(rn);
-
-            ActivateTool(selectTool, layer);
-            ActivateTool(addNoteTool, layer);
-            ActivateTool(removeNoteTool, layer);
-            ActivateTool(captureInAreaTool, layer);
-            ActivateTool(printInAreaTool, layer);
-
-            selectTool.Init(layer, this);
-            addNoteTool.Init(layer, this);
-            removeNoteTool.Init(layer, this);
-            captureInAreaTool.Init(layer, this);
-            printInAreaTool.Init(layer, this);
-
-
+            if (bpPanel is not null)
+            {
+                bpPanel.Bind(this, capture, print);
+            }
 
             var blueprintVisilibilty = bpPanel.style.display.value;
-            bpPanel.CaptureManipulator = cia;
-            bpPanel.PrintArea = pia;
+            bpPanel.CaptureManipulator = (CaptureInArea) capture.mani;
+            bpPanel.PrintArea = (PrintInArea)print.mani;
             DisplayManipulator(typeof(CaptureInArea), blueprintVisilibilty);
             DisplayManipulator(typeof(PrintInArea), blueprintVisilibilty);
 
-            captureInAreaTool.OnSelect += () => cia.ClearArea();
-            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
-            printInAreaTool.OnSelect += () => pia.ClearPreview();
-            printInAreaTool.OnDeselect += () => pia.ClearPreview();
-            
-            DisplayManipulator(
-                typeof(CaptureInArea),
-                LBSMainWindow.Instance.blueprintPanel.style.display.value);
-            captureInAreaTool.OnSelect += () => cia.ClearArea();
-            captureInAreaTool.OnDeselect += ()=> cia.ClearArea();
+            capture.tool.OnSelect += () => bpPanel.CaptureManipulator.ClearArea();
+            capture.tool.OnDeselect += ()=> bpPanel.CaptureManipulator.ClearArea();
+            print.tool.OnSelect += () => bpPanel.PrintArea.ClearPreview();
+            print.tool.OnDeselect += () => bpPanel.PrintArea.ClearPreview();
 
 
+            // Floor buttons set up
             nextFloorButton.style.display = DisplayStyle.Flex;
             nextFloorButton.RegisterValueChangedCallback(evt =>
             {
