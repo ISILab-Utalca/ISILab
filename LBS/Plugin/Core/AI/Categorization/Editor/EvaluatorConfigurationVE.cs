@@ -31,6 +31,8 @@ namespace ISILab.LBS.VisualElements
 
             fieldList = new LBSCustomListView();
             fieldList.headerTitle = "Configuration";
+            fieldList.showFoldoutHeader = true;
+            fieldList.showBoundCollectionSize = false;
             fieldList.itemsSource = config.fields;
             fieldList.virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight;
             fieldList.makeItem = () => new VisualElement();
