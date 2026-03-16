@@ -176,13 +176,15 @@ namespace LBS.VisualElements
             nextFloorButton.RegisterValueChangedCallback(evt =>
             {
                 if (!nextFloorButton.value) return;
+                nextFloorButton.value = false;
+                if (layer is null) return;
+
                 int newFloor = layer.ActiveFloor + 1;
+                floorIndexField.value = (uint)newFloor;
                 foreach (var l in LBSMainWindow.Instance.GetLayers())
                 {
                     l.ChangeFloor(newFloor);
                     DrawManager.Instance.UpdateLayer(l);
-                    floorIndexField.value = (uint)newFloor;
-                    nextFloorButton.value = false;
                 }
             });
 
@@ -191,22 +193,27 @@ namespace LBS.VisualElements
             {
                 if (!prevFloorButton.value) return;
                 prevFloorButton.value = false;
-                if (layer.ActiveFloor - 1 < 0) return;
+                if (layer.ActiveFloor - 1 < 0 || layer is null) return;
 
                 int newFloor = layer.ActiveFloor - 1;
+                floorIndexField.value = (uint)newFloor;
                 foreach (var l in LBSMainWindow.Instance.GetLayers())
                 {
                     l.ChangeFloor(newFloor);
                     DrawManager.Instance.UpdateLayer(l);
                 }
-                floorIndexField.value = (uint)newFloor;
             });
 
             floorIndexField.style.display = DisplayStyle.Flex;
             floorIndexField.value = (uint)layer.ActiveFloor;
         }
 
-
+        public void HideFloorButtons()
+        {
+            nextFloorButton.style.display = DisplayStyle.None;
+            prevFloorButton.style.display = DisplayStyle.None;
+            floorIndexField.style.display = DisplayStyle.None;
+        }
 
 
         public object GetActiveManipulator()

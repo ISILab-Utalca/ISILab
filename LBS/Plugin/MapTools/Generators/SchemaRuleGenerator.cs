@@ -208,7 +208,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 obj.transform.position = new Vector3(
                     settings.scale.x / 2f * -obj.transform.forward.x,
                     0,
-                    settings.scale.y / 2f * -obj.transform.forward.z) * deltaWall;
+                    settings.scale.z / 2f * -obj.transform.forward.z) * deltaWall;
 
                 // Add ref component
                 LBSGeneratedInterior generatedComponent = obj.AddComponent<LBSGeneratedInterior>();
@@ -290,7 +290,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     instance.transform.position = new Vector3(
                         settings.scale.x / 2f * dir.x,
                         0,
-                        settings.scale.y / 2f * dir.y) * deltaWall;
+                        settings.scale.z / 2f * dir.y) * deltaWall;
 
                     // Set rotation orientation
                     var rot = (i) % Dirs.Count();
@@ -315,6 +315,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns></returns>
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
+            // Get bundles
+            List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
+            List<Bundle> rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
+
             // Create pivot
             GameObject mainPivot = new GameObject("Schema");
             List<GameObject> subPivots = new();
@@ -327,21 +331,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 this.connectedTilesMod = layer.GetModule<ConnectedTileMapModule>("", i);
                 this.zonesMod = layer.GetModule<SectorizedTileMapModule>("", i);
 
-                // Create sub-pivot
-                GameObject subPivot = new GameObject("Floor " + i);
-
-                // Get bundles
-                List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
-                List<Bundle> rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
-
                 List<GameObject> tiles = new List<GameObject>();
                 foreach (LBSTile tile in tilesMod.Tiles)
                 {
                     if (tile == null) continue;
+
                     // Get zone
                     Zone zone = zonesMod.GetZone(tile);
                     if (zone == null) continue;
                     zone.AddPosition(tile.Position);
+
                     // Get bundle from current tile
                     List<Bundle> bundles = zone.GetInsideBundles();
 
@@ -361,8 +360,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     GenerateCorners(tileObj, bundles, tile);
 
                     Vector3 basePos = settings.position;
-                    Vector3 tilePos = new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.y);
-                    Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
+                    Vector3 tilePos = new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.z);
+                    Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.z) / 2f;
                     // Set General position
                     tileObj.transform.position = basePos + tilePos - delta;
 
@@ -379,8 +378,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     Vector2 zonePos = zonesMod.ZoneCentroid(zone);
                     Vector2 zoneSize = zone.GetSize() * (Vector2)settings.scale;
                     Vector3 basePos = settings.position;
-                    Vector3 tilePos = new Vector3(zonePos.x * settings.scale.x, 0, zonePos.y * settings.scale.y);
-                    Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
+                    Vector3 tilePos = new Vector3(zonePos.x * settings.scale.x, 0, zonePos.y * settings.scale.z);
+                    Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.z) / 2f;
                     Vector3 centerPos = basePos + tilePos - delta - Vector3.one;
 
                     if (settings.reflectionProbe)
@@ -415,12 +414,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 }
 
-                if (tiles.Count <= 0)
-                {
-                    continue;
-                    return new GeneratedGO(subPivot,
-                        new LBSLog("No tiles found", LogType.Error));
-                }
+                if (tiles.Count <= 0) continue;
+
+                // Create sub-pivot
+                GameObject subPivot = new GameObject("Floor " + i);
 
                 // tiles
                 var x1 = tiles.Average(t => t.transform.position.x);
@@ -468,8 +465,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 }
 
-                // main
-                subPivot.transform.position += settings.position + Vector3.up * settings.scale.z;
+                // sub pivot
+                subPivot.transform.position += settings.position + Vector3.up * i * settings.scale.y;
                 subPivots.Add(subPivot);
             }
 
