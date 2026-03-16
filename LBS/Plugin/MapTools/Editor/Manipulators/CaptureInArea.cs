@@ -1,8 +1,6 @@
 using ISILab.Extensions;
-using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
-using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.VisualElements;
@@ -20,21 +18,19 @@ namespace ISILab.LBS.Manipulators
 
     public class CaptureInArea : ManipulateTeselation
     {
-        #region CONSTS
-        public const bool AutoCapture = true;
-        #endregion
 
         #region FIELDS
         private List<LBSLayer> capturedBlueprintData = new();
         private BlueprintFeedback areaFeedback;
         private bool Capturing = false;
+        private bool autoCapture = true;
         #endregion
 
         #region PROPERTIES
         public List<LBSLayer> CapturedBlueprintData => capturedBlueprintData;
         protected override string IconGuid { get => "089a07d25e2a0a347b3e1ad8e0c2818b"; }
 
-      
+        public bool AutoCapture { get => autoCapture; set => autoCapture = value; }
 
         #endregion
 
@@ -69,17 +65,23 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if (AutoCapture) DoCapture();
-   
+            areaFeedback.UpdatePositions(StartPosition, EndPosition);
+            MainView.Instance.AddElement(areaFeedback);
+
+            if (AutoCapture)
+            {
+                DoCapture();
+            }
+        
+            else areaFeedback.SetDisplay(true);
         }
 
-        public bool DoCapture()
+        public void DoCapture()
         {
-            if (Capturing) return false;
+            if (Capturing) return;
 
             Capturing = true;
             CapturedBlueprintData.Clear();
-            areaFeedback.UpdatePositions(StartPosition, EndPosition);
 
             Vector2Int AreaStart = areaFeedback.StartPosition.ToInt();
             Vector2Int AreaEnd = areaFeedback.EndPosition.ToInt();
@@ -94,7 +96,7 @@ namespace ISILab.LBS.Manipulators
 
             capturedBlueprintData.Clear();
             // Should get all layers under the start and endposition 
-            foreach (LBSLayer layer in LBSMainWindow.Instance.GetLayers())
+            foreach (LBSLayer layer in LBSMainWindow.Instance.layerPanel.GetInverseOrderedLayers())
             {
                 var layerClone = layer.GetAreaClone(teselleationAreaStart, tesellationAreaEnd);
                 if (layerClone != null)
@@ -103,8 +105,7 @@ namespace ISILab.LBS.Manipulators
                 }
                
             }
-
-            MainView.Instance.AddElement(areaFeedback);
+            
             Rect rect = Rect.MinMaxRect(
                 AreaStart.x,
                 AreaStart.y,
@@ -118,7 +119,8 @@ namespace ISILab.LBS.Manipulators
             if (!CapturedBlueprintData.Any())
             {
                 Capturing = false;
-                return false;
+                CaptureComplete?.Invoke(CapturedBlueprintData, null, rect.size.ToInt());
+                return;
             }
             LBSVisualElementHelper.CaptureGraphView(
                 LBSMainWindow.Instance,
@@ -131,7 +133,7 @@ namespace ISILab.LBS.Manipulators
                     Capturing = false;
                 }
             );
-            return true;
+            return;
         }
 
         public void ClearArea()

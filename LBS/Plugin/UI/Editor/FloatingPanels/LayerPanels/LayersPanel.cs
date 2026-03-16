@@ -462,6 +462,20 @@ namespace ISILab.LBS.VisualElements.Editor
 
         #endregion
 
+        /// <summary>
+        /// </summary>
+        /// <returns>All layers in reverse order</returns>
+        public List<LBSLayer> GetInverseOrderedLayers()
+        {
+            if (_list.itemsSource == null)
+                return new List<LBSLayer>();
+
+            return ((List<LBSLayer>)_list.itemsSource)
+                .AsEnumerable()
+                .Reverse()
+                .ToList();
+        }
+
         #endregion
-    }
+        }
 }

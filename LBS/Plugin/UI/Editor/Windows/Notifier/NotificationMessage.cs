@@ -1,5 +1,6 @@
 using System;
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,8 +13,14 @@ namespace LBS.VisualElements
         private Label message;
         private VisualElement icon;
 
-    //    public class NotificationMessageFactory : UxmlFactory<NotificationMessage, UxmlTraits> { }
-        
+        private const string errorImageGuid = "7bdf2adeb17673349abf65c6f8f0f411";
+        private const string logImageGuid = "8c0952dcbc9d49f4198ce33fdf7b4df5";
+        private const string warningImageGuid = "5549d02f87d9642469d0336544f4cb88";
+
+        private VectorImage ErrorImage => LBSAssetMacro.LoadAssetByGuid<VectorImage>(errorImageGuid);
+        private VectorImage LogImage => LBSAssetMacro.LoadAssetByGuid<VectorImage>(logImageGuid);
+        private VectorImage WarningImage => LBSAssetMacro.LoadAssetByGuid<VectorImage>(warningImageGuid);
+
         public NotificationMessage()
         {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("NotificationMessage");
@@ -44,11 +51,11 @@ namespace LBS.VisualElements
             }
             VectorImage setIcon = logType switch
             {
-                LogType.Error => Resources.Load<VectorImage>("Icons/Vectorial/Icon=Error"),
-                LogType.Assert => Resources.Load<VectorImage>("Icons/Vectorial/Icon=Log"),
-                LogType.Warning => Resources.Load<VectorImage>("Icons/Vectorial/Icon=Warning"),
-                LogType.Log => Resources.Load<VectorImage>("Icons/Vectorial/Icon=Log"),
-                LogType.Exception => Resources.Load<VectorImage>("Icons/Vectorial/Icon=Error"),
+                LogType.Error => ErrorImage,
+                LogType.Assert => LogImage,
+                LogType.Warning => WarningImage,
+                LogType.Log => LogImage,
+                LogType.Exception => ErrorImage,
                 _ => throw new ArgumentOutOfRangeException(nameof(logType), logType, null)
             };
             
