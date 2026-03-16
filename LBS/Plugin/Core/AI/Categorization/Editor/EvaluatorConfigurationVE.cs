@@ -30,7 +30,7 @@ namespace ISILab.LBS.VisualElements
             var config = target as EvaluatorConfiguration;
 
             fieldList = new LBSCustomListView();
-            fieldList.headerTitle = "Configuration";
+            fieldList.headerTitle = "Parameters";
             fieldList.showFoldoutHeader = true;
             fieldList.showBoundCollectionSize = false;
             fieldList.itemsSource = config.fields;
