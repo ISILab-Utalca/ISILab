@@ -180,7 +180,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
         
-        // ========================== GENERATE ==========================
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Get bundles
