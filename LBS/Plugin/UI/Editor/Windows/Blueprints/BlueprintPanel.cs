@@ -17,13 +17,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
     public enum blueprintAddMode
     {
-        [Tooltip("Adds by finding or creating a layer with the same TYPE.")]
         ByType,
-
-        [Tooltip("Adds by finding or creating a layer with the same NAME (and type).")]
         ByName,
-
-        [Tooltip("Always creates a NEW layer of the same TYPE, ignoring existing ones.")]
         New
     }
 
@@ -35,13 +30,37 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         LBSCustomButton captureButton;
         LBSCustomEnumField addModeField;
         ScrollView scrollView;
+        LBSCustomToggleField autoCaptureToggle;
         #endregion
 
         #region CONSTS
 
         const string baseName = "Blueprint_";
         const string folderPath = "Assets/Blueprints";
-       
+        const string autoCaptureTooltip =
+            "<b>Enabled</b>\n" +
+            "    Select an area in the graph to create a Blueprint.\n\n" +
+            "<b>Disabled</b>\n" +
+            "    1. Select an area in the graph\n" +
+            "    2. Press the <Capture Button>";
+
+        private string addModeTooltip =
+            "How Blueprints are added to the level.\n\n" +
+
+            "<b>By Type</b>\n" +
+            "    Adds the Blueprint to a layer with the same TYPE.\n" +
+            "    • if a layer is found → Add the blueprint data on it\n" +
+            "    • else → create new layer\n\n" +
+
+            "<b>By Name</b>\n" +
+            "    Adds the Blueprint to a layer with the same NAME and TYPE.\n" +
+            "    • if a layer is found → Add the blueprint data on it\n" +
+            "    • else → create new layer\n\n" +
+
+            "<b>New</b>\n" +
+            "    Always creates a NEW layer of the same TYPE.\n"
+            ;
+
         #endregion
 
         #region FIELDS
@@ -103,8 +122,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                         ToolKit.Instance.SetActive(_printArea.GetType());
                         _printArea.BlueprintToPrint = SelectedBlueprint;
                     }
-                    // reset offset when picknig a new blueprint
-                    OffsetGrid = Vector2Int.zero;
+                    // reset offset when picknig a new blueprint so when the first preview is made its not visible
+                    OffsetGrid = new Vector2Int(int.MaxValue, int.MinValue);
                     CreateBlueprintPreviewLayer();
                 }
             }
@@ -115,6 +134,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #region STATICS
         static VisualTreeAsset visualTreeAsset;
         private static BlueprintPanel _instance;
+
+
         public static BlueprintPanel Instance => _instance;
 
         #endregion
@@ -132,18 +153,22 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             captureButton = this.Q<LBSCustomButton>("CaptureButton");
             scrollView = this.Q<ScrollView>("BlueprintScrollView");
 
+            autoCaptureToggle = this.Q<LBSCustomToggleField>("AutoCaptureToggle");
+            autoCaptureToggle.RegisterCallback<ChangeEvent<bool>>(evt =>
+            {
+                if(_captureArea!=null) _captureArea.AutoCapture = evt.newValue;
+            });
+            autoCaptureToggle.tooltip = autoCaptureTooltip;
+
             addModeField = this.Q<LBSCustomEnumField>("AddMode");
             addModeField.RegisterCallback<ChangeEvent<Enum>>(evt =>
             {
                 if (evt.newValue is blueprintAddMode mode)
                 {
                     activeAddMode = mode;
-                    var field = typeof(blueprintAddMode).GetField(activeAddMode.ToString());
-                    var attr = (TooltipAttribute)Attribute.GetCustomAttribute(field, typeof(TooltipAttribute));
-
-                    addModeField.tooltip = attr?.tooltip;
                 }
             });
+            addModeField.tooltip = addModeTooltip;
 
             addModeField.SetValueWithoutNotify(activeAddMode);
             deleteButton.clicked += DeleteSelectedBlueprint;
@@ -163,8 +188,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             string[] guids = AssetDatabase.FindAssets("t:ISILab.LBS.Components.Blueprint");
             scrollView.Clear();
             entries.Clear();
-
-            if (guids.Length == 0) return;
 
             foreach (string guid in guids)
             {
@@ -192,6 +215,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 entries.Add(bpEntry);
             }
 
+            // empty entry the one indicating instruction
+            BlueprintEntry defaultEntry = new BlueprintEntry();
+            scrollView.Add(defaultEntry);
+            defaultEntry.pickingMode = PickingMode.Ignore;
+
             ClearPreviews();
         }
 
@@ -212,8 +240,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             if (AssetDatabase.DeleteAsset(assetPath))
             {
-               // AssetDatabase.SaveAssets();
-               // AssetDatabase.Refresh();
                 LoadBlueprints();  
             }
 
@@ -317,13 +343,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             ToolKit.DisplayManipulator(capture.GetType(), visibility);
             ToolKit.DisplayManipulator(print.GetType(), visibility);
 
-            captureTool.tool.OnDeselect += capture.ClearArea;
+            captureTool.tool.OnDeselect += capture.ClearArea; 
+            captureTool.tool.OnDeselect+= ClearPreviews;
             captureTool.tool.OnSelect += capture.ClearArea;
 
             printTool.tool.OnDeselect += print.ClearPreview;
+            printTool.tool.OnDeselect += ClearPreviews;
             printTool.tool.OnSelect += print.ClearPreview;
 
             print.OnManipulationMove = RedrawSelectedBlueprint;
+
+            autoCaptureToggle.SetValueWithoutNotify(_captureArea.AutoCapture);
         }
 
         internal void CreateBlueprintPreviewLayer()
@@ -365,7 +395,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             foreach (var layer in previewLayers) 
             {
                 DrawManager.Instance.RedrawLayer(layer);
-                //DrawManager.Instance.UpdateLayer(layer);
             }
         }
 

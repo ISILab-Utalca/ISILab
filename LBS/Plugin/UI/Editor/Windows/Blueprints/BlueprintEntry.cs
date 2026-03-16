@@ -1,12 +1,10 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -76,7 +74,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         private void OnMouseDown(MouseDownEvent evt)
         {
-            if (evt.button == 0)
+            if (evt.button == 0 && pickingMode == PickingMode.Position)
             {
                 OnSelect?.Invoke();
                 SetSelected(true);

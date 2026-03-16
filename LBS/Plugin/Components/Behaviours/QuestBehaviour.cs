@@ -62,8 +62,8 @@ namespace ISILab.LBS.Behaviours
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            List<GraphNode> nodesToRemove = Graph.GraphNodes;
-            List<QuestEdge> edgesToRemove = Graph.GraphEdges;
+            List<GraphNode> nodesToRemove = new List<GraphNode>(Graph.GraphNodes);
+            List<QuestEdge> edgesToRemove = new List<QuestEdge>(Graph.GraphEdges);
 
             foreach (GraphNode node in Graph.GraphNodes)
             {
@@ -104,17 +104,43 @@ namespace ISILab.LBS.Behaviours
 
         public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
         {
+            // Grid coordinates use inverted Y compared to GraphView
+            Vector2Int parentAnchorView = new(parentAnchor.x, -parentAnchor.y);
+
+            Vector2 parentAnchorViewPos = OwnerLayer.FixedToPosition(parentAnchorView);
+            Vector2 deltaView = OwnerLayer.FixedToPosition(delta);
+            deltaView.y *= -1;
+
             foreach (var node in Graph.GraphNodes)
             {
-                var distanceToAnchor = node.Position - parentAnchor;
-                node.Position = delta;
-                node.Position += distanceToAnchor;
+
+                Vector2Int distanceToAnchor = node.Position - parentAnchor;
+                node.Position = delta + distanceToAnchor;
+
+                Vector2 distanceToAnchorView = node.NodeViewPosition.position - parentAnchorViewPos;
+
+                Vector2 newViewPos = deltaView + distanceToAnchorView;
+
+                node.NodeViewPosition = new Rect(
+                    newViewPos,
+                    node.NodeViewPosition.size
+                );
             }
         }
 
         public Vector2Int GetAnchor()
         {
-            return Vector2Int.zero;
+            Vector2Int anchor = new Vector2Int(int.MaxValue, int.MinValue);
+            if (OwnerLayer is null) return anchor;
+   
+            foreach (var node in Graph.GraphNodes)
+            {
+                if (node.Position.x < anchor.x) anchor.x = node.Position.x;
+                if (node.Position.y > anchor.y) anchor.y = node.Position.y;
+            }
+
+            return OwnerLayer.ToFixedPosition(anchor);
         }
+
     }
 }
