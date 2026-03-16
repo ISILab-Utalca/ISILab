@@ -3,6 +3,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -30,6 +31,11 @@ namespace ISILab.LBS.Manipulators
         }
         protected override string IconGuid { get => "1900398b34c127b4bb80edadb9ef397b"; }
 
+        #endregion
+
+
+        #region ACTIONS
+        public Action DoPrintBlueprint;
         #endregion
 
 
@@ -61,6 +67,8 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
             // Draw or create layers
+            DoPrintBlueprint?.Invoke();
+            e.StopImmediatePropagation();
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)

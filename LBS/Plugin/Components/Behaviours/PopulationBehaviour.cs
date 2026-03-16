@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -510,6 +511,51 @@ namespace ISILab.LBS.Behaviours
             }
             return anchor;
         }
+
+        public bool MergeLayerData(object incoming, bool overwrite)
+        {
+            PopulationBehaviour Merger = incoming as PopulationBehaviour;
+            if (Merger == null) return false;
+
+            List<LBSTile> tilesToRemove = tileMap.Tiles;
+            List<TileBundleGroup> tbgToRemove = _bundleTileMap.Groups;
+
+            for (int i = 0; i < Merger.TileMap.Tiles.Count; i++)
+            {
+                var incomingTile = Merger.TileMap.Tiles[i];
+
+                var originalTile = TileMap.GetTile(incomingTile.Position);
+
+                if (originalTile == null)
+                {
+                    TileMap.AddTile(incomingTile.Clone() as LBSTile);
+                }
+                else if (overwrite)
+                {
+                    originalTile = incomingTile.Clone() as LBSTile;
+                }
+            }
+
+            for (int i = 0; i < Merger.BundleTilemap.Groups.Count; i++)
+            {
+                TileBundleGroup incomingTbg = Merger.BundleTilemap.Groups[i];
+
+                var originalTbg = _bundleTileMap.GetGroup(incomingTbg.TileGroup[0].Position);
+
+                if (originalTbg == null)
+                {
+                    _bundleTileMap.AddGroup(incomingTbg.Clone() as TileBundleGroup);
+                }
+                else if (overwrite)
+                {
+                    originalTbg = incomingTbg.Clone() as TileBundleGroup;
+                }
+            }
+
+            return true;
+        }
+
+
 
         #endregion
     }

@@ -13,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
@@ -572,6 +571,80 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                 if (tile.Position.y > anchor.y) anchor.y = tile.Position.y;
             }
             return anchor;
+        }
+
+        public bool MergeLayerData(object incoming, bool overwrite)
+        {
+            SchemaBehaviour merger = incoming as SchemaBehaviour;
+            if (merger == null) return false;
+
+            for (int i = 0; i < merger.areas.Zones.Count; i++)
+            {
+                var incomingZone = merger.areas.Zones[i];
+
+                var originalZone = areas.Zones.FirstOrDefault(z => z.ID == incomingZone.ID);
+
+                if (originalZone == null)
+                {
+                    areas.AddZone(incomingZone.Clone() as Zone);
+                }
+                else if (overwrite)
+                {
+                    areas.RemoveZone(originalZone);
+                    areas.AddZone(incomingZone.Clone() as Zone);
+                }
+            }
+
+            for (int i = 0; i < merger.areas.PairTiles.Count; i++)
+            {
+                var incomingPair = merger.areas.PairTiles[i];
+
+                var incomingTile = incomingPair.Tile;
+                var incomingZone = incomingPair.Zone;
+
+                var originalTile = tileMap.GetTile(incomingTile.Position);
+
+                if (originalTile == null)
+                {
+                    var newTile = incomingTile.Clone() as LBSTile;
+                    tileMap.AddTile(newTile);
+
+                    var zone = areas.Zones.First(z => z.ID == incomingZone.ID);
+                    areas.AddTile(newTile, zone);
+                }
+                else if (overwrite)
+                {
+                    RemoveTile(originalTile.Position);
+
+                    var newTile = incomingTile.Clone() as LBSTile;
+                    tileMap.AddTile(newTile);
+
+                    var zone = areas.Zones.First(z => z.ID == incomingZone.ID);
+                    areas.AddTile(newTile, zone);
+                }
+            }
+
+            for (int i = 0; i < merger.TileConnections.Pairs.Count; i++)
+            {
+                var incomingConnectionPair = merger.TileConnections.Pairs[i];
+
+                var tile = tileMap.GetTile(incomingConnectionPair.Tile.Position);
+                if (tile == null) continue;
+
+                var originalPair = TileConnections.GetPair(tile);
+
+                if (originalPair == null)
+                {
+                    var newPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    TileConnections.AddPair(tile, newPair.Connections, newPair.EditedByIA);
+                }
+                else if (overwrite)
+                {
+                    originalPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                }
+            }
+
+            return true;
         }
 
         #endregion

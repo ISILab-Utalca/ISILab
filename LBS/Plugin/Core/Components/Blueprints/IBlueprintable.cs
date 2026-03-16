@@ -1,9 +1,20 @@
+using LBS.Components;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
     public interface IBlueprintable
     {
+    
+        /// <summary>
+        /// Merges two layers into one
+        /// </summary>
+        /// <param name="original">The lbslayer into which we will merge data</param>
+        /// <param name="incoming">the layer that is merged</param>
+        /// <param name="overwrite">true -> incoming overrides original</param>
+        /// <returns></returns>
+        bool MergeLayerData(object incoming, bool overwrite);
+
         /// <summary>
         /// Should return an object (module, behavior, assistant, etc) with a clone 
         /// of the selected area

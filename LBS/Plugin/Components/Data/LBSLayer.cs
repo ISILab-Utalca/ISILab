@@ -537,6 +537,23 @@ namespace LBS.Components
         {
             return true;
         }
+
+        public void Merge(LBSLayer layer, bool overwrite)
+        {
+            List<object> components = new();
+            components.AddRange(Modules);
+            components.AddRange(Behaviours);
+            components.AddRange(Assistants);
+
+
+            foreach (object comp in components)
+            {
+                if (comp is IBlueprintable blueprintable)
+                {
+                    blueprintable.MergeLayerData(comp, overwrite);
+                }
+            }
+        }
         #endregion
     }
 }
