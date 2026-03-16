@@ -38,6 +38,7 @@ namespace ISILab.LBS.Manipulators
             var noteBehaviour = note.OwnerLayer.GetBehaviour<NoteBehaviour>();
             noteBehaviour?.AddNote(note);
 
+            EditorUtility.SetDirty(level);
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(level);

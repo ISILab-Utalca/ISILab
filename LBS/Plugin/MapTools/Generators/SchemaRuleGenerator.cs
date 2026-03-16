@@ -91,27 +91,29 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             List<LBSLog> msgs = new List<LBSLog>();
 
-            //for(int i = 0; i < layer)
-            SectorizedTileMapModule zonesMod = layer.GetModule<SectorizedTileMapModule>();
-
-            foreach (Zone zone in zonesMod.Zones)
+            for(int i = 0; i < layer.FloorCount; i++)
             {
-                if (zone.OutsideStyles.Count <= 0)
-                {
-                    msgs.Add(new LBSLog(
-                        "La zona '" + zone + "' no contiene bundles de estilo para crear el outside.",
-                        LogType.Warning
-                        ));
-                    return false;
-                }
+                SectorizedTileMapModule zonesMod = layer.GetModule<SectorizedTileMapModule>("", i);
 
-                if (zone.InsideStyles.Count <= 0)
+                foreach (Zone zone in zonesMod.Zones)
                 {
-                    msgs.Add(new LBSLog(
-                        "La zona '" + zone + "' no contiene bundles de estilo para crear el inside.",
-                        LogType.Warning
-                        ));
-                    return false;
+                    if (zone.OutsideStyles.Count <= 0)
+                    {
+                        msgs.Add(new LBSLog(
+                            "La zona '" + zone + "' no contiene bundles de estilo para crear el outside.",
+                            LogType.Warning
+                            ));
+                        return false;
+                    }
+
+                    if (zone.InsideStyles.Count <= 0)
+                    {
+                        msgs.Add(new LBSLog(
+                            "La zona '" + zone + "' no contiene bundles de estilo para crear el inside.",
+                            LogType.Warning
+                            ));
+                        return false;
+                    }
                 }
             }
 
@@ -313,152 +315,173 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns></returns>
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
-            // Init values
-            Init(layer, settings);
-
-            // Get bundles
-            List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
-            List<Bundle> rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
-
             // Create pivot
             GameObject mainPivot = new GameObject("Schema");
+            List<GameObject> subPivots = new();
+            this.settings = settings;
 
-            List<GameObject> tiles = new List<GameObject>();
-            foreach (LBSTile tile in tilesMod.Tiles)
+            for (int i = 0; i < layer.FloorCount; i++)
             {
-                if(tile == null) continue;
-                // Get zone
-                Zone zone = zonesMod.GetZone(tile);
-                if(zone == null) continue;
-                zone.AddPosition(tile.Position);
-                // Get bundle from current tile
-                List<Bundle> bundles = zone.GetInsideBundles();
+                // Init values
+                this.tilesMod = layer.GetModule<TileMapModule>("", i);
+                this.connectedTilesMod = layer.GetModule<ConnectedTileMapModule>("", i);
+                this.zonesMod = layer.GetModule<SectorizedTileMapModule>("", i);
 
-                if (bundles.Count <= 0)
+                // Create sub-pivot
+                GameObject subPivot = new GameObject("Floor " + i);
+
+                // Get bundles
+                List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
+                List<Bundle> rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
+
+                List<GameObject> tiles = new List<GameObject>();
+                foreach (LBSTile tile in tilesMod.Tiles)
                 {
-                    Debug.LogWarning("[ISI Lab]: Could not finish generating zone '" + zone.ID + "'" +
-                    " since it does not contain bundles defining its interior style");
-                    continue;
-                }
+                    if (tile == null) continue;
+                    // Get zone
+                    Zone zone = zonesMod.GetZone(tile);
+                    if (zone == null) continue;
+                    zone.AddPosition(tile.Position);
+                    // Get bundle from current tile
+                    List<Bundle> bundles = zone.GetInsideBundles();
 
-                //Generate tile
-                GameObject tileObj = new GameObject(tile.Position.ToString());
+                    if (bundles.Count <= 0)
+                    {
+                        Debug.LogWarning("[ISI Lab]: Could not finish generating zone '" + zone.ID + "'" +
+                        " since it does not contain bundles defining its interior style");
+                        continue;
+                    }
 
-                // Add pref part to pivot
-                GenerateCenters(tileObj, bundles);
-                GenerateEdges(tileObj, bundles, connectedTilesMod, tile);
-                GenerateCorners(tileObj, bundles, tile);
+                    //Generate tile
+                    GameObject tileObj = new GameObject(tile.Position.ToString());
 
-                Vector3 basePos = settings.position;
-                Vector3 tilePos = new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.y);
-                Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
-                // Set General position
-                tileObj.transform.position = basePos + tilePos - delta;
+                    // Add pref part to pivot
+                    GenerateCenters(tileObj, bundles);
+                    GenerateEdges(tileObj, bundles, connectedTilesMod, tile);
+                    GenerateCorners(tileObj, bundles, tile);
 
-                // TODO: add component for gizmos here 
-
-                // Set mainPivot as the parent of tileObj
-                tiles.Add(tileObj);
-            }
-
-            List<GameObject> probes = new List<GameObject>();
-            List<GameObject> lightVolumes = new List<GameObject>();
-            foreach (Zone zone in zonesMod.Zones)
-            {
-                Vector2 zonePos = zonesMod.ZoneCentroid(zone);
-                Vector2 zoneSize = zone.GetSize() * (Vector2) settings.scale;
-                Vector3 basePos = settings.position;
-                Vector3 tilePos = new Vector3(zonePos.x * settings.scale.x, 0, zonePos.y * settings.scale.y);
-                Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
-                Vector3 centerPos = basePos + tilePos - delta - Vector3.one;
-                
-                if (settings.reflectionProbe)
-                {
+                    Vector3 basePos = settings.position;
+                    Vector3 tilePos = new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.y);
+                    Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
                     // Set General position
-                    GameObject probeObject = new GameObject("rf_" + zone.ID);
-                    probeObject.AddComponent<ReflectionProbe>();
-                    probeObject.transform.position = centerPos;
-                    probes.Add(probeObject);
+                    tileObj.transform.position = basePos + tilePos - delta;
 
-                    // Set size
-                    ReflectionProbe rp = probeObject.GetComponent<ReflectionProbe>();
-                    
-                    rp.size = new Vector3(zoneSize.x, zoneSize.x, zoneSize.y);
+                    // TODO: add component for gizmos here 
+
+                    // Set mainPivot as the parent of tileObj
+                    tiles.Add(tileObj);
                 }
 
-                if (settings.lightVolume)
+                List<GameObject> probes = new List<GameObject>();
+                List<GameObject> lightVolumes = new List<GameObject>();
+                foreach (Zone zone in zonesMod.Zones)
                 {
-                    GameObject lightObject = new GameObject("lv_" + zone.ID);
-                    LightProbeCubeGenerator light = lightObject.AddComponent<LightProbeCubeGenerator>();
-               
-                    centerPos.y -= centerPos.y * settings.scale.y; // to be in the center of the room
-                    lightObject.transform.position = centerPos;
-                    lightVolumes.Add(lightObject);
+                    Vector2 zonePos = zonesMod.ZoneCentroid(zone);
+                    Vector2 zoneSize = zone.GetSize() * (Vector2)settings.scale;
+                    Vector3 basePos = settings.position;
+                    Vector3 tilePos = new Vector3(zonePos.x * settings.scale.x, 0, zonePos.y * settings.scale.y);
+                    Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
+                    Vector3 centerPos = basePos + tilePos - delta - Vector3.one;
 
-                    BoxCollider boxCollider = lightObject.GetComponent<BoxCollider>();
-                    boxCollider.isTrigger = true;
-                    boxCollider.size = new Vector3(zoneSize.x, zoneSize.x*0.5f, zoneSize.y);
-                    
-                    light.transform.SetParent(lightObject.transform);
+                    if (settings.reflectionProbe)
+                    {
+                        // Set General position
+                        GameObject probeObject = new GameObject("rf_" + zone.ID);
+                        probeObject.AddComponent<ReflectionProbe>();
+                        probeObject.transform.position = centerPos;
+                        probes.Add(probeObject);
+
+                        // Set size
+                        ReflectionProbe rp = probeObject.GetComponent<ReflectionProbe>();
+
+                        rp.size = new Vector3(zoneSize.x, zoneSize.x, zoneSize.y);
+                    }
+
+                    if (settings.lightVolume)
+                    {
+                        GameObject lightObject = new GameObject("lv_" + zone.ID);
+                        LightProbeCubeGenerator light = lightObject.AddComponent<LightProbeCubeGenerator>();
+
+                        centerPos.y -= centerPos.y * settings.scale.y; // to be in the center of the room
+                        lightObject.transform.position = centerPos;
+                        lightVolumes.Add(lightObject);
+
+                        BoxCollider boxCollider = lightObject.GetComponent<BoxCollider>();
+                        boxCollider.isTrigger = true;
+                        boxCollider.size = new Vector3(zoneSize.x, zoneSize.x * 0.5f, zoneSize.y);
+
+                        light.transform.SetParent(lightObject.transform);
+                    }
+
                 }
-              
-            }
-            
-            if (tiles.Count <= 0)
-            {
-                return new GeneratedGO(mainPivot, 
-                    new LBSLog("No tiles found", LogType.Error));
-            }
-            
-            // tiles
-            var x = tiles.Average(t => t.transform.position.x);
-            var y = tiles.Min(t => t.transform.position.y);
-            var z = tiles.Average(t => t.transform.position.z);
-            
-            mainPivot.transform.position = new Vector3(x,y,z);
 
-            foreach (GameObject tile in tiles ) 
-            {
-                tile.transform.parent = mainPivot.transform;
-            }
-            
-            // reflection probes
-            if (probes.Count > 0)
-            {
-                var px = probes.Min(t => t.transform.position.x);
-                var py = probes.Min(t => t.transform.position.y);
-                var pz = probes.Min(t => t.transform.position.z);
-
-                GameObject probePivot = new GameObject("ReflectionProbes");
-                probePivot.transform.position = new Vector3(px,py,pz);
-                foreach (GameObject probe in probes ) 
+                if (tiles.Count <= 0)
                 {
-                    probe.transform.parent = probePivot.transform;
+                    continue;
+                    return new GeneratedGO(subPivot,
+                        new LBSLog("No tiles found", LogType.Error));
                 }
-                probePivot.transform.SetParent(mainPivot.transform);
-            }
-            
-            // light volumes
-            if (lightVolumes.Count > 0)
-            {
-                var px = lightVolumes.Min(t => t.transform.position.x);
-                var py = lightVolumes.Min(t => t.transform.position.y);
-                var pz = lightVolumes.Min(t => t.transform.position.z);
-                
-                GameObject lightVolPivot = new GameObject("LightVolumes");
-                lightVolPivot.transform.position = new Vector3(px,py,pz);
-                foreach (GameObject light in lightVolumes ) 
+
+                // tiles
+                var x1 = tiles.Average(t => t.transform.position.x);
+                var y1 = tiles.Min(t => t.transform.position.y);
+                var z1 = tiles.Average(t => t.transform.position.z);
+
+                subPivot.transform.position = new Vector3(x1, y1, z1);
+
+                foreach (GameObject tile in tiles)
                 {
-                    light.transform.parent = lightVolPivot.transform;
+                    tile.transform.parent = subPivot.transform;
                 }
-                
-                lightVolPivot.transform.SetParent(mainPivot.transform);
-                
+
+                // reflection probes
+                if (probes.Count > 0)
+                {
+                    var px = probes.Min(t => t.transform.position.x);
+                    var py = probes.Min(t => t.transform.position.y);
+                    var pz = probes.Min(t => t.transform.position.z);
+
+                    GameObject probePivot = new GameObject("ReflectionProbes");
+                    probePivot.transform.position = new Vector3(px, py, pz);
+                    foreach (GameObject probe in probes)
+                    {
+                        probe.transform.parent = probePivot.transform;
+                    }
+                    probePivot.transform.SetParent(subPivot.transform);
+                }
+
+                // light volumes
+                if (lightVolumes.Count > 0)
+                {
+                    var px = lightVolumes.Min(t => t.transform.position.x);
+                    var py = lightVolumes.Min(t => t.transform.position.y);
+                    var pz = lightVolumes.Min(t => t.transform.position.z);
+
+                    GameObject lightVolPivot = new GameObject("LightVolumes");
+                    lightVolPivot.transform.position = new Vector3(px, py, pz);
+                    foreach (GameObject light in lightVolumes)
+                    {
+                        light.transform.parent = lightVolPivot.transform;
+                    }
+
+                    lightVolPivot.transform.SetParent(subPivot.transform);
+
+                }
+
+                // main
+                subPivot.transform.position += settings.position + Vector3.up * settings.scale.z;
+                subPivots.Add(subPivot);
             }
 
-            // main
-            mainPivot.transform.position += settings.position;
-            
+            var x = subPivots.Average(t => t.transform.position.x);
+            var y = subPivots.Min(t => t.transform.position.y);
+            var z = subPivots.Average(t => t.transform.position.z);
+            mainPivot.transform.position = new Vector3(x, y, z);
+
+            foreach (GameObject sp in subPivots)
+            {
+                sp.transform.parent = mainPivot.transform;
+            }
             return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 
