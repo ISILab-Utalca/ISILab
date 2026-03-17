@@ -331,13 +331,18 @@ namespace ISILab.LBS.Behaviours.Editor
 
         VectorImage GetOptionIcon(string label)
         {
-            if(label == "Empty") return AssetMacro.LoadAssetByGuid<VectorImage>(emptyConnectionIconGuid);
-            if(label == "Wall") return AssetMacro.LoadAssetByGuid<VectorImage>(wallConnectionIconGuid);
-            if(label == "Door") return AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
-            if(label == "Window") return AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
-            if (label == "LockedDoor") return AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
-            if (label == "BlockedDoor") return AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
-            return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
+            switch (label)
+            {
+                case "Empty": return AssetMacro.LoadAssetByGuid<VectorImage>(emptyConnectionIconGuid);
+                case "Wall": return AssetMacro.LoadAssetByGuid<VectorImage>(wallConnectionIconGuid);
+                case "Door": return AssetMacro.LoadAssetByGuid<VectorImage>(doorConnectionIconGuid);
+                case "Window": return AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
+                case "LockedDoor": return AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
+                case "BlockedDoor": return AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
+                case "Stairs Up": return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);     // Needs an icon
+                case "Stairs Down": return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);   // Needs an icon
+                default: return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
+            }
         }
         
         #endregion

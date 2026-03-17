@@ -79,6 +79,7 @@ namespace ISILab.LBS.VisualElements.Editor
             OnRemoveLayer       += HandleLayerChangeEvent;
             OnRemoveLayer       += HideFloorButtonsEvent;
             OnSelectLayer       += HandleSelectLayerEvent;
+            OnSelectLayer       += HideFloorButtonsEvent;
             OnLayerOrderChange  += HandleLayerChangeEvent;
             RegisterCallback<KeyDownEvent>(OnKeyDown);
         }
@@ -414,8 +415,25 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void HideFloorButtonsEvent(LBSLayer _)
         {
-            if (Data.Layers.Any()) return;
-            ToolKit.Instance.HideFloorButtons();
+            bool oneFloorLayer = _selectedLayer != null && _selectedLayer.FloorCount < 2;
+            bool noLayers = !Data.Layers.Any();
+
+            if (noLayers)
+            {
+                ToolKit.Instance.HideFloorButtons();
+                return;
+            }
+
+            if(oneFloorLayer)
+            {
+                foreach(var layer in Data.Layers)
+                {
+                    layer.ChangeFloor(0);
+                    DrawManager.Instance.UpdateLayer(layer);
+                }
+                ToolKit.Instance.HideFloorButtons();
+                return;
+            }
         }
 
         private void HandleSelectLayerEvent(LBSLayer layer)

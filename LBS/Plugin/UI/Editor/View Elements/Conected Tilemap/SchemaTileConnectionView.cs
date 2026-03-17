@@ -49,7 +49,10 @@ namespace ISILab.LBS.VisualElements
         {
             if (!IconCache.TryGetValue(connection, out VectorImage icon))
             {
-                icon = AssetMacro.LoadAssetByGuid<VectorImage>(ConnectionIconGuids[connection]);
+                string guid = "dc346d42af837b04a985ee71996040db";
+                if (ConnectionIconGuids.ContainsKey(connection)) guid = ConnectionIconGuids[connection];
+
+                icon = AssetMacro.LoadAssetByGuid<VectorImage>(guid);
                 IconCache[connection] = icon;
             }
             return icon;

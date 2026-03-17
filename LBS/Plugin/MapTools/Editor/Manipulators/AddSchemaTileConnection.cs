@@ -176,37 +176,23 @@ namespace ISILab.LBS.Manipulators
             int backDirIndex
             )
         {
-            
-            if (firstTile is null)
+
+            if (firstTile is null && secondTile is null) return;
+            if (firstTile.Equals(secondTile))
             {
-                if (secondTile is not null)
-                {
-                    schema.SetConnection(secondTile, backDirIndex, ToSet, false);
-                    return;
-                }
-            }
-            else
-            {
-                if (firstTile.Equals(secondTile))
-                {
-                    Debug.Log("Not Valid Tile - Same Tile with lenght 0");
-                    return;
-                }
-            }
-            
-            if (secondTile is null)
-            {
-                if (firstTile is null)
-                {
-                    return;
-                }
-                schema.SetConnection(firstTile, frontDirIndex, ToSet, false);
+                Debug.Log("Not Valid Tile - Same Tile with lenght 0");
                 return;
             }
 
-            // set both connections
-            schema.SetConnection(firstTile, frontDirIndex, ToSet, false);
-            schema.SetConnection(secondTile, backDirIndex, ToSet, false);
+            if (firstTile is not null)
+            {
+                schema.SetConnection(firstTile, frontDirIndex, ToSet, false);
+            }
+            if (secondTile is not null)
+            {
+                schema.SetConnection(secondTile, backDirIndex, ToSet, false);
+            }
+            return;
         }
     }
 }

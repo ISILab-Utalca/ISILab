@@ -37,9 +37,10 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             Wall, // default wall connection 
             Door, // within wall connection
             Window, // within wall connection
-            LockedDoor // within wall connection. Opened by key
+            LockedDoor, // within wall connection. Opened by key
+            StairsUp,
+            StairsDown
        //     BlockedDoor // within wall connection. Opened by trigger
-
         };
 
         public const string Empty = "Empty";
@@ -47,7 +48,9 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public const string Door = "Door";
         public const string Window = "Window";
         public const string LockedDoor = "LockedDoor";
-  //      public const string BlockedDoor = "BlockedDoor";
+        public const string StairsUp = "Stairs Up";
+        public const string StairsDown = "Stairs Down";
+        //      public const string BlockedDoor = "BlockedDoor";
 
         #endregion
 
@@ -215,13 +218,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             tileConnections.RemoveTile(tile);
             areas.RemovePair(tile);
         }
-
-        /*
-        public void RequestFullRepaint(List<LBSTile> olds, List<LBSTile> news)
-        {
-            olds.ForEach(t => RequestTileRemove(t));
-            news.ForEach(t => RequestTilePaint(t));
-        }//*/
 
         public void SetConnection(LBSTile tile, int direction, string connection, bool editedByIA)
         {
