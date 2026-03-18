@@ -15,8 +15,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.UI.Image;
 using Type = System.Type;
 
 namespace LBS.Components    
@@ -609,6 +607,26 @@ namespace LBS.Components
         // never called
         public bool CaptureAreaData(Vector2Int min, Vector2Int max)
         {
+            return true;
+        }
+
+        public bool MergeLayerData(object incoming, bool overwrite)
+        {
+            var Merger = incoming as LBSLayer;
+            if (Merger == null) return false;
+
+            List<object> components = new();
+            components.AddRange(Modules());
+            components.AddRange(Behaviours);
+            components.AddRange(Assistants);
+            foreach (object comp in components)
+            {
+                if (comp is IBlueprintable blueprintable)
+                {
+                    blueprintable.MergeLayerData(comp, overwrite);
+                }
+            }
+
             return true;
         }
         #endregion
