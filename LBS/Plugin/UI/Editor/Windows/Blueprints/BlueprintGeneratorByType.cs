@@ -38,7 +38,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     var target = FindMergeTargetByType(existingLayers, layer);
 
                     if (target != null)
-                        target.Merge(layer, overwrite);
+                        target.MergeLayerData(layer, overwrite);
                     else
                         window.layerPanel.AddLayer(layer);
                 };

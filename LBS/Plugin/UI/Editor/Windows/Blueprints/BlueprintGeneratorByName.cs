@@ -1,8 +1,6 @@
 
 using ISILab.LBS.Editor.Windows;
-using LBS.Components;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using UnityEditor;
 using UnityEngine;
@@ -21,9 +19,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         public override object Clone()
         {
-            throw new NotImplementedException();
+            return null;
         }
+        public override void OnGUI()
+        {
 
+        }
         public override void Generate(Action<float> onProgress = null, CancellationToken token = default)
         {
             var window = LBSMainWindow.Instance;
@@ -40,7 +41,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     var target = FindMergeTargetByName(existingLayers, layer);
 
                     if (target != null)
-                        target.Merge(layer, overwrite);
+                        target.MergeLayerData(layer, overwrite);
                     else
                         window.layerPanel.AddLayer(layer);
                 };
@@ -49,11 +50,5 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 Thread.Sleep(1);
             }
         }
-
-        public override void OnGUI()
-        {
-            throw new NotImplementedException();
-        }
     }
-
 }

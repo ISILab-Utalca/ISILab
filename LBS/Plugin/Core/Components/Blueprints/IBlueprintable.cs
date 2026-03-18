@@ -1,4 +1,3 @@
-using LBS.Components;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint

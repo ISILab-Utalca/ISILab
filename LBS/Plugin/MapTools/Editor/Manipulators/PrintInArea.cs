@@ -19,7 +19,6 @@ namespace ISILab.LBS.Manipulators
         #region FIELDS
         private Blueprint blueprintToPrint;
         private BlueprintFeedback previewAreaFeedback; 
-        private List<Feedback> previews = new List<Feedback>();
         private Vector2Int FeedbackPosition;
         internal static object AddingMode;
         #endregion
@@ -56,18 +55,14 @@ namespace ISILab.LBS.Manipulators
             previewAreaFeedback.preview = true;
             previewAreaFeedback.SetColor(Color.white);
 
-            OnManipulationEnd += () =>
-            {
-                MainView.Instance.RemoveElement(previewAreaFeedback);
-            };
-
-            //OnManipulationEnd += ClearPreview;
+            OnManipulationEnd += ClearPreview;
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
             // Draw or create layers
             DoPrintBlueprint?.Invoke();
+            ClearPreview();
             e.StopImmediatePropagation();
         }
 
@@ -97,11 +92,6 @@ namespace ISILab.LBS.Manipulators
         public void ClearPreview()
         {
             MainView.Instance.RemoveElement(previewAreaFeedback);
-        }
-
-        internal Vector2 GetRectPosition()
-        {
-            return previewAreaFeedback.StartPosition;
         }
 
         #endregion

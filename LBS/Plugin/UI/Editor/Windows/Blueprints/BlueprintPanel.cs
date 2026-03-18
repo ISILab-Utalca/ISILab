@@ -1,16 +1,13 @@
-using ISILab.AI.Optimization.Populations;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
-using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using LBS;
 using LBS.Components;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -28,25 +25,33 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     public partial class BlueprintPanel : VisualElement
     {
         #region VIEW ELEMENTS
-        LBSCustomButton deleteButton;
-        LBSCustomButton captureButton;
-        LBSCustomEnumField addModeField;
-        ScrollView scrollView;
-        LBSCustomToggleField autoCaptureToggle;
+        private readonly LBSCustomButton deleteButton;
+        private readonly LBSCustomButton captureButton;
+        private readonly LBSCustomEnumField addModeField;
+        private readonly ScrollView scrollView;
+        private readonly LBSCustomToggleField autoCaptureToggle;
+        private readonly LBSCustomToggleField overwriteToggle;
         #endregion
 
         #region CONSTS
 
-        const string baseName = "Blueprint_";
-        const string folderPath = "Assets/Blueprints";
-        const string autoCaptureTooltip =
+        private const string baseName = "Blueprint_";
+        private const string folderPath = "Assets/Blueprints";
+
+        private const string overwriteTooltip =
+            "<b>Enabled</b>\n" +
+            "    When data overlaps between two layers, the blueprint data overwrites the existing layer.\n\n" +
+            "<b>Disabled</b>\n" +
+            "    When data overlaps between two layers, that data is omited.\n\n";
+
+        private const string autoCaptureTooltip =
             "<b>Enabled</b>\n" +
             "    Select an area in the graph to create a Blueprint.\n\n" +
             "<b>Disabled</b>\n" +
             "    1. Select an area in the graph\n" +
             "    2. Press the <Capture Button>";
 
-        private string addModeTooltip =
+        private const string addModeTooltip =
             "How Blueprints are added to the level.\n\n" +
 
             "<b>By Type</b>\n" +
@@ -63,6 +68,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             "    Always creates a NEW layer of the same TYPE.\n"
             ;
 
+
         #endregion
 
         #region FIELDS
@@ -76,11 +82,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         private readonly List<BlueprintEntry> entries = new();
         private readonly List<LBSLayer> previewLayers = new();
-        
+
         private Vector2Int OffsetGrid;
 
         [SerializeField]
         private blueprintAddMode activeAddMode = blueprintAddMode.ByName;
+        [SerializeField]
+        private bool overwrite = false;
+        [SerializeField]
+        private bool autoCapture = false;
 
         #endregion
 
@@ -160,6 +170,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 if(_captureArea!=null) _captureArea.AutoCapture = evt.newValue;
             });
             autoCaptureToggle.tooltip = autoCaptureTooltip;
+            autoCaptureToggle.SetValueWithoutNotify(autoCapture);
+
+            overwriteToggle = this.Q<LBSCustomToggleField>("OverwriteToggle");
+            overwriteToggle.RegisterCallback<ChangeEvent<bool>>(evt =>
+            {
+                if (_captureArea != null) overwrite = evt.newValue;
+            });
+            overwriteToggle.tooltip = overwriteTooltip;
+            overwriteToggle.SetValueWithoutNotify(overwrite);
 
             addModeField = this.Q<LBSCustomEnumField>("AddMode");
             addModeField.tooltip = addModeTooltip;
