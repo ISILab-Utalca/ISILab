@@ -11,6 +11,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using LBS.VisualElements;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -76,7 +77,9 @@ namespace ISILab.LBS.VisualElements.Editor
         {
             OnAddLayer          += HandleLayerChangeEvent;
             OnRemoveLayer       += HandleLayerChangeEvent;
+            OnRemoveLayer       += HideFloorButtonsEvent;
             OnSelectLayer       += HandleSelectLayerEvent;
+            OnSelectLayer       += HideFloorButtonsEvent;
             OnLayerOrderChange  += HandleLayerChangeEvent;
             RegisterCallback<KeyDownEvent>(OnKeyDown);
         }
@@ -409,6 +412,29 @@ namespace ISILab.LBS.VisualElements.Editor
 
         #region UI UPDATES
         private void HandleLayerChangeEvent(LBSLayer _) => RefreshUI();
+
+        private void HideFloorButtonsEvent(LBSLayer _)
+        {
+            bool oneFloorLayer = _selectedLayer != null && _selectedLayer.FloorCount < 2;
+            bool noLayers = !Data.Layers.Any();
+
+            if (noLayers)
+            {
+                ToolKit.Instance.HideFloorButtons();
+                return;
+            }
+
+            if(oneFloorLayer)
+            {
+                foreach(var layer in Data.Layers)
+                {
+                    layer.ChangeFloor(0);
+                    DrawManager.Instance.UpdateLayer(layer);
+                }
+                ToolKit.Instance.HideFloorButtons();
+                return;
+            }
+        }
 
         private void HandleSelectLayerEvent(LBSLayer layer)
         {

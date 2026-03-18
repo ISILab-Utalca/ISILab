@@ -272,6 +272,7 @@ namespace ISILab.LBS.Behaviours
             return anchor;
         }
 
+        public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex) { }
         #endregion
     }
 }

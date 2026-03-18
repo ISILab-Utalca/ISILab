@@ -111,8 +111,10 @@ namespace LBS.Components
             LBSLevelData parent,
             string ID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
-            for(int i = 0; i < modules.Length; i++)
+            floors = new LBSFloor[modules.Length];
+            for (int i = 0; i < modules.Length; i++)
             {
+                floors[i] ??= new();
                 if (modules[i] != null) foreach (LBSModule m in modules[i].Modules) AddModule(m, i);
             }
             if (assistant != null) foreach (LBSAssistant a in assistant) AddAssistant(a);
@@ -133,7 +135,8 @@ namespace LBS.Components
         #region Floors
         public void ChangeFloor(int newFloor)
         {
-            if (newFloor < 0 || newFloor >= 10) return;
+            if (newFloor < 0 || newFloor >= floors.Length) return;
+            if (newFloor == activeFloor) return;
 
             var prevFloor = activeFloor;
             activeFloor = newFloor;

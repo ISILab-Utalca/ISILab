@@ -195,8 +195,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 var go = GameObject.Instantiate(pref,null);
 #endif
 
-                var pos = new Vector3(tile.Position.x * scale.x, 0, tile.Position.y * scale.y);
-                var delta = (new Vector3(scale.x, 0, scale.y) / 2f);
+                var pos = new Vector3(tile.Position.x * scale.x, 0, tile.Position.y * scale.z);
+                var delta = (new Vector3(scale.x, 0, scale.z) / 2f);
                 go.transform.position = settings.position + pos - delta;
 
                 if (pair.Item2 % 2 == 0)
