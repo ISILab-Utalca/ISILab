@@ -10,6 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -30,7 +31,7 @@ namespace ISILab.LBS.Manipulators
 
         public AddSchemaTileConnection()
         {
-            Feedback = new ConnectedLine();
+            Feedback = new ConnectedMemoryLine();
             Feedback.fixToTeselation = true;
 
             Name = "Set Manual Connection";
@@ -85,18 +86,16 @@ namespace ISILab.LBS.Manipulators
             Vector2Int lastPos = _schema.OwnerLayer.ToFixedPosition(position);
 
             // Get vector direction
-            int dx = _first.x - lastPos.x;
-            int dy = _first.y - lastPos.y;
+            int dx = lastPos.x - _first.x;
+            int dy = lastPos.y - _first.y;
             
             float dLength = Mathf.Sqrt(dx * dx  +  dy * dy);
-
-            if (dLength < 1)
-                return;
+            if (dLength < 1) return;
 
             // Get index of directions
-            int frontDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+            int frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
             if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) return;
-            int backDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+            int backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
 
             LoadedLevel level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
@@ -105,13 +104,24 @@ namespace ISILab.LBS.Manipulators
             // Multi-connection mode
             bool requiresWall = dLength > 1;
 
-            int totalConnections = (int)Math.Floor(dLength);
             List<LBSTile> selectedTiles = new List<LBSTile>();
-
-            for (int i = 0; i <= totalConnections; i++)
+            if (Feedback is ConnectedMemoryLine line)
             {
-                //Get the next tile 
-                selectedTiles.Add(GetTileInLine(_schema, i));
+                /*for (int i = 0; i < line.Line.Count; i++)
+                {
+                    selectedTiles.Add(_schema.GetTile(line.Line[i]));
+                }//*/
+
+                line.LineClear();
+            }
+            //else
+            {
+                int totalConnections = (int)Math.Floor(dLength);
+                for (int i = 0; i <= totalConnections; i++)
+                {
+                    //Get the next tile 
+                    selectedTiles.Add(GetTileInLine(_schema, i));
+                }
             }
 
             for (int i = 1; i < selectedTiles.Count; i++)
@@ -120,7 +130,9 @@ namespace ISILab.LBS.Manipulators
                 LBSTile tile2 = selectedTiles[i];
 
                 bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
+                bool setStairs = ToSet.Contains("Stairs");
                 if (requiresWall && setDoorOrWindow && !ValidWallReplace(_schema, tile1, tile2)) continue;
+                if (requiresWall && setStairs && !ValidStairsPlacement(_schema, tile1, tile2)) continue;
 
                 TrySetSingleConnection(_schema, tile1, tile2, frontDirIndex, backDirIndex);
                 
@@ -154,7 +166,7 @@ namespace ISILab.LBS.Manipulators
             /// END OF METHOD ///
 
             // Local functions
-            LBSTile GetTileInLine(SchemaBehaviour schema, int i) => schema.GetTile(_first - new Vector2Int(Math.Sign(dx) * i, Math.Sign(dy) * i));
+            LBSTile GetTileInLine(SchemaBehaviour schema, int i) => schema.GetTile(_first + new Vector2Int(Math.Sign(dx) * i, Math.Sign(dy) * i));
 
             bool ValidWallReplace(SchemaBehaviour schema, LBSTile tile1, LBSTile tile2)
             {
@@ -166,6 +178,40 @@ namespace ISILab.LBS.Manipulators
                 bool secondHasWall = !conn2.Equals("Empty");
                 return (firstHasWall || secondHasWall) && (tile1Exists || secondHasWall) && (tile2Exists || firstHasWall);
             }
+
+            bool ValidStairsPlacement(SchemaBehaviour schema, LBSTile tile1, LBSTile tile2)
+            {
+                bool tile1Exists = tile1 is not null;
+                bool tile2Exists = tile2 is not null;
+
+                // Identificar si es escalera que sube o baja
+                bool up = ToSet.Contains("Up");
+
+                // Si es escalera que sube, revisar la posición de tile1 en el floor siguiente (podría no existir)
+                if (up)
+                {
+                    int nextFloorIndex = schema.OwnerLayer.ActiveFloor + 1;
+                    bool floorExists = nextFloorIndex >= schema.OwnerLayer.FloorCount;
+                    if (floorExists)
+                    {
+                        ConnectedTileMapModule tileConnections = 
+                            schema.OwnerLayer.Modules(nextFloorIndex).FirstOrDefault(m => m.GetType() == typeof(ConnectedTileMapModule)) 
+                            as ConnectedTileMapModule;
+
+                        var nTile1 = tileConnections.GetPair(tile1);
+                        //nTile1.
+                    }
+                }
+                // También revisar que exista una zona en el la posición de tile2 en el siguiente floor
+                // Si no existe, crear nueva zone con ese tile
+
+                // Si es escalera que baja, revisar la posición de tile1 en el floor anterior (podría no existir)
+                // También revisar que exista una zona en el la posición de tile2 en el anterior floor
+                // Si no existe, crear nueva zone con ese tile
+                
+                return true;
+            }
+
         }
 
         private void TrySetSingleConnection(
@@ -178,14 +224,14 @@ namespace ISILab.LBS.Manipulators
         {
 
             if (firstTile is null && secondTile is null) return;
-            if (firstTile.Equals(secondTile))
-            {
-                Debug.Log("Not Valid Tile - Same Tile with lenght 0");
-                return;
-            }
 
             if (firstTile is not null)
             {
+                if (firstTile.Equals(secondTile))
+                {
+                    Debug.Log("Not Valid Tile - Same Tile with lenght 0");
+                    return;
+                }
                 schema.SetConnection(firstTile, frontDirIndex, ToSet, false);
             }
             if (secondTile is not null)
