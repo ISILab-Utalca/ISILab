@@ -28,8 +28,8 @@ namespace ISILab.LBS.Manipulators
 
         public RotatePopulationTile()
         {
-           Name = "Rotate Tile";
-           Description = "Left Click to rotate counter-clockwise, Right Click to clockwise. May use Mouse Wheel as well.";
+            Name = "Rotate Tile";
+            Description = "Left Click to rotate counter-clockwise, Right Click to clockwise.";// May use Mouse Wheel as well.";
         }
 
         public override void Init(LBSLayer layer, object provider = null)
