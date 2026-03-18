@@ -26,7 +26,7 @@ namespace ISILab.LBS.VisualElements
             configurationButton.clicked += ShowConfiguration;
             Add(configurationButton);
 
-            static void ShowConfiguration() => Selection.activeObject = DCSafeArea.config;
+            static void ShowConfiguration() => EvaluatorConfigurationWindow.Create(DCSafeArea.config);
 
             return this;
         }
