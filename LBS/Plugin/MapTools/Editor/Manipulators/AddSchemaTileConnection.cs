@@ -178,7 +178,7 @@ namespace ISILab.LBS.Manipulators
         {
 
             if (firstTile is null && secondTile is null) return;
-            if (firstTile.Equals(secondTile))
+            if (Equals(firstTile, secondTile))
             {
                 Debug.Log("Not Valid Tile - Same Tile with lenght 0");
                 return;
