@@ -547,9 +547,9 @@ namespace LBS.Components
             //components.AddRange(clone.Modules);
             //components.AddRange(clone.Behaviours);
             //components.AddRange(clone.Assistants);
-            components.AddRange(floors);
-            components.AddRange(behaviours);
-            components.AddRange(assistants);
+            components.AddRange(clone.floors);
+            components.AddRange(clone.Behaviours);
+            components.AddRange(clone.Assistants);
             bool validLayer = false;
             
             foreach (object comp in components)
@@ -615,17 +615,31 @@ namespace LBS.Components
             var Merger = incoming as LBSLayer;
             if (Merger == null) return false;
 
+            List<object> mergerComponents = new();
+            mergerComponents.AddRange(Merger.Modules());
+            mergerComponents.AddRange(Merger.Behaviours);
+            mergerComponents.AddRange(Merger.Assistants);
+
             List<object> components = new();
             components.AddRange(Modules());
             components.AddRange(Behaviours);
             components.AddRange(Assistants);
+
+            CloneRefs.Start();
+
             foreach (object comp in components)
             {
                 if (comp is IBlueprintable blueprintable)
                 {
-                    blueprintable.MergeLayerData(comp, overwrite);
+                    foreach (object mergerComp in mergerComponents)
+                    {
+                        blueprintable.MergeLayerData(mergerComp, overwrite);
+                    }
                 }
             }
+
+            CloneRefs.End();
+
 
             return true;
         }
