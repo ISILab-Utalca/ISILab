@@ -67,5 +67,13 @@ namespace ISILab.LBS.Behaviours
 
         public override void OnGUI() { }
 
+        public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+        {
+            var prevMod = OwnerLayer.GetModule<NoteModule>("", prevLevelIndex);
+            var nextMod = OwnerLayer.GetModule<NoteModule>("", nextLevelIndex);
+
+            RequestFullRepaint<LBSNote>(prevMod.Notes, nextMod.Notes);
+        }
+
     }
 }

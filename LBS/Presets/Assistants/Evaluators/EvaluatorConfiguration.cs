@@ -220,6 +220,9 @@ namespace ISILab.LBS.AI.Categorization
             protected override void SetField()
             {
                 list = new ListView();
+                list.headerTitle = name;
+                list.showFoldoutHeader = true;
+                list.showBoundCollectionSize = false;
                 list.tooltip = tooltip;
                 list.itemsSource = tagsFields;
                 list.makeItem = () => new VisualElement();

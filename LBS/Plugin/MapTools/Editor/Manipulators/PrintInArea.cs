@@ -1,10 +1,10 @@
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.UI.Editor;
-using ISILab.LBS.VisualElements;
 using LBS.Components;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using ISILab.LBS.VisualElements;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
@@ -18,7 +18,6 @@ namespace ISILab.LBS.Manipulators
         #region FIELDS
         private Blueprint blueprintToPrint;
         private BlueprintFeedback previewAreaFeedback; 
-        private List<Feedback> previews = new List<Feedback>();
         private Vector2Int FeedbackPosition;
         internal static object AddingMode;
         #endregion
@@ -26,10 +25,18 @@ namespace ISILab.LBS.Manipulators
         #region PROPERTIES
         public Blueprint BlueprintToPrint
         {
-            set => blueprintToPrint = value;
+            set
+            {
+                blueprintToPrint = value;
+            }
         }
         protected override string IconGuid { get => "1900398b34c127b4bb80edadb9ef397b"; }
 
+        #endregion
+
+
+        #region ACTIONS
+        public Action DoPrintBlueprint;
         #endregion
 
 
@@ -49,52 +56,41 @@ namespace ISILab.LBS.Manipulators
             previewAreaFeedback.fixToTeselation = true;
             previewAreaFeedback.preview = true;
             previewAreaFeedback.SetColor(Color.white);
+        }
 
-            OnManipulationEnd += () =>
-            {
-                MainView.Instance.RemoveElement(previewAreaFeedback);
-            };
-
-            //OnManipulationEnd += ClearPreview;
+        protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
+        {
+            base.OnMouseUp(element, endPosition, e);
+            previewAreaFeedback.UpdatePositions(StartPosition, EndPosition);
+           
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
+            base.OnMouseDown(element, startPosition, e);
             // Draw or create layers
+            DoPrintBlueprint?.Invoke();
+
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
-           // ClearPreview();
+            ClearPreview();
             LBSLayer selectedLayer = LBSMainWindow.Instance._selectedLayer;
-            if (blueprintToPrint is null || selectedLayer is null) 
-            {
-                ClearPreview();
-                return; 
-            }
+            if (blueprintToPrint is null || selectedLayer is null) return;
 
             base.OnMouseMove(element, movePosition, e);
 
-
-            //subtracting vector1 because default tile size is 1
+            //subtracting vector1 because default tile size is 100
             var size = blueprintToPrint.Size;
             FeedbackPosition = movePosition;
-            var corners = selectedLayer.ToFixedPosition(FeedbackPosition, FeedbackPosition - size);
-            
-            previewAreaFeedback.UpdatePositions(FeedbackPosition, FeedbackPosition + size-new Vector2Int(100,100));
+            previewAreaFeedback.UpdatePositions(FeedbackPosition, FeedbackPosition + size - new Vector2Int(100, 100));
             MainView.Instance.AddElement(previewAreaFeedback);
 
+            Debug.Log($"[PrintInArea {GetHashCode()}] OnMouseMove");
         }
 
-        public void ClearPreview()
-        {
-            MainView.Instance.RemoveElement(previewAreaFeedback);
-        }
-
-        internal Vector2 GetRectPosition()
-        {
-            return previewAreaFeedback.StartPosition;
-        }
+        public void ClearPreview() => MainView.Instance.RemoveElement(previewAreaFeedback);
 
         #endregion
 

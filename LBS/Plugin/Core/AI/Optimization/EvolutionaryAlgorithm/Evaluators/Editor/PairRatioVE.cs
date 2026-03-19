@@ -26,9 +26,10 @@ namespace ISILab.LBS.VisualElements
 			configurationButton.clicked += ShowConfiguration;
        		Add(configurationButton);
 
-			static void ShowConfiguration() => Selection.activeObject = PairRatio.config;
+			static void ShowConfiguration() => EvaluatorConfigurationWindow.Create(PairRatio.config);
 
-			return this;
+
+            return this;
 		}
 
 		public override void SetInfo(object paramTarget) { }

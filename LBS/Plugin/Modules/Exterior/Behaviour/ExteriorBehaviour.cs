@@ -14,6 +14,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
 using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -270,6 +271,48 @@ namespace ISILab.LBS.Behaviours
                 if (tile.Position.y > anchor.y) anchor.y = tile.Position.y;
             }
             return anchor;
+        }
+
+        public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex) { }
+        public bool MergeLayerData(object incoming, bool overwrite)
+        {
+            ExteriorBehaviour merger = incoming as ExteriorBehaviour;
+            if (merger == null) return false;
+
+            for (int i = 0; i < merger.TileMap.Tiles.Count; i++)
+            {
+                var incomingTile = merger.TileMap.Tiles[i];
+
+                var originalTile = TileMap.GetTile(incomingTile.Position);
+
+                if (originalTile == null)
+                {
+                    TileMap.AddTile(incomingTile.Clone() as LBSTile);
+                }
+                else if (overwrite)
+                {
+                    originalTile = incomingTile.Clone() as LBSTile;
+                }
+            }
+
+            for (int i = 0; i < merger.Connections.Pairs.Count; i++)
+            {
+                var incomingConnectionPair = merger.Connections.Pairs[i];
+
+                var originalConnectionPair = Connections.GetPair(incomingConnectionPair.Tile);
+
+                if (originalConnectionPair == null)
+                {
+                    var NewPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                    Connections.AddPair(NewPair.Tile, NewPair.Connections, NewPair.EditedByIA);
+                }
+                else if (overwrite)
+                {
+                    originalConnectionPair = incomingConnectionPair.Clone() as TileConnectionsPair;
+                }
+            }
+
+            return true;
         }
 
         #endregion

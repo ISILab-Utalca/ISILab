@@ -26,7 +26,7 @@ namespace ISILab.LBS.VisualElements
             configurationButton.clicked += ShowConfiguration;
             Add(configurationButton);
 
-            static void ShowConfiguration() => Selection.activeObject = DCTreeWindowTogether.config;
+            static void ShowConfiguration() => EvaluatorConfigurationWindow.Create(DCTreeWindowTogether.config);
 
             return this;
         }

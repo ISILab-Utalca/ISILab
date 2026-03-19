@@ -126,6 +126,15 @@ namespace ISILab.LBS
             drawer.Draw(component, MainView.Instance, layer.TileSize);
         }
 
+        public void UpdateSingleComponent<T>(T component, LBSLayer layer)
+        {
+            if (component == null) return;
+            Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
+            if (drawer is null) return;
+            layer.GetBehaviour<LBSBehaviour>()?.CheckKeys();
+            drawer.Update(component, MainView.Instance, layer.TileSize);
+        }
+
         private void HideVisuals<T>(List<T> components, LBSLayer layer)
         {
             if (components == null) return;

@@ -229,15 +229,16 @@ namespace PathOS
         private void InitializeAgent()
         {
             serial = new SerializedObject(agent);
-            experienceScale = serial.FindProperty("experienceScale");
-            timeScale = serial.FindProperty("timeScale");
-            freezeAgent = serial.FindProperty("freezeAgent");
-            exploreDegrees = serial.FindProperty("exploreDegrees");
-            invisibleExploreDegrees = serial.FindProperty("invisibleExploreDegrees");
-            lookDegrees = serial.FindProperty("lookDegrees");
-            visitThreshold = serial.FindProperty("visitThreshold");
-            exploreThreshold = serial.FindProperty("exploreThreshold");
-            exploreTargetMargin = serial.FindProperty("exploreTargetMargin");
+
+            experienceScale         = serial.FindProperty("tuning").FindPropertyRelative("experienceScale");
+            timeScale               = serial.FindProperty("timeScale");
+            freezeAgent             = serial.FindProperty("freezeAgent");
+            exploreDegrees          = serial.FindProperty("tuning").FindPropertyRelative("exploreDegrees");
+            invisibleExploreDegrees = serial.FindProperty("tuning").FindPropertyRelative("invisibleExploreDegrees");
+            lookDegrees             = serial.FindProperty("tuning").FindPropertyRelative("lookDegrees");
+            visitThreshold          = serial.FindProperty("tuning").FindPropertyRelative("visitThreshold");
+            exploreThreshold        = serial.FindProperty("tuning").FindPropertyRelative("exploreThreshold");
+            exploreTargetMargin     = serial.FindProperty("tuning").FindPropertyRelative("exploreTargetMargin");
 
             agent.RefreshHeuristicList();
 
@@ -272,7 +273,7 @@ namespace PathOS
 
             showPlayerCharacteristics = EditorGUILayout.Foldout(
                 showPlayerCharacteristics, "Player Characteristics", foldoutStyle);
-
+            
             if (showPlayerCharacteristics)
             {
                 EditorGUILayout.PropertyField(experienceScale);

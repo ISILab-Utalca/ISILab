@@ -117,7 +117,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 obj.transform.position = new Vector3(
                     settings.scale.x / 2f * -obj.transform.forward.x,
                     0,
-                    settings.scale.y / 2f * -obj.transform.forward.z);
+                    settings.scale.z / 2f * -obj.transform.forward.z);
 
                 obj.transform.rotation = Quaternion.Euler(obj.transform.rotation.eulerAngles + new Vector3(0, 90 * 2, 0));
                 
@@ -162,7 +162,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     instance.transform.position = new Vector3(
                         settings.scale.x / 2f * dir.x,
                         0,
-                        settings.scale.y / 2f * dir.y) * deltaWall;
+                        settings.scale.z / 2f * dir.y) * deltaWall;
 
                     // Set rotation orientation
                     var rot = (i - 1) % Dirs.Count();
@@ -179,74 +179,94 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return pivot;
         }
 
-        // ========================== GENERATE ==========================
+        
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
-            // Init values
-            Init(layer, settings);
-
             // Get bundles
             List<Bundle> allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
             List<Bundle> rootBundles = allBundles.Where(b => b.IsRoot()).ToList();
 
             // Create pivot
             GameObject mainPivot = new GameObject("Schema outside");
+            List<GameObject> subPivots = new();
+            this.settings = settings;
 
-            List<GameObject> tiles = new List<GameObject>();
-            foreach (LBSTile tile in tilesMod.Tiles)
+            for(int i = 0; i < layer.FloorCount; i++)
             {
-                // Get zone
-                Zone zone = zonesMod.GetZone(tile);
+                // Init values
+                this.tilesMod = layer.GetModule<TileMapModule>("", i);
+                this.connectedTilesMod = layer.GetModule<ConnectedTileMapModule>("", i);
+                this.zonesMod = layer.GetModule<SectorizedTileMapModule>("", i);
 
-                // Get bundle from current tile
-                var bundles = zone.GetOutsideBundles();
 
-                if (bundles.Count <= 0)
+                List<GameObject> tiles = new List<GameObject>();
+                foreach (LBSTile tile in tilesMod.Tiles)
                 {
-                    Debug.LogWarning("Could not finish generating zone '" + zone.ID + "' " +
-                    "since it does not contain bundles defining its exterior style");
+                    // Get zone
+                    Zone zone = zonesMod.GetZone(tile);
 
-                    continue;
+                    // Get bundle from current tile
+                    var bundles = zone.GetOutsideBundles();
+
+                    if (bundles.Count <= 0)
+                    {
+                        Debug.LogWarning("Could not finish generating zone '" + zone.ID + "' " +
+                        "since it does not contain bundles defining its exterior style");
+
+                        continue;
+                    }
+
+                    // Get connections
+                    var connections = connectedTilesMod.GetConnections(tile);
+
+                    //Generate tile
+                    var tileObj = new GameObject(tile.Position.ToString());
+
+                    // Add pref part to pivot
+                    GenerateEdges(tileObj, bundles, connections, tile);
+                    GenerateCorners(tileObj, bundles, tile);
+
+                    // Set position
+                    tileObj.transform.position =
+                        settings.position +
+                        new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.z) +
+                        -(new Vector3(settings.scale.x, 0, settings.scale.z) / 2f);
+
+                    tiles.Add(tileObj);
                 }
 
-                // Get connections
-                var connections = connectedTilesMod.GetConnections(tile);
+                if (tiles.Count <= 0) continue;
 
-                //Generate tile
-                var tileObj = new GameObject(tile.Position.ToString());
+                // Create sub-pivot
+                GameObject subPivot = new GameObject("Floor " + i);
 
-                // Add pref part to pivot
-                GenerateEdges(tileObj, bundles, connections, tile);
-                GenerateCorners(tileObj, bundles, tile);
+                // tiles
+                var x1 = tiles.Average(t => t.transform.position.x);
+                var y1 = tiles.Min(t => t.transform.position.y);
+                var z1 = tiles.Average(t => t.transform.position.z);
 
-                // Set position
-                tileObj.transform.position =
-                    settings.position +
-                    new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.y) +
-                    -(new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
+                subPivot.transform.position = new Vector3(x1, y1, z1);
 
-                tiles.Add(tileObj);
+                foreach (GameObject tile in tiles)
+                {
+                    tile.transform.parent = subPivot.transform;
+                }
+
+                // sub pivot
+                subPivot.transform.position += settings.position + Vector3.up * i * settings.scale.y;
+                subPivots.Add(subPivot);
+
             }
 
-            if (tiles.Count <= 0)
-            {
-                return new GeneratedGO(mainPivot, 
-                    new LBSLog("Could not finish generating zone, no tiles found", LogType.Error));
-            }
-            
-            var x = tiles.Average(t => t.transform.position.x);
-            var y = tiles.Min(t => t.transform.position.y);
-            var z = tiles.Average(t => t.transform.position.z);
-
+            var x = subPivots.Average(t => t.transform.position.x);
+            var y = subPivots.Min(t => t.transform.position.y);
+            var z = subPivots.Average(t => t.transform.position.z);
             mainPivot.transform.position = new Vector3(x, y, z);
 
-            foreach (var tile in tiles)
+            foreach (GameObject sp in subPivots)
             {
-                tile.transform.parent = mainPivot.transform;
+                sp.transform.parent = mainPivot.transform;
             }
-
-            mainPivot.transform.position += settings.position;
-
             return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 

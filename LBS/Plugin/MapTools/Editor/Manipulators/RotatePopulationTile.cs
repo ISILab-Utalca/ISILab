@@ -28,8 +28,8 @@ namespace ISILab.LBS.Manipulators
 
         public RotatePopulationTile()
         {
-           Name = "Rotate Tile";
-           Description = "Left Click to rotate counter-clockwise, Right Click to clockwise. May use Mouse Wheel as well.";
+            Name = "Rotate Tile";
+            Description = "Left Click to rotate counter-clockwise, Right Click to clockwise.";// May use Mouse Wheel as well.";
         }
 
         public override void Init(LBSLayer layer, object provider = null)
@@ -38,16 +38,16 @@ namespace ISILab.LBS.Manipulators
             _population = provider as PopulationBehaviour; 
         }
 
-        protected override void OnWheelEvent(WheelEvent evt)
-        {
-            if (Selected == null) return;
+        //protected override void OnWheelEvent(WheelEvent evt)
+        //{
+        //    if (Selected == null) return;
 
-            Rotate((int)Mathf.Sign(evt.delta.y));
+        //    Rotate((int)Mathf.Sign(evt.delta.y));
             
-            //if (evt.delta.y > 0) Rotate(1);
-            //else if (evt.delta.y < 0) Rotate(-1);
+        //    //if (evt.delta.y > 0) Rotate(1);
+        //    //else if (evt.delta.y < 0) Rotate(-1);
 
-        }
+        //}
 
         // DEPRECATED
         //protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
@@ -86,7 +86,7 @@ namespace ISILab.LBS.Manipulators
 
             Selected = tileGroup;
             if (Selected != null) _storedPosition = position;
-            MainView.Instance.SetManipulatorZoom(Selected == null);
+            //MainView.Instance.SetManipulatorZoom(Selected == null);
             //DrawManager.Instance.RedrawLayer(_population.OwnerLayer);
         }
 
@@ -167,7 +167,8 @@ namespace ISILab.LBS.Manipulators
                 EditorUtility.SetDirty(level);
             }
             
-            if (success) DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
+            if (success) DrawManager.Instance.UpdateSingleComponent(_population, _population.OwnerLayer);
+            //DrawManager.Instance.DrawSingleComponent(_population, _population.OwnerLayer);
         }
     }
 }

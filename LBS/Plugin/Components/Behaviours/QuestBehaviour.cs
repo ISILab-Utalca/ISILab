@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
 using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
@@ -142,5 +140,82 @@ namespace ISILab.LBS.Behaviours
             return OwnerLayer.ToFixedPosition(anchor);
         }
 
+        public bool MergeLayerData(object incoming, bool overwrite)
+        {
+            QuestBehaviour merger = incoming as QuestBehaviour;
+            if (merger == null) return false;
+
+            for (int i = 0; i < merger.Graph.GraphNodes.Count; i++)
+            {
+                var incomingNode = merger.Graph.GraphNodes[i];
+
+                GraphNode existingNode = null;
+
+                for (int j = 0; j < Graph.GraphNodes.Count; j++)
+                {
+                    var node = Graph.GraphNodes[j];
+
+                    if (node.ID == incomingNode.ID)
+                    {
+                        existingNode = node;
+                        break;
+                    }
+                }
+
+                if (existingNode == null)
+                {
+                    Graph.AddNodeToGraph(incomingNode.Clone() as GraphNode);
+                }
+                else if (overwrite)
+                {
+                    existingNode = incomingNode.Clone() as GraphNode;
+                }
+            }
+
+            for (int i = 0; i < merger.Graph.GraphEdges.Count; i++)
+            {
+                var incomingEdge = merger.Graph.GraphEdges[i];
+
+                QuestEdge existingEdge = null;
+
+                for (int j = 0; j < Graph.GraphEdges.Count; j++)
+                {
+                    var edge = Graph.GraphEdges[j];
+
+                    bool fromMatch = true;
+
+                    for (int k = 0; k < edge.From.Count; k++)
+                    {
+                        var node = edge.From[k];
+
+                        if (incomingEdge.From.Exists(n => n.ID == node.ID))
+                        {
+                            continue;
+                        }
+
+                        fromMatch = false;
+                    }
+
+                    bool exists = edge.To == incomingEdge.To && fromMatch;
+
+                    if (!exists)
+                    {
+                        var newEdge = incomingEdge.Clone() as QuestEdge;
+
+                        for (int f = 0; f < newEdge.From.Count; f++)
+                        {
+                            var incomingFrom = newEdge.From[f];
+                            Graph.AddEdge(incomingFrom, newEdge.To);
+                        }
+                    }
+                    else if (overwrite)
+                    {
+                        edge = incomingEdge.Clone() as QuestEdge;
+                    }
+                }
+            }
+
+            return true;
+        }
     }
 }

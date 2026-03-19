@@ -15,8 +15,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.UI.Image;
 using Type = System.Type;
 
 namespace LBS.Components    
@@ -111,8 +109,10 @@ namespace LBS.Components
             LBSLevelData parent,
             string ID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
-            for(int i = 0; i < modules.Length; i++)
+            floors = new LBSFloor[modules.Length];
+            for (int i = 0; i < modules.Length; i++)
             {
+                floors[i] ??= new();
                 if (modules[i] != null) foreach (LBSModule m in modules[i].Modules) AddModule(m, i);
             }
             if (assistant != null) foreach (LBSAssistant a in assistant) AddAssistant(a);
@@ -133,7 +133,8 @@ namespace LBS.Components
         #region Floors
         public void ChangeFloor(int newFloor)
         {
-            if (newFloor < 0 || newFloor >= 10) return;
+            if (newFloor < 0 || newFloor >= floors.Length) return;
+            if (newFloor == activeFloor) return;
 
             var prevFloor = activeFloor;
             activeFloor = newFloor;
@@ -546,9 +547,9 @@ namespace LBS.Components
             //components.AddRange(clone.Modules);
             //components.AddRange(clone.Behaviours);
             //components.AddRange(clone.Assistants);
-            components.AddRange(floors);
-            components.AddRange(behaviours);
-            components.AddRange(assistants);
+            components.AddRange(clone.floors);
+            components.AddRange(clone.Behaviours);
+            components.AddRange(clone.Assistants);
             bool validLayer = false;
             
             foreach (object comp in components)
@@ -606,6 +607,40 @@ namespace LBS.Components
         // never called
         public bool CaptureAreaData(Vector2Int min, Vector2Int max)
         {
+            return true;
+        }
+
+        public bool MergeLayerData(object incoming, bool overwrite)
+        {
+            var Merger = incoming as LBSLayer;
+            if (Merger == null) return false;
+
+            List<object> mergerComponents = new();
+            mergerComponents.AddRange(Merger.Modules());
+            mergerComponents.AddRange(Merger.Behaviours);
+            mergerComponents.AddRange(Merger.Assistants);
+
+            List<object> components = new();
+            components.AddRange(Modules());
+            components.AddRange(Behaviours);
+            components.AddRange(Assistants);
+
+            CloneRefs.Start();
+
+            foreach (object comp in components)
+            {
+                if (comp is IBlueprintable blueprintable)
+                {
+                    foreach (object mergerComp in mergerComponents)
+                    {
+                        blueprintable.MergeLayerData(mergerComp, overwrite);
+                    }
+                }
+            }
+
+            CloneRefs.End();
+
+
             return true;
         }
         #endregion
