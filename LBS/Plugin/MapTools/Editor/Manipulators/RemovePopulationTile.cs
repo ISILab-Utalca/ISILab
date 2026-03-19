@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.VisualElements;
@@ -48,6 +49,11 @@ namespace ISILab.LBS.Manipulators
             _population.OwnerLayer.OnChange += () => CleanPreviews();
         }
 
+        protected override void OnKeyUp(KeyUpEvent e)
+        {
+            base.OnKeyUp(e);
+            LBSMainWindow.WarningManipulator();
+        }
         protected override void OnMouseLeave(VisualElement element, MouseLeaveEvent e)
         {
             ForceCancel = true;

@@ -37,6 +37,7 @@ namespace ISILab.LBS.VisualElements
 
         public bool delete;
         public bool preview;
+        public bool fixAspect;
         #endregion
 
         #region PROPERTIES
@@ -67,7 +68,7 @@ namespace ISILab.LBS.VisualElements
                 currentState = value;
             }
         }
-        
+
         #endregion
 
         #region CONSTRUCTORS
@@ -103,6 +104,23 @@ namespace ISILab.LBS.VisualElements
         protected abstract void OnGenerateVisualContent(MeshGenerationContext mgc);
 
         public abstract void UpdatePositions(Vector2Int p1, Vector2Int p2);
+
+        public virtual Vector2Int GetFixedEndPosition(Vector2Int p1, Vector2Int p2)
+        {
+            p1.x -= p1.x >= 0 ? (Mathf.Abs(p1.x) % TeselationSize.x) - (TeselationSize.x / 2) : -((Mathf.Abs(p1.x) % TeselationSize.x) - (TeselationSize.x / 2));
+            p1.y -= p1.y >= 0 ? (Mathf.Abs(p1.y) % TeselationSize.y) - (TeselationSize.x / 2) : -((Mathf.Abs(p1.y) % TeselationSize.y) - (TeselationSize.y / 2));
+            p2.x -= p2.x >= 0 ? (Mathf.Abs(p2.x) % TeselationSize.x) - (TeselationSize.x / 2) : -((Mathf.Abs(p2.x) % TeselationSize.x) - (TeselationSize.x / 2));
+            p2.y -= p2.y >= 0 ? (Mathf.Abs(p2.y) % TeselationSize.y) - (TeselationSize.x / 2) : -((Mathf.Abs(p2.y) % TeselationSize.y) - (TeselationSize.y / 2));
+
+            var delta = new Vector2Int(p2.x - p1.x, p2.y - p1.y);
+            var minDelta = Mathf.Min(Mathf.Abs(delta.x), Mathf.Abs(delta.y));
+
+            var newEndPos = Vector2Int.zero;
+            newEndPos.x = (p2.x - p1.x > 0) ? p1.x + minDelta : p1.x - minDelta;
+            newEndPos.y = (p2.y - p1.y > 0) ? p1.y + minDelta : p1.y - minDelta;
+
+            return newEndPos;
+        }
         #endregion
 
         public enum State

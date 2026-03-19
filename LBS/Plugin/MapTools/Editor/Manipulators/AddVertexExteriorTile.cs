@@ -39,6 +39,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnKeyUp(KeyUpEvent e)
         {
+            base.OnKeyUp(e);
             LBSMainWindow.WarningManipulator();
         }
 
