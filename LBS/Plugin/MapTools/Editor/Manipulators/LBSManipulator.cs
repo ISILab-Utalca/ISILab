@@ -264,8 +264,10 @@ namespace ISILab.LBS.Manipulators
             if (@event.button != 0 && @event.button != 1)
                 return;
 
-            if (!@event.shiftKey) Feedback.fixAspect = false;
-
+            if (Feedback != null)
+            {
+                if (!@event.shiftKey) Feedback.fixAspect = false;
+            }
             _hasProcessedMouseUp = false;
             OnManipulationNotification?.Invoke();
             _startClickPosition = MainView.Instance.FixPos(@event.localMousePosition).ToInt();
@@ -367,10 +369,12 @@ namespace ISILab.LBS.Manipulators
             
             _ended = true;
             _endClickPosition = MainView.Instance.FixPos(@event.localMousePosition).ToInt();
-
-            if(Feedback.fixAspect)
+            if (Feedback != null)
             {
-                _endClickPosition = Feedback.GetFixedEndPosition(StartPosition, EndPosition);
+                if (Feedback.fixAspect)
+                {
+                    _endClickPosition = Feedback.GetFixedEndPosition(StartPosition, EndPosition);
+                }
             }
 
             EndFeedback();
