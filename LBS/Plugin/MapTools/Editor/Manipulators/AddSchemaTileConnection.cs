@@ -21,6 +21,9 @@ namespace ISILab.LBS.Manipulators
         private Vector2Int _first;
         private List<Vector2Int> Dirs => Commons.Directions.Bidimencional.Edges;
 
+        private StairsMemoryLine feedbackStairsLine;
+        private ConnectedMemoryLine feedbackMemoryLine;
+
         protected override string IconGuid => "b06c784e5d88d1547a40d4fc2f54b485";
         
         public string ToSet
@@ -31,8 +34,25 @@ namespace ISILab.LBS.Manipulators
 
         public AddSchemaTileConnection()
         {
-            Feedback = new ConnectedMemoryLine();
-            Feedback.fixToTeselation = true;
+            feedbackStairsLine = new StairsMemoryLine();
+            feedbackStairsLine.fixToTeselation = true;
+            feedbackMemoryLine = new ConnectedMemoryLine();
+            feedbackMemoryLine.fixToTeselation = true;
+
+            Feedback = feedbackStairsLine;
+            OnManipulationNotification += () =>
+            {
+                if (ToSet == null) return;
+                bool setStairs = ToSet.Contains("Stairs");
+                if (setStairs)
+                {
+                    Feedback = feedbackStairsLine;
+                }
+                else
+                {
+                    Feedback = feedbackMemoryLine;
+                }
+            };
 
             Name = "Set Manual Connection";
             Description = "Draw across a zone's border to generate a connection.";
@@ -62,16 +82,23 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
         {
             _first = _schema.OwnerLayer.ToFixedPosition(position);
+            //*/
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
             base.OnMouseUp(element, position, e);
+            ConnectedMemoryLine line = null;
+            if(Feedback.GetType() == typeof(ConnectedMemoryLine) || Feedback.GetType() == typeof(StairsMemoryLine))
+            {
+                line = Feedback as ConnectedMemoryLine;
+            }
 
             //If esc key was pressed, cancel the operation
             if (ForceCancel)
             {
                 ForceCancel = false;
+                if (line != null) line.LineClear();
                 return;
             }
 
@@ -90,11 +117,11 @@ namespace ISILab.LBS.Manipulators
             int dy = lastPos.y - _first.y;
             
             float dLength = Mathf.Sqrt(dx * dx  +  dy * dy);
-            if (dLength < 1) return;
+            if (line is null && dLength < 1) return;
 
             // Get index of directions
             int frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-            if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) return;
+            if (line is null && (frontDirIndex < 0 || frontDirIndex >= Dirs.Count)) return;
             int backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
 
             LoadedLevel level = LBSController.CurrentLevel;
@@ -105,16 +132,16 @@ namespace ISILab.LBS.Manipulators
             bool requiresWall = dLength > 1;
 
             List<LBSTile> selectedTiles = new List<LBSTile>();
-            if (Feedback is ConnectedMemoryLine line)
+            if (line != null)
             {
-                /*for (int i = 0; i < line.Line.Count; i++)
+                for (int i = 0; i < line.Line.Count; i++)
                 {
-                    selectedTiles.Add(_schema.GetTile(line.Line[i]));
-                }//*/
-
+                    var tile = _schema.GetTile(line.Line[i]);
+                    selectedTiles.Add(tile);
+                }
                 line.LineClear();
             }
-            //else
+            else
             {
                 int totalConnections = (int)Math.Floor(dLength);
                 for (int i = 0; i <= totalConnections; i++)
@@ -128,6 +155,20 @@ namespace ISILab.LBS.Manipulators
             {
                 LBSTile tile1 = selectedTiles[i - 1];
                 LBSTile tile2 = selectedTiles[i];
+                if (line != null)
+                {
+                    if (tile1 is null || tile2 is null) continue;
+
+                    // Get vector direction
+                    int bx = tile2.x - tile1.x;
+                    int by = tile2.y - tile1.y;
+                    
+                    // Get index of directions
+                    frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(bx), Math.Sign(by))));
+                    if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) continue; ;
+                    backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(bx), Math.Sign(by))));
+                }
+
 
                 bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
                 bool setStairs = ToSet.Contains("Stairs");
