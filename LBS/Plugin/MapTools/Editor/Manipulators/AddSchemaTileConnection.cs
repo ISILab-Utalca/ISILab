@@ -176,9 +176,7 @@ namespace ISILab.LBS.Manipulators
             int backDirIndex
             )
         {
-
-            if (firstTile is null && secondTile is null) return;
-            if (Equals(firstTile, secondTile))
+            if (firstTile != null && firstTile.Equals(secondTile))
             {
                 Debug.Log("Not Valid Tile - Same Tile with lenght 0");
                 return;

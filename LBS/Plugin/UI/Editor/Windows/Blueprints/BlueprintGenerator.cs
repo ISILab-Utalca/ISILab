@@ -52,9 +52,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         abstract public void Generate(Action<float> onProgress = null, CancellationToken token = default);
 
-        public void CreateBlueprint(List<LBSLayer> layersToPrint, LoadedLevel loadedLevel)
+        public void CreateBlueprint(List<LBSLayer> layersToPrint, LoadedLevel loadedLevel, bool overwrite)
         {
             if (loadedLevel == null) return;
+            this.overwrite = overwrite;
 
             generatedLayers = layersToPrint;
             ((IAssistantThreadedEditor)this).SetUpTask(this, this);
@@ -63,7 +64,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 try
                 {
                     Generate(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
-                    EditorApplication.delayCall += () => OnTermination.Invoke("Blueprint Generated", LogType.Log, loadedLevel);
+                    EditorApplication.delayCall += () =>
+                    {
+                        OnTermination.Invoke("Blueprint Generated", LogType.Log, loadedLevel);
+                        foreach (var existingLayer in LBSMainWindow.Instance.GetLayers())
+                            DrawManager.Instance.UpdateLayer(existingLayer);
+                    };
                 }
                 catch (Exception ex)
                 {

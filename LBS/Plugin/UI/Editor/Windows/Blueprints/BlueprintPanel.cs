@@ -101,6 +101,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             get => _captureArea;
             set
             {
+                if (_captureArea != null) return;
                 _captureArea = value;
                 if (_captureArea != null) 
                 {
@@ -112,7 +113,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         public PrintInArea PrintArea
         {
             get => _printArea;
-            set => _printArea = value;
+            set
+            {
+                if (_printArea != null) return;
+                _printArea = value;
+            }
         }
 
         public ISILab.LBS.Components.Blueprint SelectedBlueprint
@@ -316,7 +321,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             CreateBlueprintPreviewLayer();
             if (previewLayers.Count == 0) return;
             LoadedLevel loadedLevel = LBSController.CurrentLevel;
-            generators[activeAddMode].CreateBlueprint(new List<LBSLayer>(previewLayers), loadedLevel);
+            generators[activeAddMode].CreateBlueprint(new List<LBSLayer>(previewLayers), loadedLevel, overwrite);
+           
+        
         }
 
         private void DeleteSelectedBlueprint()
