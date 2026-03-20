@@ -260,7 +260,9 @@ namespace ISILab.LBS.Behaviours.Editor
             if (!answer) return;
 
             behaviour.RemoveZone(option as Zone);
-            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer); //May fail, test and see
+            DrawManager drawManager = DrawManager.Instance;
+            drawManager.DrawSingleComponent(behaviour, behaviour.OwnerLayer, true);
+            drawManager.DrawSingleComponent(behaviour.OwnerLayer.GetAssistant<Plugin.Core.AI.Assistant.HillClimbingAssistant>(), behaviour.OwnerLayer, true);
             //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer); 
             ToolKit.Instance.SetActive(typeof(AddSchemaTile));
             areaPallete.Repaint();
