@@ -69,6 +69,10 @@ namespace ISILab.LBS.AI.Assistants.Editor
             inspector.RegisterCallback<GeometryChangedEvent>(SetLayoutCallback);
 
             IMGUIContainer container = new IMGUIContainer(PathOSOriginalWindow.OnGUI);
+            parent.style.flexGrow = 1;
+            parent.style.flexShrink = 0;
+            container.style.flexGrow = 1;
+            container.style.flexShrink = 0;
             parent.Add(container);
 
             return this;

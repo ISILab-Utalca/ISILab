@@ -265,7 +265,6 @@ namespace ISILab.LBS.Manipulators
         {
 
             if (firstTile is null && secondTile is null) return;
-
             if (firstTile is not null)
             {
                 if (firstTile.Equals(secondTile))

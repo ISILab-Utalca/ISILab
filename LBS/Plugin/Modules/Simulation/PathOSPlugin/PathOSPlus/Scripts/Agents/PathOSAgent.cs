@@ -77,6 +77,8 @@ namespace PathOS
 
         private void Awake()
         {
+            healthState.Init();
+            Debug.Log(healthState.health);
             eyes = GetComponent<PathOSAgentEyes>();
             memory = GetComponent<PathOSAgentMemory>();
             navAgent = GetComponent<NavMeshAgent>();

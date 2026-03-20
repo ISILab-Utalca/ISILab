@@ -7,10 +7,8 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using UnityEngine.TextCore.Text;
 
 namespace ISILab.LBS.VisualElements 
 {
@@ -57,8 +55,12 @@ namespace ISILab.LBS.VisualElements
         #region Mouse Events
         protected virtual void OnMouseDown(MouseDownEvent evt)
         {
-            //if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
             if (Node == null) return;
+            if (Node.Graph == null) return;
+            if (LBSMainWindow.Instance._selectedLayer == null) return;
+
+            if (LBSMainWindow.Instance._selectedLayer != Node.Graph.OwnerLayer) return;
+          
 
             if (evt.button == 0 && ToolKit.Instance.GetActiveManipulatorInstance() is SelectManipulator)
             {
