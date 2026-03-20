@@ -222,12 +222,12 @@ namespace ISILab.LBS.VisualElements
             if (item.x < 0) v += Vector2Int.left * 100;
             if (item.y < 0) v += Vector2Int.up * 100;
             return v / 100;
-        }//*/
+        }
         protected Vector2Int VectorGridToFixed(Vector2Int item)
         {
             var v = item * 100;
             if (v.x < 0) v += Vector2Int.right * 50;
-            if (v.y < 0) v += Vector2Int.down * 50;
+            if (v.y > 0) v += Vector2Int.down * 50;
             return v * new Vector2Int(1, -1);
         }
 
@@ -245,16 +245,17 @@ namespace ISILab.LBS.VisualElements
 
     public class StairsMemoryLine : ConnectedMemoryLine
     {
-        int limit = 6;
-        bool canContinue = true;
-        bool isValid = false;
+        int _limit = 6;
+        bool _canContinue = true;
+        bool _isValid = false;
+        public bool IsValid { get => _isValid; }
 
         public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
         {
-            if (!canContinue || line.Count >= limit) return;
+            if (!_canContinue || line.Count >= _limit) return;
             base.UpdatePositions(p1, p2);
 
-            int linePositions = line.Count < limit ? line.Count : limit;
+            int linePositions = line.Count < _limit ? line.Count : _limit;
             if (linePositions < 3) return;
 
             List<Vector2Int> directions = new ();
@@ -270,56 +271,55 @@ namespace ISILab.LBS.VisualElements
                         if (directions[i] != directions[i - 1])
                         {
                             currentColor = Color.red;
-                            canContinue = false;
+                            _canContinue = false;
                         }
                         break;
                     case 2:
                         if (directions[i] == directions[i - 1])
                         {
                             currentColor = Color.green;
-                            canContinue = false;
-                            isValid = true;
+                            _canContinue = false;
+                            _isValid = true;
                         }
                         else if (!IsRotation(directions[i], directions[i - 1]))
                         {
                             currentColor = Color.red;
-                            canContinue = false;
+                            _canContinue = false;
                         }
                         break;
                     case 3:
                         if (directions[i] == directions[i - 1])
                         {
                             currentColor = Color.green;
-                            canContinue = false;
-                            isValid = true;
+                            _canContinue = false;
+                            _isValid = true;
                         }
                         else if (!IsRotation(directions[i], directions[i - 1]))
                         {
                             currentColor = Color.red;
-                            canContinue = false;
+                            _canContinue = false;
                         }
                         break;
                     case 4:
                         if (directions[i] == directions[i - 1])
                         {
                             currentColor = Color.green;
-                            canContinue = false; 
-                            isValid = true;
+                            _canContinue = false; 
+                            _isValid = true;
                         }
                         else
                         {
-
                             currentColor = Color.red;
-                            canContinue = false;
+                            _canContinue = false;
                         }
                         break;
                     default:
                         currentColor = Color.red;
-                        canContinue = false;
+                        _canContinue = false;
                         break;
                 }
 
-                if (!canContinue) break;
+                if (!_canContinue) break;
             }
 
 
@@ -338,7 +338,7 @@ namespace ISILab.LBS.VisualElements
             var painter = mgc.painter2D;
             if (line.Count < 1)
             {
-                line = new() { (startPosition / 100, startPosition) };
+                line = new() { (VectorFixedToGrid(startPosition), startPosition) };
                 currentColor = Color.white;
             }
 
@@ -349,8 +349,16 @@ namespace ISILab.LBS.VisualElements
 
         override public void LineClear()
         {
-            canContinue = true;
+            _canContinue = true;
+            _isValid = false;
             line.Clear();
+        }
+        public enum StairShapes
+        {
+            None,
+            Straight,
+            Corner,
+
         }
     }
 }

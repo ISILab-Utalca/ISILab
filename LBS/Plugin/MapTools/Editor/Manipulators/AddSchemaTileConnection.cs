@@ -88,20 +88,27 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
             base.OnMouseUp(element, position, e);
+
+            // Check if Feedback is ConnectedMemoryLine or an inherited class
             ConnectedMemoryLine line = null;
             if(Feedback.GetType() == typeof(ConnectedMemoryLine) || Feedback.GetType() == typeof(StairsMemoryLine))
             {
                 line = Feedback as ConnectedMemoryLine;
+                if (line is StairsMemoryLine ls && !ls.IsValid)
+                {
+                    line.LineClear();
+                    return;
+                }
             }
 
-            //If esc key was pressed, cancel the operation
+            // Cancel the operation
+            // If esc key was pressed OR a connection wasn't selected
             if (ForceCancel)
             {
                 ForceCancel = false;
                 if (line != null) line.LineClear();
                 return;
             }
-
             if (ToSet is null)
             {
                 LBSMainWindow.MessageNotify(
@@ -109,40 +116,32 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
 
-            // Get second fixed position
-            Vector2Int lastPos = _schema.OwnerLayer.ToFixedPosition(position);
-
-            // Get vector direction
-            int dx = lastPos.x - _first.x;
-            int dy = lastPos.y - _first.y;
-            
-            float dLength = Mathf.Sqrt(dx * dx  +  dy * dy);
-            if (line is null && dLength < 1) return;
-
-            // Get index of directions
-            int frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-            if (line is null && (frontDirIndex < 0 || frontDirIndex >= Dirs.Count)) return;
-            int backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-
-            LoadedLevel level = LBSController.CurrentLevel;
-            EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(level, "Add Connection Between Zones");
-
-            // Multi-connection mode
-            bool requiresWall = dLength > 1;
-
             List<LBSTile> selectedTiles = new List<LBSTile>();
-            if (line != null)
+            int frontDirIndex, backDirIndex;
+            int dx = 0;
+            int dy = 0;
+            bool requiresWall;
+
+            // Get selected tiles if feedback is default
+            if (line is null)
             {
-                for (int i = 0; i < line.Line.Count; i++)
-                {
-                    var tile = _schema.GetTile(line.Line[i]);
-                    selectedTiles.Add(tile);
-                }
-                line.LineClear();
-            }
-            else
-            {
+                // Get second fixed position
+                Vector2Int lastPos = _schema.OwnerLayer.ToFixedPosition(position);
+
+                // Get vector direction
+                dx = lastPos.x - _first.x;
+                dy = lastPos.y - _first.y;
+                float dLength = Mathf.Sqrt(dx * dx + dy * dy);
+                if (dLength < 1) return;
+
+                // Get index of directions
+                frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+                if (line is null && (frontDirIndex < 0 || frontDirIndex >= Dirs.Count)) return;
+                backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+
+                // Multi-connection mode
+                requiresWall = dLength > 1;
+
                 int totalConnections = (int)Math.Floor(dLength);
                 for (int i = 0; i <= totalConnections; i++)
                 {
@@ -150,11 +149,33 @@ namespace ISILab.LBS.Manipulators
                     selectedTiles.Add(GetTileInLine(_schema, i));
                 }
             }
+            // Get selected tiles if feedback is ConnectedMemoryLine
+            else
+            {
+                for (int i = 0; i < line.Line.Count; i++)
+                {
+                    var tile = _schema.GetTile(line.Line[i]);
+                    selectedTiles.Add(tile);
+                }
+                requiresWall = line.Line.Count > 1;
+                line.LineClear();
+            }
+            
+            LoadedLevel level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Add Connection Between Zones");
+
+            // Set connections
+            bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
+            bool setStairs = ToSet.Contains("Stairs");
 
             for (int i = 1; i < selectedTiles.Count; i++)
             {
                 LBSTile tile1 = selectedTiles[i - 1];
                 LBSTile tile2 = selectedTiles[i];
+                frontDirIndex = -1;
+                backDirIndex = -1;
+
                 if (line != null)
                 {
                     if (tile1 is null || tile2 is null) continue;
@@ -169,9 +190,7 @@ namespace ISILab.LBS.Manipulators
                     backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(bx), Math.Sign(by))));
                 }
 
-
-                bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
-                bool setStairs = ToSet.Contains("Stairs");
+                if (frontDirIndex == -1 || backDirIndex == -1) continue;
                 if (requiresWall && setDoorOrWindow && !ValidWallReplace(_schema, tile1, tile2)) continue;
                 if (requiresWall && setStairs && !ValidStairsPlacement(_schema, tile1, tile2)) continue;
 
