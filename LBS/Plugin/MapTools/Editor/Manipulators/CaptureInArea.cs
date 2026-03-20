@@ -13,15 +13,13 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
 {
-    // Simple wrapper to access the area 
-    public class BlueprintFeedback : AreaFeedback { }
 
     public class CaptureInArea : ManipulateTeselation
     {
 
         #region FIELDS
         private List<LBSLayer> capturedBlueprintData = new();
-        private BlueprintFeedback areaFeedback;
+        private AreaFeedback areaFeedback;
         private bool Capturing = false;
         private bool autoCapture = true;
         #endregion
@@ -50,9 +48,10 @@ namespace ISILab.LBS.Manipulators
         #endregion
 
         #region METHODS
+
         public override void Init(LBSLayer layer, object owner)
         {
-            areaFeedback = new BlueprintFeedback();
+            areaFeedback = new AreaFeedback();
             areaFeedback.fixToTeselation = true;
             areaFeedback.preview = true;
             areaFeedback.SetColor(LBSSettings.Instance.view.warningColor); 
@@ -133,13 +132,9 @@ namespace ISILab.LBS.Manipulators
                     Capturing = false;
                 }
             );
-            return;
         }
 
-        public void ClearArea()
-        {
-            MainView.Instance.RemoveElement(areaFeedback);
-        }
+        public void ClearArea() => MainView.Instance.RemoveElement(areaFeedback);
 
         #endregion
 

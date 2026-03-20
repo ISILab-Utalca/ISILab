@@ -546,9 +546,6 @@ namespace ISILab.LBS.Behaviours
             PopulationBehaviour Merger = incoming as PopulationBehaviour;
             if (Merger == null) return false;
 
-            List<LBSTile> tilesToRemove = tileMap.Tiles;
-            List<TileBundleGroup> tbgToRemove = _bundleTileMap.Groups;
-
             for (int i = 0; i < Merger.TileMap.Tiles.Count; i++)
             {
                 var incomingTile = Merger.TileMap.Tiles[i];
@@ -565,21 +562,31 @@ namespace ISILab.LBS.Behaviours
                 }
             }
 
-            for (int i = 0; i < Merger.BundleTilemap.Groups.Count; i++)
+            for (int i = 0; i < Merger.TileBundleGroup.Count; i++)
             {
-                TileBundleGroup incomingTbg = Merger.BundleTilemap.Groups[i];
+                TileBundleGroup incomingTbg = Merger.TileBundleGroup[i];
 
-                var originalTbg = _bundleTileMap.GetGroup(incomingTbg.TileGroup[0].Position);
+                for (int j = 0; j < TileBundleGroup.Count; j++)
+                {
+                    var originalTbg = TileBundleGroup[j];
+                    if (originalTbg.AreaRect.position == incomingTbg.AreaRect.position)
+                    {
+                        if (overwrite)
+                        {
+                            originalTbg = incomingTbg.Clone() as TileBundleGroup;
+                        }
+                    }
+                    else
+                    {
+                        _bundleTileMap.AddGroup(incomingTbg.Clone() as TileBundleGroup);
+                    }
 
-                if (originalTbg == null)
-                {
-                    _bundleTileMap.AddGroup(incomingTbg.Clone() as TileBundleGroup);
                 }
-                else if (overwrite)
-                {
-                    originalTbg = incomingTbg.Clone() as TileBundleGroup;
-                }
+
             }
+
+
+          
 
             return true;
         }

@@ -1,6 +1,8 @@
 
 using ISILab.LBS.Editor.Windows;
+using LBS.Components;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using UnityEditor;
@@ -26,30 +28,37 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         {
 
         }
-        public override void Generate(Action<float> onProgress = null, CancellationToken token = default)
+        public override List<LBSLayer> Generate(Action<float> onProgress = null, CancellationToken token = default)
         {
-            var window = LBSMainWindow.Instance;
-            if (window == null) return;
-
-            var existingLayers = window.GetLayers();
-            existingLayers.Reverse();
-            for (int i = 0; i < generatedLayers.Count; i++)
+            List<LBSLayer> modifiedLayers = new();
+            if(LBSMainWindow.Instance != null)
             {
-                var layer = generatedLayers[i];
+                List<LBSLayer> existingLayers = new List<LBSLayer>(LBSMainWindow.Instance.GetLayers());
+                existingLayers.Reverse();
 
-                EditorApplication.delayCall += () =>
+                for (int i = 0; i < generatedLayers.Count; i++)
                 {
-                    var target = FindMergeTargetByName(existingLayers, layer);
+                    var layer = generatedLayers[i];
 
-                    if (target != null)
-                        target.MergeLayerData(layer, overwrite);
-                    else
-                        window.layerPanel.AddLayer(layer);
-                };
+                    EditorApplication.delayCall += () =>
+                    {
+                        var target = FindMergeTargetByName(existingLayers, layer);
 
-                onProgress?.Invoke((float)i / generatedLayers.Count);
-                Thread.Sleep(1);
+                        if (target != null)
+                            if (target.MergeLayerData(layer, overwrite))
+                            {
+                                modifiedLayers.Add(layer);
+                            }
+                            else
+                                LBSMainWindow.Instance.layerPanel.AddLayer(layer);
+                    };
+
+                    onProgress?.Invoke((float)i / generatedLayers.Count);
+                    Thread.Sleep(1);
+                }
             }
+
+            return modifiedLayers;
         }
     }
 }

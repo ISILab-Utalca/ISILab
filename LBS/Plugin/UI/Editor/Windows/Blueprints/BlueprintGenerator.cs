@@ -15,6 +15,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
     public abstract class BlueprintGenerator : LBSAssistant, IAssistantThreadedEditor
     {
+        protected List<LBSLayer> modifiedLayers = new();
         protected List<LBSLayer> generatedLayers = new();
         protected bool overwrite = false;
         protected BlueprintGenerator(
@@ -43,32 +44,37 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 DrawManager.Instance.RedrawLayer(layer);
             }
+            List<LBSLayer> existingLayers = new List<LBSLayer>(modifiedLayers);
+            foreach (var existingLayer in existingLayers)
+                DrawManager.Instance.UpdateLayer(existingLayer);
 
 
             TaskBar.EnableProcess(false);
-            OnTermination = null;
+            OnTermination =null;
         }
         #endregion
 
-        abstract public void Generate(Action<float> onProgress = null, CancellationToken token = default);
+        // should return the list of modified layers so they are updated by the drawer manager
+        abstract public List<LBSLayer> Generate(Action<float> onProgress = null, CancellationToken token = default);
 
         public void CreateBlueprint(List<LBSLayer> layersToPrint, LoadedLevel loadedLevel, bool overwrite)
         {
-            if (loadedLevel == null) return;
+            if (loadedLevel == null || LBSMainWindow.Instance == null) return;
             this.overwrite = overwrite;
 
+            modifiedLayers.Clear();
             generatedLayers = layersToPrint;
             ((IAssistantThreadedEditor)this).SetUpTask(this, this);
             Task.Run(() =>
             {
                 try
                 {
-                    Generate(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                    modifiedLayers = Generate(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
                     EditorApplication.delayCall += () =>
                     {
                         OnTermination.Invoke("Blueprint Generated", LogType.Log, loadedLevel);
-                        foreach (var existingLayer in LBSMainWindow.Instance.GetLayers())
-                            DrawManager.Instance.UpdateLayer(existingLayer);
+
+                        DrawManager.Instance.RedrawLevel(loadedLevel.data);
                     };
                 }
                 catch (Exception ex)

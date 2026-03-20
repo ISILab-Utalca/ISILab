@@ -17,9 +17,9 @@ namespace ISILab.LBS.Manipulators
 
         #region FIELDS
         private Blueprint blueprintToPrint;
-        private BlueprintFeedback previewAreaFeedback; 
         private Vector2Int FeedbackPosition;
         internal static object AddingMode;
+        internal static AreaFeedback previewAreaFeedback;
         #endregion
 
         #region PROPERTIES
@@ -52,17 +52,20 @@ namespace ISILab.LBS.Manipulators
         #region METHODS
         public override void Init(LBSLayer layer, object owner)
         {
-            previewAreaFeedback = new BlueprintFeedback();
+            previewAreaFeedback = new AreaFeedback();
             previewAreaFeedback.fixToTeselation = true;
             previewAreaFeedback.preview = true;
             previewAreaFeedback.SetColor(Color.white);
+            Feedback.style.visibility = Visibility.Hidden;
+            //Feedback.SetEnabled(false);
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
             base.OnMouseUp(element, endPosition, e);
             previewAreaFeedback.UpdatePositions(StartPosition, EndPosition);
-           
+          //  Feedback.SetEnabled(false);
+
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -70,24 +73,26 @@ namespace ISILab.LBS.Manipulators
             base.OnMouseDown(element, startPosition, e);
             // Draw or create layers
             DoPrintBlueprint?.Invoke();
+          //  Feedback.SetEnabled(false);
 
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
+           // Feedback.SetEnabled(false);
+            Feedback.style.display = DisplayStyle.None;
             ClearPreview();
             LBSLayer selectedLayer = LBSMainWindow.Instance._selectedLayer;
-            if (blueprintToPrint is null || selectedLayer is null) return;
+            if (blueprintToPrint == null || selectedLayer == null) return;
 
             base.OnMouseMove(element, movePosition, e);
 
-            //subtracting vector1 because default tile size is 100
+            //subtracting vector because default tile size is 100
             var size = blueprintToPrint.Size;
             FeedbackPosition = movePosition;
             previewAreaFeedback.UpdatePositions(FeedbackPosition, FeedbackPosition + size - new Vector2Int(100, 100));
             MainView.Instance.AddElement(previewAreaFeedback);
 
-            Debug.Log($"[PrintInArea {GetHashCode()}] OnMouseMove");
         }
 
         public void ClearPreview() => MainView.Instance.RemoveElement(previewAreaFeedback);
