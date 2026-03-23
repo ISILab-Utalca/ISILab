@@ -113,6 +113,7 @@ namespace ISILab.LBS.Manipulators
             {
                 LBSMainWindow.MessageNotify(
                     new LBSLog("Select a connection type in the LBS-inspector panel",LogType.Warning,4));
+                if (line != null) line.LineClear();
                 return;
             }
 
@@ -158,7 +159,6 @@ namespace ISILab.LBS.Manipulators
                     selectedTiles.Add(tile);
                 }
                 requiresWall = line.Line.Count > 1;
-                line.LineClear();
             }
             
             LoadedLevel level = LBSController.CurrentLevel;
@@ -178,12 +178,10 @@ namespace ISILab.LBS.Manipulators
 
                 if (line != null)
                 {
-                    if (tile1 is null || tile2 is null) continue;
-
                     // Get vector direction
-                    int bx = tile2.x - tile1.x;
-                    int by = tile2.y - tile1.y;
-                    
+                    int bx = line.Line[i].x - line.Line[i - 1].x;
+                    int by = line.Line[i].y - line.Line[i - 1].y;
+
                     // Get index of directions
                     frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(bx), Math.Sign(by))));
                     if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) continue; ;
@@ -217,6 +215,7 @@ namespace ISILab.LBS.Manipulators
                     }
                 }
             }
+            if (line != null) line.LineClear();
 
             if (EditorGUI.EndChangeCheck())
             {
