@@ -131,7 +131,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     if (player is not null)
                     {
                         PathOSAgentEyes eyesComp = agentGameObject.GetComponent<PathOSAgentEyes>();
-                        eyesComp.cam = player.GetComponentInChildren<Camera>();
+                        eyesComp.cam.gameObject.SetActive(false);
+                        GameObject camObj = player.GetComponentInChildren<Camera>().gameObject;
+                        GameObject camClone = GameObject.Instantiate(camObj, eyesComp.transform);
+                        eyesComp.cam = camClone.GetComponent<Camera>();
                     }
 
 

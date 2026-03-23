@@ -118,11 +118,12 @@ namespace ISILab.LBS
             }
         }
 
-        public void DrawSingleComponent<T>(T component, LBSLayer layer)
+        public void DrawSingleComponent<T>(T component, LBSLayer layer, bool clearLayerContainer = false)
         {
             if (component == null) return;
             Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
             if (drawer == null) return;
+            if(clearLayerContainer) _view.ClearLayerContainer(layer);
             drawer.Draw(component, MainView.Instance, layer.TileSize);
         }
 

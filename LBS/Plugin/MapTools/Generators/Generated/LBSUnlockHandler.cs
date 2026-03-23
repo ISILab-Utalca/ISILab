@@ -34,11 +34,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         public void Start()
         {
+            obstacle = GetComponent<NavMeshObstacle>();
+            if (obstacle == null) return;
+            obstacle.carving = true;
+
             if (keyComp == null) return;
             // store ID as the object is destroyed when the item is added to inventory
             key = keyComp.GetID();
-            obstacle = GetComponent<NavMeshObstacle>();
-            obstacle.carving = true;
 
             ActivatePOICallback();
         }
