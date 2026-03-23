@@ -267,6 +267,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return reorderedTiles;
 
         }
+        
         private GameObject ChoosePatternByGrid(Bundle currentBundle, Dictionary<string, Bundle> adjacentBundles, Dictionary<string, GameObject> adjacentPreferences)
         {
             //We know the current bundle has a selector, but we'll still put a failsafe.
@@ -538,5 +539,25 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             return true; // TODO: Implement this method to check if the rule is viable for the layer
         }
+    }
+
+    public class ExteriorRuleGeneratorNew : LBSGeneratorRule
+    {
+        public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool CheckViability(LBSLayer layer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object Clone()
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

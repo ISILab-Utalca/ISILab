@@ -8,7 +8,6 @@ namespace ISILab.LBS.VisualElements
 {
     public class AreaFeedback : Feedback
     {
-        
         #region Static fields
         private static float borderThickness = 1f;
         private static float fillOpacity = 0.33f;
@@ -52,21 +51,32 @@ namespace ISILab.LBS.VisualElements
 
         public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
         {
+            if (fixToTeselation)
+            {
+                p1.x -= (p1.x >= 0 ? (Mathf.Abs(p1.x) % TeselationSize.x) : -(Mathf.Abs(p1.x) % TeselationSize.x) + TeselationSize.x);
+                p1.y -= (p1.y >= 0 ? (Mathf.Abs(p1.y) % TeselationSize.y) : -(Mathf.Abs(p1.y) % TeselationSize.y) + TeselationSize.y);
+                p2.x -= (p2.x >= 0 ? (Mathf.Abs(p2.x) % TeselationSize.x) : -(Mathf.Abs(p2.x) % TeselationSize.x) + TeselationSize.x);
+                p2.y -= (p2.y >= 0 ? (Mathf.Abs(p2.y) % TeselationSize.y) : -(Mathf.Abs(p2.y) % TeselationSize.y) + TeselationSize.y);
+            }
+
+            if (fixAspect)
+            {
+                var delta = new Vector2Int(p2.x - p1.x, p2.y - p1.y);
+                var minDelta = Mathf.Min(Mathf.Abs(delta.x), Mathf.Abs(delta.y));
+                p2.x = p1.x + (minDelta * System.Math.Sign(p2.x - p1.x));
+                p2.y = p1.y + (minDelta * System.Math.Sign(p2.y - p1.y));
+            }
             startPosition = new Vector2Int(Mathf.Min(p1.x, p2.x), Mathf.Min(p1.y, p2.y));
             endPosition = new Vector2Int(Mathf.Max(p1.x, p2.x), Mathf.Max(p1.y, p2.y));
 
-            if (fixToTeselation)
+            if(fixToTeselation)
             {
-                startPosition = CalcFixTeselation(startPosition);
-                endPosition = CalcFixTeselation(endPosition);
-
-                startPosition = startPosition * TeselationSize + StartOffset;
-                endPosition = endPosition * TeselationSize + TeselationSize;
-            }
-
+                startPosition += StartOffset;
+                endPosition += TeselationSize;
+            }            
             MarkDirtyRepaint();
         }
-
+        
         public void SetColor(Color color)
         {
             currentColor = color; 

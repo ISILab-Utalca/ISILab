@@ -159,6 +159,7 @@ namespace ISILab.LBS.Manipulators
         {
             if (IconGuid is "") return;
             _icon = AssetMacro.LoadAssetByGuid<VectorImage>(IconGuid);
+            
         }    
         #endregion
 
@@ -238,7 +239,6 @@ namespace ISILab.LBS.Manipulators
         {
             if (Feedback == null) return;
             if (!_started) return;
-
             UpdateFeedbackColor();
             Feedback.UpdatePositions(_startClickPosition, _moveClickPosition);
         }
@@ -264,6 +264,10 @@ namespace ISILab.LBS.Manipulators
             if (@event.button != 0 && @event.button != 1)
                 return;
 
+            if (Feedback != null)
+            {
+                if (!@event.shiftKey) Feedback.fixAspect = false;
+            }
             _hasProcessedMouseUp = false;
             OnManipulationNotification?.Invoke();
             _startClickPosition = MainView.Instance.FixPos(@event.localMousePosition).ToInt();
@@ -365,6 +369,13 @@ namespace ISILab.LBS.Manipulators
             
             _ended = true;
             _endClickPosition = MainView.Instance.FixPos(@event.localMousePosition).ToInt();
+            if (Feedback != null)
+            {
+                if (Feedback.fixAspect)
+                {
+                    _endClickPosition = Feedback.GetFixedEndPosition(StartPosition, EndPosition);
+                }
+            }
 
             EndFeedback();
 
@@ -374,7 +385,7 @@ namespace ISILab.LBS.Manipulators
                 UpdateView();
                 return;
             }
-
+            
             // right click tries deleting 
             if (@event.button == 1 && Remover != null)
             {
@@ -446,9 +457,14 @@ namespace ISILab.LBS.Manipulators
                     new LBSLog("'" + Name + "' action cancelled."));
                 Feedback?.SetDisplay(false);
             }
+            if (e.shiftKey) Feedback.fixAspect = true;
         }
-        
-        protected virtual void OnKeyUp(KeyUpEvent e) { }
+
+        protected virtual void OnKeyUp(KeyUpEvent e) {
+            if (!e.shiftKey) {
+                Feedback.fixAspect = false; 
+            }
+        }
         
         protected virtual void OnWheelEvent(WheelEvent e) { }
         #endregion

@@ -14,6 +14,7 @@ namespace ISILab.LBS.Manipulators
     {
         private static List<Vector2Int> Directions => Commons.Directions.Bidimencional.Edges;
         private ExteriorBehaviour _exterior;
+        private bool keepRatio;
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
 
         public AddExteriorTile()
@@ -32,14 +33,16 @@ namespace ISILab.LBS.Manipulators
         protected override void OnKeyDown(KeyDownEvent e)
         {
             base.OnKeyDown(e);
-            if (e.ctrlKey) LBSMainWindow.WarningManipulator("(CTRL) Preserving neighbour connections");
         }
         
         protected override void OnKeyUp(KeyUpEvent e)
         {
+            base.OnKeyUp(e);
             LBSMainWindow.WarningManipulator();
+            if (e.shiftKey) Feedback.fixAspect = false;
+
         }
-        
+
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
             base.OnMouseUp(element, endPosition, e);

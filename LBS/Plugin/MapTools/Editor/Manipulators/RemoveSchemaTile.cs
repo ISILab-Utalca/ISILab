@@ -9,6 +9,7 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using ISILab.LBS.Editor.Windows;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -34,6 +35,15 @@ namespace ISILab.LBS.Manipulators
             Feedback.TeselationSize = layer.TileSize;
             layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
         
+        }
+        protected override void OnKeyDown(KeyDownEvent e)
+        {
+            base.OnKeyDown(e);
+        }
+        protected override void OnKeyUp(KeyUpEvent e)
+        {
+            base.OnKeyUp(e);
+            LBSMainWindow.WarningManipulator();
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)

@@ -1,4 +1,5 @@
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Editor.Windows;
 using LBS.Components;
 using UnityEditor;
 using UnityEngine;
@@ -23,6 +24,15 @@ namespace ISILab.LBS.Manipulators
 
             _exterior = provider as ExteriorBehaviour;
             LBSLayer = layer;
+        }
+        protected override void OnKeyDown(KeyDownEvent e)
+        {
+            base.OnKeyDown(e);
+        }
+        protected override void OnKeyUp(KeyUpEvent e)
+        {
+            base.OnKeyUp(e);
+            LBSMainWindow.WarningManipulator();
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
