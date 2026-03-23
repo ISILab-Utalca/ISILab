@@ -326,7 +326,7 @@ namespace PathOS
 
             oldMapSize = mapScreenSize;
             oldViewSize = viewScreenSize;
-
+            //Debug.Log(agent.GetHealth());
             if (showHealthBar)
             {
                 //Setting health values

@@ -1,6 +1,7 @@
 
 using ISILab.LBS.Editor.Windows;
 using System;
+using System.Linq;
 using System.Threading;
 using UnityEditor;
 using UnityEngine;
@@ -31,7 +32,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             if (window == null) return;
 
             var existingLayers = window.GetLayers();
-
+            existingLayers.Reverse();
             for (int i = 0; i < generatedLayers.Count; i++)
             {
                 var layer = generatedLayers[i];

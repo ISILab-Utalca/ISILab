@@ -37,6 +37,8 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         #region METHODS
         public override bool Equals(object _obj)
         {
+            if (_obj == null) return false;
+
             LBSTile other = (LBSTile)_obj;
 
             if (other == null) return false;
