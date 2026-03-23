@@ -273,7 +273,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             printTool.tool.OnSelect += print.ClearPreview;
 
             print.OnManipulationMove = RedrawSelectedBlueprint;
-            print.DoPrintBlueprint = CreateBlueprintLayers;
+            print.DoPrintBlueprint = AddBlueprintToLevel;
 
             autoCaptureToggle.SetValueWithoutNotify(_captureArea.AutoCapture);
         }
@@ -316,13 +316,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #region BLUEPRINT MANIPULATOR METHODS
 
         private void CaptureBlueprint() => _captureArea?.DoCapture();
-        private void CreateBlueprintLayers()
+        private void AddBlueprintToLevel()
         {
             CreateBlueprintPreviewLayer();
             if (previewLayers.Count == 0) return;
             LoadedLevel loadedLevel = LBSController.CurrentLevel;
             generators[activeAddMode].CreateBlueprint(new List<LBSLayer>(previewLayers), loadedLevel, overwrite);
-           
+            PrintArea.ClearPreview();
+            
         
         }
 
