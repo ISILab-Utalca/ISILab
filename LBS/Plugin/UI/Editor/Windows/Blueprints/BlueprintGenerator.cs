@@ -53,6 +53,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             TaskBar.EnableProcess(false);
             OnTermination =null;
+
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(Level);
+            }
         }
         #endregion
 
@@ -63,6 +69,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         {
             if (loadedLevel == null || LBSMainWindow.Instance == null) return;
             this.overwrite = overwrite;
+
+            LoadedLevel level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Added Blueprint");
 
             modifiedLayers.Clear();
             generatedLayers.Clear();
@@ -80,7 +90,23 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     modifiedLayers = Generate(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
                     EditorApplication.delayCall += () =>
                     {
-                        OnTermination.Invoke("Blueprint Generated", LogType.Log, loadedLevel);
+                        string taskMessage = "";
+                        LogType logType = LogType.Log;
+                        if (modifiedLayers.Count == generatedLayers.Count) 
+                        { 
+                            taskMessage = "Blueprint Added to Level"; 
+                        }
+                        if (modifiedLayers.Count != generatedLayers.Count)
+                        { 
+                            taskMessage = "Blueprint Partially Added to Level";
+                            logType = LogType.Warning;
+                        }
+                        if (modifiedLayers.Count == 0) 
+                        { 
+                            taskMessage = "Failed to Add Blueprint to Level";
+                            logType = LogType.Error;
+                        }
+                        OnTermination.Invoke(taskMessage, logType, loadedLevel);
 
                     };
                 }

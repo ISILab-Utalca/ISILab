@@ -595,7 +595,7 @@ namespace ISILab.LBS.Editor.Windows
         {
             if (warningLabel == null) return;
             warningLabel.text = description;
-            warningNotification.visible = description != null;
+            warningNotification.visible = description != null && description != string.Empty;
         }
 
         private static void NotifyChange()

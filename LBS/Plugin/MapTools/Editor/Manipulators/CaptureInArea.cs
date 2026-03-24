@@ -29,7 +29,16 @@ namespace ISILab.LBS.Manipulators
         public List<LBSLayer> CapturedBlueprintData => capturedBlueprintData;
         protected override string IconGuid { get => "089a07d25e2a0a347b3e1ad8e0c2818b"; }
 
-        public bool AutoCapture { get => autoCapture; set => autoCapture = value; }
+        public bool AutoCapture
+        {
+            get => autoCapture;
+            set
+            {
+                string message = value == true ? "Auto Capture" : string.Empty;
+                LBSMainWindow.WarningManipulator(message);
+                autoCapture = value;
+            }
+        }
 
         public AreaFeedback AreaFeedback
         {
@@ -54,6 +63,8 @@ namespace ISILab.LBS.Manipulators
 
         #region ACTIONS
         public Action<List<LBSLayer>, Texture2D, Vector2Int> CaptureComplete;
+        public Action<KeyDownEvent> KeyDown;
+        public Action<KeyUpEvent> KeyUp;
         #endregion
 
         #region CONSTRUCTORS
@@ -71,8 +82,19 @@ namespace ISILab.LBS.Manipulators
         {
         }
 
+        protected override void OnKeyDown(KeyDownEvent e)
+        {
+            base.OnKeyDown(e);
+            KeyDown?.Invoke(e);
+        }
 
-        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) => ClearArea();
+        protected override void OnKeyUp(KeyUpEvent e)
+        {
+            base.OnKeyUp(e);
+            KeyUp?.Invoke(e);
+        }
+        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) 
+            => ClearArea();
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
@@ -146,7 +168,8 @@ namespace ISILab.LBS.Manipulators
             );
         }
 
-        public void ClearArea() => MainView.Instance.RemoveElement(AreaFeedback);
+        public void ClearArea() => 
+            MainView.Instance.RemoveElement(AreaFeedback);
 
         #endregion
 

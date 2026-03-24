@@ -1,5 +1,6 @@
 
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
@@ -45,12 +46,23 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                         var target = FindMergeTargetByName(existingLayers, layer);
 
                         if (target != null)
+
                             if (target.MergeLayerData(layer, overwrite))
                             {
                                 modifiedLayers.Add(layer);
                             }
                             else
+                            {
                                 LBSMainWindow.Instance.layerPanel.AddLayer(layer);
+                            }
+                        else
+                        {
+                            LBSLog log = new LBSLog(
+                                $"Failed to find >{layer.Name}< Named Layer. Can't add blueprint layer",
+                                LogType.Warning,
+                                4);
+                            LBSMainWindow.MessageNotify(log);
+                        }
                     };
 
                     onProgress?.Invoke((float)i / generatedLayers.Count);
