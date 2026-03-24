@@ -227,7 +227,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             for (int i = 0; i < filteredLayers.Count; i++)
             {
                 LBSLayer layer = filteredLayers[i];
-                string moduleID = (layer.ID.Equals("Exterior") && layer.Behaviours.Any(b => (bool)((b as ExteriorBehaviour)?.GridType.Equals(ConnectedTileMapModule.ConnectedTileType.VertexBased)))) ? "TempConnectedModule" : "";
+                string moduleID = (layer.ID.Equals("Exterior") && layer.Behaviours.Any(b => b is ExteriorBehaviour ext && ext.GridType.Equals(ConnectedTileMapModule.ConnectedTileType.VertexBased))) ? "TempConnectedModule" : "";
 
                 if (i == firstValid) combinedRect = layer.GetModule<ConnectedTileMapModule>(moduleID).GetBounds();
 
@@ -397,7 +397,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         }
                         break;
                     case "Exterior":
-                        List<string> floorTags = contextLayers[i].GetBehaviour<ExteriorBehaviour>().NavigableTags;
+                        var b = contextLayers[i].GetBehaviour<ExteriorBehaviour>();
+                        bool compatible = b.GridType.Equals(ConnectedTileMapModule.ConnectedTileType.VertexBased); // TODO: delete this condition when Edge-Exterior layers as context are implemented.
+                        List<string> floorTags = b.NavigableTags;
                         var connectedTM = contextLayers[i].GetModule<ConnectedTileMapModule>();
                         if (connectedTM is null)
                             continue;
@@ -405,13 +407,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         {
                             for (int k = y; k < y + rect.height; k++)
                             {
-                                TileConnectionsPair tilePair = connectedTM.GetPair(new Vector2Int(j, k));
-                                if (tilePair is null || !tilePair.IsFloor(floorTags))
-                                {
-                                    Vector2 pos = new Vector2(j, k) - rect.position;
-                                    int index = (int)(pos.y * rect.width + pos.x);
-                                    layerInvalids[i].Add(index);
-                                }
+                                if (compatible && IsFloorTile(connectedTM.GetPair(new Vector2Int(j, k))))
+                                    continue;
+                                
+                                Vector2 pos = new Vector2(j, k) - rect.position;
+                                int index = (int)(pos.y * rect.width + pos.x);
+                                layerInvalids[i].Add(index);
+
+                                bool IsFloorTile(TileConnectionsPair tilePair) => tilePair is not null && tilePair.IsFloor(floorTags);
                             }
                         }
                         break;
