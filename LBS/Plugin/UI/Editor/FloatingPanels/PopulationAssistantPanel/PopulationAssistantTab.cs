@@ -11,6 +11,8 @@ using ISILab.Extensions;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.VisualElements.Editor;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 
 namespace ISILab.LBS.Editor
 {
@@ -20,6 +22,7 @@ namespace ISILab.LBS.Editor
         [UxmlElementAttribute]
         public new class UxmlFactory { }
         #endregion
+        
         private PopulationAssistantWindow window;
 
         #region VIEW ELEMENTS
@@ -32,11 +35,26 @@ namespace ISILab.LBS.Editor
 
         private ListView mapElitesList;
         private AssistantMapElite target;
-        
+
+        //  Evaluator's Wizard 
+        private LBSCustomListView evaluatorList;
+        private LBSCustomTextField evaluatorGeneratorName; 
+        private LBSCustomToggleField evaluatorGeneratorInterface1; 
+        private LBSCustomToggleField evaluatorGeneratorInterface2; 
+        private LBSCustomToggleField evaluatorGeneratorInterface3; 
+        private LBSCustomButton evaluatorGeneratorCreateButton;
+        private LBSCustomButton evaluatorGeneratorOpenEvFolderButton;
+
+        // Evaluator's Parameter Editor (Should be in a new window but im writing it here in the meantime)
+        private LBSCustomListView parameterList;
+        private LBSCustomTextField parameterGeneratorName;
+        private LBSCustomToggle parameterGeneratorType;
+        private LBSCustomToggleField parameterGeneratorisList;
+        private LBSCustomButton parameterGeneratorAddButton;
+
         #endregion
 
         #region FIELDS
-        //private List<SavedMap> savedMapList = new ();
         private List<PopulationMapEntry> mapEntries = new ();
         #endregion
 
