@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.VisualElements;
 using System.Linq;
+using System;
+using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -95,7 +97,7 @@ namespace ISILab.LBS.VisualElements
 
         // grid position , fixed position
         protected List<(Vector2Int, Vector2Int)> line = new();
-        public List<Vector2Int> Line { get => GetListPositions(line, ListPositionType.Grid); }
+        public List<Vector2Int> Positions => GetListPositions(line, ListPositionType.Grid);
 
         public bool useVertices = false;
 
@@ -117,7 +119,7 @@ namespace ISILab.LBS.VisualElements
 
             // Return if new position is too far from last position
             float d = Vector2Int.Distance(line[line.Count - 1].Item1, p2Grid);
-            Debug.Log(line[line.Count - 1].Item1.x + " " + line[line.Count - 1].Item1.y + " : " + p2Grid.x + " " + p2Grid.y);
+            //Debug.Log(line[line.Count - 1].Item1.x + " " + line[line.Count - 1].Item1.y + " : " + p2Grid.x + " " + p2Grid.y);
             //Debug.Log(d);
             if (d >= 2) return;
 
@@ -134,23 +136,23 @@ namespace ISILab.LBS.VisualElements
                 if (LeftSide && leftSideValid)
                 {
                     line.Add((leftSideCorner, VectorGridToFixed(leftSideCorner)));
-                    Debug.Log("Se añadió: " + leftSideCorner.x + " " + leftSideCorner.y + " : " + VectorGridToFixed(leftSideCorner).x + " " + VectorGridToFixed(leftSideCorner).y);
+                    //Debug.Log("Se añadió: " + leftSideCorner.x + " " + leftSideCorner.y + " : " + VectorGridToFixed(leftSideCorner).x + " " + VectorGridToFixed(leftSideCorner).y);
                 }
                 else if (rightSideValid)
                 {
                     line.Add((rightSideCorner, VectorGridToFixed(rightSideCorner)));
-                    Debug.Log("Se añadió: " + rightSideCorner.x + " " + rightSideCorner.y + " : " + VectorGridToFixed(rightSideCorner).x + " " + VectorGridToFixed(rightSideCorner).y);
+                    //Debug.Log("Se añadió: " + rightSideCorner.x + " " + rightSideCorner.y + " : " + VectorGridToFixed(rightSideCorner).x + " " + VectorGridToFixed(rightSideCorner).y);
                 }
                 else
                 {
                     line.Add((leftSideCorner, VectorGridToFixed(leftSideCorner)));
-                    Debug.Log("Se añadió: " + leftSideCorner.x + " " + leftSideCorner.y + " : " + VectorGridToFixed(leftSideCorner).x + " " + VectorGridToFixed(leftSideCorner).y);
+                    //Debug.Log("Se añadió: " + leftSideCorner.x + " " + leftSideCorner.y + " : " + VectorGridToFixed(leftSideCorner).x + " " + VectorGridToFixed(leftSideCorner).y);
                 }
             }
 
             // Adds new position to line
             line.Add((p2Grid, p2));
-            Debug.Log("Se añadió: " + line[line.Count - 1].Item1.x + " " + line[line.Count - 1].Item1.y + " : " + p2.x + " " + p2.y);
+            //Debug.Log("Se añadió: " + line[line.Count - 1].Item1.x + " " + line[line.Count - 1].Item1.y + " : " + p2.x + " " + p2.y);
 
             // Calculate fixed position for every position in line
             if (fixToTeselation)
@@ -245,10 +247,13 @@ namespace ISILab.LBS.VisualElements
 
     public class StairsMemoryLine : ConnectedMemoryLine
     {
-        int _limit = 6;
+        int _limit = 4;
         bool _canContinue = true;
         bool _isValid = false;
+        StairShape _shape = StairShape.None;
+
         public bool IsValid { get => _isValid; }
+        public StairShape Shape { get => _shape; }
 
         public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
         {
@@ -256,61 +261,57 @@ namespace ISILab.LBS.VisualElements
             base.UpdatePositions(p1, p2);
 
             int linePositions = line.Count < _limit ? line.Count : _limit;
-            if (linePositions < 3) return;
+            if (linePositions < 2) return;
 
             List<Vector2Int> directions = new ();
             for (int i = 1; i < linePositions; i++)
             {
                 directions.Add(line[i].Item1 - line[i - 1].Item1);
             }
-            for (int i = 1; i < linePositions - 1; i++)
+            for (int i = 0; i < linePositions - 1; i++)
             {
                 switch (i)
                 {
+                    case 0:
+                        _shape = StairShape.Straight;
+                        currentColor = Color.green;
+                        _isValid = true;
+                        break;
                     case 1:
-                        if (directions[i] != directions[i - 1])
+                        if (directions[i] == directions[i - 1])
                         {
                             currentColor = Color.red;
                             _canContinue = false;
+                            _isValid = false;
+                        }
+                        else
+                        {
+                            _shape = StairShape.Corner;
+                            currentColor = Color.green;
+                            _isValid = true;
                         }
                         break;
                     case 2:
                         if (directions[i] == directions[i - 1])
                         {
-                            currentColor = Color.green;
-                            _canContinue = false;
-                            _isValid = true;
-                        }
-                        else if (!IsRotation(directions[i], directions[i - 1]))
-                        {
                             currentColor = Color.red;
                             _canContinue = false;
-                        }
-                        break;
-                    case 3:
-                        if (directions[i] == directions[i - 1])
-                        {
-                            currentColor = Color.green;
-                            _canContinue = false;
-                            _isValid = true;
-                        }
-                        else if (!IsRotation(directions[i], directions[i - 1]))
-                        {
-                            currentColor = Color.red;
-                            _canContinue = false;
-                        }
-                        break;
-                    case 4:
-                        if (directions[i] == directions[i - 1])
-                        {
-                            currentColor = Color.green;
-                            _canContinue = false; 
-                            _isValid = true;
+                            _isValid = false;
                         }
                         else
                         {
-                            currentColor = Color.red;
+                            if (directions[i] == directions[0])
+                            {
+                                _shape = StairShape.S_Shape;
+                            }
+                            else
+                            {
+                                _shape = StairShape.U_Shape;
+                            }
+
+                            currentColor = Color.green;
                             _canContinue = false;
+                            _isValid = true;
                         }
                         break;
                     default:
@@ -322,7 +323,7 @@ namespace ISILab.LBS.VisualElements
                 if (!_canContinue) break;
             }
 
-
+            /*
             bool IsRotation(Vector2Int a, Vector2Int b)
             {
                 if (a == new Vector2Int(b.y, b.x) || a == new Vector2Int(-b.y, b.x) ||
@@ -331,7 +332,7 @@ namespace ISILab.LBS.VisualElements
                     return true;
                 }
                 return false;
-            }
+            }//*/
         }
         protected override void OnGenerateVisualContent(MeshGenerationContext mgc)
         {
@@ -351,14 +352,8 @@ namespace ISILab.LBS.VisualElements
         {
             _canContinue = true;
             _isValid = false;
+            _shape = StairShape.None;
             line.Clear();
-        }
-        public enum StairShapes
-        {
-            None,
-            Straight,
-            Corner,
-
         }
     }
 }

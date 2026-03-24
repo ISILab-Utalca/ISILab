@@ -38,6 +38,7 @@ namespace ISILab.LBS.Behaviours.Editor
         private RemoveTileConnection removeTileConnection;
         private MoveSchemaZone moveSchemaZone;
         private RotateSchemaZone rotateSchemaZone;
+        private PlaceStairs placeStairs;
         #endregion
 
         #region VIEW FIELDS
@@ -98,6 +99,11 @@ namespace ISILab.LBS.Behaviours.Editor
             var t6 = new LBSTool(rotateSchemaZone);
             t6.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
 
+            placeStairs = new PlaceStairs();
+            var t7 = new LBSTool(placeStairs);
+            t7.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+
+
             addSchemaTile.SetRemover(removeSchemaTile);
             addTileConnection.SetRemover(removeTileConnection);
 
@@ -107,6 +113,7 @@ namespace ISILab.LBS.Behaviours.Editor
             toolKit.ActivateTool(t5, behaviour.OwnerLayer, behaviour);
             toolKit.ActivateTool(t3, behaviour.OwnerLayer, behaviour);
             toolKit.ActivateTool(t4, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t7, behaviour.OwnerLayer, behaviour);
 
             addSchemaTile.OnManipulationLeftClickCtrl += AddZone;
         }
