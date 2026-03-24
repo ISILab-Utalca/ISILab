@@ -54,21 +54,22 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             
             warningNotification = this.Q<VisualElement>("WarningNotification");
             warningText = this.Q<Label>("WarningText");
-            
-            
         }
 
 
-        public void Bind(LBSMainWindow _mainWindow)
+        public void Bind(LBSMainWindow _mainWindow, ref Label WarningText, ref VisualElement Warning)
         { 
             LBSMainWindow.notifier.SetButtons(clearNotificationButton, disableNotificationButton);
             warningNotification.visible = false;
+            Warning = warningNotification;
+            WarningText = warningText;
         }
 
-        public void SmallMessage(string _description)
+        public void SetToolText(string description)
         {
             if (toolLabel == null) return;
-            toolLabel.text = _description;
+            toolLabel.text = description;
+            toolLabel.visible = description != string.Empty;
         }
     }
 }

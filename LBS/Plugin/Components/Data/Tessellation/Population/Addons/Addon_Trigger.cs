@@ -19,5 +19,15 @@ namespace ISILab.LBS.Components
             triggers = InTriggers;
         }
 
+        public override object Clone()
+        {
+            Addon_Trigger clone = new Addon_Trigger();
+            foreach(var trigger in Triggers)
+            {
+                clone.Triggers.Add(trigger.Clone() as TileTrigger);
+            }
+            return clone;
+        
+        }
     }
 }

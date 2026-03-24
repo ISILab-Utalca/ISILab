@@ -19,7 +19,8 @@ namespace ISILab.LBS.Manipulators
 
         #region FIELDS
         private List<LBSLayer> capturedBlueprintData = new();
-        private AreaFeedback areaFeedback;
+        // overwrite the defalt feedback of teselation as behavior is inhertied to follow mouse position
+        private static AreaFeedback areaFeedback;
         private bool Capturing = false;
         private bool autoCapture = true;
         #endregion
@@ -29,6 +30,23 @@ namespace ISILab.LBS.Manipulators
         protected override string IconGuid { get => "089a07d25e2a0a347b3e1ad8e0c2818b"; }
 
         public bool AutoCapture { get => autoCapture; set => autoCapture = value; }
+
+        public AreaFeedback AreaFeedback
+        {
+            get
+            {
+                if(areaFeedback == null)
+                {
+                    areaFeedback = new AreaFeedback();
+                    areaFeedback.fixToTeselation = true;
+                    areaFeedback.preview = true;
+                    areaFeedback.SetColor(LBSSettings.Instance.view.warningColor);
+                }
+                return areaFeedback;
+            }
+
+            set => areaFeedback = value;
+        }
 
         #endregion
 
@@ -51,28 +69,22 @@ namespace ISILab.LBS.Manipulators
 
         public override void Init(LBSLayer layer, object owner)
         {
-            areaFeedback = new AreaFeedback();
-            areaFeedback.fixToTeselation = true;
-            areaFeedback.preview = true;
-            areaFeedback.SetColor(LBSSettings.Instance.view.warningColor); 
         }
 
-        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
-        {
-            ClearArea();
-        }
+
+        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) => ClearArea();
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            areaFeedback.UpdatePositions(StartPosition, EndPosition);
-            MainView.Instance.AddElement(areaFeedback);
+            AreaFeedback.UpdatePositions(StartPosition, EndPosition);
+            MainView.Instance.AddElement(AreaFeedback);
 
             if (AutoCapture)
             {
                 DoCapture();
             }
         
-            else areaFeedback.SetDisplay(true);
+            else AreaFeedback.SetDisplay(true);
         }
 
         public void DoCapture()
@@ -82,8 +94,8 @@ namespace ISILab.LBS.Manipulators
             Capturing = true;
             CapturedBlueprintData.Clear();
 
-            Vector2Int AreaStart = areaFeedback.StartPosition.ToInt();
-            Vector2Int AreaEnd = areaFeedback.EndPosition.ToInt();
+            Vector2Int AreaStart = AreaFeedback.StartPosition.ToInt();
+            Vector2Int AreaEnd = AreaFeedback.EndPosition.ToInt();
             
             /** Tesselation clamping adds bordering tiles, subtracting tilesize keeps the correct bounds
              */
@@ -112,7 +124,7 @@ namespace ISILab.LBS.Manipulators
                 AreaEnd.y
             );
 
-            areaFeedback.SetDisplay(false);
+            AreaFeedback.SetDisplay(false);
 
             // Failed to find any storable objects
             if (!CapturedBlueprintData.Any())
@@ -127,14 +139,14 @@ namespace ISILab.LBS.Manipulators
                 rect,
                 tex =>
                 {
-                    areaFeedback.SetDisplay(true);
+                    AreaFeedback.SetDisplay(true);
                     CaptureComplete?.Invoke(CapturedBlueprintData, tex, rect.size.ToInt());
                     Capturing = false;
                 }
             );
         }
 
-        public void ClearArea() => MainView.Instance.RemoveElement(areaFeedback);
+        public void ClearArea() => MainView.Instance.RemoveElement(AreaFeedback);
 
         #endregion
 

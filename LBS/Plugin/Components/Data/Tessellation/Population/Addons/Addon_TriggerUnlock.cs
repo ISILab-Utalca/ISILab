@@ -19,16 +19,36 @@ namespace ISILab.LBS.Components
 
         public Addon_TriggerUnlock() { }
 
-
+        public override object Clone()
+        {
+            Addon_TriggerUnlock clone = new Addon_TriggerUnlock();
+            foreach(var tue in Connections)
+            {
+                clone.Connections.Add(tue.Clone() as TriggerUnlockEntry);
+            }
+            return clone;
+        }
     }
 
     [Serializable]
-    public class TriggerUnlockEntry
+    public class TriggerUnlockEntry : ICloneable
     {
         public TriggerActivationMode ActivationMode = TriggerActivationMode.OnEnter;
         public List<Addon_Unlock> Unlocks = new();
 
         public TriggerUnlockEntry() { }
+
+        public object Clone()
+        {
+            TriggerUnlockEntry clone = new TriggerUnlockEntry();
+            clone.ActivationMode = ActivationMode;
+            foreach(var unlock in Unlocks)
+            {
+                clone.Unlocks.Add(unlock.Clone() as Addon_Unlock);
+            }
+            return clone;
+
+        }
     }
 
 }

@@ -1,3 +1,4 @@
+using ISILab.Commons.Extensions;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
@@ -546,7 +547,15 @@ namespace ISILab.LBS.Behaviours
             PopulationBehaviour Merger = incoming as PopulationBehaviour;
             if (Merger == null) return false;
 
-            for (int i = 0; i < Merger.TileMap.Tiles.Count; i++)
+            var cloneModules = Merger.TileMap.Clone() as TileMapModule;
+
+            List<TileBundleGroup> cloneTileBundle = new();
+            for(int x = 0; x < Merger.TileBundleGroup.Count; x++)
+            {
+                cloneTileBundle.Add(Merger.TileBundleGroup[x].Clone() as TileBundleGroup);
+            } 
+
+            for (int i = 0; i < cloneModules.Tiles.Count; i++)
             {
                 var incomingTile = Merger.TileMap.Tiles[i];
 
@@ -562,9 +571,9 @@ namespace ISILab.LBS.Behaviours
                 }
             }
 
-            for (int i = 0; i < Merger.TileBundleGroup.Count; i++)
+            for (int i = 0; i < cloneTileBundle.Count; i++)
             {
-                TileBundleGroup incomingTbg = Merger.TileBundleGroup[i];
+                TileBundleGroup incomingTbg = cloneTileBundle[i];
 
                 for (int j = 0; j < TileBundleGroup.Count; j++)
                 {

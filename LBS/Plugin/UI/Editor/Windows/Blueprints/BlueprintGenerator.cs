@@ -40,13 +40,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 EditorUtility.SetDirty(loadedLevel);
             }
-            foreach(var layer in generatedLayers)
+
+            var Level = (LoadedLevel)loadedLevel;
+            if (!overwrite)
+                DrawManager.Instance.RedrawLevel(Level.data);
+            else
             {
-                DrawManager.Instance.RedrawLayer(layer);
+                foreach (var modlayer in modifiedLayers)
+                    DrawManager.Instance.UpdateLayer(modlayer);
             }
-            List<LBSLayer> existingLayers = new List<LBSLayer>(modifiedLayers);
-            foreach (var existingLayer in existingLayers)
-                DrawManager.Instance.UpdateLayer(existingLayer);
 
 
             TaskBar.EnableProcess(false);
@@ -63,7 +65,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             this.overwrite = overwrite;
 
             modifiedLayers.Clear();
-            generatedLayers = layersToPrint;
+            generatedLayers.Clear();
+
+            for(int i = 0; i < layersToPrint.Count;i++)
+            {
+                generatedLayers.Add(layersToPrint[i].Clone() as LBSLayer);
+            }
+
             ((IAssistantThreadedEditor)this).SetUpTask(this, this);
             Task.Run(() =>
             {
@@ -74,7 +82,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     {
                         OnTermination.Invoke("Blueprint Generated", LogType.Log, loadedLevel);
 
-                        DrawManager.Instance.RedrawLevel(loadedLevel.data);
                     };
                 }
                 catch (Exception ex)

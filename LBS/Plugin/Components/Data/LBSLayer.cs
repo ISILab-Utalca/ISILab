@@ -413,11 +413,23 @@ namespace LBS.Components
 
         public static LBSFloor[] CloneFloorArray(LBSFloor[] input)
         {
+            /// Old version copied the same objects in new list - not cloning
+            /// output[i] = new LBSFloor(input[i].Modules);
+
+            /// New version - Cloning
             LBSFloor[] output = new LBSFloor[input.Length];
             for (int i = 0; i < output.Length; i++)
             {
-                output[i] = new LBSFloor(input[i].Modules);
+                var Modules = input[i].Modules;
+                List<LBSModule> Clones = new();
+                foreach(var module in Modules)
+                {
+                    Clones.Add(module.Clone() as LBSModule);
+                }
+
+                output[i] = new LBSFloor(Clones);
             }
+            /// New version - Cloning
             return output;
         }
         public override bool Equals(object obj)
