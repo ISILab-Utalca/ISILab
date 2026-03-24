@@ -192,6 +192,7 @@ namespace ISILab.AI.Categorization
                                 }
                                 break;
                             case PathfindingAlgorithm.JPS_Plus:
+                            case PathfindingAlgorithm.A_Star:
                                 for (int i = 0; i < size; i++)
                                 {
                                     distances[i, i] = 0;
@@ -203,12 +204,17 @@ namespace ISILab.AI.Categorization
                                             distances[i, j] = distances[j, i];
                                         else
                                         {
-                                            distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.JPSRun(POIs[i], POIs[j], chrom.Rect, connectedMod, ref info);
+                                            distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
+                                                EvaluatorHelper.AStarRun(POIs[i], POIs[j], chrom.Rect, connectedMod, ref info) :
+                                                EvaluatorHelper.JPSPlus.JPSRun(POIs[i], POIs[j], chrom.Rect, connectedMod, ref info);
                                             EvaluationInfo = info;
                                         }
                                     }
                                 }
                                 break;
+                            default:
+                                Debug.LogWarning("Algorithm not implemented. Executing JPS+ instead...");
+                                goto case PathfindingAlgorithm.JPS_Plus;
                         }
                         break;
                     default:
@@ -294,7 +300,7 @@ namespace ISILab.AI.Categorization
 
             if (CombinedLayer is null) return;
             string moduleID = CombinedLayer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
-            CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection);
+            CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection, searchType);
         }
 
         public void InitializeDefault()

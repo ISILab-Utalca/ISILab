@@ -375,8 +375,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                     for (int k = 0; k < dirCount; k++)
                     {
-                        List<string> currentDirConnections = new() { currentConnections[k / 2] };
-                        if (k % 2 != 0) currentDirConnections.Add(currentConnections[(k / 2 + 1) % 4]);
+                        int dir4low = k / 2;
+                        int dir4high = (dir4low + 1) % 4;
+                        List<string> currentDirConnections = new() { currentConnections[dir4low] };
+                        if (k % 2 != 0)
+                        {
+                            if (!(tilePos.ContainsKey(currentPos + dirs[dir4low * 2]) && 
+                                tilePos.ContainsKey(currentPos + dirs[dir4high * 2])))
+                                continue;
+                            currentDirConnections.Add(currentConnections[dir4high]);
+                        }
 
                         bool impassable = false;
                         foreach (string conn in currentDirConnections)
@@ -495,6 +503,265 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     found.Add(others[i]);
                 }
             }
+        }
+
+        public class AStarNode
+        {
+            public AStarNode parent;
+
+            public Vector2Int pos;
+
+            public int givenCost;
+
+            public int finalCost;
+
+            public AStarNode(Vector2Int pos) { this.pos = pos; }
+
+            public override bool Equals(object obj)
+            {
+                if (obj is not AStarNode other) return false;
+                return pos.Equals(other.pos);
+            }
+
+            public override int GetHashCode()
+            {
+                return pos.GetHashCode();
+            }
+
+            public override string ToString()
+            {
+                return $"{pos} | g = {givenCost} , h = {finalCost - givenCost} , f = {finalCost}";
+            }
+        }
+
+        public class JPSNode : AStarNode
+        {
+            public int fromDir;
+
+            public JPSNode(Vector2Int pos) : base(pos) { }
+
+            public override bool Equals(object obj) => base.Equals(obj);
+            public override int GetHashCode() => base.GetHashCode();
+            public override string ToString() => base.ToString();
+        }
+
+        public static int AStarRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
+        {
+            int cost = -1;
+            if (connectedTM is null) return cost;
+
+            PriorityQueue<AStarNode, int> open = new();
+            HashSet<AStarNode> closed = new();
+
+            AStarNode startNode = connectedTM.PathfindNodes[startInd];
+            startNode.parent = null;
+            startNode.givenCost = 0;
+            startNode.finalCost = 0;
+
+            open.Push(startNode, 0);
+
+            Vector2Int goalPos = area.ToGlobalPosition(goalInd);
+
+            while (!open.IsEmpty())
+            {
+                AStarNode current = open.Pop();
+
+                if(current.pos == goalPos)
+                {
+                    cost = current.givenCost;
+                    break;
+                }
+
+                //AStarNode parent = current.parent;
+
+                closed.Add(current);
+
+                List<string> currentConnections = connectedTM.GetConnections(current.pos);
+
+                List<Vector2Int> dirs = Directions.Bidimencional.All;
+                for(int i = 0; i < dirs.Count; i++)
+                {
+                    // Revisar muros
+                    int dir4low = i / 2;
+                    int dir4high = (dir4low + 1) % 4;
+                    List<string> currentDirConnections = new() { currentConnections[dir4low] };
+                    if (i % 2 != 0)
+                    {
+                        if(!(Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4low * 2])) is not null &&
+                            Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4high * 2])) is not null))
+                            continue;
+                        currentDirConnections.Add(currentConnections[dir4high]);
+                    }
+
+                    bool impassable = false;
+                    foreach(string conn in currentDirConnections)
+                    {
+                        if(!((conn.Length == 4 && conn == "Door") ||
+                            (conn.Length == 5 && conn == "Empty")))
+                        {
+                            impassable = true;
+                            break;
+                        }
+                    }
+                    if (impassable) continue;
+
+                    AStarNode newSuccesor = null;
+
+                    Vector2Int newPos = current.pos + dirs[i];
+
+                    List<string> newConnections = connectedTM.GetConnections(newPos);
+                    List<string> newDirConnections = new() { newConnections[(dir4low + 2) % 4] };
+                    if (i % 2 != 0) newDirConnections.Add(newConnections[(dir4high + 2) % 4]);
+
+                    foreach (string conn in newDirConnections)
+                    {
+                        if (!((conn.Length == 4 && conn == "Door") ||
+                          (conn.Length == 5 && conn == "Empty")))
+                        {
+                            impassable = true;
+                            break;
+                        }
+                    }
+                    if (impassable) continue;
+
+                    if (connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] is null)
+                    {
+                        //newSuccesor = new AStarNode(newPos);
+                        //connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] = newSuccesor;
+                    }
+                    else
+                    {
+                        newSuccesor = connectedTM.PathfindNodes[area.GlobalToIndex(newPos)];
+                    }
+                    int givenCost = current.givenCost + 1;
+
+                    if(newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                    {
+                        newSuccesor.parent = current;
+                        newSuccesor.givenCost = givenCost;
+
+                        int dx = goalPos.x - newSuccesor.pos.x,
+                            dy = goalPos.y - newSuccesor.pos.y;
+                        newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+
+                        open.Push(newSuccesor, newSuccesor.finalCost);
+                        evalInfo.visitedNodes++;
+                    }
+                }
+                ;
+            }
+
+            return cost;
+        }
+
+        public static int PartialAStarRun(int limit, int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
+        {
+            int cost = -1;
+            if (connectedTM is null) return cost;
+
+            PriorityQueue<AStarNode, int> open = new();
+            HashSet<AStarNode> closed = new();
+
+            AStarNode startNode = connectedTM.PathfindNodes[startInd];
+            startNode.parent = null;
+            startNode.givenCost = 0;
+            startNode.finalCost = 0;
+
+            open.Push(startNode, 0);
+
+            Vector2Int goalPos = area.ToGlobalPosition(goalInd);
+
+            while (!open.IsEmpty())
+            {
+                AStarNode current = open.Pop();
+
+                if (current.pos == goalPos)
+                {
+                    cost = current.givenCost;
+                    break;
+                }
+
+                //AStarNode parent = current.parent;
+
+                closed.Add(current);
+
+                List<string> currentConnections = connectedTM.GetConnections(current.pos);
+
+                List<Vector2Int> dirs = Directions.Bidimencional.All;
+
+                for (int i = 0; i < dirs.Count; i++)
+                {
+                    // Revisar muros
+                    int dir4low = i / 2;
+                    int dir4high = (dir4low + 1) % 4;
+                    List<string> currentDirConnections = new() { currentConnections[dir4low] };
+                    if (i % 2 != 0)
+                    {
+                        if (!(Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4low * 2])) is not null &&
+                            Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4high * 2])) is not null))
+                            continue;
+                        currentDirConnections.Add(currentConnections[dir4high]);
+                    }
+
+                    bool impassable = false;
+                    foreach (string conn in currentDirConnections)
+                    {
+                        if (!((conn.Length == 4 && conn == "Door") ||
+                            (conn.Length == 5 && conn == "Empty")))
+                        {
+                            impassable = true;
+                            break;
+                        }
+                    }
+                    if (impassable) continue;
+
+                    AStarNode newSuccesor = null;
+
+                    Vector2Int newPos = current.pos + dirs[i];
+
+                    List<string> newConnections = connectedTM.GetConnections(newPos);
+                    List<string> newDirConnections = new() { newConnections[(dir4low + 2) % 4] };
+                    if(i % 2 != 0) newDirConnections.Add(newConnections[(dir4high + 2) % 4]);
+
+                    foreach (string conn in newDirConnections)
+                    {
+                        if (!((conn.Length == 4 && conn == "Door") ||
+                          (conn.Length == 5 && conn == "Empty")))
+                        {
+                            impassable = true;
+                            break;
+                        }
+                    }
+                    if (impassable) continue;
+
+                    if (connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] is null)
+                    {
+                        //newSuccesor = new AStarNode(newPos);
+                        //connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] = newSuccesor;
+                    }
+                    else
+                    {
+                        newSuccesor = connectedTM.PathfindNodes[area.GlobalToIndex(newPos)];
+                    }
+                    int givenCost = current.givenCost + 1;
+
+                    if (givenCost <= limit && newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                    {
+                        newSuccesor.parent = current;
+                        newSuccesor.givenCost = givenCost;
+
+                        int dx = goalPos.x - newSuccesor.pos.x,
+                            dy = goalPos.y - newSuccesor.pos.y;
+                        newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+
+                        open.Push(newSuccesor, newSuccesor.finalCost);
+                        evalInfo.visitedNodes++;
+                    }
+                }
+                ;
+            }
+
+            return cost;
         }
 
         public static class JPSPlus
@@ -768,23 +1035,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 return JPDistances;
             }
 
-            public class JPSNode
-            {
-                public JPSNode parent;
-
-                public Vector2Int pos;
-
-                public int givenCost;
-
-                public int finalCost;
-
-                public int fromDir;
-
-                public JPSNode() { }
-
-                public JPSNode(Vector2Int pos) { this.pos = pos; }
-            }
-
             private static readonly List<int[]> validDirLookUpTable = new()
             {
                 new[] {6, 7, 0, 1, 2},
@@ -802,11 +1052,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 int cost = -1;
                 if (connectedTM is null) return cost;
 
-                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.PathfindDistances;
+                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
                 PriorityQueue<JPSNode, int> open = new();
 
-                JPSNode startNode = connectedTM.JPSNodes[startInd];
+                JPSNode startNode = connectedTM.PathfindNodes[startInd] as JPSNode;
                 startNode.parent = null;
                 startNode.givenCost = 0;
                 startNode.finalCost = 0;
@@ -820,14 +1070,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 while (!open.IsEmpty())
                 {
                     JPSNode current = open.Pop();
-                    JPSNode parent = current.parent;
-                    int[] nodeDistances = JPDistances[current.pos];
 
                     if (current.pos == goalPos)
                     {
                         cost = current.givenCost;
                         break;
                     }
+
+                    //JPSNode parent = current.parent as JPSNode;
+                    int[] nodeDistances = JPDistances[current.pos];
 
                     int[] dirs = current.parent is null ? new[] { 0, 1, 2, 3, 4, 5, 6, 7 } : validDirLookUpTable[current.fromDir];
                     foreach (int dir in dirs)
@@ -841,7 +1092,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             GoalAtDirection(current.pos, dir, goalPos, true) &&
                             maxGoalDiff <= Mathf.Abs(nodeDistances[dir]))
                         {
-                            newSuccesor = connectedTM.JPSNodes[goalInd];
+                            newSuccesor = connectedTM.PathfindNodes[goalInd] as JPSNode;
                             givenCost = current.givenCost + maxGoalDiff;
                         }
                         else if (dir % 2 == 1 &&
@@ -876,7 +1127,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 while (targetJumpPoints.Count > 0)
                 {
-                    connectedTM.JPSNodes[targetJumpPoints[0]] = null;
+                    connectedTM.PathfindNodes[targetJumpPoints[0]] = null;
                     targetJumpPoints.RemoveAt(0);
                 }
 
@@ -914,15 +1165,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     Vector2Int move = dirs[dir] * dist;
                     Vector2Int newPos = pos + move;
 
-                    if (connectedTM.JPSNodes[area.GlobalToIndex(newPos)] is null)
+                    if (connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] is null)
                     {
                         newNode = new JPSNode(newPos);
-                        connectedTM.JPSNodes[area.GlobalToIndex(newPos)] = newNode;
+                        connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] = newNode;
                         targetJumpPoints.Add(area.GlobalToIndex(newPos));
                     }
                     else
                     {
-                        newNode = connectedTM.JPSNodes[area.GlobalToIndex(newPos)];
+                        newNode = connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] as JPSNode;
                     }
 
                     return newNode;
@@ -934,11 +1185,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 int cost = -1;
                 if (connectedTM is null) return cost;
 
-                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.PathfindDistances;
+                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
                 PriorityQueue<JPSNode, int> open = new();
 
-                JPSNode startNode = connectedTM.JPSNodes[startInd];
+                JPSNode startNode = connectedTM.PathfindNodes[startInd] as JPSNode;
                 startNode.parent = null;
                 startNode.givenCost = 0;
                 startNode.finalCost = 0;
@@ -952,7 +1203,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 while (!open.IsEmpty())
                 {
                     JPSNode current = open.Pop();
-                    JPSNode parent = current.parent;
+                    JPSNode parent = current.parent as JPSNode;
                     int[] nodeDistances = JPDistances[current.pos];
 
                     if (current.pos == goalPos)
@@ -973,7 +1224,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             GoalAtDirection(current.pos, dir, goalPos, true) &&
                             maxGoalDiff <= Mathf.Abs(nodeDistances[dir]))
                         {
-                            newSuccesor = connectedTM.JPSNodes[goalInd];
+                            newSuccesor = connectedTM.PathfindNodes[goalInd] as JPSNode;
                             givenCost = current.givenCost + maxGoalDiff;
                         }
                         else if (dir % 2 == 1 &&
@@ -1008,7 +1259,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 while (targetJumpPoints.Count > 0)
                 {
-                    connectedTM.JPSNodes[targetJumpPoints[0]] = null;
+                    connectedTM.PathfindNodes[targetJumpPoints[0]] = null;
                     targetJumpPoints.RemoveAt(0);
                 }
 
@@ -1046,15 +1297,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     Vector2Int move = dirs[dir] * dist;
                     Vector2Int newPos = pos + move;
 
-                    if (connectedTM.JPSNodes[area.GlobalToIndex(newPos)] is null)
+                    if (connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] is null)
                     {
                         newNode = new JPSNode(newPos);
-                        connectedTM.JPSNodes[area.GlobalToIndex(newPos)] = newNode;
+                        connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] = newNode;
                         targetJumpPoints.Add(area.GlobalToIndex(newPos));
                     }
                     else
                     {
-                        newNode = connectedTM.JPSNodes[area.GlobalToIndex(newPos)];
+                        newNode = connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] as JPSNode;
                     }
 
                     return newNode;
