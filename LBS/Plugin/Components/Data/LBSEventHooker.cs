@@ -9,7 +9,7 @@ namespace ISILab.LBS.Plugin.Components.Data
 {
 
     [Serializable]
-    public class LBSEventHooker : ISerializationCallbackReceiver
+    public class LBSEventHooker : ISerializationCallbackReceiver, ICloneable
     {
         #region FIELDS
         [SerializeField] private List<UnityActionStored> registeredActions = new();
@@ -92,6 +92,13 @@ namespace ISILab.LBS.Plugin.Components.Data
                 unityAction.eventType = eventType;
                 RegisteredActions[i] = unityAction;
             }
+        }
+
+        public object Clone()
+        {
+            LBSEventHooker clone = new LBSEventHooker();
+            clone.Clone(this);
+            return clone;
         }
 
 

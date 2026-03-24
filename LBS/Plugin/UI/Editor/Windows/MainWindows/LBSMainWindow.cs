@@ -326,8 +326,8 @@ namespace ISILab.LBS.Editor.Windows
 
             #region NOTIFIER TOOLBAR
 
-            infoToolBar.Bind(this);
-
+            infoToolBar.Bind(this, ref warningLabel, ref warningNotification);
+            
             #endregion
             
 
@@ -595,7 +595,7 @@ namespace ISILab.LBS.Editor.Windows
         {
             if (warningLabel == null) return;
             warningLabel.text = description;
-            warningNotification.visible = description != null;
+            warningNotification.visible = description != null && description != string.Empty;
         }
 
         private static void NotifyChange()
@@ -654,10 +654,7 @@ namespace ISILab.LBS.Editor.Windows
                 lbsMessage.duration);
         }
 
-        public void MessageManipulator(string description)
-        {
-            infoToolBar?.SmallMessage(description);
-        }
+        public void MessageManipulator(string description) => infoToolBar?.SetToolText(description);
 
         public static void GridPosition(Vector2 pos)
         {

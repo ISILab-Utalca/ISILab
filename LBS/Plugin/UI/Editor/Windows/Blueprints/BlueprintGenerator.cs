@@ -40,17 +40,25 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 EditorUtility.SetDirty(loadedLevel);
             }
-            foreach(var layer in generatedLayers)
+
+            var Level = (LoadedLevel)loadedLevel;
+            if (!overwrite)
+                DrawManager.Instance.RedrawLevel(Level.data);
+            else
             {
-                DrawManager.Instance.RedrawLayer(layer);
+                foreach (var modlayer in modifiedLayers)
+                    DrawManager.Instance.UpdateLayer(modlayer);
             }
-            List<LBSLayer> existingLayers = new List<LBSLayer>(modifiedLayers);
-            foreach (var existingLayer in existingLayers)
-                DrawManager.Instance.UpdateLayer(existingLayer);
 
 
             TaskBar.EnableProcess(false);
             OnTermination =null;
+
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(Level);
+            }
         }
         #endregion
 
@@ -62,8 +70,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             if (loadedLevel == null || LBSMainWindow.Instance == null) return;
             this.overwrite = overwrite;
 
+            LoadedLevel level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Added Blueprint");
+
             modifiedLayers.Clear();
-            generatedLayers = layersToPrint;
+            generatedLayers.Clear();
+
+            for(int i = 0; i < layersToPrint.Count;i++)
+            {
+                generatedLayers.Add(layersToPrint[i].Clone() as LBSLayer);
+            }
+
             ((IAssistantThreadedEditor)this).SetUpTask(this, this);
             Task.Run(() =>
             {
@@ -72,9 +90,24 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     modifiedLayers = Generate(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
                     EditorApplication.delayCall += () =>
                     {
-                        OnTermination.Invoke("Blueprint Generated", LogType.Log, loadedLevel);
+                        string taskMessage = "";
+                        LogType logType = LogType.Log;
+                        if (modifiedLayers.Count == generatedLayers.Count) 
+                        { 
+                            taskMessage = "Blueprint Added to Level"; 
+                        }
+                        if (modifiedLayers.Count != generatedLayers.Count)
+                        { 
+                            taskMessage = "Blueprint Partially Added to Level";
+                            logType = LogType.Warning;
+                        }
+                        if (modifiedLayers.Count == 0) 
+                        { 
+                            taskMessage = "Failed to Add Blueprint to Level";
+                            logType = LogType.Error;
+                        }
+                        OnTermination.Invoke(taskMessage, logType, loadedLevel);
 
-                        DrawManager.Instance.RedrawLevel(loadedLevel.data);
                     };
                 }
                 catch (Exception ex)

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public class Addon_Patrol : BundleTileMapAddons, ICloneable
+    public class Addon_Patrol : BundleTileMapAddons
     {
         [SerializeField]
         private bool loops;
@@ -42,10 +42,12 @@ namespace ISILab.LBS.Components
             loops = Loops;
         }
 
-        object ICloneable.Clone()
+        public override object Clone()
         {
-            return new Addon_Patrol(points, loops);
+            Addon_Patrol clone = new Addon_Patrol();
+            clone.Loops = Loops;
+            clone.Points = Points;
+            return clone;
         }
-
     }
 }

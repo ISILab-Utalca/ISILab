@@ -19,7 +19,8 @@ namespace ISILab.LBS.Manipulators
         private Blueprint blueprintToPrint;
         private Vector2Int FeedbackPosition;
         internal static object AddingMode;
-        internal static AreaFeedback previewAreaFeedback;
+        // overwrite the defalt feedback of teselation as behavior is inhertied to follow mouse position
+        internal static AreaFeedback areaFeedback;
         #endregion
 
         #region PROPERTIES
@@ -28,6 +29,22 @@ namespace ISILab.LBS.Manipulators
             set
             {
                 blueprintToPrint = value;
+            }
+        }
+
+        public AreaFeedback AreaFeedback
+        {
+            get
+            {
+                if(areaFeedback == null)
+                {
+                    areaFeedback = new AreaFeedback();
+                    areaFeedback.fixToTeselation = true;
+                    areaFeedback.preview = true;
+                    areaFeedback.SetColor(Color.white);
+                    Feedback.style.visibility = Visibility.Hidden;
+                }
+                return areaFeedback;
             }
         }
         protected override string IconGuid { get => "1900398b34c127b4bb80edadb9ef397b"; }
@@ -52,20 +69,13 @@ namespace ISILab.LBS.Manipulators
         #region METHODS
         public override void Init(LBSLayer layer, object owner)
         {
-            previewAreaFeedback = new AreaFeedback();
-            previewAreaFeedback.fixToTeselation = true;
-            previewAreaFeedback.preview = true;
-            previewAreaFeedback.SetColor(Color.white);
             Feedback.style.visibility = Visibility.Hidden;
-            //Feedback.SetEnabled(false);
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
             base.OnMouseUp(element, endPosition, e);
-            previewAreaFeedback.UpdatePositions(StartPosition, EndPosition);
-          //  Feedback.SetEnabled(false);
-
+            AreaFeedback.UpdatePositions(StartPosition, EndPosition);
         }
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
@@ -73,13 +83,10 @@ namespace ISILab.LBS.Manipulators
             base.OnMouseDown(element, startPosition, e);
             // Draw or create layers
             DoPrintBlueprint?.Invoke();
-          //  Feedback.SetEnabled(false);
-
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
         {
-           // Feedback.SetEnabled(false);
             Feedback.style.display = DisplayStyle.None;
             ClearPreview();
             LBSLayer selectedLayer = LBSMainWindow.Instance._selectedLayer;
@@ -90,12 +97,12 @@ namespace ISILab.LBS.Manipulators
             //subtracting vector because default tile size is 100
             var size = blueprintToPrint.Size;
             FeedbackPosition = movePosition;
-            previewAreaFeedback.UpdatePositions(FeedbackPosition, FeedbackPosition + size - new Vector2Int(100, 100));
-            MainView.Instance.AddElement(previewAreaFeedback);
+            AreaFeedback.UpdatePositions(FeedbackPosition, FeedbackPosition + size - new Vector2Int(100, 100));
+            MainView.Instance.AddElement(AreaFeedback);
 
         }
 
-        public void ClearPreview() => MainView.Instance.RemoveElement(previewAreaFeedback);
+        public void ClearPreview() => MainView.Instance.RemoveElement(AreaFeedback);
 
         #endregion
 

@@ -35,7 +35,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     EditorApplication.delayCall += () =>
                     {
                         if (LBSMainWindow.Instance != null)
+                        {
                             LBSMainWindow.Instance.layerPanel.AddLayer(layer);
+                            modifiedLayer.Add(layer);
+                        }
                     };
 
                     onProgress?.Invoke((float)index / generatedLayers.Count);

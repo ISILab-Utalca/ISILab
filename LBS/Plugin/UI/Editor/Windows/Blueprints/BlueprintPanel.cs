@@ -95,17 +95,31 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #endregion
 
         #region PROPERTIES
-        public static BlueprintPanel Instance => _instance;
+        public static BlueprintPanel Instance
+        {
+            get
+            {
+                return _instance;
+            }
+            set
+            {
+                if (_instance != null) return;
+                _instance = value;
+            }
+        }
+
         public CaptureInArea CaptureManipulator
         {
             get => _captureArea;
             set
             {
-                if (_captureArea != null) return;
+                if (value == null) return;
                 _captureArea = value;
                 if (_captureArea != null) 
                 {
                     _captureArea.CaptureComplete = CaptureComplete;
+                    _captureArea.KeyDown = OnKeyDown;
+                    _captureArea.KeyUp = OnKeyUp;
                 }
             }
         }
@@ -125,6 +139,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             get => selectedBlueprint;
             set
             {
+                Focus();
                 selectedBlueprint = value;
                 if(selectedBlueprint is null)
                 {
@@ -160,7 +175,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #region CONSTRUCTORS
         public BlueprintPanel() : base()
         {
-            _instance = this;
+
+            Instance = this;
+            focusable = true;
 
             visualTreeAsset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("BlueprintPanel");
             visualTreeAsset.CloneTree(this);
@@ -208,7 +225,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             LoadBlueprints();
 
             pickingMode = PickingMode.Ignore;
- 
+            RegisterCallback<KeyUpEvent>(evt => OnKeyUp(evt));
+            RegisterCallback<KeyDownEvent>(evt => OnKeyDown(evt));
         }
         #endregion
 
@@ -267,6 +285,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             captureTool.tool.OnDeselect += capture.ClearArea;
             captureTool.tool.OnDeselect += ClearPreviews;
             captureTool.tool.OnSelect += capture.ClearArea;
+            captureTool.tool.OnSelect += ()=> Focus();
 
             printTool.tool.OnDeselect += print.ClearPreview;
             printTool.tool.OnDeselect += ClearPreviews;
@@ -275,7 +294,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             print.OnManipulationMove = RedrawSelectedBlueprint;
             print.DoPrintBlueprint = AddBlueprintToLevel;
 
-            autoCaptureToggle.SetValueWithoutNotify(_captureArea.AutoCapture);
+            autoCaptureToggle.SetValueWithoutNotify(CaptureManipulator.AutoCapture);
         }
 
         public void LoadBlueprints()
@@ -298,8 +317,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 {
                     foreach (var entry in entries) entry.SetSelected(false);
                     SelectedBlueprint = bpEntry.Blueprint;
+ 
                 };
-
+              
                 scrollView.Add(bpEntry);
                 entries.Add(bpEntry);
             }
@@ -310,6 +330,28 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             defaultEntry.pickingMode = PickingMode.Ignore;
 
             ClearPreviews();
+        }
+
+        internal void OnKeyDown(KeyDownEvent evt)
+        {
+            if (evt.keyCode == KeyCode.Delete)
+            {
+                DeleteSelectedBlueprint();
+            }
+
+            if (evt.keyCode == KeyCode.LeftControl && 
+                ToolKit.Instance.GetActiveManipulatorInstance().GetType() == typeof(CaptureInArea))
+            {
+                autoCaptureToggle.value = true;
+            }
+        }
+
+        internal void OnKeyUp(KeyUpEvent evt)
+        {
+            if (evt.keyCode == KeyCode.LeftControl)
+            {
+                autoCaptureToggle.value = false;
+            }
         }
         #endregion
 
