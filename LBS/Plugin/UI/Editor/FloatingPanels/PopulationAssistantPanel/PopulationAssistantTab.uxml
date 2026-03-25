@@ -8,16 +8,16 @@
         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
         <ISILab.LBS.CustomComponents.LBSCustomHeader text="Evaluators" icon-color="#C2F671FF" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Manipulators/Icon=Lens.svg?fileID=7388822144124034973&amp;guid=62e7dd1353e2943429fd736f5b600695&amp;type=3#Icon=Lens">
             <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluators List" initial-value="true" name="LBSCustomFoldout_evList" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
-                <ISILab.LBS.CustomComponents.LBSCustomListView />
+                <ISILab.LBS.CustomComponents.LBSCustomListView name="evList" />
             </ISILab.LBS.CustomComponents.LBSCustomFoldout>
         </ISILab.LBS.CustomComponents.LBSCustomHeader>
         <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluator Generator" initial-value="true" name="LBSCustomFoldout_evGen" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
-            <ISILab.LBS.CustomComponents.LBSCustomTextField label="Name" />
-            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="LBSCustomToggleField" label="Interface 1" />
-            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="LBSCustomToggleField" label="Interface 2" />
-            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="LBSCustomToggleField" label="Interface 3" />
-            <ISILab.LBS.CustomComponents.LBSCustomButton text="Generate Evaluator" />
-            <ISILab.LBS.CustomComponents.LBSCustomButton text="Open Evaluators Folder" />
+            <ISILab.LBS.CustomComponents.LBSCustomTextField label="Name" name="evGenName" />
+            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle1" label="Interface 1" />
+            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle2" label="Interface 2" />
+            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle3" label="Interface 3" style="align-items: flex-end;" />
+            <ISILab.LBS.CustomComponents.LBSCustomButton text="Generate Evaluator" name="evGenGenerateButton" />
+            <ISILab.LBS.CustomComponents.LBSCustomButton text="Open Evaluators Folder" name="evGenOpenFolderButton" />
         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
     </ui:VisualElement>
 </ui:UXML>

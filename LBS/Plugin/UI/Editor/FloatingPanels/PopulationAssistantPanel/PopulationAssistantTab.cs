@@ -1,18 +1,19 @@
+using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
-using UnityEngine;
-using UnityEngine.UIElements;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
+using LBS.Components.TileMap;
 using System.Collections.Generic;
 using UnityEditor;
-using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Behaviours;
-using LBS.Components.TileMap;
-using ISILab.Extensions;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
-using ISILab.LBS.VisualElements.Editor;
-using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.ObjectChangeEventStream;
 
 namespace ISILab.LBS.Editor
 {
@@ -22,15 +23,15 @@ namespace ISILab.LBS.Editor
         [UxmlElementAttribute]
         public new class UxmlFactory { }
         #endregion
-        
+
         private PopulationAssistantWindow window;
 
         #region VIEW ELEMENTS
         private VisualElement mapEliteContent;
         private VisualElement savedElitesContent;
-        
+
         private Foldout mapEliteFoldout;
-        
+
         private Button buttonMapElitesAssistant;
 
         private ListView mapElitesList;
@@ -38,10 +39,10 @@ namespace ISILab.LBS.Editor
 
         //  Evaluator's Wizard 
         private LBSCustomListView evaluatorList;
-        private LBSCustomTextField evaluatorGeneratorName; 
-        private LBSCustomToggleField evaluatorGeneratorInterface1; 
-        private LBSCustomToggleField evaluatorGeneratorInterface2; 
-        private LBSCustomToggleField evaluatorGeneratorInterface3; 
+        private LBSCustomTextField evaluatorGeneratorName;
+        private LBSCustomToggleField evaluatorGeneratorInterface1;
+        private LBSCustomToggleField evaluatorGeneratorInterface2;
+        private LBSCustomToggleField evaluatorGeneratorInterface3;
         private LBSCustomButton evaluatorGeneratorCreateButton;
         private LBSCustomButton evaluatorGeneratorOpenEvFolderButton;
 
@@ -55,7 +56,8 @@ namespace ISILab.LBS.Editor
         #endregion
 
         #region FIELDS
-        private List<PopulationMapEntry> mapEntries = new ();
+        private List<PopulationMapEntry> mapEntries = new();
+        //private List<Evaluator> evaluatorsList = new ();
         #endregion
 
         #region PROPERTIES
@@ -67,6 +69,24 @@ namespace ISILab.LBS.Editor
         {
             get => TargetLayer.Parent.GetSavedMaps(TargetLayer)?.Maps;
             set => TargetLayer.Parent.GetSavedMaps(TargetLayer).Maps = value;
+        }
+        #endregion
+
+        #region STRUCTURES
+        public struct EvaluatorGeneratorData
+        {
+            public string name;
+            public bool interface1;
+            public bool interface2;
+            public bool interface3;
+
+            public EvaluatorGeneratorData(string name, bool i1, bool i2, bool i3)
+            {
+                this.name = name;
+                interface1 = i1;
+                interface2 = i2;
+                interface3 = i3;
+            }
         }
         #endregion
 
@@ -87,14 +107,14 @@ namespace ISILab.LBS.Editor
 
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationAssistantTab");
             visualTree.CloneTree(this);
-            
+
             //Main thing
             mapEliteFoldout = this.Q<Foldout>("FoldoutMapElites");
             mapEliteContent = this.Q<VisualElement>("MapEliteContent");
-            
+
             //Assistant button
             buttonMapElitesAssistant = this.Q<Button>("ButtonMapElitesAssistant");
-            buttonMapElitesAssistant.clicked += ()=>
+            buttonMapElitesAssistant.clicked += () =>
             {
                 if (!window)
                 {
@@ -113,8 +133,8 @@ namespace ISILab.LBS.Editor
             //Guess that counts as disable by default anyway...? -Alice
             mapElitesList.reorderable = false;
 
-            mapElitesList.makeItem = () => new PopulationMapEntry(); 
-            
+            mapElitesList.makeItem = () => new PopulationMapEntry();
+
             mapElitesList.bindItem = (element, index) =>
             {
                 var mapEntryVE = element as PopulationMapEntry;
@@ -128,7 +148,7 @@ namespace ISILab.LBS.Editor
                 mapEntryVE.RemoveMapEntry = null;
                 mapEntryVE.RemoveMapEntry += () =>
                 {
-                    Debug.Log("Remove at " +index);
+                    Debug.Log("Remove at " + index);
                     mapEntries.RemoveAt(index);
                     RemoveMap(index);
                     mapElitesList.Rebuild();
@@ -141,6 +161,16 @@ namespace ISILab.LBS.Editor
                 };
             };
             mapElitesList.itemsSource = mapEntries;
+
+            //Evaluators
+            evaluatorList = this.Q<LBSCustomListView>("evList");
+            evaluatorGeneratorName = this.Q<LBSCustomTextField>("evGenName");
+            evaluatorGeneratorInterface1 = this.Q<LBSCustomToggleField>("evGenToggle1");
+            evaluatorGeneratorInterface2 = this.Q<LBSCustomToggleField>("evGenToggle2");
+            evaluatorGeneratorInterface3 = this.Q<LBSCustomToggleField>("evGenToggle3");
+            evaluatorGeneratorCreateButton = this.Q<LBSCustomButton>("evGenGenerateButton");
+            evaluatorGeneratorOpenEvFolderButton = this.Q<LBSCustomButton>("evGenOpenFolderButton");
+
         }
         #endregion
 
@@ -174,13 +204,13 @@ namespace ISILab.LBS.Editor
             if (SavedMapList == null) return;
 
             var data = TargetLayer.Parent;
-            
+
             //Clear map entries
             mapEntries.Clear();
 
-            if (SavedMapList.Count>0)
+            if (SavedMapList.Count > 0)
             {
-                foreach(SavedMap map in SavedMapList)
+                foreach (SavedMap map in SavedMapList)
                 {
                     //Make a new visual element to set it up later
                     var mapEntryVE = new PopulationMapEntry();
@@ -223,7 +253,55 @@ namespace ISILab.LBS.Editor
 
             layerPopulation.OwnerLayer.OnChangeUpdate();
         }
+
+        //  Evaluators Wizard Methods
+
+        //GetAllEvaluators()
+        //UpdateEvaluatorsList()
+        public EvaluatorGeneratorData GetEvGenData()
+        {
+            return new EvaluatorGeneratorData(
+                evaluatorGeneratorName.value,
+                evaluatorGeneratorInterface1.value,
+                evaluatorGeneratorInterface2.value,
+                evaluatorGeneratorInterface3.value
+                );
+        }
+
+        public void GenerateEvaluator()
+        {
+            //llamar al creador de evaluadores y entregarle GetEvGenData()
+        }
+
+        public void OpenEvaluatorsFolder()
+        {
+            //  Crear LBSSettings.Instance.paths.EvaluatorFolderPath & carpeta asociada
+            //string folderPath = LBSSettings.Instance.paths.bundleFolderPath + "/" + Builder.bundleName + ".asset";
+            //string folderPath = LBSSettings.Instance.paths.bundleFolderPath;
+
+
+            //UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(folderPath);
+
+            /*
+            if (obj != null)
+            {
+                // Focus the Project window
+                EditorUtility.FocusProjectWindow();
+
+                // Select the object, which makes the project window jump to that folder
+                Selection.activeObject = obj;
+
+                // Optional: Ping the object to highlight it visually
+                EditorGUIUtility.PingObject(obj);
+
+                //OPEN FOLDER
+                AssetDatabase.OpenAsset(obj);
+            }
+            */
+        }
+
         #endregion
+
 
     }
 }
