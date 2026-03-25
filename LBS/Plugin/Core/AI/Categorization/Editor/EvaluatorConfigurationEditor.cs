@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 namespace ISILab.LBS.Editor
 {
@@ -52,6 +53,16 @@ namespace ISILab.LBS.Editor
             window.rootVisualElement.Clear();
             window.CreateGUI();
             Instance = window;
+
+            if (config == null) return window;
+            config.windowRefresh = () =>
+            {
+                if (window == null) return false;
+                window.Close();
+                Create(config);
+                return true;
+            };
+
             return window;
         }
 
