@@ -26,9 +26,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         public override List<LBSLayer> Generate(Action<float> onProgress = null, CancellationToken token = default)
         {
             List<LBSLayer> modifiedLayer = new();
+            generatedLayers.Reverse();
             if (LBSMainWindow.Instance != null)
             {
-
                 for (var index = 0; index < generatedLayers.Count; index++)
                 {
                     var layer = generatedLayers[index];

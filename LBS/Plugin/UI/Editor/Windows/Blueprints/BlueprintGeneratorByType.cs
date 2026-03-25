@@ -42,11 +42,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                         if (target != null)
                             if (target.MergeLayerData(layer, overwrite))
                             {
-                                modifiedLayers.Add(layer);
+                                modifiedLayers.Add(target);
                             }
                             else
                             {
-                                LBSMainWindow.Instance.layerPanel.AddLayer(layer);
+                                LBSLog log = new LBSLog(
+                                                      $"Failed to merge into >{layer.Name}<. Can't add blueprint layer",
+                                                      LogType.Warning,
+                                                      4);
+                                LBSMainWindow.MessageNotify(log);
                             }
                         else
                         {

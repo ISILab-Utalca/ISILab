@@ -35,30 +35,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         {
             LBSMainWindow.MessageNotify(new LBSLog(log, type));
 
-            // Mark as dirty
-            if (EditorGUI.EndChangeCheck())
-            {
-                EditorUtility.SetDirty(loadedLevel);
-            }
-
-            var Level = (LoadedLevel)loadedLevel;
-            if (!overwrite)
-                DrawManager.Instance.RedrawLevel(Level.data);
-            else
-            {
-                foreach (var modlayer in modifiedLayers)
-                    DrawManager.Instance.UpdateLayer(modlayer);
-            }
-
-
             TaskBar.EnableProcess(false);
             OnTermination =null;
-
+            var Level = (LoadedLevel)loadedLevel;
 
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(Level);
-            }
+            }     
+            DrawManager.Instance.RedrawLevel(Level.data);
+
         }
         #endregion
 
@@ -94,16 +80,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                         LogType logType = LogType.Log;
                         if (modifiedLayers.Count == generatedLayers.Count) 
                         { 
-                            taskMessage = "Blueprint Added to Level"; 
+                            taskMessage = ">>>> Blueprint Added to Level"; 
                         }
                         if (modifiedLayers.Count != generatedLayers.Count)
                         { 
-                            taskMessage = "Blueprint Partially Added to Level";
+                            taskMessage = ">>>> Blueprint Partially Added to Level";
                             logType = LogType.Warning;
                         }
                         if (modifiedLayers.Count == 0) 
                         { 
-                            taskMessage = "Failed to Add Blueprint to Level";
+                            taskMessage = ">>>> Failed to Add Blueprint to Level";
                             logType = LogType.Error;
                         }
                         OnTermination.Invoke(taskMessage, logType, loadedLevel);

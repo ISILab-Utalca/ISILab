@@ -257,7 +257,7 @@ namespace LBS.VisualElements
             // Ensure manipulatorType is not null
             if (manipulatorType == null)
             {
-                Debug.LogWarning("Manipulator type is null.");
+                //Debug.LogWarning("Manipulator type is null.");
                 return;
             }
 
@@ -266,7 +266,7 @@ namespace LBS.VisualElements
 
             if (foundTool.Key == null)
             {
-                Debug.LogWarning($"Tool of type {manipulatorType.Name} not found.");
+               // Debug.LogWarning($"Tool of type {manipulatorType.Name} not found.");
                 return;
             }
         

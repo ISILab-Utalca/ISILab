@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.VisualElements;
 using LBS;
@@ -74,11 +75,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #region FIELDS
 
         private ISILab.LBS.Components.Blueprint selectedBlueprint;
-       
+
         private CaptureInArea _captureArea;
         private PrintInArea _printArea;
 
-        private Dictionary<blueprintAddMode, BlueprintGenerator> generators; 
+        private Dictionary<blueprintAddMode, BlueprintGenerator> generators;
 
         private readonly List<BlueprintEntry> entries = new();
         private readonly List<LBSLayer> previewLayers = new();
@@ -86,7 +87,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         private Vector2Int OffsetGrid;
 
         [SerializeField]
-        private blueprintAddMode activeAddMode = blueprintAddMode.ByName;
+        private blueprintAddMode activeAddMode = blueprintAddMode.New;
         [SerializeField]
         private bool overwrite = false;
         [SerializeField]
@@ -163,6 +164,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     CreateBlueprintPreviewLayer();
                 }
             }
+        }
+
+        private Texture2D DefaultBlueprintImage
+        {
+            get => LBSAssetMacro.LoadAssetByGuid<Texture2D>("c67b637a63982464dabfafd24cbbd30c");
         }
 
         #endregion
@@ -402,6 +408,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             ISILab.LBS.Components.Blueprint newInstance =
                 ScriptableObject.CreateInstance<ISILab.LBS.Components.Blueprint>();
+
+            // failed texture read
+            if (captureImage == null) captureImage = DefaultBlueprintImage;
 
             newInstance.Layers = new List<LBSLayer>(capturedLayers);
             newInstance.PreviewImage = captureImage;

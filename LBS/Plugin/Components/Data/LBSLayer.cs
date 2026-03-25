@@ -544,9 +544,6 @@ namespace LBS.Components
             LBSLayer clone = Clone() as LBSLayer;
 
             List<object> components = new();
-            //components.AddRange(clone.Modules);
-            //components.AddRange(clone.Behaviours);
-            //components.AddRange(clone.Assistants);
             components.AddRange(clone.floors);
             components.AddRange(clone.Behaviours);
             components.AddRange(clone.Assistants);

@@ -26,7 +26,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override string IconGuid => "ce4ce3091e6cf864cbbdc1494feb6529";
 
-        private Bundle ToSet => _population.selectedToSet;
+        private Bundle ToSet => _population.bundleElement;
 
         public AddPopulationTile()
         {
