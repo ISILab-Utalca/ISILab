@@ -13,108 +13,40 @@ MonoBehaviour:
   m_Name: DCResourceSafety configuration
   m_EditorClassIdentifier: 
   target:
-    rid: 3359370255002765032
+    rid: 5219713250193834765
   fields:
-  - rid: 5219712707756818714
-  - rid: 5219712707756818715
+  - rid: 5219713250193834766
+  - rid: 5219713250193834767
   references:
     version: 2
     RefIds:
-    - rid: 3359370255002765032
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 5219713250193834765
       type: {class: DCResourceSafety, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         playerCharacteristic:
-          rid: 5219712707756818716
-        resources:
-        - rid: 5219712707756818717
-        - rid: 5219712707756818718
-        - rid: 5219712707756818719
-        - rid: 5219712707756818720
-        - rid: 5219712707756818721
-        - rid: 5219712707756818722
-    - rid: 5219712707756818714
+          rid: -2
+        resources: []
+    - rid: 5219713250193834766
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
-        name: Player
-        tooltip: Main item to be compared with every resource.
+        fieldName: Player
         tagName: Player
-    - rid: 5219712707756818715
+    - rid: 5219713250193834767
       type: {class: EvaluatorConfiguration/GroupedTagsField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
-        name: Resources
-        tooltip: Resources to be secured.
+        fieldName: Resources
         tagsFields:
-        - name: 
-          tooltip: 
+        - fieldName: 
           tagName: Chest
-        - name: 
-          tooltip: 
+        - fieldName: 
           tagName: Axe
-        - name: 
-          tooltip: 
+        - fieldName: 
           tagName: Hammer
-        - name: 
-          tooltip: 
+        - fieldName: 
           tagName: Sword
-        - name: 
-          tooltip: 
+        - fieldName: 
           tagName: Food
-        - name: 
-          tooltip: 
+        - fieldName: 
           tagName: Tree
-    - rid: 5219712707756818716
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Player
-          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
-          tagGUID: 975a57a1811d3f743838422b5c87c58a
-    - rid: 5219712707756818717
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Chest
-          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
-          tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
-    - rid: 5219712707756818718
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Axe
-          value: {fileID: 11400000, guid: 90c0458b7a8ee514d9c7ba0ace177f05, type: 2}
-          tagGUID: 90c0458b7a8ee514d9c7ba0ace177f05
-    - rid: 5219712707756818719
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Hammer
-          value: {fileID: 11400000, guid: 1b5f81de2f3a4ac40a031e0d2f7ddd0b, type: 2}
-          tagGUID: 1b5f81de2f3a4ac40a031e0d2f7ddd0b
-    - rid: 5219712707756818720
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Sword
-          value: {fileID: 11400000, guid: b1c5ecf1473587a42ba9abcff06c1437, type: 2}
-          tagGUID: b1c5ecf1473587a42ba9abcff06c1437
-    - rid: 5219712707756818721
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Food
-          value: {fileID: 11400000, guid: b354587b73f945f4188c7dc7026de4ef, type: 2}
-          tagGUID: b354587b73f945f4188c7dc7026de4ef
-    - rid: 5219712707756818722
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Tree
-          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
-          tagGUID: 0147d0d479179b04a8c825d8159e70ce

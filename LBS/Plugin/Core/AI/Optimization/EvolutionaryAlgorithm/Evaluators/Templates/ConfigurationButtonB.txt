@@ -1,0 +1,9 @@
+
+			configurationButton = new LBSCustomButton();
+			configurationButton.style.height = 30;
+			configurationButton.text = "Advanced configuration";
+			configurationButton.clicked -= ShowConfiguration;
+			configurationButton.clicked += ShowConfiguration;
+       		Add(configurationButton);
+
+			static void ShowConfiguration() => EvaluatorConfigurationWindow.Create(#TARGETNAME#.config);

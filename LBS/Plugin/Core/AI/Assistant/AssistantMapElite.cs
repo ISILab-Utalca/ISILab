@@ -166,7 +166,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             //contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);
 
             if (defaultInitialization || configurableChoice is null)
-                contextualChoice.InitializeDefault();
+                evaluator.InitializeDefault();
             else
             {
                 string path = LBSSettings.Instance.paths.assistantPresetFolderPath + "/Evaluators";
@@ -176,7 +176,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 if (AssetDatabase.AssetPathExists(fullPath))
                     configurableChoice.ReadConfiguration();
                 else
-                    contextualChoice.InitializeDefault();
+                    evaluator.InitializeDefault();
             }
 
             contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);

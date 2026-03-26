@@ -1,0 +1,19 @@
+	
+        #region CONFIGURATION
+
+        public void ReadConfiguration()
+        {
+            CreateOrUpdateConfiguration(ref config, GetType());
+            defaultCharacteristic = config.GetValue<LBSCharacteristic>("FIELD NAME");
+        }
+
+        public List<EvaluatorConfigurationField> GetEvaluatorFields()
+        {
+            var list = new List<EvaluatorConfigurationField>
+            {
+                new MainTagField("FIELD NAME", defaultCharacteristic.FirstTag().Label, defaultCharacteristic)
+            };
+            return list;
+        }
+
+        #endregion

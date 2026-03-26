@@ -1,0 +1,10 @@
+
+            LBSLayer layer = CombinedLayer;
+            if (layer is not null)
+            {
+                fitness = EvaluateWithContext(defaultCharacteristicIndex, chrom, null);
+            }
+            else
+            {
+                fitness = EvaluateWithoutContext(defaultCharacteristicIndex, chrom);
+            }

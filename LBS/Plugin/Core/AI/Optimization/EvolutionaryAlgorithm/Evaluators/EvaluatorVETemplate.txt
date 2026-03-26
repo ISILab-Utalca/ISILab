@@ -1,16 +1,12 @@
 using ISILab.AI.Categorization;
-using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
-using UnityEditor;
 using UnityEngine.UIElements;
-
+#CONFIGURATION_NAMESPACES#
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("#TARGETNAME#", typeof(#TARGETNAME#))]
     public class #TARGETNAME#VE : LBSCustomEditor
-    {
-		LBSCustomButton configurationButton;
-
+    {#CONFIGURATION_BUTTON_A#
 		public #TARGETNAME#VE(object target) : base(target)
 		{
 			CreateVisualElement();
@@ -18,16 +14,7 @@ namespace ISILab.LBS.VisualElements
 		}
 
 		protected override VisualElement CreateVisualElement()
-		{
-			configurationButton = new LBSCustomButton();
-			configurationButton.style.height = 30;
-			configurationButton.text = "Advanced configuration";
-			configurationButton.clicked -= ShowConfiguration;
-			configurationButton.clicked += ShowConfiguration;
-       		Add(configurationButton);
-
-			static void ShowConfiguration() => EvaluatorConfigurationWindow.Create(#TARGETNAME#.config);
-
+		{#CONFIGURATION_BUTTON_B#
 			return this;
 		}
 
