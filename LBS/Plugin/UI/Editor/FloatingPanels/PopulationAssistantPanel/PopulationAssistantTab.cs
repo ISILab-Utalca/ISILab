@@ -257,7 +257,9 @@ namespace ISILab.LBS.Editor
         //  Evaluators Wizard Methods
 
         //GetAllEvaluators()
+
         //UpdateEvaluatorsList()
+
         public EvaluatorGeneratorData GetEvGenData()
         {
             return new EvaluatorGeneratorData(
