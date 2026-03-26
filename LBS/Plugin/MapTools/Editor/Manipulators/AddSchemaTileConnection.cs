@@ -18,11 +18,9 @@ namespace ISILab.LBS.Manipulators
     {
         private SchemaBehaviour _schema;
         private List<SchemaBehaviour> _others;
-        private Vector2Int _first;
-        private List<Vector2Int> Dirs => Commons.Directions.Bidimencional.Edges;
 
-        private StairsMemoryLine feedbackStairsLine;
-        private ConnectedMemoryLine feedbackMemoryLine;
+        private List<Vector2Int> Dirs => Commons.Directions.Bidimencional.Edges;
+        private ConnectedMemoryLine _line;
 
         protected override string IconGuid => "b06c784e5d88d1547a40d4fc2f54b485";
         
@@ -34,25 +32,9 @@ namespace ISILab.LBS.Manipulators
 
         public AddSchemaTileConnection()
         {
-            feedbackStairsLine = new StairsMemoryLine();
-            feedbackStairsLine.fixToTeselation = true;
-            feedbackMemoryLine = new ConnectedMemoryLine();
-            feedbackMemoryLine.fixToTeselation = true;
-
-            Feedback = feedbackStairsLine;
-            OnManipulationNotification += () =>
-            {
-                if (ToSet == null) return;
-                bool setStairs = ToSet.Contains("Stairs");
-                if (setStairs)
-                {
-                    Feedback = feedbackStairsLine;
-                }
-                else
-                {
-                    Feedback = feedbackMemoryLine;
-                }
-            };
+            _line = new ConnectedMemoryLine();
+            _line.fixToTeselation = true;
+            Feedback = _line;
 
             Name = "Set Manual Connection";
             Description = "Draw across a zone's border to generate a connection.";
@@ -79,130 +61,73 @@ namespace ISILab.LBS.Manipulators
                 .ToList();
         }
 
-        protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
-        {
-            _first = _schema.OwnerLayer.ToFixedPosition(position);
-            //*/
-        }
-
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
             base.OnMouseUp(element, position, e);
-
-            // Check if Feedback is ConnectedMemoryLine or an inherited class
-            ConnectedMemoryLine line = null;
-            if(Feedback.GetType() == typeof(ConnectedMemoryLine) || Feedback.GetType() == typeof(StairsMemoryLine))
-            {
-                line = Feedback as ConnectedMemoryLine;
-                if (line is StairsMemoryLine ls && !ls.IsValid)
-                {
-                    line.LineClear();
-                    return;
-                }
-            }
 
             // Cancel the operation
             // If esc key was pressed OR a connection wasn't selected
             if (ForceCancel)
             {
                 ForceCancel = false;
-                if (line != null) line.LineClear();
+                _line.LineClear();
                 return;
             }
             if (ToSet is null)
             {
                 LBSMainWindow.MessageNotify(
                     new LBSLog("Select a connection type in the LBS-inspector panel",LogType.Warning,4));
-                if (line != null) line.LineClear();
+                _line.LineClear();
                 return;
             }
 
+            // Get selected tiles
             List<LBSTile> selectedTiles = new List<LBSTile>();
-            int frontDirIndex, backDirIndex;
-            int dx = 0;
-            int dy = 0;
-            bool requiresWall;
-
-            // Get selected tiles if feedback is default
-            if (line is null)
+            for (int i = 0; i < _line.Positions.Count; i++)
             {
-                // Get second fixed position
-                Vector2Int lastPos = _schema.OwnerLayer.ToFixedPosition(position);
-
-                // Get vector direction
-                dx = lastPos.x - _first.x;
-                dy = lastPos.y - _first.y;
-                float dLength = Mathf.Sqrt(dx * dx + dy * dy);
-                if (dLength < 1) return;
-
-                // Get index of directions
-                frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-                if (line is null && (frontDirIndex < 0 || frontDirIndex >= Dirs.Count)) return;
-                backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-
-                // Multi-connection mode
-                requiresWall = dLength > 1;
-
-                int totalConnections = (int)Math.Floor(dLength);
-                for (int i = 0; i <= totalConnections; i++)
-                {
-                    //Get the next tile 
-                    selectedTiles.Add(GetTileInLine(_schema, i));
-                }
+                var tile = _schema.GetTile(_line.Positions[i]);
+                selectedTiles.Add(tile);
             }
-            // Get selected tiles if feedback is ConnectedMemoryLine
-            else
-            {
-                for (int i = 0; i < line.Line.Count; i++)
-                {
-                    var tile = _schema.GetTile(line.Line[i]);
-                    selectedTiles.Add(tile);
-                }
-                requiresWall = line.Line.Count > 1;
-            }
-            
+            bool requiresWall = _line.Positions.Count > 1;
+
+            // Set Undo action
             LoadedLevel level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Add Connection Between Zones");
 
-            // Set connections
+            // Filter connection behaviour
             bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
-            bool setStairs = ToSet.Contains("Stairs");
 
+            // Set tile connections
+            int frontDirIndex, backDirIndex;
             for (int i = 1; i < selectedTiles.Count; i++)
             {
-                LBSTile tile1 = selectedTiles[i - 1];
-                LBSTile tile2 = selectedTiles[i];
-                frontDirIndex = -1;
-                backDirIndex = -1;
+                LBSTile t1 = selectedTiles[i - 1];
+                LBSTile t2 = selectedTiles[i];
 
-                if (line != null)
-                {
-                    // Get vector direction
-                    int bx = line.Line[i].x - line.Line[i - 1].x;
-                    int by = line.Line[i].y - line.Line[i - 1].y;
+                // Get direction vector
+                int dx = _line.Positions[i].x - _line.Positions[i - 1].x;
+                int dy = _line.Positions[i].y - _line.Positions[i - 1].y;
 
-                    // Get index of directions
-                    frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(bx), Math.Sign(by))));
-                    if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) continue; ;
-                    backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(bx), Math.Sign(by))));
-                }
+                // Get index of directions
+                frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+                if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) continue; ;
+                backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
 
-                if (frontDirIndex == -1 || backDirIndex == -1) continue;
-                if (requiresWall && setDoorOrWindow && !ValidWallReplace(_schema, tile1, tile2)) continue;
-                if (requiresWall && setStairs && !ValidStairsPlacement(_schema, tile1, tile2)) continue;
-
-                TrySetSingleConnection(_schema, tile1, tile2, frontDirIndex, backDirIndex);
+                // Validate position
+                if (requiresWall && setDoorOrWindow && !ValidWallReplace(_schema, t1, t2)) continue;
+                TrySetSingleConnection(_schema, t1, t2, frontDirIndex, backDirIndex);
                 
+                // Spread change to other layers
                 if (_schema.MultiLayerConnections && setDoorOrWindow)
                 {
                     foreach (SchemaBehaviour other in _others)
                     {
-                        LBSTile t1 = GetTileInLine(other, i - 1);
-                        LBSTile t2 = GetTileInLine(other, i);
-                        if (ValidWallReplace(other, t1, t2))
+                        LBSTile t3 = other.GetTile(t1.Position);
+                        LBSTile t4 = other.GetTile(t2.Position);
+                        if (ValidWallReplace(other, t3, t4))
                         {
-                            TrySetSingleConnection(other, t1, t2, frontDirIndex, backDirIndex);
+                            TrySetSingleConnection(other, t3, t4, frontDirIndex, backDirIndex);
                             Action redrawCallback = null;
                             redrawCallback = () =>
                             {
@@ -215,7 +140,7 @@ namespace ISILab.LBS.Manipulators
                     }
                 }
             }
-            if (line != null) line.LineClear();
+            _line.LineClear();
 
             if (EditorGUI.EndChangeCheck())
             {
@@ -223,10 +148,6 @@ namespace ISILab.LBS.Manipulators
             }
 
             /// END OF METHOD ///
-
-            // Local functions
-            LBSTile GetTileInLine(SchemaBehaviour schema, int i) => schema.GetTile(_first + new Vector2Int(Math.Sign(dx) * i, Math.Sign(dy) * i));
-
             bool ValidWallReplace(SchemaBehaviour schema, LBSTile tile1, LBSTile tile2)
             {
                 bool tile1Exists = tile1 is not null;
@@ -237,40 +158,6 @@ namespace ISILab.LBS.Manipulators
                 bool secondHasWall = !conn2.Equals("Empty");
                 return (firstHasWall || secondHasWall) && (tile1Exists || secondHasWall) && (tile2Exists || firstHasWall);
             }
-
-            bool ValidStairsPlacement(SchemaBehaviour schema, LBSTile tile1, LBSTile tile2)
-            {
-                bool tile1Exists = tile1 is not null;
-                bool tile2Exists = tile2 is not null;
-
-                // Identificar si es escalera que sube o baja
-                bool up = ToSet.Contains("Up");
-
-                // Si es escalera que sube, revisar la posición de tile1 en el floor siguiente (podría no existir)
-                if (up)
-                {
-                    int nextFloorIndex = schema.OwnerLayer.ActiveFloor + 1;
-                    bool floorExists = nextFloorIndex >= schema.OwnerLayer.FloorCount;
-                    if (floorExists)
-                    {
-                        ConnectedTileMapModule tileConnections = 
-                            schema.OwnerLayer.Modules(nextFloorIndex).FirstOrDefault(m => m.GetType() == typeof(ConnectedTileMapModule)) 
-                            as ConnectedTileMapModule;
-
-                        var nTile1 = tileConnections.GetPair(tile1);
-                        //nTile1.
-                    }
-                }
-                // También revisar que exista una zona en el la posición de tile2 en el siguiente floor
-                // Si no existe, crear nueva zone con ese tile
-
-                // Si es escalera que baja, revisar la posición de tile1 en el floor anterior (podría no existir)
-                // También revisar que exista una zona en el la posición de tile2 en el anterior floor
-                // Si no existe, crear nueva zone con ese tile
-                
-                return true;
-            }
-
         }
 
         private void TrySetSingleConnection(

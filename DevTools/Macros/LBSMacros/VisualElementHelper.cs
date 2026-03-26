@@ -46,6 +46,8 @@ namespace ISILab.LBS.Macros
 
             int frames = 0;
             window.Repaint();
+            window.Focus();
+
             void WaitFrames()
             {
                 frames++;
@@ -64,10 +66,11 @@ namespace ISILab.LBS.Macros
                 int width = Mathf.RoundToInt(panelRect.width * dpi);
                 int height = Mathf.RoundToInt(panelRect.height * dpi);
 
-                if (width <= 0 || height <= 0)
+                if (x < 0 || y < 0 || x + width > Screen.width || y + height > Screen.height)
                 {
-                    Debug.LogWarning("Capture rect invalid.");
+                    Debug.LogWarning("Capture area invalid.");
                     restore?.Invoke();
+                    onCaptured?.Invoke(null);
                     return;
                 }
 

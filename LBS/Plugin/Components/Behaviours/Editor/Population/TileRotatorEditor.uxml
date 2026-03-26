@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Rotation" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/MapElites/Icon=Retry.svg?fileID=7388822144124034973&amp;guid=c41b7bfef591e3740b20bf4df0f96a29&amp;type=3#Icon=Retry" toggle-on-label-click="true" value="true">
         <ui:VisualElement style="flex-grow: 1;">
-            <ISILab.LBS.CustomComponents.LBSCustomEnumField type="ISILab.LBS.Behaviours.PopulationBehaviour+TileMakeRot, LBS" label="Rotation Mode" include-obsolete-values="false" name="tileMakeRotEnum" />
+            <ISILab.LBS.CustomComponents.LBSCustomEnumField type="ISILab.LBS.Behaviours.TileMakeRot, LBS" label="Rotation Mode" include-obsolete-values="false" name="tileMakeRotEnum" />
             <ui:VisualElement name="rotateSelector" style="flex-grow: 1; margin-top: 10px;">
                 <ui:VisualElement name="Row1" style="flex-grow: 1; flex-direction: row;">
                     <ui:VisualElement style="flex-grow: 1;" />

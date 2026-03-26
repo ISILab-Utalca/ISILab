@@ -16,5 +16,12 @@ namespace ISILab.LBS.Components
             get => LBSAssetMacro.LoadAssetByGuid<Bundle>(onDestroyDropGuid); 
             set => onDestroyDropGuid = LBSAssetMacro.GetGuidFromAsset(value); 
         }
+
+        public override object Clone()
+        {
+            Addon_Drop clone = new Addon_Drop();
+            clone.onDestroyDropGuid = onDestroyDropGuid;
+            return clone;
+        }
     }
 }

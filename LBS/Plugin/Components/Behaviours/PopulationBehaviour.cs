@@ -9,12 +9,10 @@ using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -23,8 +21,7 @@ namespace ISILab.LBS.Behaviours
     public class PopulationBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
-        
-        private const string DefaultRotation = LBSDirection.Up;
+
         [SerializeField, HideInInspector]
         private List<WeightedDirection> dirWeights = new()
         {
@@ -34,89 +31,80 @@ namespace ISILab.LBS.Behaviours
             new WeightedDirection(LBSDirection.Left, 0f),
         };
 
-
         [SerializeField, HideInInspector]
         private string activeRotationDirection = DefaultRotation;
+
         [SerializeField, HideInInspector]
         private TileMakeRot tileRotationMode;
 
-        [SerializeField, JsonIgnore, HideInInspector]
-        private TileMapModule tileMap;
-        [SerializeField, JsonIgnore, HideInInspector]
-        private BundleTileMap _bundleTileMap;
-
-        //[SerializeField, JsonRequired, HideInInspector]
-        //private string bundleRefGui = "3e607c0f80297b849a6ea0d7f98c73a3";
-
-        [SerializeField, JsonRequired, HideInInspector]
-        private string bundleRefGuid = "668e6768d7619b3459df4f6378dfa3bb";
-        private string DefaultBundleRefGuid { get => "668e6768d7619b3459df4f6378dfa3bb"; }
-
-        private HashSet<TileBundleGroup> _newRotations = new();
-        
-        #endregion
-
-        #region META-FIELDS
-        [JsonIgnore, HideInInspector]
-        public Bundle selectedToSet;
-
-        [SerializeField, JsonIgnore]
-        private Bundle mainBundle;
-
-        [HideInInspector]
-        public string allFilter = "All";
-
-        [FormerlySerializedAs("selectedTypetoSet")][JsonIgnore, HideInInspector]
+        [SerializeField, HideInInspector]
         public string selectedTypeFilter;
 
-        // the rotation type with which a new tile is created
-        public enum TileMakeRot
-        {
-            Fixed,
-            Random,
-            Weighted
-        }
+        [SerializeField]
+        private string bundleGuid;
+
+        private TileMapModule tileMap;
+        private BundleTileMap _bundleTileMap;
+
+        private Bundle bundle;
+        public Bundle bundleElement;
+
+        private HashSet<TileBundleGroup> _newRotations = new();
+
+        #endregion
+
+        #region CONSTANTS
+
+        private const string DefaultRotation = LBSDirection.Up;
+        private const string defaultBundleGuid = "668e6768d7619b3459df4f6378dfa3bb";
+        [HideInInspector]
+        public const string allFilter = "All";
         #endregion
 
         #region PROPERTIES
 
         [JsonIgnore]
-        public List<TileBundleGroup> TileBundleGroup => _bundleTileMap is not null ? _bundleTileMap.Groups : new List<TileBundleGroup>();
+        public List<TileBundleGroup> TileBundleGroup
+        {
+            get
+            {
+                return _bundleTileMap is not null ? _bundleTileMap.Groups : new List<TileBundleGroup>();
+            }
+        }
 
         [JsonIgnore]
         public BundleTileMap BundleTilemap
         {
-            get
-            {
-                return _bundleTileMap;
-            }
-            set
-            {
-                _bundleTileMap = value;
-            }
+            get => _bundleTileMap; set => _bundleTileMap = value;
         }
 
         public TileMapModule TileMap => tileMap;
 
-        public Bundle MainBundle
+        /// <summary>
+        ///  Get the bundle that contains the population elements to paint
+        /// </summary>
+        public Bundle Bundle
         {
-            get => GetMainBundle();
+            get
+            {
+                if (bundle != null) return bundle;
+
+                Bundle = AssetMacro.LoadAssetByGuid<Bundle>(bundleGuid)
+                      ?? AssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
+
+                return bundle;
+            }
             set
             {
-                mainBundle = value;
-                bundleRefGuid = AssetMacro.GetGuidFromAsset(value);
+                bundle = value;
+                bundleGuid = AssetMacro.GetGuidFromAsset(value);
             }
         }
 
         public string SelectedFilter
         {
-            get => GetFilter();
+            get => selectedTypeFilter ?? allFilter;
             set => selectedTypeFilter = value;
-        }
-
-        private string GetFilter()
-        {
-            return selectedTypeFilter ?? allFilter;
         }
 
         public TileMakeRot TileRotationMode
@@ -124,9 +112,7 @@ namespace ISILab.LBS.Behaviours
             get => tileRotationMode;
             set
             {
-                // if (value == TileMakeRot.Fixed) ActiveRotationDirection = DefaultRotation;
                 tileRotationMode = value;
-
                 UpdateRotationWeights();
             }
         }
@@ -143,7 +129,6 @@ namespace ISILab.LBS.Behaviours
             {
                 foreach (WeightedDirection entry in dirWeights)
                     entry.Weight = entry.Direction == value ? 1f : 0f;
-
 
                 activeRotationDirection = value;
             }
@@ -162,7 +147,18 @@ namespace ISILab.LBS.Behaviours
 
         #region METHODS
 
-        public override void OnGUI() { }
+        #region Getters
+        public Vector2 GetTileRotation(Vector2Int pos) => GetTileGroup(pos)?.Rotation ?? default;
+        public LBSTile GetTile(Vector2Int position) => tileMap.GetTile(position);
+        public TileBundleGroup GetTileGroup(Vector2Int position) => _bundleTileMap.GetGroup(position);
+        public BundleData GetBundleData(LBSTile tile) => _bundleTileMap.GetGroup(tile)?.BundleData;
+        public BundleData GetBundleData(Vector2 position) => GetBundleData(tileMap.GetTile(position.ToInt()));
+
+        #endregion
+
+        /// Method invoked from the LBSLayer Class, whenever the scriptable object's values are modified
+        /// call to reassign bundle from seralized guid or default
+        public sealed override void OnGUI() { var bundle = Bundle; }
 
         public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation, List<BundleTileMapAddons> addons)
         {
@@ -170,7 +166,6 @@ namespace ISILab.LBS.Behaviours
 
             //Create group 
             TileBundleGroup group = _bundleTileMap.CreateGroup(position, bundleData, rotation, addons);
-            //_bundleTileMap.AddGroup(group); // The group is already being added in the CreateGroup function
 
             //Add all tiles from the group
             foreach (LBSTile tile in group.TileGroup)
@@ -190,20 +185,13 @@ namespace ISILab.LBS.Behaviours
             Vector2Int oldPos = group.TileGroup[0].Position;
             TileBundleGroup newTileGroup = AddTileGroup(oldPos + offset, group.BundleData, group.Rotation, group.Addons);
             RemoveTileGroup(oldPos);
-            //RequestTileRemove(group);
-            ////group.Translate(offset);
-            //group.LocationKey = null;
-            //RequestTilePaint(group);
-
             return newTileGroup;
         }
 
         public TileBundleGroup RemoveTileGroup(Vector2Int position)
         {
-            //var tile = tileMap.GetTile(position);   // Is this supposed to do something?
             TileBundleGroup group = _bundleTileMap.GetGroup(position);
 
-            //CHANGE FROM HERE
             if (group == null) return null;
             group.Removed();
 
@@ -236,29 +224,6 @@ namespace ISILab.LBS.Behaviours
             }
         }
 
-        //public void SetBundle(TileBundleGroup group, Bundle bundle)
-        //{
-        //    group.BundleData = new BundleData(bundle);
-        //    ReplaceTile(group);
-        //}
-
-        //public void SetBundle(LBSTile tile, Bundle bundle) => SetBundle(_bundleTileMap.GetGroup(tile), bundle);
-
-        public LBSTile GetTile(Vector2Int position)
-        {
-            return tileMap.GetTile(position);
-        }
-
-        public TileBundleGroup GetTileGroup(Vector2Int position)
-        {
-            return _bundleTileMap.GetGroup(position);
-        }
-
-        public BundleData GetBundleData(LBSTile tile)
-        {
-            return _bundleTileMap.GetGroup(tile)?.BundleData;
-        }
-
         public bool RotateTile(Vector2Int pos, Vector2 rotation)
         {
             TileBundleGroup t = GetTileGroup(pos);
@@ -270,17 +235,6 @@ namespace ISILab.LBS.Behaviours
             _newRotations.Add(t);
 
             return true;
-        }
-
-        public Vector2 GetTileRotation(Vector2Int pos)
-        {
-            TileBundleGroup t = GetTileGroup(pos);
-            return t?.Rotation ?? default;
-        }
-
-        public BundleData GetBundleData(Vector2 position)
-        {
-            return GetBundleData(tileMap.GetTile(position.ToInt()));
         }
 
         public void Clear()
@@ -307,15 +261,9 @@ namespace ISILab.LBS.Behaviours
             layer.OnChange -= UpdateKeys;
         }
 
-        public override void CheckKeys()
-        {
-            UpdateKeys(TileBundleGroup.ToList<object>());
-        }
+        public override void CheckKeys() => UpdateKeys(TileBundleGroup.ToList<object>());
 
-        public void UpdateKeys()
-        {
-            UpdateKeys(TileBundleGroup.ToList<object>());
-        }
+        public void UpdateKeys() => UpdateKeys(TileBundleGroup.ToList<object>());
 
         private void ReplaceTile(TileBundleGroup tile)
         {
@@ -323,14 +271,14 @@ namespace ISILab.LBS.Behaviours
             RequestTilePaint(tile);
         }
 
-        public override object[] RetrieveExpiredTiles()
-        {
-            return base.RetrieveExpiredTiles().Cast<TileBundleGroup>().Select(t => t.LocationKey).ToArray();
-        }
+        public override object[] RetrieveExpiredTiles() =>
+            base.RetrieveExpiredTiles().Cast<TileBundleGroup>().Select(t => t.LocationKey).ToArray();
 
         public override object Clone()
         {
-            return new PopulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
+            var clone = new PopulationBehaviour(IconGuid, Name, ColorTint);
+            clone.bundleGuid = bundleGuid;
+            return clone;
         }
 
         public override bool Equals(object obj)
@@ -339,7 +287,7 @@ namespace ISILab.LBS.Behaviours
 
             if (other == null) return false;
 
-            if (!this.Name.Equals(other.Name)) return false;
+            if (!Name.Equals(other.Name)) return false;
 
             if(!OwnerLayer.Name.Equals(other.OwnerLayer.Name)) return false;
 
@@ -348,20 +296,8 @@ namespace ISILab.LBS.Behaviours
             return true;
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
 
-        private Bundle GetMainBundle()
-        {
-            if (mainBundle == null)
-            {
-                mainBundle = AssetMacro.LoadAssetByGuid<Bundle>(bundleRefGuid ?? DefaultBundleRefGuid);
-            }
-
-            return mainBundle;
-        }
 
         /// <summary>
         /// Get all tileBundleGroups that were rotated since the last time they were retrieved.
@@ -396,6 +332,8 @@ namespace ISILab.LBS.Behaviours
                     return;
             }
         }
+
+        #region Weight Control
 
         private void SetFixedWeights(string direction)
         {
@@ -460,6 +398,10 @@ namespace ISILab.LBS.Behaviours
                 _ => directions[0]
             };
         }
+
+        #endregion
+
+        #region IBlueprintable Interface
 
         public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {
@@ -546,7 +488,15 @@ namespace ISILab.LBS.Behaviours
             PopulationBehaviour Merger = incoming as PopulationBehaviour;
             if (Merger == null) return false;
 
-            for (int i = 0; i < Merger.TileMap.Tiles.Count; i++)
+            var cloneModules = Merger.TileMap.Clone() as TileMapModule;
+
+            List<TileBundleGroup> cloneTileBundle = new();
+            for(int x = 0; x < Merger.TileBundleGroup.Count; x++)
+            {
+                cloneTileBundle.Add(Merger.TileBundleGroup[x].Clone() as TileBundleGroup);
+            } 
+
+            for (int i = 0; i < cloneModules.Tiles.Count; i++)
             {
                 var incomingTile = Merger.TileMap.Tiles[i];
 
@@ -562,9 +512,9 @@ namespace ISILab.LBS.Behaviours
                 }
             }
 
-            for (int i = 0; i < Merger.TileBundleGroup.Count; i++)
+            for (int i = 0; i < cloneTileBundle.Count; i++)
             {
-                TileBundleGroup incomingTbg = Merger.TileBundleGroup[i];
+                TileBundleGroup incomingTbg = cloneTileBundle[i];
 
                 for (int j = 0; j < TileBundleGroup.Count; j++)
                 {
@@ -585,33 +535,14 @@ namespace ISILab.LBS.Behaviours
 
             }
 
-
-          
-
             return true;
         }
 
-
+        #endregion
 
         #endregion
     }
 
 
-    [Serializable]
-    public class WeightedDirection
-    {
-        [SerializeField]
-        string direction;
-        [SerializeField]
-        float weight;
 
-        public float Weight { get => weight; set => weight = value; }
-        public string Direction { get => direction; }
-
-        public WeightedDirection(string direction, float weight)
-        {
-            this.direction = direction;
-            this.weight = weight;
-        }
-    }
 }
