@@ -32,7 +32,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
 
     [Serializable]
-    public class ConnectionData
+    public class ConnectionData: ICloneable
     {
         // addons from the tilegroup that was used to generate this object in the LBS tool
         [SerializeField, SerializeReference]
@@ -116,6 +116,15 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             }
             return false;
 
+        }
+
+        public object Clone()
+        {
+            ConnectionData clone = new ConnectionData();
+            clone.tile = tile.Clone() as LBSTile;
+            clone.layer = layer;
+            clone.connections = connections;
+            return clone;
         }
     }
 }

@@ -148,10 +148,10 @@ namespace ISILab.LBS.VisualElements
             {
                 var populationBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is PopulationBehaviour) as PopulationBehaviour;
 
-                if (populationBehaviour != null && populationBehaviour.MainBundle != null)
+                if (populationBehaviour != null && populationBehaviour.Bundle != null)
                 {
-                    _popMainBundle.value = populationBehaviour.MainBundle;
-                    UpdateTagList(populationBehaviour.MainBundle);
+                    _popMainBundle.value = populationBehaviour.Bundle;
+                    UpdateTagList(populationBehaviour.Bundle);
                 }
             }
         }

@@ -133,14 +133,14 @@ namespace ISILab.LBS.Drawers
                 SchemaTileView tView;
                 List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, tile);
 
-                if(previousElement is not null && previousElement.Count > 0)
+                if (previousElement is not null && previousElement.Count > 0)
                 {
                     tView = previousElement[0] as SchemaTileView;
                     UpdateTileView(tView, tile, tz.Zone, tc.Connections, teselationSize, schema.OwnerLayer.index);
                 }
                 else
                 {
-     
+
                     tView = GetTileView(tile, tz.Zone, tc.Connections, teselationSize);
                     tView.layer = schema.OwnerLayer.index;
                     // Stores using LBSTile as key

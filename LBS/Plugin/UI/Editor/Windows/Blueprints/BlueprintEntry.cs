@@ -25,7 +25,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         #endregion
 
         public Action OnSelect;
-
         #region PROPERTIES
         internal Texture2D BlueprintImage
         {
@@ -69,6 +68,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             blueprintImage = this.Q<VisualElement>("BlueprintImage");
             blueprintLabel = this.Q<LBSCustomLabel>("BlueprintName");
             RegisterCallback<MouseDownEvent>(OnMouseDown);
+
+            focusable = true;
         }
 
 
