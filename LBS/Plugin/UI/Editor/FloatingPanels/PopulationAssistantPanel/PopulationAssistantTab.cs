@@ -271,6 +271,7 @@ namespace ISILab.LBS.Editor
         public void GenerateEvaluator()
         {
             //llamar al creador de evaluadores y entregarle GetEvGenData()
+                // double it and pass it to the seba
         }
 
         public void OpenEvaluatorsFolder()
