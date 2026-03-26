@@ -13,7 +13,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         /// <summary>
         /// Preferable for open areas with few obstacles.
         /// </summary>
-        JPS_Plus
+        JPS_Plus,
+        A_Star
     }
 
     public struct EvaluationInfo

@@ -163,7 +163,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             var contextualChoice = evaluator as IContextualEvaluator;
             var configurableChoice = evaluator as IConfigurableEvaluator;
-            contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);
+            //contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);
 
             if (defaultInitialization || configurableChoice is null)
                 contextualChoice.InitializeDefault();
@@ -178,6 +178,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 else
                     contextualChoice.InitializeDefault();
             }
+
+            contextualChoice?.InitializeContext(Data.ContextLayers, RawToolRect);
         }
 
         public void AutoSelectArea(out List<string> logs)
