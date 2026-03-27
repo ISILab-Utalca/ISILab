@@ -1,4 +1,3 @@
-using Codice.CM.SEIDInfo;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
