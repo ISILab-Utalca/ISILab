@@ -28,21 +28,26 @@ namespace ISILab.LBS.AI.Categorization
             /// <summary>
             /// Identifier of the field.
             /// </summary>
-            public string name;
+            public string fieldName;
+
+            /// <summary>
+            /// Clearer field type name to show.
+            /// </summary>
+            public virtual string DisplayTypeName => "Unidentified field";
 
             /// <summary>
             /// Short description of the field's purpose.
             /// </summary>
-            public string tooltip;
+            protected string tooltip;
 
             /// <summary>
             /// 
             /// </summary>
             /// <param name="fieldName">Identifier of the field.</param>
             /// <param name="tooltip">Short description of the field's purpose.</param>
-            public EvaluatorConfigurationField(string fieldName, string tooltip = "")
+            protected EvaluatorConfigurationField(string fieldName, string tooltip = "")
             {
-                name = fieldName;
+                this.fieldName = fieldName;
                 this.tooltip = tooltip;
             }
 
@@ -63,12 +68,12 @@ namespace ISILab.LBS.AI.Categorization
 
             public override bool Equals(object obj)
             {
-                return Equals(name, (obj as EvaluatorConfigurationField)?.name);
+                return Equals(fieldName, (obj as EvaluatorConfigurationField)?.fieldName);
             }
 
             public override int GetHashCode()
             {
-                return HashCode.Combine(name);
+                return HashCode.Combine(fieldName);
             }
         }
 
@@ -78,6 +83,8 @@ namespace ISILab.LBS.AI.Categorization
         [Serializable]
         public class MainTagField : EvaluatorConfigurationField
         {
+            public override string DisplayTypeName => "Main tag";
+
             /// <summary>
             /// Name of the LBSTag stored in the field.
             /// </summary>
@@ -155,7 +162,7 @@ namespace ISILab.LBS.AI.Categorization
 
             protected override void SetField()
             {
-                field = new ObjectField(name);
+                field = new ObjectField(fieldName);
                 field.tooltip = tooltip;
                 field.objectType = typeof(LBSTag);
                 if(field.value == null)
@@ -177,6 +184,8 @@ namespace ISILab.LBS.AI.Categorization
         [Serializable]
         public class GroupedTagsField : EvaluatorConfigurationField
         {
+            public override string DisplayTypeName => "Grouped tags";
+
             /// <summary>
             /// List of <see cref="MainTagField"/>s conforming a group.
             /// </summary>
@@ -220,7 +229,7 @@ namespace ISILab.LBS.AI.Categorization
             protected override void SetField()
             {
                 list = new ListView();
-                list.headerTitle = name;
+                list.headerTitle = fieldName;
                 list.showFoldoutHeader = true;
                 list.showBoundCollectionSize = false;
                 list.tooltip = tooltip;
@@ -242,6 +251,8 @@ namespace ISILab.LBS.AI.Categorization
         [Serializable]
         public class IntegerConfigurationField : EvaluatorConfigurationField
         {
+            public override string DisplayTypeName => "Integer";
+
             /// <summary>
             /// The current value of the field.
             /// </summary>
@@ -343,7 +354,7 @@ namespace ISILab.LBS.AI.Categorization
             {
                 if (useSlider)
                 {
-                    slider = new SliderInt(name, minValue, maxValue);
+                    slider = new SliderInt(fieldName, minValue, maxValue);
                     slider.tooltip = tooltip;
                     slider.value = value;
                     slider.showInputField = true;
@@ -359,7 +370,7 @@ namespace ISILab.LBS.AI.Categorization
                 }
                 else
                 {
-                    field = new IntegerField(name);
+                    field = new IntegerField(fieldName);
                     field.tooltip = tooltip;
                     field.value = value;
                     field.RegisterValueChangedCallback(evt =>
@@ -378,6 +389,8 @@ namespace ISILab.LBS.AI.Categorization
         [Serializable]
         public class FloatConfigurationField : EvaluatorConfigurationField
         {
+            public override string DisplayTypeName => "Float";
+
             /// <summary>
             /// The current value of the field.
             /// </summary>
@@ -479,7 +492,7 @@ namespace ISILab.LBS.AI.Categorization
             {
                 if (useSlider)
                 {
-                    slider = new Slider(name, minValue, maxValue);
+                    slider = new Slider(fieldName, minValue, maxValue);
                     slider.tooltip = tooltip;
                     slider.value = value;
                     slider.showInputField = true;
@@ -495,7 +508,7 @@ namespace ISILab.LBS.AI.Categorization
                 }
                 else
                 {
-                    field = new FloatField(name);
+                    field = new FloatField(fieldName);
                     field.tooltip = tooltip;
                     field.value = value;
                     field.RegisterValueChangedCallback(evt =>
@@ -514,6 +527,8 @@ namespace ISILab.LBS.AI.Categorization
         [Serializable]
         public class MinMaxConfigurationField : EvaluatorConfigurationField
         {
+            public override string DisplayTypeName => "Min-max";
+
             /// <summary>
             /// The current pair of values of the field as a Vector2.
             /// </summary>
@@ -592,7 +607,7 @@ namespace ISILab.LBS.AI.Categorization
 
             protected override void SetField()
             {
-                slider = new MinMaxSlider(name, Min, Max, lowLimit, highLimit);
+                slider = new MinMaxSlider(fieldName, Min, Max, lowLimit, highLimit);
                 slider.tooltip = tooltip;
                 slider.RegisterValueChangedCallback(evt =>
                 {
@@ -609,21 +624,23 @@ namespace ISILab.LBS.AI.Categorization
         [Serializable]
         public class EnumConfigurationField : EvaluatorConfigurationField
         {
+            public override string DisplayTypeName => "Enumeration";
+
             [SerializeField]
             int value;
             [SerializeField]
-            string typeName;
+            string enumTypeName;
 
-            Type type;
+            Type enumType;
             EnumField field;
 
             public Type EnumType
             {
                 get
                 {
-                    if (type == null && !string.IsNullOrEmpty(typeName))
-                        type = Type.GetType(typeName);
-                    return type;
+                    if (enumType == null && !string.IsNullOrEmpty(enumTypeName))
+                        enumType = Type.GetType(enumTypeName);
+                    return enumType;
                 }
             }
 
@@ -640,8 +657,8 @@ namespace ISILab.LBS.AI.Categorization
             public EnumConfigurationField(string fieldName, Enum value, string tooltip = "") : base(fieldName, tooltip)
             {
                 this.value = Convert.ToInt32(value);
-                type = value.GetType();
-                typeName = type.AssemblyQualifiedName;
+                enumType = value.GetType();
+                enumTypeName = enumType.AssemblyQualifiedName;
                 SetField();
             }
 
@@ -649,7 +666,7 @@ namespace ISILab.LBS.AI.Categorization
 
             protected override void SetField()
             {
-                field = new EnumField(name);
+                field = new EnumField(fieldName);
                 field.Init((Enum)Enum.ToObject(EnumType, value));
                 field.tooltip = tooltip;
                 field.RegisterValueChangedCallback(evt =>
@@ -724,7 +741,7 @@ namespace ISILab.LBS.AI.Categorization
         /// <returns>The value of type T contained in a field named as name.</returns>
         public T GetValue<T>(string name)
         {
-            return (T)fields.Find(f => f.name.Equals(name)).GetValue();
+            return (T)fields.Find(f => f.fieldName.Equals(name)).GetValue();
         }
 
         /// <summary>
@@ -735,7 +752,7 @@ namespace ISILab.LBS.AI.Categorization
         /// <returns>The collection of type T contained in a field named as name.</returns>
         public IEnumerable<T> GetValues<T>(string name)
         {
-            object val = fields.Find(f => f.name.Equals(name)).GetValue();
+            object val = fields.Find(f => f.fieldName.Equals(name)).GetValue();
             var t = val.GetType();
 
             var ret = (val as IEnumerable<object>).Select(v => (T)v);

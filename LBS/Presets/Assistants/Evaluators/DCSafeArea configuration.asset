@@ -13,45 +13,29 @@ MonoBehaviour:
   m_Name: DCSafeArea configuration
   m_EditorClassIdentifier: 
   target:
-    rid: 3359370255690367988
+    rid: 5219713250193834762
   fields:
-  - rid: 6112428711200948477
-  - rid: 6112428711200948478
+  - rid: 5219713250193834763
+  - rid: 5219713250193834764
   references:
     version: 2
     RefIds:
-    - rid: 3359370255690367988
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 5219713250193834762
       type: {class: DCSafeArea, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         playerCharacteristic:
-          rid: 6112428711200948479
+          rid: -2
         enemiesCharacteristic:
-          rid: 6112428711200948480
-    - rid: 6112428711200948477
+          rid: -2
+    - rid: 5219713250193834763
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
-        name: Player
-        tooltip: Main item to be compared with every danger.
+        fieldName: Player
         tagName: Player
-    - rid: 6112428711200948478
+    - rid: 5219713250193834764
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
-        name: Danger
-        tooltip: Dangerous item to move away.
+        fieldName: Danger
         tagName: Enemies
-    - rid: 6112428711200948479
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Player
-          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
-          tagGUID: 975a57a1811d3f743838422b5c87c58a
-    - rid: 6112428711200948480
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Enemies
-          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
-          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
