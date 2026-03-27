@@ -18,7 +18,7 @@ namespace ISILab.LBS.Modules
         #region FIELDS
         [SerializeField, JsonRequired, SerializeReference]
         private List<LBSTile> tiles = new List<LBSTile>();
-        private Dictionary<Vector2Int,LBSTile> _tileDic = new Dictionary<Vector2Int, LBSTile>();
+        //private Dictionary<Vector2Int,LBSTile> _tileDic = new Dictionary<Vector2Int, LBSTile>();
         #endregion
 
         #region PROPERTIES
@@ -53,7 +53,7 @@ namespace ISILab.LBS.Modules
                     t.Position += new Vector2Int((int)value.x, (int)value.y);
                 }
             }
-        }
+        }//*/
 
         [JsonIgnore]
         public Vector2 Size => GetBounds().size;
@@ -102,7 +102,7 @@ namespace ISILab.LBS.Modules
 
             tiles.Add(tile);
             
-            _tileDic[tile.Position] = tile;
+            //_tileDic[tile.Position] = tile;
 
             OnChanged?.Invoke(this, new List<object>() { t }, new List<object>() { tile });
             OnAddTile?.Invoke(this, tile);
@@ -136,7 +136,7 @@ namespace ISILab.LBS.Modules
             if(tiles.Remove(tile))
             {
                 OnRemoveTile?.Invoke(this, tile);
-                _tileDic.Remove(tile.Position);
+                //_tileDic.Remove(tile.Position);
 
                 OnChanged?.Invoke(this, new List<object>() { tile }, null);
                 return true;
@@ -148,7 +148,7 @@ namespace ISILab.LBS.Modules
         {
             var tile = tiles[index];
             tiles.Remove(tile); 
-            _tileDic.Remove(tile.Position);
+            //_tileDic.Remove(tile.Position);
             OnRemoveTile?.Invoke(this, tile);
             OnChanged?.Invoke(this, new List<object>() { tile }, null);
             return tile;
@@ -160,7 +160,7 @@ namespace ISILab.LBS.Modules
             if (tile != null)
             {
                 tiles.Remove(tile);
-                _tileDic.Remove(tile.Position);
+                //_tileDic.Remove(tile.Position);
                 OnRemoveTile?.Invoke(this, tile);
             }
             return tile;
@@ -173,21 +173,6 @@ namespace ISILab.LBS.Modules
             {
                 RemoveTile(t);
             }
-        }
-
-        public override bool IsEmpty()
-        {
-            return tiles.Count <= 0;
-        }
-
-        public override Rect GetBounds()
-        {
-            if (tiles.Count == 0)
-            {
-                return default(Rect);
-            }
-
-            return tiles.GetBounds();
         }
 
         public LBSTile GetTileNeighbor(LBSTile tile, Vector2Int direction)
@@ -207,6 +192,20 @@ namespace ISILab.LBS.Modules
 
             return neighbors;
         }
+        public List<object> GetSelected(Vector2Int position)
+        {
+            var pos = OwnerLayer.ToFixedPosition(position);
+
+            var r = new List<object>();
+            var tile = GetTile(pos);
+
+            if (tile != null)
+            {
+                r.Add(tile);
+            }
+            return r;
+        }
+
 
         public bool Contains(Vector2Int pos)
         {
@@ -225,17 +224,13 @@ namespace ISILab.LBS.Modules
         public override void Clear()
         {
             tiles.Clear();
-            _tileDic.Clear();
+            //_tileDic.Clear();
             //OnChanged?.Invoke(this);
         }
-
-        public override void Rewrite(LBSModule other)
+        public override bool IsEmpty()
         {
-            var module = other as TileMapModule;
-            Clear();
-            AddTiles(module.Tiles);
+            return tiles.Count <= 0;
         }
-
         public override object Clone()
         {
             var tileMap = new TileMapModule();
@@ -244,6 +239,21 @@ namespace ISILab.LBS.Modules
             return tileMap;
         }
 
+        public override Rect GetBounds()
+        {
+            if (tiles.Count == 0)
+            {
+                return default(Rect);
+            }
+
+            return tiles.GetBounds();
+        }
+        public override void Rewrite(LBSModule other)
+        {
+            var module = other as TileMapModule;
+            Clear();
+            AddTiles(module.Tiles);
+        }
         public override void Print()
         {
             string msg = "";
@@ -256,20 +266,6 @@ namespace ISILab.LBS.Modules
                 msg += t.Position + "\n";
             }
             Debug.Log(msg);
-        }
-
-        public List<object> GetSelected(Vector2Int position)
-        {
-            var pos = OwnerLayer.ToFixedPosition(position);
-
-            var r = new List<object>();
-            var tile = GetTile(pos);
-            
-            if (tile != null)
-            {
-                r.Add(tile);
-            }
-            return r;
         }
 
         public override bool Equals(object obj)

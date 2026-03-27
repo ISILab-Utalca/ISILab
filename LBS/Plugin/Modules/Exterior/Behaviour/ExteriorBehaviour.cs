@@ -24,15 +24,11 @@ namespace ISILab.LBS.Behaviours
     public class ExteriorBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
-        [JsonProperty, SerializeReference, SerializeField, HideInInspector]
-        private Bundle targetBundleRef;
 
-        /***
-         * Use asset's GUID; current bundle:
-         * - "Exterior_Plains"
-         */
         [SerializeField]
-        private string bundleRefGui = "9d3dac0f9a486fd47866f815b4fefc29";
+        private string bundleGuid;
+        private const string defaultBundleGuid = "9d3dac0f9a486fd47866f815b4fefc29";
+        private Bundle bundle;
 
         private ConnectedTileType? gridType = null;
         #endregion
@@ -40,6 +36,7 @@ namespace ISILab.LBS.Behaviours
         #region META-FIELDS
         [HideInInspector]
         public LBSTag identifierToSet;
+
         #endregion
 
         #region PROPERTIES
@@ -48,14 +45,22 @@ namespace ISILab.LBS.Behaviours
 
         [JsonIgnore]
         private ConnectedTileMapModule Connections => OwnerLayer.GetModule<ConnectedTileMapModule>();
-        
+
         public Bundle Bundle
         {
-            get => GetBundleRef();
+            get
+            {
+                if (bundle != null) return bundle;
+
+                Bundle = AssetMacro.LoadAssetByGuid<Bundle>(bundleGuid)
+                      ?? AssetMacro.LoadAssetByGuid<Bundle>(defaultBundleGuid);
+
+                return bundle;
+            }
             set
             {
-                targetBundleRef = value;
-                bundleRefGui = AssetMacro.GetGuidFromAsset(value);
+                bundle = value;
+                bundleGuid = AssetMacro.GetGuidFromAsset(value);
             }
         }
 
@@ -106,37 +111,16 @@ namespace ISILab.LBS.Behaviours
 
         public ExteriorBehaviour(string iconGUID, string name, Color colorTint) : base(iconGUID, name, colorTint)
         {
-     
+
         }
 
-        public ExteriorBehaviour(string iconGUID, string name, Color colorTint, Bundle targetBundleRef = null) : base(iconGUID, name, colorTint)
-        {
-            if(targetBundleRef != null)
-                this.targetBundleRef = targetBundleRef;
-            OnGUI();
-        }
-        
         #endregion
 
         #region METHODS
 
-        // Method invoked from the LBSLayer Class, whenever the scriptable object's values are modified
-        public sealed override void OnGUI()
-        {
-            GetBundleRef();
-        }
-
-        public Bundle GetBundleRef()
-        {
-            if (targetBundleRef is null && bundleRefGui is not null)
-            {
-                // either loads the default guid or the saved guid field
-                targetBundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleRefGui);
-            }
-            
-            return targetBundleRef;
-        }
-
+        /// Method invoked from the LBSLayer Class, whenever the scriptable object's values are modified
+        /// call to reassign bundle from seralized guid or default
+        public sealed override void OnGUI() {var bundle = Bundle;}
 
         public override void OnAttachLayer(LBSLayer layer)
         {
@@ -202,7 +186,9 @@ namespace ISILab.LBS.Behaviours
 
         public override object Clone()
         {
-            return new ExteriorBehaviour(IconGuid, Name, ColorTint, targetBundleRef);
+            var clone = new ExteriorBehaviour(IconGuid, Name, ColorTint);
+            clone.bundleGuid = bundleGuid;
+            return clone; 
         }
 
         public override bool Equals(object obj)
@@ -212,7 +198,7 @@ namespace ISILab.LBS.Behaviours
             if (other == null) return false;
             
             //if (!GetBundleRef().Equals(other.GetBundleRef())) return false;
-            if (!Equals(GetBundleRef(), other.GetBundleRef())) return false;
+            if (!Equals(Bundle, other.Bundle)) return false;
 
             return true;
         }

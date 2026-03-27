@@ -302,12 +302,12 @@ namespace ISILab.LBS.Manipulators
             OnMouseDown(@event.target as VisualElement, _startClickPosition, @event);
         }
 
-        protected void OnInternalMouseLeave(MouseLeaveEvent e)
+        private void OnInternalMouseLeave(MouseLeaveEvent e)
         {
             OnMouseLeave(e.target as VisualElement, e);
         }
 
-        protected void OnInternalMouseEnter(MouseEnterEvent e)
+        private void OnInternalMouseEnter(MouseEnterEvent e)
         {
             OnMouseEnter(e.target as VisualElement, e);
         }

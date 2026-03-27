@@ -5,8 +5,9 @@ using UnityEngine;
 namespace ISILab.LBS.Components
 {
     [Serializable]
-    public abstract class BundleTileMapAddons
+    public abstract class BundleTileMapAddons : ICloneable
     {
+        public abstract object Clone();
     }
 
     public enum TriggerActivationMode
@@ -23,7 +24,7 @@ namespace ISILab.LBS.Components
     }
 
     [Serializable]
-    public class TileTrigger : ISerializationCallbackReceiver
+    public class TileTrigger : ISerializationCallbackReceiver, ICloneable
     {
         [SerializeField] public Color areaColor;
 
@@ -44,6 +45,20 @@ namespace ISILab.LBS.Components
             Range = 1;
             Ttype = TileTriggerType.Box;
             _eventHooker = new LBSEventHooker();
+        }
+
+        public object Clone()
+        {
+            TileTrigger clone = new TileTrigger();
+            clone.areaColor = areaColor;
+            clone.isVisible = isVisible;
+            clone.Range = Range;
+            clone.activationMode = activationMode;
+            clone.Ttype = Ttype;
+            clone._eventHooker = _eventHooker.Clone() as LBSEventHooker;
+            
+            return clone;
+        
         }
 
         public void OnAfterDeserialize()

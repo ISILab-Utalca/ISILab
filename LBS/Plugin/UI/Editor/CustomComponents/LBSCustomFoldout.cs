@@ -26,6 +26,7 @@ namespace ISILab.LBS.CustomComponents
         private VectorImage arrowSideIcon;
         private VectorImage dotsIcon;
         private VectorImage leftIcon;
+        private Color iconColor = Color.white;
         
         //Visual elements references
         private ToolbarMenu m_RightDropDown;
@@ -50,6 +51,24 @@ namespace ISILab.LBS.CustomComponents
             }
         }
 
+        [UxmlAttribute]
+        public Color IconColor
+        {
+            get => iconColor;
+            set
+            {
+                iconColor = value;
+                if (iconColor == null)
+                {
+                    iconColor = Color.white;
+                }
+                if (m_LeftIconElement != null)
+                {
+                    m_LeftIconElement.style.unityBackgroundImageTintColor = iconColor;
+                }
+            }
+        }
+            
         [UxmlAttribute]
         public bool InitialValue
         {

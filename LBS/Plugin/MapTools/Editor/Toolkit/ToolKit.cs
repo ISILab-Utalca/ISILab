@@ -1,5 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
+using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.CustomComponents;
@@ -9,6 +10,7 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
@@ -16,13 +18,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.UIElements;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using ISILab.Extensions;
-using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
-using UnityEditor.UIElements;
 
 namespace LBS.VisualElements
 {
@@ -103,8 +104,6 @@ namespace LBS.VisualElements
         #region EVENTS
         public event Action<LBSLayer> OnEndAction;
         public event Action<LBSLayer> OnStartAction;
-        private EventCallback<ChangeEvent<bool>> _onNextFloorPressed;
-        private EventCallback<ChangeEvent<bool>> _onPrevFloorPressed;
         #endregion
 
         #region CONSTRUCTOR
@@ -257,7 +256,7 @@ namespace LBS.VisualElements
             // Ensure manipulatorType is not null
             if (manipulatorType == null)
             {
-                Debug.LogWarning("Manipulator type is null.");
+                //Debug.LogWarning("Manipulator type is null.");
                 return;
             }
 
@@ -266,7 +265,7 @@ namespace LBS.VisualElements
 
             if (foundTool.Key == null)
             {
-                Debug.LogWarning($"Tool of type {manipulatorType.Name} not found.");
+               // Debug.LogWarning($"Tool of type {manipulatorType.Name} not found.");
                 return;
             }
         

@@ -11,5 +11,12 @@ namespace ISILab.LBS.Components
         private LBSEventHooker destroyed = new();
 
         public LBSEventHooker Destroyed { get => destroyed; set => destroyed = value; }
+
+        public override object Clone()
+        {
+            Addon_Destruct clone = new Addon_Destruct();
+            clone.Destroyed = Destroyed.Clone() as LBSEventHooker;
+            return clone;
+        }
     }
 }

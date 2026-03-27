@@ -40,7 +40,7 @@ namespace ISILab.LBS.VisualElements
         private VectorImage icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
         private SimplePallete bundlePallete;
         private WarningPanel warningPanel;
-
+        private static VisualTreeAsset visualTree;
         public LBSButtonListFilter BundlePickerWindow { get; set; }
         #endregion
 
@@ -52,7 +52,6 @@ namespace ISILab.LBS.VisualElements
 
             behaviour = target as PopulationBehaviour;
             if (behaviour is null) return;
-            //_collection = load default collection
             
             List<Bundle.EElementFlag> characterList = new List<Bundle.EElementFlag> { Bundle.EElementFlag.Character };
             List<Bundle.EElementFlag> itemList = new List<Bundle.EElementFlag> { Bundle.EElementFlag.Item };
@@ -70,9 +69,8 @@ namespace ISILab.LBS.VisualElements
                 Bundle.EElementFlag.Character
             };
             
-            _mainBundle = behaviour.MainBundle;
-            behaviour.SelectedFilter = behaviour.allFilter;
-            displayChoices.Add(behaviour.allFilter, allList);
+            behaviour.SelectedFilter = PopulationBehaviour.allFilter;
+            displayChoices.Add(PopulationBehaviour.allFilter, allList);
             displayChoices.Add(nameof(Bundle.EElementFlag.Character), characterList);
             displayChoices.Add(nameof(Bundle.EElementFlag.Item), itemList);
             displayChoices.Add(nameof(Bundle.EElementFlag.Interactable), interactableList);
@@ -92,11 +90,7 @@ namespace ISILab.LBS.VisualElements
             behaviour = paramTarget as PopulationBehaviour;
             if (behaviour == null) return;
 
-            _mainBundle = behaviour.MainBundle;
-            behaviour.OwnerLayer.OnChange += () =>
-            {
-                //PopulationTileView.SelectedTile?.Highlight(false, true);
-            };
+            _mainBundle = behaviour.Bundle;
         }
 
         public void SetTools(ToolKit toolkit)
@@ -126,22 +120,11 @@ namespace ISILab.LBS.VisualElements
         protected sealed override VisualElement CreateVisualElement()
         {
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationBehaviourEditor");
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationBehaviourEditor");
             visualTree.CloneTree(this);
-            
+
             // WarningPanel
             warningPanel = this.Q<WarningPanel>();
-
-            //var collectionField = this.Q<ObjectField>("BundleCollection");
-            //// only updates the first bundle value change - fix pending
-            //collectionField.RegisterValueChangedCallback(evt =>
-            //{
-            //    var collection = evt.newValue as BundleCollection;
-            //    collectionField.value = collection;
-            //    SetCollection(collection);
-            //    UpdateElementBundles();
-            //    
-            //});
 
             TileRotatorEditor tileRotatorEditor = this.Q<TileRotatorEditor>("TileRotatorEditor");
             tileRotatorEditor.SetInfo(behaviour);
@@ -175,13 +158,16 @@ namespace ISILab.LBS.VisualElements
             
             bundlePallete = this.Q<SimplePallete>("ConnectionPallete");
             bundlePallete.DisplayAddElement = false;
+
             UpdateElementBundles();
             SetPallete();
             bundlePallete.Repaint();
-            
+
             //collectionField.SetValueWithoutNotify(behaviour.BundleCollection);
-            bundleField.SetValueWithoutNotify(behaviour.MainBundle);
-            
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+            bundleField.SetValueWithoutNotify(behaviour.Bundle);
+
+            Debug.Log($"CloneTree took {sw.ElapsedMilliseconds} ms");
             MarkDirtyRepaint();
             
             return this;
@@ -199,8 +185,8 @@ namespace ISILab.LBS.VisualElements
             
             bundlePallete.OnSelectOption += (selected) =>
             {
-                behaviour.selectedToSet = selected as Bundle;
-                behaviour.MainBundle = _mainBundle;
+                behaviour.bundleElement = selected as Bundle;
+                behaviour.Bundle = _mainBundle;
              
                 ToolKit.Instance.SetActive(typeof(AddPopulationTile));
             };
@@ -226,7 +212,7 @@ namespace ISILab.LBS.VisualElements
 
             bundlePallete.OnRepaint += () =>
             {
-                bundlePallete.Selected = behaviour.selectedToSet;
+                bundlePallete.Selected = behaviour.bundleElement;
                 //bundlePallete.CollectionSelected = behaviour.BundleCollection;
             };
 
@@ -251,7 +237,7 @@ namespace ISILab.LBS.VisualElements
             //List<Bundle> bundles = _collection.Collection;
             List<Bundle> bundles = _mainBundle.ChildsBundles;
             List<Bundle> candidates = new();
-            if (type.value == behaviour.allFilter)
+            if (type.value == PopulationBehaviour.allFilter)
             {
                 candidates = bundles
                     .Where(b => b.LayerContentFlags.HasFlag(BundleFlags.Population)).ToList();
@@ -278,22 +264,18 @@ namespace ISILab.LBS.VisualElements
                 var bundle = (Bundle)option;
                 optionView.Label = bundle.BundleName;
                 optionView.FrameColor = bundle.Color;
-                optionView.Icon = bundle.Icon;
-               // var size = 20f;
-
-                //optionView.style.width = size;
-              //  optionView.style.height = size * 1.75f;
+                optionView.Icon = bundle.Icon;;
             });
             
             // Save current selected options in layer
-            behaviour.MainBundle = _mainBundle;
+            behaviour.Bundle = _mainBundle;
             
             bundlePallete.Repaint();
         }
 
         private void SetBundle(Bundle bundle)
         {
-            behaviour.MainBundle = bundle;
+            behaviour.Bundle = bundle;
             _mainBundle = bundle;
         }
 

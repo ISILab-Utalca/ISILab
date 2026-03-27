@@ -672,6 +672,8 @@ namespace ISILab.LBS.AI.Categorization
         [SerializeReference]
         public List<EvaluatorConfigurationField> fields = new();
 
+        public Func<bool> windowRefresh;
+
         /// <summary>
         /// Creates a new Evaluator Configuration asset for an evaluator, or updates an existent one.
         /// </summary>
@@ -701,10 +703,16 @@ namespace ISILab.LBS.AI.Categorization
             {
                 config.fields.Clear();
                 config.fields.AddRange(getFields?.Invoke());
+                config.Refresh();
+            }
+        }
 
-                var conf = config;
+        private void Refresh()
+        {
+            if(windowRefresh?.Invoke() is not true)
+            {
                 Selection.activeObject = null;
-                EditorApplication.delayCall += () => Selection.activeObject = conf;
+                EditorApplication.delayCall += () => Selection.activeObject = this;
             }
         }
 

@@ -25,6 +25,11 @@ namespace ISILab.LBS.Components
 
         public Addon_Unlock() { }
 
-
+        public override object Clone()
+        {
+            Addon_Unlock clone = new Addon_Unlock();
+            clone.Connection = Connection.Clone() as ConnectionData;
+            return clone;
+        }
     }
 }
