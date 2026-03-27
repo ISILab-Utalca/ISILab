@@ -457,11 +457,13 @@ namespace ISILab.LBS.Manipulators
                     new LBSLog("'" + Name + "' action cancelled."));
                 Feedback?.SetDisplay(false);
             }
-            if (e.shiftKey) Feedback.fixAspect = true;
+            if ((e.shiftKey)&&(Feedback!=null)) Feedback.fixAspect = true;
+
+            KeyDownListener?.Invoke();
         }
 
         protected virtual void OnKeyUp(KeyUpEvent e) {
-            if (!e.shiftKey) {
+            if ((!e.shiftKey)&&(Feedback!=null)) {
                 Feedback.fixAspect = false; 
             }
         }

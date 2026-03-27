@@ -6,37 +6,49 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
-public class TagManagerWindow :ThemeableWindow
+namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
 {
-    
-    
-    public static TagManagerWindow Instance { get; private set; }
-    
-    
-    [MenuItem("Window/ISILab/Tag Manager", priority = 2)]
-    public static void ShowWindow()
+    public class TagManagerWindow : ThemeableWindow
     {
-        TagManagerWindow window = GetWindow<TagManagerWindow>();
-        Texture icon = AssetMacro.LoadAssetByGuid<Texture>("40d548834301ba14f96af3e1715add5f");
-        window.titleContent = new GUIContent("Tag Manager", icon);
-    }
+        public static TagManagerWindow Instance { get; private set; }
 
-    
-    //Singleton part
-    private void OnEnable()
-    {
-        Instance = this;
-    }
+        #region EVENTS
+        public static Action OnClosed;
+        #endregion
 
-    private void CreateGUI()
-    {
-        VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TagManagerWindow");
-        visualTree.CloneTree(rootVisualElement);
-    }
-    
-    private void OnDisable()
-    {
-        Instance = null;
+        [MenuItem("Window/ISILab/Tag Manager", priority = 2)]
+        public static void ShowWindow()
+        {
+            TagManagerWindow window = GetWindow<TagManagerWindow>();
+            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("40d548834301ba14f96af3e1715add5f");
+            window.titleContent = new GUIContent("Tag Manager", icon);
+
+        }
+
+        public static void CloseWindow()
+        {
+            TagManagerWindow window = GetWindow<TagManagerWindow>();
+            window.Close();
+        }
+
+
+        //Singleton part
+        private void OnEnable()
+        {
+            Instance = this;
+        }
+
+        private void CreateGUI()
+        {
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TagManagerWindow");
+            visualTree.CloneTree(rootVisualElement);
+        }
+
+        private void OnDisable()
+        {
+            OnClosed?.Invoke();
+            Instance = null;
+        }
     }
 }
+

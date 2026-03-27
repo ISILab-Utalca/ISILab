@@ -22,6 +22,7 @@ using ISILab.LBS.Plugin.Internal;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -57,6 +58,10 @@ namespace ISILab.LBS.VisualElements
         public ConnectedTileMapModule.ConnectedTileType GridType => exterior.GridType;
         #endregion
 
+        #region EVENTS
+        public Action<KeyDownEvent> KeyDownListener;
+        #endregion
+
         #region CONSTRUCTORS
         public ExteriorBehaviourEditor(object target) : base(target)
         {
@@ -78,6 +83,8 @@ namespace ISILab.LBS.VisualElements
 
         public void SetTools(ToolKit toolKit)
         {
+            this.RegisterCallback<KeyDownEvent>(OnKeyDown);
+
             // We set the remover tool first as we want to avoid using switch statement twice when setting the add tool's remover.
             removeTile = new RemoveTileExterior();
             LBSTool t2 = new LBSTool(removeTile);
@@ -93,7 +100,6 @@ namespace ISILab.LBS.VisualElements
             {
                 case ConnectedTileMapModule.ConnectedTileType.EdgeBased:
                     t1 = new LBSTool(addExteriorTile);
-                    addExteriorTile.SetRemover(removeTile);
                     t3 = new LBSTool(setConnection);
                     break;
                 case ConnectedTileMapModule.ConnectedTileType.VertexBased:
@@ -108,6 +114,16 @@ namespace ISILab.LBS.VisualElements
                 tool.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
                 toolKit.ActivateTool(tool, exterior.OwnerLayer, exterior);
             }
+        }
+
+        private void SetHotkey()
+        {
+
+        }
+
+        private void OnKeyDown(KeyDownEvent e)
+        {
+            KeyDownListener?.Invoke(e);
         }
 
         private void CheckTargetBundle() 
