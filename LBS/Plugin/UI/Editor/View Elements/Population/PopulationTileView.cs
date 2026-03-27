@@ -13,6 +13,7 @@ using UnityEditor.Experimental.GraphView;
 using LBS.VisualElements;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Macros;
+using ISILab.Extensions;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -51,11 +52,9 @@ namespace ISILab.LBS.VisualElements
             _tileBundleGroup = tile;
             _ownerLayer = ownerLayer;
             _tileBehaviour = ownerLayer.GetBehaviour<TileGroupBehavior>();
-            ownerLayer.OnChange += () => Highlight(false, true);
-            _tileBehaviour.OnSelectedChanged += (newTbg) =>
-            {
-                Highlight(newTbg != null && newTbg == _tileBundleGroup);
-            };
+            ownerLayer.OnChange -= ClearSelection;         
+            ownerLayer.OnChange += ClearSelection;
+            ActionExtensions.AddUnique(ref _tileBehaviour.OnSelectedChanged, Select);
 
             InitializeVisuals(tile);
             SetupCallbacks();
@@ -188,5 +187,15 @@ namespace ISILab.LBS.VisualElements
 
         }
         #endregion
+
+        private void ClearSelection() => Highlight(false, true);
+        private void Select(TileBundleGroup newTbg)
+        {
+            if (newTbg != _tileBundleGroup && PopulationTileView.SelectedTile == this)
+            {
+                PopulationTileView.SelectedTile = null;
+            }
+            Highlight(newTbg == _tileBundleGroup);
+        }
     }
 }
