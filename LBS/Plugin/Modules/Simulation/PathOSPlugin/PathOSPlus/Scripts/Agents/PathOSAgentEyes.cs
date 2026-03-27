@@ -407,12 +407,14 @@ namespace PathOS
 
         private void OnValidate()
         {
+            if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) return;
+
             if (lastCamera == null)
             {
                 lastCamera = cam;
                 lastCamParent = cam.transform.parent;
-                lastCamPos = cam.transform.position;
-                lastCamRot = cam.transform.rotation;
+                //lastCamPos = cam.transform.position;
+                //lastCamRot = cam.transform.rotation;
             }
 
             if(lastCamera != cam)

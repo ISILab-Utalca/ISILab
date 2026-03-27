@@ -21,7 +21,7 @@ namespace ISILab.LBS.Manipulators
         private ExteriorBehaviour exterior;
         private Vector2Int first;
 
-        private ConnectedConrnerLine lineFeedback = new ConnectedConrnerLine();
+        private ConnectedCornerLine lineFeedback = new ConnectedCornerLine();
         private Feedback areaFeedback = new AreaFeedback();
 
         public RemoveConnection() : base()

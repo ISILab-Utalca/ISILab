@@ -10,6 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -17,8 +18,9 @@ namespace ISILab.LBS.Manipulators
     {
         private SchemaBehaviour _schema;
         private List<SchemaBehaviour> _others;
-        private Vector2Int _first;
+
         private List<Vector2Int> Dirs => Commons.Directions.Bidimencional.Edges;
+        private ConnectedMemoryLine _line;
 
         protected override string IconGuid => "b06c784e5d88d1547a40d4fc2f54b485";
         
@@ -30,8 +32,9 @@ namespace ISILab.LBS.Manipulators
 
         public AddSchemaTileConnection()
         {
-            Feedback = new ConnectedLine();
-            Feedback.fixToTeselation = true;
+            _line = new ConnectedMemoryLine();
+            _line.fixToTeselation = true;
+            Feedback = _line;
 
             Name = "Set Manual Connection";
             Description = "Draw across a zone's border to generate a connection.";
@@ -58,81 +61,73 @@ namespace ISILab.LBS.Manipulators
                 .ToList();
         }
 
-        protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
-        {
-            _first = _schema.OwnerLayer.ToFixedPosition(position);
-        }
-
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)
         {
             base.OnMouseUp(element, position, e);
 
-            //If esc key was pressed, cancel the operation
+            // Cancel the operation
+            // If esc key was pressed OR a connection wasn't selected
             if (ForceCancel)
             {
                 ForceCancel = false;
+                _line.LineClear();
                 return;
             }
-
             if (ToSet is null)
             {
                 LBSMainWindow.MessageNotify(
                     new LBSLog("Select a connection type in the LBS-inspector panel",LogType.Warning,4));
+                _line.LineClear();
                 return;
             }
 
-            // Get second fixed position
-            Vector2Int lastPos = _schema.OwnerLayer.ToFixedPosition(position);
+            // Get selected tiles
+            List<LBSTile> selectedTiles = new List<LBSTile>();
+            for (int i = 0; i < _line.Positions.Count; i++)
+            {
+                var tile = _schema.GetTile(_line.Positions[i]);
+                selectedTiles.Add(tile);
+            }
+            bool requiresWall = _line.Positions.Count > 1;
 
-            // Get vector direction
-            int dx = _first.x - lastPos.x;
-            int dy = _first.y - lastPos.y;
-            
-            float dLength = Mathf.Sqrt(dx * dx  +  dy * dy);
-
-            if (dLength < 1)
-                return;
-
-            // Get index of directions
-            int frontDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-            if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) return;
-            int backDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-
+            // Set Undo action
             LoadedLevel level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Add Connection Between Zones");
 
-            // Multi-connection mode
-            bool requiresWall = dLength > 1;
+            // Filter connection behaviour
+            bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
 
-            int totalConnections = (int)Math.Floor(dLength);
-            List<LBSTile> selectedTiles = new List<LBSTile>();
-
-            for (int i = 0; i <= totalConnections; i++)
-            {
-                //Get the next tile 
-                selectedTiles.Add(GetTileInLine(_schema, i));
-            }
-
+            // Set tile connections
+            int frontDirIndex, backDirIndex;
             for (int i = 1; i < selectedTiles.Count; i++)
             {
-                LBSTile tile1 = selectedTiles[i - 1];
-                LBSTile tile2 = selectedTiles[i];
+                LBSTile t1 = selectedTiles[i - 1];
+                LBSTile t2 = selectedTiles[i];
 
-                bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
-                if (requiresWall && setDoorOrWindow && !ValidWallReplace(_schema, tile1, tile2)) continue;
+                // Get direction vector
+                int dx = _line.Positions[i].x - _line.Positions[i - 1].x;
+                int dy = _line.Positions[i].y - _line.Positions[i - 1].y;
 
-                TrySetSingleConnection(_schema, tile1, tile2, frontDirIndex, backDirIndex);
+                // Get index of directions
+                frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+                if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) continue; ;
+                backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
+
+                // Validate position
+                if (requiresWall && setDoorOrWindow && !ValidWallReplace(_schema, t1, t2)) continue;
+                TrySetSingleConnection(_schema, t1, t2, frontDirIndex, backDirIndex);
                 
+                // Spread change to other layers
                 if (_schema.MultiLayerConnections && setDoorOrWindow)
                 {
                     foreach (SchemaBehaviour other in _others)
                     {
-                        LBSTile t1 = GetTileInLine(other, i - 1);
-                        LBSTile t2 = GetTileInLine(other, i);
-                        if (ValidWallReplace(other, t1, t2))
+                        LBSTile t3 = other.GetTile(t1.Position);
+                        LBSTile t4 = other.GetTile(t2.Position);
+                        if (ValidWallReplace(other, t3, t4))
                         {
-                            TrySetSingleConnection(other, t1, t2, frontDirIndex, backDirIndex);
+                            TrySetSingleConnection(other, t3, t4, frontDirIndex, backDirIndex);
                             Action redrawCallback = null;
                             redrawCallback = () =>
                             {
@@ -145,6 +140,7 @@ namespace ISILab.LBS.Manipulators
                     }
                 }
             }
+            _line.LineClear();
 
             if (EditorGUI.EndChangeCheck())
             {
@@ -152,10 +148,6 @@ namespace ISILab.LBS.Manipulators
             }
 
             /// END OF METHOD ///
-
-            // Local functions
-            LBSTile GetTileInLine(SchemaBehaviour schema, int i) => schema.GetTile(_first - new Vector2Int(Math.Sign(dx) * i, Math.Sign(dy) * i));
-
             bool ValidWallReplace(SchemaBehaviour schema, LBSTile tile1, LBSTile tile2)
             {
                 bool tile1Exists = tile1 is not null;
@@ -176,14 +168,15 @@ namespace ISILab.LBS.Manipulators
             int backDirIndex
             )
         {
-            if (firstTile != null && firstTile.Equals(secondTile))
-            {
-                Debug.Log("Not Valid Tile - Same Tile with lenght 0");
-                return;
-            }
 
+            if (firstTile is null && secondTile is null) return;
             if (firstTile is not null)
             {
+                if (firstTile.Equals(secondTile))
+                {
+                    Debug.Log("Not Valid Tile - Same Tile with lenght 0");
+                    return;
+                }
                 schema.SetConnection(firstTile, frontDirIndex, ToSet, false);
             }
             if (secondTile is not null)

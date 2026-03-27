@@ -1,0 +1,99 @@
+using ISILab.AI.Optimization;
+using ISILab.Extensions;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using LBS.Components.TileMap;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+#CONTEXT_NAMESPACES##CONFIGURATION_NAMESPACES#
+namespace ISILab.AI.Categorization
+{
+    public class #SCRIPTNAME# : IRangedEvaluator#INTERFACES#
+    {
+        public float MaxValue => 1;
+        public float MinValue => 0;
+	    #CONTEXT_PROPERTIES#
+        public string Tooltip => "#SPACED_SCRIPTNAME#\n\n" +
+            "<b>NO DESCRIPTION PROVIDED</b>\n\n" +
+            "Explain the purpose of your Custom Evaluator and how it works.\n\n"#CONTEXT_TOOLTIP#;
+	    #CONFIGURATION_STATIC#
+        /* Place here any LBSCharacteristic type field required for your evaluator to work. */
+        #region CHARACTERISTIC FIELDS
+
+        [SerializeField, SerializeReference]
+        public LBSCharacteristic defaultCharacteristic;
+
+        #endregion
+
+        #region EVALUATION
+
+        public float Evaluate(IOptimizable evaluable)
+        {
+            var chrom = evaluable as BundleTilemapChromosome;
+
+            if (chrom is null)
+            {
+                throw new System.Exception("Wrong Chromosome Type");
+            }
+            if (chrom.IsEmpty())
+            {
+                return 0.0f;
+            }
+
+            float fitness = 0;
+
+            List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
+
+            /* Search for your tagged elements. */
+            int defaultCharacteristicIndex = -1;
+            for (int i = 0; i < genes.Count; i++)
+            {
+                if (chrom.IsInvalid(i))
+                    continue;
+                if (genes[i] is not null)
+                {
+                    if (genes[i].HasTag(defaultCharacteristic.FirstTag()))
+                    {
+                        defaultCharacteristicIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            /* You can use the necessary modules for your evaluator to work. */
+            
+            /**
+            string connectedModuleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+            string sectorModuleID = "";
+            ConnectedTileMapModule connectedTM = layer.GetModule<ConnectedTileMapModule>(connectedModuleID);
+            SectorizedTileMapModule sectorTM = layer.GetModule<SectorizedTileMapModule>(sectorModuleID);
+            **/
+
+            /* FITNESS CALCULATION */
+	        #CONTEXT_EVALUATION_INVOKE#
+            return fitness;
+        }
+	    #CONTEXT_EVALUATION_IMPLEMENTATION#
+        #endregion
+
+        #region INITIALIZATION
+	    #CONTEXT_INITIALIZATION#
+        public void InitializeDefault()
+        {
+            /* Initialize here all your LBSCharacteristic fields. */
+            defaultCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("TAG NAME"));
+        #CONFIGURATION_INITIALIZATION#}
+
+        #endregion
+	    #CONFIGURATION_IMPLEMENTATION#
+        public object Clone()
+        {
+            var clone = new #SCRIPTNAME#();
+	        #CONTEXT_CLONE#
+            clone.defaultCharacteristic = defaultCharacteristic;
+            return clone;
+        }
+    }
+}

@@ -38,6 +38,7 @@ namespace ISILab.LBS.Behaviours.Editor
         private RemoveTileConnection removeTileConnection;
         private MoveSchemaZone moveSchemaZone;
         private RotateSchemaZone rotateSchemaZone;
+        private PlaceStairs placeStairs;
         #endregion
 
         #region VIEW FIELDS
@@ -98,6 +99,11 @@ namespace ISILab.LBS.Behaviours.Editor
             var t6 = new LBSTool(rotateSchemaZone);
             t6.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
 
+            placeStairs = new PlaceStairs();
+            var t7 = new LBSTool(placeStairs);
+            t7.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+
+
             addSchemaTile.SetRemover(removeSchemaTile);
             addTileConnection.SetRemover(removeTileConnection);
 
@@ -107,6 +113,7 @@ namespace ISILab.LBS.Behaviours.Editor
             toolKit.ActivateTool(t5, behaviour.OwnerLayer, behaviour);
             toolKit.ActivateTool(t3, behaviour.OwnerLayer, behaviour);
             toolKit.ActivateTool(t4, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t7, behaviour.OwnerLayer, behaviour);
 
             addSchemaTile.OnManipulationLeftClickCtrl += AddZone;
         }
@@ -260,7 +267,9 @@ namespace ISILab.LBS.Behaviours.Editor
             if (!answer) return;
 
             behaviour.RemoveZone(option as Zone);
-            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer); //May fail, test and see
+            DrawManager drawManager = DrawManager.Instance;
+            drawManager.DrawSingleComponent(behaviour, behaviour.OwnerLayer, true);
+            drawManager.DrawSingleComponent(behaviour.OwnerLayer.GetAssistant<Plugin.Core.AI.Assistant.HillClimbingAssistant>(), behaviour.OwnerLayer, true);
             //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer); 
             ToolKit.Instance.SetActive(typeof(AddSchemaTile));
             areaPallete.Repaint();

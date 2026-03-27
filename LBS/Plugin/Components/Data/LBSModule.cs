@@ -20,9 +20,6 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired]
         protected string id;
 
-        //[SerializeField, JsonRequired]
-        //protected bool changed;
-
         [FormerlySerializedAs("owner")] [SerializeField, JsonRequired, HideInInspector]
         private LBSLayer ownerLayer;
         #endregion
@@ -76,11 +73,11 @@ namespace ISILab.LBS.Modules
             layer.ClearEvents();
             OwnerLayer = null;
         }
-
+        /*
         public virtual void Reload(LBSLayer layer)
         {
             OwnerLayer = layer;
-        }
+        }//*/
         #endregion
 
         #region ABSTRACT METHODS

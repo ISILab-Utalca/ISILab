@@ -156,7 +156,7 @@ namespace ISILab.AI.Categorization
         }
 
         #region EVALUATION
-        public float Evaluate(IOptimizable evaluable) => OLDEvaluate(evaluable);
+        public float Evaluate(IOptimizable evaluable) => NEWEvaluate(evaluable);
 
         public float EvaluateWithInfo(IOptimizable evaluable, out EvaluationInfo evalInfo)
         {
@@ -283,6 +283,7 @@ namespace ISILab.AI.Categorization
                                 }
                                 break;
                             case PathfindingAlgorithm.JPS_Plus:
+                            case PathfindingAlgorithm.A_Star:
                                 for (int i = 0; i < size; i++)
                                 {
                                     Colony colony;
@@ -306,7 +307,9 @@ namespace ISILab.AI.Categorization
                                     for (int j = i + 1; j < size; j++)
                                     {
                                         if (filter.Contains(itemIndices[j])) continue;
-                                        distances[i, j] = distances[j, i] = EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info);
+                                        distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
+                                            EvaluatorHelper.PartialAStarRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info) :
+                                            EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info);
                                         EvaluationInfo = info;
                                         if (distances[i, j] < 0) continue; // Not found at specified distance
                                         if(!skip.Contains(itemIndices[j])) members.Add(itemIndices[j]); // Add to incoming colony
@@ -317,6 +320,9 @@ namespace ISILab.AI.Categorization
                                     //colonies[^1] = colonies[^1].SetCenter(chrom);
                                 }
                                 break;
+                            default:
+                                Debug.LogWarning("Algorithm not implemented. Executing JPS+ instead...");
+                                goto case PathfindingAlgorithm.JPS_Plus;
                         }
                         break;
                     default:
@@ -394,7 +400,7 @@ namespace ISILab.AI.Categorization
 
             if (CombinedLayer is null) return;
             string moduleID = CombinedLayer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
-            CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection);
+            CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection, searchType);
         }
 
         public void InitializeDefault()

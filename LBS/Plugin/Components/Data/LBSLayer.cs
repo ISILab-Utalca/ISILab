@@ -433,16 +433,7 @@ namespace LBS.Components
         }
 
         public override int GetHashCode() => id.GetHashCode();
-        /*
-        private LBSFloor[] CloneFloorArray(LBSFloor[] input)
-        {
-            LBSFloor[] output = new LBSFloor[input.Length];
-            for(int i = 0; i < output.Length; i++)
-            {
-                output[i] = new LBSFloor(input[i].Modules);
-            }
-            return output;
-        }//*/
+
         #endregion
         
         #region Events

@@ -20,7 +20,7 @@ namespace ISILab.LBS.Manipulators
         private ExteriorBehaviour _exterior;
         private Vector2Int _first;
 
-        private readonly ConnectedConrnerLine _lineFeedback = new();
+        private readonly ConnectedCornerLine _lineFeedback = new();
         private readonly Feedback _areaFeedback = new AreaFeedback();
         protected override string IconGuid => "89403d16440c74442a7260e1a2fe2a40";
 
@@ -57,6 +57,7 @@ namespace ISILab.LBS.Manipulators
         
         protected override void OnKeyUp(KeyUpEvent e)
         {
+            base.OnKeyUp(e);
             LBSMainWindow.WarningManipulator();
         }
         

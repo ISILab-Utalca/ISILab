@@ -5,9 +5,10 @@ using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility;
 using ISILab.Extensions;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using Newtonsoft.Json;
 using UnityEngine;
-using static ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.JPSPlus;
+using static ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper;
 
 namespace ISILab.LBS.Modules
 {
@@ -42,9 +43,9 @@ namespace ISILab.LBS.Modules
         public ConnectedTileType GridType => gridType;
 
         [JsonIgnore]
-        public JPSNode[] JPSNodes { get; set; } = new JPSNode[0];
+        public AStarNode[] PathfindNodes { get; set; } = new AStarNode[0];
         [JsonIgnore]
-        public Dictionary<Vector2Int, int[]> PathfindDistances { get; set; } = new();
+        public Dictionary<Vector2Int, int[]> JPSDistances { get; set; } = new();
         #endregion
 
         #region EVENTS
@@ -173,14 +174,20 @@ namespace ISILab.LBS.Modules
             OnRemovePair?.Invoke(this, pair);
         }
 
-        public void InitializePathfinding() => InitializePathfinding(GetBounds());
+        public void InitializePathfinding(PathfindingAlgorithm searchType = PathfindingAlgorithm.JPS_Plus) => InitializePathfinding(GetBounds(), searchType);
 
-        public void InitializePathfinding(Rect selection)
+        public void InitializePathfinding(Rect selection, PathfindingAlgorithm searchType = PathfindingAlgorithm.JPS_Plus)
         {
+            bool jps = searchType == PathfindingAlgorithm.JPS_Plus;
+
+            if (!jps && searchType != PathfindingAlgorithm.A_Star) 
+                return;
+
             int w = (int)selection.width;
             int h = (int)selection.height;
+            int l = w * h;
 
-            JPSNodes = new JPSNode[w * h];
+            PathfindNodes = jps ? new JPSNode[l] : new AStarNode[l];
             for(int i = (int)selection.xMin; i < (int)selection.xMax; i++)
             {
                 for(int j = (int)selection.yMin; j < (int)selection.yMax; j++)
@@ -188,12 +195,12 @@ namespace ISILab.LBS.Modules
                     Vector2Int pos = new Vector2Int(i, j);
                     if (GetPair(pos) is not null)
                     {
-                        JPSNodes[selection.GlobalToIndex(pos)] = new JPSNode(pos);
+                        PathfindNodes[selection.GlobalToIndex(pos)] = jps ? new JPSNode(pos) : new AStarNode(pos);
                     }
                 }
             }
 
-            PathfindDistances = JPSPreprocessDistances(selection, this);
+            if(jps) JPSDistances = JPSPlus.JPSPreprocessDistances(selection, this);
         }
 
 

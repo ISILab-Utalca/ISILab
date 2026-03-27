@@ -174,12 +174,13 @@ namespace ISILab.AI.Categorization
 
             foreach(int res in resources)
             {
-                Zone zone = sectorTM.GetZone(chrom.ToMatrixPosition(res) + Vector2Int.RoundToInt(chrom.Rect.position));
-                int rZone = zonesIndex[zone];
                 int score = 2;
-                foreach(int pZone in playerZones)
+                Zone zone = sectorTM.GetZone(chrom.ToMatrixPosition(res) + Vector2Int.RoundToInt(chrom.Rect.position));
+                if(zone != null)
                 {
-                    score = Mathf.Min(score, zonesDist[rZone, pZone]);
+                    int rZone = zonesIndex[zone];
+                    foreach (int pZone in playerZones)
+                        score = Mathf.Min(score, zonesDist[rZone, pZone]);
                 }
                 totalScore += score;
             }
