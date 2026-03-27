@@ -38,8 +38,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         public override bool Equals(object _obj)
         {
             if (_obj == null) return false;
-
-            LBSTile other = (LBSTile)_obj;
+            if (_obj is not LBSTile other) return false;
 
             if (other == null) return false;
 

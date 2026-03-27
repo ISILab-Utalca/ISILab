@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static PathOS.PathOSNavUtility.NavmeshMemoryMapper;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers
@@ -28,13 +29,14 @@ namespace ISILab.LBS.Drawers
             var tilesMod = schema.OwnerLayer.GetModule<TileMapModule>();
             var zonesMod = schema.OwnerLayer.GetModule<SectorizedTileMapModule>();
             var connectionsMod = schema.OwnerLayer.GetModule<ConnectedTileMapModule>();
+            var stairsMod = schema.OwnerLayer.GetModule<StairsModule>();
 
-            PaintNewTiles(schema, tesselationSize, view, zonesMod, connectionsMod);
+            PaintNewTiles(schema, tesselationSize, view, zonesMod, connectionsMod, stairsMod);
 
             //UpdateLoadedTiles(schema, tesselationSize, view, zonesMod, connectionsMod);
             if (!Loaded || FullRedrawRequested)
             {
-                LoadAllTiles(schema, tesselationSize, view, tilesMod, zonesMod, connectionsMod);
+                LoadAllTiles(schema, tesselationSize, view, tilesMod, zonesMod, connectionsMod, stairsMod);
                 Loaded = true;
                 FullRedrawRequested = false;
             }
@@ -47,37 +49,71 @@ namespace ISILab.LBS.Drawers
             if (target is not SchemaBehaviour schema) return;
             var zonesMod = schema.OwnerLayer.GetModule<SectorizedTileMapModule>();
             var connectionsMod = schema.OwnerLayer.GetModule<ConnectedTileMapModule>();
+            var stairsMod = schema.OwnerLayer.GetModule<StairsModule>();
 
-            PaintNewTiles(schema, teselationSize, view, zonesMod, connectionsMod);
-            UpdateLoadedTiles(schema, teselationSize, view, zonesMod, connectionsMod);
+            PaintNewTiles(schema, teselationSize, view, zonesMod, connectionsMod, stairsMod);
+            UpdateLoadedTiles(schema, teselationSize, view, zonesMod, connectionsMod, stairsMod);
         }
 
         private void PaintNewTiles(SchemaBehaviour schema, Vector2 teselationSize, MainView view,
-            SectorizedTileMapModule zonesMod, ConnectedTileMapModule connectionsMod)
+            SectorizedTileMapModule zonesMod, ConnectedTileMapModule connectionsMod, StairsModule stairsMod)
         {
-            foreach (LBSTile newTile in schema.RetrieveNewTiles())
+            var newTiles = schema.RetrieveNewTiles();
+
+            //foreach (object obj in schema.Keys)
+            foreach (object obj in newTiles)
             {
-                TileZonePair tz = zonesMod.GetPairTile(newTile);
-                TileConnectionsPair tc = connectionsMod.GetPair(newTile);
-                if (tz is null || tc is null) continue;
-
-                SchemaTileView tView;
-                List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, newTile);
-
-                if(previousElement is not null && previousElement.Count > 0)
+                // LBSTile
+                if (obj is LBSTile newTile)
                 {
-                    tView = previousElement[0] as SchemaTileView;
-                    UpdateTileView(tView, newTile, tz.Zone, tc.Connections, teselationSize, schema.OwnerLayer.index);
-                }
-                else
-                {
-                    tView = GetTileView(newTile, tz.Zone, tc.Connections, teselationSize);
-                    tView.layer = schema.OwnerLayer.index;
-                    // Stores using LBSTile as key
-                    view.AddElementToLayerContainer(schema.OwnerLayer, newTile, tView);
-                }
+                    TileZonePair tz = zonesMod.GetPairTile(newTile);
+                    TileConnectionsPair tc = connectionsMod.GetPair(newTile);
+                    if (tz is null || tc is null) continue;
 
-                tView.style.display = (DisplayStyle)(schema.OwnerLayer.IsVisible ? 0 : 1);
+                    SchemaTileView tView;
+                    List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, newTile);
+
+                    if (previousElement is not null && previousElement.Count > 0)
+                    {
+                        tView = previousElement[0] as SchemaTileView;
+                        UpdateTileView(tView, newTile, tz.Zone, tc.Connections, teselationSize, schema.OwnerLayer.index);
+                    }
+                    else
+                    {
+                        tView = GetTileView(newTile, tz.Zone, tc.Connections, teselationSize);
+                        tView.layer = schema.OwnerLayer.index;
+
+                        // Stores using LBSTile as key
+                        view.AddElementToLayerContainer(schema.OwnerLayer, newTile, tView);
+                    }
+                    tView.style.display = (DisplayStyle)(schema.OwnerLayer.IsVisible ? 0 : 1);
+                }
+                // LBSStairs
+                else if (obj is LBSStair newStair)
+                {
+                    StairsGraph sView;
+                    List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, newStair);
+
+                    if (previousElement is not null && previousElement.Count > 0)
+                    {
+                        sView = previousElement[0] as StairsGraph;
+                        sView.Update(newStair);
+                        sView.layer = schema.OwnerLayer.index;
+                    }
+                    else
+                    {
+                        sView = new StairsGraph(newStair, schema.OwnerLayer);
+                        sView.layer = schema.OwnerLayer.index;
+
+                        var pos = new Vector2(newStair.Positions[0].x, -newStair.Positions[0].y);
+                        var size = DefaultSize * teselationSize;
+                        sView.SetPosition(new Rect(pos * size, size));
+
+                        // Stores using LBSStair as key
+                        view.AddElementToLayerContainer(schema.OwnerLayer, newStair, sView);
+                    }
+                    sView.style.display = (DisplayStyle)(schema.OwnerLayer.IsVisible ? 0 : 1);
+                }
             }
         }
 
@@ -86,32 +122,48 @@ namespace ISILab.LBS.Drawers
             Debug.Log("tiles: " + schema.Tiles.Count + "// keys: " + schema.Keys.Count);
         }
         private void UpdateLoadedTiles(SchemaBehaviour schema, Vector2 teselationSize, MainView view,
-            SectorizedTileMapModule zonesMod, ConnectedTileMapModule connectMod)
+            SectorizedTileMapModule zonesMod, ConnectedTileMapModule connectMod, StairsModule stairsMod)
         {
             schema.Keys.RemoveWhere(item => item == null);
             
-            // Update stored tiles
             foreach (object obj in schema.Keys)
             {
-                if(obj is not LBSTile tile) continue;
-
-                var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
-                if(elements == null) continue;
-                
-                foreach (var graphElement in elements)
+                // LBSTile
+                if (obj is LBSTile tile)
                 {
-                    if (graphElement is not SchemaTileView tView) continue;
-                    if (!tView.visible) continue;
-                    
-                    TileZonePair tz = zonesMod.GetPairTile(tile);
-                    var connections = connectMod.GetConnections(tile);
-                    if (tz == null || connections == null)
+                    var elements = view.GetElementsFromLayer(schema.OwnerLayer, tile);
+                    if (elements == null) continue;
+
+                    foreach (var graphElement in elements)
                     {
-                        Debug.LogWarning("SchemaDrawer: TileZonePair or connections not found fot tile " + tile);
-                        continue;
+                        if (graphElement is not SchemaTileView tView) continue;
+                        if (!tView.visible) continue;
+
+                        TileZonePair tz = zonesMod.GetPairTile(tile);
+                        var connections = connectMod.GetConnections(tile);
+                        if (tz == null || connections == null)
+                        {
+                            Debug.LogWarning("SchemaDrawer: TileZonePair or connections not found fot tile " + tile);
+                            continue;
+                        }
+
+                        UpdateTileView(tView, tile, tz.Zone, connections, teselationSize, schema.OwnerLayer.index);
                     }
-                    
-                    UpdateTileView(tView, tile, tz.Zone, connections, teselationSize, schema.OwnerLayer.index);
+                }
+                // LBSStair
+                else if (obj is LBSStair stair)
+                {
+                    var elements = view.GetElementsFromLayer(schema.OwnerLayer, stair);
+                    if (elements == null) continue;
+
+                    foreach (var graphElement in elements)
+                    {
+                        if (graphElement is not StairsGraph sView) continue;
+                        if (!sView.visible) continue;
+                        sView.Update(stair);
+                        sView.layer = schema.OwnerLayer.index;
+
+                    }
                 }
             }
         }
@@ -123,7 +175,8 @@ namespace ISILab.LBS.Drawers
         }
 
         private void LoadAllTiles(SchemaBehaviour schema, Vector2 teselationSize, MainView view, 
-            TileMapModule tilesMod, SectorizedTileMapModule zonesMod, ConnectedTileMapModule connectionsMod)
+            TileMapModule tilesMod, SectorizedTileMapModule zonesMod, 
+            ConnectedTileMapModule connectionsMod, StairsModule stairsMod)
         {
             // Paint all tiles
             foreach (LBSTile tile in tilesMod.Tiles)
@@ -140,7 +193,6 @@ namespace ISILab.LBS.Drawers
                 }
                 else
                 {
-
                     tView = GetTileView(tile, tz.Zone, tc.Connections, teselationSize);
                     tView.layer = schema.OwnerLayer.index;
                     // Stores using LBSTile as key
@@ -149,6 +201,33 @@ namespace ISILab.LBS.Drawers
                 }
 
                 tView.style.display = (DisplayStyle)(schema.OwnerLayer.IsVisible ? 0 : 1);
+            }
+
+            // LBSStairs
+            foreach(LBSStair stair in stairsMod.Stairs)
+            {
+                StairsGraph sView;
+                List<GraphElement> previousElement = view.GetElementsFromLayer(schema.OwnerLayer, stair);
+
+                if (previousElement is not null && previousElement.Count > 0)
+                {
+                    sView = previousElement[0] as StairsGraph;
+                    sView.Update(stair);
+                    sView.layer = schema.OwnerLayer.index;
+                }
+                else
+                {
+                    sView = new StairsGraph(stair, schema.OwnerLayer);
+                    sView.layer = schema.OwnerLayer.index;
+
+                    var pos = new Vector2(stair.Positions[0].x, -stair.Positions[0].y);
+                    var size = DefaultSize * teselationSize;
+                    sView.SetPosition(new Rect(pos * size, size));
+
+                    view.AddElementToLayerContainer(schema.OwnerLayer, stair, sView);
+                    schema.Keys.Add(stair);
+                }
+                sView.style.display = (DisplayStyle)(schema.OwnerLayer.IsVisible ? 0 : 1);
             }
         }
 

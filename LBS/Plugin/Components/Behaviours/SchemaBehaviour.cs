@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.TerrainTools;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
@@ -24,6 +25,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
         typeof(ConnectedZonesModule),
+        typeof(StairsModule),
         typeof(NoteModule))]
     public class SchemaBehaviour : LBSBehaviour, IBlueprintable
     {
@@ -60,6 +62,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         private ConnectedTileMapModule tileConnections => OwnerLayer.GetModule<ConnectedTileMapModule>();
         [JsonIgnore]
         private SectorizedTileMapModule areas => OwnerLayer.GetModule<SectorizedTileMapModule>();
+        [JsonIgnore]
+        private StairsModule stairs => OwnerLayer.GetModule<StairsModule>();
 
         [SerializeField, HideInInspector]
         private string pressetInsideStyleGuid = "c61b774ce5ee4c640b93988da7937edc";
@@ -113,6 +117,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         
         [JsonIgnore]
         public List<LBSTile> Tiles => tileMap.Tiles;
+        [JsonIgnore]
+        public List<LBSStair> Stairs => stairs.Stairs;
 
         public TileMapModule TileMap => tileMap;
 
@@ -149,12 +155,24 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         }
         public override void CheckKeys()
         {
-            UpdateKeys(Tiles.ToList<object>());
+            var tiles = Tiles.ToList<object>();
+            var stairs = Stairs.ToList<object>();
+            foreach (var s in stairs)
+            {
+                tiles.Add(s);
+            }
+            UpdateKeys(tiles);
         }
 
         public void UpdateKeys()
         {
-            UpdateKeys(Tiles.ToList<object>());
+            var tiles = Tiles.ToList<object>();
+            var stairs = Stairs.ToList<object>();
+            foreach(var s in stairs)
+            {
+                tiles.Add(s);
+            }
+            UpdateKeys(tiles);
         }
 
         public LBSTile AddTile(Vector2Int position, Zone zone)
@@ -228,6 +246,18 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public void AddConnections(LBSTile tile, List<string> connections, List<bool> editedByIA)
         {
             tileConnections.AddPair(tile, connections, editedByIA);
+        }
+
+        public void PlaceStair(LBSStair stair, int floor)
+        {
+            var stairsMod = OwnerLayer.Modules(floor).FirstOrDefault(
+                m => m.GetType() == typeof(StairsModule)) as StairsModule;
+
+            if (stairsMod is null) return;
+            stairsMod.AddStair(stair);
+
+            if (floor != OwnerLayer.ActiveFloor) return;
+            RequestTilePaint(stair);
         }
 
         public LBSTile GetTile(Vector2Int position)
@@ -580,24 +610,40 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         {
             List<LBSTile> oldTiles = new List<LBSTile>();
             List<LBSTile> newTiles = new List<LBSTile>();
+            List<LBSStair> oldStairs = new List<LBSStair>();
+            List<LBSStair> newStairs = new List<LBSStair>();
+
             var prevModuleList = OwnerLayer.Modules(prevLevelIndex);
             var nextModuleList = OwnerLayer.Modules(nextLevelIndex);
 
-            var prevMod = prevModuleList.Find(
+            var prevSectorizedMod = prevModuleList.Find(
                 m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
-            var nextMod = nextModuleList.Find(
+            var nextSectorizedMod = nextModuleList.Find(
                 m => m.GetType() == typeof(SectorizedTileMapModule)) as SectorizedTileMapModule;
+            var prevStairMod = prevModuleList.Find(
+                m => m.GetType() == typeof(StairsModule)) as StairsModule;
+            var nextStairMod = nextModuleList.Find(
+                m => m.GetType() == typeof(StairsModule)) as StairsModule;
 
-            foreach (var pTile in prevMod.PairTiles)
+            foreach (var pTile in prevSectorizedMod.PairTiles)
             {
                 oldTiles.Add(pTile.Tile);
             }
-            foreach (var pTile in nextMod.PairTiles)
+            foreach (var pTile in nextSectorizedMod.PairTiles)
             {
                 newTiles.Add(pTile.Tile);
             }
+            foreach (var s in prevStairMod.Stairs)
+            {
+                oldStairs.Add(s);
+            }
+            foreach (var s in nextStairMod.Stairs)
+            {
+                newStairs.Add(s);
+            }
 
             RequestFullRepaint(oldTiles, newTiles);
+            RequestFullRepaint(oldStairs, newStairs);
         }//*/
 
         public bool MergeLayerData(object incoming, bool overwrite)

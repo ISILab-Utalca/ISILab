@@ -322,17 +322,6 @@ namespace ISILab.LBS.VisualElements
 
                 if (!_canContinue) break;
             }
-
-            /*
-            bool IsRotation(Vector2Int a, Vector2Int b)
-            {
-                if (a == new Vector2Int(b.y, b.x) || a == new Vector2Int(-b.y, b.x) ||
-                    a == new Vector2Int(b.y, -b.x) || a == new Vector2Int(-b.y, -b.x))
-                {
-                    return true;
-                }
-                return false;
-            }//*/
         }
         protected override void OnGenerateVisualContent(MeshGenerationContext mgc)
         {

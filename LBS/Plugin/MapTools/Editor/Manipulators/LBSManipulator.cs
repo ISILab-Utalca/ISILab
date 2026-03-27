@@ -459,7 +459,7 @@ namespace ISILab.LBS.Manipulators
             }
             if ((e.shiftKey)&&(Feedback!=null)) Feedback.fixAspect = true;
 
-            KeyDownListener?.Invoke();
+            //KeyDownListener?.Invoke();
         }
 
         protected virtual void OnKeyUp(KeyUpEvent e) {
