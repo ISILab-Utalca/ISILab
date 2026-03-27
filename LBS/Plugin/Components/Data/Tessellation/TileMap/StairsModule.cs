@@ -75,8 +75,8 @@ namespace ISILab.LBS.Modules
         private int _inferiorFloor;
         [SerializeField, JsonRequired, SerializeReference]
         private int _superiorFloor;
-        //[SerializeField, JsonRequired, SerializeReference]
-        //private int _direction;
+        [SerializeField, JsonRequired, SerializeReference]
+        private int _direction;
         [SerializeField, JsonRequired, SerializeReference]
         private StairShape _shape;
         #endregion
@@ -85,7 +85,7 @@ namespace ISILab.LBS.Modules
         public List<Vector2Int> Positions => new List<Vector2Int>(_positions);
         public int InferiorFloor => _inferiorFloor;
         public int SuperiorFloor => _superiorFloor;
-        //public int Direction => _direction;
+        public int Direction => _direction;
         public StairShape Shape => _shape;
         #endregion
 
@@ -95,7 +95,7 @@ namespace ISILab.LBS.Modules
             _positions = positions;
             _inferiorFloor = inferiorFloor;
             _superiorFloor = superiorFloor;
-            //_direction = direction;
+            _direction = direction;
             _shape = shape;
         }
     }
