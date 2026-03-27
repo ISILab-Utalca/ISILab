@@ -12,8 +12,6 @@ namespace ISILab.LBS.VisualElements
     public class QuestActionView : QuestGraphNodeView
     {
         #region FIELDS
-        private const string StartIconGuid = "4bb3ddd9a5b4b7746b055de57781a9e7";
-        private const string GoalIconGuid  = "e219993bb5fe0f246b3797a8c2f3b126";
         
         private static VisualTreeAsset _asset;
 
@@ -86,18 +84,7 @@ namespace ISILab.LBS.VisualElements
             DisplayGrammarState(graphNode);
             SetPosition(new Rect(Node.NodeViewPosition.position, Vector2.one));
 
-            _start.style.display = DisplayStyle.None;
-            _goal.style.display = DisplayStyle.None;
-            
-            switch (graphNode.NodeType)
-            {
-                case QuestNode.ENodeType.Start:
-                   _start.style.display = DisplayStyle.Flex; 
-                    break;
-                case QuestNode.ENodeType.Goal:
-                    _goal.style.display = DisplayStyle.Flex;
-                    break;
-            }
+            Update();
         }
 
         private void SetupCallbacks()
@@ -114,7 +101,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Updates
-        private void Update()
+        public void Update()
         {
             UpdateWidth();
             SetPosition(new Rect(GetPosition().position, new Vector2(
@@ -122,6 +109,22 @@ namespace ISILab.LBS.VisualElements
                 _root.resolvedStyle.width ,
                 _root.resolvedStyle.height)));
             OnMoving?.Invoke(GetPosition());
+
+            _start.style.display = DisplayStyle.None;
+            _goal.style.display = DisplayStyle.None;
+
+            if (Node is QuestNode qn)
+            {
+                switch (qn.NodeType)
+                {
+                    case QuestNode.ENodeType.Start:
+                        _start.style.display = DisplayStyle.Flex;
+                        break;
+                    case QuestNode.ENodeType.Goal:
+                        _goal.style.display = DisplayStyle.Flex;
+                        break;
+                }
+            }
         }
 
         private void UpdateWidth()

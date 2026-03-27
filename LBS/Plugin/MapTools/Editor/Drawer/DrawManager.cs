@@ -2,6 +2,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Drawers;
 using ISILab.LBS.Drawers.Editor;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
@@ -128,6 +129,7 @@ namespace ISILab.LBS
 
         public void UpdateSingleComponent<T>(T component, LBSLayer layer)
         {
+            if (layer == null) return;
             if (component == null) return;
             Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
             if (drawer is null) return;

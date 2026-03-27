@@ -50,7 +50,12 @@ namespace ISILab.LBS.VisualElements
             _tileBundleGroup = tile;
             _ownerLayer = ownerLayer;
             _tileBehaviour = ownerLayer.GetBehaviour<TileGroupBehavior>();
-            _tileBehaviour.OnSelectedChanged += (newTbg)=> Highlight(newTbg == _tileBundleGroup);
+            ownerLayer.OnChange += () => Highlight(false, true);
+            _tileBehaviour.OnSelectedChanged += (newTbg) =>
+            {
+                Highlight(newTbg != null && newTbg == _tileBundleGroup);
+            };
+
             InitializeVisuals(tile);
             SetupCallbacks();
 
