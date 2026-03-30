@@ -46,7 +46,8 @@ namespace ISILab.LBS.VisualElements
         public PopulationTileView(TileBundleGroup tile, LBSLayer ownerLayer)
         {
             LoadVisualElement();
- 
+            if (tile is null) return;
+
             _tileBundleGroup = tile;
             _ownerLayer = ownerLayer;
             _tileBehaviour = ownerLayer.GetBehaviour<TileGroupBehavior>();
@@ -62,7 +63,6 @@ namespace ISILab.LBS.VisualElements
         #region INITIALIZATION
         private void LoadVisualElement()
         {
-            //    if (view == null)
             if (view == null)
             {
                 view = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationTile", true);

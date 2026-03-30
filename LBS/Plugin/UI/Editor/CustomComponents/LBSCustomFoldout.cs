@@ -13,6 +13,8 @@ namespace ISILab.LBS.CustomComponents
     public partial class LBSCustomFoldout : Foldout
     {
         
+        enum FoldoutStyle {Classic, Modern}
+        
         //Foldout
         public const string FOLDOUT_USS = "lbs-foldout";
         public const string FOLDOUT_CONTENT_PANEL = "lbs-foldout-panel";
