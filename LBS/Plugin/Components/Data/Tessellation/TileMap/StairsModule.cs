@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 namespace ISILab.LBS.Modules
 {
@@ -38,6 +40,34 @@ namespace ISILab.LBS.Modules
                 }
             }
             return false;
+        }
+
+        public LBSStair GetPositionOccupied(Vector2Int position)
+        {
+            foreach (var stair in _stairs)
+            {
+                foreach (var pos in stair.Positions)
+                {
+                    if (position == pos) return stair;
+                }
+            }
+            return null;
+        }
+
+        public LBSStair GetStairByStartingPoint(Vector2Int startingPoint)
+        {
+            foreach (var stair in _stairs)
+            {
+                if (stair.Direction < 0)
+                {
+                    if (startingPoint == stair.Positions[0]) return stair;
+                }
+                else
+                {
+                    if (startingPoint == stair.Positions[stair.Positions.Count - 1]) return stair;
+                }
+            }
+            return null;
         }
 
         #region INHERITED METHODS
@@ -75,10 +105,12 @@ namespace ISILab.LBS.Modules
         private int _inferiorFloor;
         [SerializeField, JsonRequired, SerializeReference]
         private int _superiorFloor;
+
+        // just in case fields:
         [SerializeField, JsonRequired, SerializeReference]
-        private int _direction;
+        private int _direction; // could be deprecated
         [SerializeField, JsonRequired, SerializeReference]
-        private StairShape _shape;
+        private StairShape _shape; // unused
         #endregion
 
         #region PROPERTIES
