@@ -3,6 +3,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager;
+using ISILab.LBS.Plugin.UI.Editor.Windows.TagManager;
 using ISILab.LBS.VisualElements;
 using LBS.VisualElements;
 using System.Collections.Generic;
@@ -60,7 +61,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             inspectorToggleTabs.Add(assistantTab);
             inspectorToggleTabs.Add(behaviorTab);
             
-            tagWindowButton = this.Q<Toggle>("TagButton");
+            tagWindowButton = this.Q<Toggle>("TagsButton");
             bundleWindowButton = this.Q<Toggle>("BundlesButton");
             blueprintWindowButton = this.Q<Toggle>("BlueprintButton");            
         }
@@ -94,14 +95,31 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                 tagWindowButton?.RegisterCallback<ClickEvent>(_ =>
                 {
                     OnToggleButtonClick();
-                    tagWindowButton.SetValueWithoutNotify(true);
+                    switch(tagWindowButton.value)
+                    {
+                        case true:
+                            TagManagerWindow.ShowWindow();
+                            TagManagerWindow.OnClosed += () => { tagWindowButton.SetValueWithoutNotify(false); };
+                            break;
+                        case false:
+                            TagManagerWindow.CloseWindow();
+                            break;
+                    }
                 });
                 
-                bundleWindowButton.RegisterCallback<ClickEvent>(_ =>
+                bundleWindowButton?.RegisterCallback<ClickEvent>(_ =>
                 {
                     OnToggleButtonClick();
-                    BundleManagerWindow.ShowWindow();
-                    bundleWindowButton.SetValueWithoutNotify(false);
+                    switch (bundleWindowButton.value)
+                    {
+                        case true:
+                            BundleManagerWindow.ShowWindow();
+                            BundleManagerWindow.OnClosed += () => { bundleWindowButton.SetValueWithoutNotify(false); };
+                            break;
+                        case false:
+                            BundleManagerWindow.CloseWindow();
+                            break;
+                    }
                 });
 
                 blueprintWindowButton.RegisterCallback<ChangeEvent<bool>>((evt) =>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISI_Lab.LBS.Plugin.Components.Bundles;
@@ -8,6 +9,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
+using ISILab.LBS.Plugin.UI.Editor.Windows.TagManager;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
@@ -86,7 +88,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
                 _orphanBundlesCategory
             };
         }
-        
+
+        #region EVENTS
+        public static Action OnClosed;
+        #endregion
+
         // ListViews
         private ListView _validatorList;
 
@@ -98,6 +104,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             window.titleContent = new GUIContent("Bundle Manager", icon);
         }
 
+        public static void CloseWindow()
+        {
+            BundleManagerWindow window = GetWindow<BundleManagerWindow>();
+            window.Close();
+        }
+
         private void OnEnable()
         {
             Instance = this;
@@ -105,6 +117,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
 
         private void OnDisable()
         {
+            OnClosed?.Invoke();
             Instance = null;
         }
 

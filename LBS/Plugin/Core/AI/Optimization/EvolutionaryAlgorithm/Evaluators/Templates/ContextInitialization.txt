@@ -1,0 +1,11 @@
+	
+        public void InitializeContext(List<LBSLayer> contextLayers, Rect selection)
+        {
+            ContextLayers = new List<LBSLayer>(contextLayers);
+            IContextualEvaluator ctx = this;
+            CombinedInteriorLayer = ctx.InteriorLayers(selection);
+            CombinedExteriorLayer = ctx.ExteriorLayers(selection);
+            CombinedPopulationLayer = ctx.PopulationLayers();
+	    
+            CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);
+        }
