@@ -97,7 +97,10 @@ namespace ISILab.LBS.CustomComponents
             m_LeftIconElement = new VisualElement();
             m_LeftIconElement.style.backgroundImage = AssetMacro.LoadPlaceholderTexture();
             m_LeftIconElement.AddToClassList(ICON_USS_CLASS);
-            
+            m_LeftIconElement.name = "Icon";
+            m_LeftIconElement.style.marginLeft = 5;
+            m_LeftIconElement.style.marginRight = 5;
+
             Toggle mToggle = this.Q<Toggle>();
             mToggle.RemoveFromClassList(Toggle.ussClassName);
             mToggle.RemoveFromClassList(toggleUssClassName);
