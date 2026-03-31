@@ -18,12 +18,14 @@ public class PlaceStairs : LBSManipulator
     override protected string IconGuid => "103cf2403fa02574fb824cdb84514eb9";
 
     private SchemaBehaviour _schema;
-    private StairsMemoryLine _line;
+    private ConnectedMemoryLine _line;
+    //private StairsMemoryLine _line;
     private bool _downwards = false;
 
     public PlaceStairs() 
     {
-        _line = new StairsMemoryLine();
+        //_line = new StairsMemoryLine();
+        _line = new ConnectedMemoryLine();
         Feedback = _line;
         Feedback.fixToTeselation = true;
 
@@ -52,7 +54,7 @@ public class PlaceStairs : LBSManipulator
             _line.LineClear();
             return;
         }
-        if (_line.IsValid)
+        //if (_line.IsValid)
         {
 
             // Set Undo action
@@ -65,8 +67,8 @@ public class PlaceStairs : LBSManipulator
             // Validate stairs
             bool validated = false;
             validated = ValidatePositions(positions, Layer.ActiveFloor);
-            int adyacent = _downwards ? Layer.ActiveFloor - 1 : Layer.ActiveFloor + 1;
-            if (validated) validated = ValidatePositions(positions, adyacent);
+            int adyacentFloor = _downwards ? Layer.ActiveFloor - 1 : Layer.ActiveFloor + 1;
+            if (validated) validated = ValidatePositions(positions, adyacentFloor);
 
             if (!validated)
             {
@@ -78,18 +80,22 @@ public class PlaceStairs : LBSManipulator
             LBSStair upStairs, downStairs;
             if (_downwards)
             {
-                upStairs = new LBSStair(positions, adyacent, Layer.ActiveFloor, 1, _line.Shape);
-                downStairs = new LBSStair(positions, adyacent, Layer.ActiveFloor, -1, _line.Shape);
+                //upStairs = new LBSStair(positions, adyacent, Layer.ActiveFloor, 1, _line.Shape);
+                //downStairs = new LBSStair(positions, adyacent, Layer.ActiveFloor, -1, _line.Shape);
+                upStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, 1, StairShape.None);
+                downStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, -1, StairShape.None);
 
                 _schema.PlaceStair(downStairs, Layer.ActiveFloor);
-                _schema.PlaceStair(upStairs, adyacent);
+                _schema.PlaceStair(upStairs, adyacentFloor);
             }
             else
             {
-                upStairs = new LBSStair(positions, Layer.ActiveFloor, adyacent, 1, _line.Shape);
-                downStairs = new LBSStair(positions, Layer.ActiveFloor, adyacent, -1, _line.Shape);
+                //upStairs = new LBSStair(positions, Layer.ActiveFloor, adyacent, 1, _line.Shape);
+                //downStairs = new LBSStair(positions, Layer.ActiveFloor, adyacent, -1, _line.Shape);
+                upStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, 1, StairShape.None);
+                downStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, -1, StairShape.None);
 
-                _schema.PlaceStair(downStairs, adyacent);
+                _schema.PlaceStair(downStairs, adyacentFloor);
                 _schema.PlaceStair(upStairs, Layer.ActiveFloor);
             }
 
@@ -113,7 +119,7 @@ public class PlaceStairs : LBSManipulator
         }
 
         // Find StairsModule
-        var stairs = Layer.Modules().FirstOrDefault(
+        var stairs = Layer.Modules(floor).FirstOrDefault(
             m => m.GetType() == typeof(StairsModule)) as StairsModule;
         if (stairs is null) return true;
 
@@ -127,7 +133,7 @@ public class PlaceStairs : LBSManipulator
         }
 
         // Find ConnectedTileMapModule
-        ConnectedTileMapModule connected = Layer.Modules().FirstOrDefault(
+        ConnectedTileMapModule connected = Layer.Modules(floor).FirstOrDefault(
             m => m.GetType() == typeof(ConnectedTileMapModule)) as ConnectedTileMapModule;
         if (connected is null) return true;
 

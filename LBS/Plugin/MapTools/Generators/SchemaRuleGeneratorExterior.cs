@@ -21,7 +21,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),
-        typeof(ConnectedZonesModule))]
+        typeof(ConnectedZonesModule),
+        typeof(StairsModule))]
     public class SchemaRuleGeneratorExterior : LBSGeneratorRule
     {
         [JsonRequired]
@@ -34,6 +35,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private ConnectedTileMapModule connectedTilesMod;
         [JsonIgnore]
         private SectorizedTileMapModule zonesMod;
+        [JsonIgnore]
+        private StairsModule stairsMod;
         [JsonIgnore]
         private LBSGenerator3DSettings settings;
         #endregion
@@ -58,9 +61,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             this.tilesMod = layer.GetModule<TileMapModule>();
             this.connectedTilesMod = layer.GetModule<ConnectedTileMapModule>();
             this.zonesMod = layer.GetModule<SectorizedTileMapModule>();
+            this.stairsMod = layer.GetModule<StairsModule>();
             this.settings = settings;
         }
 
+        // only needs one floor with zones to be viable
         public override bool CheckViability(LBSLayer layer)
         {
             var msgs = new List<LBSLog>();
