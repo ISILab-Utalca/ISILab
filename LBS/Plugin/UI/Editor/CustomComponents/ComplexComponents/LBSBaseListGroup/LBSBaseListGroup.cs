@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using ISILab.LBS.CustomComponents;
 using UnityEditor;
-using UnityEditor.VersionControl;using UnityEngine;
+using UnityEditor.VersionControl;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
@@ -22,7 +24,8 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         private Label titleLabel;
         private LBSCustomListView listView;
         private Button expandArrowButton;
-      
+        protected LBSToolbarButton removeButton;
+
         [UxmlAttribute]
         public bool IsEmpty
         {
@@ -102,8 +105,10 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 listItems = value;
             }
         }
-        
-        
+
+        #region EVENTS
+        public Action OnListRemoved;
+        #endregion
 
         public LBSBaseListGroup() : base()
         {
@@ -130,7 +135,11 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             { 
                 IsFoldoutExpanded = !IsFoldoutExpanded;
             });
-
+            removeButton = this.Q<LBSToolbarButton>("RemoveButton");
+            removeButton.RegisterCallback<ClickEvent>(_evt =>
+            {
+                OnListRemoved?.Invoke();
+            });
         }
         
         
