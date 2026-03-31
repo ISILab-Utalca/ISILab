@@ -38,7 +38,7 @@ namespace ISILab.LBS.Editor
         private AssistantMapElite target;
 
         //  Evaluator's Wizard 
-        private LBSCustomListView evaluatorList;
+        private LBSCustomListView evaluatorListView;
         private LBSCustomTextField evaluatorGeneratorName;
         private LBSCustomToggleField evaluatorGeneratorInterface1;
         private LBSCustomToggleField evaluatorGeneratorInterface2;
@@ -57,7 +57,7 @@ namespace ISILab.LBS.Editor
 
         #region FIELDS
         private List<PopulationMapEntry> mapEntries = new();
-        //private List<Evaluator> evaluatorsList = new ();
+        private List<EvaluatorData> evaluatorsList = new ();
         #endregion
 
         #region PROPERTIES
@@ -70,17 +70,22 @@ namespace ISILab.LBS.Editor
             get => TargetLayer.Parent.GetSavedMaps(TargetLayer)?.Maps;
             set => TargetLayer.Parent.GetSavedMaps(TargetLayer).Maps = value;
         }
+        List<EvaluatorData> EvaluatorsList
+        {
+            get => evaluatorsList;
+            set => evaluatorsList = value;
+        }
         #endregion
 
         #region STRUCTURES
-        public struct EvaluatorGeneratorData
+        public struct EvaluatorData
         {
             public string name;
             public bool interface1;
             public bool interface2;
             public bool interface3;
 
-            public EvaluatorGeneratorData(string name, bool i1, bool i2, bool i3)
+            public EvaluatorData(string name, bool i1, bool i2, bool i3)
             {
                 this.name = name;
                 interface1 = i1;
@@ -163,7 +168,7 @@ namespace ISILab.LBS.Editor
             mapElitesList.itemsSource = mapEntries;
 
             //Evaluators
-            evaluatorList = this.Q<LBSCustomListView>("evList");
+            evaluatorListView = this.Q<LBSCustomListView>("evList");
             evaluatorGeneratorName = this.Q<LBSCustomTextField>("evGenName");
             evaluatorGeneratorInterface1 = this.Q<LBSCustomToggleField>("evGenToggle1");
             evaluatorGeneratorInterface2 = this.Q<LBSCustomToggleField>("evGenToggle2");
@@ -254,15 +259,25 @@ namespace ISILab.LBS.Editor
             layerPopulation.OwnerLayer.OnChangeUpdate();
         }
 
-        //  Evaluators Wizard Methods
+        //  Evaluator Wizard Methods
 
         //GetAllEvaluators()
+        //busca todos los evaluadores del proyecto y los agrega a evaluatorsList
+        //(usar Reflection, con cuidao' eso si oe)
+
+        //InitEvaluatorsList()
+        //  buscar evaluadores del proyecto
+        //  pasarlos a la lista de data -> UpdateEvaluatorsList
+        //  hacer bind con la lista de elementos visuales
+        //      profit
 
         //UpdateEvaluatorsList()
+        //  hacer el bind de data a los elementos graficos
 
-        public EvaluatorGeneratorData GetEvGenData()
+        //  Evaluator generator functions
+        public EvaluatorData GetEvGenData()
         {
-            return new EvaluatorGeneratorData(
+            return new EvaluatorData(
                 evaluatorGeneratorName.value,
                 evaluatorGeneratorInterface1.value,
                 evaluatorGeneratorInterface2.value,
