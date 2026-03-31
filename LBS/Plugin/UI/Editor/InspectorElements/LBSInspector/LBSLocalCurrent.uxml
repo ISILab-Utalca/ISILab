@@ -2,7 +2,7 @@
     <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" focusable="false" horizontal-scroller-visibility="Hidden">
         <ui:VisualElement name="LayerContent" style="flex-grow: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; display: flex; min-height: auto; min-width: auto;">
             <LBS.VisualElements.LayerInfoView style="display: none;" />
-            <ISILab.LBS.CustomComponents.LBSCustomHeader text="Layer Data" icon-color="#F68258FF" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/Icon=Error.svg?fileID=7388822144124034973&amp;guid=7bdf2adeb17673349abf65c6f8f0f411&amp;type=3#Icon=Error" name="Header" />
+            <ISILab.LBS.CustomComponents.LBSCustomHeader text="Layer Data" icon-color="#F68258FF" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/Icon=Error.svg?fileID=7388822144124034973&amp;guid=7bdf2adeb17673349abf65c6f8f0f411&amp;type=3#Icon=Error" name="Header" style="height: 32px;" />
             <ISILab.LBS.VisualElements.ModulesPanel />
         </ui:VisualElement>
         <ui:VisualElement name="Header" style="flex-direction: row; height: 22px; border-left-color: rgb(25, 25, 25); border-right-color: rgb(25, 25, 25); border-top-color: rgb(25, 25, 25); border-bottom-color: rgb(25, 25, 25); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; margin-bottom: 5px; margin-left: 5px; margin-right: 5px; margin-top: 5px; display: none;">
@@ -11,7 +11,6 @@
             </ui:VisualElement>
             <ui:Label tabindex="-1" text="Selected" display-tooltip-when-elided="true" name="Label" style="padding-left: 5px; padding-top: 2px; padding-bottom: 2px;" />
         </ui:VisualElement>
-        <ui:VisualElement name="Line" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 1px;" />
         <ui:VisualElement name="SelectedContent" />
     </ui:ScrollView>
 </ui:UXML>

@@ -2,22 +2,21 @@
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <ui:VisualElement name="MapEliteContent" style="flex-grow: 1; -unity-background-image-tint-color: rgba(42, 42, 42, 0); background-color: rgb(42, 42, 42); border-right-width: 0; border-left-width: 0; border-left-color: rgb(20, 20, 20); border-right-color: rgb(20, 20, 20); border-top-color: rgb(20, 20, 20); border-bottom-color: rgb(20, 20, 20); border-top-width: 0; border-bottom-width: 0;">
         <ui:Button text="Open MAP Elites Assistant" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/MapElites/Icon=Crown.svg?fileID=7388822144124034973&amp;guid=6515130e0caff664593540ffec59637c&amp;type=3#Icon=Crown" name="ButtonMapElitesAssistant" style="height: 48px; min-height: 48px; max-height: 48px; border-left-color: rgb(32, 32, 32); border-right-color: rgb(32, 32, 32); border-top-color: rgb(32, 32, 32); border-bottom-color: rgb(32, 32, 32); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;" />
-        <ISILab.LBS.CustomComponents.LBSCustomHeader icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Blueprints/Icon=BlueprintMode.svg?fileID=7388822144124034973&amp;guid=1900398b34c127b4bb80edadb9ef397b&amp;type=3#Icon=BlueprintMode" text="Blueprints" icon-color="#C2F671FF" />
-        <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Saved Maps" initial-value="true" name="LBSCustomFoldout_maps" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
+        <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Blueprints" initial-value="true" name="LBSCustomFoldout_maps" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Blueprints/Icon=BlueprintMode.svg?fileID=7388822144124034973&amp;guid=1900398b34c127b4bb80edadb9ef397b&amp;type=3#Icon=BlueprintMode" icon-color="#C2F671FF" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
             <ui:ListView name="MapElitesList" reorderable="true" show-foldout-header="false" show-add-remove-footer="false" allow-remove="false" allow-add="false" reorder-mode="Animated" show-border="true" horizontal-scrolling="false" show-bound-collection-size="true" fixed-item-height="32" virtualization-method="DynamicHeight" style="border-top-width: 1px; flex-shrink: 0;" />
         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
-        <ISILab.LBS.CustomComponents.LBSCustomHeader text="Evaluators" icon-color="#C2F671FF" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Manipulators/Icon=Lens.svg?fileID=7388822144124034973&amp;guid=62e7dd1353e2943429fd736f5b600695&amp;type=3#Icon=Lens">
-            <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluators List" initial-value="true" name="LBSCustomFoldout_evList" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
+        <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Manipulators/Icon=Lens.svg?fileID=7388822144124034973&amp;guid=62e7dd1353e2943429fd736f5b600695&amp;type=3#Icon=Lens" icon-color="#C2F671FF" text="Evaluators">
+            <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluators List" initial-value="true" name="LBSCustomFoldout_evList" icon-color="#C2F671FF" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
                 <ISILab.LBS.CustomComponents.LBSCustomListView name="evList" />
             </ISILab.LBS.CustomComponents.LBSCustomFoldout>
-        </ISILab.LBS.CustomComponents.LBSCustomHeader>
-        <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluator Generator" initial-value="true" name="LBSCustomFoldout_evGen" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
-            <ISILab.LBS.CustomComponents.LBSCustomTextField label="Name" name="evGenName" />
-            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle1" label="Interface 1" />
-            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle2" label="Interface 2" />
-            <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle3" label="Interface 3" style="align-items: flex-end;" />
-            <ISILab.LBS.CustomComponents.LBSCustomButton text="Generate Evaluator" name="evGenGenerateButton" />
-            <ISILab.LBS.CustomComponents.LBSCustomButton text="Open Evaluators Folder" name="evGenOpenFolderButton" />
+            <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluator Generator" initial-value="true" name="LBSCustomFoldout_evGen" icon-color="#C2F671FF" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
+                <ISILab.LBS.CustomComponents.LBSCustomTextField label="Name" name="evGenName" />
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle1" label="Interface 1" />
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle2" label="Interface 2" />
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle3" label="Interface 3" style="align-items: flex-end;" />
+                <ISILab.LBS.CustomComponents.LBSCustomButton text="Generate Evaluator" name="evGenGenerateButton" />
+                <ISILab.LBS.CustomComponents.LBSCustomButton text="Open Evaluators Folder" name="evGenOpenFolderButton" />
+            </ISILab.LBS.CustomComponents.LBSCustomFoldout>
         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
     </ui:VisualElement>
 </ui:UXML>
