@@ -17,7 +17,7 @@ using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
-    public class Colonies : IContextualEvaluator, IConfigurableEvaluator, IDistanceEvaluator, IRangedEvaluator
+    public class Colonies : IContextualEvaluator, IConfigurableEvaluator, IDistanceEvaluator, ITestingEvaluator, IRangedEvaluator
     {
         // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
 
