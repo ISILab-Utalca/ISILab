@@ -3,6 +3,7 @@ using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,12 @@ namespace ISILab.LBS.Modules
     [Serializable]
     public class QuestGraph : LBSModule, ICloneable, ISelectable
     {
+        #region CONSTANTS
+        private string defaultGrammarGuid = "63ab688b53411154db5edd0ec7171c42"; // Default grammar guid
+        private const float ViewNodeWidthOffset = 100f;
+        private const float SuggestionDistance = 1.5f;
+        #endregion
+
         #region FIELDS
         [SerializeField, SerializeReference]
         private List<GraphNode> graphNodes = new();
@@ -23,68 +30,40 @@ namespace ISILab.LBS.Modules
 
         [SerializeField, SerializeReference]
         private QuestNode root;
-        
-        private GraphNode _selectedNode;
-
-        private const float ViewNodeWidthOffset = 100f;
-        private const float SuggestionDistance = 1.5f;
-        [SerializeField]
-        private List<QuestNode> suggestions = new();
-        [SerializeField]
-        public bool displaySuggestions;
-        
+       
         [SerializeField]
         private string grammarGuid = "63ab688b53411154db5edd0ec7171c42"; // Default grammar guid
 
         private LBSGrammar _grammar;
-        private Action<GraphNode> _onNodeSelected;
+
         private Action _onUpdateGraph;
         #endregion
 
         #region PROPERTIES
         public QuestNode Root => root;
         public List<GraphNode> GraphNodes => graphNodes;
-        public List<QuestNode> Suggestions
-        {
-            get => suggestions;
-            set => suggestions = value;
-        }
 
         public List<QuestEdge> GraphEdges => graphEdges;
 
-        public GraphNode SelectedGraphNode
-        {
-            get => _selectedNode;
-            set
-            {
-                if (value is not null && _selectedNode is not null)
-                {
-                    if (value.Equals(_selectedNode)) return;
-                }
-               
-                _selectedNode = value;
-                _onNodeSelected?.Invoke(_selectedNode);
-            }
-        }
-
         public LBSGrammar Grammar
         {
-            get => _grammar;
+            get
+            {
+                if (_grammar != null) return _grammar;
+
+                Grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>(grammarGuid)
+                      ?? AssetMacro.LoadAssetByGuid<LBSGrammar>(defaultGrammarGuid);
+
+                return _grammar;
+            }
             set
             {
                 _grammar = value;
-                if (_grammar == null) return;
-
                 grammarGuid = AssetMacro.GetGuidFromAsset(value);
-                ValidateAllWithGrammar();
+                ValidateGraph();
             }
         }
 
-        public event Action<GraphNode> OnGraphNodeSelected
-        {
-            add { _onNodeSelected += value; }
-            remove { _onNodeSelected -= value; }
-        }
 
         public event Action RedrawGraph
         {
@@ -100,6 +79,8 @@ namespace ISILab.LBS.Modules
         public Action<QuestEdge> OnRemoveEdge;
         public Action<QuestNode> OnAddSuggestion;
         public Action<QuestNode> OnRemoveSuggestion;
+        public Action<QuestNode> OnAddNode;
+        public Action<QuestNode> OnRemoveNode;
 
         #endregion
 
@@ -115,30 +96,27 @@ namespace ISILab.LBS.Modules
         #region METHODS
         
         #region Grammar
-        public void LoadGrammar()
-        {
-            if (_grammar == null)
-                _grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>(grammarGuid);
-        }
 
-        public void ValidateAllWithGrammar()
+        private void ValidateGrammar()
         {
+            if (GraphEdges.Count == 0) return;
+
             GrammarAssistant assistant = OwnerLayer.GetAssistant<GrammarAssistant>();
             if (assistant == null) throw new Exception("No GrammarAssistant found");
 
             foreach (QuestEdge edge in GraphEdges)
                 assistant.ValidateEdgeGrammar(edge);
-            
-            _onUpdateGraph?.Invoke();
+
         }
         
-        private void ValidateEdgeConnection()
+        private void ValidateConnections()
         {
             //  Update quest node types (Goal or Middle) by their connections
             foreach (QuestEdge innerEdge in GraphEdges)
             {
                 if (innerEdge.To is QuestNode qn)
                 {
+                    if (qn == root) continue;
                     qn.NodeType = GetBranches(qn).Any()
                         ? QuestNode.ENodeType.Middle
                         : QuestNode.ENodeType.Goal;
@@ -151,9 +129,6 @@ namespace ISILab.LBS.Modules
                 GraphNode dest = edge.To;
                 int destRoots = GetRoots(dest).Count;
                 int destBranches = GetBranches(dest).Count;
-
-                //Debug.Log($"[DEST] Node {dest.ID} | Roots: {destRoots} | Branches: {destBranches}");
-
                 dest.ValidConnections = destRoots > 0 && destBranches > 0;
 
                 // source nodes validation
@@ -161,9 +136,6 @@ namespace ISILab.LBS.Modules
                 {
                     int roots = GetRoots(node).Count;
                     int branches = GetBranches(node).Count;
-
-                  //Debug.Log($"[FROM] Node {node.ID} | Roots: {roots} | Branches: {branches}");
-
                     node.ValidConnections = roots > 0  && branches > 0;
                 }
 
@@ -171,20 +143,15 @@ namespace ISILab.LBS.Modules
                 {
                     bool hasBranches = GetBranches(goalNode).Any();
                     bool hasRoots = GetRoots(goalNode).Any();
-
-                    //Debug.Log($"[GOAL CHECK] Node {goalNode.ID} | Roots: {hasRoots} | Branches: {hasBranches}");
-
                     // the goal must not have branches!
                     goalNode.ValidConnections = !hasBranches && hasRoots;
                 }
             }
 
-            
-            RootValidation();
-            _onUpdateGraph?.Invoke();
+
         }
 
-        void ValidateGraph()
+        public void ValidateGraph()
         {
             // reset all connections validations
             foreach (GraphNode node in GraphNodes)
@@ -192,26 +159,17 @@ namespace ISILab.LBS.Modules
                 node.ValidConnections = false;
                 node.ValidGrammar = false;
             }
-            
-            // first validate that the connections are valid
-            foreach (QuestEdge unused in GraphEdges)
-            {
-                ValidateEdgeConnection();
-            }
-            
-            // validate grammar
-            ValidateAllWithGrammar();
-           
+
+            ValidateConnections();
+            ValidateGrammar();
+            RootValidation();
+
+            _onUpdateGraph?.Invoke();
         }
 
         #endregion
 
         #region Nodes
-        public void NodeDataChanged(GraphNode node)
-        {
-            if(Equals(_selectedNode, node)) return;
-            _onNodeSelected?.Invoke(node);
-        }
 
         public T GetNodeAtPosition<T>(Vector2 pos) where T : GraphNode
         {
@@ -291,10 +249,11 @@ namespace ISILab.LBS.Modules
 
             if (node is QuestNode qn)
             {
-                if (root == null) SetRoot(qn);
-                SelectedGraphNode = qn;
-               // NodeDataChanged(qn);
+                if (root == null) 
+                    SetRoot(qn);
             }
+
+            OnAddNode?.Invoke(node as QuestNode);
         }
 
         public void RemoveQuestNode(GraphNode node)
@@ -305,10 +264,9 @@ namespace ISILab.LBS.Modules
             {
                 RemoveEdge(e); 
             }
-            
+
             if (Equals(node, root)) root = null;
-            if (Equals(node, _selectedNode)) SelectedGraphNode = null;
-            
+            OnRemoveNode?.Invoke(node as QuestNode);
         }
         #endregion
 
@@ -570,39 +528,32 @@ namespace ISILab.LBS.Modules
         #region Root
         public void SetRoot(QuestNode node)
         {
+            if (node == root) return;
+
             if (root != null)
             {
                 root.NodeType = QuestNode.ENodeType.Middle;
             }
             
             root = node;
-            // set a null root
-            if (root == null) return;
-            
             root.NodeType = QuestNode.ENodeType.Start;
+
             ValidateGraph();
         }
 
         private void RootValidation()
         {
-           if(root is not null) root.ValidConnections = !GetRoots(root).Any() && GetBranches(root).Any();
+           if(root is not null) 
+            { 
+                root.ValidConnections = !GetRoots(root).Any() && GetBranches(root).Any();
+                root.NodeType = QuestNode.ENodeType.Start;
+            }
         }
 
         #endregion
 
         #region Clone & Utils
 
-        public QuestActionData GetNodeData()
-        {
-            QuestNode node = SelectedGraphNode as QuestNode;
-            return node?.Data;
-        }
-        
-        public QuestNode GetNodeAsQuest()
-        {
-            return SelectedGraphNode as QuestNode;
-        }
-        
         public override bool IsEmpty() => graphNodes.Count == 0;
 
         public override object Clone()
@@ -632,17 +583,6 @@ namespace ISILab.LBS.Modules
             var edges = graphEdges.Select(CloneRefs.Get).Cast<QuestEdge>();
             foreach (QuestEdge e in edges) clone.graphEdges.Add(e);
 
-            // assign selected node
-            if (_selectedNode is not null)
-            {
-                foreach (GraphNode cloneNode in clone.graphNodes.Where(cloneNode => cloneNode.ID == _selectedNode.ID))
-                {
-                    clone._selectedNode = cloneNode;
-                    break;
-                }
-            }
-
-            clone._onNodeSelected = null;
             return clone;
         }
 
@@ -656,11 +596,6 @@ namespace ISILab.LBS.Modules
 
         private GraphNode GetGraphNode(Vector2Int pos) =>
             graphNodes.FirstOrDefault(n => n.Position == pos);
-
-        public bool DoesEventOnGraphNodeSelectedHasFunction()
-        {
-            return _onNodeSelected != null;
-        }
 
         #endregion
 

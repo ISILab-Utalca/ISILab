@@ -50,7 +50,8 @@ namespace ISILab.LBS.VisualElements
 
         private void OnGrammarClicked()
         {
-            Node.Graph.SelectedGraphNode = Node;
+            var bh = Node?.Graph?.OwnerLayer?.GetBehaviour<QuestBehaviour>();
+            if (bh != null) bh.SelectedGraphNode = Node;
             LBSInspectorPanel.ActivateAssistantTab();
             VisualElement grammarAssistant = LBSInspectorPanel.Instance.ActiveInspector.GetInspector(
                 typeof(GrammarAssistant), LBSMainWindow.Instance._selectedLayer);
@@ -60,7 +61,8 @@ namespace ISILab.LBS.VisualElements
     
         private void OnDataClicked()
         {
-            Node.Graph.SelectedGraphNode = Node;
+            var bh = Node?.Graph?.OwnerLayer?.GetBehaviour<QuestBehaviour>();
+            if (bh != null) bh.SelectedGraphNode = Node;
             LBSInspectorPanel.ActivateBehaviourTab();
             VisualElement nodeBehaviour = LBSInspectorPanel.Instance.ActiveInspector.GetInspector(
                 typeof(QuestNodeBehaviour), LBSMainWindow.Instance._selectedLayer);

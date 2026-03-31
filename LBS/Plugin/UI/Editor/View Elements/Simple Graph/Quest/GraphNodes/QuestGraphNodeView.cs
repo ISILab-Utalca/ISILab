@@ -9,6 +9,7 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.VisualElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
+using ISILab.LBS.Behaviours;
 
 namespace ISILab.LBS.VisualElements 
 {
@@ -67,7 +68,9 @@ namespace ISILab.LBS.VisualElements
                 LBSInspectorPanel.ActivateBehaviourTab();
                 if (Node.Graph.GraphNodes.Contains(Node))
                 {
-                    Node.Graph.SelectedGraphNode = Node;
+                    var bh = Node?.Graph?.OwnerLayer?.GetBehaviour<QuestBehaviour>();
+                    if(bh != null) bh.SelectedGraphNode = Node;
+
                     _isDragging = true;
                     this.CaptureMouse();
                 }

@@ -11,10 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using static ISILab.LBS.Modules.ConnectedTileMapModule;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Behaviours
 {
@@ -23,11 +20,14 @@ namespace ISILab.LBS.Behaviours
                     typeof(ConnectedTileMapModule))]
     public class ExteriorBehaviour : LBSBehaviour, IBlueprintable
     {
+        #region CONSTANTS
+        private const string defaultBundleGuid = "9d3dac0f9a486fd47866f815b4fefc29";
+        #endregion
+
         #region FIELDS
 
         [SerializeField]
         private string bundleGuid;
-        private const string defaultBundleGuid = "9d3dac0f9a486fd47866f815b4fefc29";
         private Bundle bundle;
 
         private ConnectedTileType? gridType = null;
