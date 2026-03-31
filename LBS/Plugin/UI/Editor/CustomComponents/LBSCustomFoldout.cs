@@ -13,7 +13,7 @@ namespace ISILab.LBS.CustomComponents
     public partial class LBSCustomFoldout : Foldout
     {
         
-        enum FoldoutStyle {Classic, Modern}
+        public enum FoldoutStyle {Classic, Modern}
         
         //Foldout
         public const string FOLDOUT_USS = "lbs-foldout";
@@ -24,11 +24,13 @@ namespace ISILab.LBS.CustomComponents
 
         public bool initialValue = true;
         
+        //backing fields
         private VectorImage arrowDownIcon;
         private VectorImage arrowSideIcon;
         private VectorImage dotsIcon;
         private VectorImage leftIcon;
         private Color iconColor = Color.white;
+        private FoldoutStyle  foldoutStyle = FoldoutStyle.Classic;
         
         //Visual elements references
         private ToolbarMenu m_RightDropDown;
@@ -82,6 +84,33 @@ namespace ISILab.LBS.CustomComponents
                 UpdateArrow(initialValue);
             }
         }
+
+        [UxmlAttribute]
+        public FoldoutStyle SelectedFoldoutStyle
+        {
+            get => foldoutStyle;
+            set
+            { 
+                foldoutStyle = value; 
+                switch (foldoutStyle) 
+                { 
+                    case FoldoutStyle.Classic:
+                    { 
+                        RemoveFromClassList("modern");
+                        AddToClassList("classic");
+                        break;
+                    }
+                    case FoldoutStyle.Modern:
+                    {
+                        RemoveFromClassList("classic");
+                        AddToClassList("modern");
+                        break;
+                        
+                    } 
+                }
+            }
+        }
+        
         
         public LBSCustomFoldout() : base()
         {
