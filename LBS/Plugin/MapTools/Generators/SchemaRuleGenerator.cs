@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -118,8 +119,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="pivot"></param>
         /// <param name="bundles"></param>
         /// <returns></returns>
-        private GameObject GenerateCenters(GameObject pivot, List<Bundle> bundles)
+        private GameObject GenerateCenters(GameObject pivot, List<Bundle> bundles, StairsModule stairMod, Vector2Int position)
         {
+            if(stairMod != null)
+            {
+                var occupied = stairMod.GetPositionOccupied(position);
+                if (occupied != null && occupied.Direction < 0)
+                {
+                    return pivot;
+                }
+            }
+
             // Get "Center" bundles 
             List<Bundle> currents = new List<Bundle>();
             foreach (Bundle bundle in bundles)
@@ -306,14 +316,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             // Validate if this is start stairs position
             var stair = stairMod.GetStairByStartingPoint(tile.Position);
-            if (stair is null) return null;
+            if (stair is null || stair.Direction < 0) 
+                return null;
+            stairMod.RemoveStair(stair);
             
-
             // Get Stair bundles 
             List<Bundle> currents = new List<Bundle>();
             foreach (Bundle bundle in bundles)
             {
-                currents = bundle.GetChildrensByTag("Stair");
+                currents = bundle.GetChildrenByPositioning(Positioning.Other);
             }
             List<string> tags = currents
                 .SelectMany(b => LBSAssetMacro.GetAllTagNames(b))
@@ -321,36 +332,48 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             tags.RemoveDuplicates();
 
             // Instantiate GameObjects
-            for (int i = 0; i < tags.Count; i++)
+            GameObject sGo = new GameObject($"Stair ({tile.x}, {tile.y})");
+            sGo.transform.parent = pivot.transform;
+
+            List<Bundle> xx = currents.Where(b => LBSAssetMacro.BundleHasTag(b, "Stair")).ToList();
+            Bundle current = xx.Random();
+            GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
+
+            // Create part
+            GameObject objS1 = CreateObject(pref, sGo.transform);
+            GameObject objS2 = CreateObject(pref, sGo.transform);
+
+            // Add ref component
+            LBSGenerated generatedComponent1 = objS1.AddComponent<LBSGenerated>();
+            generatedComponent1.BundleRef = current;
+            LBSGenerated generatedComponent2 = objS2.AddComponent<LBSGenerated>();
+            generatedComponent2.BundleRef = current;
+
+            // S1 Rotation
+            var dir = stair.Positions[1] - stair.Positions[0];
+            var r = Directions.Bidimencional.Edges.FindIndex(v => v == dir);
+            objS1.transform.localRotation = Quaternion.Euler(0, -90 * (r - 1), 0);
+
+            // Middle floor
+            var origin = stair.Positions[0];
+            for (int i = 1; i < stair.Positions.Count - 1; i++)
             {
-                List<Bundle> xx = currents.Where(b => LBSAssetMacro.BundleHasTag(b, tags[i])).ToList();
-                Bundle current = xx.Random();
-                GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
+                GameObject middle = GenerateCenters(sGo, bundles, null, Vector2Int.zero).transform.GetChild(i + 1).gameObject;
 
-                // Create part
-                GameObject obj = CreateObject(pref, pivot.transform);
-
-                // Add ref component
-                LBSGenerated generatedComponent = obj.AddComponent<LBSGenerated>();
-                generatedComponent.BundleRef = current;
-
-                // Stair settings
-                if (stair.Direction < 0)
-                {
-                    obj.transform.localPosition += Vector3.down * settings.scale.x * 0.5f;
-                }
-                else
-                {
-                    for (int s = 1; s < stair.Positions.Count - 1; s++)
-                    {
-                        GameObject middle = GenerateCenters(obj, bundles);
-
-                        var pos = stair.Positions[s];
-                        Vector3 tilePos = new Vector3(pos.x * settings.scale.x, settings.scale.x * 0.5f, pos.y * settings.scale.z);
-                        middle.transform.position = tilePos;
-                    }
-                }
+                var pos = stair.Positions[i];
+                middle.transform.localPosition =
+                    new Vector3((pos.x - origin.x) * settings.scale.x, settings.scale.y * 0.5f, (pos.y - origin.y) * settings.scale.z);
             }
+
+            // S2 Rotation
+            dir = stair.Positions[stair.Positions.Count - 1] - stair.Positions[stair.Positions.Count - 2];
+            r = Directions.Bidimencional.Edges.FindIndex(v => v == dir);
+            objS2.transform.localRotation = Quaternion.Euler(0, -90 * (r - 1), 0);
+
+            // S2 Position
+            var s2pos = stair.Positions[stair.Positions.Count - 1];
+            objS2.transform.localPosition =
+                new Vector3((s2pos.x - origin.x) * settings.scale.x, settings.scale.y * 0.5f, (s2pos.y - origin.y) * settings.scale.z);
 
             return pivot;
         }
@@ -378,7 +401,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 var tilesMod = layer.GetModule<TileMapModule>("", i);
                 var connectedTilesMod = layer.GetModule<ConnectedTileMapModule>("", i);
                 var zonesMod = layer.GetModule<SectorizedTileMapModule>("", i);
-                var stairsMod = layer.GetModule<StairsModule>("", i);
+                var stairsMod = layer.GetModule<StairsModule>("", i).Clone() as StairsModule;
+                // stairsMod is cloned to track what stairs have been instantiated from LBSTiles,
+                // if a stair isn't in a zone, it could be instantiated separately 
 
                 List<GameObject> tiles = new List<GameObject>();
                 foreach (LBSTile tile in tilesMod.Tiles)
@@ -403,8 +428,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     //Generate tile
                     GameObject tileObj = new GameObject(tile.Position.ToString());
 
-                    // Add pref part to pivot
-                    GenerateCenters(tileObj, bundles);
+                    // Add prefabs to pivot
+                    GenerateCenters(tileObj, bundles, stairsMod, tile.Position);
                     GenerateEdges(tileObj, bundles, connectedTilesMod, tilesMod, tile);
                     GenerateCorners(tileObj, bundles, connectedTilesMod, tilesMod, tile);
                     GenerateStairs(tileObj, bundles, stairsMod, tile);
@@ -420,6 +445,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     // Set mainPivot as the parent of tileObj
                     tiles.Add(tileObj);
                 }
+                /*foreach(var stair in stairsMod.Stairs)
+                {
+                    if (stair.Direction < 0) continue;
+                    LBSTile tile = new LBSTile(stair.Positions[0]);
+
+                    //Generate tile
+                    GameObject tileObj = new GameObject(tile.Position.ToString());
+                    GenerateStairs(tileObj, bundles, stairsMod, tile);
+                }//*/
 
                 List<GameObject> probes = new List<GameObject>();
                 List<GameObject> lightVolumes = new List<GameObject>();
