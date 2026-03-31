@@ -299,8 +299,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             print.OnManipulationMove = RedrawSelectedBlueprint;
             print.DoPrintBlueprint = AddBlueprintToLevel;
+            print.DeselectBlueprint = DeselectBlueprint;
 
             autoCaptureToggle.SetValueWithoutNotify(CaptureManipulator.AutoCapture);
+        }
+
+        private void DeselectBlueprint()
+        {
+            foreach (var entry in entries) if(entry.Blueprint == SelectedBlueprint) entry.SetSelected(false);
+            SelectedBlueprint = null;
         }
 
         public void LoadBlueprints()
