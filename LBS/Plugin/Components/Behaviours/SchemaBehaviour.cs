@@ -71,6 +71,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         [SerializeField, HideInInspector]
         private bool multiLayerConnections = true;
 
+        private LBSStair selectedStair;
+
         #endregion
 
         #region META-FIELDS
@@ -86,7 +88,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public string conectionToSet;
         #endregion
 
-        #region PROEPRTIES
+        #region PROPERTIES
         [JsonIgnore]
         public Bundle PressetInsideStyle
         {
@@ -126,6 +128,18 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [JsonIgnore]
         public List<Vector2Int> Directions => ISILab.Commons.Directions.Bidimencional.Edges;
+
+        public LBSStair SelectedStair
+        {
+            get => selectedStair;
+            set
+            {
+                selectedStair = value;
+                OnSelectedChanged?.Invoke(selectedStair);
+            }
+        }
+
+        public Action<LBSStair> OnSelectedChanged;
 
         #endregion
 

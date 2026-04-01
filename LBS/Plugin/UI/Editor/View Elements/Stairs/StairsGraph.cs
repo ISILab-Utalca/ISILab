@@ -2,11 +2,16 @@ using ISILab.AI.Optimization.Populations;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
+using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
@@ -21,6 +26,7 @@ namespace ISILab.LBS.VisualElements
 {
     public class StairsGraph : GraphElement
     {
+        private readonly SchemaBehaviour _schemaBehaviour;
         private readonly VectorImage _upIcon = 
             AssetMacro.LoadAssetByGuid<VectorImage>("103cf2403fa02574fb824cdb84514eb9");
         private readonly VectorImage _downIcon = 
@@ -54,7 +60,25 @@ namespace ISILab.LBS.VisualElements
             _ownerLayer = ownerLayer;
             this.generateVisualContent += DrawLine;
 
+
+            _schemaBehaviour = ownerLayer.GetBehaviour<SchemaBehaviour>();
+            ActionExtensions.AddUnique(ref _schemaBehaviour.OnSelectedChanged, Select);
+
+
             SetVisualElements();
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
+        }
+
+        private void OnMouseDown(MouseDownEvent evt)
+        {
+            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (ToolKit.Instance.GetActiveManipulator() is null) return;
+            if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
+            {
+                _schemaBehaviour.SelectedStair = _stair;
+                LBSInspectorPanel.ActivateDataTab();
+            }
+
         }
 
         public void Update(LBSStair stair)
@@ -125,6 +149,10 @@ namespace ISILab.LBS.VisualElements
             output[0] += firstDir * 0.5f;
             output[output.Count - 1] -= lastDir * 0.5f;
             return output;
+        }
+        private void Select(LBSStair newTbg)
+        {
+            Debug.Log("Hii :3c");
         }
     }
 }
