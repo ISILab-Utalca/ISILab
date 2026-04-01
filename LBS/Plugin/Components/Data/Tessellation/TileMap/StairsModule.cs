@@ -58,16 +58,23 @@ namespace ISILab.LBS.Modules
         {
             foreach (var stair in _stairs)
             {
-                if (stair.Direction < 0)
+                if (stair.Direction > 0)
                 {
-                    if (startingPoint == stair.Positions[0]) return stair;
+                    if (startingPoint == stair.Positions[0])
+                        return stair;
                 }
                 else
                 {
-                    if (startingPoint == stair.Positions[stair.Positions.Count - 1]) return stair;
+                    if (startingPoint == stair.Positions[stair.Positions.Count - 1]) 
+                        return stair;
                 }
             }
             return null;
+        }
+
+        public bool RemoveStair(LBSStair stair)
+        {
+            return _stairs.Remove(stair);
         }
 
         #region INHERITED METHODS

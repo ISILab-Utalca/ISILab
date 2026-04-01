@@ -32,7 +32,8 @@ namespace ISILab.LBS.Plugin.Components.Bundles
     {
         Center,
         Edge,
-        Corner
+        Corner,
+        Other
     }
 
     [System.Serializable]

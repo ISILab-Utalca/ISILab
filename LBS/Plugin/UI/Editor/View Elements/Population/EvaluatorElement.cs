@@ -1,40 +1,41 @@
-/*
+
 
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
 {
     /// <summary>
-    /// <b>For <see cref="BundleWizardSetCharacteristMenu"/> exclusive use.</b><br />
-    /// Visual element for choosing a single <see cref="LBSCharacteristic"/>.
+    /// Visual element used to show evaluators in a list.
     /// </summary>
     [UxmlElement]
-    public partial class BundleWizardCharacteristicElement : LBSComplexVisualElement
+    public partial class EvaluatorElement : LBSComplexVisualElement
     {
-        private Toggle toggle;
-        private Label charLabel;
-        private string questionTooltipText;
-        private VisualElement questionTooltip;
+        private LBSCustomLabel evLabel;
+        private LBSCustomButton evConfigButton;
+        private LBSCustomButton evDeleteButton;
+        private VisualElement interfaceIcon1;
+        private VisualElement interfaceIcon2;
+        private VisualElement interfaceIcon3;
 
-        private int index;
-        public EventCallback<ChangeEvent<bool>> toggleCallback;
+        private string evlabelString;
+        private List<bool> interfaceBoolList;
+        private List<VisualElement> interfaceBoolListVisualElements;
 
-
-        public Toggle Toggle
+        public string EvLabelString
         {
-            get => toggle;
-            private set => toggle = value;
+            get => evLabel.text;
+            private set => evLabel.text = value;
         }
 
-        public Label CharLabel
+        public List<bool> InterfaceBoolList
         {
-            get => charLabel;
-            private set => charLabel = value;
+            get => interfaceBoolList;
+            private set => interfaceBoolList = value;
         }
 
-        
         //public string QuestionTooltipText
         //{
         //    get => questionTooltipText;
@@ -44,13 +45,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         //        QuestionTooltip.tooltip = value;
         //    }
         //}
-        
-
-        public VisualElement QuestionTooltip
-        {
-            get => questionTooltip;
-            private set => questionTooltip = value;
-        }
 
         //public int Index
         //{
@@ -63,45 +57,56 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         //    }
         //}
 
-        public BundleWizardCharacteristicElement() : base()
+        public EvaluatorElement() : base()
         {
             GetVisualTreeForThis();
 
-            toggle = this.Q<Toggle>();
-            charLabel = this.Q<Label>();
-            questionTooltip = this.Q<VisualElement>("QuestionTooltip");
+            evLabel         = this.Q<LBSCustomLabel>();
 
-            AddToClassList("lbs-wizard-char-element");
+            evConfigButton  = this.Q<LBSCustomButton>();
+            evDeleteButton  = this.Q<LBSCustomButton>();
+
+            interfaceIcon1  = this.Q<VisualElement>();
+            interfaceIcon2  = this.Q<VisualElement>();
+            interfaceIcon3  = this.Q<VisualElement>();
+
+            interfaceBoolList = new List<bool>() { false,false,false };
+
+            interfaceBoolListVisualElements = new List<VisualElement>();
+            interfaceBoolListVisualElements.Add(interfaceIcon1);
+            interfaceBoolListVisualElements.Add(interfaceIcon2);
+            interfaceBoolListVisualElements.Add(interfaceIcon3);
         }
-
-        /// <summary>
-        /// Registers <see cref="toggleCallback"/> to <see cref="Toggle"/>.
-        /// </summary>
-        public void EnableToggleCallback()
+        public void setEvaluatorElement(string label, bool b1, bool b2, bool b3)
         {
-            Toggle.RegisterValueChangedCallback(toggleCallback);
+            EvLabelString = label;
+            setInterfaceBooleanList(b1, b2, b3);
         }
-
-        /// <summary>
-        /// Unregisters <see cref="toggleCallback"/> from <see cref="Toggle"/>.
-        /// </summary>
-        public void DisableToggleCallback()
+        public void setInterfaceBooleanList(bool b1, bool b2, bool b3)
         {
-            Toggle.UnregisterValueChangedCallback(toggleCallback);
+            interfaceBoolList[0] = b1;
+            interfaceBoolList[1] = b2;
+            interfaceBoolList[2] = b3;
+            setInterfaceIconVisibility(b1, b2, b3);
         }
-
-        public override bool Equals(object obj)
+        public void setInterfaceBooleanByIndex(int i, bool b)
         {
-            if (obj is not BundleWizardCharacteristicElement other) return false;
-            //return index == other.index;
-
-            return base.Equals(obj);
+            interfaceBoolList[i] = b;
+            setInterfaceIconVisibilitybyIndex(i, b);
         }
-
+        public void setInterfaceIconVisibility(bool b1, bool b2, bool b3)
+        {
+            interfaceBoolListVisualElements[0].visible = b1;
+            interfaceBoolListVisualElements[1].visible = b2;
+            interfaceBoolListVisualElements[2].visible = b3;
+        }
+        public void setInterfaceIconVisibilitybyIndex(int i, bool b)
+        {
+            interfaceBoolListVisualElements[i].visible = b;
+        }
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
     }
 }
-*/

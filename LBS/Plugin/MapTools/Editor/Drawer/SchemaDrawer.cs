@@ -359,6 +359,9 @@ namespace ISILab.LBS.Drawers
 
         private void AdjustTileView(SchemaTileView tView, LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
         {
+            if (tView is null) return;
+            if (schema == null) return;
+
             _zoneColor = zone.Color;
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
             var size = DefaultSize * teselationSize;
