@@ -1,5 +1,6 @@
 using ISILab.Commons;
 using ISILab.LBS;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
@@ -20,12 +21,10 @@ public class PlaceStairs : LBSManipulator
 
     private SchemaBehaviour _schema;
     private ConnectedMemoryLine _line;
-    //private StairsMemoryLine _line;
     private bool _downwards = false;
 
     public PlaceStairs() 
     {
-        //_line = new StairsMemoryLine();
         _line = new ConnectedMemoryLine();
         Feedback = _line;
         Feedback.fixToTeselation = true;
@@ -185,17 +184,19 @@ public class PlaceStairs : LBSManipulator
     protected override void OnKeyDown(KeyDownEvent e)
     {
         base.OnKeyDown(e);
-        if (e.keyCode == KeyCode.LeftAlt)
+        if (e.ctrlKey)
         {
             _downwards = true;
+            LBSMainWindow.WarningManipulator("(CTRL) Placing downwards stair");
         }
     }
     protected override void OnKeyUp(KeyUpEvent e)
     {
         base.OnKeyUp(e);
-        if (e.keyCode == KeyCode.LeftAlt)
+        if (!e.ctrlKey)
         {
             _downwards = false;
+            LBSMainWindow.WarningManipulator();
         }
     }
 
