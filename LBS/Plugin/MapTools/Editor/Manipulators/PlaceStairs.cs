@@ -60,6 +60,11 @@ public class PlaceStairs : LBSManipulator
         Undo.RegisterCompleteObjectUndo(level, "Place Stairs");
 
         List<Vector2Int> positions = _line.Positions;
+        if (positions.Count < 2)
+        {
+            _line.LineClear();
+            return;
+        }
 
         // Validate stairs
         bool validated = false;

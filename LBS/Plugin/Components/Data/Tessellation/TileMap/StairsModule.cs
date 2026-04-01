@@ -74,7 +74,9 @@ namespace ISILab.LBS.Modules
 
         public bool RemoveStair(LBSStair stair)
         {
-            return _stairs.Remove(stair);
+            Debug.Log("Removing stair...");
+            bool a = _stairs.Remove(stair);
+            return a;
         }
 
         #region INHERITED METHODS
@@ -112,10 +114,8 @@ namespace ISILab.LBS.Modules
         private int _inferiorFloor;
         [SerializeField, JsonRequired, SerializeReference]
         private int _superiorFloor;
-
-        // just in case fields:
         [SerializeField, JsonRequired, SerializeReference]
-        private int _direction; // could be deprecated
+        private int _direction;
         [SerializeField, JsonRequired, SerializeReference]
         private StairShape _shape; // unused
         #endregion
@@ -125,7 +125,7 @@ namespace ISILab.LBS.Modules
         public int InferiorFloor => _inferiorFloor;
         public int SuperiorFloor => _superiorFloor;
         public int Direction => _direction;
-        public StairShape Shape => _shape;
+        public StairShape Shape => _shape; // unused
         #endregion
 
         public LBSStair(List<Vector2Int> positions, int inferiorFloor, int superiorFloor, 
@@ -136,6 +136,36 @@ namespace ISILab.LBS.Modules
             _superiorFloor = superiorFloor;
             _direction = direction;
             _shape = shape;
+        }
+
+        public LBSStair Inverted()
+        {
+            return new LBSStair(_positions, _inferiorFloor, _superiorFloor, -_direction, _shape);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is not LBSStair) return false;
+
+            LBSStair other = obj as LBSStair;
+            bool samePositions = _positions.Count == other.Positions.Count;
+            if (samePositions)
+            {
+                for(int i = 0; i < _positions.Count; i++)
+                {
+                    if (_positions[i] != other.Positions[i])
+                    {
+                        samePositions = false;
+                        break;
+                    }
+                }
+            }
+
+            return samePositions &&
+                _inferiorFloor.Equals(other.InferiorFloor) &&
+                _superiorFloor.Equals(other.SuperiorFloor) &&
+                _direction.Equals(other.Direction) &&
+                _shape.Equals(other.Shape);
         }
     }
 

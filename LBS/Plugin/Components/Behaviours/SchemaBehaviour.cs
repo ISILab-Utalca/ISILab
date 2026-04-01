@@ -13,6 +13,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.MemoryProfiler;
 using UnityEditor.TerrainTools;
 using UnityEngine;
@@ -40,8 +41,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             Door, // within wall connection
             Window, // within wall connection
             LockedDoor, // within wall connection. Opened by key
-            StairsUp,
-            StairsDown
        //     BlockedDoor // within wall connection. Opened by trigger
         };
 
@@ -259,6 +258,23 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
             if (floor != OwnerLayer.ActiveFloor) return;
             RequestTilePaint(stair);
+        }
+
+        public void RemoveStair(LBSStair stair)
+        {
+            bool a = stairs.RemoveStair(stair);
+            if (a) 
+            {
+                Debug.Log($"A stair was removed in {stairs.OwnerLayer.ActiveFloor}");
+            }
+            RequestTileRemove(stair);
+
+            var adyacentStairs = OwnerLayer.GetModule<StairsModule>("", OwnerLayer.ActiveFloor + stair.Direction);
+            a = adyacentStairs.RemoveStair(stair.Inverted());
+            if (a)
+            {
+                Debug.Log($"A stair was removed in {adyacentStairs.OwnerLayer.ActiveFloor}");
+            }
         }
 
         public LBSTile GetTile(Vector2Int position)

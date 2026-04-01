@@ -1,5 +1,6 @@
 using ISILab.Commons;
 using ISILab.LBS;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
@@ -21,7 +22,6 @@ public class RemoveStairs : LBSManipulator
 
     private SchemaBehaviour _schema;
     private List<SchemaBehaviour> _others = new ();
-    private Vector2Int _first;
 
     public RemoveStairs() 
     {
@@ -37,19 +37,27 @@ public class RemoveStairs : LBSManipulator
     {
         base.Init(layer, provider);
         _schema = provider as SchemaBehaviour;
-        if (_schema.MultiLayerConnections)
+
+        // Searches for other layers to remove stairs from
+        // Pretty much usable, but should require its own toggle instead of _schema.MultiLayerConnections
+        /*if (_schema.MultiLayerConnections)
             _others = LBSController.CurrentLevel.data.Layers
                 .Select(l => l.GetBehaviour<SchemaBehaviour>())
                 .Where(b => b is not null && b != _schema)
-                .ToList();
+                .ToList();*/
 
         Feedback.TeselationSize = layer.TileSize;
         layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
     }
 
-    protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
+    protected override void OnKeyDown(KeyDownEvent e)
     {
-        _first = _schema.OwnerLayer.ToFixedPosition(position);
+        base.OnKeyDown(e);
+    }
+    protected override void OnKeyUp(KeyUpEvent e)
+    {
+        base.OnKeyUp(e);
+        LBSMainWindow.WarningManipulator();
     }
 
     protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
@@ -67,13 +75,36 @@ public class RemoveStairs : LBSManipulator
         EditorGUI.BeginChangeCheck();
         Undo.RegisterCompleteObjectUndo(level, "Remove Stairs");
 
-        List<LBSStair> toRemove = new();
-        toRemove.AddRange(_schema.OwnerLayer.GetModule<StairsModule>().Stairs);
-        foreach(var o in _others)
+        List<SchemaBehaviour> allBehaviours = new();
+        HashSet<StairsModule> toUpdate = new();
+        allBehaviours.Add(_schema);
+
+        // Search for stair modules in other layers
+        if (_schema.MultiLayerConnections)
         {
-            toRemove.AddRange(o.OwnerLayer.GetModule<StairsModule>().Stairs);
+            foreach (var o in _others)
+            {
+                allBehaviours.Add(o);
+            }
         }
 
+        // Remove stairs
+        var corners = _schema.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+        foreach (var schema in allBehaviours)
+        {
+            foreach(var stair in schema.Stairs)
+            {
+                foreach (var pos in stair.Positions)
+                {
+                    if (corners.min.x <= pos.x && pos.x <= corners.max.x &&
+                        corners.min.y <= pos.y && pos.y <= corners.max.y)
+                    {
+                        schema.RemoveStair(stair);
+                        break;
+                    }
+                }
+            }
+        }
 
         if (EditorGUI.EndChangeCheck())
         {

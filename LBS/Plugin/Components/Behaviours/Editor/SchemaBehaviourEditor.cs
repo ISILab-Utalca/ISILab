@@ -355,8 +355,6 @@ namespace ISILab.LBS.Behaviours.Editor
                 case "Window": return AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
                 case "LockedDoor": return AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
                 case "BlockedDoor": return AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
-                case "Stairs Up": return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);     // Needs an icon
-                case "Stairs Down": return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);   // Needs an icon
                 default: return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
             }
         }
