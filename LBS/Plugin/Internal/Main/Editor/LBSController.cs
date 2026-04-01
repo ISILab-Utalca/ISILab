@@ -79,6 +79,7 @@ namespace ISILab.LBS
                     fileInfo = new System.IO.FileInfo(path);
                     data = JSONDataManager.LoadData<LBSLevelData>(fileInfo.DirectoryName, fileInfo.Name);
                     CurrentLevel = LoadedLevel.CreateInstance(data, fileInfo.FullName);
+                    CurrentLevel.data.Layers.RemoveAll(l => l.ID.Equals("Quest"));
                     CurrentLevel.data.Reload();
                     return CurrentLevel;
 
@@ -92,6 +93,7 @@ namespace ISILab.LBS
                     fileInfo = new System.IO.FileInfo(path);
                     data = JSONDataManager.LoadData<LBSLevelData>(fileInfo.DirectoryName, fileInfo.Name);
                     CurrentLevel = LoadedLevel.CreateInstance(data, fileInfo.FullName);
+                    CurrentLevel.data.Layers.RemoveAll(l => l.ID.Equals("Quest"));
                     CurrentLevel.data.Reload();
                     OnLoadLevel?.Invoke(CurrentLevel.data);
                     return CurrentLevel;

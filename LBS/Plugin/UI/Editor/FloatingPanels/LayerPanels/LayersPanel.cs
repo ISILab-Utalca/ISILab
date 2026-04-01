@@ -112,6 +112,7 @@ namespace ISILab.LBS.VisualElements.Editor
             for (int i = 0; i < _templates.Count; i++)
             {
                 int index = i;
+                if (_templates[i].templateName.Contains("Quest") || _templates[i].templateName.Contains("quest")) continue;
                 addLayerButton.menu.AppendAction(_templates[i].templateName, _ => AddLayerByTemplate(index));
             }
         }
