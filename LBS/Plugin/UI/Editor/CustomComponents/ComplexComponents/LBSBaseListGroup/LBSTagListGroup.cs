@@ -34,6 +34,14 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         {
             OnListRemoved += () => { RemoveFromHierarchy(); };
             disabledRemoveButton = this.Q<LBSToolbarButton>("DisabledRemoveButton");
+
         }
+        public LBSTagListGroup(bool removable) : base()
+        {
+            OnListRemoved += () => { RemoveFromHierarchy(); };
+            disabledRemoveButton = this.Q<LBSToolbarButton>("DisabledRemoveButton");
+            this.removable = removable;
+        }
+        
     }
 }
