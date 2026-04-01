@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.MemoryProfiler;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
@@ -341,6 +343,71 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                         if (currConnects[j] != "Door")
                         {
                             SetConnection(tiles[i], j, "Wall", true);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void RecalculateWallsAtFloor(int floor, List<LBSTile> tiles = null)
+        {
+            bool isActiveFloor = floor == OwnerLayer.ActiveFloor;
+            var tilemapMod = OwnerLayer.GetModule<TileMapModule>("", floor);
+            var sectorizedMod = OwnerLayer.GetModule<SectorizedTileMapModule>("", floor);
+            var connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>("", floor);
+
+            tiles ??= tilemapMod.Tiles;
+            if (isActiveFloor) tiles.ForEach(t => RequestTilePaint(t));
+
+            //foreach (var tile in Tiles)
+            for (int i = 0; i < tiles.Count; i++)
+            {
+                var tile = tiles[i];
+                var currZone = sectorizedMod.GetPairTile(tile).Zone;
+                var currConnects = connectedMod.GetPair(tile).Connections;
+
+                UnityEngine.Assertions.Assert.IsNotNull(currConnects);
+
+                // Get tile neighbors
+                var neigs = new List<LBSTile>();
+                foreach (var dir in Directions)
+                {
+                    var t = tilemapMod.GetTile(dir + tile.Position);
+                    neigs.Add(t);
+                }
+
+                var edt = connectedMod.GetPair(tile).EditedByIA;
+
+                for (int j = 0; j < Directions.Count; j++)
+                {
+                    if (!edt[j])
+                        continue;
+
+                    if (neigs[j] == null)
+                    {
+                        if (currConnects[j] != "Door")
+                        {
+                            TileConnectionsPair t = connectedMod.GetPair(tile);
+                            t.SetConnection(j, "Wall", true);
+                            if (isActiveFloor) RequestTilePaint(tile);
+                        }
+                        continue;
+                    }
+
+                    var otherZone = sectorizedMod.GetPairTile(neigs[j]).Zone;
+                    if (otherZone.Equals(currZone))
+                    {
+                        TileConnectionsPair t = connectedMod.GetPair(tile);
+                        t.SetConnection(j, "Empty", true);
+                        if (isActiveFloor) RequestTilePaint(tile);
+                    }
+                    else
+                    {
+                        if (currConnects[j] != "Door")
+                        {
+                            TileConnectionsPair t = connectedMod.GetPair(tile);
+                            t.SetConnection(j, "Wall", true);
+                            if (isActiveFloor) RequestTilePaint(tile);
                         }
                     }
                 }
