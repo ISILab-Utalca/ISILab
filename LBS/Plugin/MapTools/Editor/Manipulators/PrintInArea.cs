@@ -54,6 +54,7 @@ namespace ISILab.LBS.Manipulators
 
         #region ACTIONS
         public Action DoPrintBlueprint;
+        public Action DeselectBlueprint;
         #endregion
 
 
@@ -81,8 +82,17 @@ namespace ISILab.LBS.Manipulators
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
             base.OnMouseDown(element, startPosition, e);
+
             // Draw or create layers
-            DoPrintBlueprint?.Invoke();
+            if (e.button == 0)         
+                DoPrintBlueprint?.Invoke();
+
+            if(e.button == 1)
+            {
+                DeselectBlueprint?.Invoke();
+                ClearPreview();
+            }
+
         }
 
         protected override void OnMouseMove(VisualElement element, Vector2Int movePosition, MouseMoveEvent e)
