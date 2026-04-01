@@ -78,11 +78,13 @@ namespace ISILab.LBS.VisualElements
             displayChoices.Add(nameof(Bundle.EElementFlag.Prop), propList);
             displayChoices.Add(nameof(Bundle.EElementFlag.Misc), miscList);
 
+            
+
             SetInfo(behaviour);
             CreateVisualElement();
         }
         #endregion
-
+        
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
@@ -114,6 +116,11 @@ namespace ISILab.LBS.VisualElements
                 toolkit.ActivateTool(tool, behaviour.OwnerLayer, behaviour);
             }
 
+            //This doesn't work for some reason! Check tomorrow~. - Alice
+            RegisterCallback<KeyDownEvent>(evt =>
+            {
+                Debug.Log("pressed key");
+            });
         }
 
         protected sealed override VisualElement CreateVisualElement()
