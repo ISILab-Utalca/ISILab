@@ -52,7 +52,8 @@ namespace ISILab.LBS.Manipulators
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Add Quest Node");
 
-            _questGraph.AddNewNode(_behaviour,endPosition);
+            var newNode = _questGraph.AddNewNode(_behaviour,endPosition);
+            _behaviour.SelectedGraphNode = newNode;
 
             OnManipulationEnd.Invoke();
             e.StopImmediatePropagation();

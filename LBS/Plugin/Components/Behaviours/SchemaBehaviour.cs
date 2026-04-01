@@ -620,7 +620,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             List<TileConnectionsPair> tileConnectionsPairsToRemove = TileConnections.Pairs;
             List<Zone> zonesToRemove = areas.Zones;
 
-
             for (int x = corners.min.x; x <= corners.max.x; x++)
             {
                 for (int y = corners.min.y; y <= corners.max.y; y++)
@@ -741,7 +740,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                 var incomingTile = incomingPair.Tile;
                 var incomingZone = incomingPair.Zone;
 
-                var originalTile = tileMap.GetTile(incomingTile.Position);
+                TileZonePair originalTile = areas.GetPairTile(incomingTile.Position);
 
                 if (originalTile == null)
                 {
@@ -753,7 +752,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                 }
                 else if (overwrite)
                 {
-                    RemoveTile(originalTile.Position);
+                    areas.RemovePair(originalTile.Tile);
 
                     var newTile = incomingTile.Clone() as LBSTile;
                     tileMap.AddTile(newTile);

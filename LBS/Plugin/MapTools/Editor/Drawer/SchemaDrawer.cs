@@ -193,6 +193,7 @@ namespace ISILab.LBS.Drawers
                 }
                 else
                 {
+                    // TODO tileZonepair gets broken on on blueprint cloning merge-
                     tView = GetTileView(tile, tz.Zone, tc.Connections, teselationSize);
                     tView.layer = schema.OwnerLayer.index;
                     // Stores using LBSTile as key

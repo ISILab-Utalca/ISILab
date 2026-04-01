@@ -22,7 +22,8 @@ namespace ISILab.LBS.VisualElements
     public class QuestNodeBehaviourEditor : LBSCustomEditor, IToolProvider
     {
         #region FIELDS
-        private QuestNodeBehaviour _behaviour;
+        private QuestNodeBehaviour nodeBehavior;
+        private QuestBehaviour questBehaviour;
 
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
@@ -78,18 +79,22 @@ namespace ISILab.LBS.VisualElements
         {
             SetInfo(target);
             CreateVisualElement();
-            OnSelectNode(_behaviour.Graph.SelectedGraphNode);
+            OnSelectNode(questBehaviour.SelectedGraphNode);
         }
         #endregion
         
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-            _behaviour = paramTarget as QuestNodeBehaviour;
-            if (_behaviour == null) return;
-            _behaviour.Graph!.OnGraphNodeSelected -= OnSelectNode;
-            _behaviour.Graph!.OnGraphNodeSelected += OnSelectNode;
-            DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
+            nodeBehavior = paramTarget as QuestNodeBehaviour;
+            if (nodeBehavior == null) return;
+
+            questBehaviour = nodeBehavior.OwnerLayer.GetBehaviour<QuestBehaviour>();
+
+            questBehaviour.OnGraphNodeSelected -= OnSelectNode;
+            questBehaviour.OnGraphNodeSelected += OnSelectNode;
+
+            DrawManager.Instance.RedrawLayer(nodeBehavior.OwnerLayer);
         }
         
         protected sealed override VisualElement CreateVisualElement()
@@ -122,7 +127,7 @@ namespace ISILab.LBS.VisualElements
             {
                 if (ToolKit.Instance.GetActiveManipulatorInstance() is not QuestPicker pickerManipulator) return;
                 
-                QuestActionData actionData = _behaviour.Graph.GetNodeData();
+                QuestActionData actionData = questBehaviour.SelectedNodeData;
                 if (actionData is null) return;
                 
                 pickerManipulator.PickTriggerPosition = true;
@@ -151,7 +156,7 @@ namespace ISILab.LBS.VisualElements
             // cant change complete mode
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
-                QuestActionData data = GetSelectedNodeData();
+                QuestActionData data = questBehaviour.SelectedNodeData;
                 if (data is null) return;
                 _hooker.Hooker = data.EventHooker;
             });
@@ -167,18 +172,9 @@ namespace ISILab.LBS.VisualElements
         }
         
 
-
-        private QuestActionData GetSelectedNodeData()
-        {
-            QuestNode node = _behaviour.Graph.SelectedGraphNode as QuestNode;
-            QuestActionData actionData = node?.Data;
-            return actionData;
-        }
-
-
         private void SetNodeDataArea(Rect newValue)
         {
-            QuestActionData actionData = GetSelectedNodeData();
+            QuestActionData actionData = questBehaviour.SelectedNodeData;
             if (actionData is null) return;
             
             newValue.x = Mathf.Round(newValue.x);
@@ -187,7 +183,7 @@ namespace ISILab.LBS.VisualElements
             newValue.width = MathF.Abs(newValue.width);
             
             actionData.Area = newValue;
-            DrawManager.Instance.RedrawLayer(_behaviour.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(nodeBehavior.OwnerLayer);
         }
 
         /// <summary>
@@ -199,7 +195,7 @@ namespace ISILab.LBS.VisualElements
             QuestPicker questPicker = new();
             LBSTool toolPicker = new(questPicker);
             toolPicker.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            toolkit.ActivateTool(toolPicker, _behaviour?.OwnerLayer, target);
+            toolkit.ActivateTool(toolPicker, nodeBehavior?.OwnerLayer, target);
 
             // context exclusive from the Node Panel
             VisualElement toolButton = toolkit.GetToolButton(typeof(QuestPicker));
@@ -221,7 +217,7 @@ namespace ISILab.LBS.VisualElements
             _onEventCompleteVe.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             
             // on complete related
-            _hooker.Hooker = (GetSelectedNodeData()?.EventHooker);
+            _hooker.Hooker = (questBehaviour.SelectedNodeData?.EventHooker);
     
                 
             _instancedContent.Clear();

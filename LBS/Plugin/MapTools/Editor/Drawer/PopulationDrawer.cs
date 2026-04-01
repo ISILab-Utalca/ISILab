@@ -243,7 +243,7 @@ namespace ISILab.LBS.Drawers
             }
 
             // Create new graph element for the tile
-            PopulationTileView tileView = new PopulationTileView(nTile, OwnerLayer);
+            PopulationTileView tileView = new PopulationTileView(nTile, population.OwnerLayer);
             // ignore so it does not block the connection selection
             tileView.pickingMode = PickingMode.Ignore;
 

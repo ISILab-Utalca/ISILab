@@ -1,7 +1,9 @@
 using ISILab.Commons.Extensions;
 using ISILab.LBS.Plugin.Core.Settings;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
+using UnityEngine;
 
 namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
 {
@@ -53,6 +55,25 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 bool context = true,
                     configurable = true;
 
+                string fieldsDeclaration = "", fieldsInitialization = "", configurationLoad = "", configurationCreation = "", fieldsClonation = "";
+                typeCount.Clear();
+                List<System.Type> fields = new() { typeof(Characteristics.LBSCharacteristic), typeof(int), typeof(int), typeof(float) };
+                foreach(System.Type type in fields)
+                {
+                    GetDummyField(type, out string declaration, out string initialization, out string load, out string creation, out string clonation);
+                    fieldsDeclaration += declaration + "\n";
+                    fieldsInitialization += initialization + "\n";
+                    configurationLoad += load + "\n";
+                    configurationCreation += creation + "\n";
+                    fieldsClonation += clonation + "\n";
+                }
+
+                Debug.Log(fieldsDeclaration);
+                Debug.Log(fieldsInitialization);
+                Debug.Log(configurationLoad);
+                Debug.Log(configurationCreation);
+                Debug.Log(fieldsClonation);
+
                 string interfaces = "";
                 if (context) interfaces += ", IContextualEvaluator";
                 if (configurable) interfaces += ", IConfigurableEvaluator";
@@ -94,6 +115,42 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             string path = AssetDatabase.GUIDToAssetPath(fileGUID);
             if (string.IsNullOrWhiteSpace(path) || !File.Exists(path)) return nullString;
             return File.ReadAllText(path);
+        }
+
+        // Dummies. Dummies! DUMMIES! Remember how I said NOT to shoot at me? - Mad Dummy (2015)
+        static Dictionary<System.Type, int> typeCount = new();
+        private static void GetDummyField(System.Type type, out string declaration, out string initialization, out string load, out string creation, out string clonation, string name = "")
+        {
+            declaration = initialization = load = creation = clonation = "";
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                if (typeCount.ContainsKey(type)) typeCount[type]++;
+                else typeCount.Add(type, 1);
+                name = $"{type.Name}Field{(char)(64 + typeCount[type])}";
+            }
+
+            switch(type.Name)
+            {
+                case nameof(Characteristics.LBSCharacteristic):
+                    declaration = $"[SerializeField, SerializeReference]\npublic LBSCharacteristic {name};";
+                    initialization = $"{name} = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag(\"TAG NAME\"));";
+                    load = $"{name} = config.GetValue<LBSCharacteristic>(\"{name}\");";
+                    creation = $"new MainTagField(\"{name}\", {name}.FirstTag().Label, {name}),";
+                    clonation = $"clone.{name} = {name};";
+                    break;
+
+                case nameof(System.Int32):
+                case nameof(System.Single):
+                    string primitive = type.Name == nameof(System.Int32) ? "int" : "float";
+                    string fullPrimitive = type.Name == nameof(System.Int32) ? "Integer" : "Float";
+
+                    declaration = $"[SerializeField]\npublic {primitive} {name};";
+                    initialization = $"{name} = 0;";
+                    load = $"{name} = config.GetValue<{primitive}>(\"{name}\");";
+                    creation = $"new {fullPrimitive}ConfigurationField(\"{name}\", {name}),";
+                    clonation = $"clone.{name} = {name};";
+                    break;
+            }
         }
     }
 }

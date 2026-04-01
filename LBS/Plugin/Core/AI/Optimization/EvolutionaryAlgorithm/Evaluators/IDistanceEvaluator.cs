@@ -30,7 +30,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
     public interface IDistanceEvaluator : IEvaluator
     {
         public Dictionary<(int, int), int> DistancePool { get; set; }
+    }
 
+    public interface ITestingEvaluator : IEvaluator
+    {
         public EvaluationInfo EvaluationInfo { get; set; }
 
         public float EvaluateWithInfo(IOptimizable evaluable, out EvaluationInfo evalInfo);

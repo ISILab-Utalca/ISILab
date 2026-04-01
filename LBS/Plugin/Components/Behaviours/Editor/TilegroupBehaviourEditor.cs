@@ -1,4 +1,5 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
@@ -7,6 +8,7 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using LBS;
 using LBS.VisualElements;
+using System.Security.Cryptography;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -49,14 +51,13 @@ namespace ISILab.LBS.VisualElements
         public sealed override void SetInfo(object paramTarget)
         {
             behaviour = paramTarget as TileGroupBehavior;
-            behaviour.OnSelectedChanged -= OnSelectedChanged;
-            behaviour.OnSelectedChanged += OnSelectedChanged;
+            ActionExtensions.AddUnique(ref behaviour.OnSelectedChanged, OnSelectedChanged);
             UpdateTilebundle(behaviour.SelectedTilemap);
         }
 
         private void OnSelectedChanged(TileBundleGroup tilemap)
         {
-            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+            DrawManager.Instance.UpdateLayer(behaviour.OwnerLayer);
             UpdateTilebundle(tilemap);
         }
 
