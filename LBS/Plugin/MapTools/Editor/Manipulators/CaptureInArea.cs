@@ -21,6 +21,7 @@ namespace ISILab.LBS.Manipulators
         private List<LBSLayer> capturedBlueprintData = new();
         // overwrite the defalt feedback of teselation as behavior is inhertied to follow mouse position
         private static AreaFeedback areaFeedback;
+        private bool CaptureStarted = false;
         private bool Capturing = false;
         private bool autoCapture = true;
         #endregion
@@ -59,8 +60,6 @@ namespace ISILab.LBS.Manipulators
 
         #endregion
 
-
-
         #region ACTIONS
         public Action<List<LBSLayer>, Texture2D, Vector2Int> CaptureComplete;
         public Action<KeyDownEvent> KeyDown;
@@ -93,11 +92,19 @@ namespace ISILab.LBS.Manipulators
             base.OnKeyUp(e);
             KeyUp?.Invoke(e);
         }
-        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e) 
-            => ClearArea();
+        protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
+        {
+            if (e.button == 0) CaptureStarted = true;
+            ClearArea();
+        }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
+            // basically removes the update positions
+            if (e.button == 1) CaptureStarted = false;
+
+            if(!CaptureStarted) return;
+
             AreaFeedback.UpdatePositions(StartPosition, EndPosition);
             MainView.Instance.AddElement(AreaFeedback);
 

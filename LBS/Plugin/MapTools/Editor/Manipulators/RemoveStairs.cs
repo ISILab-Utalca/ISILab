@@ -13,7 +13,6 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static Codice.Client.Common.EventTracking.TrackFeatureUseEvent.Features.DesktopGUI.Filters;
 using static UnityEditor.PlayerSettings;
 
 public class RemoveStairs : LBSManipulator
