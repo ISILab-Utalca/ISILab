@@ -87,7 +87,7 @@ namespace ISILab.LBS.Editor
 
             _removeSuggestionsButton.clicked += () =>
             {
-                _questGraph.Suggestions.Clear();
+                _assistant.Suggestions.Clear();
                 UpdateSuggestionsDisplay();
             };
             _autoConnectButton.style.display = DisplayStyle.None;
@@ -109,7 +109,7 @@ namespace ISILab.LBS.Editor
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
             {
-                _questGraph.Suggestions.AddRange(suggestions);
+                _assistant.Suggestions.AddRange(suggestions);
                 UpdateSuggestionsDisplay();
                 TaskBar.EnableProcess(false);
             };
@@ -230,7 +230,7 @@ namespace ISILab.LBS.Editor
             _suggestionList.reorderable = false;
             _suggestionList.makeItem = () => new QuestNodeSuggestion();
             _suggestionList.bindItem = BindQuestNodeSuggestion;
-            _suggestionList.itemsSource = _questGraph.Suggestions;
+            _suggestionList.itemsSource = _assistant.Suggestions;
           //  UpdateSuggestionsDisplay();
         }
         
@@ -249,10 +249,10 @@ namespace ISILab.LBS.Editor
         {
             if (element is not QuestNodeSuggestion suggestionEntry) return;
 
-            suggestionEntry.UpdateData(_questGraph.Suggestions[index]);
+            suggestionEntry.UpdateData(_assistant.Suggestions[index]);
             _questGraph.OnRemoveSuggestion += (suggestionToRemove) =>
             {
-                _questGraph.Suggestions.Remove(suggestionToRemove);
+                _assistant.Suggestions.Remove(suggestionToRemove);
             };
             _questGraph.OnRemoveSuggestion -= HandleRemoveSuggestion;
             _questGraph.OnRemoveSuggestion += HandleRemoveSuggestion;
@@ -266,15 +266,15 @@ namespace ISILab.LBS.Editor
         
         public override void OnFocus()
         {
-            _questGraph.displaySuggestions = true;
-            DrawManager.Instance.RedrawLayer(_questGraph.OwnerLayer);
+            _assistant.displaySuggestions = true;
+            DrawManager.Instance.UpdateSingleComponent(_assistant, _assistant.OwnerLayer);
         }
         
         public override void OnUnfocus()
         {
             LBSMainWindow.Instance.rootVisualElement.Q<ToolBarMain>().CancelProgress();
-            _questGraph.displaySuggestions = false;
-            DrawManager.Instance.RedrawLayer(_questGraph.OwnerLayer);
+            _assistant.displaySuggestions = false;
+            DrawManager.Instance.UpdateSingleComponent(_assistant, _assistant.OwnerLayer);
         }
         
         public void SetTools(ToolKit toolkit) { }

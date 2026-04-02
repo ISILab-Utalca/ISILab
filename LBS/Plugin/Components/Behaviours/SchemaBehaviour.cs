@@ -10,12 +10,11 @@ using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.MemoryProfiler;
 using UnityEditor.TerrainTools;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
@@ -350,6 +349,71 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             }
         }
 
+        public void RecalculateWallsAtFloor(int floor, List<LBSTile> tiles = null)
+        {
+            bool isActiveFloor = floor == OwnerLayer.ActiveFloor;
+            var tilemapMod = OwnerLayer.GetModule<TileMapModule>("", floor);
+            var sectorizedMod = OwnerLayer.GetModule<SectorizedTileMapModule>("", floor);
+            var connectedMod = OwnerLayer.GetModule<ConnectedTileMapModule>("", floor);
+
+            tiles ??= tilemapMod.Tiles;
+            if (isActiveFloor) tiles.ForEach(t => RequestTilePaint(t));
+
+            //foreach (var tile in Tiles)
+            for (int i = 0; i < tiles.Count; i++)
+            {
+                var tile = tiles[i];
+                var currZone = sectorizedMod.GetPairTile(tile).Zone;
+                var currConnects = connectedMod.GetPair(tile).Connections;
+
+                UnityEngine.Assertions.Assert.IsNotNull(currConnects);
+
+                // Get tile neighbors
+                var neigs = new List<LBSTile>();
+                foreach (var dir in Directions)
+                {
+                    var t = tilemapMod.GetTile(dir + tile.Position);
+                    neigs.Add(t);
+                }
+
+                var edt = connectedMod.GetPair(tile).EditedByIA;
+
+                for (int j = 0; j < Directions.Count; j++)
+                {
+                    if (!edt[j])
+                        continue;
+
+                    if (neigs[j] == null)
+                    {
+                        if (currConnects[j] != "Door")
+                        {
+                            TileConnectionsPair t = connectedMod.GetPair(tile);
+                            t.SetConnection(j, "Wall", true);
+                            if (isActiveFloor) RequestTilePaint(tile);
+                        }
+                        continue;
+                    }
+
+                    var otherZone = sectorizedMod.GetPairTile(neigs[j]).Zone;
+                    if (otherZone.Equals(currZone))
+                    {
+                        TileConnectionsPair t = connectedMod.GetPair(tile);
+                        t.SetConnection(j, "Empty", true);
+                        if (isActiveFloor) RequestTilePaint(tile);
+                    }
+                    else
+                    {
+                        if (currConnects[j] != "Door")
+                        {
+                            TileConnectionsPair t = connectedMod.GetPair(tile);
+                            t.SetConnection(j, "Wall", true);
+                            if (isActiveFloor) RequestTilePaint(tile);
+                        }
+                    }
+                }
+            }
+        }
+
         public override object Clone()
         {
             return new SchemaBehaviour(this.IconGuid, this.Name, this.ColorTint);
@@ -554,7 +618,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             List<TileConnectionsPair> tileConnectionsPairsToRemove = TileConnections.Pairs;
             List<Zone> zonesToRemove = areas.Zones;
 
-
             for (int x = corners.min.x; x <= corners.max.x; x++)
             {
                 for (int y = corners.min.y; y <= corners.max.y; y++)
@@ -675,7 +738,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                 var incomingTile = incomingPair.Tile;
                 var incomingZone = incomingPair.Zone;
 
-                var originalTile = tileMap.GetTile(incomingTile.Position);
+                TileZonePair originalTile = areas.GetPairTile(incomingTile.Position);
 
                 if (originalTile == null)
                 {
@@ -687,7 +750,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                 }
                 else if (overwrite)
                 {
-                    RemoveTile(originalTile.Position);
+                    areas.RemovePair(originalTile.Tile);
 
                     var newTile = incomingTile.Clone() as LBSTile;
                     tileMap.AddTile(newTile);

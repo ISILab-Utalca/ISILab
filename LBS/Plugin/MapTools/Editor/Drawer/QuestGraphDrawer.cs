@@ -11,7 +11,7 @@ using ISILab.LBS.Modules;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using ISILab.AI.Optimization.Populations;
+
 
 namespace ISILab.LBS.Drawers.Editor
 {
@@ -20,7 +20,6 @@ namespace ISILab.LBS.Drawers.Editor
     {
         // for actions, and ors,
         private readonly Dictionary<GraphNode, QuestGraphNodeView> _actionViews = new();
-        private readonly Dictionary<QuestNode, SuggestionElementArea> _suggestionViews = new();
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             if (target is not QuestBehaviour behaviour) return;
@@ -32,15 +31,7 @@ namespace ISILab.LBS.Drawers.Editor
             layer.OnChange += OnLayerChange(graph, behaviour);
             
             _actionViews.Clear();
-            _suggestionViews.Clear();
             LoadAllTiles(graph, behaviour, view);
-
-            /* Unused drawing system
-            view.ClearLayerContainer(behaviour.OwnerLayer, true);
-            PaintNewTiles(quest, behaviour, nodeViews, view);
-            view.ClearLayerComponentView(behaviour.OwnerLayer, behaviour);
-            view.ClearLayerComponentView(behaviour.OwnerLayer, behaviour.Graph);
-            */
 
             if (!Loaded || FullRedrawRequested)
             {
@@ -55,20 +46,19 @@ namespace ISILab.LBS.Drawers.Editor
             return () =>
             {
                 // Reset layer input when changing to another layer
-                graph.SelectedGraphNode = null;
+                behaviour.SelectedGraphNode = null;
                 behaviour.ActionToSet = string.Empty;
-                _suggestionViews.Clear();
                 QuestGraphNodeView.Deselect();
 
             };
         }
 
-        private void LoadAllTiles(QuestGraph questGraph, QuestBehaviour behaviour, MainView view)
+        private void LoadAllTiles(QuestGraph graph, QuestBehaviour behaviour, MainView view)
         {
             QuestGraphNodeView.Deselect();
             QuestGraphNodeView selectedGraphView = null;
             
-            foreach (GraphNode node in questGraph.GraphNodes)
+            foreach (GraphNode node in graph.GraphNodes)
             {
                 if (!_actionViews.TryGetValue(node, out QuestGraphNodeView nodeView) || nodeView == null)
                 {
@@ -86,10 +76,10 @@ namespace ISILab.LBS.Drawers.Editor
                 
                 if (Equals(LBSMainWindow.Instance._selectedLayer, behaviour.OwnerLayer))
                 {
-                    if (behaviour.Graph.SelectedGraphNode is not null)
+                    if (behaviour.SelectedGraphNode is not null)
                     {
                         // to find the highlighted element is within the active quest layer
-                        nodeView?.IsSelected(Equals(node, behaviour.Graph.SelectedGraphNode));
+                        nodeView?.IsSelected(Equals(node, behaviour.SelectedGraphNode));
                     }
 
                 }
@@ -102,48 +92,22 @@ namespace ISILab.LBS.Drawers.Editor
                 nodeView.style.display = (DisplayStyle)(behaviour.OwnerLayer.IsVisible ? 0 : 1);
                // view.AddElementToLayerContainer(questGraph.OwnerLayer, node, nodeView);
                 behaviour.Keys.Add(node);
+
+                foreach (QuestGraphNodeView aView in _actionViews.Values)
+                {
+                    if (aView is QuestActionView qAview) qAview.Update();
+                }
             }
-            
-            foreach (QuestNode suggestNode in questGraph.Suggestions)
-            {
-                // only draw suggestions when the assistant tab is active
-                if(!LBSInspectorPanel.Instance.IsAssistantTabActive())
-                {
-                    break;
-                }
-                
-                if (!Equals(LBSMainWindow.Instance._selectedLayer, behaviour.OwnerLayer)) continue;
-                
-                _suggestionViews.TryGetValue(suggestNode, out SuggestionElementArea suggestView);
-              
-                // if not successfully created
-                if(suggestView is null)
-                {
-                    // make a quest action visual element
-                    suggestView = CreateSuggestionView(suggestNode);
-                    _suggestionViews.Add(suggestNode, suggestView);
-                }
-                
-                if (questGraph.displaySuggestions)
-                {
-                    suggestView.style.display = (DisplayStyle)(behaviour.OwnerLayer.IsVisible ? 0 : 1);
-                }
-                else
-                {
-                    suggestView.style.display = DisplayStyle.None;
-                }
-                behaviour.Keys.Add(suggestNode);
-            }
-            
-            foreach (QuestEdge edge in questGraph.GraphEdges)
+                     
+            foreach (QuestEdge edge in graph.GraphEdges)
             {
                 if (!_actionViews.TryGetValue(edge.To, out QuestGraphNodeView n2) || n2 == null) continue;
                 foreach (GraphNode from in edge.From)
                 {
                     if (!_actionViews.TryGetValue(from, out QuestGraphNodeView n1) || n1 == null) continue;
                     
-                    LBSQuestEdgeView edgeView = CreateEdgeView(questGraph, edge, n1, n2);
-                    view.AddElementToLayerContainer(questGraph.OwnerLayer, edge, edgeView);
+                    LBSQuestEdgeView edgeView = CreateEdgeView(graph, edge, n1, n2);
+                    view.AddElementToLayerContainer(graph.OwnerLayer, edge, edgeView);
                     edgeView.layer = n1.layer + 1;
                     behaviour.Keys.Add(edge);
                 }
@@ -152,18 +116,14 @@ namespace ISILab.LBS.Drawers.Editor
             foreach (var entry in _actionViews)
             {
                 if(entry.Value == selectedGraphView) continue;
-                view.AddElementToLayerContainer(questGraph.OwnerLayer, entry.Key, entry.Value);
-            }
-            foreach (var entry in _suggestionViews)
-            {
-                view.AddElementToLayerContainer(questGraph.OwnerLayer, entry.Key, entry.Value);
+                view.AddElementToLayerContainer(graph.OwnerLayer, entry.Key, entry.Value);
             }
             
             // the selected node is the last to be added so it can be moved around on top of other nodes
             if (selectedGraphView is not null)
             {
                 // key has to be the selected node
-                view.AddElementToLayerContainer(questGraph.OwnerLayer, questGraph.SelectedGraphNode, selectedGraphView);
+                view.AddElementToLayerContainer(graph.OwnerLayer, behaviour.SelectedGraphNode, selectedGraphView);
             }
         }
 
@@ -211,25 +171,9 @@ namespace ISILab.LBS.Drawers.Editor
             
             return new LBSQuestEdgeView(graph, edge, n1, n2, 1.5f, 3.5f);
         }
-        
-        private static QuestActionView CreateActionView(QuestNode node)
-        {
-            QuestActionView nodeView = new(node);
-            return nodeView;
-        }
-        
 
-        private static QuestBranchView CreateBranchView(GraphNode node)
-        {
-            QuestBranchView nodeView = new(node);
-            return nodeView;
-        }
-        
-        private static SuggestionElementArea CreateSuggestionView(QuestNode node)
-        {
-            SuggestionElementArea nodeView = new(node, node.Data.Area);
-            
-            return nodeView;
-        }
+        private static QuestActionView CreateActionView(QuestNode node) => new(node);
+        private static QuestBranchView CreateBranchView(GraphNode node) => new(node);
+
     }
 }

@@ -19,7 +19,7 @@ namespace ISILab.LBS.Tests
 
         private void Pathfind(Type type, int mapSize, int enemyQuantity, int wallQuantity, PathfindingAlgorithm searchType)
         {
-            var evaluator = Activator.CreateInstance(type) as IDistanceEvaluator;
+            var evaluator = Activator.CreateInstance(type) as ITestingEvaluator;
             BundleTilemapChromosome chromosome = null;
             SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
             SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);

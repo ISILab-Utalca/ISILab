@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 namespace ISILab.LBS.Modules
 {
@@ -38,6 +40,41 @@ namespace ISILab.LBS.Modules
                 }
             }
             return false;
+        }
+
+        public LBSStair GetPositionOccupied(Vector2Int position)
+        {
+            foreach (var stair in _stairs)
+            {
+                foreach (var pos in stair.Positions)
+                {
+                    if (position == pos) return stair;
+                }
+            }
+            return null;
+        }
+
+        public LBSStair GetStairByStartingPoint(Vector2Int startingPoint)
+        {
+            foreach (var stair in _stairs)
+            {
+                if (stair.Direction > 0)
+                {
+                    if (startingPoint == stair.Positions[0])
+                        return stair;
+                }
+                else
+                {
+                    if (startingPoint == stair.Positions[stair.Positions.Count - 1]) 
+                        return stair;
+                }
+            }
+            return null;
+        }
+
+        public bool RemoveStair(LBSStair stair)
+        {
+            return _stairs.Remove(stair);
         }
 
         #region INHERITED METHODS
@@ -75,17 +112,19 @@ namespace ISILab.LBS.Modules
         private int _inferiorFloor;
         [SerializeField, JsonRequired, SerializeReference]
         private int _superiorFloor;
-        //[SerializeField, JsonRequired, SerializeReference]
-        //private int _direction;
+
+        // just in case fields:
         [SerializeField, JsonRequired, SerializeReference]
-        private StairShape _shape;
+        private int _direction; // could be deprecated
+        [SerializeField, JsonRequired, SerializeReference]
+        private StairShape _shape; // unused
         #endregion
 
         #region PROPERTIES
         public List<Vector2Int> Positions => new List<Vector2Int>(_positions);
         public int InferiorFloor => _inferiorFloor;
         public int SuperiorFloor => _superiorFloor;
-        //public int Direction => _direction;
+        public int Direction => _direction;
         public StairShape Shape => _shape;
         #endregion
 
@@ -95,7 +134,7 @@ namespace ISILab.LBS.Modules
             _positions = positions;
             _inferiorFloor = inferiorFloor;
             _superiorFloor = superiorFloor;
-            //_direction = direction;
+            _direction = direction;
             _shape = shape;
         }
     }

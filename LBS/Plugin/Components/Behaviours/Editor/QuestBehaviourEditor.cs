@@ -77,8 +77,6 @@ namespace ISILab.LBS.VisualElements
             QuestGraph questGraph = _behaviour?.OwnerLayer.GetModule<QuestGraph>();
             if (questGraph is null) return;
             
-            questGraph.LoadGrammar();
-            
             // Manually set both
             _grammarReference.value = questGraph.Grammar;
             ChangeGrammar(questGraph.Grammar);

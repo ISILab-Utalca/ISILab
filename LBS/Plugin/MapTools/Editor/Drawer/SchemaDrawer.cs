@@ -193,6 +193,7 @@ namespace ISILab.LBS.Drawers
                 }
                 else
                 {
+                    // TODO tileZonepair gets broken on on blueprint cloning merge-
                     tView = GetTileView(tile, tz.Zone, tc.Connections, teselationSize);
                     tView.layer = schema.OwnerLayer.index;
                     // Stores using LBSTile as key
@@ -358,6 +359,9 @@ namespace ISILab.LBS.Drawers
 
         private void AdjustTileView(SchemaTileView tView, LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
         {
+            if (tView is null) return;
+            if (schema == null) return;
+
             _zoneColor = zone.Color;
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
             var size = DefaultSize * teselationSize;

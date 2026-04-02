@@ -186,6 +186,14 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
 
+                    // Evaluator folder
+                    EditorGUILayout.BeginHorizontal();
+                    settings.paths.evaluatorsPath = EditorGUILayout.TextField("Evaluators Folder",
+                        settings.paths.evaluatorsPath,
+                        EditorStyles.textField,
+                        GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    EditorGUILayout.EndHorizontal();
+
                     // Mesh folder
                     EditorGUILayout.BeginHorizontal();
                     settings.paths.meshFolderPath = EditorGUILayout.TextField("Generated Mesh Folder",
@@ -197,7 +205,6 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                     EditorGUILayout.Space(5);
 
                     // Presets folder
-
                     EditorGUILayout.BeginHorizontal();
                     settings.paths.WFCpresetsFolderPath = EditorGUILayout.TextField("WFC Presets Folder",
                         settings.paths.WFCpresetsFolderPath,

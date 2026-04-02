@@ -205,7 +205,7 @@ namespace ISILab.LBS.VisualElements
                 
                 // Update the logical area in tile space
                 _data.Area = new Rect(posX, posY, width, height);
-                _data.Graph?.NodeDataChanged(_data.OwnerNode);
+                _data.Graph?.OwnerLayer?.GetBehaviour<QuestBehaviour>()?.NodeDataChanged(_data.OwnerNode);
 
                 handle.ReleaseMouse();
                 _activeHandle = null;
@@ -320,7 +320,7 @@ namespace ISILab.LBS.VisualElements
 
             _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
             
-            _data.Graph?.NodeDataChanged(_data.OwnerNode);
+            _data.Graph?.OwnerLayer?.GetBehaviour<QuestBehaviour>()?.NodeDataChanged(_data.OwnerNode);
             DrawManager.Instance.RedrawLayer(_data.Layer);
             DrawManager.Instance.PickingModeRestoreAll();
 

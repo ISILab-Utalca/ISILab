@@ -30,9 +30,9 @@ namespace ISILab.LBS.Editor
     public class GrammarAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
     {
         #region FIELDS
-        private QuestGraph _questGraph;
-        private GrammarAssistant _assistant;
-        private QuestBehaviour _questBehaviour;
+        private QuestGraph Graph;
+        private GrammarAssistant assistant;
+        private QuestBehaviour questBehavior;
 
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
@@ -41,20 +41,20 @@ namespace ISILab.LBS.Editor
         #endregion
 
         #region VIEW
-        private ObjectField _grammarField;
+        private ObjectField grammarField;
 
-        private VisualElement _nextInvalidPanel;
-        private VisualElement _prevInvalidPanel;
-        private VisualElement _expandInvalidPanel;
+        private VisualElement nextInvalidPanel;
+        private VisualElement prevInvalidPanel;
+        private VisualElement expandInvalidPanel;
 
-        private ListView _nextSuggested;
-        private ListView _prevSuggested;
-        private ListView _expandSuggested;
+        private ListView nextSuggested;
+        private ListView prevSuggested;
+        private ListView expandSuggested;
 
-        private Label _nodeIDLabel;
-        private Label _paramActionLabel;
-        private VisualElement _actionColor;
-        private VisualElement _actionIcon;
+        private Label nodeIDLabel;
+        private Label paramActionLabel;
+        private VisualElement actionColor;
+        private VisualElement actionIcon;
         private string[] nextArray;
         private QuestNode currentQuest;
         private string[] prevArray;
@@ -76,23 +76,18 @@ namespace ISILab.LBS.Editor
         public sealed override void SetInfo(object paramTarget)
         {
             target = paramTarget;
-            _assistant = target as GrammarAssistant;
+            assistant = target as GrammarAssistant;
 
-            if(_questGraph is not null)
+            if(Graph is not null)
             {
-                if (_questGraph.Equals(_assistant._questGraph)) return;
+                if (Graph.Equals(assistant.Graph)) return;
             }
-       
-            _questGraph = _assistant._questGraph;
-
-            _assistant.OwnerLayer.OnChange += () => _questGraph.OnGraphNodeSelected -= UpdatePanel;
-
-            //if (_questGraph.DoesEventOnGraphNodeSelectedHasFunction())
-            //    _questGraph.OnGraphNodeSelected -= UpdatePanel;
+            questBehavior = assistant.OwnerLayer.GetBehaviour<QuestBehaviour>();
             
-            _questGraph.OnGraphNodeSelected += UpdatePanel;
-
-           // UpdatePanel();
+            Graph = assistant.Graph;
+          //  assistant.OwnerLayer.OnChange += () => questBehavior.OnGraphNodeSelected -= UpdatePanel;
+            questBehavior.OnGraphNodeSelected += UpdatePanel;
+            grammarField.value = Graph.Grammar;
         }
 
         protected sealed override VisualElement CreateVisualElement()
@@ -102,44 +97,46 @@ namespace ISILab.LBS.Editor
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarAssistantEditor");
             visualTree.CloneTree(this);
 
-            _grammarField = this.Q<ObjectField>("Grammar");
+            grammarField = this.Q<ObjectField>("Grammar");
 
-            _nextInvalidPanel = this.Q<VisualElement>("NextInvalidPanel");
-            _prevInvalidPanel = this.Q<VisualElement>("PrevInvalidPanel");
-            _expandInvalidPanel = this.Q<VisualElement>("ExpandInvalidPanel");
+            nextInvalidPanel = this.Q<VisualElement>("NextInvalidPanel");
+            prevInvalidPanel = this.Q<VisualElement>("PrevInvalidPanel");
+            expandInvalidPanel = this.Q<VisualElement>("ExpandInvalidPanel");
 
-            _nextSuggested = this.Q<ListView>("NextSuggested");
-            _prevSuggested = this.Q<ListView>("PrevSuggested");
-            _expandSuggested = this.Q<ListView>("ExpandSuggested");
+            nextSuggested = this.Q<ListView>("NextSuggested");
+            prevSuggested = this.Q<ListView>("PrevSuggested");
+            expandSuggested = this.Q<ListView>("ExpandSuggested");
 
-            _paramActionLabel = this.Q<Label>("ParamAction");
-            _nodeIDLabel = this.Q<Label>("ParamID");
-            _actionColor = this.Q<VisualElement>("ActionColor");
-            _actionIcon = this.Q<VisualElement>("ActionIcon");
+            paramActionLabel = this.Q<Label>("ParamAction");
+            nodeIDLabel = this.Q<Label>("ParamID");
+            actionColor = this.Q<VisualElement>("ActionColor");
+            actionIcon = this.Q<VisualElement>("ActionIcon");
 
             return this;
         }
 
         private void UpdatePanel(GraphNode selectedGraphNode = null)
         {
-            if (LBSMainWindow.Instance._selectedLayer != _questGraph.OwnerLayer) return;
-            if (_questGraph is null) return;
+            if (LBSMainWindow.Instance._selectedLayer != Graph.OwnerLayer) return;
+            if (Graph is null) return;
 
-            _grammarField.value = _questGraph.Grammar;
-            string selectedAction = GetActionToSet();
-            _paramActionLabel.text = "none";
-            _nodeIDLabel.text = "none";
+            grammarField.value = Graph.Grammar;
+            paramActionLabel.text = "none";
+            nodeIDLabel.text = "none";
+            
+            var questNode = selectedGraphNode as QuestNode;
+            var selectedAction = questNode?.QuestAction;
 
-            if (string.IsNullOrEmpty(selectedAction) || _questGraph.GetNodeAsQuest() is null)
+            if (string.IsNullOrEmpty(selectedAction))
             {
                 ResetPanels();
                 return;
             }
 
-            currentQuest = _questGraph.GetNodeAsQuest();
-            _paramActionLabel.text = currentQuest.QuestAction;
-            _nodeIDLabel.text = currentQuest.ID;
-            SetBaseDataValues(_questGraph.GetNodeData());
+            currentQuest = questBehavior.SelectedQuestNode;
+            paramActionLabel.text = currentQuest.QuestAction;
+            nodeIDLabel.text = currentQuest.ID;
+            SetBaseDataValues(questBehavior.SelectedNodeData);
             
             RunTask(selectedAction);
         }
@@ -168,13 +165,13 @@ namespace ISILab.LBS.Editor
         
         void RunTask(string selectedAction)
         {
-            ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
             Task.Run(() =>
             {
                 try
                 {
-                    nextArray = _assistant
-                        .GetAllValidNextActionsInsert(selectedAction, _questGraph, progress =>
+                    nextArray = assistant
+                        .GetAllValidNextActionsInsert(selectedAction, Graph, progress =>
                         {
                             // progress from 0 → 0.33
                             ((IAssistantThreadedEditor)this).ReportProgress(0.33f * progress);
@@ -183,8 +180,8 @@ namespace ISILab.LBS.Editor
                     
                     Thread.Sleep(1);
                      
-                    prevArray = _assistant
-                        .GetAllValidPrevActionsInsert(selectedAction, _questGraph, progress =>
+                    prevArray = assistant
+                        .GetAllValidPrevActionsInsert(selectedAction, Graph, progress =>
                         {
                             // progress from 0.33 → 0.66
                             ((IAssistantThreadedEditor)this).ReportProgress(0.33f + 0.33f * progress);
@@ -193,7 +190,7 @@ namespace ISILab.LBS.Editor
                     
                     Thread.Sleep(1);
                     
-                    expandArray = _assistant
+                    expandArray = assistant
                         .GetAllExpansions(selectedAction, progress =>
                         {
                             // progress from 0.67 → 1.0
@@ -205,12 +202,12 @@ namespace ISILab.LBS.Editor
                    Thread.Sleep(1);
                    string log = "All valid grammar recommendations found.";
                    LogType logType = LogType.Log;
-                   EditorApplication.delayCall += () => _assistant.OnTermination?.Invoke(log, logType, null);
+                   EditorApplication.delayCall += () => assistant.OnTermination?.Invoke(log, logType, null);
                    
                 }
                 catch (Exception ex)
                 {
-                    ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
                 }
 
             }, CancelToken);
@@ -223,28 +220,23 @@ namespace ISILab.LBS.Editor
         
         public void SetTools(ToolKit toolkit) { }
 
-        private string GetActionToSet()
-        {
-            return _questGraph.GetNodeAsQuest()?.QuestAction;
-        }
-
         private void SetBaseDataValues(QuestActionData data)
         {
             if (data == null) return;
 
             var backgroundColor = data.Color;
             backgroundColor.a = BackgroundOpacity;
-            _actionColor.SetBackgroundColor(backgroundColor);
+            actionColor.SetBackgroundColor(backgroundColor);
 
-            _actionIcon.style.unityBackgroundImageTintColor = data.Color;
-            _actionColor.SetBorder(data.Color, ActionBorderThickness);
+            actionIcon.style.unityBackgroundImageTintColor = data.Color;
+            actionColor.SetBorder(data.Color, ActionBorderThickness);
         }
         
         private void ResetPanels()
         {
-            TogglePanel(_nextInvalidPanel, _nextSuggested, false);
-            TogglePanel(_prevInvalidPanel, _prevSuggested, false);
-            TogglePanel(_expandInvalidPanel, _expandSuggested, false);
+            TogglePanel(nextInvalidPanel, nextSuggested, false);
+            TogglePanel(prevInvalidPanel, prevSuggested, false);
+            TogglePanel(expandInvalidPanel, expandSuggested, false);
         }
 
         private void TogglePanel(VisualElement invalidPanel, ListView listView, bool hasData)
@@ -296,29 +288,29 @@ namespace ISILab.LBS.Editor
         #region Suggestion Updates
         private void UpdateNextSuggestions(string[] nextArray, QuestNode currentQuest)
         {
-            UpdateSuggestionList(nextArray, _nextInvalidPanel, _nextSuggested,
-                action => _assistant.InsertNextAction(action, currentQuest));
+            UpdateSuggestionList(nextArray, nextInvalidPanel, nextSuggested,
+                action => assistant.InsertNextAction(action, currentQuest));
         }
 
         private void UpdatePrevSuggestions(string[] prevArray, QuestNode currentQuest)
         {
-            UpdateSuggestionList(prevArray, _prevInvalidPanel, _prevSuggested,
-                action => _assistant.InsertPreviousAction(action, currentQuest));
+            UpdateSuggestionList(prevArray, prevInvalidPanel, prevSuggested,
+                action => assistant.InsertPreviousAction(action, currentQuest));
         }
 
         private void UpdateExpandSuggestions(List<string>[] expandArray, QuestNode currentQuest)
         {
-            if (_expandInvalidPanel != null)
-                _expandInvalidPanel.style.display = expandArray.Any() ? DisplayStyle.None : DisplayStyle.Flex;
+            if (expandInvalidPanel != null)
+                expandInvalidPanel.style.display = expandArray.Any() ? DisplayStyle.None : DisplayStyle.Flex;
 
-            if (_expandSuggested == null) return;
+            if (expandSuggested == null) return;
 
-            _expandSuggested.style.display = expandArray.Any() ? DisplayStyle.Flex : DisplayStyle.None;
-            _expandSuggested.itemsSource = expandArray;
-            _expandSuggested.virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight;
-            _expandSuggested.makeItem = MakeExpandFoldout;
+            expandSuggested.style.display = expandArray.Any() ? DisplayStyle.Flex : DisplayStyle.None;
+            expandSuggested.itemsSource = expandArray;
+            expandSuggested.virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight;
+            expandSuggested.makeItem = MakeExpandFoldout;
 
-            _expandSuggested.bindItem = SafeBind((visualElement, index) =>
+            expandSuggested.bindItem = SafeBind((visualElement, index) =>
             {
                 if (visualElement is not LBSCustomFoldout foldout) return;
                 if (index < 0 || index >= expandArray.Length) return;
@@ -330,7 +322,7 @@ namespace ISILab.LBS.Editor
 
                 // Header
                 var header = new ExpansionHeader();
-                header.ButtonConvert.SetAction(currentQuest.QuestAction, _assistant.ExpandAction(actions, currentQuest));
+                header.ButtonConvert.SetAction(currentQuest.QuestAction, assistant.ExpandAction(actions, currentQuest));
                 foldout.contentContainer.Add(header);
 
                 // Entries
@@ -349,7 +341,7 @@ namespace ISILab.LBS.Editor
                 }
             });
 
-            _expandSuggested.Rebuild();
+            expandSuggested.Rebuild();
         }
         #endregion
 
@@ -364,7 +356,7 @@ namespace ISILab.LBS.Editor
             foldout.RegisterValueChangedCallback(evt =>
             {
                 foldout.contentContainer.style.flexShrink = evt.newValue ? 0 : 1;
-                try { _expandSuggested.RefreshItems(); }
+                try { expandSuggested.RefreshItems(); }
                 catch
                 {
                     Debug.LogError("Assistant failed to refresh the expand foldout");

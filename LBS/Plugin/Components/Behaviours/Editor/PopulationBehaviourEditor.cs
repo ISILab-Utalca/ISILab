@@ -91,7 +91,6 @@ namespace ISILab.LBS.VisualElements
 
             behaviour = paramTarget as PopulationBehaviour;
             if (behaviour == null) return;
-
             _mainBundle = behaviour.Bundle;
         }
 
@@ -160,7 +159,7 @@ namespace ISILab.LBS.VisualElements
                 UpdateElementBundles();
             });
 
-            type.SetValueWithoutNotify(behaviour.SelectedFilter); 
+            type.value = behaviour.SelectedFilter; 
             
             
             bundlePallete = this.Q<SimplePallete>("ConnectionPallete");
@@ -169,12 +168,9 @@ namespace ISILab.LBS.VisualElements
             UpdateElementBundles();
             SetPallete();
             bundlePallete.Repaint();
+            bundleField.value = behaviour.Bundle;
 
-            //collectionField.SetValueWithoutNotify(behaviour.BundleCollection);
-            var sw = System.Diagnostics.Stopwatch.StartNew();
-            bundleField.SetValueWithoutNotify(behaviour.Bundle);
 
-            Debug.Log($"CloneTree took {sw.ElapsedMilliseconds} ms");
             MarkDirtyRepaint();
             
             return this;

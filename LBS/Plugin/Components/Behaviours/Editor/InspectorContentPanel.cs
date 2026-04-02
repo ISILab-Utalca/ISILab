@@ -2,6 +2,7 @@ using ISILab.Commons.Utility.Editor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Editor;
+using ISILab.LBS.CustomComponents;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -18,7 +19,7 @@ namespace ISILab.LBS.VisualElements
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("ContentPanel");
             visualTree.CloneTree(this);
             
-            var foldout1 = this.Q<Foldout>();
+            var foldout1 = this.Q<LBSCustomFoldout>();
             foldout1.RegisterCallback<ChangeEvent<bool>>(FoldoutPressed);
             
             var icon1 = this.Q<VisualElement>("Icon");
@@ -31,14 +32,15 @@ namespace ISILab.LBS.VisualElements
             var menu1 = this.Q<Button>();
             var cmm = new ContextualMenuManipulator(content.ContextMenu);
             cmm.target = menu1;
-            
-            _content = this.Q<VisualElement>("Content");
-            _content.Add(content);
+
+            foldout1.AddContent(content);
+            //_content = this.Q<VisualElement>("Content");
+            //_content.Add(content);
         }
 
         private void FoldoutPressed(ChangeEvent<bool> evt)
         {
-            _content.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+            //_content.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
         }
     }
 }

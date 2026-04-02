@@ -99,6 +99,7 @@ namespace ISILab.LBS.Manipulators
             bool setDoorOrWindow = ToSet.Equals("Door") || ToSet.Equals("Window");
 
             // Set tile connections
+            StairsModule stairMod = _schema.OwnerLayer.GetModule<StairsModule>();
             int frontDirIndex, backDirIndex;
             for (int i = 1; i < selectedTiles.Count; i++)
             {
@@ -111,10 +112,11 @@ namespace ISILab.LBS.Manipulators
 
                 // Get index of directions
                 frontDirIndex = Dirs.FindIndex(d => d.Equals(new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
-                if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) continue; ;
+                if (frontDirIndex < 0 || frontDirIndex >= Dirs.Count) continue;
                 backDirIndex = Dirs.FindIndex(d => d.Equals(-new Vector2Int(Math.Sign(dx), Math.Sign(dy))));
 
                 // Validate position
+                if (IsOccupiedByStair(_schema, stairMod, t1, t2)) continue;
                 if (requiresWall && setDoorOrWindow && !ValidWallReplace(_schema, t1, t2)) continue;
                 TrySetSingleConnection(_schema, t1, t2, frontDirIndex, backDirIndex);
                 
@@ -125,6 +127,7 @@ namespace ISILab.LBS.Manipulators
                     {
                         LBSTile t3 = other.GetTile(t1.Position);
                         LBSTile t4 = other.GetTile(t2.Position);
+                        if (IsOccupiedByStair(other, other.OwnerLayer.GetModule<StairsModule>(), t1, t2)) continue;
                         if (ValidWallReplace(other, t3, t4))
                         {
                             TrySetSingleConnection(other, t3, t4, frontDirIndex, backDirIndex);
@@ -158,6 +161,17 @@ namespace ISILab.LBS.Manipulators
                 bool secondHasWall = !conn2.Equals("Empty");
                 return (firstHasWall || secondHasWall) && (tile1Exists || secondHasWall) && (tile2Exists || firstHasWall);
             }
+
+            bool IsOccupiedByStair(SchemaBehaviour schema, StairsModule stairMod, LBSTile tile1, LBSTile tile2)
+            {
+                bool tile1Exists = tile1 is not null;
+                bool tile2Exists = tile2 is not null;
+
+                LBSStair stair1 = tile1Exists ? stairMod.GetPositionOccupied(tile1.Position) : null;
+                LBSStair stair2 = tile2Exists ? stairMod.GetPositionOccupied(tile2.Position) : null;
+                if (stair1 != null && stair2 != null && stair1.Equals(stair2)) return true;
+                return false;
+            }
         }
 
         private void TrySetSingleConnection(
@@ -165,10 +179,8 @@ namespace ISILab.LBS.Manipulators
             LBSTile firstTile,
             LBSTile secondTile,
             int frontDirIndex,
-            int backDirIndex
-            )
+            int backDirIndex)
         {
-
             if (firstTile is null && secondTile is null) return;
             if (firstTile is not null)
             {
