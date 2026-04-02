@@ -167,8 +167,8 @@ namespace ISILab.LBS.Manipulators
                 bool tile1Exists = tile1 is not null;
                 bool tile2Exists = tile2 is not null;
 
-                LBSStair stair1 = tile1Exists ? stairMod.GetPositionOccupied(tile1.Position) : null;
-                LBSStair stair2 = tile2Exists ? stairMod.GetPositionOccupied(tile2.Position) : null;
+                LBSStair stair1 = tile1Exists ? stairMod.GetStairByPoint(tile1.Position) : null;
+                LBSStair stair2 = tile2Exists ? stairMod.GetStairByPoint(tile2.Position) : null;
                 if (stair1 != null && stair2 != null && stair1.Equals(stair2)) return true;
                 return false;
             }

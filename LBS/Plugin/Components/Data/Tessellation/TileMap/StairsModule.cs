@@ -1,8 +1,12 @@
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Internal;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -42,7 +46,7 @@ namespace ISILab.LBS.Modules
             return false;
         }
 
-        public LBSStair GetPositionOccupied(Vector2Int position)
+        public LBSStair GetStairByPoint(Vector2Int position)
         {
             foreach (var stair in _stairs)
             {
@@ -79,12 +83,20 @@ namespace ISILab.LBS.Modules
             return a;
         }
 
+
         #region INHERITED METHODS
         // ISelectable Methods
         public List<object> GetSelected(Vector2Int position)
         {
-            return new List<object>();
-            //throw new NotImplementedException();
+            var pos = OwnerLayer.ToFixedPosition(position);
+            var r = new List<object>();
+            var stair = GetStairByPoint(pos);
+
+            if (stair != null)
+            {
+                r.Add(stair);
+            }
+            return r;
         }
 
         // LBSModule Methods
@@ -117,6 +129,10 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired, SerializeReference]
         private int _direction;
         [SerializeField, JsonRequired, SerializeReference]
+        private Color _color;
+        [SerializeField, JsonRequired]
+        private List<string> styles = new List<string>();
+        [SerializeField, JsonRequired, SerializeReference]
         private StairShape _shape; // unused
         #endregion
 
@@ -125,7 +141,27 @@ namespace ISILab.LBS.Modules
         public int InferiorFloor => _inferiorFloor;
         public int SuperiorFloor => _superiorFloor;
         public int Direction => _direction;
+        public Color Color 
+        { 
+            get => _color; 
+            set 
+            {
+                _color = value;
+                OnVisualChange?.Invoke(this);
+            }
+        }
+
+        [JsonIgnore]
+        public List<string> Styles
+        {
+            get => styles;
+            set => styles = value;
+        }
         public StairShape Shape => _shape; // unused
+        #endregion
+
+        #region CALLBACKS
+        public Action<LBSStair> OnVisualChange;
         #endregion
 
         public LBSStair(List<Vector2Int> positions, int inferiorFloor, int superiorFloor, 
@@ -136,6 +172,9 @@ namespace ISILab.LBS.Modules
             _superiorFloor = superiorFloor;
             _direction = direction;
             _shape = shape;
+
+            var darkGray = new Color(0.25f, 0.25f, 0.25f, 1);
+            _color = darkGray;
         }
 
         public LBSStair Inverted()
@@ -166,6 +205,20 @@ namespace ISILab.LBS.Modules
                 _superiorFloor.Equals(other.SuperiorFloor) &&
                 _direction.Equals(other.Direction) &&
                 _shape.Equals(other.Shape);
+        }
+    }
+
+    public static class ZoneExtension
+    {
+        public static List<Bundle> GetStyleBundles(this LBSStair stair)
+        {
+            var bundles = new List<Bundle>();
+            var allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
+            foreach (var tags in stair.Styles)
+            {
+                bundles.Add(allBundles.Find(b => b.name.Equals(tags)));
+            }
+            return bundles;
         }
     }
 

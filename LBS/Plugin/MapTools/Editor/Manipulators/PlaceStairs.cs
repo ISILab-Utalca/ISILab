@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
@@ -142,6 +143,24 @@ namespace ISILab.LBS.Manipulators
 
                 _schema.PlaceStair(downStairs, adyacentFloor);
                 _schema.PlaceStair(upStairs, Layer.ActiveFloor);
+            }
+
+            // Get styles from zone if avaliable
+            SectorizedTileMapModule sectorMod = _downwards ? 
+                Layer.GetModule<SectorizedTileMapModule>("", adyacentFloor) : 
+                Layer.GetModule<SectorizedTileMapModule>();
+
+            if (sectorMod != null)
+            {
+                var firstTile = sectorMod.GetPairTile(positions[0]);
+                if(firstTile != null && firstTile.Zone != null)
+                {
+                    upStairs.Styles = firstTile.Zone.InsideStyles;
+                }
+            }
+            if(upStairs.Styles == null || upStairs.Styles.Count < 1)
+            {
+                upStairs.Styles = new List<string>() { _schema.PressetInsideStyle.Name };
             }
 
             if (EditorGUI.EndChangeCheck())

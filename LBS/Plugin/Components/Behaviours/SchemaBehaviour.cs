@@ -47,8 +47,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public const string Door = "Door";
         public const string Window = "Window";
         public const string LockedDoor = "LockedDoor";
-        public const string StairsUp = "Stairs Up";
-        public const string StairsDown = "Stairs Down";
         //      public const string BlockedDoor = "BlockedDoor";
 
         #endregion
@@ -70,8 +68,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [SerializeField, HideInInspector]
         private bool multiLayerConnections = true;
-
-        private LBSStair selectedStair;
 
         #endregion
 
@@ -128,16 +124,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [JsonIgnore]
         public List<Vector2Int> Directions => ISILab.Commons.Directions.Bidimencional.Edges;
-
-        public LBSStair SelectedStair
-        {
-            get => selectedStair;
-            set
-            {
-                selectedStair = value;
-                OnSelectedChanged?.Invoke(selectedStair);
-            }
-        }
 
         public Action<LBSStair> OnSelectedChanged;
 

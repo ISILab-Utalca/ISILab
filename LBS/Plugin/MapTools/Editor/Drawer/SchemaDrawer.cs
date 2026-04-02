@@ -4,6 +4,7 @@ using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.VisualElements;
+using LBS.Components;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
@@ -80,7 +81,7 @@ namespace ISILab.LBS.Drawers
                     }
                     else
                     {
-                        tView = GetTileView(newTile, tz.Zone, tc.Connections, teselationSize);
+                        tView = GetTileView(schema.OwnerLayer, newTile, tz.Zone, tc.Connections, teselationSize);
                         tView.layer = schema.OwnerLayer.index;
 
                         // Stores using LBSTile as key
@@ -194,7 +195,7 @@ namespace ISILab.LBS.Drawers
                 else
                 {
                     // TODO tileZonepair gets broken on on blueprint cloning merge-
-                    tView = GetTileView(tile, tz.Zone, tc.Connections, teselationSize);
+                    tView = GetTileView(schema.OwnerLayer, tile, tz.Zone, tc.Connections, teselationSize);
                     tView.layer = schema.OwnerLayer.index;
                     // Stores using LBSTile as key
                     view.AddElementToLayerContainer(schema.OwnerLayer, tile, tView);
@@ -350,9 +351,9 @@ namespace ISILab.LBS.Drawers
             if (type == SchemaBehaviour.Wall) return Color.Lerp(_zoneColor, Color.black, 0.3f);
             return Color.clear;
         }
-        private SchemaTileView GetTileView(LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
+        private SchemaTileView GetTileView(LBSLayer layer, LBSTile tile, Zone zone, List<string> connections, Vector2 teselationSize)
         {
-            var tView = new SchemaTileView();
+            var tView = new SchemaTileView(layer);
             AdjustTileView(tView, tile, zone, connections, teselationSize);
             return tView;
         }

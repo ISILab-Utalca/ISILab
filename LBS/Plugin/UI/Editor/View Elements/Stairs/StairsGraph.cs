@@ -57,12 +57,13 @@ namespace ISILab.LBS.VisualElements
             this.Add(_endTile);
 
             _stair = stair;
+            _stair.OnVisualChange = Update;
+
             _ownerLayer = ownerLayer;
             this.generateVisualContent += DrawLine;
 
 
             _schemaBehaviour = ownerLayer.GetBehaviour<SchemaBehaviour>();
-            ActionExtensions.AddUnique(ref _schemaBehaviour.OnSelectedChanged, Select);
 
 
             SetVisualElements();
@@ -75,7 +76,6 @@ namespace ISILab.LBS.VisualElements
             if (ToolKit.Instance.GetActiveManipulator() is null) return;
             if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
             {
-                _schemaBehaviour.SelectedStair = _stair;
                 LBSInspectorPanel.ActivateDataTab();
             }
 
@@ -85,6 +85,7 @@ namespace ISILab.LBS.VisualElements
         {
             _stair = stair;
             SetVisualElements();
+            MarkDirtyRepaint();
         }
 
         private void SetVisualElements()
@@ -126,11 +127,10 @@ namespace ISILab.LBS.VisualElements
             line.RemoveAt(line.Count - 1);
             if (line.Count == 0) return;//*/
 
-            var darkGray = new Color(0.25f, 0.25f, 0.25f, 1);
             var fixedPositions = GetFixedPositions(line);
-            painter.DrawPolygon(fixedPositions, new Color(0, 0, 0, 0), darkGray, 4, false);
-            painter.DrawCircle(fixedPositions[0], 12, darkGray);
-            painter.DrawCircle(fixedPositions[line.Count - 1], 12, darkGray);
+            painter.DrawPolygon(fixedPositions, new Color(0, 0, 0, 0), _stair.Color, 4, false);
+            painter.DrawCircle(fixedPositions[0], 12, _stair.Color);
+            painter.DrawCircle(fixedPositions[line.Count - 1], 12, _stair.Color);
         }
         private List<Vector2> GetFixedPositions(List<Vector2Int> line)
         {
@@ -149,10 +149,6 @@ namespace ISILab.LBS.VisualElements
             output[0] += firstDir * 0.5f;
             output[output.Count - 1] -= lastDir * 0.5f;
             return output;
-        }
-        private void Select(LBSStair newTbg)
-        {
-            Debug.Log("Hii :3c");
         }
     }
 }

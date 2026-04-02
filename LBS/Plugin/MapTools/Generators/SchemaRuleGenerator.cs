@@ -18,6 +18,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -123,7 +124,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             if(stairMod != null)
             {
-                var occupied = stairMod.GetPositionOccupied(position);
+                var occupied = stairMod.GetStairByPoint(position);
                 if (occupied != null && occupied.Direction < 0)
                 {
                     return pivot;
@@ -312,10 +313,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
         private GameObject GenerateStairs(GameObject pivot, List<Bundle> bundles,
-            StairsModule stairMod, LBSTile tile)
+            StairsModule stairMod, Vector2Int position)
         {
             // Validate if this is start stairs position
-            var stair = stairMod.GetStairByStartingPoint(tile.Position);
+            var stair = stairMod.GetStairByStartingPoint(position);
             if (stair is null || stair.Direction < 0) 
                 return null;
             stairMod.RemoveStair(stair);
@@ -332,7 +333,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             tags.RemoveDuplicates();
 
             // Instantiate GameObjects
-            GameObject sGo = new GameObject($"Stair ({tile.x}, {tile.y})");
+            GameObject sGo = new GameObject($"Stair ({position.x}, {position.y})");
             sGo.transform.parent = pivot.transform;
 
             List<Bundle> xx = currents.Where(b => LBSAssetMacro.BundleHasTag(b, "Stair")).ToList();
@@ -395,6 +396,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             List<GameObject> subPivots = new();
             this.settings = settings;
 
+            // LBSTile
             for (int i = 0; i < layer.FloorCount; i++)
             {
                 // Init values
@@ -432,7 +434,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     GenerateCenters(tileObj, bundles, stairsMod, tile.Position);
                     GenerateEdges(tileObj, bundles, connectedTilesMod, tilesMod, tile);
                     GenerateCorners(tileObj, bundles, connectedTilesMod, tilesMod, tile);
-                    GenerateStairs(tileObj, bundles, stairsMod, tile);
 
                     Vector3 basePos = settings.position;
                     Vector3 tilePos = new Vector3(tile.Position.x * settings.scale.x, 0, tile.Position.y * settings.scale.z);
@@ -445,14 +446,29 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     // Set mainPivot as the parent of tileObj
                     tiles.Add(tileObj);
                 }
-                /*foreach(var stair in stairsMod.Stairs)
+                // LBSStair
+                foreach(var stair in stairsMod.Stairs)
                 {
                     if (stair.Direction < 0) continue;
-                    LBSTile tile = new LBSTile(stair.Positions[0]);
 
-                    //Generate tile
-                    GameObject tileObj = new GameObject(tile.Position.ToString());
-                    GenerateStairs(tileObj, bundles, stairsMod, tile);
+                    // Get bundle from style
+                    List<Bundle> bundles = stair.GetStyleBundles();
+
+                    //Generate stair
+                    var pos = stair.Positions[0];
+                    GameObject tileObj = new GameObject("Stair " + pos.ToString());
+                    GenerateStairs(tileObj, bundles, stairsMod, pos);
+
+                    Vector3 basePos = settings.position;
+                    Vector3 tilePos = new Vector3(pos.x * settings.scale.x, 0, pos.y * settings.scale.z);
+                    Vector3 delta = new Vector3(settings.scale.x, 0, settings.scale.z) / 2f;
+                    // Set General position
+                    tileObj.transform.position = basePos + tilePos - delta;
+
+                    // TODO: add component for gizmos here 
+
+                    // Set mainPivot as the parent of tileObj
+                    tiles.Add(tileObj);
                 }//*/
 
                 List<GameObject> probes = new List<GameObject>();
