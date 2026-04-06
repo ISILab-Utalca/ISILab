@@ -9,7 +9,9 @@ using LBS.Components;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -83,6 +85,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         private readonly List<BlueprintEntry> entries = new();
         private readonly List<LBSLayer> previewLayers = new();
+        private Dictionary<GraphElement, Rect> previewElements = new();
 
         private Vector2Int OffsetGrid;
 
@@ -161,7 +164,19 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                     }
                     // reset offset when picknig a new blueprint so when the first preview is made its not visible
                     OffsetGrid = new Vector2Int(int.MaxValue, int.MinValue);
-                    CreateBlueprintPreviewLayer();
+                    CreateBlueprintPreviewLayer(false);
+
+                    previewElements.Clear();
+                    foreach (var previewLayer in previewLayers)
+                    {
+                        var elements = MainView.Instance.GetAllElementsInLayer(previewLayer);
+                        foreach(var element in elements)
+                        {
+                            if (previewElements.ContainsKey(element)) continue;
+                            previewElements.TryAdd(element, element.GetPosition());
+                        }
+                    }
+
                 }
             }
         }
@@ -204,7 +219,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             overwriteToggle = this.Q<LBSCustomToggleField>("OverwriteToggle");
             overwriteToggle.RegisterCallback<ChangeEvent<bool>>(evt =>
             {
-                if (_captureArea != null) overwrite = evt.newValue;
+                overwrite = evt.newValue;
             });
             overwriteToggle.tooltip = overwriteTooltip;
             overwriteToggle.SetValueWithoutNotify(overwrite);
@@ -214,6 +229,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             addModeField.RegisterCallback<ChangeEvent<Enum>>(evt =>
             {
                 if (evt.newValue is blueprintAddMode mode) activeAddMode = mode;
+                bool usingAddNew = activeAddMode == blueprintAddMode.New;
+                overwriteToggle.visible = !usingAddNew;
+                if(usingAddNew) 
+                {
+                    overwriteToggle.SetValueWithoutNotify(false);
+                    overwrite = false;
+                }
+
             });
             addModeField.SetValueWithoutNotify(activeAddMode);
 
@@ -373,7 +396,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         private void CaptureBlueprint() => _captureArea?.DoCapture();
         private void AddBlueprintToLevel()
         {
-            CreateBlueprintPreviewLayer();
+            CreateBlueprintPreviewLayer(true);
             if (previewLayers.Count == 0) return;
             LoadedLevel loadedLevel = LBSController.CurrentLevel;
             generators[activeAddMode].CreateBlueprint(new List<LBSLayer>(previewLayers), loadedLevel, overwrite);
@@ -457,7 +480,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         #region Preview
 
-        internal void CreateBlueprintPreviewLayer()
+        internal void CreateBlueprintPreviewLayer(bool ApplyOffset)
         {
             ClearPreviews();
 
@@ -468,10 +491,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             {
                 if (layer.Clone() is LBSLayer newPreview)
                 {
-                    if (newPreview is IBlueprintable blueprintable)
+                    if (ApplyOffset)
                     {
-                        blueprintable.SetPosition(mainAnchor, OffsetGrid);
+                        if (newPreview is IBlueprintable blueprintable)
+                        {
+                            blueprintable.SetPosition(mainAnchor, OffsetGrid);
+                        }
                     }
+
                     previewLayers.Add(newPreview);
                     DrawManager.Instance.RedrawLayer(newPreview);
                 }
@@ -498,7 +525,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         internal void RedrawSelectedBlueprint(Vector2Int offset)
         {
-            if (previewLayers.Count == 0 || selectedBlueprint == null) return;
+            if (previewLayers.Count == 0 || selectedBlueprint == null ||
+                previewElements.Count == 0) return;
 
             var selectedLayer = LBSMainWindow.Instance._selectedLayer;
             if(selectedLayer == null) return;
@@ -507,7 +535,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             if (OffsetGrid == gridSpace) return;
             
             OffsetGrid = gridSpace;
-            CreateBlueprintPreviewLayer();
+            foreach(var previewElement in previewElements)
+            {
+                previewElement.Key.SetPosition(previewElement.Value);
+            }
+
+            MainView.Instance.MoveElements(
+                previewElements.Keys.ToList(), 
+                GetBlueprintAnchor(),
+                OffsetGrid);
+            
         }
 
         private void ClearPreviews()

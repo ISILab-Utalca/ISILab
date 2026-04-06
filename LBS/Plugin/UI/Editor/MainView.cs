@@ -368,6 +368,33 @@ namespace ISILab.LBS.Plugin.UI.Editor
             return container.GetAllElements();
         }
 
+        /// <summary>
+        /// Move multiple elements in the graph
+        /// </summary>
+        /// <param name="Elements">Graph elements to move</param>
+        /// <param name="Anchor">the top left most position of all elements</param>
+        /// <param name="Offset">the offset in grid cell coordinates</param>
+        public void MoveElements(List<GraphElement> Elements, Vector2Int Anchor, Vector2Int Offset)
+        {
+            Anchor.y *= -1;
+            Offset.y *= -1;
+            Anchor *= 100;
+            Offset *= 100;
+
+            Offset -= Anchor;
+            foreach (var element in Elements)
+            {
+                Vector2 Position = element.GetPosition().position;
+                Vector2Int GridPosition = new Vector2Int((int)Position.x, (int)Position.y);
+                                
+               // Vector2Int distanceToAnchor = GridPosition - Anchor;
+                Vector2Int PostMovePosition = Offset + GridPosition;
+
+                Rect newRectPos = new(PostMovePosition, element.GetPosition().size);
+
+                element.SetPosition(newRectPos);
+            }
+}
 
         /// <summary>
         /// Retrieves an existing container for a layer.

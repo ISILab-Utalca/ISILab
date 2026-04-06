@@ -37,14 +37,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             TaskBar.EnableProcess(false);
             OnTermination =null;
-            var Level = (LoadedLevel)loadedLevel;
-
+            var Level = (LoadedLevel)loadedLevel;   
+            DrawManager.Instance.RedrawLevel(Level.data);
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(Level);
-            }     
-            DrawManager.Instance.RedrawLevel(Level.data);
-
+            }
         }
         #endregion
 

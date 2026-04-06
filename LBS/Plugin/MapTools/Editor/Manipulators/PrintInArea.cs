@@ -1,10 +1,11 @@
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.UI.Editor;
+using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System;
+using System.Drawing;
 using UnityEngine;
-using ISILab.LBS.VisualElements;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Manipulators
@@ -41,7 +42,7 @@ namespace ISILab.LBS.Manipulators
                     areaFeedback = new AreaFeedback();
                     areaFeedback.fixToTeselation = true;
                     areaFeedback.preview = true;
-                    areaFeedback.SetColor(Color.white);
+                    areaFeedback.SetColor(UnityEngine.Color.white);
                     Feedback.style.visibility = Visibility.Hidden;
                 }
                 return areaFeedback;
@@ -51,12 +52,10 @@ namespace ISILab.LBS.Manipulators
 
         #endregion
 
-
         #region ACTIONS
         public Action DoPrintBlueprint;
         public Action DeselectBlueprint;
         #endregion
-
 
         #region CONSTRUCTORS
         public PrintInArea():base()
@@ -91,6 +90,7 @@ namespace ISILab.LBS.Manipulators
             {
                 DeselectBlueprint?.Invoke();
                 ClearPreview();
+                MainView.Instance.AddElement(AreaFeedback);
             }
 
         }
