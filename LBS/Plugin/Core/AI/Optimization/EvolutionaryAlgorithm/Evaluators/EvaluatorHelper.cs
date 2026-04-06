@@ -574,8 +574,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 //AStarNode parent = current.parent;
 
-                closed.Add(current);
-
                 List<string> currentConnections = connectedTM.GetConnections(current.pos);
 
                 List<Vector2Int> dirs = Directions.Bidimencional.All;
@@ -587,8 +585,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     List<string> currentDirConnections = new() { currentConnections[dir4low] };
                     if (i % 2 != 0)
                     {
-                        if(!(Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4low * 2])) is not null &&
-                            Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4high * 2])) is not null))
+                        if(!(Array.Find(connectedTM.PathfindNodes, n => n is not null && n.pos.Equals(current.pos + dirs[dir4low * 2])) is not null &&
+                            Array.Find(connectedTM.PathfindNodes, n => n is not null && n.pos.Equals(current.pos + dirs[dir4high * 2])) is not null))
                             continue;
                         currentDirConnections.Add(currentConnections[dir4high]);
                     }
@@ -608,6 +606,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     AStarNode newSuccesor = null;
 
                     Vector2Int newPos = current.pos + dirs[i];
+                    if (connectedTM.GetPair(newPos) is null) continue;
 
                     List<string> newConnections = connectedTM.GetConnections(newPos);
                     List<string> newDirConnections = new() { newConnections[(dir4low + 2) % 4] };
@@ -635,7 +634,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                     int givenCost = current.givenCost + 1;
 
-                    if(newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                    bool notNull = newSuccesor is not null;
+                    bool contains = closed.Contains(newSuccesor);
+                    bool costsLess = givenCost < newSuccesor.givenCost;
+                    //if (newSuccesor.pos == new Vector2Int(4, 14))
+                    //    ;
+                    //if (contains && costsLess && newSuccesor.pos.x > 0 && newSuccesor.pos.x < 6 && newSuccesor.pos.y > 12 && newSuccesor.pos.y < 16)
+                    //    ;
+
+                    if(notNull && (!contains || costsLess))
                     {
                         newSuccesor.parent = current;
                         newSuccesor.givenCost = givenCost;
@@ -644,11 +651,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             dy = goalPos.y - newSuccesor.pos.y;
                         newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
 
+                        closed.Add(newSuccesor);
+
                         open.Push(newSuccesor, newSuccesor.finalCost);
                         evalInfo.visitedNodes++;
                     }
                 }
-                ;
             }
 
             return cost;
@@ -683,8 +691,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 //AStarNode parent = current.parent;
 
-                closed.Add(current);
-
                 List<string> currentConnections = connectedTM.GetConnections(current.pos);
 
                 List<Vector2Int> dirs = Directions.Bidimencional.All;
@@ -697,8 +703,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     List<string> currentDirConnections = new() { currentConnections[dir4low] };
                     if (i % 2 != 0)
                     {
-                        if (!(Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4low * 2])) is not null &&
-                            Array.Find(connectedTM.PathfindNodes, n => n.pos.Equals(current.pos + dirs[dir4high * 2])) is not null))
+                        if (!(Array.Find(connectedTM.PathfindNodes, n => n is not null && n.pos.Equals(current.pos + dirs[dir4low * 2])) is not null &&
+                            Array.Find(connectedTM.PathfindNodes, n => n is not null && n.pos.Equals(current.pos + dirs[dir4high * 2])) is not null))
                             continue;
                         currentDirConnections.Add(currentConnections[dir4high]);
                     }
@@ -718,6 +724,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     AStarNode newSuccesor = null;
 
                     Vector2Int newPos = current.pos + dirs[i];
+                    if (connectedTM.GetPair(newPos) is null) continue;
 
                     List<string> newConnections = connectedTM.GetConnections(newPos);
                     List<string> newDirConnections = new() { newConnections[(dir4low + 2) % 4] };
@@ -745,7 +752,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                     int givenCost = current.givenCost + 1;
 
-                    if (givenCost <= limit && newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                    if (givenCost <= limit && newSuccesor is not null && (!closed.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
                     {
                         newSuccesor.parent = current;
                         newSuccesor.givenCost = givenCost;
@@ -754,11 +761,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             dy = goalPos.y - newSuccesor.pos.y;
                         newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
 
+                        closed.Add(newSuccesor);
+
                         open.Push(newSuccesor, newSuccesor.finalCost);
                         evalInfo.visitedNodes++;
                     }
                 }
-                ;
             }
 
             return cost;
@@ -1055,6 +1063,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
                 PriorityQueue<JPSNode, int> open = new();
+                HashSet<JPSNode> closed = new();
 
                 JPSNode startNode = connectedTM.PathfindNodes[startInd] as JPSNode;
                 startNode.parent = null;
@@ -1109,7 +1118,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y)) + current.givenCost;
                         }
 
-                        if (newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                        if (newSuccesor is not null && (!closed.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
                         {
                             newSuccesor.parent = current;
                             newSuccesor.givenCost = givenCost;
@@ -1118,6 +1127,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             int dx = goalPos.x - newSuccesor.pos.x,
                                 dy = goalPos.y - newSuccesor.pos.y;
                             newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+
+                            closed.Add(newSuccesor);
 
                             open.Push(newSuccesor, newSuccesor.finalCost);
                             evalInfo.visitedNodes++;
@@ -1188,6 +1199,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
                 PriorityQueue<JPSNode, int> open = new();
+                HashSet<JPSNode> closed = new();
 
                 JPSNode startNode = connectedTM.PathfindNodes[startInd] as JPSNode;
                 startNode.parent = null;
@@ -1203,14 +1215,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 while (!open.IsEmpty())
                 {
                     JPSNode current = open.Pop();
-                    JPSNode parent = current.parent as JPSNode;
-                    int[] nodeDistances = JPDistances[current.pos];
 
                     if (current.pos == goalPos)
                     {
                         cost = current.givenCost;
                         break;
                     }
+
+                    JPSNode parent = current.parent as JPSNode;
+                    int[] nodeDistances = JPDistances[current.pos];
 
                     int[] dirs = current.parent is null ? new[] { 0, 1, 2, 3, 4, 5, 6, 7 } : validDirLookUpTable[current.fromDir];
                     foreach (int dir in dirs)
@@ -1241,7 +1254,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y)) + current.givenCost;
                         }
 
-                        if (givenCost <= limit && newSuccesor is not null && (!open.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                        if (givenCost <= limit && newSuccesor is not null && (!closed.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
                         {
                             newSuccesor.parent = current;
                             newSuccesor.givenCost = givenCost;
@@ -1250,6 +1263,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             int dx = goalPos.x - newSuccesor.pos.x,
                                 dy = goalPos.y - newSuccesor.pos.y;
                             newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+
+                            closed.Add(newSuccesor);
 
                             open.Push(newSuccesor, newSuccesor.finalCost);
                             evalInfo.visitedNodes++;

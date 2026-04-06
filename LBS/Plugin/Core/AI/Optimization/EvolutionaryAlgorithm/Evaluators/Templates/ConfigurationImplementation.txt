@@ -4,14 +4,13 @@
         public void ReadConfiguration()
         {
             CreateOrUpdateConfiguration(ref config, GetType());
-            defaultCharacteristic = config.GetValue<LBSCharacteristic>("FIELD NAME");
+            #FIELDS_LOAD#
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
-        {
+        {#FIELDS_PRECREATION#
             var list = new List<EvaluatorConfigurationField>
-            {
-                new MainTagField("FIELD NAME", defaultCharacteristic.FirstTag().Label, defaultCharacteristic)
+            {#FIELDS_CREATION#
             };
             return list;
         }

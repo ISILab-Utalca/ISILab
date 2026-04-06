@@ -43,9 +43,12 @@ namespace ISILab.LBS.Modules
         public ConnectedTileType GridType => gridType;
 
         [JsonIgnore]
-        public AStarNode[] PathfindNodes { get; set; } = new AStarNode[0];
+        public AStarNode[] PathfindNodes { get => Pathfind.PathfindNodes; set => Pathfind.PathfindNodes = value; }// = new AStarNode[0];
         [JsonIgnore]
-        public Dictionary<Vector2Int, int[]> JPSDistances { get; set; } = new();
+        public Dictionary<Vector2Int, int[]> JPSDistances { get => Pathfind.JPSDistances; set => Pathfind.JPSDistances = value; }// = new();
+        private bool PathfindInitialized { get => Pathfind.pathfindInitialized; set => Pathfind.pathfindInitialized = value; }
+
+        public PathfindInfo Pathfind = new();
         #endregion
 
         #region EVENTS
@@ -59,7 +62,7 @@ namespace ISILab.LBS.Modules
             id = GetType().Name;
         }
 
-        public ConnectedTileMapModule(IEnumerable<TileConnectionsPair> tiles, int connectedDirections, ConnectedTileType gridType, string id = "ConnectedTileMapModule") : base(id)
+        public ConnectedTileMapModule(IEnumerable<TileConnectionsPair> tiles, int connectedDirections, ConnectedTileType gridType, PathfindInfo pathfindInfo, string id = "ConnectedTileMapModule") : base(id)
         {
             this.connectedDirections = connectedDirections;
             this.gridType = gridType;
@@ -67,6 +70,11 @@ namespace ISILab.LBS.Modules
             {
                 AddPair(t.Tile, t.Connections, t.EditedByIA);
             }
+            Pathfind = pathfindInfo;
+            //OnChanged += (m, old, pair) =>
+            //{
+            //    Pathfind = new();
+            //};
         }
         #endregion
 
@@ -178,6 +186,8 @@ namespace ISILab.LBS.Modules
 
         public void InitializePathfinding(Rect selection, PathfindingAlgorithm searchType = PathfindingAlgorithm.JPS_Plus)
         {
+            //if (PathfindInitialized) return;
+
             bool jps = searchType == PathfindingAlgorithm.JPS_Plus;
 
             if (!jps && searchType != PathfindingAlgorithm.A_Star) 
@@ -201,6 +211,8 @@ namespace ISILab.LBS.Modules
             }
 
             if(jps) JPSDistances = JPSPlus.JPSPreprocessDistances(selection, this);
+
+            //PathfindInitialized = true;
         }
 
 
@@ -227,7 +239,7 @@ namespace ISILab.LBS.Modules
         public override object Clone()
         {
             var pairs = this.pairs.Select(t => t.Clone()).Cast<TileConnectionsPair>();
-            var clone = new ConnectedTileMapModule(pairs, connectedDirections, GridType, ID);
+            var clone = new ConnectedTileMapModule(pairs, connectedDirections, GridType, Pathfind, ID);
             return clone;
         }
 
@@ -447,6 +459,20 @@ namespace ISILab.LBS.Modules
             }
 
             return false;
+        }
+    }
+
+    public class PathfindInfo
+    {
+        public AStarNode[] PathfindNodes { get; set; } = new AStarNode[0];
+        public Dictionary<Vector2Int, int[]> JPSDistances { get; set; } = new();
+        internal bool pathfindInitialized = false;
+
+        public PathfindInfo()
+        {
+            PathfindNodes = new AStarNode[0];
+            JPSDistances = new();
+            pathfindInitialized = false;
         }
     }
 }

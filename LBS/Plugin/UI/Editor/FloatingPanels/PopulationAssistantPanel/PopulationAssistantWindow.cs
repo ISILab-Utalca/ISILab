@@ -462,7 +462,7 @@ namespace ISILab.LBS.VisualElements.Editor
             param2Field.Value = CurrentYField != null ? CurrentYField.GetType().Name : defaultSelectText;
             optimizerField.value = CurrentOptimizer?.Evaluator != null ? CurrentOptimizer.Evaluator.GetType().Name : defaultSelectText;
 
-            InitializeAllCurrentEvaluators();
+            //InitializeAllCurrentEvaluators();
             originalMapCalcs();
 
             //param1Field.tooltip = currentXField.Tooltip;
