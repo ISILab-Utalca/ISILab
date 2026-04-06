@@ -28,6 +28,10 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             }
             return false;
         }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
 

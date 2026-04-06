@@ -78,7 +78,6 @@ namespace ISILab.LBS.Modules
 
         public bool RemoveStair(LBSStair stair)
         {
-            Debug.Log("Removing stair...");
             bool a = _stairs.Remove(stair);
             return a;
         }
@@ -205,6 +204,11 @@ namespace ISILab.LBS.Modules
                 _superiorFloor.Equals(other.SuperiorFloor) &&
                 _direction.Equals(other.Direction) &&
                 _shape.Equals(other.Shape);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 

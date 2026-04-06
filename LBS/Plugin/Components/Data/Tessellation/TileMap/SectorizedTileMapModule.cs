@@ -848,8 +848,10 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         #region METHODS
         public object Clone()
         {
+            CloneRefs.Start();
             var cTile = CloneRefs.Get(tile) as LBSTile;
             var cZone = CloneRefs.Get(zone) as Zone;
+            CloneRefs.End();
 
             return new TileZonePair(cTile, cZone);
         }

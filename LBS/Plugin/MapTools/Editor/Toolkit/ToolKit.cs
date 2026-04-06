@@ -1,6 +1,5 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
-using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.CustomComponents;
@@ -17,7 +16,6 @@ using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.UIElements;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;

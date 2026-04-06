@@ -119,8 +119,6 @@ namespace ISILab.LBS.VisualElements
 
             // Return if new position is too far from last position
             float d = Vector2Int.Distance(line[line.Count - 1].Item1, p2Grid);
-            //Debug.Log(line[line.Count - 1].Item1.x + " " + line[line.Count - 1].Item1.y + " : " + p2Grid.x + " " + p2Grid.y);
-            //Debug.Log(d);
             if (d >= 2) return;
 
             // Diagonal threshold: automatically adds new corner position if avaliable, return if not
@@ -136,23 +134,19 @@ namespace ISILab.LBS.VisualElements
                 if (LeftSide && leftSideValid)
                 {
                     line.Add((leftSideCorner, VectorGridToFixed(leftSideCorner)));
-                    //Debug.Log("Se añadió: " + leftSideCorner.x + " " + leftSideCorner.y + " : " + VectorGridToFixed(leftSideCorner).x + " " + VectorGridToFixed(leftSideCorner).y);
                 }
                 else if (rightSideValid)
                 {
                     line.Add((rightSideCorner, VectorGridToFixed(rightSideCorner)));
-                    //Debug.Log("Se añadió: " + rightSideCorner.x + " " + rightSideCorner.y + " : " + VectorGridToFixed(rightSideCorner).x + " " + VectorGridToFixed(rightSideCorner).y);
                 }
                 else
                 {
                     line.Add((leftSideCorner, VectorGridToFixed(leftSideCorner)));
-                    //Debug.Log("Se añadió: " + leftSideCorner.x + " " + leftSideCorner.y + " : " + VectorGridToFixed(leftSideCorner).x + " " + VectorGridToFixed(leftSideCorner).y);
                 }
             }
 
             // Adds new position to line
             line.Add((p2Grid, p2));
-            //Debug.Log("Se añadió: " + line[line.Count - 1].Item1.x + " " + line[line.Count - 1].Item1.y + " : " + p2.x + " " + p2.y);
 
             // Calculate fixed position for every position in line
             if (fixToTeselation)
@@ -167,7 +161,7 @@ namespace ISILab.LBS.VisualElements
                 for (int i = 1; i < line.Count - 1; i++)
                 {
                     line[i] = (line[i].Item1, CalcFixTeselation(line[i].Item2 + offset));
-                    line[i] = (line[i].Item1, (line[i].Item2 * TeselationSize) + TeselationSize.Multiply(0.5f) - offset);//*/
+                    line[i] = (line[i].Item1, (line[i].Item2 * TeselationSize) + TeselationSize.Multiply(0.5f) - offset);
                 }
 
                 endPosition = CalcFixTeselation(endPosition + offset);
@@ -184,7 +178,6 @@ namespace ISILab.LBS.VisualElements
             if (line.Count < 1)
             {
                 line = new() { (VectorFixedToGrid(startPosition), startPosition)};
-                Debug.Log("Se añadió: " + VectorFixedToGrid(startPosition).x + " " + VectorFixedToGrid(startPosition).y + " : " + startPosition.x + " " + startPosition.y);
             }
 
             painter.DrawPolygon(VectorIntToNormal(GetListPositions(line, ListPositionType.Fixed)), new Color(0, 0, 0, 0), currentColor, 4, false);

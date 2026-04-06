@@ -1,16 +1,20 @@
 using ISILab.Commons;
 using ISILab.LBS;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
+using log4net.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -48,6 +52,7 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
+            Debug.Log("OnMouseUp: " + _downwards);
             base.OnMouseUp(element, endPosition, e);
 
             if (ForceCancel)
@@ -204,24 +209,116 @@ namespace ISILab.LBS.Manipulators
         }
 
 
+        KeyCode _adyacentZoneVisualKey = KeyCode.None;
         protected override void OnKeyDown(KeyDownEvent e)
         {
             base.OnKeyDown(e);
+            // Downward Stairs
             if (e.ctrlKey)
             {
                 _downwards = true;
                 LBSMainWindow.WarningManipulator("(CTRL) Placing downwards stair");
             }
+
+            // Adyacent Zones Visualization
+            // Input handling
+            int adyacent = -1;
+            if (e.keyCode == KeyCode.None) return;
+            if (e.keyCode == KeyCode.U) adyacent = Layer.ActiveFloor + 1;
+            if (e.keyCode == KeyCode.D) adyacent = Layer.ActiveFloor - 1;
+            _adyacentZoneVisualKey = e.keyCode;
+
+            // Visualization
+            VisualizeAdyacentZone(adyacent);
+        }
+
+
+        private void VisualizeAdyacentZone(int adyacent)
+        {
+            if (adyacent < 0 && adyacent >= Layer.FloorCount) return;
+
+            var stairsMod = Layer.GetModule<StairsModule>();
+            var tileMod = Layer.GetModule<TileMapModule>();
+            var sectorMod = Layer.GetModule<SectorizedTileMapModule>();
+            var aSectorMod = Layer.GetModule<SectorizedTileMapModule>("", adyacent);
+
+            // Get adyacent zones
+            HashSet<Zone> adyacentZones = new HashSet<Zone>();
+            foreach (var stair in stairsMod.Stairs)
+            {
+                int dir = adyacent - Layer.ActiveFloor;
+                if (dir != stair.Direction) continue;
+
+                Zone z = aSectorMod.GetZone(dir > 0 ? stair.Positions[stair.Positions.Count - 1] : stair.Positions[0]);
+                adyacentZones.Add(z);
+            }
+
+            // Swap tiles
+            List<LBSTile> originalTiles = new List<LBSTile>();
+            List<LBSTile> clonedTiles = new List<LBSTile>();
+            foreach (Zone aZone in adyacentZones)
+            {
+                // Clone zone
+                Zone cloneZone = aZone.Clone() as Zone;
+                cloneZone.Color = Color.gray;
+
+                // Copy tiles in adyacent zones
+                List<TileZonePair> newTiles = new();
+                foreach (var aTile in aSectorMod.GetTiles(aZone))
+                {
+                    // Save original tile zone pairs
+                    var pair = sectorMod.GetPairTile(aTile);
+                    if (pair != null) originalTiles.Add(pair.Tile);
+
+                    // Create new tile
+                    //TileZonePair copyTile = new TileZonePair(aTile, cloneZone);
+                    //sectorMod.AddPair(copyTile);
+                    LBSTile copyTile = _schema.AddTile(aTile.Position, cloneZone);
+                    if (copyTile == null) continue;
+                    _schema.AddConnections(
+                        copyTile,
+                        new List<string>() { "", "", "", "" },
+                        new List<bool> { true, true, true, true }
+                        );
+                    clonedTiles.Add(copyTile);
+                }
+            }
+
+            // Updaye visuals
+            DrawManager.Instance.UpdateLayer(_schema.OwnerLayer);
+
+            // Swap tiles back
+            foreach (var clone in clonedTiles)
+            {
+                if (clone == null) continue;
+                var originalTile = originalTiles.Find(t => t.Equals(clone));
+                if (originalTile != null)
+                {
+                    //sectorMod.AddPair(originalTile);
+                    continue;
+                }
+                _schema.RemoveTile(clone.Position);
+                //sectorMod.RemovePair(clone);
+            }
+            originalTiles.Clear();
+            clonedTiles.Clear();
         }
         protected override void OnKeyUp(KeyUpEvent e)
         {
             base.OnKeyUp(e);
+            // Downward Stairs
             if (!e.ctrlKey)
             {
                 _downwards = false;
                 LBSMainWindow.WarningManipulator();
             }
-        }
 
+            // Adyacent Zones Visualization
+            if(e.keyCode == _adyacentZoneVisualKey)
+            {
+                // Update visuals
+                DrawManager.Instance.UpdateLayer(_schema.OwnerLayer);
+            }
+        }
     }
 }
