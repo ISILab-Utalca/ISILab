@@ -1,26 +1,36 @@
+using ISILab.AI.Optimization.Populations;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
+using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static PathOS.PathOSNavUtility.NavmeshMemoryMapper;
 using static UnityEditor.PlayerSettings;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.LBS.VisualElements
 {
     public class StairsGraph : GraphElement
     {
+        private readonly SchemaBehaviour _schemaBehaviour;
         private readonly VectorImage _upIcon = 
             AssetMacro.LoadAssetByGuid<VectorImage>("103cf2403fa02574fb824cdb84514eb9");
         private readonly VectorImage _downIcon = 
-            AssetMacro.LoadAssetByGuid<VectorImage>("103cf2403fa02574fb824cdb84514eb9");
+            AssetMacro.LoadAssetByGuid<VectorImage>("07047a27e6d6d5b4a87df2580a6068f4");
 
         private LBSStair _stair;
         private LBSLayer _ownerLayer;
@@ -43,36 +53,58 @@ namespace ISILab.LBS.VisualElements
             }
             _startTile = new (null, ownerLayer);
             _endTile = new (null, ownerLayer);
-            popTree.CloneTree(_startTile);
-            popTree.CloneTree(_endTile);
             this.Add(_startTile);
             this.Add(_endTile);
 
             _stair = stair;
+            _stair.OnVisualChange = Update;
+
             _ownerLayer = ownerLayer;
             this.generateVisualContent += DrawLine;
 
+
+            _schemaBehaviour = ownerLayer.GetBehaviour<SchemaBehaviour>();
+
+
             SetVisualElements();
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
+        }
+
+        private void OnMouseDown(MouseDownEvent evt)
+        {
+            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (ToolKit.Instance.GetActiveManipulator() is null) return;
+            if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
+            {
+                LBSInspectorPanel.ActivateDataTab();
+            }
+
         }
 
         public void Update(LBSStair stair)
         {
             _stair = stair;
             SetVisualElements();
+            MarkDirtyRepaint();
         }
 
         private void SetVisualElements()
         {
+            // Set colors
+            _startTile.SetColor(Color.black);
+            _endTile.SetColor(Color.black);
+
             // Set icons
+            bool upwards = _stair.Direction > 0;
             if (_ownerLayer.ActiveFloor == _stair.InferiorFloor)
             {
-                _startTile.SetImage(_upIcon);
-                _endTile.SetImage(_downIcon);
+                _startTile.SetImage(upwards ? _downIcon : _upIcon);
+                _endTile.SetImage(upwards ? _upIcon : _downIcon);
             }
             else if(_ownerLayer.ActiveFloor == _stair.SuperiorFloor)
             {
-                _startTile.SetImage(_downIcon);
-                _endTile.SetImage(_upIcon);
+                _startTile.SetImage(upwards ? _upIcon : _downIcon);
+                _endTile.SetImage(upwards ? _downIcon : _upIcon);
             }
 
             // Hide arrows
@@ -96,9 +128,9 @@ namespace ISILab.LBS.VisualElements
             if (line.Count == 0) return;//*/
 
             var fixedPositions = GetFixedPositions(line);
-            painter.DrawPolygon(fixedPositions, new Color(0, 0, 0, 0), Color.white, 4, false);
-            painter.DrawCircle(fixedPositions[0], 16, Color.white);
-            painter.DrawCircle(fixedPositions[line.Count - 1], 16, Color.white);
+            painter.DrawPolygon(fixedPositions, new Color(0, 0, 0, 0), _stair.Color, 4, false);
+            painter.DrawCircle(fixedPositions[0], 12, _stair.Color);
+            painter.DrawCircle(fixedPositions[line.Count - 1], 12, _stair.Color);
         }
         private List<Vector2> GetFixedPositions(List<Vector2Int> line)
         {
@@ -111,6 +143,11 @@ namespace ISILab.LBS.VisualElements
                 v = (v - origin.Value) * new Vector2Int(1, -1) + new Vector2Int(50, 50);
                 output.Add(v);
             }
+
+            var firstDir = output[1] - output[0];
+            var lastDir = output[output.Count - 1] - output[output.Count - 2];
+            output[0] += firstDir * 0.5f;
+            output[output.Count - 1] -= lastDir * 0.5f;
             return output;
         }
     }

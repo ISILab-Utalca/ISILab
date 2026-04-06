@@ -1,5 +1,14 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using LBS.Components;
 using LBS.Components.TileMap;
+using LBS.VisualElements;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,12 +16,6 @@ using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using ISILab.LBS.Characteristics;
-using ISILab.LBS.Plugin.Components.Behaviours;
-using LBS.Components;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -36,7 +39,9 @@ namespace ISILab.LBS.VisualElements
         SchemaTileConnectionView topConnectionView;
         SchemaTileConnectionView bottomConnectionView;
 
-        public SchemaTileView()
+        private LBSLayer _ownerLayer;
+
+        public SchemaTileView(LBSLayer ownerLayer)
         {
             if (view == null)
             {
@@ -54,6 +59,19 @@ namespace ISILab.LBS.VisualElements
             this.SetPaddings(0);
             this.SetBorderRadius(0);
             this.SetBorder(Color.black, 1);
+
+            _ownerLayer = ownerLayer;
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
+        }
+        private void OnMouseDown(MouseDownEvent evt)
+        {
+            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (ToolKit.Instance.GetActiveManipulator() is null) return;
+            if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
+            {
+                LBSInspectorPanel.ActivateDataTab();
+            }
+
         }
 
         public void SetBackgroundColor(Color color)

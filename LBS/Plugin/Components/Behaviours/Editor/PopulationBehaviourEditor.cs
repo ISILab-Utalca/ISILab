@@ -78,18 +78,19 @@ namespace ISILab.LBS.VisualElements
             displayChoices.Add(nameof(Bundle.EElementFlag.Prop), propList);
             displayChoices.Add(nameof(Bundle.EElementFlag.Misc), miscList);
 
+            
+
             SetInfo(behaviour);
             CreateVisualElement();
         }
         #endregion
-
+        
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
 
             behaviour = paramTarget as PopulationBehaviour;
             if (behaviour == null) return;
-
             _mainBundle = behaviour.Bundle;
         }
 
@@ -115,6 +116,11 @@ namespace ISILab.LBS.VisualElements
                 toolkit.ActivateTool(tool, behaviour.OwnerLayer, behaviour);
             }
 
+            //This doesn't work for some reason! Check tomorrow~. - Alice
+            RegisterCallback<KeyDownEvent>(evt =>
+            {
+                Debug.Log("pressed key");
+            });
         }
 
         protected sealed override VisualElement CreateVisualElement()
@@ -153,7 +159,7 @@ namespace ISILab.LBS.VisualElements
                 UpdateElementBundles();
             });
 
-            type.SetValueWithoutNotify(behaviour.SelectedFilter); 
+            type.value = behaviour.SelectedFilter; 
             
             
             bundlePallete = this.Q<SimplePallete>("ConnectionPallete");
@@ -162,12 +168,9 @@ namespace ISILab.LBS.VisualElements
             UpdateElementBundles();
             SetPallete();
             bundlePallete.Repaint();
+            bundleField.value = behaviour.Bundle;
 
-            //collectionField.SetValueWithoutNotify(behaviour.BundleCollection);
-            var sw = System.Diagnostics.Stopwatch.StartNew();
-            bundleField.SetValueWithoutNotify(behaviour.Bundle);
 
-            Debug.Log($"CloneTree took {sw.ElapsedMilliseconds} ms");
             MarkDirtyRepaint();
             
             return this;

@@ -150,8 +150,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         [SerializeField]
         private uint suggestionAmount = 3;
         private Vector2Int _positionOverlapOffset = new(25, 50);
+
+        [SerializeField]
+        private List<QuestNode> suggestions = new();
+
+        [SerializeField]
+        public bool displaySuggestions;
+
         #endregion
-        
+
         #region PROPERTIES
         [JsonIgnore]
         private QuestGraph QuestGraph => OwnerLayer.GetModule<QuestGraph>();
@@ -163,6 +170,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         public LBSLevelData Data => QuestGraph.OwnerLayer.Parent;
+
+        public List<QuestNode> Suggestions
+        {
+            get => suggestions;
+            set => suggestions = value;
+        }
+        public QuestGraph Graph => OwnerLayer?.GetModule<QuestGraph>();
 
         #endregion
 
@@ -222,6 +236,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             return GenerateSuggestionList(suggestionsCount, onProgress, token);
         }
+
         #endregion
 
         #region PRIVATE METHODS
@@ -255,7 +270,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public  List<QuestNode> CreateNewSuggestions(List<TileBundleToAction> suggestions, Action<float> onProgress = null, CancellationToken token = default)
         {
             List<QuestNode> Suggestions = new List<QuestNode>();
-            QuestGraph.Suggestions.Clear();
+            Suggestions.Clear();
             if(!suggestions.Any()) return Suggestions;
             
             List<Vector2> existingPositions = new();

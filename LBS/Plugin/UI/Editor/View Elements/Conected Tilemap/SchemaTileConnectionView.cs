@@ -35,8 +35,6 @@ namespace ISILab.LBS.VisualElements
                { SchemaBehaviour.Door,    "cd77d8067cf8b6b44ab23da9a62173c0" },
                { SchemaBehaviour.Window,  "c0d00de1d82858c4b9d772a012caf67d" },
                { SchemaBehaviour.LockedDoor,  "f79cf4ba5777aab4a884bca201ff0278" },
-               { SchemaBehaviour.StairsUp, "76bf813a38668ce439887addd209058c" },
-               { SchemaBehaviour.StairsDown, "76bf813a38668ce439887addd209058c" }
             //   ,{ SchemaBehaviour.BlockedDoor, "8e1818e3f49414e4997ecc63e331999f" },
            };
 

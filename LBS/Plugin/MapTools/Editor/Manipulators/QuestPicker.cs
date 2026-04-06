@@ -18,6 +18,7 @@ namespace ISILab.LBS.Manipulators
     {
         // Private fields
         private QuestNodeBehaviour _behaviour;
+        private QuestBehaviour questBehavior;
 
         public bool PickTriggerPosition = false;
         
@@ -50,11 +51,12 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, owner);
             _behaviour = layer.GetBehaviour<QuestNodeBehaviour>();
+            questBehavior = layer.GetBehaviour<QuestBehaviour>();
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if (_behaviour.Graph.SelectedGraphNode is not QuestNode node || ActiveData == null) return;
+            if (questBehavior.SelectedGraphNode is not QuestNode node || ActiveData == null) return;
                 
             Vector2Int location = LBSMainWindow._gridPosition;
 
@@ -77,8 +79,8 @@ namespace ISILab.LBS.Manipulators
                     ActiveData.Resize();
                 }
             }
-            
-            _behaviour.Graph.NodeDataChanged(node);
+
+            questBehavior.NodeDataChanged(node);
 
             if (EditorGUI.EndChangeCheck())
             {

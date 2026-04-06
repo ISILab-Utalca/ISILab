@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using ISILab.LBS.CustomComponents;
 using UnityEditor;
-using UnityEditor.VersionControl;using UnityEngine;
+using UnityEditor.VersionControl;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
@@ -10,10 +12,17 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
     [UxmlElement]
     public partial class LBSBaseListGroup : LBSComplexVisualElement
     {
-
+        
         private readonly VectorImage arrowDownIcon;
         private readonly VectorImage arrowSideIcon;
-        
+        private VectorImage sortAscending;
+        private VectorImage sortDescending;
+
+
+        private enum SortType { Disabled, Ascending, Descending };
+        private SortType currentSort;
+
+
         private bool isEmpty = false;
         private bool isExpanded = true;
         
@@ -22,7 +31,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         private Label titleLabel;
         private LBSCustomListView listView;
         private Button expandArrowButton;
-      
+        protected LBSToolbarToggle toggleSortButton;
+        protected LBSToolbarButton removeButton;
+
         [UxmlAttribute]
         public bool IsEmpty
         {
@@ -102,17 +113,24 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 listItems = value;
             }
         }
-        
-        
+
+        #region EVENTS
+        public Action OnListRemoved;
+        public Action OnSortToggle;
+        #endregion
 
         public LBSBaseListGroup() : base()
         {
             GetVisualTreeForThis();
             AddToClassList("lbs-base-list-group");
+            currentSort = SortType.Disabled;
 
             arrowDownIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("b570a25de51f01c41bd82dbe5372bb3f"));
             arrowSideIcon = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("83eafacbab9ab554299bc4d0f124d980"));
-            
+            sortAscending = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("d4a1818454021d74a958b73e1177331d"));
+            sortDescending = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("ed112e167fd361f478992d351e0c3158"));
+
+
             overlayButton = this.Q<LBSCustomButton>("EmptyOverlayButton");
             overlayButton.RegisterCallback<ClickEvent>(_evt =>
             {
@@ -130,10 +148,48 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             { 
                 IsFoldoutExpanded = !IsFoldoutExpanded;
             });
+            toggleSortButton = this.Q<LBSToolbarToggle>("SortButton");
+            OnSortToggle += ToggleSort;
+            toggleSortButton.RegisterCallback<ClickEvent>(_evt =>
+            {
+                OnSortToggle?.Invoke();
+            });
 
+            removeButton = this.Q<LBSToolbarButton>("RemoveButton");
+            removeButton.RegisterCallback<ClickEvent>(_evt =>
+            {
+                OnListRemoved?.Invoke();
+            });
         }
         
-        
+        public void ToggleSort()
+        {
+            switch(currentSort)
+            {
+                case SortType.Disabled:
+                    Debug.Log("changing to ascending");
+                    toggleSortButton.SetValueWithoutNotify(true);
+                    currentSort = SortType.Ascending;
+
+                    break;
+                case SortType.Ascending:
+                    toggleSortButton.ToggleIcon = sortDescending;
+                    Debug.Log("changing to descending");
+                    currentSort = SortType.Descending;
+
+
+                    break;
+                case SortType.Descending:
+                    Debug.Log("changing to disabled");
+
+                    toggleSortButton.ToggleIcon = sortAscending;
+                    toggleSortButton.SetValueWithoutNotify(false);
+                    currentSort = SortType.Disabled;
+
+
+                    break;
+            }
+        }
     }
 }
 

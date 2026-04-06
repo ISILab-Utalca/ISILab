@@ -39,6 +39,7 @@ namespace ISILab.LBS.Behaviours.Editor
         private MoveSchemaZone moveSchemaZone;
         private RotateSchemaZone rotateSchemaZone;
         private PlaceStairs placeStairs;
+        private RemoveStairs removeStairs;
         #endregion
 
         #region VIEW FIELDS
@@ -103,9 +104,14 @@ namespace ISILab.LBS.Behaviours.Editor
             var t7 = new LBSTool(placeStairs);
             t7.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
 
+            removeStairs = new RemoveStairs();
+            var t8 = new LBSTool(removeStairs);
+            t8.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
+
 
             addSchemaTile.SetRemover(removeSchemaTile);
             addTileConnection.SetRemover(removeTileConnection);
+            placeStairs.SetRemover(removeStairs);
 
             toolKit.ActivateTool(t1, behaviour.OwnerLayer, behaviour);
             toolKit.ActivateTool(t2, behaviour.OwnerLayer, behaviour);
@@ -114,6 +120,7 @@ namespace ISILab.LBS.Behaviours.Editor
             toolKit.ActivateTool(t3, behaviour.OwnerLayer, behaviour);
             toolKit.ActivateTool(t4, behaviour.OwnerLayer, behaviour);
             toolKit.ActivateTool(t7, behaviour.OwnerLayer, behaviour);
+            toolKit.ActivateTool(t8, behaviour.OwnerLayer, behaviour);
 
             addSchemaTile.OnManipulationLeftClickCtrl += AddZone;
         }
@@ -348,8 +355,6 @@ namespace ISILab.LBS.Behaviours.Editor
                 case "Window": return AssetMacro.LoadAssetByGuid<VectorImage>(windowConnectionIconGuid);
                 case "LockedDoor": return AssetMacro.LoadAssetByGuid<VectorImage>(lockedDoorIconGuid);
                 case "BlockedDoor": return AssetMacro.LoadAssetByGuid<VectorImage>(blockedDoorIconGuid);
-                case "Stairs Up": return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);     // Needs an icon
-                case "Stairs Down": return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);   // Needs an icon
                 default: return AssetMacro.LoadAssetByGuid<VectorImage>(zoneIconGuid);
             }
         }

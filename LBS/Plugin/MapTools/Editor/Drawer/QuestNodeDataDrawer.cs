@@ -36,9 +36,10 @@ namespace ISILab.LBS.Drawers.Editor
             _onChangeAction = ClearElements(view, layer, behaviour);
             layer.OnChange += _onChangeAction;
             
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, layer)) return; 
-            
-            QuestActionData actionData = behaviour.Graph.GetNodeData();
+            if (!Equals(LBSMainWindow.Instance._selectedLayer, layer)) return;
+
+            var bh = behaviour.OwnerLayer?.GetBehaviour<QuestBehaviour>();
+            QuestActionData actionData = bh?.SelectedNodeData;
             if (actionData is null) return;
 
             
@@ -55,13 +56,13 @@ namespace ISILab.LBS.Drawers.Editor
 
             QuestGraph graph = behaviour.OwnerLayer.GetModule<QuestGraph>();
             if(graph is null) return;
-            if(graph.SelectedGraphNode is null) return;
+            if(bh.SelectedGraphNode is null) return;
 
             QuestActionView selectedActionView = null;
             foreach (GraphElement graphElement in view.GetAllElementsInLayer(behaviour.OwnerLayer))
             {
                 if (graphElement is not QuestActionView qav) continue;
-                if (qav.Node.Equals(graph.SelectedGraphNode))
+                if (qav.Node.Equals(bh.SelectedGraphNode))
                 {
                     selectedActionView = qav;
                 }

@@ -53,7 +53,10 @@ namespace ISILab.LBS.Manipulators
         protected override void OnKeyUp(KeyUpEvent e)
         {
             base.OnKeyUp(e);
-            LBSMainWindow.WarningManipulator();
+            if (!e.ctrlKey)
+            {
+                LBSMainWindow.WarningManipulator();
+            }
         }
         
         protected override void OnMouseUp(VisualElement element, Vector2Int position, MouseUpEvent e)

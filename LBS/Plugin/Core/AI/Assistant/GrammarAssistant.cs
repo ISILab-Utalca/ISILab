@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using ISILab.AI.Grammar;
 using ISILab.Commons.Extensions;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
@@ -19,8 +20,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
     [RequieredModule(typeof(QuestGraph))]
     public class GrammarAssistant : LBSAssistant
     {
+        private QuestBehaviour questBehaviour;
+        private QuestGraph graph;
+
         [JsonIgnore]
-        public QuestGraph _questGraph => OwnerLayer.GetModule<QuestGraph>();
+        public QuestGraph Graph => graph ??= OwnerLayer.GetModule<QuestGraph>();
+        public QuestBehaviour Behavior => questBehaviour ??= OwnerLayer.GetBehaviour<QuestBehaviour>();
 
         public GrammarAssistant(string IconGuid, string name, Color colorTint)
             : base(IconGuid, name, colorTint) { }
@@ -32,7 +37,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public bool ValidateQuestGraph()
         {
-            foreach (var node in _questGraph.GraphNodes)
+            foreach (var node in Graph.GraphNodes)
             {
                 if (!node.ValidGrammar) return false;
             }
@@ -44,7 +49,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             if (edge?.From is null || edge.To is null) return false;
             
-            var grammar = _questGraph.Grammar;
+            var grammar = Graph.Grammar;
             if (grammar == null || !grammar.RuleEntries.Any()) return false;
 
             bool returnValid = false;
@@ -105,7 +110,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         // Tries to retrieve from a branch Node the grammar of the immediate quest node root
         private bool BranchNodeRootGrammar(GraphNode nodeFrom)
         {
-            foreach (var rootEdge in _questGraph.GetRoots(nodeFrom))
+            foreach (var rootEdge in Graph.GetRoots(nodeFrom))
             {
                 foreach (var from in rootEdge.From)
                 {
@@ -126,7 +131,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public List<string> GetAllValidNextActions(string currentAction)
         {
-            var grammar = _questGraph.Grammar;
+            var grammar = Graph.Grammar;
             var nextValidTerminals = new HashSet<string>();
 
             if (grammar == null) return nextValidTerminals.ToList();
@@ -215,7 +220,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                 if(token.IsCancellationRequested) return nextValidTerminals.ToList();
                 clone.OwnerLayer = questGraph.OwnerLayer;
-                var newNode = clone.InsertQuestNodeAfter(nextValidTerminal, clone.GetNodeAsQuest());
+                var newNode = clone.InsertQuestNodeAfter(nextValidTerminal, Behavior.SelectedQuestNode);
                 if (newNode.ValidGrammar)
                 {
                     nextValidInsert.Add(nextValidTerminal);
@@ -229,7 +234,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         
         public List<string> GetAllValidPrevActions(string currentAction)
         {
-            var grammar = _questGraph.Grammar;
+            var grammar = Graph.Grammar;
             var prevValidTerminals = new HashSet<string>();
 
             if (grammar == null) return prevValidTerminals.ToList();
@@ -291,7 +296,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                 if(token.IsCancellationRequested) return prevValidTerminals.ToList();
                 
-                var newNode = clone.InsertQuestNodeBefore(nextValidTerminal, clone.GetNodeAsQuest());
+                var newNode = clone.InsertQuestNodeBefore(nextValidTerminal, Behavior.SelectedQuestNode);
                 if (newNode.ValidGrammar)
                 {
                     prevValidInsert.Add(nextValidTerminal);
@@ -306,7 +311,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public List<List<string>> GetAllExpansions(string currentAction,Action<float> onProgress = null, CancellationToken token = default)
         {
             HashSet<List<string>> allExpansions = new HashSet<List<string>>();
-            var grammar = _questGraph.Grammar;
+            var grammar = Graph.Grammar;
             if (grammar == null) return allExpansions.ToList();
 
             var expansions = new List<List<string>>();
@@ -368,11 +373,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         private List<string> GetRulesWithRule(string rule)
         {
-            var grammar = _questGraph.Grammar;
+            var grammar = Graph.Grammar;
             if (grammar == null) return new List<string>();
             
             HashSet<string> owningRules = new HashSet<string>();
-            foreach (RuleEntry ruleEntry in _questGraph.Grammar.RuleEntries)
+            foreach (RuleEntry ruleEntry in Graph.Grammar.RuleEntries)
             {
                 foreach (RuleItem ruleItem in ruleEntry.expansions)
                 {
@@ -388,12 +393,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         
         public List<string> GetOwningRules(string currentAction)
         {
-            var grammar = _questGraph.Grammar;
+            var grammar = Graph.Grammar;
             if (grammar == null) return new List<string>();
 
             HashSet<string> owners = new HashSet<string>();
             
-            foreach (RuleEntry ruleEntry in _questGraph.Grammar.RuleEntries)
+            foreach (RuleEntry ruleEntry in Graph.Grammar.RuleEntries)
             {
                 foreach (RuleItem item in ruleEntry.expansions)
                 {
@@ -428,7 +433,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 var stopwatch = Stopwatch.StartNew();
 
-                _questGraph.ExpandNode(expandAction, referenceNode);
+                Graph.ExpandNode(expandAction, referenceNode);
 
                 stopwatch.Stop();
                 Debug.Log($"ExpandAction took {stopwatch.ElapsedMilliseconds} ms");
@@ -439,7 +444,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             return () =>
             {
-                _questGraph.InsertQuestNodeAfter(action, referenceNode);
+                Graph.InsertQuestNodeAfter(action, referenceNode);
             };
         }
 
@@ -449,8 +454,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 var stopwatch = Stopwatch.StartNew();
 
-                _questGraph.InsertQuestNodeBefore(action, referenceNode);
-                _questGraph.ValidateAllWithGrammar();
+                Graph.InsertQuestNodeBefore(action, referenceNode);
+                Graph.ValidateGraph();
 
                 stopwatch.Stop();
                 Debug.Log($"InsertPreviousAction took {stopwatch.ElapsedMilliseconds} ms");

@@ -1,8 +1,11 @@
-using ISILab.LBS.Manipulators;
+using ISILab.Commons;
 using ISILab.LBS;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System;
@@ -10,50 +13,49 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
-public class PlaceStairs : LBSManipulator
+namespace ISILab.LBS.Manipulators
 {
-    override protected string IconGuid => "103cf2403fa02574fb824cdb84514eb9";
-
-    private SchemaBehaviour _schema;
-    private StairsMemoryLine _line;
-    private bool _downwards = false;
-
-    public PlaceStairs() 
+    public class PlaceStairs : LBSManipulator
     {
-        _line = new StairsMemoryLine();
-        Feedback = _line;
-        Feedback.fixToTeselation = true;
+        override protected string IconGuid => "103cf2403fa02574fb824cdb84514eb9";
 
-        Name = "Place stairs";
-        Description =
-            "Supported shapes: straight line, corner, U-shape and S-shape. " + 
-            "Hold ALT to place downwards stairs.";
-    }
+        private SchemaBehaviour _schema;
+        private ConnectedMemoryLine _line;
+        private bool _downwards = false;
 
-    public override void Init(LBSLayer layer, object provider = null)
-    {
-        base.Init(layer, provider);
-        _schema = provider as SchemaBehaviour;
-
-        Feedback.TeselationSize = layer.TileSize;
-        layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
-    }
-
-    protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
-    {
-        base.OnMouseUp(element, endPosition, e); 
-
-        if (ForceCancel)
+        public PlaceStairs()
         {
-            ForceCancel = false;
-            _line.LineClear();
-            return;
+            _line = new ConnectedMemoryLine();
+            Feedback = _line;
+            Feedback.fixToTeselation = true;
+
+            Name = "Place stairs";
+            Description = "Hold ALT to place downwards stairs. Use Right click to remove stairs.";
         }
-        if (_line.IsValid)
+
+        public override void Init(LBSLayer layer, object provider = null)
         {
+            base.Init(layer, provider);
+            _schema = provider as SchemaBehaviour;
+
+            Feedback.TeselationSize = layer.TileSize;
+            layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
+        }
+
+        protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
+        {
+            base.OnMouseUp(element, endPosition, e);
+
+            if (ForceCancel)
+            {
+                ForceCancel = false;
+                _line.LineClear();
+                return;
+            }
 
             // Set Undo action
             LoadedLevel level = LBSController.CurrentLevel;
@@ -61,114 +63,165 @@ public class PlaceStairs : LBSManipulator
             Undo.RegisterCompleteObjectUndo(level, "Place Stairs");
 
             List<Vector2Int> positions = _line.Positions;
+            if (positions.Count < 2)
+            {
+                _line.LineClear();
+                return;
+            }
 
             // Validate stairs
             bool validated = false;
             validated = ValidatePositions(positions, Layer.ActiveFloor);
-            int adyacent = _downwards ? Layer.ActiveFloor - 1 : Layer.ActiveFloor + 1;
-            if (validated) validated = ValidatePositions(positions, adyacent);
+            int adyacentFloor = _downwards ? Layer.ActiveFloor - 1 : Layer.ActiveFloor + 1;
+            if (validated) validated = ValidatePositions(positions, adyacentFloor);
 
             if (!validated)
             {
-                _line.LineClear(); 
+                _line.LineClear();
                 return;
             }
+
+            // Clear connections in between
+            List<LBSTile> selectedTiles = new();
+            List<LBSTile> adyacentSelectedTiles = new();
+            var connectionMod = Layer.GetModule<ConnectedTileMapModule>();
+            var adyacentConnectionMod = Layer.GetModule<ConnectedTileMapModule>("", adyacentFloor);
+            for (int i = 0; i < positions.Count; i++)
+            {
+                Vector2Int position = positions[i];
+                Vector2Int? prevDir = null;
+                Vector2Int? nextDir = null;
+                int? pDirIndex = null;
+                int? nDirIndex = null;
+
+                if (i > 0) prevDir = positions[i - 1] - position;
+                if (i < positions.Count - 1) nextDir = positions[i + 1] - position;
+
+                if (prevDir is not null)
+                {
+                    pDirIndex = Directions.Bidimencional.Edges.FindIndex(v => v == prevDir);
+                }
+                if (nextDir is not null)
+                {
+                    nDirIndex = Directions.Bidimencional.Edges.FindIndex(v => v == nextDir);
+                }
+
+                TileConnectionsPair pair = connectionMod.GetPair(position);
+                if (pair != null)
+                {
+                    selectedTiles.Add(pair.Tile);
+                    if (pDirIndex != null) pair.SetConnection(pDirIndex.Value, "Empty", true);
+                    if (nDirIndex != null) pair.SetConnection(nDirIndex.Value, "Empty", true);
+                }
+
+                pair = adyacentConnectionMod.GetPair(position);
+                if (pair != null)
+                {
+                    adyacentSelectedTiles.Add(pair.Tile);
+                    if (pDirIndex != null) pair.SetConnection(pDirIndex.Value, "Empty", true);
+                    if (nDirIndex != null) pair.SetConnection(nDirIndex.Value, "Empty", true);
+                }
+            }
+            _schema.RecalculateWalls(selectedTiles.Where(t => t is not null).ToList());
+            _schema.RecalculateWallsAtFloor(adyacentFloor, adyacentSelectedTiles.Where(t => t is not null).ToList());
+
 
             // Set stairs in both floors
             LBSStair upStairs, downStairs;
             if (_downwards)
             {
-                upStairs = new LBSStair(positions, adyacent, Layer.ActiveFloor, 1, _line.Shape);
-                downStairs = new LBSStair(positions, adyacent, Layer.ActiveFloor, -1, _line.Shape);
+                upStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, 1, StairShape.None);
+                downStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, -1, StairShape.None);
 
                 _schema.PlaceStair(downStairs, Layer.ActiveFloor);
-                _schema.PlaceStair(upStairs, adyacent);
+                _schema.PlaceStair(upStairs, adyacentFloor);
             }
             else
             {
-                upStairs = new LBSStair(positions, Layer.ActiveFloor, adyacent, 1, _line.Shape);
-                downStairs = new LBSStair(positions, Layer.ActiveFloor, adyacent, -1, _line.Shape);
+                upStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, 1, StairShape.None);
+                downStairs = new LBSStair(positions, adyacentFloor, Layer.ActiveFloor, -1, StairShape.None);
 
-                _schema.PlaceStair(downStairs, adyacent);
+                _schema.PlaceStair(downStairs, adyacentFloor);
                 _schema.PlaceStair(upStairs, Layer.ActiveFloor);
+            }
+
+            // Get styles from zone if avaliable
+            SectorizedTileMapModule sectorMod = _downwards ? 
+                Layer.GetModule<SectorizedTileMapModule>("", adyacentFloor) : 
+                Layer.GetModule<SectorizedTileMapModule>();
+
+            if (sectorMod != null)
+            {
+                var firstTile = sectorMod.GetPairTile(positions[0]);
+                if(firstTile != null && firstTile.Zone != null)
+                {
+                    upStairs.Styles = firstTile.Zone.InsideStyles;
+                }
+            }
+            if(upStairs.Styles == null || upStairs.Styles.Count < 1)
+            {
+                upStairs.Styles = new List<string>() { _schema.PressetInsideStyle.Name };
             }
 
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(level);
             }
-        }
-        _line.LineClear();
-    }
-
-    private bool ValidatePositions(List<Vector2Int> positions, int floor = -1)
-    {
-        // Check if floor is out of limits
-        if (floor >= Layer.FloorCount || floor < 0)
-        {
-            string direction = _downwards ? "downwards" : "backwards";
-            Debug.LogError($"[PlaceStairs]: Can't place {direction} stairs in floor " +
-                $"({Layer.ActiveFloor}) because it would be out of bounds.");
-            return false;
+            _line.LineClear();
         }
 
-        // Find StairsModule
-        var stairs = Layer.Modules().FirstOrDefault(
-            m => m.GetType() == typeof(StairsModule)) as StairsModule;
-        if (stairs is null) return true;
-
-        // Check if any position is occupied by another stair
-        foreach (var pos in positions)
+        private bool ValidatePositions(List<Vector2Int> positions, int floor = -1)
         {
-            if (!stairs.IsPositionOccupied(pos)) continue;
-            Debug.LogError("[PlaceStairs]: Can't place stairs in position " +
-                $"({pos.x},{pos.y}) because there's already a stair.");
-            return false;
-        }
-
-        // Find ConnectedTileMapModule
-        ConnectedTileMapModule connected = Layer.Modules().FirstOrDefault(
-            m => m.GetType() == typeof(ConnectedTileMapModule)) as ConnectedTileMapModule;
-        if (connected is null) return true;
-
-        // Check if there are connections between positions
-        var dirs = ISILab.Commons.Directions.Bidimencional.Edges;
-        for (int i = 1; i < positions.Count; i++)
-        {
-            var t1 = connected.GetPair(positions[i-1]);
-            var t2 = connected.GetPair(positions[i]);
-            if (t1 is null || t2 is null) continue;
-
-            int dir = dirs.FindIndex(d => d.Equals(positions[i] - positions[i - 1]));
-            int invDir = dirs.FindIndex(d => d.Equals(positions[i - 1] - positions[i]));
-            if (t1.Connections[dir] != "Empty" || t2.Connections[invDir] != "Empty")
+            // Check if floor is out of limits
+            if (floor >= Layer.FloorCount || floor < 0)
             {
-                Debug.LogError("[PlaceStairs]: Can't place stairs between positions " +
-                    $"({t1.Tile.x},{t1.Tile.y}) and ({t2.Tile.x},{t2.Tile.y}) " +
-                    "because there's a connection in the middle.");
+                string direction = _downwards ? "downwards" : "backwards";
+                new LBSLog($"[PlaceStairs]: Can't place {direction} stairs in floor " +
+                    $"({Layer.ActiveFloor}) because it would be out of bounds.", LogType.Error, 8);
                 return false;
             }
 
+            // Find StairsModule
+            var stairs = Layer.Modules(floor).FirstOrDefault(
+                m => m.GetType() == typeof(StairsModule)) as StairsModule;
+            if (stairs is null) return true;
+
+            // Check if any position is occupied by another stair
+            foreach (var pos in positions)
+            {
+                if (!stairs.IsPositionOccupied(pos)) continue;
+                LBSMainWindow.MessageNotify(
+                    new LBSLog("Can't place stairs in position " +
+                    $"({pos.x},{pos.y}) because there's already a stair.", LogType.Error, 8));
+                return false;
+            }
+
+            // Find ConnectedTileMapModule
+            ConnectedTileMapModule connected = Layer.Modules(floor).FirstOrDefault(
+                m => m.GetType() == typeof(ConnectedTileMapModule)) as ConnectedTileMapModule;
+            if (connected is null) return true;
+            return true;
         }
-        return true;
-    }
 
 
-    protected override void OnKeyDown(KeyDownEvent e)
-    {
-        base.OnKeyDown(e);
-        if (e.keyCode == KeyCode.LeftAlt)
+        protected override void OnKeyDown(KeyDownEvent e)
         {
-            _downwards = true;
+            base.OnKeyDown(e);
+            if (e.ctrlKey)
+            {
+                _downwards = true;
+                LBSMainWindow.WarningManipulator("(CTRL) Placing downwards stair");
+            }
         }
-    }
-    protected override void OnKeyUp(KeyUpEvent e)
-    {
-        base.OnKeyUp(e);
-        if (e.keyCode == KeyCode.LeftAlt)
+        protected override void OnKeyUp(KeyUpEvent e)
         {
-            _downwards = false;
+            base.OnKeyUp(e);
+            if (!e.ctrlKey)
+            {
+                _downwards = false;
+                LBSMainWindow.WarningManipulator();
+            }
         }
-    }
 
+    }
 }
