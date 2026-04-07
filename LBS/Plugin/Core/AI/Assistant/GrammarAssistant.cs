@@ -145,10 +145,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             owningRules.RemoveDuplicates();
 
             // Step 2: Collect all relevant expansions
-            HashSet<RuleItem> itemsWithRule = new HashSet<RuleItem>();
-            foreach (RuleEntry ruleEntry in grammar.RuleEntries)
+            HashSet<GrammarRule> itemsWithRule = new HashSet<GrammarRule>();
+            foreach (GrammarRule ruleEntry in grammar.RuleEntries)
             {
-                foreach (RuleItem wrapper in ruleEntry.expansions)
+                foreach (GrammarRule wrapper in ruleEntry.definitions)
                 {
                     // Include expansions with currentAction or its owning rules
                     if (wrapper.items.Contains(currentAction) || owningRules.Any(rule => wrapper.items.Contains(rule)))
@@ -244,7 +244,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             // Step 1: Check for the next as current
             foreach (var rule in rules)
             {
-                foreach (RuleItem expansion in rule.expansions)
+                foreach (GrammarRule expansion in rule.definitions)
                 {
                     for (int i = 0; i < expansion.items.Count - 1; i++)
                     {
@@ -325,7 +325,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     if (ruleEntry.ruleID.Equals(rule))
                     {
                         if(token.IsCancellationRequested) return allExpansions.ToList();
-                        foreach (var wrapper in ruleEntry.expansions)
+                        foreach (var wrapper in ruleEntry.definitions)
                         {
                             if(token.IsCancellationRequested) return allExpansions.ToList();
                             expansions.Add(wrapper.items);
@@ -377,9 +377,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             if (grammar == null) return new List<string>();
             
             HashSet<string> owningRules = new HashSet<string>();
-            foreach (RuleEntry ruleEntry in Graph.Grammar.RuleEntries)
+            foreach (GrammarRule ruleEntry in Graph.Grammar.RuleEntries)
             {
-                foreach (RuleItem ruleItem in ruleEntry.expansions)
+                foreach (GrammarRule ruleItem in ruleEntry.definitions)
                 {
                     // if the rule we are checking for is within the rule item
                     if (ruleItem.items.Contains(rule))
@@ -398,9 +398,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             HashSet<string> owners = new HashSet<string>();
             
-            foreach (RuleEntry ruleEntry in Graph.Grammar.RuleEntries)
+            foreach (GrammarRule ruleEntry in Graph.Grammar.RuleEntries)
             {
-                foreach (RuleItem item in ruleEntry.expansions)
+                foreach (GrammarRule item in ruleEntry.definitions)
                 {
                     if(item.items.Contains(currentAction)) owners.Add(ruleEntry.ruleID);
                 }

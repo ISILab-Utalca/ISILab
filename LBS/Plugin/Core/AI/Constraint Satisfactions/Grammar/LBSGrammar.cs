@@ -6,89 +6,60 @@ using UnityEngine.Serialization;
 
 namespace ISILab.AI.Grammar
 {
-    /// <summary>
-    /// An expansion wrapper corresponds to a rule definition like:
-    /// <ruleref uri="#Goto" /> <ruleref uri="#Get" /> <ruleref uri="#Goto" /> <ruleref uri="#Subquest" /> exchange </item>
-    /// </summary>
-    [Serializable]
-    public class RuleItem
-    {
-        [FormerlySerializedAs("ruleRefs")] [FormerlySerializedAs("expansionDefinitions")] [FormerlySerializedAs("symbols")] [SerializeField]
-        public List<string> items = new();
-    }
-
-    [Serializable]
-    public class RuleEntry
-    {
-        [FormerlySerializedAs("rule_id")] [FormerlySerializedAs("ruleName")] [SerializeField]
-        public string ruleID;
-
-        [SerializeField]
-        public List<RuleItem> expansions = new();
-    }
 
     [CreateAssetMenu(menuName = "ISILab/LBSGrammar")]
     public class LBSGrammar : ScriptableObject
     {
         [SerializeField]
-        private List<string> terminalActions = new();
+        public List<GrammarRule> LBSRules = new();
 
         [SerializeField]
-        private List<RuleEntry> ruleEntries = new();
+        public List<GrammarTerminal> LBSTerminals = new();
 
-        public List<string> TerminalActions => terminalActions;
-        public List<RuleEntry> RuleEntries => ruleEntries;
-        
+        private List<string> terminals = new List<string>();
+        private List<string> rules = new List<string>();
 
-        /// <summary>
-        /// Sets grammar structure after parsing.
-        /// </summary>
-        public void SetGrammarStructure(GrammarStructure structure)
+
+        public List<string> TerminalActions
         {
-            if (structure == null)
+            get
             {
-                Debug.LogError("[LBSGrammar] GrammarStructure is null.");
-                return;
-            }
-
-            Debug.Log($"[LBSGrammar] Setting grammar structure. Terminals: {structure.terminals?.Count ?? 0}, Rules: {structure.Rules?.Count ?? 0}");
-
-            terminalActions = structure.terminals != null ? new List<string>(structure.terminals) : new List<string>();
-            ruleEntries = new List<RuleEntry>();
-
-            foreach (var kvp in structure.Rules ?? new Dictionary<string, RuleData>())
-            {
-                if (kvp.Value == null || string.IsNullOrEmpty(kvp.Key))
+                if(terminals.Count == 0)
                 {
-                    Debug.LogWarning($"[LBSGrammar] Skipping invalid rule: Key={kvp.Key}, Value={kvp.Value}");
-                    continue;
-                }
-
-                var entry = new RuleEntry
-                {
-                    ruleID = kvp.Key,
-                    expansions = new List<RuleItem>()
-                };
-
-                foreach (var sequence in kvp.Value.Expansions ?? new List<List<string>>())
-                {
-                    var wrapper = new RuleItem
+                    foreach (var terminal in LBSTerminals)
                     {
-                        items = sequence != null ? new List<string>(sequence) : new List<string>()
-                    };
-                    entry.expansions.Add(wrapper);
+                        terminals.Add(terminal.id);
+                    }
                 }
 
-                ruleEntries.Add(entry);
+                return terminals;
+   
             }
-
-            Debug.Log($"[LBSGrammar] Populated {ruleEntries.Count} rule entries.");
-
-            #if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(this);
-            #endif
         }
-        
+            
+            
+        public List<string> Rules
+        {
+            get
+            {
+                if (rules.Count == 0)
+                {
+                    foreach (var rule in LBSRules)
+                    {
+                        rules.Add(rule.id);
+                    }
+                }
+
+                return rules;
+
+            }
+        }
+
+        bool isRule(string id)
+        {
+            return Rules.Contains(id);
+        }
+
 
         /// <summary>
         /// Recursively collects first terminal(s) from a rule.
@@ -96,20 +67,25 @@ namespace ISILab.AI.Grammar
         public List<string> GetFirstTerminals(string ruleName, HashSet<string> firstTerminals)
         {
             // we need to find the first terminal of each of the rules entries
-            foreach (var ruleEntry in RuleEntries)
+            foreach (var rule in LBSRules)
             {
                 // found the rule we need
-                if (ruleEntry.ruleID.Equals(ruleName))
+                if (rule.id.Equals(ruleName))
                 {
-                    foreach (var entryItem in ruleEntry.expansions)
+                    foreach (var ruleExpansion in rule.Expansions)
                     {
-                        var terminal = entryItem.items.FirstOrDefault();
-                        if (IsRuleRef(terminal))
+                        if (ruleExpansion.Count == 0) continue;
+                        string firstString = ruleExpansion[0];
+                        if (isRule(firstString))
                         {
-                            // pass termina as it is a rule ref. Called recursively until a terminal is obtained
-                            terminal = GetLastTerminals(terminal, firstTerminals).First();
+                            // if begins with a rule, then call recursively
+                            firstString = GetFirstTerminals(firstString, firstTerminals).First();
                         }
-                        firstTerminals.Add(terminal);
+                        else
+                        {
+                            // terminal found
+                            firstTerminals.Add(firstString);
+                        }
                     }
                 }
             }
@@ -119,21 +95,26 @@ namespace ISILab.AI.Grammar
 
         public List<string> GetLastTerminals(string ruleName, HashSet<string> lastTerminals)
         {
-            // we need to find the first terminal of each of the rules entries
-            foreach (var ruleEntry in RuleEntries)
+            // we need to find the last terminal of each of the rules entries
+            foreach (var rule in LBSRules)
             {
                 // found the rule we need
-                if (ruleEntry.ruleID.Equals(ruleName))
+                if (rule.id.Equals(ruleName))
                 {
-                    foreach (var entryItem in ruleEntry.expansions)
+                    foreach (var ruleExpansion in rule.Expansions)
                     {
-                        var terminal = entryItem.items.LastOrDefault();
-                        if (IsRuleRef(terminal))
+                        if (ruleExpansion.Count == 0) continue;
+                        string lastString = ruleExpansion.LastOrDefault();
+                        if (isRule(lastString))
                         {
-                            // pass termina as it is a rule ref. Called recursively until a terminal is obtained
-                            terminal = GetLastTerminals(terminal, lastTerminals).Last();
+                            // if ends with a rule, then call recursively
+                            lastString = GetLastTerminals(lastString, lastTerminals).First();
                         }
-                        lastTerminals.Add(terminal);
+                        else
+                        {
+                            // terminal found
+                            lastTerminals.Add(lastString);
+                        }
                     }
                 }
             }
@@ -144,34 +125,34 @@ namespace ISILab.AI.Grammar
         public List<string> GetNextTerminals(string current, HashSet<string> nextTerminals)
         {
             // we need to find the first terminal of each of the rules entries
-            foreach (var ruleEntry in RuleEntries)
+            foreach (var ruleExpansion in LBSRules)
             {
                 // found the rule we need
-                if (ruleEntry.ruleID.Equals(current))
+                if (ruleExpansion.id.Equals(current))
                 {
                     // we try to get the next value in the expansion
-                    var ruleItem = ruleEntry.expansions.ElementAt(0);
-                    if(ruleItem.items.Count < 2) continue;
+                    var item = ruleExpansion.Expansions.ElementAt(0);
+                    if(item.Count < 2) continue;
                     
-                    var terminal = ruleItem.items.ElementAt(1);
-                    if (IsRuleRef(terminal))
+                    var nextString = item.ElementAt(1);
+                    if (isRule(nextString))
                     {
-                        // pass termina as it is a rule ref. Called recursively until a terminal is obtained
-                        terminal = GetFirstTerminals(terminal, nextTerminals).First();
+                        // next is a rule therefore we need the next terminal of the rule
+                        nextString = GetFirstTerminals(nextString, nextTerminals).First();
                     }
-                    nextTerminals.Add(terminal);
+                    else
+                    {
+                        // next terminal found
+                        nextTerminals.Add(nextString);
+                    }
+                    
                 }
             }
 
             return nextTerminals.ToList();
         }
         
-        
-        /// <summary>
-        /// Checks if a symbol is a non-terminal (starts with #).
-        /// </summary>
-        public bool IsRuleRef(string symbol) => char.IsUpper(symbol.TrimStart()[0]);
-        public bool IsTerminal(string symbol) => !IsRuleRef(symbol);
+   
 
         /// <summary>
         /// Debug method to inspect serialized data.
@@ -179,17 +160,17 @@ namespace ISILab.AI.Grammar
         [ContextMenu("Debug Grammar")]
         private void DebugGrammar()
         {
-            Debug.Log($"[LBSGrammar] Terminal Actions Count: {terminalActions?.Count ?? 0}");
-            foreach (var action in terminalActions ?? new List<string>())
+            Debug.Log($"[LBSGrammar] Terminal Actions Count: {terminals?.Count ?? 0}");
+            foreach (var action in terminals ?? new List<string>())
             {
                 Debug.Log($"[LBSGrammar] Terminal: {action}");
             }
 
-            Debug.Log($"[LBSGrammar] Rule Entries Count: {ruleEntries?.Count ?? 0}");
-            foreach (var entry in ruleEntries ?? new List<RuleEntry>())
+            Debug.Log($"[LBSGrammar] Rule Entries Count: {LBSRules?.Count ?? 0}");
+            foreach (var rule in LBSRules ?? new List<GrammarRule>())
             {
-                Debug.Log($"[LBSGrammar] Rule: {entry.ruleID}, Expansions: {entry.expansions?.Count ?? 0}");
-                foreach (var expansion in entry.expansions ?? new List<RuleItem>())
+                Debug.Log($"[LBSGrammar] Rule: {rule.ruleID}, Expansions: {rule.definitions?.Count ?? 0}");
+                foreach (var expansion in rule.definitions ?? new List<GrammarRule>())
                 {
                     Debug.Log($"[LBSGrammar]   Expansion: [{string.Join(", ", expansion.items ?? new List<string>())}]");
                 }
@@ -199,30 +180,12 @@ namespace ISILab.AI.Grammar
         // Ensure initialization of serialized fields
         private void OnEnable()
         {
-            terminalActions ??= new List<string>();
-            ruleEntries ??= new List<RuleEntry>();
+            terminals ??= new List<string>();
+            ruleEntries ??= new List<GrammarRule>();
         }
 
     
     }
 
-    [Serializable]
-    public class RuleData
-    {
-        [FormerlySerializedAs("RuleName")] [SerializeField]
-        public string ruleName;
 
-        [SerializeField]
-        public List<List<string>> Expansions = new();
-    }
-
-    [Serializable]
-    public class GrammarStructure
-    {
-        [SerializeField]
-        public Dictionary<string, RuleData> Rules = new();
-
-        [SerializeField]
-        public List<string> terminals = new();
-    }
 }

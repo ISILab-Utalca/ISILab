@@ -27,93 +27,93 @@ MonoBehaviour:
   - spy
   - report
   ruleEntries:
-  - ruleName: Quest
+  - ruleID: Quest
     expansions:
-    - expansionDefinitions:
+    - items:
       - Subquest
-    - expansionDefinitions:
+    - items:
       - Goto
-    - expansionDefinitions:
+    - items:
       - Learn
-    - expansionDefinitions:
+    - items:
       - Get
-    - expansionDefinitions:
+    - items:
       - Steal
-    - expansionDefinitions:
+    - items:
       - Kill
-    - expansionDefinitions:
+    - items:
       - Capture
-    - expansionDefinitions:
+    - items:
       - Spy
-  - ruleName: Subquest
+  - ruleID: Subquest
     expansions:
-    - expansionDefinitions:
+    - items:
       - Goto
-    - expansionDefinitions:
+    - items:
       - Goto
       - Quest
       - go to
-  - ruleName: Goto
+  - ruleID: Goto
     expansions:
-    - expansionDefinitions:
+    - items:
       - explore
-    - expansionDefinitions:
+    - items:
       - Learn
       - go to
-    - expansionDefinitions:
+    - items:
       - go to
-  - ruleName: Learn
+  - ruleID: Learn
     expansions:
-    - expansionDefinitions:
+    - items:
       - Goto
       - Subquest
       - listen
-    - expansionDefinitions:
+    - items:
       - Goto
       - Get
       - read
-    - expansionDefinitions:
+    - items:
       - Get
       - Subquest
       - give
       - listen
-  - ruleName: Get
+  - ruleID: Get
     expansions:
-    - expansionDefinitions:
+    - items:
       - Steal
-    - expansionDefinitions:
+    - items:
       - Goto
       - gather
-    - expansionDefinitions:
+    - items:
       - Goto
       - Get
       - Goto
       - Subquest
       - exchange
-  - ruleName: Steal
+  - ruleID: Steal
     expansions:
-    - expansionDefinitions:
+    - items:
       - Goto
       - stealth
       - take
-    - expansionDefinitions:
+    - items:
       - Goto
       - Kill
       - take
-  - ruleName: Kill
+  - ruleID: Kill
     expansions:
-    - expansionDefinitions:
+    - items:
       - Goto
       - kill
-  - ruleName: Capture
+  - ruleID: Capture
     expansions:
-    - expansionDefinitions:
+    - items:
       - Get
       - Goto
       - capture
-  - ruleName: Spy
+  - ruleID: Spy
     expansions:
-    - expansionDefinitions:
+    - items:
       - Goto
       - spy
       - Goto

@@ -39,7 +39,7 @@ namespace ISILab.AI.Grammar
                 string ruleID = rule.Id;
                 if (!grammar.Rules.ContainsKey(ruleID))
                 {
-                    grammar.Rules[ruleID] = new RuleData { ruleName = ruleID };
+                    grammar.Rules[ruleID] = new GrammarRule { id = ruleID };
                 }
 
                 foreach (var element in rule.Elements)

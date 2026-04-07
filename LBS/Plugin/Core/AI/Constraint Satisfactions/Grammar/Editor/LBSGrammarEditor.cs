@@ -30,7 +30,7 @@ namespace ISILab.LBS.VisualElements
                     _ruleFoldouts[rule.ruleID] = EditorGUILayout.Foldout(_ruleFoldouts[rule.ruleID], rule.ruleID);
                     if (_ruleFoldouts[rule.ruleID])
                     {
-                        foreach (var expansion in rule.expansions)
+                        foreach (var expansion in rule.definitions)
                         {
                             foreach (var terminals in expansion.items)
                             {
