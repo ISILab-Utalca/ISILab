@@ -223,7 +223,7 @@ namespace ISILab.LBS.Manipulators
             // Adyacent Zones Visualization
             // Input handling
             int adyacent = -1;
-            if (e.keyCode == KeyCode.None) return;
+            if (e.keyCode == KeyCode.None || e.keyCode == _adyacentZoneVisualKey) return;
             if (e.keyCode == KeyCode.U) adyacent = Layer.ActiveFloor + 1;
             if (e.keyCode == KeyCode.D) adyacent = Layer.ActiveFloor - 1;
             _adyacentZoneVisualKey = e.keyCode;
@@ -232,77 +232,6 @@ namespace ISILab.LBS.Manipulators
             VisualizeAdyacentZone(adyacent);
         }
 
-
-        private void VisualizeAdyacentZone(int adyacent)
-        {
-            if (adyacent < 0 && adyacent >= Layer.FloorCount) return;
-
-            var stairsMod = Layer.GetModule<StairsModule>();
-            var tileMod = Layer.GetModule<TileMapModule>();
-            var sectorMod = Layer.GetModule<SectorizedTileMapModule>();
-            var aSectorMod = Layer.GetModule<SectorizedTileMapModule>("", adyacent);
-
-            // Get adyacent zones
-            HashSet<Zone> adyacentZones = new HashSet<Zone>();
-            foreach (var stair in stairsMod.Stairs)
-            {
-                int dir = adyacent - Layer.ActiveFloor;
-                if (dir != stair.Direction) continue;
-
-                Zone z = aSectorMod.GetZone(dir > 0 ? stair.Positions[stair.Positions.Count - 1] : stair.Positions[0]);
-                adyacentZones.Add(z);
-            }
-
-            // Swap tiles
-            List<LBSTile> originalTiles = new List<LBSTile>();
-            List<LBSTile> clonedTiles = new List<LBSTile>();
-            foreach (Zone aZone in adyacentZones)
-            {
-                // Clone zone
-                Zone cloneZone = aZone.Clone() as Zone;
-                cloneZone.Color = Color.gray;
-
-                // Copy tiles in adyacent zones
-                List<TileZonePair> newTiles = new();
-                foreach (var aTile in aSectorMod.GetTiles(aZone))
-                {
-                    // Save original tile zone pairs
-                    var pair = sectorMod.GetPairTile(aTile);
-                    if (pair != null) originalTiles.Add(pair.Tile);
-
-                    // Create new tile
-                    //TileZonePair copyTile = new TileZonePair(aTile, cloneZone);
-                    //sectorMod.AddPair(copyTile);
-                    LBSTile copyTile = _schema.AddTile(aTile.Position, cloneZone);
-                    if (copyTile == null) continue;
-                    _schema.AddConnections(
-                        copyTile,
-                        new List<string>() { "", "", "", "" },
-                        new List<bool> { true, true, true, true }
-                        );
-                    clonedTiles.Add(copyTile);
-                }
-            }
-
-            // Updaye visuals
-            DrawManager.Instance.UpdateLayer(_schema.OwnerLayer);
-
-            // Swap tiles back
-            foreach (var clone in clonedTiles)
-            {
-                if (clone == null) continue;
-                var originalTile = originalTiles.Find(t => t.Equals(clone));
-                if (originalTile != null)
-                {
-                    //sectorMod.AddPair(originalTile);
-                    continue;
-                }
-                _schema.RemoveTile(clone.Position);
-                //sectorMod.RemovePair(clone);
-            }
-            originalTiles.Clear();
-            clonedTiles.Clear();
-        }
         protected override void OnKeyUp(KeyUpEvent e)
         {
             base.OnKeyUp(e);
@@ -318,7 +247,97 @@ namespace ISILab.LBS.Manipulators
             {
                 // Update visuals
                 DrawManager.Instance.UpdateLayer(_schema.OwnerLayer);
+                _adyacentZoneVisualKey = KeyCode.None;
             }
         }
+
+        #region ADYACENT ZONE VISUALIZATION
+        private void VisualizeAdyacentZone(int adyacent)
+        {
+            if (adyacent < 0 && adyacent >= Layer.FloorCount) return;
+
+            // Current floor modules
+            var stairsMod = Layer.GetModule<StairsModule>();
+            var tileMod = Layer.GetModule<TileMapModule>();
+            var sectorMod = Layer.GetModule<SectorizedTileMapModule>();
+            var connectMod = Layer.GetModule<ConnectedTileMapModule>();
+
+            // Adyacent floor modules
+            var aConnectMod = Layer.GetModule<ConnectedTileMapModule>("", adyacent);
+            var aSectorMod = Layer.GetModule<SectorizedTileMapModule>("", adyacent);
+
+            // Get adyacent zones
+            HashSet<Zone> adyacentZones = GetAdyacentZones(stairsMod, aSectorMod, adyacent);
+
+            // Swap tiles
+            List<(LBSTile, TileZonePair, TileConnectionsPair)> originalTiles = new ();
+            List<LBSTile> shadowTiles = new List<LBSTile>();
+            foreach (Zone aZone in adyacentZones)
+            {
+                // Create shadow zone
+                Zone shadowZone = aZone.Clone() as Zone;
+                shadowZone.Color = Color.gray;
+
+                // Copy tiles from adyacent zones
+                foreach (var aTile in aSectorMod.GetTiles(aZone))
+                {
+                    // Save tile info before replacing it with shadow
+                    var pair = sectorMod.GetPairTile(aTile);
+                    var connections = connectMod.GetPair(aTile);
+                    if (pair != null && connections != null)
+                    {
+                        originalTiles.Add((aTile, pair, connections));
+                    }
+
+                    // Create shadow tile
+                    LBSTile shadow = _schema.AddTile(aTile.Position, shadowZone);
+                    if (shadow == null) // replace already existing tile
+                    {
+                        shadow = aTile;
+                        var shadowPair = new TileZonePair(aTile, shadowZone);
+                        sectorMod.AddPair(shadowPair);
+                    }
+                    _schema.AddConnections(shadow, aConnectMod.GetPair(shadow).Connections,
+                        new List<bool> { true, true, true, true });
+                    shadowTiles.Add(shadow);
+                }
+            }
+
+            // Update visuals
+            DrawManager.Instance.UpdateLayer(_schema.OwnerLayer);
+
+            // Swap tiles back
+            foreach (var shadow in shadowTiles)
+            {
+                if (shadow == null) continue;
+                var originalTile = originalTiles.FirstOrDefault(t => t.Item1.Equals(shadow));
+                if (originalTile != default)
+                {
+                    sectorMod.AddPair(originalTile.Item2);
+                    _schema.AddConnections(originalTile.Item1, originalTile.Item3.Connections,
+                        new List<bool> { true, true, true, true });
+                    continue;
+                }
+                _schema.RemoveTile(shadow.Position);
+            }
+            originalTiles.Clear();
+            shadowTiles.Clear();
+        }
+
+        private HashSet<Zone> GetAdyacentZones(StairsModule stairsMod, SectorizedTileMapModule adyacentSectorMod, int adyacentFloor)
+        {
+            HashSet<Zone> adyacentZones = new HashSet<Zone>();
+            foreach (var stair in stairsMod.Stairs)
+            {
+                int dir = adyacentFloor - Layer.ActiveFloor;
+                if (dir != stair.Direction) continue;
+
+                Zone z = adyacentSectorMod.GetZone(dir > 0 ? stair.Positions[stair.Positions.Count - 1] : stair.Positions[0]);
+                if (z == null) continue;
+                adyacentZones.Add(z);
+            }
+            return adyacentZones;
+        }
+        #endregion
     }
 }
