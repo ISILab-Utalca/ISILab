@@ -22,6 +22,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         private const string CONTEXT_INITIALIZATION             = "fe933b72bf108c7458ab832a8f20f7b7";
         private const string CONTEXT_CLONE                      = "031ce8d69170dc84c85ef06170623761";
 
+        private const string DISTANCE_PROPERTIES                = "b7b22a7bedd067842a622a3390d0d648";
+        private const string DISTANCE_INITIALIZATION            = "348db66a4f6642346b555447c1f9d6da";
+        private const string DISTANCE_MEASURING                 = "674b731557920f94385f67dddb69c79b";
+        private const string DISTANCE_POST_MEASURING            = "8f9d53df450328646885c250a7290da8";
+        private const string PATHFIND_INITIALIZATION            = "ebd85878ef9988041a215f8ac55463a5";
+        private const string DISTANCE_CLONATION                 = "2c8bb7625a67a9e44a2af255e5699f40";
+
         private const string CONFIGURATION_NAMESPACES           = "9eed48cb8a4c3044192f1c91c2b3abe6";
         private const string CONFIGURATION_STATIC               = "9e182e8a80364da40b12c2a23d8dcd4f";
         private const string CONFIGURATION_INITIALIZATION       = "3020bae79b0ff3c44b151cc0b22edaf9";
@@ -53,7 +60,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 string className = Path.GetFileNameWithoutExtension(path);
 
                 bool context = true,
-                    configurable = true;
+                    configurable = true,
+                    distance = context && true;
 
                 string fieldsDeclaration = "", fieldsInitialization = "", configurationLoad = "", configurationPreCreation = "", configurationCreation = "", fieldsClonation = "", tagPreSearch = "", tagSearch = "";
                 typeCount.Clear();
@@ -65,9 +73,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     new(typeof(int), false),
                     new(typeof(float), false)
                 };
+                if (distance) fields.Insert(0, new(typeof(PathfindingAlgorithm), false));
+                string firstTagChar = "";
                 foreach(System.Tuple<System.Type, bool> type in fields)
                 {
-                    GetDummyField(type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string _tagPreSearch, out string _tagSearch);
+                    GetDummyField(type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string _tagPreSearch, out string _tagSearch, out string fieldFinalName);
+
+                    if (string.IsNullOrEmpty(firstTagChar) && type.Item1.Equals(typeof(Characteristics.LBSCharacteristic)))
+                        firstTagChar = fieldFinalName + "Ind";
+                    
                     fieldsDeclaration += "\n\t\t" + declaration;
                     fieldsInitialization += "\n\t\t\t" + initialization;
                     configurationLoad += "\n\t\t\t" + load;
@@ -89,6 +103,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 string interfaces = "";
                 if (context) interfaces += ", IContextualEvaluator";
                 if (configurable) interfaces += ", IConfigurableEvaluator";
+                if (distance) interfaces += ", IDistanceEvaluator";
 
                 template = template
                     .ReplaceOrErase ("#CONTEXT_NAMESPACES#"                 , GetText(CONTEXT_NAMESPACES)               , context)
@@ -102,6 +117,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     .ReplaceOrErase ("#CONTEXT_EVALUATION_IMPLEMENTATION#"  , GetText(CONTEXT_EVALUATION_IMPLEMENTATION), context)
                     .ReplaceOrErase ("#CONTEXT_INITIALIZATION#"             , GetText(CONTEXT_INITIALIZATION)           , context)
                     .ReplaceOrErase ("#CONTEXT_CLONE#"                      , GetText(CONTEXT_CLONE)                    , context)
+                    .ReplaceOrErase ("#DISTANCE_PROPERTIES#"                , GetText(DISTANCE_PROPERTIES)              , distance)
+                    .ReplaceOrErase ("#DISTANCE_INITIALIZATION#"            , GetText(DISTANCE_INITIALIZATION)          , distance)
+                    .ReplaceOrErase ("#DISTANCE_MEASURING#"                 , GetText(DISTANCE_MEASURING)               , distance)
+                    .ReplaceOrErase ("#DISTANCE_POST_MEASURING#"            , GetText(DISTANCE_POST_MEASURING)          , distance)
+                    .ReplaceOrErase ("#PATHFIND_INITIALIZATION#"            , GetText(PATHFIND_INITIALIZATION)          , distance)
+                    .ReplaceOrErase ("#DISTANCE_CLONATION#"                 , GetText(DISTANCE_CLONATION)               , distance)
+                    .Replace        ("#FIRST_TAGCHAR#"                      , firstTagChar)
                     .ReplaceOrErase ("#CONFIGURATION_STATIC#"               , GetText(CONFIGURATION_STATIC)             , configurable)
                     .ReplaceOrErase ("#CONFIGURATION_INITIALIZATION#"       , GetText(CONFIGURATION_INITIALIZATION)     , configurable)
                     .ReplaceOrErase ("#CONFIGURATION_IMPLEMENTATION#"       , GetText(CONFIGURATION_IMPLEMENTATION)     , configurable)
@@ -139,7 +161,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         // Dummies. Dummies! DUMMIES! Remember how I said NOT to shoot at me? - Mad Dummy (2015)
         static Dictionary<System.Tuple<System.Type, bool>, int> typeCount = new();
-        private static void GetDummyField(System.Tuple<System.Type, bool> type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string preTagSearch, out string tagSearch, string name = "")
+        private static void GetDummyField(System.Tuple<System.Type, bool> type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string preTagSearch, out string tagSearch, out string finalName, string name = "")
         {
             declaration = initialization = load = preCreation = creation = clonation = preTagSearch = tagSearch = "";
             if (string.IsNullOrWhiteSpace(name))
@@ -149,8 +171,18 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 name = $"{type.Item1.Name}{(type.Item2 ? "List" : "")}Field{(char)(64 + typeCount[type])}";
             }
 
-            switch(type.Item1.Name)
+            switch (type.Item1.Name)
             {
+                case nameof(PathfindingAlgorithm):
+                    name = "searchType";
+                    declaration = $"[SerializeField]\n\t\tpublic PathfindingAlgorithm {name};";
+                    initialization = $"{name} = PathfindingAlgorithm.JPS_Plus;";
+                    load = $"{name} = config.GetValue<PathfindingAlgorithm>(\"Pathfinding Algorithm\");";
+                    creation = $"new EnumConfigurationField(\"Pathfinding Algorithm\", {name},\n\t\t\t\t" +
+                        $"\"Method to use for calculating distances between items.\"),";
+                    clonation = $"clone.{name} = {name};";
+                    break;
+
                 case nameof(Characteristics.LBSCharacteristic) when !type.Item2:
                     declaration = $"[SerializeField, SerializeReference]\n\t\tpublic LBSCharacteristic {name};";
                     initialization = $"{name} = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag(\"TAG NAME\"));";
@@ -201,6 +233,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     clonation = $"clone.{name} = {name};";
                     break;
             }
+            finalName = name;
         }
     }
 }
