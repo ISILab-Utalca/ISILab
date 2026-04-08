@@ -577,7 +577,7 @@ namespace ISILab.AI.Categorization
                                         }
                                     }
                                     others = itemIndices.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluatorHelper.FloodFillChebyshev(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
                                     if (useEvaluationInfo) EvaluationInfo = info;
 #else
                                     EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
