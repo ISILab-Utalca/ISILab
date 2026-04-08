@@ -65,7 +65,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 string fieldsDeclaration = "", fieldsInitialization = "", configurationLoad = "", configurationPreCreation = "", configurationCreation = "", fieldsClonation = "", tagPreSearch = "", tagSearch = "";
                 typeCount.Clear();
-                List<System.Tuple<System.Type, bool>> fields = new() { 
+                List<System.Tuple<System.Type, bool>> fields = new() {
                     new(typeof(Characteristics.LBSCharacteristic), false),
                     new(typeof(Characteristics.LBSCharacteristic), true),
                     new(typeof(Characteristics.LBSCharacteristic), true),
@@ -74,7 +74,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     new(typeof(float), false)
                 };
                 if (distance) fields.Insert(0, new(typeof(PathfindingAlgorithm), false));
-                string firstTagChar = "";
+                string firstTagChar = null;
                 foreach(System.Tuple<System.Type, bool> type in fields)
                 {
                     GetDummyField(type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string _tagPreSearch, out string _tagSearch, out string fieldFinalName);
@@ -123,7 +123,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     .ReplaceOrErase ("#DISTANCE_POST_MEASURING#"            , GetText(DISTANCE_POST_MEASURING)          , distance)
                     .ReplaceOrErase ("#PATHFIND_INITIALIZATION#"            , GetText(PATHFIND_INITIALIZATION)          , distance)
                     .ReplaceOrErase ("#DISTANCE_CLONATION#"                 , GetText(DISTANCE_CLONATION)               , distance)
-                    .Replace        ("#FIRST_TAGCHAR#"                      , firstTagChar)
+                    .Replace        ("#FIRST_TAGCHAR#"                      , firstTagChar ?? "new()")
                     .ReplaceOrErase ("#CONFIGURATION_STATIC#"               , GetText(CONFIGURATION_STATIC)             , configurable)
                     .ReplaceOrErase ("#CONFIGURATION_INITIALIZATION#"       , GetText(CONFIGURATION_INITIALIZATION)     , configurable)
                     .ReplaceOrErase ("#CONFIGURATION_IMPLEMENTATION#"       , GetText(CONFIGURATION_IMPLEMENTATION)     , configurable)
