@@ -168,15 +168,17 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             {
                 case SortType.Disabled:
                     Debug.Log("changing to ascending");
+
                     toggleSortButton.SetValueWithoutNotify(true);
                     currentSort = SortType.Ascending;
 
                     break;
                 case SortType.Ascending:
-                    toggleSortButton.ToggleIcon = sortDescending;
                     Debug.Log("changing to descending");
-                    currentSort = SortType.Descending;
 
+                    toggleSortButton.ToggleIcon = sortDescending;
+                    toggleSortButton.SetValueWithoutNotify(true);
+                    currentSort = SortType.Descending;
 
                     break;
                 case SortType.Descending:
@@ -185,7 +187,6 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                     toggleSortButton.ToggleIcon = sortAscending;
                     toggleSortButton.SetValueWithoutNotify(false);
                     currentSort = SortType.Disabled;
-
 
                     break;
             }
