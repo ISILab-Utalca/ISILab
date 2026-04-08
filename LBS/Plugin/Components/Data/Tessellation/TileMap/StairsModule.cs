@@ -78,7 +78,6 @@ namespace ISILab.LBS.Modules
 
         public bool RemoveStair(LBSStair stair)
         {
-            Debug.Log("Removing stair...");
             bool a = _stairs.Remove(stair);
             return a;
         }
@@ -122,6 +121,7 @@ namespace ISILab.LBS.Modules
         #region FIELDS
         [SerializeField, JsonRequired, SerializeReference]
         private List<Vector2Int> _positions = new();
+
         [SerializeField, JsonRequired, SerializeReference]
         private int _inferiorFloor;
         [SerializeField, JsonRequired, SerializeReference]
@@ -129,19 +129,33 @@ namespace ISILab.LBS.Modules
         [SerializeField, JsonRequired, SerializeReference]
         private int _direction;
         [SerializeField, JsonRequired, SerializeReference]
+        private int _height = 1;
+
+        [SerializeField, JsonRequired, SerializeReference]
         private Color _color;
-        [SerializeField, JsonRequired]
-        private List<string> styles = new List<string>();
         [SerializeField, JsonRequired, SerializeReference]
         private StairShape _shape; // unused
+
+        [SerializeField, JsonRequired]
+        private List<string> _styles = new List<string>();
         #endregion
 
         #region PROPERTIES
         public List<Vector2Int> Positions => new List<Vector2Int>(_positions);
+
         public int InferiorFloor => _inferiorFloor;
         public int SuperiorFloor => _superiorFloor;
         public int Direction => _direction;
-        public Color Color 
+        public int Height 
+        { 
+            get => _height; 
+            set 
+            {
+                _height = value;
+            }
+        }
+
+public Color Color 
         { 
             get => _color; 
             set 
@@ -150,14 +164,13 @@ namespace ISILab.LBS.Modules
                 OnVisualChange?.Invoke(this);
             }
         }
+        public StairShape Shape => _shape; // unused
 
-        [JsonIgnore]
         public List<string> Styles
         {
-            get => styles;
-            set => styles = value;
+            get => _styles;
+            set => _styles = value;
         }
-        public StairShape Shape => _shape; // unused
         #endregion
 
         #region CALLBACKS
@@ -205,6 +218,11 @@ namespace ISILab.LBS.Modules
                 _superiorFloor.Equals(other.SuperiorFloor) &&
                 _direction.Equals(other.Direction) &&
                 _shape.Equals(other.Shape);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 

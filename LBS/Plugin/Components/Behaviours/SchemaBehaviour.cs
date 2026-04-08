@@ -181,6 +181,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             
             tileMap.AddTile(tile);
             areas.AddTile(tile, zone);
+            zone.AddPosition(position);
             
             RequestTilePaint(tile);
 
@@ -260,19 +261,11 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         public void RemoveStair(LBSStair stair)
         {
-            bool a = stairs.RemoveStair(stair);
-            if (a) 
-            {
-                Debug.Log($"A stair was removed in {stairs.OwnerLayer.ActiveFloor}");
-            }
+            stairs.RemoveStair(stair);
             RequestTileRemove(stair);
 
             var adyacentStairs = OwnerLayer.GetModule<StairsModule>("", OwnerLayer.ActiveFloor + stair.Direction);
-            a = adyacentStairs.RemoveStair(stair.Inverted());
-            if (a)
-            {
-                Debug.Log($"A stair was removed in {adyacentStairs.OwnerLayer.ActiveFloor}");
-            }
+            adyacentStairs.RemoveStair(stair.Inverted());
         }
 
         public LBSTile GetTile(Vector2Int position)

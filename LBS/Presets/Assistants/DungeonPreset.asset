@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetName: DungeonCrawler_Preset
   mapElites:
-    xSampleCount: 3
-    ySampleCount: 3
+    xSampleCount: 5
+    ySampleCount: 5
     devest: 0.5
     xEvaluator:
-      rid: 6766546462334268820
+      rid: 1508221072478306526
     yEvaluator:
-      rid: 6766546462334268821
+      rid: 3359370096174956607
     optimizer:
       rid: 7236886930071748628
     changedSample: 
@@ -30,53 +30,35 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 6766546462334268818
-      type: {class: Colonies, ns: ISILab.AI.Categorization, asm: LBS}
+    - rid: 1508221072478306526
+      type: {class: DCSafeArea, ns: ISILab.AI.Categorization, asm: LBS}
       data:
-        itemCharacteristic:
-          rid: 6766546462907937414
-        maxDist: 6
-        minColonySize: 2
+        playerCharacteristic:
+          rid: 9086720506504152051
+        enemiesCharacteristic:
+          rid: 9086720506504152052
+    - rid: 3359370096174956607
+      type: {class: DCExploration, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        playerCharacteristic:
+          rid: 9086720506504152053
+        colliderCharacteristic:
+          rid: 9086720506504152054
+        pointsOfInterest:
+        - rid: 9086720506504152055
+        - rid: 9086720506504152056
+        - rid: 9086720506504152057
+        - rid: 9086720506504152058
+        - rid: 9086720506504152059
+        - rid: 9086720506504152060
         searchType: 1
-    - rid: 6766546462334268819
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Enemies
-          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
-          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
-    - rid: 6766546462334268820
-      type: {class: Colonies, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        itemCharacteristic:
-          rid: 6766546462334268819
-        maxDist: 6
-        minColonySize: 2
-        searchType: 2
-    - rid: 6766546462334268821
-      type: {class: Colonies, ns: ISILab.AI.Categorization, asm: LBS}
-      data:
-        itemCharacteristic:
-          rid: 6766546462334268819
-        maxDist: 6
-        minColonySize: 2
-        searchType: 2
-    - rid: 6766546462907937414
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Enemies
-          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
-          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
     - rid: 7236886930071748628
       type: {class: GeneticAlgorithm, ns: ISILab.LBS.Plugin.Core.AI.Optimization, asm: LBS}
       data:
         population:
           rid: 7236886930071748629
         evaluator:
-          rid: 6766546462334268818
+          rid: 7236886930071748633
         selection:
           rid: 7236886930071748630
         termination:
@@ -100,6 +82,13 @@ MonoBehaviour:
     - rid: 7236886930071748632
       type: {class: AreaCrossover, ns: ISILab.AI.Categorization, asm: LBS}
       data: 
+    - rid: 7236886930071748633
+      type: {class: DCSafeArea, ns: ISILab.AI.Categorization, asm: LBS}
+      data:
+        playerCharacteristic:
+          rid: 9086720506504152051
+        enemiesCharacteristic:
+          rid: 9086720506504152052
     - rid: 7236886930352242909
       type: {class: RoulleteWheelMutation, ns: ISILab.AI.Categorization, asm: LBS}
       data:
@@ -145,3 +134,83 @@ MonoBehaviour:
         mutation:
           rid: 7236886930352242925
         weight: 0.2
+    - rid: 9086720506504152051
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 975a57a1811d3f743838422b5c87c58a
+    - rid: 9086720506504152052
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Enemies
+          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
+          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
+    - rid: 9086720506504152053
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 975a57a1811d3f743838422b5c87c58a
+    - rid: 9086720506504152054
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Collider
+          value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
+          tagGUID: 261af09a46f50a647b4fb33a0e989c66
+    - rid: 9086720506504152055
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Chest
+          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
+          tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
+    - rid: 9086720506504152056
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Axe
+          value: {fileID: 11400000, guid: 90c0458b7a8ee514d9c7ba0ace177f05, type: 2}
+          tagGUID: 90c0458b7a8ee514d9c7ba0ace177f05
+    - rid: 9086720506504152057
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Hammer
+          value: {fileID: 11400000, guid: 1b5f81de2f3a4ac40a031e0d2f7ddd0b, type: 2}
+          tagGUID: 1b5f81de2f3a4ac40a031e0d2f7ddd0b
+    - rid: 9086720506504152058
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Sword
+          value: {fileID: 11400000, guid: b1c5ecf1473587a42ba9abcff06c1437, type: 2}
+          tagGUID: b1c5ecf1473587a42ba9abcff06c1437
+    - rid: 9086720506504152059
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Food
+          value: {fileID: 11400000, guid: b354587b73f945f4188c7dc7026de4ef, type: 2}
+          tagGUID: b354587b73f945f4188c7dc7026de4ef
+    - rid: 9086720506504152060
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Tree
+          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
+          tagGUID: 0147d0d479179b04a8c825d8159e70ce
