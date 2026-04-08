@@ -246,7 +246,7 @@ namespace ISILab.LBS.Manipulators
             if(e.keyCode == _adyacentZoneVisualKey)
             {
                 // Update visuals
-                //DrawManager.Instance.UpdateLayer(_schema.OwnerLayer);
+                DrawManager.Instance.UpdateLayer(_schema.OwnerLayer);
                 _adyacentZoneVisualKey = KeyCode.None;
             }
         }

@@ -54,6 +54,15 @@ namespace ISILab.LBS.Modules
                 {
                     if (position == pos) return stair;
                 }
+
+                Vector2Int entranceDir = stair.Positions[0] - stair.Positions[1];
+                for (int i = 1; i <= stair.Height; i++)
+                {
+                    if (position == stair.Positions[0] + entranceDir * i)
+                    {
+                        return stair;
+                    }
+                }
             }
             return null;
         }
