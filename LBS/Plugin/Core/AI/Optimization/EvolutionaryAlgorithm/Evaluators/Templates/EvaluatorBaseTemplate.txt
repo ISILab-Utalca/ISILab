@@ -21,9 +21,7 @@ namespace ISILab.AI.Categorization
 	    #CONFIGURATION_STATIC#
         /* Place here any LBSCharacteristic type field required for your evaluator to work. */
         #region CHARACTERISTIC FIELDS
-
-        [SerializeField, SerializeReference]
-        public LBSCharacteristic defaultCharacteristic;
+        #FIELDS_DECLARATION#
 
         #endregion
 
@@ -46,19 +44,16 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
-            /* Search for your tagged elements. */
-            int defaultCharacteristicIndex = -1;
+            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            List<TileBundleGroup> groups = new();
+
+            /* Search for your tagged elements. */#FIELDS_PRESEARCH#
             for (int i = 0; i < genes.Count; i++)
             {
                 if (chrom.IsInvalid(i))
                     continue;
                 if (genes[i] is not null)
-                {
-                    if (genes[i].HasTag(defaultCharacteristic.FirstTag()))
-                    {
-                        defaultCharacteristicIndex = i;
-                        break;
-                    }
+                {#FIELDS_SEARCH#
                 }
             }
 
@@ -81,9 +76,7 @@ namespace ISILab.AI.Categorization
         #region INITIALIZATION
 	    #CONTEXT_INITIALIZATION#
         public void InitializeDefault()
-        {
-            /* Initialize here all your LBSCharacteristic fields. */
-            defaultCharacteristic = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag("TAG NAME"));
+        {#FIELDS_INITIALIZATION#
         #CONFIGURATION_INITIALIZATION#}
 
         #endregion
@@ -91,8 +84,7 @@ namespace ISILab.AI.Categorization
         public object Clone()
         {
             var clone = new #SCRIPTNAME#();
-	        #CONTEXT_CLONE#
-            clone.defaultCharacteristic = defaultCharacteristic;
+	        #CONTEXT_CLONE##FIELDS_CLONATION#
             return clone;
         }
     }
