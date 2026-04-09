@@ -10,26 +10,32 @@ namespace ISILab.AI.Grammar
     [CreateAssetMenu(menuName = "ISILab/LBSGrammar")]
     public class LBSGrammar : ScriptableObject
     {
+        #region Fields
         [SerializeField]
-        public List<GrammarRule> LBSRules = new();
+        private GrammarData grammar;
 
         [SerializeField]
-        public List<GrammarTerminal> LBSTerminals = new();
-
         private List<string> terminals = new List<string>();
+        [SerializeField]        
         private List<string> rules = new List<string>();
 
+        [SerializeField]
+        private string pathGuid;
+        #endregion
+
+        #region PROPERTIES
+
+        public List<GrammarRule> LBSRules => Grammar.LBSRules;
+        public List<GrammarTerminal> LBSTerminals => Grammar.LBSTerminals;
 
         public List<string> TerminalActions
         {
             get
             {
-                if(terminals.Count == 0)
+                terminals.Clear();
+                foreach (var terminal in LBSTerminals)
                 {
-                    foreach (var terminal in LBSTerminals)
-                    {
-                        terminals.Add(terminal.id);
-                    }
+                    terminals.Add(terminal.id);
                 }
 
                 return terminals;
@@ -55,11 +61,58 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        bool isRule(string id)
+        public GrammarData Grammar
         {
-            return Rules.Contains(id);
+            get => grammar = grammar != null ? grammar : new GrammarData();
+            set
+            {
+                if(grammar != null && value == null)
+                {
+                    grammar.LBSTerminals.Clear();
+                    grammar.LBSRules.Clear();
+
+                    terminals.Clear();
+                    rules.Clear();
+                }
+
+                grammar = value;
+
+                // Rebuild cached lists
+                if(grammar != null)
+                {
+                    terminals = LBSTerminals.Select(t => t.id).ToList();
+                    rules = LBSRules.Select(r => r.id).ToList();
+                    Debug.Log($"[LBSGrammar] Loaded {rules.Count} rules and {terminals.Count} terminals.");
+                }
+
+
+#if UNITY_EDITOR
+                UnityEditor.EditorUtility.SetDirty(this);
+#endif
+            }
+
         }
 
+        public string PathGUID { get => pathGuid; set => pathGuid = value; }
+
+
+        #endregion
+
+
+        #region METHODS
+
+        public bool IsRule(string id) => Rules.Contains(id);
+        public bool IsTerminal(string id) => TerminalActions.Contains(id);
+
+
+        public GrammarTerminal GetTerminal(string id) => LBSTerminals.FirstOrDefault(t => t.id.Equals(id));
+        public GrammarRule GetRule(string id) => LBSRules.FirstOrDefault(r => r.id.Equals(id));
+        public object GetGrammarObject(string id)
+        {
+            if (IsRule(id)) return GetRule(id);
+            if (IsTerminal(id)) return GetTerminal(id);
+            return null;
+        }
 
         /// <summary>
         /// Recursively collects first terminal(s) from a rule.
@@ -76,7 +129,7 @@ namespace ISILab.AI.Grammar
                     {
                         if (ruleExpansion.Count == 0) continue;
                         string firstString = ruleExpansion[0];
-                        if (isRule(firstString))
+                        if (IsRule(firstString))
                         {
                             // if begins with a rule, then call recursively
                             firstString = GetFirstTerminals(firstString, firstTerminals).First();
@@ -105,7 +158,7 @@ namespace ISILab.AI.Grammar
                     {
                         if (ruleExpansion.Count == 0) continue;
                         string lastString = ruleExpansion.LastOrDefault();
-                        if (isRule(lastString))
+                        if (IsRule(lastString))
                         {
                             // if ends with a rule, then call recursively
                             lastString = GetLastTerminals(lastString, lastTerminals).First();
@@ -135,7 +188,7 @@ namespace ISILab.AI.Grammar
                     if(item.Count < 2) continue;
                     
                     var nextString = item.ElementAt(1);
-                    if (isRule(nextString))
+                    if (IsRule(nextString))
                     {
                         // next is a rule therefore we need the next terminal of the rule
                         nextString = GetFirstTerminals(nextString, nextTerminals).First();
@@ -169,10 +222,17 @@ namespace ISILab.AI.Grammar
             Debug.Log($"[LBSGrammar] Rule Entries Count: {LBSRules?.Count ?? 0}");
             foreach (var rule in LBSRules ?? new List<GrammarRule>())
             {
-                Debug.Log($"[LBSGrammar] Rule: {rule.ruleID}, Expansions: {rule.definitions?.Count ?? 0}");
-                foreach (var expansion in rule.definitions ?? new List<GrammarRule>())
+                Debug.Log($"[LBSGrammar] Rule: {rule.id}, Expansions: {rule.Expansions?.Count ?? 0}");
+                for (int i1 = 0; i1 < rule.Expansions.Count; i1++)
                 {
-                    Debug.Log($"[LBSGrammar]   Expansion: [{string.Join(", ", expansion.items ?? new List<string>())}]");
+                    List<string> expansion = rule.Expansions[i1];
+                    Debug.Log($"Expansion {i1}: ");
+                    for (int i = 0; i < expansion.Count; i++)
+                    {
+                        string item = expansion[i];
+                        if (i == 0) Debug.Log(item);
+                        else Debug.Log(" -> " + item);
+                    }
                 }
             }
         }
@@ -180,11 +240,12 @@ namespace ISILab.AI.Grammar
         // Ensure initialization of serialized fields
         private void OnEnable()
         {
+            
             terminals ??= new List<string>();
-            ruleEntries ??= new List<GrammarRule>();
+            rules ??= new List<string>();
         }
 
-    
+        #endregion
     }
 
 

@@ -12,109 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413f9f532ddefee4cb50a01f79231155, type: 3}
   m_Name: DefaultGrammar
   m_EditorClassIdentifier: 
-  terminalActions:
+  grammar: {fileID: 0}
+  terminals:
   - go to
   - explore
   - listen
   - read
-  - give
   - gather
   - exchange
-  - stealth
   - take
   - kill
   - capture
   - spy
   - report
-  ruleEntries:
-  - ruleID: Quest
-    expansions:
-    - items:
-      - Subquest
-    - items:
-      - Goto
-    - items:
-      - Learn
-    - items:
-      - Get
-    - items:
-      - Steal
-    - items:
-      - Kill
-    - items:
-      - Capture
-    - items:
-      - Spy
-  - ruleID: Subquest
-    expansions:
-    - items:
-      - Goto
-    - items:
-      - Goto
-      - Quest
-      - go to
-  - ruleID: Goto
-    expansions:
-    - items:
-      - explore
-    - items:
-      - Learn
-      - go to
-    - items:
-      - go to
-  - ruleID: Learn
-    expansions:
-    - items:
-      - Goto
-      - Subquest
-      - listen
-    - items:
-      - Goto
-      - Get
-      - read
-    - items:
-      - Get
-      - Subquest
-      - give
-      - listen
-  - ruleID: Get
-    expansions:
-    - items:
-      - Steal
-    - items:
-      - Goto
-      - gather
-    - items:
-      - Goto
-      - Get
-      - Goto
-      - Subquest
-      - exchange
-  - ruleID: Steal
-    expansions:
-    - items:
-      - Goto
-      - stealth
-      - take
-    - items:
-      - Goto
-      - Kill
-      - take
-  - ruleID: Kill
-    expansions:
-    - items:
-      - Goto
-      - kill
-  - ruleID: Capture
-    expansions:
-    - items:
-      - Get
-      - Goto
-      - capture
-  - ruleID: Spy
-    expansions:
-    - items:
-      - Goto
-      - spy
-      - Goto
-      - report
+  rules:
+  - Quest
+  - Subquest
+  - Goto
+  - Learn
+  - Get
+  - Steal
+  - Kill
+  - Capture
+  - Spy
+  pathGuid: 1cd76f1a51a1e7c41ace7edd8b63bd31

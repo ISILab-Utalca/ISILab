@@ -70,12 +70,11 @@
     </one-of>
   </rule>
 
-	<terminal id="Item">
+	<terminal id="take">
 		<field type="referenceType" name="Item Type" />
 		<field type="int" name="Item Amount" />
 		<field type="referenceGraph" name="Item in Level" />
-		<field type="List" />
-		<field type="float" name="Item Prices" />
+		<field type="List.int" name="Item Prices"/>
 	</terminal>
 
 </grammar>

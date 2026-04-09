@@ -1,29 +1,21 @@
+using ISILab.LBS.Macros;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 namespace ISILab.AI.Grammar
 {
-   
-    [Serializable]
-    public class GrammarRule
-    {
-        [SerializeField]
-        public string ruleID;
 
-        [SerializeField]
-        public List<GrammarRule> definitions = new();
-    }
 
     [Serializable]
-    public class GrammarStructure : ScriptableObject
+    public class GrammarData : ScriptableObject
     {
         [SerializeField]
-        public List<GrammarRule> Rules = new();
-
+        public List<GrammarRule> LBSRules = new();
         [SerializeField]
-        public List<GrammarTerminal> terminals = new();
+        public List<GrammarTerminal> LBSTerminals = new();
     }
 
     /// <summary>
@@ -40,15 +32,27 @@ namespace ISILab.AI.Grammar
     /// </summary>
 
     [Serializable]
-    public class GrammarRule
+    public abstract class GrammarElement : ScriptableObject
     {
+       
         [SerializeField]
         public string id;
 
-        [SerializeField]
-        public List<List<string>> Expansions = new();
+        public abstract VectorImage GetIcon();
     }
 
+    [Serializable]
+    public class GrammarRule : GrammarElement
+    {
+        private const string ruleIconGuid = "d7b2c9af591bee4429f705ae7ae6abea";
+
+        // a suequence of strings(id's of the terminal actions or rules)
+        [SerializeField]
+        public List<List<string>> Expansions = new();
+
+        public override VectorImage GetIcon() 
+            => LBSAssetMacro.LoadAssetByGuid<VectorImage>(ruleIconGuid);
+    }
 
     /// <summary>
     /// The action that gest added into the graph for example:
@@ -57,10 +61,18 @@ namespace ISILab.AI.Grammar
     ///     kill
     /// </summary>
     [Serializable]
-    public class GrammarTerminal : ScriptableObject
+    public class GrammarTerminal : GrammarElement
     {
-        public string id;
+        private const string defaultTerminalIcon = "bb0770b945366c94c822cf3255eb885d";
+
+        [SerializeField]
+        private string iconGuid = defaultTerminalIcon;
+
+        [SerializeField] 
         public List<GrammarField> fields = new();
+
+        public override VectorImage GetIcon()
+    => LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
     }
 
     [Serializable]
@@ -70,6 +82,22 @@ namespace ISILab.AI.Grammar
 
         public static GrammarField CreateField(string type, string name)
         {
+            // lists
+            if (type.StartsWith("List."))
+            {
+                string inner = type.Substring(5);
+                return inner switch
+                {
+                    "int" => new GrammarIntList { name = name },
+                    "float" => new GrammarFloatList { name = name },
+                    "string" => new GrammarStringList { name = name },
+                    "referenceType" => new GrammarTypeList { name = name },
+                    "referenceGraph" => new GrammarObjectList { name = name },
+                    _ => throw new Exception($"Unknown list type: {inner}")
+                };
+            }
+
+            // primitives
             return type switch
             {
                 "int" => new GrammarInt { name = name },
@@ -77,15 +105,9 @@ namespace ISILab.AI.Grammar
                 "string" => new GrammarString { name = name },
                 "referenceType" => new GrammarType { name = name },
                 "referenceGraph" => new GrammarObject { name = name },
-
-                "intList" => new GrammarIntList { name = name },
-                "floatList" => new GrammarFloatList { name = name },
-                "stringList" => new GrammarStringList { name = name },
-
                 _ => throw new Exception($"Unknown field type: {type}")
             };
         }
-
     }
 
 

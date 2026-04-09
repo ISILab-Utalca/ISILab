@@ -50,7 +50,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             if (edge?.From is null || edge.To is null) return false;
             
             var grammar = Graph.Grammar;
-            if (grammar == null || !grammar.RuleEntries.Any()) return false;
+            if (grammar == null || !grammar.LBSRules.Any()) return false;
 
             bool returnValid = false;
 
@@ -146,14 +146,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             // Step 2: Collect all relevant expansions
             HashSet<GrammarRule> itemsWithRule = new HashSet<GrammarRule>();
-            foreach (GrammarRule ruleEntry in grammar.RuleEntries)
+            foreach (GrammarRule ruleEntry in grammar.LBSRules)
             {
-                foreach (GrammarRule wrapper in ruleEntry.definitions)
+                foreach (var expansion in ruleEntry.Expansions)
                 {
                     // Include expansions with currentAction or its owning rules
-                    if (wrapper.items.Contains(currentAction) || owningRules.Any(rule => wrapper.items.Contains(rule)))
+                    if (expansion.Contains(currentAction) || owningRules.Any(rule => expansion.Contains(rule)))
                     {
-                        itemsWithRule.Add(wrapper);
+                        itemsWithRule.Add(ruleEntry);
                     }
                 }
             }
@@ -161,37 +161,42 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             // Step 3: Find next terminals
             foreach (var ruleItem in itemsWithRule)
             {
-                for (int i = 0; i < ruleItem.items.Count - 1; i++)
+                for (int i = 0; i < ruleItem.Expansions.Count - 1; i++)
                 {
-                    var current = ruleItem.items[i];
+                    var expansion = ruleItem.Expansions[i];
                     bool isCurrentAction = false;
 
                     // Check if current item matches currentAction or can produce it
-                    if (grammar.IsRuleRef(current))
+                    for (int j = 0; j < expansion.Count; j++)
                     {
-                        if (GetFirstTerminals(current, grammar).Contains(currentAction))
+                        string item = expansion[j];
+                        if (grammar.IsRule(item))
+                        {
+                            if (GetFirstTerminals(item, grammar).Contains(currentAction))
+                            {
+                                isCurrentAction = true;
+                            }
+                        }
+                        else if (expansion.Equals(currentAction))
                         {
                             isCurrentAction = true;
                         }
-                    }
-                    else if (current.Equals(currentAction))
-                    {
-                        isCurrentAction = true;
-                    }
 
-                    if (isCurrentAction)
-                    {
-                        var next = ruleItem.items[i + 1];
-                        if (grammar.IsRuleRef(next))
+                        if (isCurrentAction)
                         {
-                            // Add all first terminals of the next rule
-                            nextValidTerminals.UnionWith(GetFirstTerminals(next, grammar));
-                        }
-                        else
-                        {
-                            nextValidTerminals.Add(next);
+                            var next = expansion[j + 1];
+                            if (grammar.IsRule(next))
+                            {
+                                // Add all first terminals of the next rule
+                                nextValidTerminals.UnionWith(GetFirstTerminals(next, grammar));
+                            }
+                            else
+                            {
+                                nextValidTerminals.Add(next);
+                            }
                         }
                     }
+                  
                 }
             }
             
@@ -239,17 +244,18 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             if (grammar == null) return prevValidTerminals.ToList();
 
-            var rules = grammar.RuleEntries;
+            var rules = grammar.LBSRules;
 
             // Step 1: Check for the next as current
             foreach (var rule in rules)
             {
-                foreach (GrammarRule expansion in rule.definitions)
+                for (int j = 0; j < rule.Expansions.Count; j++)
                 {
-                    for (int i = 0; i < expansion.items.Count - 1; i++)
+                    List<string> expansion = rule.Expansions[j];
+                    for (int i = 0; i < expansion.Count - 1; i++)
                     {
-                        var next = expansion.items[i+1];
-                        if (grammar.IsRuleRef(next))
+                        var next = expansion[i+1];
+                        if (grammar.IsRule(next))
                         {
                             // if the next symbols a ruleRef get the first valid terminal
                             next = GetFirstTerminals(next, grammar).First();
@@ -257,8 +263,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         // if the next symbol is the action we are searching for
                         if (next.Equals(currentAction))
                         {
-                            var current = expansion.items[i];
-                            if (grammar.IsRuleRef(current))
+                            var current = expansion[i];
+                            if (grammar.IsRule(current))
                             {
                                 // if the first next a ruleRef get the first valid terminal
                                 current = GetFirstTerminals(current, grammar).First();
@@ -319,16 +325,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             foreach (var rule in GetOwningRules(currentAction))
             {
                 if(token.IsCancellationRequested) return allExpansions.ToList();
-                foreach (var ruleEntry in grammar.RuleEntries)
+                foreach (var ruleEntry in grammar.LBSRules)
                 {
                     if(token.IsCancellationRequested) return allExpansions.ToList();
-                    if (ruleEntry.ruleID.Equals(rule))
+                    if (ruleEntry.id.Equals(rule))
                     {
                         if(token.IsCancellationRequested) return allExpansions.ToList();
-                        foreach (var wrapper in ruleEntry.definitions)
+                        foreach (var expansion in ruleEntry.Expansions)
                         {
                             if(token.IsCancellationRequested) return allExpansions.ToList();
-                            expansions.Add(wrapper.items);
+                            expansions.Add(expansion);
                         }
                     }
                 }
@@ -377,32 +383,32 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             if (grammar == null) return new List<string>();
             
             HashSet<string> owningRules = new HashSet<string>();
-            foreach (GrammarRule ruleEntry in Graph.Grammar.RuleEntries)
+            foreach (GrammarRule ruleEntry in Graph.Grammar.LBSRules)
             {
-                foreach (GrammarRule ruleItem in ruleEntry.definitions)
+                foreach (var expansion in ruleEntry.Expansions)
                 {
                     // if the rule we are checking for is within the rule item
-                    if (ruleItem.items.Contains(rule))
+                    if (expansion.Contains(rule))
                     {
-                        owningRules.Add(ruleEntry.ruleID);
+                        owningRules.Add(ruleEntry.id);
                     }
                 }
             }
             return owningRules.ToList();
         }
         
-        public List<string> GetOwningRules(string currentAction)
+        public List<string> GetOwningRules(string terminal)
         {
             var grammar = Graph.Grammar;
             if (grammar == null) return new List<string>();
 
             HashSet<string> owners = new HashSet<string>();
             
-            foreach (GrammarRule ruleEntry in Graph.Grammar.RuleEntries)
+            foreach (GrammarRule rule in Graph.Grammar.LBSRules)
             {
-                foreach (GrammarRule item in ruleEntry.definitions)
+                foreach (var expansion in rule.Expansions)
                 {
-                    if(item.items.Contains(currentAction)) owners.Add(ruleEntry.ruleID);
+                    if(expansion.Contains(terminal)) owners.Add(rule.id);
                 }
             }
             

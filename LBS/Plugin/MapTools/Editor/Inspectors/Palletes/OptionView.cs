@@ -1,21 +1,13 @@
 using ISILab.Commons.Utility.Editor;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Behaviours.Editor;
 using ISILab.LBS.Macros;
-using ISILab.LBS.Modules;
-using ISILab.LBS.VisualElements;
 using UnityEditor.UIElements;
 
 
 namespace LBS.VisualElements
 {
-    
     [UxmlElement]
     public partial class OptionView : VisualElement
     {
@@ -27,15 +19,15 @@ namespace LBS.VisualElements
         private VisualElement frame;
         private VisualElement iconVisualElement;
         private ToolbarMenu _toolbar;
-        
+
         // Manipulator
         private Clickable clickableManipulator;
-        
+
         // Parameters backing fields
         private VectorImage icon;
         private Color frameColor = Color.black;
         private string labelText = "Item: 0";
-        
+
         public object target;
 
         public Action<object> OnSelect;
@@ -52,7 +44,7 @@ namespace LBS.VisualElements
             }
         }
 
-        
+
         [UxmlAttribute]
         public string Label
         {
@@ -131,15 +123,15 @@ namespace LBS.VisualElements
             this.style.flexGrow = 0;
 
         }
-        public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView): this()
+        public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView) : this()
         {
-      
-            clickableManipulator.clicked += () => { 
+
+            clickableManipulator.clicked += () => {
                 this.OnSelect?.Invoke(target);
             };
-            
+
             _toolbar = this.Q<ToolbarMenu>("ToolBar");
-            if(_toolbar != null)
+            if (_toolbar != null)
             {
                 _toolbar.menu.AppendAction("Delete Zone", action =>
                 {
@@ -147,7 +139,7 @@ namespace LBS.VisualElements
                 });
                 _toolbar.style.display = DisplayStyle.None;
             }
-            
+
             // Init Fields
             this.target = target;
 
@@ -156,9 +148,9 @@ namespace LBS.VisualElements
 
             this.OnSetView = onSetView;
             OnSetView?.Invoke(this, target);
-            
+
             RegisterCallback<MouseDownEvent>(OnMouseDown);
-            
+
         }
 
         private void OnMouseDown(MouseDownEvent evt)
@@ -179,7 +171,7 @@ namespace LBS.VisualElements
                 _toolbar.style.display = DisplayStyle.Flex;
                 _toolbar.ShowMenu();
             }
-            
+
         }
 
         private void DeleteZone(DropdownMenuAction obj, Action<object> Remove)
@@ -189,7 +181,7 @@ namespace LBS.VisualElements
 
         public void SetSelected(bool value)
         {
-            if(value)
+            if (value)
             {
 
                 AddToClassList("prop-state--checked");
@@ -200,4 +192,5 @@ namespace LBS.VisualElements
             }
         }
     }
+
 }
