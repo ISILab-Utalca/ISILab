@@ -18,7 +18,7 @@ namespace ISILab.AI.Categorization
         public string Tooltip => "#SPACED_SCRIPTNAME#\n\n" +
             "<b>NO DESCRIPTION PROVIDED</b>\n\n" +
             "Explain the purpose of your Custom Evaluator and how it works.\n\n"#CONTEXT_TOOLTIP#;
-	    #DISTANCE_PROPERTIES##CONFIGURATION_STATIC#
+	    #DISTANCE_PROPERTIES##PERMA_DECLARATION##CONFIGURATION_STATIC#
         /* Place here any LBSCharacteristic type field required for your evaluator to work. */
         #region CHARACTERISTIC FIELDS
         #FIELDS_DECLARATION#
@@ -43,20 +43,18 @@ namespace ISILab.AI.Categorization
             float fitness = 0;
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
-
-            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
-            List<TileBundleGroup> groups = new();
-
+            #PERMA_PRESEARCH#
             /* Search for your tagged elements. */#FIELDS_PRESEARCH#
             for (int i = 0; i < genes.Count; i++)
             {
                 if (chrom.IsInvalid(i))
                     continue;
+                bool found = false;
                 if (genes[i] is not null)
-                {#FIELDS_SEARCH#
+                {#FIELDS_SEARCH##PERMA_SEARCH#
                 }
             }
-            #DISTANCE_INITIALIZATION#
+            #PERMA_POSTSEARCH##DISTANCE_INITIALIZATION#
             /* FITNESS CALCULATION */
 	        #CONTEXT_EVALUATION_INVOKE#
             return fitness;
@@ -75,7 +73,7 @@ namespace ISILab.AI.Categorization
         public object Clone()
         {
             var clone = new #SCRIPTNAME#();
-	        #CONTEXT_CLONE##FIELDS_CLONATION##DISTANCE_CLONATION#
+	        #CONTEXT_CLONE##PERMA_CLONATION##FIELDS_CLONATION##DISTANCE_CLONATION#
             return clone;
         }
     }

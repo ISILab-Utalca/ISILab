@@ -6,6 +6,6 @@
             CombinedInteriorLayer = ctx.InteriorLayers(selection);
             CombinedExteriorLayer = ctx.ExteriorLayers(selection);
             CombinedPopulationLayer = ctx.PopulationLayers();
-	    
+	        #PERMA_INITIALIZATION#
             CombinedLayer = ctx.MergeExteriorWithInterior(CombinedExteriorLayer, CombinedInteriorLayer, selection);#PATHFIND_INITIALIZATION#
         }

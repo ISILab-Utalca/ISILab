@@ -21,6 +21,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         private const string CONTEXT_EVALUATION_IMPLEMENTATION  = "9a353f7f8804410468481a797379d177";
         private const string CONTEXT_INITIALIZATION             = "fe933b72bf108c7458ab832a8f20f7b7";
         private const string CONTEXT_CLONE                      = "031ce8d69170dc84c85ef06170623761";
+        
+        private const string PERMA_PRESEARCH                    = "8907b6a77d8857d4a95a084fd672c369";
+        private const string PERMA_SEARCH                       = "af0f63521f82f914680739ea6a8933f5";
 
         private const string DISTANCE_PROPERTIES                = "b7b22a7bedd067842a622a3390d0d648";
         private const string DISTANCE_INITIALIZATION            = "348db66a4f6642346b555447c1f9d6da";
@@ -64,6 +67,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     distance = context && true;
 
                 string fieldsDeclaration = "", fieldsInitialization = "", configurationLoad = "", configurationPreCreation = "", configurationCreation = "", fieldsClonation = "", tagPreSearch = "", tagSearch = "";
+                string permanentDeclaration = "", permanentPreSearch = "", permanentSearch = "", permanentPostSearch = "", permanentInitialization = "", permanentClonation = "";
                 typeCount.Clear();
                 List<System.Tuple<System.Type, bool>> fields = new() {
                     new(typeof(Characteristics.LBSCharacteristic), false),
@@ -75,24 +79,50 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 };
                 if (distance) fields.Insert(0, new(typeof(PathfindingAlgorithm), false));
                 string firstTagChar = null;
+                string permaCondition = "";
                 foreach(System.Tuple<System.Type, bool> type in fields)
                 {
-                    GetDummyField(type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string _tagPreSearch, out string _tagSearch, out string fieldFinalName);
+                    GetDummyField(type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string _tagPreSearch, out string _tagSearch, 
+                        out string permaDeclaration, out string permaPreSearch, out string permaSearch, out string permaPostSearch, out string permaInitialization, out string permaClonation,
+                        out string fieldFinalName);
 
-                    if (string.IsNullOrEmpty(firstTagChar) && type.Item1.Equals(typeof(Characteristics.LBSCharacteristic)))
-                        firstTagChar = fieldFinalName + "Ind";
+                    if(type.Item1.Equals(typeof(Characteristics.LBSCharacteristic)))
+                    {
+                        if(string.IsNullOrEmpty(firstTagChar))
+                            firstTagChar = fieldFinalName + "Ind";
+
+                        if (permaCondition.Length > 0)
+                            permaCondition += " || ";
+                        permaCondition += "perma" + fieldFinalName.UpperFirst() + " is null";
+                    }
+
+                    //if (string.IsNullOrEmpty(firstTagChar) && type.Item1.Equals(typeof(Characteristics.LBSCharacteristic)))
+                    //    firstTagChar = fieldFinalName + "Ind";
+
+                    //if(type.Item1.Equals)
+                    //if (permaCondition.Length > 0)
+                    //    permaCondition += " || ";
+                    //permaCondition += "perma" + fieldFinalName.UpperFirst() + " is null";
                     
-                    fieldsDeclaration += "\n\t\t" + declaration;
-                    fieldsInitialization += "\n\t\t\t" + initialization;
-                    configurationLoad += "\n\t\t\t" + load;
+                    fieldsDeclaration           += "\n\t\t"         + declaration;
+                    fieldsInitialization        += "\n\t\t\t"       + initialization;
+                    configurationLoad           += "\n\t\t\t"       + load;
                     if(preCreation.Length > 0)
                         configurationPreCreation += "\n\t\t\t" + preCreation;
-                    configurationCreation += "\n\t\t\t\t" + creation;
-                    fieldsClonation += "\n\t\t\t" + clonation;
-                    tagPreSearch += "\n\t\t\t" + _tagPreSearch;
-                    tagSearch += "\n\t\t\t\t\t" + _tagSearch;
+                    configurationCreation       += "\n\t\t\t\t"     + creation;
+                    fieldsClonation             += "\n\t\t\t"       + clonation;
+                    tagPreSearch                += "\n\t\t\t"       + _tagPreSearch;
+                    tagSearch                   += "\n\t\t\t\t\t"   + _tagSearch;
+
+                    permanentDeclaration        += "\n\t\t"         + permaDeclaration;
+                    permanentPreSearch          += "\n\t\t\t"       + permaPreSearch;
+                    permanentSearch             += "\n\t\t\t\t\t"     + permaSearch;
+                    permanentPostSearch         += "\n\t\t\t"       + permaPostSearch;
+                    permanentInitialization     += "\n\t\t\t"       + permaInitialization;
+                    permanentClonation          += "\n\t\t\t"       + permaClonation;
                 }
                 fieldsClonation += "\n";
+                permanentPreSearch = $"\n\t\t\tbool checkPermaIndices = {(permanentPreSearch.Length > 0 ? $"({permaCondition}) && bundleTM is not null;{permanentPreSearch}" : "false")}";
 
                 //Debug.Log(fieldsDeclaration);
                 //Debug.Log(fieldsInitialization);
@@ -106,34 +136,40 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 if (distance) interfaces += ", IDistanceEvaluator";
 
                 template = template
-                    .ReplaceOrErase ("#CONTEXT_NAMESPACES#"                 , GetText(CONTEXT_NAMESPACES)               , context)
-                    .ReplaceOrErase ("#CONFIGURATION_NAMESPACES#"           , GetText(CONFIGURATION_NAMESPACES)         , configurable)
+                    .ReplaceOrErase ("#CONTEXT_NAMESPACES#"                 , GetText(CONTEXT_NAMESPACES)                   , context)
+                    .ReplaceOrErase ("#CONFIGURATION_NAMESPACES#"           , GetText(CONFIGURATION_NAMESPACES)             , configurable)
                     .Replace        ("#SCRIPTNAME#"                         , className)
                     .Replace        ("#SPACED_SCRIPTNAME#"                  , className.AddSpacesToSentence() + " Evaluator")
                     .Replace        ("#INTERFACES#"                         , interfaces)
-                    .ReplaceOrErase ("#CONTEXT_PROPERTIES#"                 , GetText(CONTEXT_PROPERTIES)               , context)
-                    .ReplaceOrErase ("#CONTEXT_TOOLTIP#"                    , GetText(CONTEXT_TOOLTIP)                  , context)
-                    .ReplaceOrErase ("#CONTEXT_EVALUATION_INVOKE#"          , GetText(CONTEXT_EVALUATION_INVOKE)        , context)
-                    .ReplaceOrErase ("#CONTEXT_EVALUATION_IMPLEMENTATION#"  , GetText(CONTEXT_EVALUATION_IMPLEMENTATION), context)
-                    .ReplaceOrErase ("#CONTEXT_INITIALIZATION#"             , GetText(CONTEXT_INITIALIZATION)           , context)
-                    .ReplaceOrErase ("#CONTEXT_CLONE#"                      , GetText(CONTEXT_CLONE)                    , context)
-                    .ReplaceOrErase ("#DISTANCE_PROPERTIES#"                , GetText(DISTANCE_PROPERTIES)              , distance)
-                    .ReplaceOrErase ("#DISTANCE_INITIALIZATION#"            , GetText(DISTANCE_INITIALIZATION)          , distance)
-                    .ReplaceOrErase ("#DISTANCE_MEASURING#"                 , GetText(DISTANCE_MEASURING)               , distance)
-                    .ReplaceOrErase ("#DISTANCE_POST_MEASURING#"            , GetText(DISTANCE_POST_MEASURING)          , distance)
-                    .ReplaceOrErase ("#PATHFIND_INITIALIZATION#"            , GetText(PATHFIND_INITIALIZATION)          , distance)
-                    .ReplaceOrErase ("#DISTANCE_CLONATION#"                 , GetText(DISTANCE_CLONATION)               , distance)
+                    .ReplaceOrErase ("#CONTEXT_PROPERTIES#"                 , GetText(CONTEXT_PROPERTIES)                   , context)
+                    .ReplaceOrErase ("#CONTEXT_TOOLTIP#"                    , GetText(CONTEXT_TOOLTIP)                      , context)
+                    .ReplaceOrErase ("#CONTEXT_EVALUATION_INVOKE#"          , GetText(CONTEXT_EVALUATION_INVOKE)            , context)
+                    .ReplaceOrErase ("#CONTEXT_EVALUATION_IMPLEMENTATION#"  , GetText(CONTEXT_EVALUATION_IMPLEMENTATION)    , context)
+                    .ReplaceOrErase ("#CONTEXT_INITIALIZATION#"             , GetText(CONTEXT_INITIALIZATION)               , context)
+                    .ReplaceOrErase ("#CONTEXT_CLONE#"                      , GetText(CONTEXT_CLONE)                        , context)
+                    .ReplaceOrErase ("#PERMA_DECLARATION#"                  , permanentDeclaration                          , context)
+                    .ReplaceOrErase ("#PERMA_PRESEARCH#"                    , GetText(PERMA_PRESEARCH) + permanentPreSearch , context)
+                    .ReplaceOrErase ("#PERMA_SEARCH#"                       , GetText(PERMA_SEARCH) + permanentSearch       , context)
+                    .ReplaceOrErase ("#PERMA_POSTSEARCH#"                   , permanentPostSearch                           , context)
+                    .ReplaceOrErase ("#PERMA_INITIALIZATION#"               , permanentInitialization                       , context)
+                    .ReplaceOrErase ("#PERMA_CLONATION#"                    , permanentClonation                            , context)
+                    .ReplaceOrErase ("#DISTANCE_PROPERTIES#"                , GetText(DISTANCE_PROPERTIES)                  , distance)
+                    .ReplaceOrErase ("#DISTANCE_INITIALIZATION#"            , GetText(DISTANCE_INITIALIZATION)              , distance)
+                    .ReplaceOrErase ("#DISTANCE_MEASURING#"                 , GetText(DISTANCE_MEASURING)                   , distance)
+                    .ReplaceOrErase ("#DISTANCE_POST_MEASURING#"            , GetText(DISTANCE_POST_MEASURING)              , distance)
+                    .ReplaceOrErase ("#PATHFIND_INITIALIZATION#"            , GetText(PATHFIND_INITIALIZATION)              , distance)
+                    .ReplaceOrErase ("#DISTANCE_CLONATION#"                 , GetText(DISTANCE_CLONATION)                   , distance)
                     .Replace        ("#FIRST_TAGCHAR#"                      , firstTagChar ?? "new()")
-                    .ReplaceOrErase ("#CONFIGURATION_STATIC#"               , GetText(CONFIGURATION_STATIC)             , configurable)
-                    .ReplaceOrErase ("#CONFIGURATION_INITIALIZATION#"       , GetText(CONFIGURATION_INITIALIZATION)     , configurable)
-                    .ReplaceOrErase ("#CONFIGURATION_IMPLEMENTATION#"       , GetText(CONFIGURATION_IMPLEMENTATION)     , configurable)
+                    .ReplaceOrErase ("#CONFIGURATION_STATIC#"               , GetText(CONFIGURATION_STATIC)                 , configurable)
+                    .ReplaceOrErase ("#CONFIGURATION_INITIALIZATION#"       , GetText(CONFIGURATION_INITIALIZATION)         , configurable)
+                    .ReplaceOrErase ("#CONFIGURATION_IMPLEMENTATION#"       , GetText(CONFIGURATION_IMPLEMENTATION)         , configurable)
                     .Replace        ("#FIELDS_DECLARATION#"                 , fieldsDeclaration)
                     .Replace        ("#FIELDS_PRESEARCH#"                   , tagPreSearch)
                     .Replace        ("#FIELDS_SEARCH#"                      , tagSearch)
                     .Replace        ("#FIELDS_INITIALIZATION#"              , fieldsInitialization)
-                    .ReplaceOrErase ("#FIELDS_LOAD#"                        , configurationLoad                         , configurable)
-                    .ReplaceOrErase ("#FIELDS_PRECREATION#"                 , configurationPreCreation                  , configurable)
-                    .ReplaceOrErase ("#FIELDS_CREATION#"                    , configurationCreation                     , configurable)
+                    .ReplaceOrErase ("#FIELDS_LOAD#"                        , configurationLoad                             , configurable)
+                    .ReplaceOrErase ("#FIELDS_PRECREATION#"                 , configurationPreCreation                      , configurable)
+                    .ReplaceOrErase ("#FIELDS_CREATION#"                    , configurationCreation                         , configurable)
                     .Replace        ("#FIELDS_CLONATION#"                   , fieldsClonation);
                 File.WriteAllText(path, template);
 
@@ -161,15 +197,19 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
         // Dummies. Dummies! DUMMIES! Remember how I said NOT to shoot at me? - Mad Dummy (2015)
         static Dictionary<System.Tuple<System.Type, bool>, int> typeCount = new();
-        private static void GetDummyField(System.Tuple<System.Type, bool> type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string preTagSearch, out string tagSearch, out string finalName, string name = "")
+        private static void GetDummyField(System.Tuple<System.Type, bool> type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string preTagSearch, out string tagSearch,
+            out string permaDeclaration, out string permaPreSearch, out string permaSearch, out string permaPostSearch, out string permaInitialization, out string permaClonation,
+            out string finalName, string name = "")
         {
-            declaration = initialization = load = preCreation = creation = clonation = preTagSearch = tagSearch = "";
+            declaration = initialization = load = preCreation = creation = clonation = preTagSearch = tagSearch
+                = permaDeclaration = permaPreSearch = permaSearch = permaPostSearch = permaInitialization = permaClonation = "";
             if (string.IsNullOrWhiteSpace(name))
             {
                 if (typeCount.ContainsKey(type)) typeCount[type]++;
                 else typeCount.Add(type, 1);
                 name = $"{type.Item1.Name}{(type.Item2 ? "List" : "")}Field{(char)(64 + typeCount[type])}";
             }
+            string permaName = "perma" + name.UpperFirst();
 
             switch (type.Item1.Name)
             {
@@ -193,8 +233,20 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     tagSearch = $"if(genes[i].HasTag({name}.FirstTag()))\n" +
                         $"\t\t\t\t\t{{\n" +
                         $"\t\t\t\t\t\t{name}Ind.Add(i);\n" +
+                        $"\t\t\t\t\t\tfound = true;\n" +
                         //$"\t\t\t\t\t\tcontinue;\n" +
                         $"\t\t\t\t\t}}";
+
+                    permaDeclaration = $"private List<int> {permaName} = null;";
+                    permaPreSearch = $"{permaName} ??= new List<int>();";
+                    permaSearch = $"if(group.BundleData.HasTag({name}.FirstTag()))\n" +
+                        $"\t\t\t\t\t{{\n" +
+                        $"\t\t\t\t\t\t{permaName}.Add(i);\n" +
+                        $"\t\t\t\t\t\tgroups.Add(group);\n" +
+                        $"\t\t\t\t\t}}";
+                    permaPostSearch = $"{name}Ind.AddRange({permaName});";
+                    permaInitialization = $"{permaName} = null;";
+                    permaClonation = $"clone.{permaName} = {permaName};";
                     break;
 
                 case nameof(Characteristics.LBSCharacteristic) when type.Item2:
@@ -216,9 +268,21 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         $"\t\t\t\t\t\tif(genes[i].HasTag(LBSChar.FirstTag()))\n" +
                         $"\t\t\t\t\t\t{{\n" +
                         $"\t\t\t\t\t\t\t{name}Ind.Add(i);\n" +
+                        $"\t\t\t\t\t\t\tfound = true;\n" +
                         $"\t\t\t\t\t\t\tbreak;\n" +
                         $"\t\t\t\t\t\t}}\n" +
                         $"\t\t\t\t\t}}";
+
+                    permaDeclaration = $"private List<int> {permaName} = null;";
+                    permaPreSearch = $"{permaName} ??= new List<int>();";
+                    permaSearch = $"if({name}.Any(cha => cha is not null && group.BundleData.HasTag(cha.FirstTag())))\n" +
+                        $"\t\t\t\t\t{{\n" +
+                        $"\t\t\t\t\t\t{permaName}.Add(i);\n" +
+                        $"\t\t\t\t\t\tgroups.Add(group);\n" +
+                        $"\t\t\t\t\t}}";
+                    permaPostSearch = $"{name}Ind.AddRange({permaName});";
+                    permaInitialization = $"{permaName} = null;";
+                    permaClonation = $"clone.{permaName} = {permaName};";
                     break;
 
                 case nameof(System.Int32):
