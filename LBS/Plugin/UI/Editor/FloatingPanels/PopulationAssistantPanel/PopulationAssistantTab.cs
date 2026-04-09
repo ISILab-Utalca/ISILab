@@ -182,10 +182,8 @@ namespace ISILab.LBS.Editor
             evaluatorGeneratorOpenEvFolderButton = this.Q<LBSCustomButton>("evGenOpenFolderButton");
             evaluatorGeneratorOpenEvFolderButton.RegisterCallback<ClickEvent>(OpenEvaluatorsFolder);
 
-
             InitEvaluatorsList();
             ResetEvaluatorGen();
-
         }
         #endregion
 
@@ -405,18 +403,32 @@ namespace ISILab.LBS.Editor
                 if (evData.name == baseName) isUniqueName = false;
             }
 
-            Debug.Log(isUniqueName);
             return isUniqueName;
         }
 
         public void GenerateEvaluator(ClickEvent evt)
         {
-            EvaluatorData finalEvData = ReturnEvDataWUniqueName(GetEvGenData());
-            evaluatorsList.Add(finalEvData);
-            UpdateSingleEvaluator(finalEvData);
-            
-            //llamar al creador de evaluadores y entregarle finalEvData
-            // double it and pass it to the seba
+            string cleanName = GetEvGenData().name.Trim();
+            if (!string.IsNullOrWhiteSpace(cleanName))
+            {
+                EvaluatorData finalEvData = GetEvGenData();
+                finalEvData.name = cleanName;
+                finalEvData = ReturnEvDataWUniqueName(finalEvData);
+
+                evaluatorsList.Add(finalEvData);
+                UpdateSingleEvaluator(finalEvData);
+
+                //llamar al creador de evaluadores y entregarle finalEvData
+                // double it and pass it to the seba
+            }
+            else
+            {
+                bool confirm = EditorUtility.DisplayDialog(
+                    "Error",                                                   // Título
+                    "Evaluator's name caanot be empty",   // Mensaje
+                    "OK"                                                       // Botón de cancelar
+                );
+            }
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)

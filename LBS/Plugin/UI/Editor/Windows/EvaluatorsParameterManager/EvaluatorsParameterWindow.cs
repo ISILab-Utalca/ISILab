@@ -1,3 +1,4 @@
+using ISILab.Commons.Utility.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,15 +17,28 @@ public class EvaluatorsParameterWindow : EditorWindow
 
     public void CreateGUI()
     {
-        // Each editor window contains a root VisualElement object
-        VisualElement root = rootVisualElement;
+        // 1. Clonar el UXML
+        var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("EvaluatorsParameterWindow");
+        if (visualTree != null)
+            visualTree.CloneTree(rootVisualElement);
 
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
+        // 2. CARGAR EL ESTILO (Aquí está la magia que te falta)
+        // Busca el archivo .uss por nombre. Asegúrate que el nombre coincida con tu archivo de estilos.
+        var styleSheet = DirectoryTools.GetAssetByName<StyleSheet>("LBSMainTheme");
 
-        // Instantiate UXML
-        VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
-        root.Add(labelFromUXML);
+        if (styleSheet != null)
+        {
+            rootVisualElement.styleSheets.Add(styleSheet);
+        }
+        
+        /*
+        else
+        {
+            // Si el estilo de la pestaña anterior es el que quieres, búscalo por su nombre original
+            var originalStyle = DirectoryTools.GetAssetByName<StyleSheet>("PopulationAssistantWindow");
+            if (originalStyle != null)
+                rootVisualElement.styleSheets.Add(originalStyle);
+        }
+        */
     }
 }
