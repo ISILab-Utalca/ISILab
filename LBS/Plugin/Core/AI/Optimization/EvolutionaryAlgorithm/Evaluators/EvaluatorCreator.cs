@@ -41,19 +41,22 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         private const string VE_CONFIGURATION_BUTTON_A          = "d2924a739a65cc843ab252dcb722bce8";
         private const string VE_CONFIGURATION_BUTTON_B          = "46f9cb89963ffd84985985e0c66bccba";
 
-        [MenuItem("Assets/Create/Scripting/ISI Lab/Configurable Evaluator")]
-        public static void CreateConfigurableEvaluator()
+        //[MenuItem("Assets/Create/Scripting/ISI Lab/Configurable Evaluator")]
+        public static void CreateConfigurableEvaluator() => CreateConfigurableEvaluator("", false, false, false);
+        public static void CreateConfigurableEvaluator(string name, bool configurable, bool context, bool distance)
         {
-            string evaluatorsFolder = LBSSettings.Instance.paths.baseFolderPath + "/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators";
+            string evaluatorsFolder = LBSSettings.Instance.paths.evaluatorsPath;
+            string evaluatorsVEsFolder = LBSSettings.Instance.paths.baseFolderPath + "/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators";
 
-            string path = EditorUtility.SaveFilePanelInProject(
-                "Create new evaluator class",
-                "CustomEvaluator",
-                "cs",
-                "Choose a location to save the new evaluator.",
-                evaluatorsFolder
-            );
-
+            string path = evaluatorsFolder + Path.DirectorySeparatorChar + name + ".cs";
+            //    EditorUtility.SaveFilePanelInProject(
+            //    "Create new evaluator class",
+            //    "CustomEvaluator",
+            //    "cs",
+            //    "Choose a location to save the new evaluator.",
+            //    evaluatorsFolder
+            //);
+            
             EditorApplication.delayCall += () =>
             {
                 if (string.IsNullOrEmpty(path))
@@ -62,20 +65,18 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 string template = GetText(BASE_TEMPLATE);
                 string className = Path.GetFileNameWithoutExtension(path);
 
-                bool context = true,
-                    configurable = true,
-                    distance = context && true;
+                if(!context) distance = false;
 
                 string fieldsDeclaration = "", fieldsInitialization = "", configurationLoad = "", configurationPreCreation = "", configurationCreation = "", fieldsClonation = "", tagPreSearch = "", tagSearch = "";
                 string permanentDeclaration = "", permanentPreSearch = "", permanentSearch = "", permanentPostSearch = "", permanentInitialization = "", permanentClonation = "";
                 typeCount.Clear();
                 List<System.Tuple<System.Type, bool>> fields = new() {
-                    new(typeof(Characteristics.LBSCharacteristic), false),
-                    new(typeof(Characteristics.LBSCharacteristic), true),
-                    new(typeof(Characteristics.LBSCharacteristic), true),
-                    new(typeof(Characteristics.LBSCharacteristic), false),
-                    new(typeof(int), false),
-                    new(typeof(float), false)
+                    //new(typeof(Characteristics.LBSCharacteristic), false),
+                    //new(typeof(Characteristics.LBSCharacteristic), true),
+                    //new(typeof(Characteristics.LBSCharacteristic), true),
+                    //new(typeof(Characteristics.LBSCharacteristic), false),
+                    //new(typeof(int), false),
+                    //new(typeof(float), false)
                 };
                 if (distance) fields.Insert(0, new(typeof(PathfindingAlgorithm), false));
                 string firstTagChar = null;
@@ -84,7 +85,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 {
                     GetDummyField(type, out string declaration, out string initialization, out string load, out string preCreation, out string creation, out string clonation, out string _tagPreSearch, out string _tagSearch, 
                         out string permaDeclaration, out string permaPreSearch, out string permaSearch, out string permaPostSearch, out string permaInitialization, out string permaClonation,
-                        out string fieldFinalName);
+                        out string fieldFinalName, name);
 
                     if(type.Item1.Equals(typeof(Characteristics.LBSCharacteristic)))
                     {
@@ -122,7 +123,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     permanentClonation          += "\n\t\t\t"       + permaClonation;
                 }
                 fieldsClonation += "\n";
-                permanentPreSearch = $"\n\t\t\tbool checkPermaIndices = {(permanentPreSearch.Length > 0 ? $"({permaCondition}) && bundleTM is not null;{permanentPreSearch}" : "false")}";
+                permanentPreSearch = $"\n\t\t\tbool checkPermaIndices = {(string.IsNullOrWhiteSpace(permanentPreSearch) ? "false;" : $"({permaCondition}) && bundleTM is not null;{permanentPreSearch}")}";
 
                 //Debug.Log(fieldsDeclaration);
                 //Debug.Log(fieldsInitialization);
@@ -173,7 +174,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     .Replace        ("#FIELDS_CLONATION#"                   , fieldsClonation);
                 File.WriteAllText(path, template);
 
-                string VEPath = evaluatorsFolder + "/Editor/" + className + "VE.cs";
+                string VEPath = evaluatorsVEsFolder + "/Editor/" + className + "VE.cs";
 
                 string VE = GetText(VISUAL_ELEMENT_GUID)
                     .ReplaceOrErase ("#CONFIGURATION_NAMESPACES#"   , GetText(VE_CONFIGURATION_NAMESPACES)  , configurable)

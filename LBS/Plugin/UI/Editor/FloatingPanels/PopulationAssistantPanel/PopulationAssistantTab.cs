@@ -414,9 +414,11 @@ namespace ISILab.LBS.Editor
             EvaluatorData finalEvData = ReturnEvDataWUniqueName(GetEvGenData());
             evaluatorsList.Add(finalEvData);
             UpdateSingleEvaluator(finalEvData);
-            
+
             //llamar al creador de evaluadores y entregarle finalEvData
             // double it and pass it to the seba
+
+            EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)
