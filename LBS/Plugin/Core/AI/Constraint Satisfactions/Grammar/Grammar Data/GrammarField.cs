@@ -1,79 +1,8 @@
-using ISILab.LBS.Macros;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 namespace ISILab.AI.Grammar
 {
-
-
-    [Serializable]
-    public class GrammarData : ScriptableObject
-    {
-        [SerializeField]
-        public List<GrammarRule> LBSRules = new();
-        [SerializeField]
-        public List<GrammarTerminal> LBSTerminals = new();
-    }
-
-    /// <summary>
-    /// A rule contains definitions, which would be used to expand the rule into terminal actions
-    /// or more rules within. For example:
-    /// GoTo:
-    ///     go to
-    ///     go to -> explore
-    ///     Get -> go to
-    ///     
-    /// Get:
-    ///     go to -> steal
-    ///     go to -> take
-    /// </summary>
-
-    [Serializable]
-    public abstract class GrammarElement : ScriptableObject
-    {
-       
-        [SerializeField]
-        public string id;
-
-        public abstract VectorImage GetIcon();
-    }
-
-    [Serializable]
-    public class GrammarRule : GrammarElement
-    {
-        private const string ruleIconGuid = "d7b2c9af591bee4429f705ae7ae6abea";
-
-        // a suequence of strings(id's of the terminal actions or rules)
-        [SerializeField]
-        public List<List<string>> Expansions = new();
-
-        public override VectorImage GetIcon() 
-            => LBSAssetMacro.LoadAssetByGuid<VectorImage>(ruleIconGuid);
-    }
-
-    /// <summary>
-    /// The action that gest added into the graph for example:
-    ///     go to
-    ///     explore
-    ///     kill
-    /// </summary>
-    [Serializable]
-    public class GrammarTerminal : GrammarElement
-    {
-        private const string defaultTerminalIcon = "bb0770b945366c94c822cf3255eb885d";
-
-        [SerializeField]
-        private string iconGuid = defaultTerminalIcon;
-
-        [SerializeField] 
-        public List<GrammarField> fields = new();
-
-        public override VectorImage GetIcon()
-    => LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
-    }
 
     [Serializable]
     public class GrammarField
@@ -109,7 +38,6 @@ namespace ISILab.AI.Grammar
             };
         }
     }
-
 
 
 

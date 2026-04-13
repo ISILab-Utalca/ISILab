@@ -12,7 +12,9 @@ namespace ISILab.AI.Grammar
     {
         #region Fields
         [SerializeField]
-        private GrammarData grammar;
+        public List<GrammarRule> lbsRules = new();
+        [SerializeField]
+        public List<GrammarTerminal> lbsTerminals = new();
 
         [SerializeField]
         private List<string> terminals = new List<string>();
@@ -25,8 +27,8 @@ namespace ISILab.AI.Grammar
 
         #region PROPERTIES
 
-        public List<GrammarRule> LBSRules => Grammar.LBSRules;
-        public List<GrammarTerminal> LBSTerminals => Grammar.LBSTerminals;
+        public List<GrammarRule> LBSRules => lbsRules;
+        public List<GrammarTerminal> LBSTerminals => lbsTerminals;
 
         public List<string> TerminalActions
         {
@@ -61,38 +63,6 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        public GrammarData Grammar
-        {
-            get => grammar = grammar != null ? grammar : new GrammarData();
-            set
-            {
-                if(grammar != null && value == null)
-                {
-                    grammar.LBSTerminals.Clear();
-                    grammar.LBSRules.Clear();
-
-                    terminals.Clear();
-                    rules.Clear();
-                }
-
-                grammar = value;
-
-                // Rebuild cached lists
-                if(grammar != null)
-                {
-                    terminals = LBSTerminals.Select(t => t.id).ToList();
-                    rules = LBSRules.Select(r => r.id).ToList();
-                    Debug.Log($"[LBSGrammar] Loaded {rules.Count} rules and {terminals.Count} terminals.");
-                }
-
-
-#if UNITY_EDITOR
-                UnityEditor.EditorUtility.SetDirty(this);
-#endif
-            }
-
-        }
-
         public string PathGUID { get => pathGuid; set => pathGuid = value; }
 
 
@@ -125,10 +95,10 @@ namespace ISILab.AI.Grammar
                 // found the rule we need
                 if (rule.id.Equals(ruleName))
                 {
-                    foreach (var ruleExpansion in rule.Expansions)
+                    foreach (var expansion in rule.Expansions)
                     {
-                        if (ruleExpansion.Count == 0) continue;
-                        string firstString = ruleExpansion[0];
+                        if (expansion.sequence.Count == 0) continue;
+                        string firstString = expansion.sequence[0];
                         if (IsRule(firstString))
                         {
                             // if begins with a rule, then call recursively
@@ -154,10 +124,10 @@ namespace ISILab.AI.Grammar
                 // found the rule we need
                 if (rule.id.Equals(ruleName))
                 {
-                    foreach (var ruleExpansion in rule.Expansions)
+                    foreach (var expansion in rule.Expansions)
                     {
-                        if (ruleExpansion.Count == 0) continue;
-                        string lastString = ruleExpansion.LastOrDefault();
+                        if (expansion.sequence.Count == 0) continue;
+                        string lastString = expansion.sequence.LastOrDefault();
                         if (IsRule(lastString))
                         {
                             // if ends with a rule, then call recursively
@@ -185,9 +155,9 @@ namespace ISILab.AI.Grammar
                 {
                     // we try to get the next value in the expansion
                     var item = ruleExpansion.Expansions.ElementAt(0);
-                    if(item.Count < 2) continue;
+                    if(item.sequence.Count < 2) continue;
                     
-                    var nextString = item.ElementAt(1);
+                    var nextString = item.sequence.ElementAt(1);
                     if (IsRule(nextString))
                     {
                         // next is a rule therefore we need the next terminal of the rule
@@ -223,10 +193,10 @@ namespace ISILab.AI.Grammar
             foreach (var rule in LBSRules ?? new List<GrammarRule>())
             {
                 Debug.Log($"[LBSGrammar] Rule: {rule.id}, Expansions: {rule.Expansions?.Count ?? 0}");
-                for (int i1 = 0; i1 < rule.Expansions.Count; i1++)
+                for (int j = 0; j < rule.Expansions.Count; j++)
                 {
-                    List<string> expansion = rule.Expansions[i1];
-                    Debug.Log($"Expansion {i1}: ");
+                    List<string> expansion = rule.Expansions[j].sequence;
+                    Debug.Log($"Expansion {j}: ");
                     for (int i = 0; i < expansion.Count; i++)
                     {
                         string item = expansion[i];

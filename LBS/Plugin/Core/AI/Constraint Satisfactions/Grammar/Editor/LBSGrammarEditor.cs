@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Speech.Recognition;
+using System.Xml.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -25,7 +26,11 @@ namespace ISILab.LBS.VisualElements
         private LBSGrammar grammar;
 
         private TreeView rulesTree;
-        private ListView terminalList;
+        
+        private VisualElement terminals;
+        private const int columns = 6;
+
+
         private ObjectField grammarFileField;
         private Button processButton;
 
@@ -33,7 +38,7 @@ namespace ISILab.LBS.VisualElements
 
         private void OnEnable()
         {
-            Reload();
+            CreateInspectorGUI();
         }
 
         private void Reload()
@@ -54,7 +59,7 @@ namespace ISILab.LBS.VisualElements
             grammar = (LBSGrammar)target;
 
             rulesTree = root.Q<TreeView>("RulesTree");
-            terminalList = root.Q<ListView>("TerminalList");
+            terminals = root.Q<VisualElement>("Terminals");
             grammarFileField = root.Q<ObjectField>("GrammarFileField");
             processButton = root.Q<Button>("ProcessButton");
 
@@ -70,6 +75,17 @@ namespace ISILab.LBS.VisualElements
             processButton.clicked += ProcessGrammarFile;
         }
 
+        private void ClearSubAssets()
+        {
+            string path = AssetDatabase.GetAssetPath(grammar);
+            var subAssets = AssetDatabase.LoadAllAssetsAtPath(path);
+            foreach (var asset in subAssets)
+            {
+                if (asset == grammar) continue;
+                UnityEngine.Object.DestroyImmediate(asset, true);
+            }
+        }
+
         private void ProcessGrammarFile()
         {
             try
@@ -80,19 +96,11 @@ namespace ISILab.LBS.VisualElements
                     return;
                 }
 
-                grammar.Grammar = null;
                 var asset = grammarFileField.value;
-
-                string assetPath = AssetDatabase.GetAssetPath(asset);
-                var structure = LBSGrammarReader.ReadGrammar(assetPath);
-
-
-                structure.LBSTerminals = SaveTerminalAssets(
-                    grammar,
-                    structure.LBSTerminals
-                );
-
-                grammar.Grammar = structure;
+                ClearSubAssets();
+                string path = AssetDatabase.GetAssetPath(asset);
+              
+                LBSGrammarReader.ReadGrammar(grammar, path);
                 grammar.PathGUID = LBSAssetMacro.GetGuidFromAsset(asset);
 
                 UnityEditor.EditorUtility.SetDirty(grammar);
@@ -106,64 +114,12 @@ namespace ISILab.LBS.VisualElements
                 
                 LBSLog log = new LBSLog("New LBS Grammar Generated Successfully.");
                 LBSMainWindow.MessageNotify(log);
-                Debug.Log($"Grammar imported with {structure.LBSRules.Count} rules and {structure.LBSTerminals.Count} terminal actions.");
+                Debug.Log($"Grammar imported with {grammar.LBSRules.Count} rules and {grammar.LBSTerminals.Count} terminal actions.");
             }
             catch (Exception ex)
             {
                 Debug.LogError("Import failed: " + ex.Message);
             }
-        }
-
-        private static string GetTerminalFolderPath(UnityEngine.Object grammarAsset)
-        {
-            string grammarPath = AssetDatabase.GetAssetPath(grammarAsset);
-            string folder = System.IO.Path.GetDirectoryName(grammarPath);
-            string terminalFolder = System.IO.Path.Combine(folder, "Terminals");
-
-            if (!AssetDatabase.IsValidFolder(terminalFolder))
-            {
-                AssetDatabase.CreateFolder(folder, "Terminals");
-            }
-
-            return terminalFolder;
-        }
-
-        private static List<GrammarTerminal> SaveTerminalAssets(
-           UnityEngine.Object grammarAsset,
-           List<GrammarTerminal> parsedTerminals)
-        {
-            string folder = GetTerminalFolderPath(grammarAsset);
-
-            var result = new List<GrammarTerminal>();
-
-            foreach (var terminal in parsedTerminals)
-            {
-                string assetPath = $"{folder}/{terminal.id}.asset";
-                var existing = AssetDatabase.LoadAssetAtPath<GrammarTerminal>(assetPath);
-
-                if (existing == null)
-                {
-     
-                    var newTerminal = ScriptableObject.CreateInstance<GrammarTerminal>();
-                    newTerminal.id = terminal.id;
-                    newTerminal.fields = terminal.fields;
-
-                    AssetDatabase.CreateAsset(newTerminal, assetPath);
-                    result.Add(newTerminal);
-                }
-                else
-                {
-                    existing.fields = terminal.fields;
-
-                    EditorUtility.SetDirty(existing);
-                    result.Add(existing);
-                }
-            }
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-
-            return result;
         }
 
         private void BindObjectField()
@@ -196,6 +152,7 @@ namespace ISILab.LBS.VisualElements
         private void BindRules()
         {
             if (rulesTree == null) return;
+            rulesTree.Clear();
             if (grammar.LBSRules == null || grammar.LBSRules.Count == 0) return;
 
             var items = new List<TreeViewItemData<object>>();
@@ -241,33 +198,21 @@ namespace ISILab.LBS.VisualElements
                 // top most rule
                 if (data is GrammarRule rule)
                 {
-                    OptionView option = new OptionView();
-                    option.Target = rule;
-                    option.Label = rule.id;
-                    option.Icon = rule.GetIcon();
-                    element.Add(option);
+                    element.Add(OptionGrammarView(rule));
                     return;
                 }
 
                 // expansions
-                if (data is List<string> expansion)
+                if (data is GrammarExpansion expansion)
                 {
-                    for (int t = 0; t < expansion.Count; t++)
+                    for (int j = 0; j < expansion.sequence.Count; j++)
                     {
-                        GrammarElement resolved = grammar.GetGrammarObject(expansion[t]) as GrammarElement;
+                        GrammarElement resolved = grammar.GetGrammarObject(expansion.sequence[j]) as GrammarElement;
                         if (resolved == null) continue;
 
-                        OptionView option = new OptionView();
-                        option.Target = resolved;
-                        option.Label = resolved.id;
-                        option.Icon = resolved.GetIcon();
+                        element.Add(OptionGrammarView(resolved));
 
-                        option.OnSelect = OnRuleClicked;
-                        option.RegisterCallback<ClickEvent>(evt => option.OnSelect?.Invoke(option.Target));
-
-                        element.Add(option);
-
-                        if (t < expansion.Count - 1)
+                        if (j < expansion.sequence.Count - 1)
                             element.Add(new Label(" → "));
                     }
                 }
@@ -311,31 +256,54 @@ namespace ISILab.LBS.VisualElements
             return -1;
         }
 
+
         private void BindTerminals()
         {
-            if(terminalList==null) return;
-            if (grammar.LBSTerminals == null) return;
-            if (grammar.LBSTerminals.Count == 0) return;
+            if (terminals== null) return;
+            if (grammar.LBSTerminals == null || grammar.LBSTerminals.Count == 0) return;
 
-            terminalList.itemsSource = grammar.LBSTerminals;
-
-            terminalList.makeItem = () => new OptionView();
-
-            terminalList.bindItem = (element, i) =>
+            terminals.Clear();
+            int column = columns;
+            VisualElement ActiveRow = null;
+            foreach(var terminal in grammar.LBSTerminals)
             {
-                if (element == null || grammar.LBSTerminals.Count==0) return;
-                var terminal = grammar.LBSTerminals[i];
-                var option = element as OptionView;
-                if (option == null) return;
+                if (terminal == null) continue;
 
-                option.Target = terminal;
-                option.Label = terminal.id;
-                option.Icon = terminal.GetIcon();
-            };
 
-            terminalList.Rebuild();
+                column++;
+                if (column >= columns)
+                {
+                    ActiveRow = new VisualElement();
+                    ActiveRow.style.flexDirection = FlexDirection.Row;
+                    column = 0;
+                    terminals.Add(ActiveRow);
+                }
+
+              
+                ActiveRow.Add(OptionGrammarView(terminal));
+
+            }
         }
 
-  
+        private OptionView OptionGrammarView(GrammarElement Element)
+        {
+            OptionView option = new OptionView();
+            option.style.display = DisplayStyle.Flex;
+            option.Target = Element;
+            option.Label = Element.id;
+            option.Icon = Element.GetIcon();
+
+            if (Element is GrammarTerminal) 
+            { 
+                option.tooltip = "Terminal: Can be placed in Graph"; 
+            }
+            if (Element is GrammarRule)
+            { 
+                option.tooltip = "Rule: Represents valid Graph Placements";
+                option.OnSelect = OnRuleClicked;
+                option.RegisterCallback<ClickEvent>(evt => option.OnSelect?.Invoke(option.Target));
+            }
+            return option;
+        }
     }
 }

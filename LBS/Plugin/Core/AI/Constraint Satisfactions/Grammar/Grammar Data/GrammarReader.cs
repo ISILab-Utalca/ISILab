@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Speech.Recognition;
 using System.Speech.Recognition.SrgsGrammar;
 using System.Xml;
+using UnityEditor;
 using UnityEngine;
 
 namespace ISILab.AI.Grammar
@@ -9,14 +11,16 @@ namespace ISILab.AI.Grammar
     public static class LBSGrammarReader
     {
 
-        public static GrammarData ReadGrammar(string path)
+        public static void ReadGrammar(LBSGrammar lbsGrammar, string path)
         {
             try
             {
-                var grammar = ScriptableObject.CreateInstance<GrammarData>();
 
                 XmlDocument xml = new XmlDocument();
                 xml.Load(path);
+
+                lbsGrammar.LBSRules.Clear();
+                lbsGrammar.LBSTerminals.Clear();
 
                 RemoveTerminalNodes(xml);
 
@@ -24,13 +28,15 @@ namespace ISILab.AI.Grammar
                 {
                     var srgsDoc = new SrgsDocument(reader);
 
-                    ParseRules(srgsDoc, grammar);
-                    ExtractTerminalActions(grammar);
+                    ParseRules(srgsDoc, lbsGrammar);
+                    ParseTerminals(lbsGrammar);
                 }
 
-                ParseTerminals(xml, grammar);
+                ParseTerminalFields(xml, lbsGrammar);
 
-                return grammar;
+                EditorUtility.SetDirty(lbsGrammar);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh(); 
             }
             catch (Exception ex)
             {
@@ -39,34 +45,35 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        private static bool IsRule(string token, GrammarData grammar)
-        {
-            return grammar.LBSRules.Exists(r => r.id == token);
-        }
 
-        private static void ExtractTerminalActions(GrammarData grammar)
+        private static void ParseTerminals(LBSGrammar lbsGrammar)
         {
             HashSet<string> terminalSet = new HashSet<string>();
 
-            foreach (var rule in grammar.LBSRules)
+            foreach (var rule in lbsGrammar.LBSRules)
             {
                 foreach (var expansion in rule.Expansions)
                 {
-                    foreach (var token in expansion)
+                    foreach (var token in expansion.sequence)
                     {
-                        if (!IsRule(token, grammar))
+                        if (!lbsGrammar.IsRule(token))
                             terminalSet.Add(token);
                     }
                 }
             }
 
-            grammar.LBSTerminals.Clear();
+            lbsGrammar.LBSTerminals.Clear();
 
             foreach (var terminal in terminalSet)
             {
                 var newTerminal = ScriptableObject.CreateInstance<GrammarTerminal>();
                 newTerminal.id = terminal;
-                grammar.LBSTerminals.Add(newTerminal);
+                newTerminal.name = $"Terminal_{terminal}";
+
+                AssetDatabase.AddObjectToAsset(newTerminal, lbsGrammar);
+
+                EditorUtility.SetDirty(newTerminal); // ✅ IMPORTANT
+                lbsGrammar.LBSTerminals.Add(newTerminal);
             }
         }
 
@@ -77,31 +84,33 @@ namespace ISILab.AI.Grammar
         /// </summary>
         /// <param name="doc"></param>
         /// <returns></returns>
-        private static void ParseRules(SrgsDocument doc, GrammarData grammar)
+        private static void ParseRules(SrgsDocument doc, LBSGrammar lbsGrammar)
         {
             foreach (var docRule in doc.Rules)
             {
-                var newRule = new GrammarRule
-                {
-                    id = docRule.Id
-                };
+                var newRule = ScriptableObject.CreateInstance<GrammarRule>();
+                newRule.id = docRule.Id;
+                newRule.name = $"Rule_{newRule.id}";
+
+                AssetDatabase.AddObjectToAsset(newRule, lbsGrammar);
+
+                EditorUtility.SetDirty(newRule); // ✅ IMPORTANT
+                lbsGrammar.LBSRules.Add(newRule);
 
                 foreach (var element in docRule.Elements)
                 {
-                    ExtractExpansionSequences(element, newRule.Expansions);
+                    ParseExpansions(element, newRule.Expansions);
                 }
-
-                grammar.LBSRules.Add(newRule);
             }
         }
 
-        private static void ExtractExpansionSequences(SrgsElement element, List<List<string>> expansions)
+        private static void ParseExpansions(SrgsElement element, List<GrammarExpansion> expansions)
         {
             switch (element)
             {
                 case SrgsOneOf oneOf:
                     foreach (var item in oneOf.Items)
-                        ExtractExpansionSequences(item, expansions);
+                        ParseExpansions(item, expansions);
                     break;
 
                 case SrgsItem item:
@@ -123,13 +132,16 @@ namespace ISILab.AI.Grammar
                         }
                     }
 
-                    if (sequence.Count > 0)
-                        expansions.Add(sequence);
+                    if (sequence.Count > 0){
+                        GrammarExpansion expansion = new GrammarExpansion();
+                        expansion.sequence = sequence;
+                        expansions.Add(expansion); 
+                    }
                     break;
             }
         }
 
-        private static void ParseTerminals(XmlDocument xml, GrammarData grammar)
+        private static void ParseTerminalFields(XmlDocument xml, LBSGrammar lbsGrammar)
         {
             var ns = new XmlNamespaceManager(xml.NameTable);
             ns.AddNamespace("g", "http://www.w3.org/2001/06/grammar");
@@ -138,7 +150,7 @@ namespace ISILab.AI.Grammar
 
             var terminalMap = new Dictionary<string, GrammarTerminal>();
 
-            foreach (var t in grammar.LBSTerminals)
+            foreach (var t in lbsGrammar.LBSTerminals)
                 terminalMap[t.id] = t;
 
             foreach (XmlNode terminalNode in terminalNodes)
@@ -162,6 +174,7 @@ namespace ISILab.AI.Grammar
                     {
                         var field = GrammarField.CreateField(type, name);
                         terminal.fields.Add(field);
+                        Debug.Log($"[Parser[{terminal.id}]] added field: {type} ({name})");
                     }
                     catch (Exception ex)
                     {

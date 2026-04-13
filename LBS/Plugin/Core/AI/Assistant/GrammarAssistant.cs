@@ -151,7 +151,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 foreach (var expansion in ruleEntry.Expansions)
                 {
                     // Include expansions with currentAction or its owning rules
-                    if (expansion.Contains(currentAction) || owningRules.Any(rule => expansion.Contains(rule)))
+                    if (expansion.sequence.Contains(currentAction) || 
+                        owningRules.Any(rule => expansion.sequence.Contains(rule)))
                     {
                         itemsWithRule.Add(ruleEntry);
                     }
@@ -167,9 +168,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     bool isCurrentAction = false;
 
                     // Check if current item matches currentAction or can produce it
-                    for (int j = 0; j < expansion.Count; j++)
+                    for (int j = 0; j < expansion.sequence.Count; j++)
                     {
-                        string item = expansion[j];
+                        string item = expansion.sequence[j];
                         if (grammar.IsRule(item))
                         {
                             if (GetFirstTerminals(item, grammar).Contains(currentAction))
@@ -184,7 +185,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                         if (isCurrentAction)
                         {
-                            var next = expansion[j + 1];
+                            var next = expansion.sequence[j + 1];
                             if (grammar.IsRule(next))
                             {
                                 // Add all first terminals of the next rule
@@ -251,7 +252,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 for (int j = 0; j < rule.Expansions.Count; j++)
                 {
-                    List<string> expansion = rule.Expansions[j];
+                    List<string> expansion = rule.Expansions[j].sequence;
                     for (int i = 0; i < expansion.Count - 1; i++)
                     {
                         var next = expansion[i+1];
@@ -334,7 +335,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         foreach (var expansion in ruleEntry.Expansions)
                         {
                             if(token.IsCancellationRequested) return allExpansions.ToList();
-                            expansions.Add(expansion);
+                            expansions.Add(expansion.sequence);
                         }
                     }
                 }
@@ -388,7 +389,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 foreach (var expansion in ruleEntry.Expansions)
                 {
                     // if the rule we are checking for is within the rule item
-                    if (expansion.Contains(rule))
+                    if (expansion.sequence.Contains(rule))
                     {
                         owningRules.Add(ruleEntry.id);
                     }
@@ -408,7 +409,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 foreach (var expansion in rule.Expansions)
                 {
-                    if(expansion.Contains(terminal)) owners.Add(rule.id);
+                    if(expansion.sequence.Contains(terminal)) owners.Add(rule.id);
                 }
             }
             
