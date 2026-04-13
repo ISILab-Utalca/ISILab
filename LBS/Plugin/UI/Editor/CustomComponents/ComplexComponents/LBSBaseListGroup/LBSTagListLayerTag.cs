@@ -1,4 +1,3 @@
-using CodiceApp;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
