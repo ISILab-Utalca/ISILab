@@ -33,6 +33,26 @@ namespace ISILab.Commons.Extensions
             Debug.Log(newText);
             return newText;
         }
+
+        public static string LowerFirst(this string text)
+        {
+            if(string.IsNullOrEmpty(text)) return string.Empty;
+
+            char[] a = text.ToCharArray();
+            a[0] = char.ToLower(a[0]);
+
+            return new string(a);
+        }
+
+        public static string UpperFirst(this string text)
+        {
+            if (string.IsNullOrEmpty(text)) return string.Empty;
+
+            char[] a = text.ToCharArray();
+            a[0] = char.ToUpper(a[0]);
+
+            return new string(a);
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 using ISILab.Commons;
 using ISILab.LBS;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
@@ -14,69 +15,101 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
-public class RemoveStairs : LBSManipulator
+namespace ISILab.LBS.Manipulators
 {
-    override protected string IconGuid => "ce08b36a396edbf4394f7a4e641f253d";
-
-    private SchemaBehaviour _schema;
-    private List<SchemaBehaviour> _others = new ();
-    private Vector2Int _first;
-
-    public RemoveStairs() 
+    public class RemoveStairs : LBSManipulator
     {
-        Feedback = new AreaFeedback();
-        Feedback.fixToTeselation = true;
+        override protected string IconGuid => "286d1f7a07ec7924297cfd915095e8e1";
 
-        Name = "Remove stairs";
-        Description =
-            "Click on a stair to remove it.";
-    }
+        private SchemaBehaviour _schema;
+        private List<SchemaBehaviour> _others = new();
 
-    public override void Init(LBSLayer layer, object provider = null)
-    {
-        base.Init(layer, provider);
-        _schema = provider as SchemaBehaviour;
-        if (_schema.MultiLayerConnections)
-            _others = LBSController.CurrentLevel.data.Layers
-                .Select(l => l.GetBehaviour<SchemaBehaviour>())
-                .Where(b => b is not null && b != _schema)
-                .ToList();
-
-        Feedback.TeselationSize = layer.TileSize;
-        layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
-    }
-
-    protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
-    {
-        _first = _schema.OwnerLayer.ToFixedPosition(position);
-    }
-
-    protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
-    {
-        base.OnMouseUp(element, endPosition, e); 
-
-        if (ForceCancel)
+        public RemoveStairs()
         {
-            ForceCancel = false;
-            return;
+            Feedback = new AreaFeedback();
+            Feedback.fixToTeselation = true;
+
+            Name = "Remove stairs";
+            Description = "Click on a stair to remove it.";
         }
 
-        // Set Undo action
-        LoadedLevel level = LBSController.CurrentLevel;
-        EditorGUI.BeginChangeCheck();
-        Undo.RegisterCompleteObjectUndo(level, "Remove Stairs");
-
-        List<LBSStair> toRemove = new();
-        toRemove.AddRange(_schema.OwnerLayer.GetModule<StairsModule>().Stairs);
-        foreach(var o in _others)
+        public override void Init(LBSLayer layer, object provider = null)
         {
-            toRemove.AddRange(o.OwnerLayer.GetModule<StairsModule>().Stairs);
+            base.Init(layer, provider);
+            _schema = provider as SchemaBehaviour;
+
+            // Searches for other layers to remove stairs from
+            // Pretty much usable, but should require its own toggle instead of _schema.MultiLayerConnections
+            /*if (_schema.MultiLayerConnections)
+                _others = LBSController.CurrentLevel.data.Layers
+                    .Select(l => l.GetBehaviour<SchemaBehaviour>())
+                    .Where(b => b is not null && b != _schema)
+                    .ToList();*/
+
+            Feedback.TeselationSize = layer.TileSize;
+            layer.OnTileSizeChange += (val) => Feedback.TeselationSize = val;
         }
 
-
-        if (EditorGUI.EndChangeCheck())
+        protected override void OnKeyDown(KeyDownEvent e)
         {
-            EditorUtility.SetDirty(level);
+            base.OnKeyDown(e);
+        }
+        protected override void OnKeyUp(KeyUpEvent e)
+        {
+            base.OnKeyUp(e);
+            LBSMainWindow.WarningManipulator();
+        }
+
+        protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
+        {
+            base.OnMouseUp(element, endPosition, e);
+
+            if (ForceCancel)
+            {
+                ForceCancel = false;
+                return;
+            }
+
+            // Set Undo action
+            LoadedLevel level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Remove Stairs");
+
+            List<SchemaBehaviour> allBehaviours = new();
+            HashSet<StairsModule> toUpdate = new();
+            allBehaviours.Add(_schema);
+
+            // Search for stair modules in other layers
+            if (_schema.MultiLayerConnections)
+            {
+                foreach (var o in _others)
+                {
+                    allBehaviours.Add(o);
+                }
+            }
+
+            // Remove stairs
+            var corners = _schema.OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
+            foreach (var schema in allBehaviours)
+            {
+                foreach (var stair in schema.Stairs)
+                {
+                    foreach (var pos in stair.Positions)
+                    {
+                        if (corners.min.x <= pos.x && pos.x <= corners.max.x &&
+                            corners.min.y <= pos.y && pos.y <= corners.max.y)
+                        {
+                            schema.RemoveStair(stair);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(level);
+            }
         }
     }
 }

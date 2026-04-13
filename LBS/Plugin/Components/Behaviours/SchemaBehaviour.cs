@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.MemoryProfiler;
 using UnityEditor.TerrainTools;
 using UnityEngine;
@@ -38,8 +39,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             Door, // within wall connection
             Window, // within wall connection
             LockedDoor, // within wall connection. Opened by key
-            StairsUp,
-            StairsDown
        //     BlockedDoor // within wall connection. Opened by trigger
         };
 
@@ -48,8 +47,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public const string Door = "Door";
         public const string Window = "Window";
         public const string LockedDoor = "LockedDoor";
-        public const string StairsUp = "Stairs Up";
-        public const string StairsDown = "Stairs Down";
         //      public const string BlockedDoor = "BlockedDoor";
 
         #endregion
@@ -87,7 +84,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public string conectionToSet;
         #endregion
 
-        #region PROEPRTIES
+        #region PROPERTIES
         [JsonIgnore]
         public Bundle PressetInsideStyle
         {
@@ -127,6 +124,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
         [JsonIgnore]
         public List<Vector2Int> Directions => ISILab.Commons.Directions.Bidimencional.Edges;
+
+        public Action<LBSStair> OnSelectedChanged;
 
         #endregion
 
@@ -182,6 +181,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             
             tileMap.AddTile(tile);
             areas.AddTile(tile, zone);
+            zone.AddPosition(position);
             
             RequestTilePaint(tile);
 
@@ -257,6 +257,15 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
 
             if (floor != OwnerLayer.ActiveFloor) return;
             RequestTilePaint(stair);
+        }
+
+        public void RemoveStair(LBSStair stair)
+        {
+            stairs.RemoveStair(stair);
+            RequestTileRemove(stair);
+
+            var adyacentStairs = OwnerLayer.GetModule<StairsModule>("", OwnerLayer.ActiveFloor + stair.Direction);
+            adyacentStairs.RemoveStair(stair.Inverted());
         }
 
         public LBSTile GetTile(Vector2Int position)

@@ -15,22 +15,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
         #region EVENTS
         public static Action OnClosed;
         #endregion
-
-        [MenuItem("Window/ISILab/Tag Manager", priority = 2)]
-        public static void ShowWindow()
-        {
-            TagManagerWindow window = GetWindow<TagManagerWindow>();
-            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("40d548834301ba14f96af3e1715add5f");
-            window.titleContent = new GUIContent("Tag Manager", icon);
-
-        }
-
-        public static void CloseWindow()
-        {
-            TagManagerWindow window = GetWindow<TagManagerWindow>();
-            window.Close();
-        }
-
+               
 
         //Singleton part
         private void OnEnable()
@@ -42,6 +27,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
         {
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TagManagerWindow");
             visualTree.CloneTree(rootVisualElement);
+
+
         }
 
         private void OnDisable()
@@ -49,6 +36,22 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             OnClosed?.Invoke();
             Instance = null;
         }
+
+        #region METHODS
+        [MenuItem("Window/ISILab/Tag Manager", priority = 2)]
+        public static void ShowWindow()
+        {
+            TagManagerWindow window = GetWindow<TagManagerWindow>();
+            Texture icon = AssetMacro.LoadAssetByGuid<Texture>("40d548834301ba14f96af3e1715add5f");
+            window.titleContent = new GUIContent("Tag Manager", icon);
+        }
+        public static void CloseWindow()
+        {
+            TagManagerWindow window = GetWindow<TagManagerWindow>();
+            window.Close();
+        }
+        #endregion
+
     }
 }
 

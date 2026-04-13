@@ -2,11 +2,16 @@ using ISILab.AI.Optimization.Populations;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
+using LBS.VisualElements;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
@@ -21,6 +26,7 @@ namespace ISILab.LBS.VisualElements
 {
     public class StairsGraph : GraphElement
     {
+        private readonly SchemaBehaviour _schemaBehaviour;
         private readonly VectorImage _upIcon = 
             AssetMacro.LoadAssetByGuid<VectorImage>("103cf2403fa02574fb824cdb84514eb9");
         private readonly VectorImage _downIcon = 
@@ -51,16 +57,35 @@ namespace ISILab.LBS.VisualElements
             this.Add(_endTile);
 
             _stair = stair;
+            _stair.OnVisualChange = Update;
+
             _ownerLayer = ownerLayer;
             this.generateVisualContent += DrawLine;
 
+
+            _schemaBehaviour = ownerLayer.GetBehaviour<SchemaBehaviour>();
+
+
             SetVisualElements();
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
+        }
+
+        private void OnMouseDown(MouseDownEvent evt)
+        {
+            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (ToolKit.Instance.GetActiveManipulator() is null) return;
+            if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
+            {
+                LBSInspectorPanel.ActivateDataTab();
+            }
+
         }
 
         public void Update(LBSStair stair)
         {
             _stair = stair;
             SetVisualElements();
+            MarkDirtyRepaint();
         }
 
         private void SetVisualElements()
@@ -102,11 +127,10 @@ namespace ISILab.LBS.VisualElements
             line.RemoveAt(line.Count - 1);
             if (line.Count == 0) return;//*/
 
-            var darkGray = new Color(0.25f, 0.25f, 0.25f, 1);
             var fixedPositions = GetFixedPositions(line);
-            painter.DrawPolygon(fixedPositions, new Color(0, 0, 0, 0), darkGray, 4, false);
-            painter.DrawCircle(fixedPositions[0], 12, darkGray);
-            painter.DrawCircle(fixedPositions[line.Count - 1], 12, darkGray);
+            painter.DrawPolygon(fixedPositions, new Color(0, 0, 0, 0), _stair.Color, 4, false);
+            painter.DrawCircle(fixedPositions[0], 12, _stair.Color);
+            painter.DrawCircle(fixedPositions[line.Count - 1], 12, _stair.Color);
         }
         private List<Vector2> GetFixedPositions(List<Vector2Int> line)
         {

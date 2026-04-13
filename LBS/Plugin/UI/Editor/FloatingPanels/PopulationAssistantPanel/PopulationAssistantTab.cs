@@ -6,6 +6,7 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -38,20 +39,20 @@ namespace ISILab.LBS.Editor
         private AssistantMapElite target;
 
         //  Evaluator's Wizard 
-        private LBSCustomListView evaluatorListView;
-        private LBSCustomTextField evaluatorGeneratorName;
-        private LBSCustomToggleField evaluatorGeneratorInterface1;
-        private LBSCustomToggleField evaluatorGeneratorInterface2;
-        private LBSCustomToggleField evaluatorGeneratorInterface3;
-        private LBSCustomButton evaluatorGeneratorCreateButton;
-        private LBSCustomButton evaluatorGeneratorOpenEvFolderButton;
+        private LBSCustomListView       evaluatorListView;
+        private LBSCustomTextField      evaluatorGeneratorName;
+        private LBSCustomToggleField    evaluatorGeneratorInterface1;
+        private LBSCustomToggleField    evaluatorGeneratorInterface2;
+        private LBSCustomToggleField    evaluatorGeneratorInterface3;
+        private LBSCustomButton         evaluatorGeneratorCreateButton;
+        private LBSCustomButton         evaluatorGeneratorOpenEvFolderButton;
 
         // Evaluator's Parameter Editor (Should be in a new window but im writing it here in the meantime)
-        private LBSCustomListView parameterList;
-        private LBSCustomTextField parameterGeneratorName;
-        private LBSCustomToggle parameterGeneratorType;
-        private LBSCustomToggleField parameterGeneratorisList;
-        private LBSCustomButton parameterGeneratorAddButton;
+        private LBSCustomListView       parameterList;
+        private LBSCustomTextField      parameterGeneratorName;
+        private LBSCustomToggle         parameterGeneratorType;
+        private LBSCustomToggleField    parameterGeneratorisList;
+        private LBSCustomButton         parameterGeneratorAddButton;
 
         #endregion
 
@@ -169,13 +170,20 @@ namespace ISILab.LBS.Editor
 
             //Evaluators
             evaluatorListView = this.Q<LBSCustomListView>("evList");
+            //  Evs. Generator
             evaluatorGeneratorName = this.Q<LBSCustomTextField>("evGenName");
             evaluatorGeneratorInterface1 = this.Q<LBSCustomToggleField>("evGenToggle1");
             evaluatorGeneratorInterface2 = this.Q<LBSCustomToggleField>("evGenToggle2");
             evaluatorGeneratorInterface3 = this.Q<LBSCustomToggleField>("evGenToggle3");
-            evaluatorGeneratorCreateButton = this.Q<LBSCustomButton>("evGenGenerateButton");
-            evaluatorGeneratorOpenEvFolderButton = this.Q<LBSCustomButton>("evGenOpenFolderButton");
 
+            evaluatorGeneratorCreateButton = this.Q<LBSCustomButton>("evGenGenerateButton");
+            evaluatorGeneratorCreateButton.RegisterCallback<ClickEvent>(GenerateEvaluator);
+
+            evaluatorGeneratorOpenEvFolderButton = this.Q<LBSCustomButton>("evGenOpenFolderButton");
+            evaluatorGeneratorOpenEvFolderButton.RegisterCallback<ClickEvent>(OpenEvaluatorsFolder);
+
+            InitEvaluatorsList();
+            ResetEvaluatorGen();
         }
         #endregion
 
@@ -261,18 +269,102 @@ namespace ISILab.LBS.Editor
 
         //  Evaluator Wizard Methods
 
-        //GetAllEvaluators()
-        //busca todos los evaluadores del proyecto y los agrega a evaluatorsList
-        //(usar Reflection, con cuidao' eso si oe)
+        private void GetAllEvaluators()
+        {
+            //busca todos los evaluadores del proyecto y los agrega a evaluatorsList
+            //(usar Reflection, con cuidao' eso si oe)
+            evaluatorsList.Add(
+                new EvaluatorData
+                {
+                    name = "evHardcodeado",
+                    interface1 = false,
+                    interface2 = false,
+                    interface3 = false,
+                }
+                );
+            evaluatorsList.Add(
+                new EvaluatorData
+                {
+                    name = "evHardcodeado2",
+                    interface1 = true,
+                    interface2 = false,
+                    interface3 = true,
+                }
+                );
+            evaluatorsList.Add(
+                new EvaluatorData
+                {
+                    name = "evHardcodeado222",
+                    interface1 = false,
+                    interface2 = true,
+                    interface3 = true,
+                }
+                );
+            evaluatorsList.Add(
+                new EvaluatorData
+                {
+                    name = "evHardcodeadoevHardcodeado",
+                    interface1 = true,
+                    interface2 = true,
+                    interface3 = false,
+                }
+                );
+            evaluatorsList.Add(
+                new EvaluatorData
+                {
+                    name = "evHardcodeado5",
+                    interface1 = true,
+                    interface2 = true,
+                    interface3 = true,
+                }
+                );
+        }
+        
+        private void UpdateEvaluatorsList()
+        {
+            evaluatorListView.Clear();
+            foreach (EvaluatorData evData in evaluatorsList)
+            {
+                UpdateSingleEvaluator(evData);
+            }
+        }
 
-        //InitEvaluatorsList()
-        //  buscar evaluadores del proyecto
-        //  pasarlos a la lista de data -> UpdateEvaluatorsList
-        //  hacer bind con la lista de elementos visuales
-        //      profit
+        private void UpdateSingleEvaluator(EvaluatorData evData)
+        {
+            EvaluatorElement evElement = new EvaluatorElement(
+                evData.name,
+                evData.interface1,
+                evData.interface2,
+                evData.interface3
+                );
 
-        //UpdateEvaluatorsList()
-        //  hacer el bind de data a los elementos graficos
+            evElement.OnDelete += (elem) =>
+            {
+                // Mostramos el di�logo nativo de Unity
+                bool confirm = EditorUtility.DisplayDialog(
+                    "Eliminar Evaluador",               // T�tulo
+                    $"�Est�s seguro de que deseas eliminar el evaluador '{evData.name}'?", // Mensaje
+                    "Eliminar",                         // Bot�n de confirmar
+                    "Cancelar"                          // Bot�n de cancelar
+                );
+
+                if (confirm)
+                {
+                    // Si el usuario acept�, lo borramos de la interfaz
+                    // 'target' es el elemento que dispar� el evento
+                    //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
+                    evaluatorListView.hierarchy.Remove(elem);
+                }
+            };
+
+            evaluatorListView.hierarchy.Add(evElement);
+        }
+
+        private void InitEvaluatorsList()
+        {
+            GetAllEvaluators();
+            UpdateEvaluatorsList();
+        }
 
         //  Evaluator generator functions
         public EvaluatorData GetEvGenData()
@@ -285,22 +377,67 @@ namespace ISILab.LBS.Editor
                 );
         }
 
-        public void GenerateEvaluator()
+        public void ResetEvaluatorGen()
         {
-            //llamar al creador de evaluadores y entregarle GetEvGenData()
-                // double it and pass it to the seba
+            evaluatorGeneratorName.value = "NewCustomEvaluator";
         }
 
-        public void OpenEvaluatorsFolder()
+        public EvaluatorData ReturnEvDataWUniqueName(EvaluatorData evData)
         {
-            //  Crear LBSSettings.Instance.paths.EvaluatorFolderPath & carpeta asociada
-            //string folderPath = LBSSettings.Instance.paths.bundleFolderPath + "/" + Builder.bundleName + ".asset";
-            //string folderPath = LBSSettings.Instance.paths.bundleFolderPath;
+            string newName = evData.name;
+            int counter = 0;
+            while (!CheckUniqueEvName(newName))
+            {
+                counter++;
+                newName = evData.name + "(" +counter.ToString() + ")";
+            }
+            evData.name= newName;
+            return evData;
+        }
 
+        public bool CheckUniqueEvName(string baseName)
+        {
+            bool isUniqueName = true;
+            foreach (EvaluatorData evData in evaluatorsList)
+            {
+                if (evData.name == baseName) isUniqueName = false;
+            }
 
-            //UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(folderPath);
+            return isUniqueName;
+        }
 
-            /*
+        public void GenerateEvaluator(ClickEvent evt)
+        {
+            string cleanName = GetEvGenData().name.Trim();
+            if (!string.IsNullOrWhiteSpace(cleanName))
+            {
+                EvaluatorData finalEvData = GetEvGenData();
+                finalEvData.name = cleanName;
+                finalEvData = ReturnEvDataWUniqueName(finalEvData);
+
+                evaluatorsList.Add(finalEvData);
+                UpdateSingleEvaluator(finalEvData);
+
+                //llamar al creador de evaluadores y entregarle finalEvData
+                // double it and pass it to the seba
+                EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
+            }
+            else
+            {
+                bool confirm = EditorUtility.DisplayDialog(
+                    "Error",                                                   // T�tulo
+                    "Evaluator's name caanot be empty",   // Mensaje
+                    "OK"                                                       // Bot�n de cancelar
+                );
+            }
+        }
+
+        public void OpenEvaluatorsFolder(ClickEvent evt)
+        {
+            //string folderPath = LBSSettings.Instance.paths.evaluatorsPath + "/" + Builder.bundleName + ".asset";
+            string folderPath = LBSSettings.Instance.paths.evaluatorsPath;
+            UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(folderPath);
+
             if (obj != null)
             {
                 // Focus the Project window
@@ -315,8 +452,7 @@ namespace ISILab.LBS.Editor
                 //OPEN FOLDER
                 AssetDatabase.OpenAsset(obj);
             }
-            */
-        }
+    }
 
         #endregion
 

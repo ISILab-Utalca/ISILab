@@ -2,10 +2,11 @@
 
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
+namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
 {
     /// <summary>
     /// Visual element used to show evaluators in a list.
@@ -19,6 +20,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         private VisualElement interfaceIcon1;
         private VisualElement interfaceIcon2;
         private VisualElement interfaceIcon3;
+
+        public event Action<EvaluatorElement> OnDelete;
 
         private string evlabelString;
         private List<bool> interfaceBoolList;
@@ -36,47 +39,43 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
             private set => interfaceBoolList = value;
         }
 
-        //public string QuestionTooltipText
-        //{
-        //    get => questionTooltipText;
-        //    private set
-        //    {
-        //        questionTooltipText = value;
-        //        QuestionTooltip.tooltip = value;
-        //    }
-        //}
-
-        //public int Index
-        //{
-        //    get => index;
-        //    set 
-        //    {
-        //        if(index != value) 
-        //            Debug.LogWarning("Element " + CharLabel.text + " changed index: " + index + " -> " + value);
-        //        index = value;
-        //    }
-        //}
-
         public EvaluatorElement() : base()
+        {
+            InitInternal();
+        }
+
+        public EvaluatorElement(string label, bool b1, bool b2, bool b3)
+        {
+            InitInternal();
+            setEvaluatorElement(label, b1, b2, b3);
+        }
+
+        private void InitInternal()
         {
             GetVisualTreeForThis();
 
-            evLabel         = this.Q<LBSCustomLabel>();
+            evLabel = this.Q<LBSCustomLabel>("evName");
 
-            evConfigButton  = this.Q<LBSCustomButton>();
-            evDeleteButton  = this.Q<LBSCustomButton>();
+            evDeleteButton = this.Q<LBSCustomButton>("evDelete");
+            evDeleteButton.RegisterCallback<ClickEvent>(DeleteEvaluatorElement);
+            evConfigButton = this.Q<LBSCustomButton>("evOptions");
+            evConfigButton.RegisterCallback<ClickEvent>(OpenEvaluatorConfig);
 
-            interfaceIcon1  = this.Q<VisualElement>();
-            interfaceIcon2  = this.Q<VisualElement>();
-            interfaceIcon3  = this.Q<VisualElement>();
 
-            interfaceBoolList = new List<bool>() { false,false,false };
+            interfaceIcon1 = this.Q<VisualElement>("InterfaceIcon1");
+            interfaceIcon2 = this.Q<VisualElement>("InterfaceIcon2");
+            interfaceIcon3 = this.Q<VisualElement>("InterfaceIcon3");
 
-            interfaceBoolListVisualElements = new List<VisualElement>();
-            interfaceBoolListVisualElements.Add(interfaceIcon1);
-            interfaceBoolListVisualElements.Add(interfaceIcon2);
-            interfaceBoolListVisualElements.Add(interfaceIcon3);
+            interfaceBoolList = new List<bool>() { false, false, false };
+
+            interfaceBoolListVisualElements = new List<VisualElement>
+            {
+                interfaceIcon1,
+                interfaceIcon2,
+                interfaceIcon3
+            };
         }
+
         public void setEvaluatorElement(string label, bool b1, bool b2, bool b3)
         {
             EvLabelString = label;
@@ -107,6 +106,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        private void DeleteEvaluatorElement(ClickEvent evt)
+        {
+            OnDelete?.Invoke(this);
+        }
+
+        private void OpenEvaluatorConfig(ClickEvent evt)
+        {
+
         }
     }
 }
