@@ -123,7 +123,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             if (stairMod != null)
             {
-                var occupied = stairMod.GetStairByPoint(position);
+                var occupied = stairMod.GetStairByPoint(position, true);
                 if (occupied != null && occupied.Direction < 0)
                 {
                     return pivot;

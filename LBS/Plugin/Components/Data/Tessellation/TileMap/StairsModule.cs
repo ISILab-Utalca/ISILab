@@ -46,13 +46,23 @@ namespace ISILab.LBS.Modules
             return false;
         }
 
-        public LBSStair GetStairByPoint(Vector2Int position)
+        public LBSStair GetStairByPoint(Vector2Int position, bool checkForHeight = false)
         {
             foreach (var stair in _stairs)
             {
                 foreach (var pos in stair.Positions)
                 {
                     if (position == pos) return stair;
+                }
+
+                if (!checkForHeight) continue;
+                Vector2Int entranceDir = stair.Positions[0] - stair.Positions[1];
+                for (int i = 1; i <= stair.Height; i++)
+                {
+                    if (position == stair.Positions[0] + entranceDir * i)
+                    {
+                        return stair;
+                    }
                 }
             }
             return null;
