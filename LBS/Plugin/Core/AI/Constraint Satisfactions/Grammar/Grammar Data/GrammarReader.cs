@@ -1,202 +1,245 @@
+using ISILab.AI.Grammar;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Speech.Recognition;
 using System.Speech.Recognition.SrgsGrammar;
 using System.Xml;
 using UnityEditor;
 using UnityEngine;
 
-namespace ISILab.AI.Grammar
+public static class LBSGrammarReader
 {
-    public static class LBSGrammarReader
+
+    private static void ClearSubAssets(LBSGrammar grammar)
     {
-
-        public static void ReadGrammar(LBSGrammar lbsGrammar, string path)
+        string path = AssetDatabase.GetAssetPath(grammar);
+        var subAssets = AssetDatabase.LoadAllAssetsAtPath(path);
+        foreach (var asset in subAssets)
         {
-            try
-            {
-
-                XmlDocument xml = new XmlDocument();
-                xml.Load(path);
-
-                lbsGrammar.LBSRules.Clear();
-                lbsGrammar.LBSTerminals.Clear();
-
-                RemoveTerminalNodes(xml);
-
-                using (var reader = new XmlNodeReader(xml))
-                {
-                    var srgsDoc = new SrgsDocument(reader);
-
-                    ParseRules(srgsDoc, lbsGrammar);
-                    ParseTerminals(lbsGrammar);
-                }
-
-                ParseTerminalFields(xml, lbsGrammar);
-
-                EditorUtility.SetDirty(lbsGrammar);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh(); 
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"[LBSGrammarReader] Failed to parse grammar: {ex.Message}");
-                throw;
-            }
-        }
-
-
-        private static void ParseTerminals(LBSGrammar lbsGrammar)
-        {
-            HashSet<string> terminalSet = new HashSet<string>();
-
-            foreach (var rule in lbsGrammar.LBSRules)
-            {
-                foreach (var expansion in rule.Expansions)
-                {
-                    foreach (var token in expansion.sequence)
-                    {
-                        if (!lbsGrammar.IsRule(token))
-                            terminalSet.Add(token);
-                    }
-                }
-            }
-
-            lbsGrammar.LBSTerminals.Clear();
-
-            foreach (var terminal in terminalSet)
-            {
-                var newTerminal = ScriptableObject.CreateInstance<GrammarTerminal>();
-                newTerminal.id = terminal;
-                newTerminal.name = $"Terminal_{terminal}";
-
-                AssetDatabase.AddObjectToAsset(newTerminal, lbsGrammar);
-
-                EditorUtility.SetDirty(newTerminal); // ✅ IMPORTANT
-                lbsGrammar.LBSTerminals.Add(newTerminal);
-            }
-        }
-
-        /// <summary>
-        ///  Parsing Grammar assumes that your grammar meets the following requirements
-        /// Rules: Start with #, followed by a Cap Character
-        /// Terminals: Start with Cap
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <returns></returns>
-        private static void ParseRules(SrgsDocument doc, LBSGrammar lbsGrammar)
-        {
-            foreach (var docRule in doc.Rules)
-            {
-                var newRule = ScriptableObject.CreateInstance<GrammarRule>();
-                newRule.id = docRule.Id;
-                newRule.name = $"Rule_{newRule.id}";
-
-                AssetDatabase.AddObjectToAsset(newRule, lbsGrammar);
-
-                EditorUtility.SetDirty(newRule); // ✅ IMPORTANT
-                lbsGrammar.LBSRules.Add(newRule);
-
-                foreach (var element in docRule.Elements)
-                {
-                    ParseExpansions(element, newRule.Expansions);
-                }
-            }
-        }
-
-        private static void ParseExpansions(SrgsElement element, List<GrammarExpansion> expansions)
-        {
-            switch (element)
-            {
-                case SrgsOneOf oneOf:
-                    foreach (var item in oneOf.Items)
-                        ParseExpansions(item, expansions);
-                    break;
-
-                case SrgsItem item:
-                    var sequence = new List<string>();
-
-                    foreach (var sub in item.Elements)
-                    {
-                        switch (sub)
-                        {
-                            case SrgsText text:
-                                var value = text.Text.Trim();
-                                if (!string.IsNullOrEmpty(value))
-                                    sequence.Add(value);
-                                break;
-
-                            case SrgsRuleRef ruleRef:
-                                sequence.Add(ruleRef.Uri.ToString().TrimStart('#'));
-                                break;
-                        }
-                    }
-
-                    if (sequence.Count > 0){
-                        GrammarExpansion expansion = new GrammarExpansion();
-                        expansion.sequence = sequence;
-                        expansions.Add(expansion); 
-                    }
-                    break;
-            }
-        }
-
-        private static void ParseTerminalFields(XmlDocument xml, LBSGrammar lbsGrammar)
-        {
-            var ns = new XmlNamespaceManager(xml.NameTable);
-            ns.AddNamespace("g", "http://www.w3.org/2001/06/grammar");
-
-            var terminalNodes = xml.SelectNodes("//g:terminal", ns);
-
-            var terminalMap = new Dictionary<string, GrammarTerminal>();
-
-            foreach (var t in lbsGrammar.LBSTerminals)
-                terminalMap[t.id] = t;
-
-            foreach (XmlNode terminalNode in terminalNodes)
-            {
-                string id = terminalNode.Attributes["id"]?.Value;
-
-                if (!terminalMap.TryGetValue(id, out var terminal))
-                {
-                    Debug.LogWarning($"[Parser] Terminal '{id}' defined in XML but not used in grammar.");
-                    continue;
-                }
-
-                terminal.fields.Clear();
-
-                foreach (XmlNode fieldNode in terminalNode.SelectNodes("g:field", ns))
-                {
-                    string type = fieldNode.Attributes["type"]?.Value;
-                    string name = fieldNode.Attributes["name"]?.Value;
-
-                    try
-                    {
-                        var field = GrammarField.CreateField(type, name);
-                        terminal.fields.Add(field);
-                        Debug.Log($"[Parser[{terminal.id}]] added field: {type} ({name})");
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.LogError($"[Parser] Failed field: {type} ({name}) → {ex.Message}");
-                    }
-                }
-            }
-        }
-
-        private static void RemoveTerminalNodes(XmlDocument xml)
-        {
-            var ns = new XmlNamespaceManager(xml.NameTable);
-            ns.AddNamespace("g", "http://www.w3.org/2001/06/grammar");
-
-            var terminalNodes = xml.SelectNodes("//g:terminal", ns);
-
-            foreach (XmlNode node in terminalNodes)
-            {
-                node.ParentNode.RemoveChild(node);
-            }
-
-            Debug.Log($"[Parser] Removed {terminalNodes.Count} terminal nodes before SRGS parsing.");
+            if (asset == grammar) continue;
+            UnityEngine.Object.DestroyImmediate(asset, true);
         }
     }
+
+    public static void ReadGrammar(LBSGrammar grammar, string path)
+    {
+        ClearSubAssets(grammar);
+        try
+        {
+            // ORIGINAL XML (keep terminals)
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+
+            // COPY for SRGS (remove the terminal definition because SRGS do not read them by default)
+            XmlDocument srgsXml = new XmlDocument();
+            srgsXml.LoadXml(xml.OuterXml);
+
+            grammar.LBSRules.Clear();
+            grammar.LBSTerminals.Clear();
+
+            // Remove terminals ONLY from SRGS copy
+            RemoveTerminalNodes(srgsXml);
+
+            SrgsDocument srgs = ParseSrgs(srgsXml);
+
+            CreateRules(srgs, grammar);
+            CreateTerminals(grammar);
+
+            // get terminals from original xml
+            ApplyTerminalFields(xml, grammar);
+
+            EditorUtility.SetDirty(grammar);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[GrammarReader] {ex.Message}");
+            throw;
+        }
+    }
+
+    private static XmlDocument LoadXml(string path)
+    {
+        var xml = new XmlDocument();
+        xml.Load(path);
+        return xml;
+    }
+
+    private static SrgsDocument ParseSrgs(XmlDocument xml)
+    {
+        using var reader = new XmlNodeReader(xml);
+        return new SrgsDocument(reader);
+    }
+
+    #region Rules
+
+    private static void CreateRules(SrgsDocument doc, LBSGrammar grammar)
+    {
+        foreach (var srgsRule in doc.Rules)
+        {
+            var rule = CreateRuleAsset(srgsRule.Id, grammar);
+
+            foreach (var element in srgsRule.Elements)
+                ExtractExpansions(element, rule.Expansions);
+        }
+    }
+
+    private static GrammarRule CreateRuleAsset(string id, LBSGrammar grammar)
+    {
+        var rule = ScriptableObject.CreateInstance<GrammarRule>();
+        rule.id = id;
+        rule.name = $"Rule_{id}";
+
+        AssetDatabase.AddObjectToAsset(rule, grammar);
+        EditorUtility.SetDirty(rule);
+
+        grammar.LBSRules.Add(rule);
+        return rule;
+    }
+
+    private static void ExtractExpansions(SrgsElement element, List<GrammarExpansion> expansions)
+    {
+        if (element is SrgsOneOf oneOf)
+        {
+            foreach (SrgsItem srgsItem in oneOf.Items)
+                ExtractExpansions(srgsItem, expansions);
+
+            return;
+        }
+
+        if (element is not SrgsItem item) return;
+
+        var sequence = ExtractSequence(item);
+
+        if (sequence.Count == 0) return;
+
+        expansions.Add(new GrammarExpansion { sequence = sequence });
+    }
+
+    private static List<string> ExtractSequence(SrgsItem item)
+    {
+        var sequence = new List<string>();
+
+        foreach (var sub in item.Elements)
+        {
+            switch (sub)
+            {
+                case SrgsText text:
+                    AddIfValid(sequence, text.Text);
+                    break;
+
+                case SrgsRuleRef ruleRef:
+                    sequence.Add(ruleRef.Uri.ToString().TrimStart('#'));
+                    break;
+            }
+        }
+
+        return sequence;
+    }
+
+    private static void AddIfValid(List<string> list, string value)
+    {
+        value = value?.Trim();
+        if (!string.IsNullOrEmpty(value))
+            list.Add(value);
+    }
+
+    #endregion
+
+    #region Terminals
+
+    private static void CreateTerminals(LBSGrammar grammar)
+    {
+        var terminalIds = CollectTerminalIds(grammar);
+
+        foreach (var id in terminalIds)
+        {
+            var terminal = ScriptableObject.CreateInstance<GrammarTerminal>();
+            terminal.id = id;
+            terminal.name = $"Terminal_{id}";
+
+            AssetDatabase.AddObjectToAsset(terminal, grammar);
+            EditorUtility.SetDirty(terminal);
+
+            grammar.LBSTerminals.Add(terminal);
+        }
+    }
+
+    private static HashSet<string> CollectTerminalIds(LBSGrammar grammar)
+    {
+        var set = new HashSet<string>();
+
+        foreach (var rule in grammar.LBSRules)
+        {
+            foreach (var expansion in rule.Expansions)
+            {
+                foreach (var token in expansion.sequence)
+                {
+                    if (!grammar.IsRule(token))
+                        set.Add(token);
+                }
+            }
+        }
+
+        return set;
+    }
+    #endregion
+    
+    #region Terminal Fields
+
+    private static void ApplyTerminalFields(XmlDocument xml, LBSGrammar grammar)
+    {
+        var ns = new XmlNamespaceManager(xml.NameTable);
+        ns.AddNamespace("g", "http://www.w3.org/2001/06/grammar");
+
+        var nodes = xml.SelectNodes("//g:terminal", ns);
+
+        var map = grammar.LBSTerminals.ToDictionary(t => t.id);
+
+        foreach (XmlNode node in nodes)
+        {
+            string id = node.Attributes["id"]?.Value;
+
+            if (!map.TryGetValue(id, out var terminal))
+                continue;
+
+            terminal.fields.Clear();
+
+            foreach (XmlNode field in node.SelectNodes("g:field", ns))
+                AddField(terminal, field);
+        }
+    }
+
+
+    private static void AddField(GrammarTerminal terminal, XmlNode node)
+    {
+        string type = node.Attributes["type"]?.Value;
+        string name = node.Attributes["name"]?.Value;
+
+        try
+        {
+            var field = GrammarField.CreateField(type, name);
+            terminal.fields.Add(field);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[Field Error] {type} ({name}) → {ex.Message}");
+        }
+    }
+
+
+    private static void RemoveTerminalNodes(XmlDocument xml)
+    {
+        var ns = new XmlNamespaceManager(xml.NameTable);
+        ns.AddNamespace("g", "http://www.w3.org/2001/06/grammar");
+
+        var nodes = xml.SelectNodes("//g:terminal", ns);
+
+        foreach (XmlNode node in nodes)
+            node.ParentNode.RemoveChild(node);
+    }
+
+    #endregion
 }

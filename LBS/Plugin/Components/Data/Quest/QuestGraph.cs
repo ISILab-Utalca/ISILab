@@ -16,7 +16,7 @@ namespace ISILab.LBS.Modules
     public class QuestGraph : LBSModule, ICloneable, ISelectable
     {
         #region CONSTANTS
-        private string defaultGrammarGuid = "63ab688b53411154db5edd0ec7171c42"; // Default grammar guid
+        private string defaultGrammarGuid = "14cb4d99b22a94a45bac4216aca3f57e"; // Default grammar guid
         private const float ViewNodeWidthOffset = 100f;
         private const float SuggestionDistance = 1.5f;
         #endregion
