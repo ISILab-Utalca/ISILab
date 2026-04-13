@@ -182,10 +182,8 @@ namespace ISILab.LBS.Editor
             evaluatorGeneratorOpenEvFolderButton = this.Q<LBSCustomButton>("evGenOpenFolderButton");
             evaluatorGeneratorOpenEvFolderButton.RegisterCallback<ClickEvent>(OpenEvaluatorsFolder);
 
-
             InitEvaluatorsList();
             ResetEvaluatorGen();
-
         }
         #endregion
 
@@ -342,18 +340,18 @@ namespace ISILab.LBS.Editor
 
             evElement.OnDelete += (elem) =>
             {
-                // Mostramos el diálogo nativo de Unity
+                // Mostramos el diï¿½logo nativo de Unity
                 bool confirm = EditorUtility.DisplayDialog(
-                    "Eliminar Evaluador",               // Título
-                    $"¿Estás seguro de que deseas eliminar el evaluador '{evData.name}'?", // Mensaje
-                    "Eliminar",                         // Botón de confirmar
-                    "Cancelar"                          // Botón de cancelar
+                    "Eliminar Evaluador",               // Tï¿½tulo
+                    $"ï¿½Estï¿½s seguro de que deseas eliminar el evaluador '{evData.name}'?", // Mensaje
+                    "Eliminar",                         // Botï¿½n de confirmar
+                    "Cancelar"                          // Botï¿½n de cancelar
                 );
 
                 if (confirm)
                 {
-                    // Si el usuario aceptó, lo borramos de la interfaz
-                    // 'target' es el elemento que disparó el evento
+                    // Si el usuario aceptï¿½, lo borramos de la interfaz
+                    // 'target' es el elemento que disparï¿½ el evento
                     //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
                     evaluatorListView.hierarchy.Remove(elem);
                 }
@@ -405,20 +403,33 @@ namespace ISILab.LBS.Editor
                 if (evData.name == baseName) isUniqueName = false;
             }
 
-            Debug.Log(isUniqueName);
             return isUniqueName;
         }
 
         public void GenerateEvaluator(ClickEvent evt)
         {
-            EvaluatorData finalEvData = ReturnEvDataWUniqueName(GetEvGenData());
-            evaluatorsList.Add(finalEvData);
-            UpdateSingleEvaluator(finalEvData);
+            string cleanName = GetEvGenData().name.Trim();
+            if (!string.IsNullOrWhiteSpace(cleanName))
+            {
+                EvaluatorData finalEvData = GetEvGenData();
+                finalEvData.name = cleanName;
+                finalEvData = ReturnEvDataWUniqueName(finalEvData);
 
-            //llamar al creador de evaluadores y entregarle finalEvData
-            // double it and pass it to the seba
+                evaluatorsList.Add(finalEvData);
+                UpdateSingleEvaluator(finalEvData);
 
-            EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
+                //llamar al creador de evaluadores y entregarle finalEvData
+                // double it and pass it to the seba
+                EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
+            }
+            else
+            {
+                bool confirm = EditorUtility.DisplayDialog(
+                    "Error",                                                   // Tï¿½tulo
+                    "Evaluator's name caanot be empty",   // Mensaje
+                    "OK"                                                       // Botï¿½n de cancelar
+                );
+            }
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)
