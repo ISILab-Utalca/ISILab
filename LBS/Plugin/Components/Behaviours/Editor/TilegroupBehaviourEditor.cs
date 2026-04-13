@@ -8,6 +8,8 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using LBS;
 using LBS.VisualElements;
+using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine.UIElements;
 
@@ -16,6 +18,19 @@ namespace ISILab.LBS.VisualElements
     [LBSCustomEditor("TileGroupBehavior", typeof(TileGroupBehavior))]
     public class TileGroupBehaviorEditor : LBSCustomEditor, IToolProvider
     {
+        #region STATICS
+        private static readonly Dictionary<Type, Type> AddonEditorMap = new()
+        {
+            { typeof(Addon_Trigger), typeof(Addon_TriggerEditor) },
+            { typeof(Addon_Patrol), typeof(Addon_PatrolEditor) },
+            { typeof(Addon_Destruct), typeof(Addon_DestroyEditor) },
+            { typeof(Addon_Interact), typeof(Addon_InteractEditor) },
+            { typeof(Addon_Drop), typeof(Addon_DropEditor) },
+            { typeof(Addon_Unlock), typeof(Addon_UnlockEditor) },
+            { typeof(Addon_TriggerUnlock), typeof(Addon_TriggerUnlockEditor) }
+        };
+        #endregion
+
         #region FIELDS
 
         private TileGroupBehavior behaviour;
@@ -45,6 +60,20 @@ namespace ISILab.LBS.VisualElements
             CreateVisualElement();
             SetInfo(behaviour);
         }
+
+        protected sealed override VisualElement CreateVisualElement()
+        {
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("TileGroupBehaviorEditor", true);
+            visualTree.CloneTree(this);
+
+            NoContent = this.Q<VisualElement>("NoContent");
+            Content = this.Q<VisualElement>("Content");
+            SelectedHeader = this.Q<LBSCustomLabelIcon>("SelectedHeader");
+            AddonContainer = this.Q<VisualElement>("AddonContainer");
+
+            return this;
+        }
+
         #endregion
 
         #region METHODS
@@ -61,87 +90,34 @@ namespace ISILab.LBS.VisualElements
             UpdateTilebundle(tilemap);
         }
 
-        protected sealed override VisualElement CreateVisualElement()
-        {
-            if (visualTree is null)
-            {
-                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TileGroupBehaviorEditor", true);
-            }
-
-            visualTree.CloneTree(this);
-
-            NoContent = this.Q<VisualElement>("NoContent");
-            Content = this.Q<VisualElement>("Content");
-            SelectedHeader = this.Q<LBSCustomLabelIcon>("SelectedHeader");
-            AddonContainer = this.Q<VisualElement>("AddonContainer");
-
-            return this;
-        }
-
-        private void UpdateSelectedTilemap()
-        {
-            PopulationTileGroupView.UpdateVisuals(behaviour.SelectedTilemap);
-            DrawManager.Instance.DrawSingleComponent(behaviour, behaviour.OwnerLayer);
-            //DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
-        }
-
-        private void UpdateTilebundle(TileBundleGroup TileBundleGroup)
+        private void UpdateTilebundle(TileBundleGroup group)
         {
             AddonContainer.Clear();
-            NoContent.style.display = DisplayStyle.Flex;
-            Content.style.display = DisplayStyle.None;
 
-            if (TileBundleGroup is null) return;
+            // Toggle Visibility
+            bool isValid = group?.BundleData?.Bundle != null;
+            NoContent.style.display = isValid ? DisplayStyle.None : DisplayStyle.Flex;
+            Content.style.display = isValid ? DisplayStyle.Flex : DisplayStyle.None;
 
-            NoContent.style.display = DisplayStyle.None;
-            Content.style.display = DisplayStyle.Flex;
-            SelectedHeader.Icon = TileBundleGroup.BundleData.Bundle?.Icon;
-            SelectedHeader.Label = TileBundleGroup.BundleData.BundleName;
+            if (!isValid) return;
 
-            Addon_Trigger atrigger = TileBundleGroup.GetAddon<Addon_Trigger>();
-            Addon_Patrol apatrol = TileBundleGroup.GetAddon<Addon_Patrol>();
-            Addon_Destruct adestruct = TileBundleGroup.GetAddon<Addon_Destruct>();
-            Addon_Interact ainteract = TileBundleGroup.GetAddon<Addon_Interact>();
-            Addon_Drop adrop = TileBundleGroup.GetAddon<Addon_Drop>();
-            Addon_Unlock aunlock = TileBundleGroup.GetAddon<Addon_Unlock>();
-            Addon_TriggerUnlock atunlock = TileBundleGroup.GetAddon<Addon_TriggerUnlock>();
+            // Header Setup
+            SelectedHeader.Icon = group.BundleData.Bundle.Icon;
+            SelectedHeader.Label = group.BundleData.BundleName;
 
-            if (atrigger is not null)
+            // 2. Use your existing Addons list!
+            // We iterate through whatever was built in BuildAddons
+            foreach (var addon in group.Addons)
             {
-                Addon_TriggerEditor NewEntry = new Addon_TriggerEditor(behaviour);
-                AddonContainer.Add(NewEntry);
-            }
-            if (apatrol is not null)
-            {
-                Addon_PatrolEditor NewEntry = new Addon_PatrolEditor(behaviour);
-                AddonContainer.Add(NewEntry);
-            }
-            if (adestruct is not null)
-            {
-                Addon_DestroyEditor NewEntry = new Addon_DestroyEditor(behaviour);
-                AddonContainer.Add(NewEntry);
-            }
-            if (ainteract is not null)
-            {
-                Addon_InteractEditor NewEntry = new Addon_InteractEditor(behaviour);
-                AddonContainer.Add(NewEntry);
-            }
-            if (adrop is not null)
-            {
-                Addon_DropEditor NewEntry = new Addon_DropEditor(behaviour);
-                AddonContainer.Add(NewEntry);
-            }
-            if (aunlock is not null)
-            {
-                Addon_UnlockEditor NewEntry = new Addon_UnlockEditor(behaviour);
-                AddonContainer.Add(NewEntry);
-            }
-            if (atunlock is not null)
-            {
-                Addon_TriggerUnlockEditor NewEntry = new Addon_TriggerUnlockEditor(behaviour);
-                AddonContainer.Add(NewEntry);
-            }
+                Type addonType = addon.GetType();
 
+                if (AddonEditorMap.TryGetValue(addonType, out Type editorType))
+                {
+                    // Instantiate the editor and pass 'behaviour'
+                    var editor = (VisualElement)Activator.CreateInstance(editorType, behaviour);
+                    AddonContainer.Add(editor);
+                }
+            }
         }
 
         public override void OnUnfocus()
