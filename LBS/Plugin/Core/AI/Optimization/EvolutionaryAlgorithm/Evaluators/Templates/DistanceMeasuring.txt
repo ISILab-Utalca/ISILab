@@ -1,0 +1,74 @@
+
+                Dictionary<Vector2Int, LBSTile> tilePos = null;
+                switch(layer.ID)
+                {
+                    case "Interior":
+                    case "Exterior":
+                        sectorMod = layer.GetModule<SectorizedTileMapModule>();
+                        tilePos = new Dictionary<Vector2Int, LBSTile>();
+                        foreach (TileZonePair pair in sectorMod.PairTiles)
+                        {
+                            if (!tilePos.ContainsKey(pair.Tile.Position))
+                                tilePos.Add(pair.Tile.Position, pair.Tile);
+                        }
+                        moduleID = layer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+                        connectedMod = layer.GetModule<ConnectedTileMapModule>(moduleID);
+                
+                        EvaluationInfo info = default;
+                
+                        switch(searchType)
+                        {
+                            case PathfindingAlgorithm.Flood_Fill:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    List<int> knownDist = new List<int>();
+                                    for (int j = i + 1; j < size; j++)
+                                    {
+                                        if (DistancePool.TryGetValue((elements[i], elements[j]), out distances[i, j]))
+                                        {
+                                            distances[j, i] = distances[i, j];
+                                            knownDist.Add(j);
+                                        }
+                                        else if (DistancePool.TryGetValue((elements[j], elements[i]), out distances[j, i]))
+                                        {
+                                            distances[i, j] = distances[j, i];
+                                            knownDist.Add(j);
+                                        }
+                                    }
+                                    List<int> others = elements.Except(knownDist).ToList();
+                                    EvaluatorHelper.FloodFill(elements[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                }
+                                break;
+                            case PathfindingAlgorithm.JPS_Plus:
+                            case PathfindingAlgorithm.A_Star:
+                                for (int i = 0; i < size; i++)
+                                {
+                                    distances[i, i] = 0;
+                                    for(int j = i + 1; j < size; j++)
+                                    {
+                                        if (DistancePool.TryGetValue((elements[i], elements[j]), out distances[i, j]))
+                                            distances[j, i] = distances[i, j];
+                                        else if (DistancePool.TryGetValue((elements[j], elements[i]), out distances[j, i]))
+                                            distances[i, j] = distances[j, i];
+                                        else
+                                        {
+                                            distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
+                                                EvaluatorHelper.AStarRun(elements[i], elements[j], chrom.Rect, connectedMod, ref info) :
+                                                EvaluatorHelper.JPSPlus.JPSRun(elements[i], elements[j], chrom.Rect, connectedMod, ref info);
+                                        }
+                                    }
+                                }
+                                break;
+                            default:
+                                Debug.LogWarning("Algorithm not implemented. Executing JPS+ instead...");
+                                goto case PathfindingAlgorithm.JPS_Plus;
+                        }
+                        break;
+                    default:
+                        for (int i = 0; i < size; i++)
+                        {
+                            EvaluatorHelper.Manhattan(elements[i], elements, i, ref distances, chrom);
+                        }
+                        break;
+                }
+

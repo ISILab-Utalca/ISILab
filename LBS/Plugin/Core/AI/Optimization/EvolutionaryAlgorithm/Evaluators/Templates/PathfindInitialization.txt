@@ -1,0 +1,5 @@
+
+
+            if(CombinedLayer is null) return;
+            string moduleID = CombinedLayer.ID.Equals("Exterior") ? "TempConnectedModule" : "";
+            CombinedLayer.GetModule<ConnectedTileMapModule>(moduleID)?.InitializePathfinding(selection, searchType);

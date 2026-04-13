@@ -1,0 +1,12 @@
+
+            List<int> elements = #FIRST_TAGCHAR#;
+
+            int size = elements.Count;
+
+            if(size < 2)
+            {
+                Debug.LogWarning("Not enough elements to perform pathfinding.");
+                //return 0.0f;
+            }
+
+            int[,] distances = new int[size, size];

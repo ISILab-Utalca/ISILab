@@ -1,0 +1,5 @@
+
+                    if(found || !checkPermaIndices) continue;
+
+                    TileBundleGroup group = bundleTM.GetGroup(chrom.ToGlobalPosition(i));
+                    if(group is null || groups.Contains(group)) continue;

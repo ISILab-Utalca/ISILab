@@ -17,6 +17,7 @@ namespace ISILab.LBS.VisualElements
         private LBSStair _target;
 
         private TextField nameField;
+        private IntegerField heightField;
         private ColorField colorField;
         private ObjectField objectField;
 
@@ -38,6 +39,7 @@ namespace ISILab.LBS.VisualElements
 
             // Set basic values
             var pos = _target.Positions[0];
+            heightField.value = _target.Height;
             nameField.value = $"Stair ({pos.x} , {pos.y})";
             colorField.value = _target.Color;
 
@@ -62,6 +64,14 @@ namespace ISILab.LBS.VisualElements
             nameField = new TextField("Name");
             nameField.SetEnabled(false);
             Add(nameField);
+
+            // HeightField
+            heightField = new IntegerField("Height");
+            heightField.RegisterValueChangedCallback(evt => 
+            {
+                _target.Height = evt.newValue;
+            });
+            Add(heightField);
 
             // ColorField
             colorField = new ColorField("Color");

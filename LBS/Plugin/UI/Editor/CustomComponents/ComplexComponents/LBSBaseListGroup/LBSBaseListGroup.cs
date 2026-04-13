@@ -18,9 +18,8 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         private VectorImage sortAscending;
         private VectorImage sortDescending;
 
-
-        private enum SortType { Disabled, Ascending, Descending };
-        private SortType currentSort;
+        protected enum SortType { Disabled, Ascending, Descending };
+        protected SortType currentSort;
 
 
         private bool isEmpty = false;
@@ -149,10 +148,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 IsFoldoutExpanded = !IsFoldoutExpanded;
             });
             toggleSortButton = this.Q<LBSToolbarToggle>("SortButton");
-            OnSortToggle += ToggleSort;
             toggleSortButton.RegisterCallback<ClickEvent>(_evt =>
             {
-                OnSortToggle?.Invoke();
+                ToggleSort();
             });
 
             removeButton = this.Q<LBSToolbarButton>("RemoveButton");
@@ -167,28 +165,24 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             switch(currentSort)
             {
                 case SortType.Disabled:
-                    Debug.Log("changing to ascending");
                     toggleSortButton.SetValueWithoutNotify(true);
                     currentSort = SortType.Ascending;
 
                     break;
                 case SortType.Ascending:
                     toggleSortButton.ToggleIcon = sortDescending;
-                    Debug.Log("changing to descending");
+                    toggleSortButton.SetValueWithoutNotify(true);
                     currentSort = SortType.Descending;
-
 
                     break;
                 case SortType.Descending:
-                    Debug.Log("changing to disabled");
-
                     toggleSortButton.ToggleIcon = sortAscending;
                     toggleSortButton.SetValueWithoutNotify(false);
                     currentSort = SortType.Disabled;
 
-
                     break;
             }
+            OnSortToggle?.Invoke();
         }
     }
 }

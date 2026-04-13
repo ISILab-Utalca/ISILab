@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ISILab.LBS.Components
 {
-    // quest state to determine the state of a quest
+    // Determines the state of a quest
     public enum QuestState
     {
         Blocked, Active, Completed, Failed

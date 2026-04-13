@@ -1680,7 +1680,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public TileChance(int direction)
         {
             List<string> emptyList = new(new string[] { "", "", "", "" });
-            tile = new TileConnectionsPair(new LBSTile(Vector2.zero), emptyList, new List<bool> { false });
+            tile = new TileConnectionsPair(new LBSTile(Vector2.zero), emptyList, new List<bool>() { false, false, false, false, });
             count = -1;
             this.direction = direction;
         }

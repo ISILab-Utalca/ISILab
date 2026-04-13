@@ -237,7 +237,7 @@ namespace ISILab.LBS.Behaviours
             {
                 var incomingEdge = merger.Graph.GraphEdges[i];
 
-                QuestEdge existingEdge = null;
+                //QuestEdge existingEdge = null;
 
                 for (int j = 0; j < Graph.GraphEdges.Count; j++)
                 {

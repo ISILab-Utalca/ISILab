@@ -85,7 +85,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             List<LBSLog> msgs = new List<LBSLog>();
 
-            for(int i = 0; i < layer.FloorCount; i++)
+            for (int i = 0; i < layer.FloorCount; i++)
             {
                 SectorizedTileMapModule zonesMod = layer.GetModule<SectorizedTileMapModule>("", i);
 
@@ -110,7 +110,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     }
                 }
             }
-
             return true;
         }
 
@@ -122,9 +121,9 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns></returns>
         private GameObject GenerateCenters(GameObject pivot, List<Bundle> bundles, StairsModule stairMod, Vector2Int position)
         {
-            if(stairMod != null)
+            if (stairMod != null)
             {
-                var occupied = stairMod.GetStairByPoint(position);
+                var occupied = stairMod.GetStairByPoint(position, true);
                 if (occupied != null && occupied.Direction < 0)
                 {
                     return pivot;
@@ -152,17 +151,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 Bundle current = xx.Random();
 
                 // Get random by weight
-                GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
+                GameObject prefab = current.Assets.RandomRullete(a => a.probability).obj;
 
                 // Create part
-                GameObject obj = CreateObject(pref, pivot.transform);
-                
-                // Add ref component
-                LBSGenerated generatedComponent = obj.AddComponent<LBSGenerated>();
-                generatedComponent.BundleRef = current;
-    
-            }
+                GameObject f1 = CreateObject(prefab, pivot.transform);
+                GameObject f2 = CreateObject(prefab, pivot.transform);
+                f2.transform.localRotation = Quaternion.Euler(0,0,180);
+                f2.transform.localPosition += Vector3.down * 0.101f;
 
+                // Add ref component
+                LBSGenerated generatedComponent = f1.AddComponent<LBSGenerated>();
+                generatedComponent.BundleRef = current;
+                generatedComponent = f2.AddComponent<LBSGenerated>();
+                generatedComponent.BundleRef = current;
+            }
             return pivot;
         }
 
@@ -173,7 +175,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <param name="bundles"></param>
         /// <param name="connections"></param>
         /// <returns></returns>
-        private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles, 
+        private GameObject GenerateEdges(GameObject pivot, List<Bundle> bundles,
             ConnectedTileMapModule connectedMod, TileMapModule tilesMod, LBSTile tile)
         {
 
@@ -218,10 +220,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 LBSGeneratedInterior generatedComponent = obj.AddComponent<LBSGeneratedInterior>();
 
                 //generatedComponent.Tile = tile;
-                ConnectionData newDirConnection = new ConnectionData(connectedMod.OwnerLayer,tile);
+                ConnectionData newDirConnection = new ConnectionData(connectedMod.OwnerLayer, tile);
                 newDirConnection.connections.Add(new DirConnection(i, connections[i]));
 
-                if(connections[i] != SchemaBehaviour.Empty)
+                if (connections[i] != SchemaBehaviour.Empty)
                 {
                     Vector2Int direction = Vector2Int.zero;
                     switch (LBSDirection.ToString(i))
@@ -239,7 +241,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 generatedComponent.Connection = newDirConnection;
                 generatedComponent.BundleRef = current;
             }
-
             return pivot;
         }
 
@@ -268,8 +269,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 Vector2Int d2 = Dirs[(i + 1) % Dirs.Count];
 
                 // if directions are NOT empty continue
-                if (!selfConnections[i].Equals(SchemaBehaviour.Empty) || 
-                    !selfConnections[(i + 1)% Dirs.Count].Equals(SchemaBehaviour.Empty))
+                if (!selfConnections[i].Equals(SchemaBehaviour.Empty) ||
+                    !selfConnections[(i + 1) % Dirs.Count].Equals(SchemaBehaviour.Empty))
                     continue;
 
                 LBSTile neigth = tilesMod.GetTileNeighbor(tile, d1);
@@ -300,15 +301,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     // Set rotation orientation
                     var rot = (i) % Dirs.Count();
                     instance.transform.rotation = Quaternion.Euler(0, -90 * (rot + 1), 0);
-                    
+
                     // Add ref component
                     LBSGenerated generatedComponent = instance.AddComponent<LBSGenerated>();
                     generatedComponent.BundleRef = current;
                 }
 
             }
-
-            
             return pivot;
         }
 
@@ -317,10 +316,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             // Validate if this is start stairs position
             var stair = stairMod.GetStairByStartingPoint(position);
-            if (stair is null || stair.Direction < 0) 
+            if (stair is null || stair.Direction < 0)
                 return null;
             stairMod.RemoveStair(stair);
-            
+
             // Get Stair bundles 
             List<Bundle> currents = new List<Bundle>();
             foreach (Bundle bundle in bundles)
@@ -332,17 +331,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 .ToList();
             tags.RemoveDuplicates();
 
-            // Instantiate GameObjects
-            GameObject sGo = new GameObject($"Stair ({position.x}, {position.y})");
-            sGo.transform.parent = pivot.transform;
-
+            // Get Stair Bundle
             List<Bundle> xx = currents.Where(b => LBSAssetMacro.BundleHasTag(b, "Stair")).ToList();
             Bundle current = xx.Random();
             GameObject pref = current.Assets.RandomRullete(a => a.probability).obj;
 
-            // Create part
-            GameObject objS1 = CreateObject(pref, sGo.transform);
-            GameObject objS2 = CreateObject(pref, sGo.transform);
+            // Instantiate Stairs
+            GameObject objS1 = CreateObject(pref, pivot.transform);
+            GameObject objS2 = CreateObject(pref, pivot.transform);
 
             // Add ref component
             LBSGenerated generatedComponent1 = objS1.AddComponent<LBSGenerated>();
@@ -359,11 +355,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var origin = stair.Positions[0];
             for (int i = 1; i < stair.Positions.Count - 1; i++)
             {
-                GameObject middle = GenerateCenters(sGo, bundles, null, Vector2Int.zero).transform.GetChild(i + 1).gameObject;
+                GenerateCenters(pivot, bundles, null, Vector2Int.zero);
+                GameObject middleUp = pivot.transform.GetChild(i + 1).gameObject;
+                GameObject middleDown = pivot.transform.GetChild(i + 2).gameObject;
 
                 var pos = stair.Positions[i];
-                middle.transform.localPosition =
-                    new Vector3((pos.x - origin.x) * settings.scale.x, settings.scale.y * 0.5f, (pos.y - origin.y) * settings.scale.z);
+                Vector3 offset = new Vector3((pos.x - origin.x) * settings.scale.x, settings.scale.y * 0.5f, (pos.y - origin.y) * settings.scale.z);
+
+                middleUp.transform.localPosition += offset;
+                middleDown.transform.localPosition += offset;
             }
 
             // S2 Rotation
@@ -447,7 +447,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     tiles.Add(tileObj);
                 }
                 // LBSStair
-                foreach(var stair in stairsMod.Stairs)
+                foreach (var stair in stairsMod.Stairs)
                 {
                     if (stair.Direction < 0) continue;
 

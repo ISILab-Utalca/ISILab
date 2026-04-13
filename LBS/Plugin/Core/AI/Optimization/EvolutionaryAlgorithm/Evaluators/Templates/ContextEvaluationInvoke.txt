@@ -2,9 +2,14 @@
             LBSLayer layer = CombinedLayer;
             if (layer is not null)
             {
-                fitness = EvaluateWithContext(defaultCharacteristicIndex, chrom, null);
+                ConnectedTileMapModule connectedMod = null;
+                string moduleID = null;
+                SectorizedTileMapModule sectorMod = null;
+                #DISTANCE_MEASURING#
+                fitness = EvaluateWithContext(null, chrom, null);
             }
             else
             {
-                fitness = EvaluateWithoutContext(defaultCharacteristicIndex, chrom);
+                fitness = EvaluateWithoutContext(null, chrom);
             }
+            #DISTANCE_POST_MEASURING#

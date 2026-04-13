@@ -20,8 +20,6 @@ namespace ISILab.AI.Categorization
     [System.Obsolete("Not implemented yet.")]
     public class DistanceRange : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
-        // Weird or inconsistent behaviour? Maybe you just added a new Property and forgot to assign it in the Initialization or Clone Methods, you silly cat!
-
         public float MaxValue => 1;
         public float MinValue => 0;
 
