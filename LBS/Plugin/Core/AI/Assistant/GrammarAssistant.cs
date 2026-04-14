@@ -129,7 +129,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return true;
         }
 
-        public List<string> GetAllValidNextActions(string currentAction)
+        public List<string> GetAllValidNextActions(string currentElement)
         {
             var grammar = Graph.Grammar;
             var nextValidTerminals = new HashSet<string>();
@@ -137,7 +137,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             if (grammar == null) return nextValidTerminals.ToList();
 
             // Step 1: Get rules that can produce currentAction
-            List<string> owningRules = GetOwningRules(currentAction);
+            List<string> owningRules = GetOwningRules(currentElement);
             foreach (var owningRule in owningRules.ToList())
             {
                 owningRules.AddRange(GetRulesWithRule(owningRule));
@@ -146,15 +146,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             // Step 2: Collect all relevant expansions
             HashSet<GrammarRule> itemsWithRule = new HashSet<GrammarRule>();
-            foreach (GrammarRule ruleEntry in grammar.LBSRules)
+            foreach (GrammarRule rule in grammar.LBSRules)
             {
-                foreach (var expansion in ruleEntry.Expansions)
+                foreach (var expansion in rule.Expansions)
                 {
                     // Include expansions with currentAction or its owning rules
-                    if (expansion.sequence.Contains(currentAction) || 
+                    if (expansion.sequence.Contains(currentElement) || 
                         owningRules.Any(rule => expansion.sequence.Contains(rule)))
                     {
-                        itemsWithRule.Add(ruleEntry);
+                        itemsWithRule.Add(rule);
                     }
                 }
             }
@@ -166,34 +166,36 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 {
                     var expansion = ruleItem.Expansions[i];
                     bool isCurrentAction = false;
-
+                    if (expansion.sequence.Count <= 1) continue;
                     // Check if current item matches currentAction or can produce it
                     for (int j = 0; j < expansion.sequence.Count; j++)
                     {
                         string item = expansion.sequence[j];
                         if (grammar.IsRule(item))
                         {
-                            if (GetFirstTerminals(item, grammar).Contains(currentAction))
+                            if (grammar.GetFirstTerminals(item).Contains(currentElement))
                             {
                                 isCurrentAction = true;
                             }
                         }
-                        else if (expansion.Equals(currentAction))
+                        else if (expansion.Equals(currentElement))
                         {
                             isCurrentAction = true;
                         }
 
+                        if(j+1 > expansion.sequence.Count-1) continue;
+
                         if (isCurrentAction)
                         {
-                            var next = expansion.sequence[j + 1];
-                            if (grammar.IsRule(next))
+                            var nextElement = expansion.sequence[j + 1];
+                            if (grammar.IsRule(nextElement))
                             {
                                 // Add all first terminals of the next rule
-                                nextValidTerminals.UnionWith(GetFirstTerminals(next, grammar));
+                                nextValidTerminals.UnionWith(grammar.GetFirstTerminals(nextElement));
                             }
                             else
                             {
-                                nextValidTerminals.Add(next);
+                                nextValidTerminals.Add(nextElement);
                             }
                         }
                     }
@@ -204,10 +206,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return nextValidTerminals.ToList();
         }
         
-        public List<string> GetAllValidNextActionsInsert(string currentAction, QuestGraph questGraph, Action<float> onProgress = null, CancellationToken token = default)
+        public List<string> GetAllValidNextActionsInsert(string currentElement, QuestGraph questGraph, Action<float> onProgress = null, CancellationToken token = default)
         {
             // get valid actions out of context
-            var nextValidTerminals = GetAllValidNextActions(currentAction);
+            var nextValidTerminals = GetAllValidNextActions(currentElement);
             
             // Simulate to only get if its valid in the new context for insert
             HashSet<string> nextValidInsert = new HashSet<string>();
@@ -255,24 +257,24 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     List<string> expansion = rule.Expansions[j].sequence;
                     for (int i = 0; i < expansion.Count - 1; i++)
                     {
-                        var next = expansion[i+1];
-                        if (grammar.IsRule(next))
+                        var nextElement = expansion[i+1];
+                        if (grammar.IsRule(nextElement))
                         {
                             // if the next symbols a ruleRef get the first valid terminal
-                            next = GetFirstTerminals(next, grammar).First();
+                            nextElement = grammar.GetFirstTerminals(nextElement).First();
                         }
                         // if the next symbol is the action we are searching for
-                        if (next.Equals(currentAction))
+                        if (nextElement.Equals(currentAction))
                         {
-                            var current = expansion[i];
-                            if (grammar.IsRule(current))
+                            var currentElement = expansion[i];
+                            if (grammar.IsRule(currentElement))
                             {
                                 // if the first next a ruleRef get the first valid terminal
-                                current = GetFirstTerminals(current, grammar).First();
+                                currentElement = grammar.GetFirstTerminals(currentElement).First();
                             }
                             
                             // assign the current as a valid prev, because the next is the current
-                            prevValidTerminals.Add(current);
+                            prevValidTerminals.Add(currentElement);
                         }
                     }
                 }
@@ -354,17 +356,17 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 var expansion = expansions[index];
                 List<string> sequence = new List<string>();
 
-                foreach (var symbol in expansion)
+                foreach (var element in expansion)
                 {
                     if(token.IsCancellationRequested) return allExpansions.ToList();
                     
-                    if (grammar.IsTerminal(symbol))
+                    if (grammar.IsTerminal(element))
                     {
-                        sequence.Add(symbol);
+                        sequence.Add(element);
                     }
                     else
                     {
-                        sequence.Add(GetFirstTerminals(symbol, grammar).First());
+                        sequence.Add(grammar.GetFirstTerminals(element).First());
                     }
                 }
 
@@ -415,24 +417,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             
             return owners.ToList();
         }
-        
-        private List<string> GetFirstTerminals(string ruleName, LBSGrammar grammar)
-        {
-            var firstTerminals = new HashSet<string>();
-            return grammar.GetFirstTerminals(ruleName, firstTerminals);
-        }
-        
-        private List<string> GetLastTerminals(string current, LBSGrammar grammar)
-        {
-            var lastTerminals = new HashSet<string>();
-            return grammar.GetLastTerminals(current, lastTerminals);
-        }
-        
-        private List<string> GetNextTerminal(string current, LBSGrammar grammar)
-        {
-            var nextTerminals = new HashSet<string>();
-            return grammar.GetNextTerminals(current, nextTerminals);
-        }
+
         
         public Action ExpandAction(List<string> expandAction, QuestNode referenceNode)
         {

@@ -24,10 +24,8 @@ namespace ISILab.AI.Grammar
         #endregion
 
         #region PROPERTIES
-
         public List<GrammarRule> LBSRules => lbsRules;
         public List<GrammarTerminal> LBSTerminals => lbsTerminals;
-
         public List<string> TerminalActions
         {
             get
@@ -42,8 +40,6 @@ namespace ISILab.AI.Grammar
    
             }
         }
-            
-            
         public List<string> Rules
         {
             get
@@ -60,14 +56,18 @@ namespace ISILab.AI.Grammar
 
             }
         }
-
         public string PathGUID { get => pathGuid; set => pathGuid = value; }
-
-
         #endregion
 
 
         #region METHODS
+
+        // Ensure initialization of serialized fields
+        private void OnEnable()
+        {
+            terminals ??= new List<string>();
+            rules ??= new List<string>();
+        }
 
         public bool IsRule(string id) => Rules.Contains(id);
         public bool IsTerminal(string id) => TerminalActions.Contains(id);
@@ -82,40 +82,56 @@ namespace ISILab.AI.Grammar
             return null;
         }
 
+
+        #region Terminal Retrieve
+
+        public List<string> GetFirstTerminals(string ruleName) =>
+            GetFirstTerminals(ruleName, new HashSet<string>(), new HashSet<string>()).ToList();
+
+        public List<string> GetNextTerminals(string ruleName) =>
+            GetNextTerminals(ruleName, new HashSet<string>(), new HashSet<string>()).ToList();
+
+        public List<string> GetLastTerminals(string ruleName) =>
+            GetLastTerminals(ruleName, new HashSet<string>(), new HashSet<string>()).ToList();
+
+
         /// <summary>
         /// Recursively collects first terminal(s) from a rule.
         /// </summary>
-        public List<string> GetFirstTerminals(string ruleName, HashSet<string> firstTerminals)
+        private HashSet<string> GetFirstTerminals(string ruleName,
+            HashSet<string> result,
+            HashSet<string> visited)
         {
-            // we need to find the first terminal of each of the rules entries
-            foreach (var rule in LBSRules)
+            if (!visited.Add(ruleName)) return result;
+
+            var rule = LBSRules.FirstOrDefault(r => r.id == ruleName);
+            if (rule == null) return result;
+
+            foreach (var expansion in rule.Expansions)
             {
-                // found the rule we need
-                if (rule.id.Equals(ruleName))
+                if (expansion.sequence.Count == 0) continue;
+
+                string firstElement = expansion.sequence[0];
+
+                if (IsRule(firstElement))
                 {
-                    foreach (var expansion in rule.Expansions)
-                    {
-                        if (expansion.sequence.Count == 0) continue;
-                        string firstString = expansion.sequence[0];
-                        if (IsRule(firstString))
-                        {
-                            // if begins with a rule, then call recursively
-                            firstString = GetFirstTerminals(firstString, firstTerminals).First();
-                        }
-                        else
-                        {
-                            // terminal found
-                            firstTerminals.Add(firstString);
-                        }
-                    }
+                    GetFirstTerminals(firstElement, result, visited);
+                }
+                else
+                {
+                    result.Add(firstElement);
                 }
             }
 
-            return firstTerminals.ToList();
+            return result;
         }
 
-        public List<string> GetLastTerminals(string ruleName, HashSet<string> lastTerminals)
+        private HashSet<string> GetLastTerminals(string ruleName,
+            HashSet<string> result,
+            HashSet<string> visited)
         {
+            if (!visited.Add(ruleName)) return result;
+
             // we need to find the last terminal of each of the rules entries
             foreach (var rule in LBSRules)
             {
@@ -125,56 +141,61 @@ namespace ISILab.AI.Grammar
                     foreach (var expansion in rule.Expansions)
                     {
                         if (expansion.sequence.Count == 0) continue;
-                        string lastString = expansion.sequence.LastOrDefault();
-                        if (IsRule(lastString))
+                        string lastElement = expansion.sequence.LastOrDefault();
+                        if (IsRule(lastElement) && lastElement != ruleName)
                         {
                             // if ends with a rule, then call recursively
-                            lastString = GetLastTerminals(lastString, lastTerminals).First();
+                            lastElement = GetLastTerminals(lastElement, result, visited).First();
                         }
                         else
                         {
                             // terminal found
-                            lastTerminals.Add(lastString);
+                            result.Add(lastElement);
                         }
                     }
                 }
             }
 
-            return lastTerminals.ToList();
+            return result;
         }
-        
-        public List<string> GetNextTerminals(string current, HashSet<string> nextTerminals)
+
+        private HashSet<string> GetNextTerminals(
+        string ruleName,
+        HashSet<string> result,
+        HashSet<string> visited)
         {
+            if (!visited.Add(ruleName)) return result;
             // we need to find the first terminal of each of the rules entries
-            foreach (var ruleExpansion in LBSRules)
+            foreach (var rule in LBSRules)
             {
                 // found the rule we need
-                if (ruleExpansion.id.Equals(current))
+                if (rule.id.Equals(ruleName))
                 {
                     // we try to get the next value in the expansion
-                    var item = ruleExpansion.Expansions.ElementAt(0);
+                    var item = rule.Expansions.ElementAt(0);
                     if(item.sequence.Count < 2) continue;
                     
-                    var nextString = item.sequence.ElementAt(1);
-                    if (IsRule(nextString))
+                    var nextElement = item.sequence.ElementAt(1);
+                    if (IsRule(nextElement) && nextElement != ruleName)
                     {
-                        // next is a rule therefore we need the next terminal of the rule
-                        nextString = GetFirstTerminals(nextString, nextTerminals).First();
+                        // next is a rule therefore we need the first terminal of the rule
+                        nextElement = GetFirstTerminals(nextElement, result, new HashSet<string>()).First();
                     }
                     else
                     {
                         // next terminal found
-                        nextTerminals.Add(nextString);
+                        result.Add(nextElement);
                     }
                     
                 }
             }
 
-            return nextTerminals.ToList();
+            return result;
         }
-        
-   
 
+        #endregion
+
+        #region Debug
         /// <summary>
         /// Debug method to inspect serialized data.
         /// </summary>
@@ -204,14 +225,8 @@ namespace ISILab.AI.Grammar
                 }
             }
         }
+        #endregion
 
-        // Ensure initialization of serialized fields
-        private void OnEnable()
-        {
-            
-            terminals ??= new List<string>();
-            rules ??= new List<string>();
-        }
 
         #endregion
     }
