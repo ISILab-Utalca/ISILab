@@ -22,7 +22,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         GameObject parent;
         GameObject levelMarkupContainer; // Contiene objetos marcados de PathOS
         GameObject wallsContainer; // Contiene los objetos muro
-        Vector2 scale;
+        Vector3 scale;
         // Referencias a muros colocados en ultima generacion
         List<(SimulationTile, GameObject)> lastGenerationWalls;
         // Referencia al PathOSManager instanciado
@@ -120,7 +120,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     currInstance = agentGameObject;
                     // Setear posicion
                     currInstance.transform.position = settings.position +
-                                                      new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
+                                                      new Vector3(tile.X * scale.x, 0, tile.Y * scale.z)
                                                       - new Vector3(scale.x, 0, scale.y) / 2f;
 
                     PathOSAgent agentComp = agentGameObject.GetComponent<PathOSAgent>();
@@ -149,7 +149,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     currInstance = PrefabUtility.InstantiatePrefab(wallPrefab, wallsContainer.transform) as GameObject;
                     // Se modifican dimensiones segun la escala actual (la altura del muro es equivalente a la primera dimension X,
                     // de manera de calcular correctamente el NavMesh)
-                    currInstance.transform.localScale = new Vector3(scale.x, scale.x, scale.y);
+                    currInstance.transform.localScale = new Vector3(scale.x, scale.y, scale.z);
                     // Agrega y setea modificador de NavMesh
                     NavMeshModifier modifier = currInstance.AddComponent<NavMeshModifier>();
                     modifier.ignoreFromBuild = false;
@@ -186,7 +186,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
                 // Setear posicion
                 currInstance.transform.position = settings.position +
-                                                  new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
+                                                  new Vector3(tile.X * scale.x, 0, tile.Y * scale.z)
                                                   - new Vector3(scale.x, 0, scale.y) / 2f;
 
                 LBSGeneratedSimulation generatedComponent = currInstance.AddComponent<LBSGeneratedSimulation>();
@@ -207,7 +207,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             }
 
             foreach(LBSGeneratedSimulation generated in allGeneratedComponents)
+            {
                 generated.agent = agentGameObject.GetComponent<PathOSAgent>();
+            }
 
             // OBSTACULOS DINAMICOS: Crear y agregar obstaculos dinamicos para cada entidad recien creada (si le corresponde)
             foreach (var entityPair in entitiesTemporaryReference)

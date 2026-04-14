@@ -31,21 +31,21 @@ namespace PathOS
 
         public static Color[] mapLegendColors =
         {
-        PathOS.UI.mapUnknown,
-        PathOS.UI.mapSeen,
-        PathOS.UI.mapVisited,
-        PathOS.UI.mapObstacle
-    };
+            PathOS.UI.mapUnknown,
+            PathOS.UI.mapSeen,
+            PathOS.UI.mapVisited,
+            PathOS.UI.mapObstacle
+        };
 
         public static Texture2D[] mapLegendTextures;
 
         public static string[] mapLegendText =
         {
-        "Unknown",
-        "Seen",
-        "Visited",
-        "Obstacle"
-    };
+            "Unknown",
+            "Seen",
+            "Visited",
+            "Obstacle"
+        };
 
         private Texture2D blankLegendTex;
 
@@ -62,13 +62,13 @@ namespace PathOS
 
         private string[] gizmoLegendText =
         {
-        "Target",
-        "Visited",
-        "Visible",
-        "In Memory",
-        "Unreachable",
-        "Invisible" // GABO
-    };
+            "Target",
+            "Visited",
+            "Visible",
+            "In Memory",
+            "Unreachable",
+            "Invisible" // GABO
+        };
 
         [Header("Map Drawing")]
         //Should we show the navmesh map contained in the agent's memory?
