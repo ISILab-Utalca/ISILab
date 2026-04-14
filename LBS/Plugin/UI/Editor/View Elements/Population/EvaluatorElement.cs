@@ -1,9 +1,10 @@
-
-
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
@@ -61,7 +62,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             evConfigButton = this.Q<LBSCustomButton>("evOptions");
             evConfigButton.RegisterCallback<ClickEvent>(OpenEvaluatorConfig);
 
-
             interfaceIcon1 = this.Q<VisualElement>("InterfaceIcon1");
             interfaceIcon2 = this.Q<VisualElement>("InterfaceIcon2");
             interfaceIcon3 = this.Q<VisualElement>("InterfaceIcon3");
@@ -115,7 +115,42 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
 
         private void OpenEvaluatorConfig(ClickEvent evt)
         {
+            EvaluatorsParameterWindow existingWindow = Resources.FindObjectsOfTypeAll<EvaluatorsParameterWindow>().FirstOrDefault();
+            
+            // 2. Comparamos el título actual con el que queremos poner
+            // Usamos la misma cadena exacta que definiste para el título
+            string expectedTitle = $"Param Config: {EvLabelString}";
 
+            if (existingWindow != null)
+            {
+                if (existingWindow.titleContent.text != expectedTitle)
+                {
+                    // Si el título es diferente, cerramos la ventana vieja
+                    existingWindow.Close();
+                }
+                else
+                {
+                    // Si es el mismo, solo le damos foco y no hacemos nada más
+                    existingWindow.Focus();
+                    return;
+                }
+            }
+
+            EvaluatorsParameterWindow window = EditorWindow.GetWindow<EvaluatorsParameterWindow>(false, expectedTitle, true);
+            //window.InitData();
+
+            // 2. ASIGNAR EL ICONO
+            // Opción A: Usar un icono interno de Unity (ej: un engranaje o una lista)
+            // Algunos nombres útiles: "Settings", "d_Settings", "FilterByLabel", "CustomTool"
+            Texture2D icon = EditorGUIUtility.IconContent("Settings").image as Texture2D;
+
+            // Opción B: Usar tu propio icono desde una carpeta Resources o AssetDatabase
+            // Texture2D icon = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Path/To/YourIcon.png");
+
+            window.titleContent = new GUIContent(expectedTitle, icon);
+
+            window.minSize = new UnityEngine.Vector2(300, 300);
+            window.Show();
         }
     }
 }

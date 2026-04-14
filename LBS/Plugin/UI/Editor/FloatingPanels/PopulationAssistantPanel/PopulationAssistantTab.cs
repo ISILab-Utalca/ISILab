@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
@@ -11,6 +12,7 @@ using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using LBS.Components.TileMap;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -26,6 +28,8 @@ namespace ISILab.LBS.Editor
         #endregion
 
         private PopulationAssistantWindow window;
+        [SerializeField] private EvaluatorsDatabase evDatabase;
+        private const string evDatabase_NAME = "EvaluatorDatabase";
 
         #region VIEW ELEMENTS
         private VisualElement mapEliteContent;
@@ -58,7 +62,7 @@ namespace ISILab.LBS.Editor
 
         #region FIELDS
         private List<PopulationMapEntry> mapEntries = new();
-        private List<EvaluatorData> evaluatorsList = new ();
+        private List<EvaluatorData> evaluatorsList = new();
         #endregion
 
         #region PROPERTIES
@@ -78,25 +82,7 @@ namespace ISILab.LBS.Editor
         }
         #endregion
 
-        #region STRUCTURES
-        public struct EvaluatorData
-        {
-            public string name;
-            public bool interface1;
-            public bool interface2;
-            public bool interface3;
-
-            public EvaluatorData(string name, bool i1, bool i2, bool i3)
-            {
-                this.name = name;
-                interface1 = i1;
-                interface2 = i2;
-                interface3 = i3;
-            }
-        }
-        #endregion
-
-        #region CONSTRUCTORS
+        #region CONSTRUCTOR
         public PopulationAssistantTab(AssistantMapElite target)
         {
             this.target = target;
@@ -182,12 +168,16 @@ namespace ISILab.LBS.Editor
             evaluatorGeneratorOpenEvFolderButton = this.Q<LBSCustomButton>("evGenOpenFolderButton");
             evaluatorGeneratorOpenEvFolderButton.RegisterCallback<ClickEvent>(OpenEvaluatorsFolder);
 
-            InitEvaluatorsList();
+            InitializeEvaluatorsDatabase();
+            UpdateEvaluatorsList();
             ResetEvaluatorGen();
         }
         #endregion
 
         #region METHODS
+
+        #region BLUEPRINTS_METHODS
+
         // should pass the preset as parameter
         /*private void AddEntry()
         {
@@ -266,60 +256,57 @@ namespace ISILab.LBS.Editor
 
             layerPopulation.OwnerLayer.OnChangeUpdate();
         }
+        #endregion
 
-        //  Evaluator Wizard Methods
-
-        private void GetAllEvaluators()
+        #region EVALUATORS_METHODS
+        private void InitializeEvaluatorsDatabase()
         {
-            //busca todos los evaluadores del proyecto y los agrega a evaluatorsList
-            //(usar Reflection, con cuidao' eso si oe)
-            evaluatorsList.Add(
-                new EvaluatorData
-                {
-                    name = "evHardcodeado",
-                    interface1 = false,
-                    interface2 = false,
-                    interface3 = false,
-                }
-                );
-            evaluatorsList.Add(
-                new EvaluatorData
-                {
-                    name = "evHardcodeado2",
-                    interface1 = true,
-                    interface2 = false,
-                    interface3 = true,
-                }
-                );
-            evaluatorsList.Add(
-                new EvaluatorData
-                {
-                    name = "evHardcodeado222",
-                    interface1 = false,
-                    interface2 = true,
-                    interface3 = true,
-                }
-                );
-            evaluatorsList.Add(
-                new EvaluatorData
-                {
-                    name = "evHardcodeadoevHardcodeado",
-                    interface1 = true,
-                    interface2 = true,
-                    interface3 = false,
-                }
-                );
-            evaluatorsList.Add(
-                new EvaluatorData
-                {
-                    name = "evHardcodeado5",
-                    interface1 = true,
-                    interface2 = true,
-                    interface3 = true,
-                }
-                );
+            // 1. Intentar cargar el SO desde la carpeta Resources
+            // El nombre del archivo debe coincidir exactamente con evDatabase_NAME
+            evDatabase = Resources.Load<EvaluatorsDatabase>(evDatabase_NAME);
+
+            // 2. Si no existe, lo creamos
+            if (evDatabase == null)
+            {
+                Debug.LogWarning($"No se encontró {evDatabase_NAME} en Resources. Creando una nueva instancia.");
+
+                // Crea la instancia en la memoria RAM
+                evDatabase = ScriptableObject.CreateInstance<EvaluatorsDatabase>();
+
+                #if UNITY_EDITOR
+                // Solo en el Editor lo persistimos como un archivo .asset real
+                SaveAssetInEditor();
+                #endif
+            }
+
+            evaluatorsList = evDatabase.Evaluators;
         }
-        
+
+        #if UNITY_EDITOR
+        private void SaveAssetInEditor()
+        {
+            string folderPath = "Assets/ISILab/LBS/Plugin/Internal/Resources";
+
+            // 1. Asegurarse de que la carpeta Resources existe
+            if (!System.IO.Directory.Exists(folderPath))
+            {
+                System.IO.Directory.CreateDirectory(folderPath);
+                // Es buena práctica refrescar el Database para que Unity vea la nueva carpeta
+                UnityEditor.AssetDatabase.Refresh();
+            }
+
+            // 2. Construir la ruta completa del asset
+            string fullPath = $"{folderPath}/{evDatabase_NAME}.asset";
+
+            // 3. Crear el archivo físicamente en el disco
+            UnityEditor.AssetDatabase.CreateAsset(evDatabase, fullPath);
+            UnityEditor.AssetDatabase.SaveAssets();
+            UnityEditor.AssetDatabase.Refresh();
+
+            Debug.Log($"<color=green>Asset creado exitosamente en: {fullPath}</color>");
+        }
+        #endif
+
         private void UpdateEvaluatorsList()
         {
             evaluatorListView.Clear();
@@ -340,12 +327,12 @@ namespace ISILab.LBS.Editor
 
             evElement.OnDelete += (elem) =>
             {
-                // Mostramos el di�logo nativo de Unity
+                // Mostramos el diálogo nativo de Unity
                 bool confirm = EditorUtility.DisplayDialog(
-                    "Eliminar Evaluador",               // T�tulo
-                    $"�Est�s seguro de que deseas eliminar el evaluador '{evData.name}'?", // Mensaje
-                    "Eliminar",                         // Bot�n de confirmar
-                    "Cancelar"                          // Bot�n de cancelar
+                    "Eliminar Evaluador",               // Título
+                    $"¿Estás seguro de que deseas eliminar el evaluador '{evData.name}'?", // Mensaje
+                    "Eliminar",                         // Botón de confirmar
+                    "Cancelar"                          // Botón de cancelar
                 );
 
                 if (confirm)
@@ -354,16 +341,13 @@ namespace ISILab.LBS.Editor
                     // 'target' es el elemento que dispar� el evento
                     //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
                     evaluatorListView.hierarchy.Remove(elem);
+                    evaluatorsList.Remove(evData);
+
+                    SaveEvaluatorDatabaseChanges();
                 }
             };
 
             evaluatorListView.hierarchy.Add(evElement);
-        }
-
-        private void InitEvaluatorsList()
-        {
-            GetAllEvaluators();
-            UpdateEvaluatorsList();
         }
 
         //  Evaluator generator functions
@@ -380,6 +364,9 @@ namespace ISILab.LBS.Editor
         public void ResetEvaluatorGen()
         {
             evaluatorGeneratorName.value = "NewCustomEvaluator";
+            evaluatorGeneratorInterface1.value = false;
+            evaluatorGeneratorInterface2.value = false;
+            evaluatorGeneratorInterface3.value = false;
         }
 
         public EvaluatorData ReturnEvDataWUniqueName(EvaluatorData evData)
@@ -389,7 +376,7 @@ namespace ISILab.LBS.Editor
             while (!CheckUniqueEvName(newName))
             {
                 counter++;
-                newName = evData.name + "(" +counter.ToString() + ")";
+                newName = evData.name + "_" +counter.ToString();
             }
             evData.name= newName;
             return evData;
@@ -418,18 +405,23 @@ namespace ISILab.LBS.Editor
                 evaluatorsList.Add(finalEvData);
                 UpdateSingleEvaluator(finalEvData);
 
+                SaveEvaluatorDatabaseChanges();
+
+
                 //llamar al creador de evaluadores y entregarle finalEvData
-                // double it and pass it to the seba
-                EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
+                //EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
+                ResetEvaluatorGen();
             }
+            /*
             else
             {
                 bool confirm = EditorUtility.DisplayDialog(
-                    "Error",                                                   // T�tulo
-                    "Evaluator's name caanot be empty",   // Mensaje
-                    "OK"                                                       // Bot�n de cancelar
+                    "Error",                                                    // T�tulo
+                    "Evaluator's name cannot be empty",                         // Mensaje
+                    "OK"                                                        // Bot�n de cancelar
                 );
             }
+            */
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)
@@ -452,10 +444,24 @@ namespace ISILab.LBS.Editor
                 //OPEN FOLDER
                 AssetDatabase.OpenAsset(obj);
             }
-    }
+        }
+
+        private void SaveEvaluatorDatabaseChanges()
+        {
+            if (evDatabase != null)
+            {
+                // Marca el objeto como "sucio" para que Unity sepa que debe guardarlo
+                EditorUtility.SetDirty(evDatabase);
+
+                // Fuerza el guardado de los assets modificados en el disco
+                AssetDatabase.SaveAssets();
+
+                Debug.Log("<color=orange>[ISILab]</color> Cambios en la base de datos guardados localmente.");
+            }
+        }
 
         #endregion
 
-
+        #endregion
     }
 }
