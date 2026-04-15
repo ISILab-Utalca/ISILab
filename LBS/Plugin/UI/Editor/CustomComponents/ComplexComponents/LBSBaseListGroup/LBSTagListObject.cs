@@ -35,7 +35,14 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region PROPERTIES
-        public string Name => tagName;
+        public string Name {
+            get => tagName;
+            set
+            {
+                tagName = value;
+                tagLabel.text = tagName;
+            }
+        }
         public objectType Type
         {
             get => type;
@@ -45,9 +52,27 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 groupLabel.SetEnabled(type == objectType.Group);
             }
         }
-        public Bundle.TagType TagType => tagType;
-        public object AssociatedTag => associatedTag;
-        public LBSTagListGroup Owner => owner;
+        public Bundle.TagType TagType
+        {
+            get => tagType;
+            set => tagType = value;
+        }
+        public object AssociatedTag
+        {
+            get => associatedTag;
+            set
+            {
+                associatedTag = value;
+                if(associatedTag.GetType() ==typeof(LBSTagGroup)) {
+                    AddLayerTag();
+                }
+            }
+        }
+        public LBSTagListGroup Owner
+        {
+            get => owner;
+            set => owner = value;
+        }
 
         [UxmlAttribute]
         public bool IsRemovable
@@ -121,22 +146,24 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             if(type == objectType.Group)
             {
                 var associatedTagGroup = associatedTag as LBSTagGroup;
+                layerTag = new LBSTagListLayerTag(this, "Interior", layerTypeRemovable);
                 //Only for groups for now
                 if (associatedTagGroup!=null)
                 {
                     switch(associatedTagGroup.type)
                     {
                         case LBSTagGroup.TagType.Structural:
-                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Interior", layerTypeRemovable));
+                            layerTag = new LBSTagListLayerTag(this, "Interior", layerTypeRemovable);
                             break;
                         case LBSTagGroup.TagType.Aesthetic:
-                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Exterior", layerTypeRemovable));
+                            layerTag = new LBSTagListLayerTag(this, "Exterior", layerTypeRemovable);
                             break;
                         case LBSTagGroup.TagType.Element:
-                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Population", layerTypeRemovable));
+                            layerTag = new LBSTagListLayerTag(this, "Population", layerTypeRemovable);
                             break;
 
                     }
+                    layerTagContainer.Add(layerTag);
                 }
                 
             }
@@ -160,6 +187,34 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             tagLabel = this.Q<Label>("TagName");
             groupLabel = this.Q<Label>("GroupLabel");
             layerTagContainer = this.Q<VisualElement>("LayerTagContainer");
+        }
+
+        public void AddLayerTag()
+        {
+            layerTagContainer.Clear();
+            //Lastly, the layer tag!
+            if (type == objectType.Group)
+            {
+                var associatedTagGroup = associatedTag as LBSTagGroup;
+                //Only for groups for now
+                if (associatedTagGroup != null)
+                {
+                    switch (associatedTagGroup.type)
+                    {
+                        case LBSTagGroup.TagType.Structural:
+                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Interior", false));
+                            break;
+                        case LBSTagGroup.TagType.Aesthetic:
+                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Exterior", false));
+                            break;
+                        case LBSTagGroup.TagType.Element:
+                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Population", false));
+                            break;
+
+                    }
+                }
+
+            }
         }
         #endregion
     }

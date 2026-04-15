@@ -5,6 +5,7 @@ using ISILab.LBS.CustomComponents;
 using ISILab.LBS.VisualElements;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Graphs;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         //The usual
         private string tagListName;
         private bool removable = true;
-        private List<object> tagList = new ();
+        private List<object> tagList = new();
 
         //Sort button exclusive to the tag list group
         private VectorImage sortAscending;
@@ -65,6 +66,8 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 }
             }
         }
+
+        public ListView TagList => listView;
         #endregion
 
         #region EVENTS
@@ -77,17 +80,10 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         {
             Init();
         }
-        public LBSTagListGroup(bool removable, List<object> listInitialize = null) : base()
+        public LBSTagListGroup(bool removable) : base()
         {
             this.removable = removable;
             Init();
-
-            tagList = listInitialize;
-            //You can initialize thelist immediately if you introduce the tag list
-            if(listInitialize!=null)
-            {
-                ListInitialize(listInitialize);
-            }
         }
         #endregion
 
@@ -115,16 +111,65 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             titleLabel.text = tagListName;
 
             //ListView stuff
+            listView.makeItem = () => new LBSTagListObject();
+            listView.fixedItemHeight = 30;
+            listView.bindItem = (element, index) =>
+            {
+                var objectEntryVE = element as LBSTagListObject;
+                objectEntryVE.Owner = this;
+                
+                //All unremovable for now!
+                objectEntryVE.IsRemovable = false;
+
+                if (objectEntryVE == null) return;
+                //Debug.Log("binding " + objectEntryVE);
+                
+                var objectEntry = tagList[index];
+                if (tagList[index].GetType() == typeof(LBSTagGroup))
+                {
+                    LBSTagGroup tagEntry = tagList[index] as LBSTagGroup;
+                    objectEntryVE.Type = LBSTagListObject.objectType.Group;
+                    objectEntryVE.Name = tagEntry.name;
+                    objectEntryVE.AssociatedTag = tagEntry;
+                    objectEntryVE.AddLayerTag();
+                }
+                else if (tagList[index].GetType() == typeof(LBSTag))
+                {
+                    LBSTag tagEntry = tagList[index] as LBSTag;
+                    objectEntryVE.Type = LBSTagListObject.objectType.Individual;
+                    objectEntryVE.Name = tagEntry.label;
+                    objectEntryVE.AssociatedTag = tagEntry;
+                }
+            };
             listView.itemsSource = tagList;
+            listView.Rebuild();
         }
 
-        public void ListInitialize(List<object> initList)
+        public void ListInitialize(List<LBSTagGroup> initList)
         {
-            foreach(object tag in initList)
+            tagList.Clear();
+            foreach (object tag in initList)
             {
-                LBSTagListObject newObj = new LBSTagListObject(this, tag, false);
-                tagList.Add(newObj);
+                tagList.Add(tag);
             }
+        }
+
+        public void ListInitialize(List<LBSTag> initList)
+        {
+            tagList.Clear();
+            foreach (object tag in initList)
+            {
+                tagList.Add(tag);
+            }
+        }
+
+        public void AddToGroup(LBSTagGroup newObj, bool removable = false)
+        {
+            tagList.Add(newObj);
+        }
+        public void AddToGroup(LBSTag newObj, bool removable = false)
+        {
+            tagList.Add(newObj);
         }
 
         public void ToggleSort()
@@ -133,23 +178,29 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             {
                 case SortType.Disabled:
                     toggleSortButton.SetValueWithoutNotify(true);
+                    tagList.Sort((a, b) => tagListVE.Find(c => c.AssociatedTag.Equals(a)).Name.CompareTo(tagListVE.Find(d => d.AssociatedTag.Equals(b)).Name));
+                    //tagList = tagList.OrderBy(i => i).ToList();
                     currentSort = SortType.Ascending;
 
                     break;
                 case SortType.Ascending:
                     toggleSortButton.ToggleIcon = sortDescending;
                     toggleSortButton.SetValueWithoutNotify(true);
+                    tagList.Sort((a, b) => tagListVE.Find(c => c.AssociatedTag.Equals(b)).Name.CompareTo(tagListVE.Find(d => d.AssociatedTag.Equals(a)).Name));
                     currentSort = SortType.Descending;
 
                     break;
                 case SortType.Descending:
                     toggleSortButton.ToggleIcon = sortAscending;
                     toggleSortButton.SetValueWithoutNotify(false);
+                    //tagList.Sort((a, b) => a.GetHashCode().CompareTo(b.GetHashCode())); <- This isP probably very dumb lol - Alice
+                    //tagList.OrderBy(i => i);
                     currentSort = SortType.Disabled;
 
                     break;
             }
-            OnSortToggle?.Invoke();
+            listView.Rebuild();
+            //OnSortToggle?.Invoke();
         }
 
         public LBSTagListObject GetObjectFromTag(object tag)
