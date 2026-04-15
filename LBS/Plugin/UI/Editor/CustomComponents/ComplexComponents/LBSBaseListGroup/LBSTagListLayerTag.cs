@@ -1,4 +1,5 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
@@ -11,6 +12,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
 {
+    [UxmlElement]
     public partial class LBSTagListLayerTag : VisualElement
     {
         #region FIELDS
@@ -24,22 +26,26 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         };
         private LayerType type;
         private bool removable;
+        private LBSTagListObject owner;
 
+        private VectorImage unlockedButtonImage = AssetMacro.LoadAssetByGuid<VectorImage>("058d3529b732b9f438e6f92ac1dc6f25");
+        private VectorImage lockedButtonImage = AssetMacro.LoadAssetByGuid<VectorImage>("36757362139e77b4f89b892af93c4f16");
         #endregion
 
         #region VEs
         private VisualElement background;
         private LBSCustomButton deleteButton;
-        private LBSCustomButton lockedButton;
         private Label layerTypeLabel;
-
-        private LBSTagListObject owner;
         #endregion
 
         #region PROPERTIES
         public LayerType Type => type;
         public Dictionary<string, Color> LayerColor => layerColor;
-        public bool Removable
+
+        public LBSTagListObject Owner => owner;
+
+        [UxmlAttribute]
+        public bool isRemovable
         {
             get => removable;
             set
@@ -48,14 +54,11 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 if (deleteButton != null)
                 {
                     deleteButton.SetEnabled(removable);
-                    deleteButton.style.visibility = removable ? Visibility.Visible : Visibility.Hidden;
-                    lockedButton.style.visibility = removable ? Visibility.Hidden : Visibility.Visible;
-                    deleteButton.style.display = removable ? DisplayStyle.Flex : DisplayStyle.None;
-                    lockedButton.style.display = removable ? DisplayStyle.None : DisplayStyle.Flex;
+                    deleteButton.style.backgroundImage = new StyleBackground(removable ? unlockedButtonImage : lockedButtonImage);
                 }
             }
         }
-    
+
         #endregion
 
         #region EVENTS
@@ -63,15 +66,28 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region CONSTRUCTORS
-        public LBSTagListLayerTag(LBSTagListObject owner, string type, bool removable)
+        public LBSTagListLayerTag(LBSTagListObject owner, string type, bool removable) : base()
         {
+            Init();
             this.owner = owner;
+            isRemovable = removable;
+            SetType(type);
+        }
+
+        public LBSTagListLayerTag() : base()
+        {
+            Init();
+        }
+        #endregion
+
+        #region METHODS
+        public void Init()
+        {
             var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSTagListLayerTag");
             visualTree.CloneTree(this);
 
             background = this.Q<VisualElement>("MainVE");
             deleteButton = this.Q<LBSCustomButton>("DeleteButton");
-            lockedButton = this.Q<LBSCustomButton>("LockedButton");
             layerTypeLabel = this.Q<Label>("LayerType");
 
             //Set up delete button
@@ -80,16 +96,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 this.owner.OnLayerTagRemoved?.Invoke();
             };
 
-            //Set its type
-            SetType(type);
             OnTypeChanged += SetType;
-
-            //Set up remove button
-            Removable = removable;
         }
-        #endregion
 
-        #region METHODS
         public void SetType(string newTypeString)
         {
             LayerType newType;
