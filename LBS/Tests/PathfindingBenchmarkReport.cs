@@ -75,8 +75,9 @@ namespace ISILab.LBS.Tests
         }
 
         string pathfindExample1 =//"dd3a891e0aa36dd4c9a3df0826e5a6cb"
-            //"835410d40128b35468bbd7f01deccbb3" // (small)
-            "c582f8c0beac2a64f817ce3e1ea3c000" // (medium)
+            "835410d40128b35468bbd7f01deccbb3" // (small)
+            //"c582f8c0beac2a64f817ce3e1ea3c000" // (medium)
+            //"340b5a38ad6dc6340a509604941ea5f3" // (big)
             ;
         public void PathfindExample1(PathfindingAlgorithm searchType)
         {
