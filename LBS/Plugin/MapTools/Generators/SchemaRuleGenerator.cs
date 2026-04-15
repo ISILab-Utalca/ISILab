@@ -396,7 +396,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             List<GameObject> subPivots = new();
             this.settings = settings;
 
-            // LBSTile
+            // LBSFloor
             for (int i = 0; i < layer.FloorCount; i++)
             {
                 // Init values
@@ -407,6 +407,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 // stairsMod is cloned to track what stairs have been instantiated from LBSTiles,
                 // if a stair isn't in a zone, it could be instantiated separately 
 
+                // LBSTile
                 List<GameObject> tiles = new List<GameObject>();
                 foreach (LBSTile tile in tilesMod.Tiles)
                 {

@@ -1,7 +1,9 @@
 ﻿using NinePenguins;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 /*
 PathOSNavUtility.cs 
@@ -507,9 +509,9 @@ namespace PathOS
                 GetGridCoords(point, ref gridX, ref gridY, ref gridZ);
 
                 if (gridX < 0 || gridY < 0 || gridZ < 0
-                    || gridX > visitedGrid.GetLength(0)
-                    || gridY > visitedGrid.GetLength(1)
-                    || gridZ > visitedGrid.GetLength(2))
+                    || gridX >= visitedGrid.GetLength(0)
+                    || gridY >= visitedGrid.GetLength(1)
+                    || gridZ >= visitedGrid.GetLength(2))
                 {
                     //NPDebug.LogError("Navmesh sample location outside of grid bounds!\n" +
                     //    "Check that navmesh is baked properly. Otherwise there is an " +
@@ -519,7 +521,19 @@ namespace PathOS
                     return;
                 }
 
-                NavmeshMapCode oldCode = visitedGrid[gridX, gridY, gridZ];
+                NavmeshMapCode oldCode = default;
+                try
+                {
+                    oldCode = visitedGrid[gridX, gridY, gridZ];
+                }
+                catch(IndexOutOfRangeException e)
+                {
+                    var xLimit = visitedGrid.GetLength(0);
+                    var yLimit = visitedGrid.GetLength(1);
+                    var zLimit = visitedGrid.GetLength(2);
+                    Debug.LogError($"{e} : {gridX}, {gridY}, {gridZ}");
+                    return;
+                }
 
                 //Override based on priority of codes.
                 if (oldCode >= code)
@@ -708,7 +722,7 @@ namespace PathOS
 
                     //Stochasticity introduced for promoting less
                     //"robotic" behaviour.
-                    int selectedIndex = Random.Range(0, maxIndex + 1);
+                    int selectedIndex = UnityEngine.Random.Range(0, maxIndex + 1);
                     curTile = open[selectedIndex];
                     open.RemoveAt(selectedIndex);
                 }
