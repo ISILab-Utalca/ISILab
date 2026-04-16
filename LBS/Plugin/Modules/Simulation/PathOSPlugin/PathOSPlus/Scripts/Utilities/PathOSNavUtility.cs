@@ -199,19 +199,19 @@ namespace PathOS
             public PathOSAgentMemory memory;
 
             NavmeshBoundsXYZ bounds;
-            float sampleGridSize;
+            Vector3 sampleGridSize;
             public const int maxCastSamples = 128;
-            private bool visualGridDirty = false;
 
             Vector3 gridOrigin;
             NavmeshMapCode[,,] visitedGrid;
 
-            int activeFloor = 0;
-            Texture2D[] visualGrid;
+            private int activeFloor = 0;
+            private Texture2D[] visualGrid;
+            private bool[] visualGridDirty;
 
-            public NavmeshMemoryMapper(float sampleGridSize)
+            public NavmeshMemoryMapper(Vector3 gridScale, int floorCount)
             {
-                this.sampleGridSize = sampleGridSize;
+                this.sampleGridSize = gridScale;
 
                 //Test autodetection of NavMesh bounds.
                 NavMeshTriangulation navDetails = NavMesh.CalculateTriangulation();
@@ -236,55 +236,66 @@ namespace PathOS
                     if (v.z > autoBounds.max.z)
                         autoBounds.max.z = v.z;
                 }
+                autoBounds.min.y = 0;
+                autoBounds.max.y = floorCount * gridScale.y;
 
                 //Round bounds areas up to the nearest grid tile and add 1 tilesize
                 //at each end.
-                autoBounds.min.x = RoundExtrema(autoBounds.min.x, true);
-                autoBounds.max.x = RoundExtrema(autoBounds.max.x, false);
-                autoBounds.min.y = RoundExtrema(autoBounds.min.y, true);
-                autoBounds.max.y = RoundExtrema(autoBounds.max.y, false);
-                autoBounds.min.z = RoundExtrema(autoBounds.min.z, true);
-                autoBounds.max.z = RoundExtrema(autoBounds.max.z, false);
+                autoBounds.min = RoundExtrema(autoBounds.min, true);
+                autoBounds.max = RoundExtrema(autoBounds.max, false);
 
                 autoBounds.RecomputeCentreAndSize();
-                SetBounds(autoBounds);
+                SetBounds(autoBounds, floorCount);
             }
 
-            private float RoundExtrema(float extrema, bool minimum)
+            private Vector3 RoundExtrema(Vector3 extrema, bool minimum)
             {
-                float sign = (extrema < 0) ? -1.0f : 1.0f;
-
-                float result = (Mathf.Floor(Mathf.Abs(extrema / sampleGridSize))) * sampleGridSize;
-                result *= sign;
+                // X
+                float signx = (extrema.x < 0) ? -1.0f : 1.0f;
+                float resultx = (Mathf.Floor(Mathf.Abs(extrema.x / sampleGridSize.x))) * sampleGridSize.x;
+                resultx *= signx;
 
                 //For a minimum, we always want to "step down" to add a margin to the map.
                 //For a maximum, we do the opposite.
-                result += (minimum) ? -2.0f * sampleGridSize : 2.0f * sampleGridSize;
+                resultx += (minimum) ? -2.0f * sampleGridSize.x : 2.0f * sampleGridSize.x;
 
-                return result;
+                // Y
+                float signy = (extrema.y < 0) ? -1.0f : 1.0f;
+                float resulty = (Mathf.Floor(Mathf.Abs(extrema.y / sampleGridSize.y))) * sampleGridSize.y;
+                resulty *= signy;
+                resulty += (minimum) ? -2.0f * sampleGridSize.y : 2.0f * sampleGridSize.y;
+
+                // Z
+                float signz = (extrema.z < 0) ? -1.0f : 1.0f;
+                float resultz = (Mathf.Floor(Mathf.Abs(extrema.z / sampleGridSize.z))) * sampleGridSize.z;
+                resultz *= signz;
+                resultz += (minimum) ? -2.0f * sampleGridSize.z : 2.0f * sampleGridSize.z;
+
+                return new (resultx, resulty, resultz);
             }
 
-            private void SetBounds(NavmeshBoundsXYZ bounds)
+            private void SetBounds(NavmeshBoundsXYZ bounds, int floorCount)
             {
                 this.bounds = bounds;
                 gridOrigin = bounds.min;
 
                 //Calculate the grid size based on NavMesh extents and grid sampling edge.
-                int sizeX = (int)(bounds.size.x / sampleGridSize) + 1;
-                int sizeY = (int)(bounds.size.y / sampleGridSize) + 1;
-                int sizeZ = (int)(bounds.size.z / sampleGridSize) + 1;
+                int sizeX = (int)(bounds.size.x / sampleGridSize.x) + 1;
+                int sizeZ = (int)(bounds.size.z / sampleGridSize.z) + 1;
 
-                visitedGrid = new NavmeshMapCode[sizeX, sizeY, sizeZ];
+                visitedGrid = new NavmeshMapCode[sizeX, floorCount, sizeZ];
 
                 //Create a texture to represent the grid for on-screen display.
-                visualGrid = new Texture2D[sizeY];
-                for(int i = 0; i < visualGrid.Length; i++)
+                visualGrid = new Texture2D[floorCount];
+                visualGridDirty = new bool[floorCount];
+                for (int i = 0; i < visualGrid.Length; i++)
                 {
                     visualGrid[i] = new Texture2D(sizeX, sizeZ, TextureFormat.ARGB32, false, true);
                     visualGrid[i].filterMode = FilterMode.Point;
+                    visualGridDirty[i] = false;
                 }
 
-                for (int j = 0; j < sizeY; j++)
+                for (int j = 0; j < floorCount; j++)
                 {
                     for (int i = 0; i < sizeX; i++)
                     {
@@ -309,9 +320,13 @@ namespace PathOS
                 return (float)visualGrid[activeFloor].width / (float)visualGrid[activeFloor].height;
             }
 
+            int stupidCounter = -1;
             public Texture2D GetVisualGrid()
             {
-                return visualGrid[activeFloor];
+                stupidCounter++;
+                if (stupidCounter >= visualGrid.Length) stupidCounter = 0;
+                Debug.Log("SC : " + stupidCounter);
+                return visualGrid[stupidCounter];
             }
 
             private void GetGridCoords(Vector3 point, ref int gridX, ref int gridY, ref int gridZ)
@@ -320,9 +335,10 @@ namespace PathOS
                 Vector3 diff = point - gridOrigin;
 
                 //Calculate grid indices based on sampling size.
-                gridX = (int)(diff.x / sampleGridSize);
-                gridY = (int)(diff.y / sampleGridSize);
-                gridZ = (int)(diff.z / sampleGridSize);
+                gridX = (int)(diff.x / sampleGridSize.x);
+                gridY = (int)(diff.y / sampleGridSize.y);
+                gridZ = (int)(diff.z / sampleGridSize.z);
+                return;
             }
 
             private Vector3 GetPoint(int gridX, int gridZ)
@@ -330,8 +346,8 @@ namespace PathOS
                 Vector3 diff = Vector3.zero;
 
                 //Calculate difference between grid origin and sample tile in world units.
-                diff.x = gridX * sampleGridSize;
-                diff.z = gridZ * sampleGridSize;
+                diff.x = gridX * sampleGridSize.x;
+                diff.z = gridZ * sampleGridSize.z;
 
                 //Compute point based on grid origin.
                 Vector3 point = gridOrigin + diff;
@@ -392,7 +408,7 @@ namespace PathOS
 
                 //Debug.Log(string.Format("Clamped Theta: {0:0.000}", theta));
 
-                float sampleDistance = sampleGridSize / Mathf.Cos(Mathf.Deg2Rad * theta);
+                float sampleDistance = sampleGridSize.y / Mathf.Cos(Mathf.Deg2Rad * theta);
                 //Debug.Log(string.Format("Grid Size: {0:0.000}, Sampling distance: {1:0.000}", sampleGridSize, sampleDistance));
 
                 d = sampleDistance * d;
@@ -464,7 +480,7 @@ namespace PathOS
 
                 //Debug.Log(string.Format("Clamped Theta: {0:0.000}", theta));
 
-                float sampleDistance = sampleGridSize / Mathf.Cos(Mathf.Deg2Rad * theta);
+                float sampleDistance = sampleGridSize.y / Mathf.Cos(Mathf.Deg2Rad * theta);
                 //Debug.Log(string.Format("Grid Size: {0:0.000}, Sampling distance: {1:0.000}", sampleGridSize, sampleDistance));
 
                 d = sampleDistance * d;
@@ -522,18 +538,7 @@ namespace PathOS
                 }
 
                 NavmeshMapCode oldCode = default;
-                try
-                {
-                    oldCode = visitedGrid[gridX, gridY, gridZ];
-                }
-                catch(IndexOutOfRangeException e)
-                {
-                    var xLimit = visitedGrid.GetLength(0);
-                    var yLimit = visitedGrid.GetLength(1);
-                    var zLimit = visitedGrid.GetLength(2);
-                    Debug.LogError($"{e} : {gridX}, {gridY}, {gridZ}");
-                    return;
-                }
+                oldCode = visitedGrid[gridX, gridY, gridZ];
 
                 //Override based on priority of codes.
                 if (oldCode >= code)
@@ -559,15 +564,18 @@ namespace PathOS
                 }
 
                 visualGrid[gridY].SetPixel(gridX, gridZ, fillColor);
-                visualGridDirty = true;
+                visualGridDirty[gridY] = true;
             }
 
             public void BakeVisualGrid()
             {
-                if (visualGridDirty)
+                for(int i = 0; i < visualGrid.Length; i++)
                 {
-                    visualGrid[activeFloor].Apply();
-                    visualGridDirty = false;
+                    if (visualGridDirty[i])
+                    {
+                        visualGrid[i].Apply();
+                        visualGridDirty[i] = false;
+                    }
                 }
             }
 
@@ -789,9 +797,9 @@ namespace PathOS
             // believing it's surrounded by obstacles that may now be unblocked.
             public void ResetObstacles()
             {
-                for (int i = 0; i < visitedGrid.GetLength(0); i++)
+                for (int j = 0; j < visitedGrid.GetLength(1); j++)
                 {
-                    for (int j = 0; j < visitedGrid.GetLength(1); j++)
+                    for (int i = 0; i < visitedGrid.GetLength(0); i++)
                     {
                         for(int k = 0; k < visitedGrid.GetLength(2); k++)
                         {
@@ -802,7 +810,7 @@ namespace PathOS
                             }
                         }
                     }
-                    visualGridDirty = true;
+                    visualGridDirty[j] = true;
                 }
             }
         }

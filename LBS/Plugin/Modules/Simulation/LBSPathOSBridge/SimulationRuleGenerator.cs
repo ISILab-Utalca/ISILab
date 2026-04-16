@@ -83,15 +83,18 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             GenerateWorldCamera(parent.transform);
 
             // LBSFloor
+            int notEmptyFloorCount = 0;
             for (int i = 0; i < layer.FloorCount; i++)
             {
                 // Floor variables
                 SimulationModule simMod = layer.GetModule<SimulationModule>("", i);
                 List<SimulationTile> tiles = simMod.GetTiles();
                 if (tiles.Count < 1) continue;
+                notEmptyFloorCount++;
 
                 GameObject floorParent = new GameObject("Floor " + i);
                 floorParent.transform.SetParent(parent.transform);
+                floorParent.transform.localPosition = Vector3.up * i * settings.scale.y;
 
                 // Objeto hijo, contenedor de los objetos etiquetados
                 GameObject levelMarkupContainer = new GameObject("Level Markup");
@@ -149,6 +152,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     new LBSLog("[SimulatorRuleGenerator]: The simulation layer needs a Player entity on the level to generate.",
                     LogType.Error, 3));
             }
+            manager.floorCount = notEmptyFloorCount;
 
             // Apply agent reference to all generated components
             PathOSAgent agentComp = agentGameObject.GetComponent<PathOSAgent>();
@@ -223,9 +227,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 currInstance = PrefabUtility.InstantiatePrefab(agentPrefab, parent) as GameObject;
 
                 // Set position
-                currInstance.transform.position = settings.position +
-                                                  new Vector3(tile.X * scale.x, floor * scale.y, tile.Y * scale.z)
-                                                  - new Vector3(scale.x, scale.y, scale.z) / 2f;
+                currInstance.transform.position = new Vector3(tile.X * scale.x, floor * scale.y, tile.Y * scale.z);
 
                 // Copy player camera component
                 var player = GameObject.FindFirstObjectByType<CharacterController>();
@@ -246,7 +248,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             else if (tile.Tag != null && tile.Tag.Label == "Wall")
             {
                 // Instancing
-                currInstance = PrefabUtility.InstantiatePrefab(wallPrefab) as GameObject;
+                currInstance = PrefabUtility.InstantiatePrefab(wallPrefab, parent) as GameObject;
 
                 // Set scale
                 currInstance.transform.localScale = new Vector3(scale.x, scale.y, scale.z);
@@ -260,7 +262,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             else
             {
                 // Instancing
-                currInstance = PrefabUtility.InstantiatePrefab(elementPrefab) as GameObject;
+                currInstance = PrefabUtility.InstantiatePrefab(elementPrefab, parent) as GameObject;
             }
 
             // Renderer config
@@ -271,9 +273,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             currRenderer.enabled = false;
 
             // Set Position
-            currInstance.transform.position = settings.position +
-                                              new Vector3(tile.X * scale.x, 0, tile.Y * scale.z)
-                                              - new Vector3(scale.x, scale.y, scale.z) / 2f;
+            currInstance.transform.position = new Vector3(tile.X * scale.x, floor * scale.y, tile.Y * scale.z);
 
             // Add simulation component
             LBSGeneratedSimulation genComp = currInstance.AddComponent<LBSGeneratedSimulation>();

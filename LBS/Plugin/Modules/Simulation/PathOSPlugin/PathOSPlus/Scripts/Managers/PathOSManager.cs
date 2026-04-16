@@ -19,6 +19,9 @@ namespace PathOS
     //Simple class for defining entities in the level.
     public class PathOSManager : NPSingleton<PathOSManager>
     {
+        public int floorCount = 0;
+        public Vector3 scale;
+
         public const string simulationEndedEditorPrefsID = "PathOSSimulationEndFlag";
         public bool limitSimulationTime = false;
 

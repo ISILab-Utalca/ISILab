@@ -56,7 +56,7 @@ namespace PathOS
                 manager = PathOSManager.instance;
 
             //Initialize the (blank) model of the agent's internal "map".
-            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(gridSampleSize);
+            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(manager.scale, manager.floorCount);
             memoryMap.memory = this;
 
             //Commit any "always-known" entities to memory.

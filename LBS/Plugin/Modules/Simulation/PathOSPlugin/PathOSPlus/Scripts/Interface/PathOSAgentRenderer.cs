@@ -142,6 +142,7 @@ namespace PathOS
             //We want to draw the memory "map" in the lower-left corner of the screen.
             //Grab a persistent reference to the texture.
             navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid();
+            Invoke("ChangeTexture", 3);
 
             //Map legend.
             mapLegendIcons = new List<Rect>();
@@ -302,8 +303,10 @@ namespace PathOS
                 UpdateRenderViewCoords();
 
             if (showMemoryMap)
+            {
                 GUI.DrawTexture(navmeshMapScreenCoords,
                     navmeshMemoryMap, ScaleMode.ScaleToFit, false);
+            }
 
             if (showPlayerView)
                 GUI.DrawTexture(playerViewTextureCoords,
@@ -426,6 +429,12 @@ namespace PathOS
             screenPos.z -= 2.0f;
 
             return transformCam.ScreenToWorldPoint(screenPos);
+        }
+
+        private void ChangeTexture()
+        {
+            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid();
+            Invoke("ChangeTexture", 3);
         }
     }
 
