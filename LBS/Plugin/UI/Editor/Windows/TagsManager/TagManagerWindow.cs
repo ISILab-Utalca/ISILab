@@ -28,7 +28,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TagManagerWindow");
             visualTree.CloneTree(rootVisualElement);
 
-
+            FindTags();
         }
 
         private void OnDisable()
@@ -38,6 +38,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
         }
 
         #region METHODS
+        
+        public void FindTags()
+        {
+
+        }
+        
+        
         [MenuItem("Window/ISILab/Tag Manager", priority = 2)]
         public static void ShowWindow()
         {
