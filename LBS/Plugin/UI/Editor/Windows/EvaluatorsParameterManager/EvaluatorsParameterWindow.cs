@@ -1,4 +1,6 @@
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.CustomComponents;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -6,10 +8,14 @@ using static ISILab.LBS.Editor.PopulationAssistantTab;
 
 public class EvaluatorsParameterWindow : EditorWindow
 {
-    [SerializeField]
+    #region VISUAL ELEMENTS
+    //[SerializeField]
     private VisualTreeAsset m_VisualTreeAsset = default;
-
+    private LBSCustomListView paramList;
+    //Parameter Generator
+    #endregion
     private EvaluatorData evData;
+    private List<ParameterData> parameterList; 
 
     /* testing if can be removed, currently yes
     [MenuItem("Window/UI Toolkit/EvaluatorsParameterWindow")]
@@ -22,6 +28,7 @@ public class EvaluatorsParameterWindow : EditorWindow
     public void InitData(EvaluatorData evData)
     {
         this.evData = evData;
+        this.parameterList = evData.paramList;
         RefreshData();
     }
     public void CreateGUI()
@@ -54,7 +61,6 @@ public class EvaluatorsParameterWindow : EditorWindow
     public void RefreshData()
     {
         if (rootVisualElement == null) return;
-        
         //UI refresh logic
     }
 }

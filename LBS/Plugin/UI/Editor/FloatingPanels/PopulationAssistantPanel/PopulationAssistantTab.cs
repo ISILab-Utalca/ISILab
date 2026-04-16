@@ -342,7 +342,7 @@ namespace ISILab.LBS.Editor
                     //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
                     evaluatorListView.hierarchy.Remove(elem);
                     evaluatorsList.Remove(evData);
-
+                    DeleteEvaluatorPhysicalFile(evData.name);
                     SaveEvaluatorDatabaseChanges();
                 }
             };
@@ -409,19 +409,18 @@ namespace ISILab.LBS.Editor
 
 
                 //llamar al creador de evaluadores y entregarle finalEvData
-                //EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
+                EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
                 ResetEvaluatorGen();
             }
-            /*
             else
             {
                 bool confirm = EditorUtility.DisplayDialog(
-                    "Error",                                                    // T�tulo
+                    "Error",                                                    // Título
                     "Evaluator's name cannot be empty",                         // Mensaje
-                    "OK"                                                        // Bot�n de cancelar
+                    "OK"                                                        // Botón de cancelar
                 );
             }
-            */
+            
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)
@@ -444,6 +443,36 @@ namespace ISILab.LBS.Editor
                 //OPEN FOLDER
                 AssetDatabase.OpenAsset(obj);
             }
+        }
+
+        private void DeleteEvaluatorPhysicalFile(string evaluatorName)
+        {
+            #if UNITY_EDITOR
+            // 1. Obtener la ruta desde tus settings (ajusta la extensión si no es .cs)
+            string folderPath = LBSSettings.Instance.paths.evaluatorsPath;
+            string fileName = $"{evaluatorName}.cs";
+            string fullPath = System.IO.Path.Combine(folderPath, fileName);
+
+            // 2. Verificar si el archivo existe antes de intentar borrar
+            if (AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath) != null)
+            {
+                bool success = AssetDatabase.DeleteAsset(fullPath);
+
+                
+                if (success)
+                    Debug.Log($"<color=red>[ISILab]</color> Archivo eliminado: {fullPath}");
+                else
+                    Debug.LogWarning($"[ISILab] No se pudo eliminar el archivo en: {fullPath}");
+                
+                //Debug.Log("File to be Deleted: "+fullPath);
+            }
+            else
+            {
+                Debug.LogWarning($"[ISILab] No se encontró el archivo físico para '{evaluatorName}' en {fullPath}");
+            }
+
+            AssetDatabase.Refresh();
+            #endif
         }
 
         private void SaveEvaluatorDatabaseChanges()
