@@ -9,7 +9,7 @@ using UnityEditor.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class QuestActionView : QuestGraphNodeView
+    public class QuestNodeView : QuestGraphNodeView
     {
         #region FIELDS
         
@@ -33,7 +33,7 @@ namespace ISILab.LBS.VisualElements
         
         #endregion
 
-        public QuestActionView(QuestNode graphNode)
+        public QuestNodeView(QuestNode graphNode)
         {
             if (_asset == null)
                 _asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestActionView");
@@ -66,10 +66,17 @@ namespace ISILab.LBS.VisualElements
             _iconGrammarInvalid.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _questActionDetails.style.display = DisplayStyle.None;
             _questActionDetails.Node = graphNode as QuestNode;
-            
+
+            ActionExtensions.AddUnique(ref graphNode.Graph.OnNodeSelected, Select);
+
             Update();
         }
-        
+
+        private void Select(GraphNode node)
+        {
+            
+        }
+
         #region Setup
         private void SetupToolbar()
         {

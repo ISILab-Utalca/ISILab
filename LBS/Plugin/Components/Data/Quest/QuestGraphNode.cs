@@ -1,7 +1,8 @@
-﻿using System;
-using ISILab.LBS.Modules;
+﻿using ISILab.LBS.Modules;
 using Newtonsoft.Json;
+using System;
 using UnityEngine;
+using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.LBS.Components
 {
@@ -113,6 +114,16 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region METHODS
+        /// <summary>
+        /// Selects the node as the active node in the graph
+        /// </summary>
+        /// <param name="reselect">will call all the delegates when a new node is selected, even if its already selected</param>
+        public void Select(bool reselect = false)
+        {
+            Graph.SelectedGraphNode = this;
+            if (reselect) Graph.Reselect();
+        }
+
         public object Clone()
         {
             var clone = CreateCloneInstance();
@@ -198,10 +209,10 @@ namespace ISILab.LBS.Components
 
         #region FIELDS
         [SerializeField, SerializeReference, JsonRequired]
-        private QuestActionData data;
+        private QuestNodeData data;
 
         [SerializeField, JsonRequired]
-        private string questAction = "";
+        private string terminalID = "";
 
         [SerializeField, JsonRequired]
         private ENodeType nodeType;
@@ -212,17 +223,17 @@ namespace ISILab.LBS.Components
 
         #region PROPERTIES
         [JsonIgnore]
-        public QuestActionData Data
+        public QuestNodeData Data
         {
             get => data;
             set => data = value;
         }
 
         [JsonIgnore]
-        public string QuestAction
+        public string TerminalID
         {
-            get => questAction;
-            set => questAction = value;
+            get => terminalID;
+            set => terminalID = value;
         }
 
         [JsonIgnore]
@@ -246,22 +257,18 @@ namespace ISILab.LBS.Components
 
         public QuestNode(string id, Vector2 position, string action, QuestGraph graph) : base(id, position, graph)
         {
-            questAction = action;
+            terminalID = action;
             nodeType = ENodeType.Middle;
-            InstanceDataByAction(action);
+
+            data = new QuestNodeData(this, graph.Grammar.GetTerminal(action));
         }
         #endregion
 
         #region METHODS
-        private void InstanceDataByAction(string action)
-        {
-            if (string.IsNullOrEmpty(action)) return;
-            data = QuestNodeDataFactory.CreateByTag(action, this);
-        }
 
         protected override GraphNode CreateCloneInstance()
         {
-            var clone = new QuestNode(ID, Position, questAction, graph)
+            var clone = new QuestNode(ID, Position, terminalID, graph)
             {
                 nodeType = nodeType,
                 questState = questState,
@@ -272,7 +279,7 @@ namespace ISILab.LBS.Components
 
         public override string ToString()
         {
-            return questAction;
+            return terminalID;
         }
 
         public override bool IsValid()

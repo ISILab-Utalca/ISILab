@@ -336,6 +336,7 @@ namespace ISILab.LBS.Plugin.UI.Editor
         {
             var container = GetLayerContainer(layer);
             if(container == null) return;
+            if(element == null) return;
             element.layer = layer.index;
 
             container.AddElement(obj, element);

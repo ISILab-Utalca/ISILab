@@ -28,9 +28,9 @@ namespace ISILab.LBS.VisualElements
         public GraphNode Node;
         protected VisualElement InvalidConnectionIcon;
 
-        private static Type _prevManipulatorType;
+        private static Type prevManipulator;
 
-        private static QuestGraphNodeView _selectedGraph;
+        private static QuestGraphNodeView selectedNodeView;
 
         private const float Alpha = 0.33f;
 
@@ -66,14 +66,12 @@ namespace ISILab.LBS.VisualElements
             if (evt.button == 0 && ToolKit.Instance.GetActiveManipulatorInstance() is SelectManipulator)
             {
                 LBSInspectorPanel.ActivateBehaviourTab();
-                if (Node.Graph.GraphNodes.Contains(Node))
-                {
-                    var bh = Node?.Graph?.OwnerLayer?.GetBehaviour<QuestBehaviour>();
-                    if(bh != null) bh.SelectedGraphNode = Node;
-
-                    _isDragging = true;
-                    this.CaptureMouse();
-                }
+                Node.Select(true);
+                selectedNodeView?.SelectView(false);
+                SelectView(true);
+                _isDragging = true;
+                this.CaptureMouse();
+                
             }
             
             //DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
@@ -83,7 +81,7 @@ namespace ISILab.LBS.VisualElements
         protected virtual void OnMouseMove(MouseMoveEvent e)
         {
             if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
-            if (this != _selectedGraph) return;
+            if (this != selectedNodeView) return;
             // only move the selected node
             if (Node == null) return;
             if (e.pressedButtons != 1) return; // only while dragging
@@ -114,6 +112,9 @@ namespace ISILab.LBS.VisualElements
             RestoreManipulator();
             DrawManager.Instance.PickingModeRestoreAll();
             DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+
+            OnMoving?.Invoke(GetPosition());
+
             _isDragging = false;
             this.ReleaseMouse();
             
@@ -139,9 +140,9 @@ namespace ISILab.LBS.VisualElements
             // only set select if using addnode
             if (usingAddNode)
             {
-                if (_prevManipulatorType is null)
+                if (prevManipulator is null)
                 {
-                    _prevManipulatorType = ActiveManipulator;
+                    prevManipulator = ActiveManipulator;
                 }
                 
                 ToolKit.Instance.SetActive(typeof(SelectManipulator));
@@ -151,10 +152,10 @@ namespace ISILab.LBS.VisualElements
         
         private void RestoreManipulator()
         {
-            if (_prevManipulatorType is not null)
+            if (prevManipulator is not null)
             {
-                ToolKit.Instance.SetActive(_prevManipulatorType);
-                _prevManipulatorType = null;
+                ToolKit.Instance.SetActive(prevManipulator);
+                prevManipulator = null;
             }
         }
         #endregion
@@ -163,10 +164,10 @@ namespace ISILab.LBS.VisualElements
 
         public abstract VisualElement GetSelectVisualElement();
 
-        public void IsSelected(bool isSelected)
+        public void SelectView(bool select)
         {
             var color = DefaultBackgroundColor;
-            if (isSelected)
+            if (select)
             {
                 color = Node.IsValid() ? ValidGrammarColor : InvalidGrammarColor;
         
@@ -176,22 +177,16 @@ namespace ISILab.LBS.VisualElements
                 float b = color.b * Alpha;
                 color = new Color(r, g, b, 1f); 
 
-                _selectedGraph = this;
+                selectedNodeView = this;
             }
 
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");
             coloredVe.style.backgroundColor = new StyleColor(color);
         }
 
-        public static void Deselect()
-        {
-            _selectedGraph?.IsSelected(false);
-            _selectedGraph = null;
-        }
-
         public bool IsSelectedView()
         {
-            return _selectedGraph == this;
+            return selectedNodeView == this;
         } 
         
         #endregion

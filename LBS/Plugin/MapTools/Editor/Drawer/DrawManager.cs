@@ -54,6 +54,7 @@ namespace ISILab.LBS
             UpdateVisibility(layer);
 
             // Draw behaviours and assistants (if both share same drawer system)
+            DrawVisibleComponents(layer.Modules(), layer);
             DrawVisibleComponents(layer.Behaviours, layer);
             DrawVisibleComponents(layer.Assistants, layer);
         }
@@ -66,6 +67,7 @@ namespace ISILab.LBS
             _view.ClearLayerContainer(layer);
             UpdateVisibility(layer);
 
+            UpdateVisibleComponents(layer.Modules(), layer);
             UpdateVisibleComponents(layer.Behaviours, layer);
             UpdateVisibleComponents(layer.Assistants, layer);
         }

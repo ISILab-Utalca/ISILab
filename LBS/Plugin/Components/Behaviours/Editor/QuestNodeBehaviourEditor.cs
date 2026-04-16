@@ -23,28 +23,10 @@ namespace ISILab.LBS.VisualElements
     {
         #region FIELDS
         private QuestNodeBehaviour nodeBehavior;
-        private QuestBehaviour questBehaviour;
 
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
         
-        private static readonly Dictionary<Type, Type> TypeToPanelMap = new()
-        {
-            { typeof(DataExplore), typeof(NodeEditorExplore) },
-            { typeof(DataKill), typeof(NodeEditorKill) },
-            { typeof(DataStealth), typeof(NodeEditorStealth) },
-            { typeof(DataTake), typeof(NodeEditorTake) },
-            { typeof(DataRead), typeof(NodeEditorRead) },
-            { typeof(DataExchange), typeof(NodeEditorExchange) },
-            { typeof(DataGive), typeof(NodeEditorGive) },
-            { typeof(DataReport), typeof(NodeEditorReport) },
-            { typeof(DataGather), typeof(NodeEditorGather) },
-            { typeof(DataSpy), typeof(NodeEditorSpy) },
-            { typeof(DataCapture), typeof(NodeEditorCapture) },
-            { typeof(DataListen), typeof(NodeEditorListen) }
-        };
-        
-
         #endregion
         
         #region VIEW FIELDS
@@ -60,7 +42,7 @@ namespace ISILab.LBS.VisualElements
         private VisualElement _nodePanel;
         private VisualElement _actionPanel;
         private VisualElement _noNodeSelectedPanel;
-        private VisualElement _instancedContent;
+        private VisualElement fieldsVisualElements;
         
         private VisualElement _actionColor;
         private VisualElement _actionIcon;
@@ -79,7 +61,7 @@ namespace ISILab.LBS.VisualElements
         {
             SetInfo(target);
             CreateVisualElement();
-            OnSelectNode(questBehaviour.SelectedGraphNode);
+            nodeBehavior.Graph.Reselect();
         }
         #endregion
         
@@ -89,12 +71,8 @@ namespace ISILab.LBS.VisualElements
             nodeBehavior = paramTarget as QuestNodeBehaviour;
             if (nodeBehavior == null) return;
 
-            questBehaviour = nodeBehavior.OwnerLayer.GetBehaviour<QuestBehaviour>();
-
-            questBehaviour.OnGraphNodeSelected -= OnSelectNode;
-            questBehaviour.OnGraphNodeSelected += OnSelectNode;
-
-            DrawManager.Instance.RedrawLayer(nodeBehavior.OwnerLayer);
+            ActionExtensions.AddUnique(ref nodeBehavior.OnNodeDataChanged, OnSelectNode);
+            ActionExtensions.AddUnique(ref nodeBehavior.Graph.OnNodeSelected, OnSelectNode);
         }
         
         protected sealed override VisualElement CreateVisualElement()
@@ -109,7 +87,7 @@ namespace ISILab.LBS.VisualElements
             _noNodeSelectedPanel = this.Q<VisualElement>("NoNodeSelectedPanel");
             _selectedNodePanel = this.Q<VisualElement>("NodeSelectedPanel");
             
-            _instancedContent = this.Q<VisualElement>("InstancedContent");
+            fieldsVisualElements = this.Q<VisualElement>("InstancedContent");
             
             _actionColor = this.Q<VisualElement>("ActionColor");
             _actionIcon = this.Q<VisualElement>("ActionIcon");
@@ -127,7 +105,7 @@ namespace ISILab.LBS.VisualElements
             {
                 if (ToolKit.Instance.GetActiveManipulatorInstance() is not QuestPicker pickerManipulator) return;
                 
-                QuestActionData actionData = questBehaviour.SelectedNodeData;
+                QuestNodeData actionData = nodeBehavior.SelectedNodeData;
                 if (actionData is null) return;
                 
                 pickerManipulator.PickTriggerPosition = true;
@@ -156,7 +134,7 @@ namespace ISILab.LBS.VisualElements
             // cant change complete mode
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
-                QuestActionData data = questBehaviour.SelectedNodeData;
+                QuestNodeData data = nodeBehavior.SelectedNodeData;
                 if (data is null) return;
                 _hooker.Hooker = data.EventHooker;
             });
@@ -174,15 +152,15 @@ namespace ISILab.LBS.VisualElements
 
         private void SetNodeDataArea(Rect newValue)
         {
-            QuestActionData actionData = questBehaviour.SelectedNodeData;
-            if (actionData is null) return;
+            QuestNodeData nodeData = nodeBehavior.SelectedNodeData;
+            if (nodeData is null) return;
             
             newValue.x = Mathf.Round(newValue.x);
             newValue.y = Mathf.Round(newValue.y);
             newValue.height = MathF.Abs(newValue.height);
             newValue.width = MathF.Abs(newValue.width);
             
-            actionData.Area = newValue;
+            nodeData.Area = newValue;
             DrawManager.Instance.RedrawLayer(nodeBehavior.OwnerLayer);
         }
 
@@ -207,54 +185,64 @@ namespace ISILab.LBS.VisualElements
         private void OnSelectNode(GraphNode graphNode)
         {
             QuestNode node = graphNode as QuestNode;
-            bool validNode = node?.Data != null;
-            
+            bool validNode = node != null;
+
+            if (!validNode)
+            {
+                style.display = DisplayStyle.None;
+                return;
+            }
+            else
+            {
+                style.display = DisplayStyle.Flex;
+            }
+
+
+            fieldsVisualElements.Clear();
+
             _noNodeSelectedPanel.style.display = validNode ? DisplayStyle.None : DisplayStyle.Flex;  
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _actionPanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _targetPosition.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _selectedNodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _onEventCompleteVe.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
-            
-            // on complete related
-            _hooker.Hooker = (questBehaviour.SelectedNodeData?.EventHooker);
-    
-                
-            _instancedContent.Clear();
-            
-            if (!validNode )  return;
-            
-            _paramActionLabel.text = node.QuestAction;
-            _nodeIDLabel.text = node.ID;
 
-            Type dataType = node.Data.GetType();
-            
-            if (TypeToPanelMap.TryGetValue(dataType, out Type visualElementType))
+            if (!validNode) return;
+
+            // on complete display
+            _hooker.Hooker = (nodeBehavior.SelectedNodeData?.EventHooker);
+
+            // set default data display
+            _paramActionLabel.text = node.TerminalID;
+            _nodeIDLabel.text = node.ID;
+            SetBaseNodeData(node.Data);
+
+            // specific visual elements display per fields
+            foreach (var terminalField in node.Data.Fields)
             {
-                if (visualElementType == null) return;
-                if (Activator.CreateInstance(visualElementType) is not NodeEditor instance) return;
-                
-                _instancedContent.Add(instance);
-                instance.SetNodeData(node.Data); // bindings per editor type
-                SetBaseDataValues(node.Data); // for trigger position and size
-            }
-            
-            // if not in the dictionary just set the default data: For example "GoTo" action
-            else
-            {
-                SetBaseDataValues(node.Data);
+                var terminalID = terminalField.name;
+                // find a visualelement class with the terminalID as attribute and instance it
+               // VisualElement ve = Activator.CreateInstance() as VisualElement;
+                VisualElement ve = new VisualElement();
+                fieldsVisualElements.Add(ve);
             }
 
         }
-        
-        private void SetBaseDataValues(QuestActionData data)
+
+        /// <summary>
+        /// Sets the trigger position and size (Rect) of the node data.
+        /// Adds fields by type
+        /// </summary>
+        /// <param name="data"></param>
+        private void SetBaseNodeData(QuestNodeData data)
         {
-            Color backgroundColor = data.Color;
+            Color terminalColor = data.Terminal.color;
+            Color backgroundColor = terminalColor;
             backgroundColor.a = BackgroundOpacity;
             _actionColor.SetBackgroundColor(backgroundColor);
             
-            _actionIcon.style.unityBackgroundImageTintColor = data.Color;
-            _actionColor.SetBorder(data.Color,ActionBorderThickness);
+            _actionIcon.style.unityBackgroundImageTintColor = terminalColor;
+            _actionColor.SetBorder(terminalColor, ActionBorderThickness);
             
             _area.value = data.Area;
             

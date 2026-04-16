@@ -1,8 +1,7 @@
-using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace ISILab.AI.Grammar
 {
@@ -17,15 +16,24 @@ namespace ISILab.AI.Grammar
     [Serializable]
     public class GrammarTerminal : GrammarElement
     {
-        private const string defaultTerminalIcon = "bb0770b945366c94c822cf3255eb885d";
-
-        [SerializeField]
-        private string iconGuid = defaultTerminalIcon;
+        private const string defaultIconGuid = "bb0770b945366c94c822cf3255eb885d";
+        private static readonly Color fallbackColor = Color.white; 
 
         [SerializeField] 
         public List<GrammarField> fields = new();
 
-        public override VectorImage GetIcon()
-    => LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+        public override void OnEnable()
+        {
+            // Safe: happens after Unity initialization
+            var settings = LBSSettings.Instance;
+
+            color = settings != null
+                ? settings.view.behavioursColor
+                : fallbackColor;
+
+            iconGuid = defaultIconGuid;
+
+            base.OnEnable();
+        }
     }
 }

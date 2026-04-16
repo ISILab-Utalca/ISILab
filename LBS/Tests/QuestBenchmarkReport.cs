@@ -80,7 +80,7 @@ namespace ISILab.LBS.Tests
                     {
                         chosenNode = nodes[UnityEngine.Random.Range(0, nodes.Count)];
                         var nextActions =
-                            _grammarAssistant.GetAllValidNextActionsInsert(chosenNode.QuestAction, _questGraph);
+                            _grammarAssistant.GetAllValidNextActionsInsert(chosenNode.TerminalID);
                         if (nextActions.Count > 0)
                             nextAction = nextActions[UnityEngine.Random.Range(0, nextActions.Count)];
                     }
@@ -110,7 +110,7 @@ namespace ISILab.LBS.Tests
                     {
                         chosenNode = nodes[UnityEngine.Random.Range(0, nodes.Count)];
                         var prevActions =
-                            _grammarAssistant.GetAllValidPrevActionsInsert(chosenNode.QuestAction, _questGraph);
+                            _grammarAssistant.GetAllValidPrevActionsInsert(chosenNode.TerminalID);
                         if (prevActions.Count > 0)
                             prevAction = prevActions[UnityEngine.Random.Range(0, prevActions.Count)];
                     }
@@ -139,7 +139,7 @@ namespace ISILab.LBS.Tests
                     while ((expansion == null || !expansion.Any()) && attempts++ < 100)
                     {
                         chosenNode = nodes[UnityEngine.Random.Range(0, nodes.Count)];
-                        var expansions = _grammarAssistant.GetAllExpansions(chosenNode.QuestAction);
+                        var expansions = _grammarAssistant.GetAllExpansions(chosenNode.TerminalID);
                         if (expansions.Count > 0)
                             expansion = expansions[UnityEngine.Random.Range(0, expansions.Count)];
                     }

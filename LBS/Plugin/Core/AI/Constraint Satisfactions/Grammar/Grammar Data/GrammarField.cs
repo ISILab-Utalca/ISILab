@@ -37,6 +37,42 @@ namespace ISILab.AI.Grammar
                 _ => throw new Exception($"Unknown field type: {type}")
             };
         }
+
+        public static List<GrammarField> Copy(IEnumerable<GrammarField> original)
+        {
+            if (original == null) return new List<GrammarField>();
+
+            var result = new List<GrammarField>();
+
+            foreach (var field in original)
+            {
+                var type = GetFieldType(field);
+                var copy = CreateField(type, field.name);
+                result.Add(copy);
+            }
+
+            return result;
+        }
+
+        private static string GetFieldType(GrammarField field)
+        {
+            return field switch
+            {
+                GrammarInt => "int",
+                GrammarFloat => "float",
+                GrammarString => "string",
+                GrammarObject => "referenceGraph",
+                GrammarType => "referenceType",
+
+                GrammarIntList => "List.int",
+                GrammarFloatList => "List.float",
+                GrammarStringList => "List.string",
+                GrammarObjectList => "List.referenceGraph",
+                GrammarTypeList => "List.referenceType",
+
+                _ => throw new Exception($"Unknown field type: {field.GetType()}")
+            };
+        }
     }
 
 

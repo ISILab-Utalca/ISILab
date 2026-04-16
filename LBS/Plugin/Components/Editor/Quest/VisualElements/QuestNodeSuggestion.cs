@@ -57,7 +57,7 @@ namespace ISILab.LBS.VisualElements.Editor
         {
             if (genNode == null) return;
             _generatedQuestNode = genNode;
-            _actionLabel.text = genNode.QuestAction;
+            _actionLabel.text = genNode.TerminalID;
         }
     }
 }

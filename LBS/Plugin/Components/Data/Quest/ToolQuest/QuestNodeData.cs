@@ -13,60 +13,36 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Components.Data;
+using ISILab.AI.Grammar;
 
 namespace ISILab.LBS.Components
 {
 
-    /// <summary>
-    /// <para><b>FOR LBS USER</b></para>
-    /// 
-    /// <para>
-    /// This class is meant to store data for terminal actions<c>string</c> declared in an
-    /// Scriptable Object<c>LBSGrammar</c>.
-    /// If the grammar is modified (actions) or a new grammar is assigned, 
-    /// new children of this class must be created.
-    /// </para>
-    /// 
-    /// <para>
-    /// To assign data, create your own VisualElement child of <c>NodeEditor</c>
-    /// </para>
-    /// 
-    /// <para>
-    /// Remember to update the <see cref="QuestNodeDataFactory"/> by adding 
-    /// an action <c>string</c> and its  
-    /// <see cref="QuestActionData"/> child class.
-    /// </para>
-    /// </summary>
     [Serializable]
-    public abstract class QuestActionData
+    public class QuestNodeData
     {
         #region FIELDS
 
         [SerializeField, SerializeReference, JsonRequired]
         protected QuestNode ownerNode;
 
-        [SerializeField, JsonRequired] protected string tag;
         [SerializeField, JsonRequired] protected Rect area;
-        [SerializeField, JsonRequired] protected Color color = LBSSettings.Instance.view.behavioursColor;
-        [SerializeField, JsonRequired] protected string iconGuid = LocationIcon;
 
         [SerializeField] private LBSEventHooker _eventHooker;
 
-        // Icons
-        protected const string LocationIcon = "efd5e48bd83c08d469fcc341c886b38b";
-        protected const string StarIcon = "99b7816ce61fd85449ad2379f39bb8c2";
-        protected const string FoeIcon = "d0baea4f8bdb0c948887aed23edd4cad";
-        protected const string ObjectIcon = "699cc90614aad8047875eb0fae8b175f";
+        // terminal from which we obtain color/icons
+        [SerializeField] private GrammarTerminal terminal;
+        [SerializeField] private List<GrammarField> fields;
 
         #endregion
 
         #region PROPERTIES
-
+        public List<GrammarField> Fields => fields;
+        public GrammarTerminal Terminal => terminal;
         public LBSEventHooker EventHooker => _eventHooker;
-        public QuestNode OwnerNode => ownerNode;
+        public QuestNode Node => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;
         public LBSLayer Layer => Graph.OwnerLayer;
-        public string Tag => tag;
 
         public Rect Area
         {
@@ -74,63 +50,62 @@ namespace ISILab.LBS.Components
             set => area = value;
         }
 
-        public Color Color => color;
-        public string ID => OwnerNode.ID;
+        public string ID => Node.ID;
 
         #endregion
 
         #region CONSTRUCTOR
 
-        protected QuestActionData(QuestNode ownerNode, string tag)
+        public QuestNodeData(QuestNode ownerNode, GrammarTerminal terminal)
         {
-
             this.ownerNode = ownerNode;
-            this.tag = tag;
+            this.terminal = terminal;
 
-            if (ownerNode?.Graph?.OwnerLayer == null) return;
-
-            _eventHooker = new LBSEventHooker();
-
+            fields = GrammarField.Copy(terminal.fields);
+            
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
+
+            // all data actions must have the event hooker by default
+            _eventHooker = new LBSEventHooker();
+
         }
 
         #endregion
+
+        public Action<QuestNodeData> OnDataChanged;
 
         #region METHODS
 
-        #region CLONE / VALIDATION
-
-        public virtual void Clone(QuestActionData data)
+        public virtual void Clone(QuestNodeData data)
         {
             ownerNode = data.ownerNode;
-            tag = data.tag;
             area = data.area;
+            fields = data.fields;
             _eventHooker = data._eventHooker;
-
         }
 
-        public virtual List<string> ReferencedLayerNames() => null;
-        public virtual void Resize() { }
-
-        public abstract bool Equals(QuestActionData other);
-        public abstract bool IsValid();
-
-        #endregion
+        public override bool Equals(object obj)
+        {
+            var other = obj as QuestNodeData;
+            return other != null && ID == other.ID;
+        }
+        public bool IsValid() { return true; }
 
         #region DATA
-
-        public VectorImage GetIcon()
+        public List<string> ReferencedLayerNames()
         {
-            return AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+            Debug.LogWarning("referneced layer names not implemented for " + GetType().Name);
+            return new List<string>();
         }
-
-        /// <summary>
-        /// Used in the quest assistant, assign data to the node by passing tiles
-        /// </summary>
-        /// <param name="layers"></param>
-        /// <param name="tiles"></param>
-        public abstract void SetDataByTiles(List<LBSLayer> layers, List<TileBundleGroup> tiles);
+        public void Resize()
+        {
+            Debug.LogWarning("Resize not implemented for " + GetType().Name);
+        }
+        public void SetDataByTiles(List<LBSLayer> layers, List<TileBundleGroup> tiles)
+        {
+            Debug.LogWarning("SetDataByTiles not implemented for " + GetType().Name);
+        }
 
         protected void ResizeToFitBundles(IEnumerable<BundleGraph> bundles)
         {
@@ -232,6 +207,7 @@ namespace ISILab.LBS.Components
 
             return false;
         }
+
 
         #endregion
 

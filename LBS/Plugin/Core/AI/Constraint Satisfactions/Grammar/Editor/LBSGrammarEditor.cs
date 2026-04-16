@@ -152,7 +152,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     for (int j = 0; j < expansion.sequence.Count; j++)
                     {
-                        GrammarElement resolved = grammar.GetGrammarObject(expansion.sequence[j]) as GrammarElement;
+                        GrammarElement resolved = grammar.GetGrammarElement(expansion.sequence[j]) as GrammarElement;
                         if (resolved == null) continue;
 
                         element.Add(OptionGrammarView(resolved));
@@ -285,7 +285,8 @@ namespace ISILab.LBS.VisualElements
             option.style.display = DisplayStyle.Flex;
             option.Target = Element;
             option.Label = Element.id;
-            option.Icon = Element.GetIcon();
+            option.FrameColor = Element.color;
+            option.Icon = Element.Icon;
 
             if (Element is GrammarTerminal) 
             { 

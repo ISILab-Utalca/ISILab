@@ -30,14 +30,15 @@ namespace ISILab.LBS.Editor
     public class GrammarAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
     {
         #region FIELDS
-        private QuestGraph Graph;
         private GrammarAssistant assistant;
-        private QuestBehaviour questBehavior;
 
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
-        
-  
+
+        #endregion
+
+        #region PROPERTIES
+        private QuestGraph Graph => assistant.Graph;
         #endregion
 
         #region VIEW
@@ -56,7 +57,6 @@ namespace ISILab.LBS.Editor
         private VisualElement actionColor;
         private VisualElement actionIcon;
         private string[] nextArray;
-        private QuestNode currentQuest;
         private string[] prevArray;
         private List<string>[] expandArray;
 
@@ -82,11 +82,8 @@ namespace ISILab.LBS.Editor
             {
                 if (Graph.Equals(assistant.Graph)) return;
             }
-            questBehavior = assistant.OwnerLayer.GetBehaviour<QuestBehaviour>();
-            
-            Graph = assistant.Graph;
-          //  assistant.OwnerLayer.OnChange += () => questBehavior.OnGraphNodeSelected -= UpdatePanel;
-            questBehavior.OnGraphNodeSelected += UpdatePanel;
+
+            ActionExtensions.AddUnique(ref Graph.OnNodeSelected, UpdatePanel);
             grammarField.value = Graph.Grammar;
         }
 
@@ -125,7 +122,7 @@ namespace ISILab.LBS.Editor
             nodeIDLabel.text = "none";
             
             var questNode = selectedGraphNode as QuestNode;
-            var selectedAction = questNode?.QuestAction;
+            var selectedAction = questNode?.TerminalID;
 
             if (string.IsNullOrEmpty(selectedAction))
             {
@@ -133,10 +130,9 @@ namespace ISILab.LBS.Editor
                 return;
             }
 
-            currentQuest = questBehavior.SelectedQuestNode;
-            paramActionLabel.text = currentQuest.QuestAction;
-            nodeIDLabel.text = currentQuest.ID;
-            SetBaseDataValues(questBehavior.SelectedNodeData);
+            paramActionLabel.text = Graph.SelectedQuestNode.TerminalID;
+            nodeIDLabel.text = Graph.SelectedQuestNode.ID;
+            SetNodeVisuals();
             
             RunTask(selectedAction);
         }
@@ -152,9 +148,10 @@ namespace ISILab.LBS.Editor
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
             {
-                UpdateNextSuggestions(nextArray, currentQuest);
-                UpdatePrevSuggestions(prevArray, currentQuest);
-                UpdateExpandSuggestions(expandArray, currentQuest);
+                
+                UpdateNextSuggestions(nextArray, Graph.SelectedQuestNode);
+                UpdatePrevSuggestions(prevArray, Graph.SelectedQuestNode);
+                UpdateExpandSuggestions(expandArray, Graph.SelectedQuestNode);
                 TaskBar.EnableProcess(false);
                 
                 LBSMainWindow.MessageNotify(new LBSLog(log, type, 5));
@@ -171,7 +168,7 @@ namespace ISILab.LBS.Editor
                 try
                 {
                     nextArray = assistant
-                        .GetAllValidNextActionsInsert(selectedAction, Graph, progress =>
+                        .GetAllValidNextActionsInsert(selectedAction, progress =>
                         {
                             // progress from 0 → 0.33
                             ((IAssistantThreadedEditor)this).ReportProgress(0.33f * progress);
@@ -181,7 +178,7 @@ namespace ISILab.LBS.Editor
                     Thread.Sleep(1);
                      
                     prevArray = assistant
-                        .GetAllValidPrevActionsInsert(selectedAction, Graph, progress =>
+                        .GetAllValidPrevActionsInsert(selectedAction, progress =>
                         {
                             // progress from 0.33 → 0.66
                             ((IAssistantThreadedEditor)this).ReportProgress(0.33f + 0.33f * progress);
@@ -220,16 +217,19 @@ namespace ISILab.LBS.Editor
         
         public void SetTools(ToolKit toolkit) { }
 
-        private void SetBaseDataValues(QuestActionData data)
+        private void SetNodeVisuals()
         {
-            if (data == null) return;
+            if (Graph.SelectedQuestNode == null) return;
 
-            var backgroundColor = data.Color;
+            Color nodeColor = Graph.SelectedQuestNode.Data.Terminal.color;
+
+            var backgroundColor = nodeColor;
             backgroundColor.a = BackgroundOpacity;
             actionColor.SetBackgroundColor(backgroundColor);
 
-            actionIcon.style.unityBackgroundImageTintColor = data.Color;
-            actionColor.SetBorder(data.Color, ActionBorderThickness);
+            actionIcon.style.backgroundImage = new StyleBackground(Graph.SelectedQuestNode.Data.Terminal.Icon);
+            actionIcon.style.unityBackgroundImageTintColor = nodeColor;
+            actionColor.SetBorder(nodeColor, ActionBorderThickness);
         }
         
         private void ResetPanels()
@@ -322,7 +322,7 @@ namespace ISILab.LBS.Editor
 
                 // Header
                 var header = new ExpansionHeader();
-                header.ButtonConvert.SetAction(currentQuest.QuestAction, assistant.ExpandAction(actions, currentQuest));
+                header.ButtonConvert.SetAction(currentQuest.TerminalID, assistant.ExpandAction(actions, currentQuest));
                 foldout.contentContainer.Add(header);
 
                 // Entries

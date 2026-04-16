@@ -33,16 +33,19 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
         void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, UnityEngine.Object loadedLevel)
         {
-            LBSMainWindow.MessageNotify(new LBSLog(log, type));
-
-            TaskBar.EnableProcess(false);
-            OnTermination =null;
-            var Level = (LoadedLevel)loadedLevel;   
-            DrawManager.Instance.RedrawLevel(Level.data);
-            if (EditorGUI.EndChangeCheck())
+            EditorApplication.delayCall += () =>
             {
-                EditorUtility.SetDirty(Level);
-            }
+                LBSMainWindow.MessageNotify(new LBSLog(log, type));
+
+                TaskBar.EnableProcess(false);
+                OnTermination = null;
+                var Level = LBSController.CurrentLevel;
+                DrawManager.Instance.RedrawLevel(Level.data);
+                if (EditorGUI.EndChangeCheck())
+                {
+                    EditorUtility.SetDirty(Level);
+                }
+            };
         }
         #endregion
 

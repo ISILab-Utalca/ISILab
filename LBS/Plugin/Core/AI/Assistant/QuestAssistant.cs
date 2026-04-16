@@ -210,7 +210,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             // Add subsequent nodes
             for (int i = 1; i < count - 1; i++)
             {
-                var nextActions = grammarAssistant.GetAllValidNextActionsInsert(currentNode.QuestAction, QuestGraph);
+                var nextActions = grammarAssistant.GetAllValidNextActionsInsert(currentNode.TerminalID);
                 if (!nextActions.Any()) break;
 
                 var newAction = nextActions[Random.Range(0, nextActions.Count)];

@@ -1,3 +1,4 @@
+using ISILab.LBS.Macros;
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -26,7 +27,32 @@ namespace ISILab.AI.Grammar
         [SerializeField]
         public string id;
 
-        public abstract VectorImage GetIcon();
+        [SerializeField]
+        public string iconGuid = string.Empty;
+
+        [SerializeField]
+        public Color color;
+
+        private VectorImage icon;
+
+        public VectorImage Icon
+        {
+            get
+            {
+                if (icon == null && !string.IsNullOrEmpty(iconGuid))
+                {
+                    icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+                }
+                return icon;
+            }
+        }
+
+        public virtual void OnEnable()
+        {
+            icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+        }
+
+
     }
 
 }

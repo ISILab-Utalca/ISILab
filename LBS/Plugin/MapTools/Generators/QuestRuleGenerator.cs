@@ -165,10 +165,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             foreach (var node in quest.GetQuestNodes())
             {
-                Type triggerType = QuestTagRegistry.GetTriggerTypeForTag(node.QuestAction);
+                Type triggerType = QuestTagRegistry.GetTriggerTypeForTag(node.TerminalID);
                 if (triggerType == null)
                 {
-                    Debug.LogError($"No trigger type found for tag '{node.QuestAction}' in QuestTagRegistry");
+                    Debug.LogError($"No trigger type found for tag '{node.TerminalID}' in QuestTagRegistry");
                     continue;
                 }
 
@@ -214,7 +214,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             go.SetActive(true);
             return go;
         }
-        
+
+        private static void FindPopulationObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, QuestNode node, Vector3 position, float y, Vector3 vector3)
+        {
+            throw new NotImplementedException();
+        }
+
         private static void CreateBranchNodeComponents(QuestGraph quest, QuestTracker tracker, Dictionary<QuestNode, GameObject> questNodeGameObjects)
         {
             // Group edges by destination branch node
@@ -283,137 +288,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
 
-        /// <summary>
-        /// Tries to find objects in the scene, assuming they were generated previously
-        /// </summary>
-        /// <param name="trigger">Trigger type to be instance into the Quest Observer GameObject</param>
-        /// <param name="settings">Settings to get the positions the population objects should have on the scene</param>
-        /// <param name="node">Node to recognize failure to find object</param>
-        /// <param name="basePos">the base position corresponds to the grid location</param>
-        /// <param name="y">Pivot.y</param>
-        /// <param name="delta">Rescale from graph size </param>
-        private static void FindPopulationObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, QuestNode node, Vector3 basePos, float y, Vector3 delta)
-        {
-            switch (node.Data)
-            {
-                case DataTake dataTake when trigger is QuestTriggerTake takeTrigger:
-                    if (dataTake.bundleToTake.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataTake.bundleToTake,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => takeTrigger.objectToTake = foundObject
-                        );
-                    }
-                    break;
-                
-                case DataStealth dataStealth when trigger is QuestTriggerStealth stealthTrigger:
-                    var scenePosition = 
-                        GetScenePosition(new Rect(dataStealth.objective.x,dataStealth.objective.y,1,1), 
-                            settings, basePos, y, delta);  
-                    stealthTrigger.objectivePosition = scenePosition;
-                    break;
-
-                case DataRead dataRead when trigger is QuestTriggerRead readTrigger:
-                    if (dataRead.bundleToRead.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataRead.bundleToRead,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => readTrigger.objectToRead = foundObject
-                        );
-                    }
-                    break;
-
-                case DataGive dataGive when trigger is QuestTriggerGive giveTrigger:
-                    if (dataGive.bundleGiveTo.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataGive.bundleGiveTo,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => giveTrigger.objectToGiveTo = foundObject
-                        );
-                    }
-                    break;
-
-                case DataReport dataReport when trigger is QuestTriggerReport reportTrigger:
-                    if (dataReport.bundleReportTo.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataReport.bundleReportTo,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => reportTrigger.objectToReport = foundObject
-                        );
-                    }
-                    break;
-
-                case DataSpy dataSpy when trigger is QuestTriggerSpy spyTrigger:
-                    if (dataSpy.bundleToSpy.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataSpy.bundleToSpy,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => spyTrigger.objectToSpy = foundObject
-                        );
-                    }
-                    break;
-
-                case DataListen dataListen when trigger is QuestTriggerListen listenTrigger:
-                    if (dataListen.bundleListenTo.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataListen.bundleListenTo,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => listenTrigger.objectToListen = foundObject
-                        );
-                    }
-                    break;
-
-                case DataKill dataKill when trigger is QuestTriggerKill killTrigger:
-                    if (dataKill.bundlesToKill != null && dataKill.bundlesToKill.Any(bg => bg.Valid()))
-                    {
-                        killTrigger.objectsToKill = new List<GameObject>();
-                        foreach (var bundleGraph in dataKill.bundlesToKill.Where(bg => bg.Valid()))
-                        {
-                            AssignObjectByBundleGraph(
-                                node,
-                                bundleGraph,
-                                settings,
-                                basePos,
-                                y,
-                                delta,
-                                foundObject => killTrigger.objectsToKill.Add(foundObject)
-                            );
-                        }
-                    }
-                    break;
-                
-            }
-        }
 
       private static void AssignObjectByBundleGraph(
             QuestNode node,

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
 using ISILab.AI.Grammar;
 using ISILab.Commons.Extensions;
 using ISILab.LBS.Behaviours;
@@ -11,6 +6,13 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
+using System.Threading;
+using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -35,6 +37,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return new GrammarAssistant(IconGuid, this.Name, this.ColorTint);
         }
 
+        #region Validation
         public bool ValidateQuestGraph()
         {
             foreach (var node in Graph.GraphNodes)
@@ -61,7 +64,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                      // validate start 
                     if (from.NodeType == QuestNode.ENodeType.Start)
                     {
-                        List<string> validNextTerminals = GetAllValidNextActions(from.QuestAction);
+                        List<string> validNextTerminals = Graph.Grammar.GetNextTerminals(from.TerminalID);
                         bool validGrammar = validNextTerminals.Contains(edge.To.ToString());
                         from.ValidGrammar = validGrammar;
                         returnValid = validGrammar;
@@ -73,7 +76,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         // check that the next terminal is valid
                         if (edge.To.GetType() == typeof(QuestNode))
                         {
-                            List<string> validNextTerminals = GetAllValidNextActions(from.QuestAction);
+                            List<string> validNextTerminals = Graph.Grammar.GetNextTerminals(from.TerminalID);
                             var validGrammar = validNextTerminals.Contains(edge.To.ToString());
                             from.ValidGrammar = validGrammar;
                         }
@@ -129,296 +132,99 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return true;
         }
 
-        public List<string> GetAllValidNextActions(string currentElement)
+        #endregion
+
+        #region Getters
+
+        public List<string> GetAllValidNextActionsInsert(
+            string currentElement,
+            Action<float> onProgress = null,
+            CancellationToken token = default)
         {
-            var grammar = Graph.Grammar;
-            var nextValidTerminals = new HashSet<string>();
 
-            if (grammar == null) return nextValidTerminals.ToList();
+            if (Graph == null || Graph.Grammar == null) return new List<string>();
 
-            // Step 1: Get rules that can produce currentAction
-            List<string> owningRules = GetOwningRules(currentElement);
-            foreach (var owningRule in owningRules.ToList())
-            {
-                owningRules.AddRange(GetRulesWithRule(owningRule));
-            }
-            owningRules.RemoveDuplicates();
-
-            // Step 2: Collect all relevant expansions
-            HashSet<GrammarRule> itemsWithRule = new HashSet<GrammarRule>();
-            foreach (GrammarRule rule in grammar.LBSRules)
-            {
-                foreach (var expansion in rule.Expansions)
-                {
-                    // Include expansions with currentAction or its owning rules
-                    if (expansion.sequence.Contains(currentElement) || 
-                        owningRules.Any(rule => expansion.sequence.Contains(rule)))
-                    {
-                        itemsWithRule.Add(rule);
-                    }
-                }
-            }
-
-            // Step 3: Find next terminals
-            foreach (var ruleItem in itemsWithRule)
-            {
-                for (int i = 0; i < ruleItem.Expansions.Count - 1; i++)
-                {
-                    var expansion = ruleItem.Expansions[i];
-                    bool isCurrentAction = false;
-                    if (expansion.sequence.Count <= 1) continue;
-                    // Check if current item matches currentAction or can produce it
-                    for (int j = 0; j < expansion.sequence.Count; j++)
-                    {
-                        string item = expansion.sequence[j];
-                        if (grammar.IsRule(item))
-                        {
-                            if (grammar.GetFirstTerminals(item).Contains(currentElement))
-                            {
-                                isCurrentAction = true;
-                            }
-                        }
-                        else if (expansion.Equals(currentElement))
-                        {
-                            isCurrentAction = true;
-                        }
-
-                        if(j+1 > expansion.sequence.Count-1) continue;
-
-                        if (isCurrentAction)
-                        {
-                            var nextElement = expansion.sequence[j + 1];
-                            if (grammar.IsRule(nextElement))
-                            {
-                                // Add all first terminals of the next rule
-                                nextValidTerminals.UnionWith(grammar.GetFirstTerminals(nextElement));
-                            }
-                            else
-                            {
-                                nextValidTerminals.Add(nextElement);
-                            }
-                        }
-                    }
-                  
-                }
-            }
-            
-            return nextValidTerminals.ToList();
-        }
-        
-        public List<string> GetAllValidNextActionsInsert(string currentElement, QuestGraph questGraph, Action<float> onProgress = null, CancellationToken token = default)
-        {
             // get valid actions out of context
-            var nextValidTerminals = GetAllValidNextActions(currentElement);
-            
-            // Simulate to only get if its valid in the new context for insert
-            HashSet<string> nextValidInsert = new HashSet<string>();
-            for (var index = 0; index < nextValidTerminals.Count; index++)
-            {
-                if(token.IsCancellationRequested) return nextValidTerminals.ToList();
-                
-                var nextValidTerminal = nextValidTerminals[index];
-                CloneRefs.Start();
-                var clone = questGraph.Clone() as QuestGraph;
-                CloneRefs.End();
+            onProgress?.Invoke((float)1);
+            return Graph.Grammar.GetNextTerminals(currentElement);
 
-                onProgress?.Invoke((float)index/nextValidTerminals.Count);
-
-                if (clone is null) break;
-
-                if(token.IsCancellationRequested) return nextValidTerminals.ToList();
-                clone.OwnerLayer = questGraph.OwnerLayer;
-                var newNode = clone.InsertQuestNodeAfter(nextValidTerminal, Behavior.SelectedQuestNode);
-                if (newNode.ValidGrammar)
-                {
-                    nextValidInsert.Add(nextValidTerminal);
-                }
-
-                clone.OwnerLayer = null;
-            }
-
-            return nextValidInsert.ToList();
-        }
-        
-        public List<string> GetAllValidPrevActions(string currentAction)
-        {
-            var grammar = Graph.Grammar;
-            var prevValidTerminals = new HashSet<string>();
-
-            if (grammar == null) return prevValidTerminals.ToList();
-
-            var rules = grammar.LBSRules;
-
-            // Step 1: Check for the next as current
-            foreach (var rule in rules)
-            {
-                for (int j = 0; j < rule.Expansions.Count; j++)
-                {
-                    List<string> expansion = rule.Expansions[j].sequence;
-                    for (int i = 0; i < expansion.Count - 1; i++)
-                    {
-                        var nextElement = expansion[i+1];
-                        if (grammar.IsRule(nextElement))
-                        {
-                            // if the next symbols a ruleRef get the first valid terminal
-                            nextElement = grammar.GetFirstTerminals(nextElement).First();
-                        }
-                        // if the next symbol is the action we are searching for
-                        if (nextElement.Equals(currentAction))
-                        {
-                            var currentElement = expansion[i];
-                            if (grammar.IsRule(currentElement))
-                            {
-                                // if the first next a ruleRef get the first valid terminal
-                                currentElement = grammar.GetFirstTerminals(currentElement).First();
-                            }
-                            
-                            // assign the current as a valid prev, because the next is the current
-                            prevValidTerminals.Add(currentElement);
-                        }
-                    }
-                }
-            }
-
-            return prevValidTerminals.ToList();
         }
 
-        public List<string> GetAllValidPrevActionsInsert(string currentAction, QuestGraph questGraph,  Action<float> onProgress = null, CancellationToken token = default)
+        public List<string> GetAllValidPrevActionsInsert(
+            string currentElement, 
+            Action<float> onProgress = null, 
+            CancellationToken token = default)
         {
+
+            if (Graph == null || Graph.Grammar == null) return new List<string>();
+
             // Get all non context prev actions   
-            var prevValidTerminals = GetAllValidPrevActions(currentAction);
-            // Simulate to only get if its valid in the new context for insert
-            HashSet<string> prevValidInsert = new HashSet<string>();
-            for (var index = 0; index < prevValidTerminals.Count; index++)
-            {
-                if(token.IsCancellationRequested) return prevValidTerminals.ToList();
-                
-                var nextValidTerminal = prevValidTerminals[index];
-                CloneRefs.Start();
-                var clone = questGraph.Clone() as QuestGraph;
-                CloneRefs.End();
-
-                onProgress?.Invoke((float)index/prevValidTerminals.Count);
-                
-                if (clone is null) break;
-                clone.OwnerLayer = questGraph.OwnerLayer;
-
-                if(token.IsCancellationRequested) return prevValidTerminals.ToList();
-                
-                var newNode = clone.InsertQuestNodeBefore(nextValidTerminal, Behavior.SelectedQuestNode);
-                if (newNode.ValidGrammar)
-                {
-                    prevValidInsert.Add(nextValidTerminal);
-                }
-
-                clone.OwnerLayer = null;
-            }
-
-            return prevValidInsert.ToList();
+            onProgress?.Invoke((float)1);
+            return Graph.Grammar.GetPreviousTerminals(currentElement);
         }
-        
-        public List<List<string>> GetAllExpansions(string currentAction,Action<float> onProgress = null, CancellationToken token = default)
+
+        public List<List<string>> GetAllExpansions(
+            string currentAction,
+            Action<float> onProgress = null,
+            CancellationToken token = default)
         {
-            HashSet<List<string>> allExpansions = new HashSet<List<string>>();
-            var grammar = Graph.Grammar;
-            if (grammar == null) return allExpansions.ToList();
+            if (Graph == null || Graph.Grammar == null) return new List<List<string>>();
 
-            var expansions = new List<List<string>>();
-            // Get all the rules that contain the terminal
-            foreach (var rule in GetOwningRules(currentAction))
+            // STEP 1: get raw expansions from grammar
+            var rawExpansions = Graph.Grammar.GetExpansions(currentAction);
+            if (rawExpansions == null || rawExpansions.Count == 0)
+                return new List<List<string>>();
+
+            var result = new HashSet<string>(); // for uniqueness (string key)
+            var final = new List<List<string>>();
+
+            for (int index = 0; index < rawExpansions.Count; index++)
             {
-                if(token.IsCancellationRequested) return allExpansions.ToList();
-                foreach (var ruleEntry in grammar.LBSRules)
-                {
-                    if(token.IsCancellationRequested) return allExpansions.ToList();
-                    if (ruleEntry.id.Equals(rule))
-                    {
-                        if(token.IsCancellationRequested) return allExpansions.ToList();
-                        foreach (var expansion in ruleEntry.Expansions)
-                        {
-                            if(token.IsCancellationRequested) return allExpansions.ToList();
-                            expansions.Add(expansion.sequence);
-                        }
-                    }
-                }
-            }
+                if (token.IsCancellationRequested)
+                    return final;
 
-            if (expansions is null or { Count: 0 }) return allExpansions.ToList();
-
-            // Use a HashSet to track unique sequence content as strings
-            HashSet<string> seenSequences = new HashSet<string>();
-
-            // Get terminals from the quests
-            for (var index = 0; index < expansions.Count; index++)
-            {
-                if(token.IsCancellationRequested) return allExpansions.ToList();
-                
-                var expansion = expansions[index];
-                List<string> sequence = new List<string>();
+                var expansion = rawExpansions[index];
+                var sequence = new List<string>();
 
                 foreach (var element in expansion)
                 {
-                    if(token.IsCancellationRequested) return allExpansions.ToList();
-                    
-                    if (grammar.IsTerminal(element))
+                    if (token.IsCancellationRequested)
+                        return final;
+
+                    if (Graph.Grammar.IsTerminal(element))
                     {
                         sequence.Add(element);
                     }
                     else
                     {
-                        sequence.Add(grammar.GetFirstTerminals(element).First());
+                        var terminals = new HashSet<string>();
+                        Graph.Grammar.GetFirstTerminals(element);
+
+                        sequence.AddRange(terminals);
                     }
                 }
 
-                // do not add sequences that return the same action only
-                if (sequence.Count == 1 && sequence[0] == currentAction) continue;
-                allExpansions.Add(sequence);
-                
-                onProgress?.Invoke((float)index/expansions.Count);
-            }
+                // skip useless self-only expansions
+                if (sequence.Count == 1 && sequence[0] == currentAction)
+                    continue;
 
-            return allExpansions.ToList();
-        }
-
-        private List<string> GetRulesWithRule(string rule)
-        {
-            var grammar = Graph.Grammar;
-            if (grammar == null) return new List<string>();
-            
-            HashSet<string> owningRules = new HashSet<string>();
-            foreach (GrammarRule ruleEntry in Graph.Grammar.LBSRules)
-            {
-                foreach (var expansion in ruleEntry.Expansions)
+                // ensure uniqueness (since List<> in HashSet is broken)
+                var key = string.Join("|", sequence);
+                if (result.Add(key))
                 {
-                    // if the rule we are checking for is within the rule item
-                    if (expansion.sequence.Contains(rule))
-                    {
-                        owningRules.Add(ruleEntry.id);
-                    }
+                    final.Add(sequence);
                 }
-            }
-            return owningRules.ToList();
-        }
-        
-        public List<string> GetOwningRules(string terminal)
-        {
-            var grammar = Graph.Grammar;
-            if (grammar == null) return new List<string>();
 
-            HashSet<string> owners = new HashSet<string>();
-            
-            foreach (GrammarRule rule in Graph.Grammar.LBSRules)
-            {
-                foreach (var expansion in rule.Expansions)
-                {
-                    if(expansion.sequence.Contains(terminal)) owners.Add(rule.id);
-                }
+                onProgress?.Invoke((float)index / rawExpansions.Count);
             }
-            
-            return owners.ToList();
+
+            return final;
         }
 
-        
+        #endregion
+
+        #region Insert Actions
+
         public Action ExpandAction(List<string> expandAction, QuestNode referenceNode)
         {
             return () =>
@@ -453,7 +259,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 Debug.Log($"InsertPreviousAction took {stopwatch.ElapsedMilliseconds} ms");
             };
         }
-        
+
+        #endregion
+
         public override void OnAttachLayer(LBSLayer layer)
         {
             base.OnAttachLayer(layer);

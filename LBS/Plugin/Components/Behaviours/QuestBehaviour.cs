@@ -17,45 +17,12 @@ namespace ISILab.LBS.Behaviours
         public Type activeGraphNodeType = null;
         public string ActionToSet { get; set; }
 
-        private GraphNode _selectedNode;
 
         #region PROPERTIES
 
         public QuestGraph Graph => OwnerLayer.GetModule<QuestGraph>();
 
-        public GraphNode SelectedGraphNode
-        {
-            get => _selectedNode;
-            set
-            {
-                if (value is not null && _selectedNode is not null)
-                {
-                    if (value.Equals(_selectedNode)) return;
-                }
-
-                _selectedNode = value;
-                _onNodeSelected?.Invoke(_selectedNode);
-            }
-        }
-
-
-        public QuestActionData SelectedNodeData => SelectedQuestNode?.Data;
-
-        public QuestNode SelectedQuestNode => SelectedGraphNode as QuestNode;
         #endregion
-
-        #region ACTIONS
-
-        private Action<GraphNode> _onNodeSelected;
-
-        public event Action<GraphNode> OnGraphNodeSelected
-        {
-            add { _onNodeSelected += value; }
-            remove { _onNodeSelected -= value; }
-        }
-
-        #endregion
-
 
         #region CONSTRUCTOR
 
@@ -81,17 +48,12 @@ namespace ISILab.LBS.Behaviours
         {
             OwnerLayer = layer;
             layer.OnChange += UpdateKeys;
-
-            OwnerLayer.GetModule<QuestGraph>().OnAddNode += OnAddNode;
-            OwnerLayer.GetModule<QuestGraph>().OnRemoveNode += OnRemoveNode;
+            layer.OnChange += () =>
+            {
+                Graph.SelectedGraphNode = null;
+            };
         }
 
-        private void OnAddNode(QuestNode node) => SelectedGraphNode = node;
-
-        private void OnRemoveNode(QuestNode node)
-        {
-            if (SelectedGraphNode == node) SelectedGraphNode = null;
-        }
 
         public override void OnDetachLayer(LBSLayer layer)
         {
@@ -108,13 +70,6 @@ namespace ISILab.LBS.Behaviours
         {
             UpdateKeys(Graph.GraphNodes.ToList<object>());
         }
-
-        public void NodeDataChanged(GraphNode node)
-        {
-            if (Equals(_selectedNode, node)) return;
-            _onNodeSelected?.Invoke(node);
-        }
-
 
         #region IBLUEPRINTABLE
         public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
