@@ -2,6 +2,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.UI.Editor.Windows.TagManager;
 using ISILab.LBS.VisualElements;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #region VISUAL ELEMENTS
         private LBSToolbarButton disabledRemoveButton;
         private Label titleLabel;
-        private List<LBSTagListObject> tagListVE;
+        private LBSToolbarButton addButton;
         #endregion
 
         #region PROPERTIES
@@ -73,6 +74,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #region EVENTS
         public Action<object> OnTagRemoved;
         public Action OnSortToggle;
+        public Action OnAddButton;
         #endregion
 
         #region CONSTRUCTOR
@@ -96,9 +98,17 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             sortDescending = AssetMacro.LoadAssetByGuid<VectorImage>("ed112e167fd361f478992d351e0c3158");
             OnSortToggle += ToggleSort;
 
+            //Add button!
+            addButton = this.Q<LBSToolbarButton>("AddButton");
+            //addButton.clicked += OnAddButton;
+
             //Remove button
             disabledRemoveButton = this.Q<LBSToolbarButton>("DisabledRemoveButton");
-            OnListRemoved += () => { RemoveFromHierarchy(); };
+            OnListRemoved += () => {
+                RemoveFromHierarchy();
+                TagManagerWindow.OnRemovableGroupRemoved?.Invoke(this);
+            };
+
             //The original list already has the expansion thingy and the toggle sort.
             toggleSortButton = this.Q<LBSToolbarToggle>("SortButton");
             toggleSortButton.RegisterCallback<ClickEvent>(_evt =>
@@ -117,44 +127,44 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             {
                 var objectEntryVE = element as LBSTagListObject;
                 objectEntryVE.Owner = this;
-                
                 //All unremovable for now!
                 objectEntryVE.IsRemovable = false;
 
                 if (objectEntryVE == null) return;
                 //Debug.Log("binding " + objectEntryVE);
                 
-                var objectEntry = tagList[index];
-                if (tagList[index].GetType() == typeof(LBSTagGroup))
+                var objectEntry = listView.itemsSource[index];
+                if (objectEntry.GetType() == typeof(LBSTagGroup))
                 {
-                    LBSTagGroup tagEntry = tagList[index] as LBSTagGroup;
+                    LBSTagGroup tagEntry = objectEntry as LBSTagGroup;
                     objectEntryVE.Type = LBSTagListObject.objectType.Group;
                     objectEntryVE.Name = tagEntry.name;
                     objectEntryVE.AssociatedTag = tagEntry;
                     objectEntryVE.AddLayerTag();
                 }
-                else if (tagList[index].GetType() == typeof(LBSTag))
+                else if (objectEntry.GetType() == typeof(LBSTag))
                 {
-                    LBSTag tagEntry = tagList[index] as LBSTag;
+                    LBSTag tagEntry = objectEntry as LBSTag;
                     objectEntryVE.Type = LBSTagListObject.objectType.Individual;
                     objectEntryVE.Name = tagEntry.label;
                     objectEntryVE.AssociatedTag = tagEntry;
                 }
             };
-            listView.itemsSource = tagList;
-            listView.Rebuild();
-        }
 
-        public void ListInitialize(List<LBSTagGroup> initList)
-        {
-            tagList.Clear();
-            foreach (object tag in initList)
+            listView.itemsChosen += (item) =>
             {
-                tagList.Add(tag);
-            }
+                var tagChosen = item.First();
+                if (tagChosen.GetType() == typeof(LBSTagGroup))
+                {
+                    TagManagerWindow.OnTagGroupSelected?.Invoke(tagChosen as LBSTagGroup);
+                }
+            };
+
+            listView.makeNoneElement = () => new VisualElement();
+            listView.itemsSource = tagList;
         }
 
-        public void ListInitialize(List<LBSTag> initList)
+        public void ListInitialize(List<ScriptableObject> initList)
         {
             tagList.Clear();
             foreach (object tag in initList)
@@ -177,36 +187,60 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             switch (currentSort)
             {
                 case SortType.Disabled:
+
                     toggleSortButton.SetValueWithoutNotify(true);
-                    tagList.Sort((a, b) => tagListVE.Find(c => c.AssociatedTag.Equals(a)).Name.CompareTo(tagListVE.Find(d => d.AssociatedTag.Equals(b)).Name));
-                    //tagList = tagList.OrderBy(i => i).ToList();
+                    
+                    var ascendingSortedList = new List<object>(tagList);
+                    ascendingSortedList.Sort((x, y) => (x as ScriptableObject).name.CompareTo((y as ScriptableObject).name));
+             
+                    listView.itemsSource = ascendingSortedList.ToArray();
                     currentSort = SortType.Ascending;
 
                     break;
                 case SortType.Ascending:
+
                     toggleSortButton.ToggleIcon = sortDescending;
                     toggleSortButton.SetValueWithoutNotify(true);
-                    tagList.Sort((a, b) => tagListVE.Find(c => c.AssociatedTag.Equals(b)).Name.CompareTo(tagListVE.Find(d => d.AssociatedTag.Equals(a)).Name));
+
+                    var descendingSortedList = new List<object>(tagList);
+                    descendingSortedList.Sort((x, y) => (y as ScriptableObject).name.CompareTo((x as ScriptableObject).name));
+  
+                    listView.itemsSource = descendingSortedList.ToArray();
                     currentSort = SortType.Descending;
 
                     break;
                 case SortType.Descending:
+
                     toggleSortButton.ToggleIcon = sortAscending;
                     toggleSortButton.SetValueWithoutNotify(false);
-                    //tagList.Sort((a, b) => a.GetHashCode().CompareTo(b.GetHashCode())); <- This isP probably very dumb lol - Alice
-                    //tagList.OrderBy(i => i);
+
+                    listView.itemsSource = tagList;
                     currentSort = SortType.Disabled;
 
                     break;
             }
-            listView.Rebuild();
-            //OnSortToggle?.Invoke();
+
         }
 
-        public LBSTagListObject GetObjectFromTag(object tag)
+        public void BindAddButton(int option)
         {
-            return tagListVE.Find(c => c.AssociatedTag == tag);
+            addButton.clickable = new Clickable(() => { });
+            //Since most of these have different functionalities, I figured I'd just make a function that lets you switch which one you wanted to use.
+            switch (option)
+            {
+                //OPTION 1: For AllGroups. It allows you to make a new group tag.
+                case 1:
+                    addButton.clicked += () =>
+                    {
+                        GenericMenu menu = new GenericMenu();
+                        menu.AddItem(new GUIContent("New Tag Group..."), false, TagManagerWindow.CreateNewTagGroup);
+                        menu.ShowAsContext();
+                    };
+                    break;
+                //OPTION 2: For layer groups. It allows you to add an orphan tag to the group.
+            }
         }
+
         #endregion
 
 

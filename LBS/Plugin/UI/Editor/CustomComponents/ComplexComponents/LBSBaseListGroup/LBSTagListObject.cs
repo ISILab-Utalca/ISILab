@@ -49,7 +49,13 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             set
             {
                 type = value;
-                groupLabel.SetEnabled(type == objectType.Group);
+                groupLabel.style.visibility = type == objectType.Group ? Visibility.Visible : Visibility.Hidden;
+                groupLabel.style.display = type == objectType.Group ? DisplayStyle.Flex : DisplayStyle.None;
+
+                var imageIcon = type == objectType.Group
+                    ? AssetMacro.LoadAssetByGuid<VectorImage>("77d90e8f8c8d77c4e9b1a89d13df5779")
+                    : AssetMacro.LoadAssetByGuid<VectorImage>("40d548834301ba14f96af3e1715add5f");
+                icon.style.backgroundImage = new StyleBackground(imageIcon);
             }
         }
         public Bundle.TagType TagType
@@ -127,7 +133,6 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             Debug.Log("loading " + tagName + " as " + type);
 
             //Set image
-            icon = this.Q<VisualElement>("Icon");
             VectorImage imageIcon = type == objectType.Group 
                 ? AssetMacro.LoadAssetByGuid<VectorImage>("77d90e8f8c8d77c4e9b1a89d13df5779") 
                 : AssetMacro.LoadAssetByGuid<VectorImage>("40d548834301ba14f96af3e1715add5f");
@@ -184,6 +189,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                     owner.OnTagRemoved?.Invoke(layerTag);
                 }
             };
+            icon = this.Q<VisualElement>("Icon");
             tagLabel = this.Q<Label>("TagName");
             groupLabel = this.Q<Label>("GroupLabel");
             layerTagContainer = this.Q<VisualElement>("LayerTagContainer");

@@ -1,10 +1,13 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <ui:VisualElement name="MainVE" style="flex-grow: 1; align-content: flex-start;">
-        <ui:VisualElement name="TagGroupsVE" style="flex-grow: 0;">
-            <ISILab.LBS.CustomComponents.LBSCustomHeader icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/Icon=TagFolder.svg?fileID=7388822144124034973&amp;guid=6d6d8f36e289129438c65d3c3509ee83&amp;type=3#Icon=TagFolder" icon-color="#FFC600FF" text="Tags Groups" name="TagGroups" style="margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 1px;" />
+    <ui:ScrollView>
+        <ui:VisualElement name="MainVE" style="flex-grow: 1; align-content: flex-start;">
+            <ui:VisualElement name="TagGroupsVE" style="flex-grow: 0;">
+                <ISILab.LBS.CustomComponents.LBSCustomHeader icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/Icon=TagFolder.svg?fileID=7388822144124034973&amp;guid=6d6d8f36e289129438c65d3c3509ee83&amp;type=3#Icon=TagFolder" icon-color="#FFC600FF" text="Tags Groups" name="TagGroups" style="margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 1px;" />
+            </ui:VisualElement>
+            <ui:ScrollView />
+            <ui:VisualElement name="OtherTagsVE" style="flex-grow: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomHeader icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/Icon=TagFolder.svg?fileID=7388822144124034973&amp;guid=6d6d8f36e289129438c65d3c3509ee83&amp;type=3#Icon=TagFolder" icon-color="#FFC600FF" text="Other Tags" name="OtherTags" style="margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 1px;" />
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="OtherTagsVE" style="flex-grow: 1;">
-            <ISILab.LBS.CustomComponents.LBSCustomHeader icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/Icon=TagFolder.svg?fileID=7388822144124034973&amp;guid=6d6d8f36e289129438c65d3c3509ee83&amp;type=3#Icon=TagFolder" icon-color="#FFC600FF" text="Other Tags" name="OtherTags" style="margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 1px;" />
-        </ui:VisualElement>
-    </ui:VisualElement>
+    </ui:ScrollView>
 </ui:UXML>
