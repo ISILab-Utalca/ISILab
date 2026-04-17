@@ -10,20 +10,21 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
 {
-    public partial class LBSTagListObject : VisualElement
+    [UxmlElement]
+    public partial class LBSTagListObject : LBSCustomListItem
     {
         #region FIELDS
         public enum objectType { Individual, Group };
         private objectType type;
         private Bundle.TagType tagType;
-        private string tagName;
-        private bool removable;
+        private string tagName = "Tag";
+        private bool removable = true;
 
-        private object associatedTag;
+        private object associatedTag = null;
         #endregion
 
         #region VISUAL ELEMENTS
-        private LBSCustomButton deleteButton;
+        private LBSToolbarButton deleteButton;
         private VisualElement icon;
         private VisualElement layerTagContainer;
         private Label tagLabel;
@@ -47,47 +48,58 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         public Bundle.TagType TagType => tagType;
         public object AssociatedTag => associatedTag;
         public LBSTagListGroup Owner => owner;
-        public bool Removable
+
+        [UxmlAttribute]
+        public bool IsRemovable
         {
             get => removable;
             set
             {
                 removable = value;
                 deleteButton.SetEnabled(removable);
+                deleteButton.style.visibility = IsRemovable ? Visibility.Visible : Visibility.Hidden;
+                deleteButton.style.display = IsRemovable ? DisplayStyle.Flex : DisplayStyle.None;
+
             }
         }
         #endregion
 
         #region EVENTS
+        public Action OnOwnerChanged;
         public Action OnLayerTagRemoved;
         #endregion
 
         #region CONSTRUCTORS
-        public LBSTagListObject(LBSTagListGroup group, object associatedTag, string tagName, bool removable, bool layerTypeRemovable = false)
+        public LBSTagListObject()
         {
+            Init();
+        }
+
+        public LBSTagListObject(LBSTagListGroup group, object associatedTag, bool removable, bool layerTypeRemovable = false) : base()
+        {
+            Init();
+
             //Basic setup
             this.owner = group;
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSTagListLayerTag");
-            visualTree.CloneTree(this);
-
+            
             //Delete button!
             this.removable = removable;
-            deleteButton = this.Q<LBSCustomButton>("DeleteButton");
             deleteButton.SetEnabled(removable);
-            deleteButton.clicked += () =>
-            {
-                owner.OnTagRemoved?.Invoke(layerTag);
-            };
             
             //Determine if tag group or not
             this.associatedTag = associatedTag;
             if (associatedTag.GetType() == typeof(LBSTagGroup))
             {
+                var groupTag = associatedTag as LBSTagGroup;
+                tagName = groupTag.name;
                 type = objectType.Group;
             } else if (associatedTag.GetType() == typeof(LBSTag))
             {
+                var indivTag = associatedTag as LBSTag;
+                tagName = indivTag.label;
                 type = objectType.Individual;
             }
+            Debug.Log("loading " + tagName + " as " + type);
 
             //Set image
             icon = this.Q<VisualElement>("Icon");
@@ -97,19 +109,15 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             icon.style.backgroundImage = new StyleBackground(imageIcon);
             
             //Name
-            this.tagName = tagName;
-            tagLabel = this.Q<Label>("TagName");
             tagLabel.text = tagName;
 
             //Enable or disable the group label
-            groupLabel = this.Q<Label>("GroupLabel");
             if(type == objectType.Individual)
             {
                 groupLabel.SetEnabled(false);
             }
 
             //Lastly, the layer tag!
-            layerTagContainer = this.Q<VisualElement>("LayerTagContainer");
             if(type == objectType.Group)
             {
                 var associatedTagGroup = associatedTag as LBSTagGroup;
@@ -136,7 +144,23 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region METHODS
-        
+        public void Init()
+        {
+            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSTagListObject");
+            visualTree.CloneTree(this);
+
+            deleteButton = this.Q<LBSToolbarButton>("DeleteButton");
+            deleteButton.clicked += () =>
+            {
+                if (owner != null)
+                {
+                    owner.OnTagRemoved?.Invoke(layerTag);
+                }
+            };
+            tagLabel = this.Q<Label>("TagName");
+            groupLabel = this.Q<Label>("GroupLabel");
+            layerTagContainer = this.Q<VisualElement>("LayerTagContainer");
+        }
         #endregion
     }
 
