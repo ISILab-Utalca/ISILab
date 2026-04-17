@@ -77,13 +77,18 @@ namespace ISILab.LBS.Modules
                     if (value.Equals(selectedNode)) return;
                 }
 
+
                 // assign if its null or it is a graphnode contained in the existing nodes
                 if (value == null || (value is not null && GraphNodes.Contains(value)))
                 {
+
+                    // deselect the previous node
+                    selectedNode?.OnDeselect?.Invoke();
+
                     selectedNode = value;
                     Reselect();
+
                 }
-                
             }
         }
 
@@ -128,7 +133,15 @@ namespace ISILab.LBS.Modules
         #region METHODS
 
         #region Action methods
-        public void Reselect() => OnNodeSelected?.Invoke(selectedNode);
+        public void Reselect()
+        {
+            // delegeates related to the graph node selection
+            OnNodeSelected?.Invoke(selectedNode);
+
+            // delgates related to the node only
+            selectedNode?.OnSelect?.Invoke();
+        }
+
         private void AddNode(QuestNode node)
         {
             SelectedGraphNode = node;

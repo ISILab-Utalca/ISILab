@@ -35,10 +35,10 @@ namespace ISILab.LBS.VisualElements
             _connectionView = this.Q<VisualElement>("View");
 
             // Handle movement of first node
-            node1.OnMoving += UpdatePositionFromNode1;
+            ActionExtensions.AddUnique(ref node1.OnMoving, UpdatePositionFromNode1);
 
             // Handle movement of second node
-            node2.OnMoving += UpdatePositionFromNode2;
+            ActionExtensions.AddUnique(ref node2.OnMoving, UpdatePositionFromNode2);
 
             // Initialize positions
             UpdatePositions();
@@ -77,7 +77,6 @@ namespace ISILab.LBS.VisualElements
             MarkDirtyRepaint();
         }
 
-        
         private Vector2 GetRectEdgePoint(Rect rect, Vector2 direction, float extraOffset = 0f)
         {
             Vector2 center = rect.center;

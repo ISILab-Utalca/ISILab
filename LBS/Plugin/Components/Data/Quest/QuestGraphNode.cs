@@ -105,6 +105,9 @@ namespace ISILab.LBS.Components
 
         #endregion
 
+        public Action OnSelect;
+        public Action OnDeselect;
+
         #region CONSTRUCTORS
         protected GraphNode() { }
 
@@ -128,6 +131,7 @@ namespace ISILab.LBS.Components
         {
             Graph.SelectedGraphNode = this;
             if (reselect) Graph.Reselect();
+            
         }
 
         public object Clone()
@@ -166,6 +170,8 @@ namespace ISILab.LBS.Components
         {
             return nodePosition == other.nodePosition;
         }
+
+        public bool IsSelected() => Graph.SelectedGraphNode == this;
         #endregion
     }
 

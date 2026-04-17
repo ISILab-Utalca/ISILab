@@ -52,6 +52,16 @@ namespace ISILab.LBS.Behaviours
             {
                 Graph.SelectedGraphNode = null;
             };
+
+            Graph.OnRemoveNode += (node) =>
+            {
+                RequestTileRemove(node);
+            };
+
+            Graph.OnRemoveEdge += (edge) =>
+            {
+                RequestTileRemove(edge);
+            };
         }
 
 
@@ -71,6 +81,7 @@ namespace ISILab.LBS.Behaviours
             UpdateKeys(Graph.GraphNodes.ToList<object>());
         }
 
+        
         #region IBLUEPRINTABLE
         public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {

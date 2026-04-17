@@ -22,5 +22,19 @@ namespace ISILab.Extensions
                 source = (Action<T>)Delegate.Combine(source, handler);
             }
         }
+
+        /// <summary>
+        /// Adds a function to an action only if it's not part of the invocation list
+        /// </summary>
+        public static void AddUnique(
+            ref Action source,
+            Action handler)
+        {
+            if (source == null ||
+                !source.GetInvocationList().Contains(handler))
+            {
+                source = (Action)Delegate.Combine(source, handler);
+            }
+        }
     }
 }

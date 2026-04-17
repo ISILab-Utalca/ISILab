@@ -6,20 +6,18 @@ using ISILab.LBS.Modules;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
-
 namespace ISILab.LBS.Drawers.Editor
 {
     [Drawer(typeof(QuestGraph))]
     public class QuestGraphDrawer : Drawer
     {
-
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             var graph = (QuestGraph)target;
             if (graph == null) return;
 
-            Update(graph,view,tesselationSize);
-            
+            Update(graph, view, tesselationSize);
+
             if (!Loaded || FullRedrawRequested)
             {
                 LoadAllTiles(graph, view);
@@ -30,14 +28,14 @@ namespace ISILab.LBS.Drawers.Editor
 
         public override void Update(object target, MainView view, Vector2 teselationSize)
         {
-            if (target is not QuestGraph graph) return; 
-            PaintNewTiles(graph, view); 
+            if (target is not QuestGraph graph) return;
+
+            PaintNewTiles(graph, view);
             UpdateLoadedTiles(graph, view);
         }
 
         private void PaintNewTiles(QuestGraph graph, MainView view)
         {
-
             foreach (GraphNode node in graph.GraphNodes)
             {
                 var existing = view.GetElementsFromLayer(graph.OwnerLayer, node);
@@ -57,13 +55,9 @@ namespace ISILab.LBS.Drawers.Editor
                 view.AddElementToLayerContainer(graph.OwnerLayer, node, nodeView);
                 nodeView.style.display = graph.OwnerLayer.IsVisible ? DisplayStyle.Flex : DisplayStyle.None;
             }
+
             foreach (QuestEdge edge in graph.GraphEdges)
             {
-                var existing = view.GetElementsFromLayer(graph.OwnerLayer, edge);
-
-                if (existing != null && existing.Count > 0)
-                    continue; // already exists
-
                 QuestGraphNodeView toView = view
                     .GetElementsFromLayer(graph.OwnerLayer, edge.To)
                     .FirstOrDefault() as QuestGraphNodeView;
@@ -72,6 +66,12 @@ namespace ISILab.LBS.Drawers.Editor
 
                 foreach (GraphNode from in edge.From)
                 {
+                    var key = (edge, from);
+
+                    var existing = view.GetElementsFromLayer(graph.OwnerLayer, key);
+                    if (existing != null && existing.Count > 0)
+                        continue;
+
                     QuestGraphNodeView fromView = view
                         .GetElementsFromLayer(graph.OwnerLayer, from)
                         .FirstOrDefault() as QuestGraphNodeView;
@@ -80,7 +80,7 @@ namespace ISILab.LBS.Drawers.Editor
 
                     var edgeView = CreateEdgeView(graph, edge, fromView, toView);
 
-                    view.AddElementToLayerContainer(graph.OwnerLayer, edge, edgeView);
+                    view.AddElementToLayerContainer(graph.OwnerLayer, key, edgeView);
                     edgeView.layer = fromView.layer + 1;
                     edgeView.style.display = graph.OwnerLayer.IsVisible ? DisplayStyle.Flex : DisplayStyle.None;
                 }
@@ -97,34 +97,34 @@ namespace ISILab.LBS.Drawers.Editor
                 foreach (var el in elements)
                 {
                     if (el is not QuestGraphNodeView nodeView) continue;
-
                     if (!nodeView.visible) continue;
 
-                    nodeView.SelectView(nodeView.Node == graph.SelectedGraphNode);
-                    (nodeView as QuestNodeView)?.SetupNode(node as QuestNode);
+                    (nodeView as QuestNodeView)?.Refresh();
                     nodeView.style.display = graph.OwnerLayer.IsVisible
                         ? DisplayStyle.Flex
                         : DisplayStyle.None;
                 }
-
             }
 
             foreach (QuestEdge edge in graph.GraphEdges)
             {
-                var elements = view.GetElementsFromLayer(graph.OwnerLayer, edge);
-                if (elements == null) continue;
-
-                foreach (var el in elements)
+                foreach (GraphNode from in edge.From)
                 {
-                    if (el is not LBSQuestEdgeView edgeView) continue;
+                    var key = (edge, from);
 
-                    if (!edgeView.visible) continue;
+                    var elements = view.GetElementsFromLayer(graph.OwnerLayer, key);
+                    if (elements == null) continue;
 
-                    edgeView.UpdatePositions();
+                    foreach (var el in elements)
+                    {
+                        if (el is not LBSQuestEdgeView edgeView) continue;
+                        if (!edgeView.visible) continue;
 
-                    edgeView.style.display = graph.OwnerLayer.IsVisible
-                        ? DisplayStyle.Flex
-                        : DisplayStyle.None;
+                        edgeView.UpdatePositions();
+                        edgeView.style.display = graph.OwnerLayer.IsVisible
+                            ? DisplayStyle.Flex
+                            : DisplayStyle.None;
+                    }
                 }
             }
         }
@@ -135,51 +135,64 @@ namespace ISILab.LBS.Drawers.Editor
             {
                 QuestGraphNodeView nodeView = node switch
                 {
-                    // make a quest action visual element
                     QuestNode qn => CreateActionView(qn),
-                    // make a branch visual element
                     OrNode or AndNode => CreateBranchView(node),
                     _ => null
                 };
+
+                if (nodeView == null) continue;
 
                 view.AddElementToLayerContainer(graph.OwnerLayer, node, nodeView);
             }
 
             foreach (QuestEdge edge in graph.GraphEdges)
             {
-                QuestGraphNodeView toView = view.GetElementsFromLayer(graph.OwnerLayer, edge.To).FirstOrDefault() as QuestGraphNodeView;
+                QuestGraphNodeView toView = view
+                    .GetElementsFromLayer(graph.OwnerLayer, edge.To)
+                    .FirstOrDefault() as QuestGraphNodeView;
+
                 if (toView == null) continue;
+
                 foreach (GraphNode from in edge.From)
                 {
-                    QuestGraphNodeView fromView = view.GetElementsFromLayer(graph.OwnerLayer, from).FirstOrDefault() as QuestGraphNodeView;
+                    var key = (edge, from);
+
+                    QuestGraphNodeView fromView = view
+                        .GetElementsFromLayer(graph.OwnerLayer, from)
+                        .FirstOrDefault() as QuestGraphNodeView;
+
                     if (fromView == null) continue;
 
-                    LBSQuestEdgeView edgeView = CreateEdgeView(graph, edge, fromView, toView);
-                    view.AddElementToLayerContainer(graph.OwnerLayer, edge, edgeView);
+                    var edgeView = CreateEdgeView(graph, edge, fromView, toView);
+
+                    view.AddElementToLayerContainer(graph.OwnerLayer, key, edgeView);
                     edgeView.layer = fromView.layer + 1;
-
                 }
-            } 
+            }
         }
-
-
 
         public override void HideVisuals(object target, MainView view)
         {
             var graph = (QuestGraph)target;
-            if(graph == null) return;
+            if (graph == null) return;
 
             foreach (QuestEdge edge in graph.GraphEdges)
             {
-                var ve = view.GetElementsFromLayer(graph.OwnerLayer, edge).FirstOrDefault();
-                if (ve == null) continue;
-                ve.style.display = DisplayStyle.None;
+                foreach (GraphNode from in edge.From)
+                {
+                    var key = (edge, from);
+                    var ve = view.GetElementsFromLayer(graph.OwnerLayer, key).FirstOrDefault();
+                    if (ve == null) continue;
+
+                    ve.style.display = DisplayStyle.None;
+                }
             }
 
             foreach (var node in graph.GraphNodes)
             {
                 var ve = view.GetElementsFromLayer(graph.OwnerLayer, node).FirstOrDefault();
                 if (ve == null) continue;
+
                 ve.style.display = DisplayStyle.None;
             }
         }
@@ -191,33 +204,40 @@ namespace ISILab.LBS.Drawers.Editor
 
             foreach (QuestEdge edge in graph.GraphEdges)
             {
-                var ve = view.GetElementsFromLayer(graph.OwnerLayer, edge).FirstOrDefault();
-                if(ve == null) continue;
-                ve.style.display = DisplayStyle.Flex;
+                foreach (GraphNode from in edge.From)
+                {
+                    var key = (edge, from);
+                    var ve = view.GetElementsFromLayer(graph.OwnerLayer, key).FirstOrDefault();
+                    if (ve == null) continue;
+
+                    ve.style.display = DisplayStyle.Flex;
+                }
             }
 
             foreach (var node in graph.GraphNodes)
             {
                 var ve = view.GetElementsFromLayer(graph.OwnerLayer, node).FirstOrDefault();
                 if (ve == null) continue;
+
                 ve.style.display = DisplayStyle.Flex;
             }
         }
 
-        private static LBSQuestEdgeView CreateEdgeView(QuestGraph graph, QuestEdge edge, QuestGraphNodeView n1, QuestGraphNodeView n2)
+        private static LBSQuestEdgeView CreateEdgeView(
+            QuestGraph graph,
+            QuestEdge edge,
+            QuestGraphNodeView n1,
+            QuestGraphNodeView n2)
         {
             foreach (GraphNode from in edge.From)
-            {
-                n1.DisplayGrammarState(from);
-            }
+                n1.UpdateGrammarState();
 
-            n2.DisplayGrammarState(edge.To);
-            
+            n2.UpdateGrammarState();
+
             return new LBSQuestEdgeView(graph, edge, n1, n2, 1.5f, 3.5f);
         }
 
         private static QuestNodeView CreateActionView(QuestNode node) => new(node);
         private static QuestBranchView CreateBranchView(GraphNode node) => new(node);
-
     }
 }

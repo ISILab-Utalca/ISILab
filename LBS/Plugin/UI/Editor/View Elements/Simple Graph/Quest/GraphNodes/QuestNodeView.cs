@@ -56,7 +56,6 @@ namespace ISILab.LBS.VisualElements
             coloredVe.style.backgroundColor = DefaultBackgroundColor;
             
             SetupToolbar();
-            SetupNode(graphNode);
             SetupCallbacks();
 
             style.marginBottom = style.marginLeft = style.marginRight = style.marginTop = 0;
@@ -67,15 +66,12 @@ namespace ISILab.LBS.VisualElements
             _questActionDetails.style.display = DisplayStyle.None;
             _questActionDetails.Node = graphNode as QuestNode;
 
-            ActionExtensions.AddUnique(ref graphNode.Graph.OnNodeSelected, Select);
+            Node = graphNode;
+            SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
 
-            Update();
+            Refresh();
         }
 
-        private void Select(GraphNode node)
-        {
-            
-        }
 
         #region Setup
         private void SetupToolbar()
@@ -84,39 +80,24 @@ namespace ISILab.LBS.VisualElements
             _toolbar.menu.AppendAction("Set as Start Node", MakeRoot);
         }
 
-        internal void SetupNode(QuestNode graphNode)
+        public override void Refresh()
         {
-            Node = graphNode ?? throw new ArgumentNullException(nameof(graphNode));
-            SetText(graphNode.ID);
-            DisplayGrammarState(graphNode);
-            SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
+            if (Node == null) throw new ArgumentNullException("null node");
 
-            Update();
-        }
+            UpdateNodeID();
 
-        private void SetupCallbacks()
-        {
-            OnMoving += rect => Node.NodePosition = rect;
+            UpdateNodeType();
 
-            RegisterCallback<MouseDownEvent>(OnMouseDown);
-            RegisterCallback<MouseMoveEvent>(OnMouseMove);
-            RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
-            RegisterCallback<MouseEnterEvent>(OnMouseEnter);
-            RegisterCallback<MouseUpEvent>(OnMouseUp);
-            RegisterCallback<GeometryChangedEvent>(_ => Update());
-        }
-        #endregion
+            UpdateGrammarState();
 
-        #region Updates
-        public void Update()
-        {
             UpdateWidth();
-            SetPosition(new Rect(GetPosition().position, new Vector2(
-                
-                _root.resolvedStyle.width ,
-                _root.resolvedStyle.height)));
-            OnMoving?.Invoke(GetPosition());
 
+            UpdatePosition();
+
+        }
+
+        private void UpdateNodeType()
+        {
             _start.style.display = DisplayStyle.None;
             _goal.style.display = DisplayStyle.None;
 
@@ -132,6 +113,30 @@ namespace ISILab.LBS.VisualElements
                         break;
                 }
             }
+        }
+
+        private void SetupCallbacks()
+        {
+            RegisterCallback<MouseDownEvent>(OnMouseDown);
+            RegisterCallback<MouseMoveEvent>(OnMouseMove);
+            RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
+            RegisterCallback<MouseEnterEvent>(OnMouseEnter);
+            RegisterCallback<MouseUpEvent>(OnMouseUp);
+            RegisterCallback<GeometryChangedEvent>(_ => UpdatePosition());
+        }
+
+        #endregion
+
+        #region Updates
+        public void UpdatePosition()
+        {
+            SetPosition(new Rect(GetPosition().position,
+                new Vector2(                
+                _root.resolvedStyle.width ,
+                _root.resolvedStyle.height))
+            );
+
+            OnMoving?.Invoke(GetPosition());
         }
 
         private void UpdateWidth()
@@ -163,15 +168,15 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Grammar State
-        public sealed override void DisplayGrammarState(GraphNode node)
+        public sealed override void UpdateGrammarState()
         {
-            if(node is not QuestNode qn) return;
+            if(Node is not QuestNode qn) return;
          
-            base.DisplayGrammarState(node);
-            
+            base.UpdateGrammarState();
+
             _iconNodeDataInvalid.style.display = qn.Data.IsValid() ? DisplayStyle.None : DisplayStyle.Flex;
-            _iconGrammarInvalid.style.display = node.ValidGrammar ? DisplayStyle.None : DisplayStyle.Flex;
-            this.Q<VisualElement>("Capsule").SetBorder(node.IsValid() ? ValidGrammarColor : InvalidGrammarColor, 1f);
+            _iconGrammarInvalid.style.display = Node.ValidGrammar ? DisplayStyle.None : DisplayStyle.Flex;
+            this.Q<VisualElement>("Capsule").SetBorder(Node.IsValid() ? ValidGrammarColor : InvalidGrammarColor, 1f);
         }
         #endregion
 
@@ -239,13 +244,13 @@ namespace ISILab.LBS.VisualElements
             return (float.IsNaN(width) || width == 0) ? fallback : width;
         }
 
-        private void SetText(string text)
+        private void UpdateNodeID()
         {
+            var text = Node.ID;
             if (!string.IsNullOrWhiteSpace(text))
                 text = char.ToUpper(text.TrimStart()[0]) + text.TrimStart().Substring(1);
 
             _label.text = text;
-            UpdateWidth();
         }
 
         public override VisualElement GetSelectVisualElement()
