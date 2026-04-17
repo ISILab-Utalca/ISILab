@@ -131,13 +131,13 @@ namespace ISILab.LBS.Behaviours
                 Vector2Int distanceToAnchor = node.Position - parentAnchor;
                 node.Position = delta + distanceToAnchor;
 
-                Vector2 distanceToAnchorView = node.NodeViewPosition.position - parentAnchorViewPos;
+                Vector2 distanceToAnchorView = node.NodePosition.position - parentAnchorViewPos;
 
                 Vector2 newViewPos = deltaView + distanceToAnchorView;
 
-                node.NodeViewPosition = new Rect(
+                node.NodePosition = new Rect(
                     newViewPos,
-                    node.NodeViewPosition.size
+                    node.NodePosition.size
                 );
             }
         }

@@ -84,19 +84,19 @@ namespace ISILab.LBS.VisualElements
             _toolbar.menu.AppendAction("Set as Start Node", MakeRoot);
         }
 
-        private void SetupNode(QuestNode graphNode)
+        internal void SetupNode(QuestNode graphNode)
         {
             Node = graphNode ?? throw new ArgumentNullException(nameof(graphNode));
             SetText(graphNode.ID);
             DisplayGrammarState(graphNode);
-            SetPosition(new Rect(Node.NodeViewPosition.position, Vector2.one));
+            SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
 
             Update();
         }
 
         private void SetupCallbacks()
         {
-            OnMoving += rect => Node.NodeViewPosition = rect;
+            OnMoving += rect => Node.NodePosition = rect;
 
             RegisterCallback<MouseDownEvent>(OnMouseDown);
             RegisterCallback<MouseMoveEvent>(OnMouseMove);
@@ -197,7 +197,7 @@ namespace ISILab.LBS.VisualElements
         protected override void OnMouseDown(MouseDownEvent evt)
         {
             base.OnMouseDown(evt);
-            if (evt.button == 1)
+            if (evt.button == 1 && !_isDragging)
             {
                 _toolbar.style.display = DisplayStyle.Flex;
                 _toolbar.ShowMenu();

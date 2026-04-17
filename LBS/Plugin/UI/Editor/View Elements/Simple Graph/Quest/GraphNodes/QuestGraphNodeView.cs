@@ -74,7 +74,6 @@ namespace ISILab.LBS.VisualElements
                 
             }
             
-            //DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
             DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
         }
 
@@ -91,6 +90,11 @@ namespace ISILab.LBS.VisualElements
             grabPosition *= MainView.Instance.viewport.transform.scale;
 
             var newPos = new Rect(grabPosition.x, grabPosition.y, resolvedStyle.width, resolvedStyle.height);
+
+
+
+            MarkDirtyRepaint();
+
             SetPosition(newPos);
         }
 

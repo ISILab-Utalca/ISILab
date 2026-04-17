@@ -44,7 +44,7 @@ namespace ISILab.LBS.Components
         protected QuestGraph graph;
 
         [SerializeField]
-        protected Rect nodeViewRect;
+        protected Rect nodePosition;
 
         #endregion
 
@@ -61,6 +61,9 @@ namespace ISILab.LBS.Components
             set => id = value;
         }
         
+        /// <summary>
+        /// The cell position in the grid
+        /// </summary>
         public Vector2Int Position
         {
             get => new(x, y);
@@ -83,16 +86,19 @@ namespace ISILab.LBS.Components
             set => validConnections = value;
         }
         
-        public Rect NodeViewPosition
+        /// <summary>
+        /// The position of the node visual element.
+        /// </summary>
+        public Rect NodePosition
         {
-            get => nodeViewRect;
+            get => nodePosition;
             set
             {
                 // to avoid assigning the view Rect that's undefined (the visual element is being laid out)
                 if (!float.IsFinite(value.size.x) || !float.IsFinite(value.size.y)) return;
                 if (value.size == Vector2.zero || value.size == Vector2.one) return;
 
-                nodeViewRect = value;
+                nodePosition = value;
             }
 
         }
@@ -109,7 +115,7 @@ namespace ISILab.LBS.Components
             y = (int)position.y;
             this.graph = graph;
             validGrammar = false;
-            nodeViewRect = new Rect(position, Vector2.zero);
+            nodePosition = new Rect(position, Vector2.zero);
         }
         #endregion
 
@@ -133,7 +139,7 @@ namespace ISILab.LBS.Components
 
             clone.validGrammar = validGrammar;
             clone.validConnections = validConnections;
-            clone.nodeViewRect = nodeViewRect;
+            clone.nodePosition = nodePosition;
             clone.x = x;
             clone.y = y;
             clone.graph = graph;
@@ -158,7 +164,7 @@ namespace ISILab.LBS.Components
 
         public bool Equal(GraphNode other)
         {
-            return nodeViewRect == other.nodeViewRect;
+            return nodePosition == other.nodePosition;
         }
         #endregion
     }

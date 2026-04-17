@@ -95,7 +95,7 @@ namespace ISILab.LBS.Modules
 
         #region ACTIONS
 
-        private Action OnUpdateGraph;
+        public Action OnUpdateGraph;
         private GraphNode selectedNode;
         public Action<GraphNode> OnNodeSelected;
 
@@ -129,7 +129,10 @@ namespace ISILab.LBS.Modules
 
         #region Action methods
         public void Reselect() => OnNodeSelected?.Invoke(selectedNode);
-        private void AddNode(QuestNode node) => SelectedGraphNode = node;
+        private void AddNode(QuestNode node)
+        {
+            SelectedGraphNode = node;
+        }
 
         private void RemoveNode(QuestNode node)
         {
@@ -218,7 +221,7 @@ namespace ISILab.LBS.Modules
         {
             foreach (GraphNode node in graphNodes)
             {
-                if (node.NodeViewPosition.Contains(pos) && node is T casted)
+                if (node.NodePosition.Contains(pos) && node is T casted)
                     return casted;
             }
             return null;
@@ -263,13 +266,13 @@ namespace ISILab.LBS.Modules
         public void AddSuggestionNode(QuestNode generatedQuestNode)
         {
             if(generatedQuestNode is null) return;
-            Vector2Int pos = generatedQuestNode.NodeViewPosition.position.ToInt();
+            Vector2Int pos = generatedQuestNode.NodePosition.position.ToInt();
             Vector2 graphPos = OwnerLayer.FixedToPosition(pos, true);
             QuestNode node = AddNewQuestNode(generatedQuestNode.TerminalID, graphPos);
              node.Data = generatedQuestNode.Data;
-             node.NodeViewPosition = new Rect(
+             node.NodePosition = new Rect(
                  graphPos, 
-                 generatedQuestNode.NodeViewPosition.size * SuggestionDistance);
+                 generatedQuestNode.NodePosition.size * SuggestionDistance);
         }
 
         private string GenerateUniqueId(string baseName, IEnumerable<string> existingIds)
@@ -379,8 +382,8 @@ namespace ISILab.LBS.Modules
             {
                 foreach (GraphNode from in e.From)
                 {
-                    Vector2 c1 = new Rect(from.NodeViewPosition).center;
-                    Vector2 c2 = new Rect(e.To.NodeViewPosition).center;
+                    Vector2 c1 = new Rect(from.NodePosition).center;
+                    Vector2 c2 = new Rect(e.To.NodePosition).center;
                     if (pos.DistanceToLine(c1, c2) < delta)
                         return e;
                 }
@@ -467,7 +470,7 @@ namespace ISILab.LBS.Modules
             }
 
             // Position new node next to reference
-            Vector2 position = referenceNode.NodeViewPosition.position;
+            Vector2 position = referenceNode.NodePosition.position;
             position.x += (int)ViewNodeWidthOffset;
 
             QuestNode newNode = AddNewQuestNode(action, position);
@@ -502,7 +505,7 @@ namespace ISILab.LBS.Modules
             }
 
             // Position new node next to reference
-            Vector2 position = referenceNode.NodeViewPosition.position;
+            Vector2 position = referenceNode.NodePosition.position;
             position.x -= (int)ViewNodeWidthOffset;
 
             QuestNode newNode = AddNewQuestNode(action, position);

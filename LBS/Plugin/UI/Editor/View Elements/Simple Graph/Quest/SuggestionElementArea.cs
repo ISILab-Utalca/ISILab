@@ -130,7 +130,7 @@ namespace ISILab.LBS.VisualElements
             {
                 capsule.UnregisterCallback(onGeometryReady);
 
-                if (_generatedQuestNode.NodeViewPosition == Rect.zero)
+                if (_generatedQuestNode.NodePosition == Rect.zero)
                 {
                     // add offset to capsule (previously set in the assistant generation function 
                     capsule.style.left = capsule.resolvedStyle.left + _generatedQuestNode.Position.x;
@@ -143,7 +143,7 @@ namespace ISILab.LBS.VisualElements
 
                     var capsuleOffset = _generatedQuestNode.Graph.OwnerLayer.ToFixedPosition(capsulePos);
                     var graphPos = _generatedQuestNode.Graph.OwnerLayer.ToFixedPosition(GetPosition().position);
-                    _generatedQuestNode.NodeViewPosition = new Rect(
+                    _generatedQuestNode.NodePosition = new Rect(
                         graphPos,
                         new Vector2(capsule.resolvedStyle.width, capsule.resolvedStyle.height)
                     );

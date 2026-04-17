@@ -43,7 +43,7 @@ namespace ISILab.LBS.VisualElements
             if(graphNode is OrNode) _or.style.display = DisplayStyle.Flex;
             if(graphNode is AndNode) _and.style.display = DisplayStyle.Flex;
 
-            SetPosition(new Rect(Node.NodeViewPosition.position, Vector2.one));
+            SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
 
             RegisterCallbacks();
             Update();
@@ -60,7 +60,7 @@ namespace ISILab.LBS.VisualElements
             
             RegisterCallback<GeometryChangedEvent>(_ => Update());
 
-            OnMoving += rect => Node.NodeViewPosition = rect;
+            OnMoving += rect => Node.NodePosition = rect;
         }
         #endregion
 

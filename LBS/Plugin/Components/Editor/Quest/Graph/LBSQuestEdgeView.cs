@@ -44,11 +44,12 @@ namespace ISILab.LBS.VisualElements
             UpdatePositions();
 
             // Draw the dotted line
-            generateVisualContent -= DrawLine;
             generateVisualContent += DrawLine;
 
             // Register right-click menu for edge type change
             RegisterCallback<MouseDownEvent>(OnMouseDown);
+
+            MarkDirtyRepaint();
         }
 
         private void UpdatePositionFromNode1(Rect node1Rect)
@@ -61,7 +62,7 @@ namespace ISILab.LBS.VisualElements
             UpdatePositions();
         }
 
-        private void UpdatePositions()
+        internal void UpdatePositions()
         {
             var worldPos1 = _node1.GetSelectVisualElement().worldBound.center;
             var worldPos2 = _node2.GetSelectVisualElement().worldBound.center;

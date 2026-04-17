@@ -18,9 +18,8 @@ namespace ISILab.LBS.Drawers.Editor
             var graph = (QuestGraph)target;
             if (graph == null) return;
 
-            UpdateLoadedTiles(graph,view);
+            Update(graph,view,tesselationSize);
             
-
             if (!Loaded || FullRedrawRequested)
             {
                 LoadAllTiles(graph, view);
@@ -79,7 +78,7 @@ namespace ISILab.LBS.Drawers.Editor
 
                     if (fromView == null) continue;
 
-                    var edgeView = CreateEdgeView(graph, edge, toView, fromView);
+                    var edgeView = CreateEdgeView(graph, edge, fromView, toView);
 
                     view.AddElementToLayerContainer(graph.OwnerLayer, edge, edgeView);
                     edgeView.layer = fromView.layer + 1;
@@ -102,7 +101,7 @@ namespace ISILab.LBS.Drawers.Editor
                     if (!nodeView.visible) continue;
 
                     nodeView.SelectView(nodeView.Node == graph.SelectedGraphNode);
-
+                    (nodeView as QuestNodeView)?.SetupNode(node as QuestNode);
                     nodeView.style.display = graph.OwnerLayer.IsVisible
                         ? DisplayStyle.Flex
                         : DisplayStyle.None;
@@ -120,6 +119,8 @@ namespace ISILab.LBS.Drawers.Editor
                     if (el is not LBSQuestEdgeView edgeView) continue;
 
                     if (!edgeView.visible) continue;
+
+                    edgeView.UpdatePositions();
 
                     edgeView.style.display = graph.OwnerLayer.IsVisible
                         ? DisplayStyle.Flex
@@ -153,7 +154,7 @@ namespace ISILab.LBS.Drawers.Editor
                     QuestGraphNodeView fromView = view.GetElementsFromLayer(graph.OwnerLayer, from).FirstOrDefault() as QuestGraphNodeView;
                     if (fromView == null) continue;
 
-                    LBSQuestEdgeView edgeView = CreateEdgeView(graph, edge, toView, fromView);
+                    LBSQuestEdgeView edgeView = CreateEdgeView(graph, edge, fromView, toView);
                     view.AddElementToLayerContainer(graph.OwnerLayer, edge, edgeView);
                     edgeView.layer = fromView.layer + 1;
 
