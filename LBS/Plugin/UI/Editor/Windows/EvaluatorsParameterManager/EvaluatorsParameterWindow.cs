@@ -5,6 +5,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElement;
+using ISILab.LBS.Plugin.UI.Editor.Windows;
 using ISILab.LBS.VisualElements;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static ISILab.LBS.Editor.PopulationAssistantTab;
 
-public class EvaluatorsParameterWindow : EditorWindow
+public class EvaluatorsParameterWindow : ThemeableWindow
 {
     #region VISUAL ELEMENTS
     //[SerializeField]
@@ -157,10 +158,34 @@ public class EvaluatorsParameterWindow : EditorWindow
     {
         //turn param into VisualElement
         EVParameterElement paramVE = new EVParameterElement(param.name, param.isDeletable);
+
+        paramVE.OnDelete += (elem) =>
+            {
+                // Mostramos el diálogo nativo de Unity
+                bool confirm = EditorUtility.DisplayDialog(
+                    "Eliminar Evaluador",               // Título
+                    $"¿Estás seguro de que deseas eliminar el parámetro '{param.name}'?", // Mensaje
+                    "Eliminar",                         // Botón de confirmar
+                    "Cancelar"                          // Botón de cancelar
+                );
+
+                if (confirm)
+                {
+                    // Si el usuario acept?, lo borramos de la interfaz
+                    // 'target' es el elemento que dispar? el evento
+                    //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
+                    paramListView.hierarchy.Remove(elem);
+                    parameterList.Remove(param);
+                    //DeleteParameterPhysicalFile(evData.Name);     <-- Falta hacer
+                    evDatabase.SaveDatabaseChanges();
+                }
+            };
+        
+
         paramListView.hierarchy.Add(paramVE);
     }
     public void RemoveParam(ParameterData param)
     {
-        
+        ParameterList.Remove(param);
     }
 }

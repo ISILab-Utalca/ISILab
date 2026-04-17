@@ -20,6 +20,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
 
         private bool canBeDeleted = false;
         private LBSCustomButton paramDeleteButton;
+
         public event Action<EVParameterElement> OnDelete;
 
         public string ParamLabelString
