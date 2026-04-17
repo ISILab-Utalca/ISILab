@@ -236,8 +236,8 @@ namespace PathOS
                     if (v.z > autoBounds.max.z)
                         autoBounds.max.z = v.z;
                 }
-                autoBounds.min.y = 0;
-                autoBounds.max.y = floorCount * gridScale.y;
+                /*autoBounds.min.y = 0;
+                autoBounds.max.y = floorCount * gridScale.y;//*/
 
                 //Round bounds areas up to the nearest grid tile and add 1 tilesize
                 //at each end.
@@ -338,6 +338,10 @@ namespace PathOS
                 gridX = (int)(diff.x / sampleGridSize.x);
                 gridY = (int)(diff.y / sampleGridSize.y);
                 gridZ = (int)(diff.z / sampleGridSize.z);
+                //Debug.Log($"({diff.y}) - ({sampleGridSize.y}) - ({gridY})");
+                //Debug.Log($"({sampleGridSize.x} {sampleGridSize.y} {sampleGridSize.z})");
+                //Debug.Log($"({gridX} {gridY} {gridZ})");
+                //Debug.Log($"({point.x} {point.y} {point.z})");
                 return;
             }
 
@@ -524,6 +528,9 @@ namespace PathOS
                 int gridX = 0, gridY = 0, gridZ = 0;
                 GetGridCoords(point, ref gridX, ref gridY, ref gridZ);
 
+                int adjustedY = (int) (gridY / sampleGridSize.y);// - 1;
+                //if(gridY < 0) adjustedY = 0;
+                //Debug.Log($"({point.y}) - ({gridY}) - ({adjustedY})");
                 if (gridX < 0 || gridY < 0 || gridZ < 0
                     || gridX >= visitedGrid.GetLength(0)
                     || gridY >= visitedGrid.GetLength(1)
@@ -538,13 +545,13 @@ namespace PathOS
                 }
 
                 NavmeshMapCode oldCode = default;
-                oldCode = visitedGrid[gridX, gridY, gridZ];
+                oldCode = visitedGrid[gridX, adjustedY, gridZ];
 
                 //Override based on priority of codes.
                 if (oldCode >= code)
                     return;
 
-                visitedGrid[gridX, gridY, gridZ] = code;
+                visitedGrid[gridX, adjustedY, gridZ] = code;
 
                 Color fillColor = PathOS.UI.mapUnknown;
 
@@ -563,8 +570,8 @@ namespace PathOS
                         break;
                 }
 
-                visualGrid[gridY].SetPixel(gridX, gridZ, fillColor);
-                visualGridDirty[gridY] = true;
+                visualGrid[adjustedY].SetPixel(gridX, gridZ, fillColor);
+                visualGridDirty[adjustedY] = true;
             }
 
             public void BakeVisualGrid()
