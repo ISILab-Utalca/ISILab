@@ -552,6 +552,7 @@ namespace PathOS
             Vector3 newTarget = origin;
 
             // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target. // Or maybe not...
+            // ROD: I'm also in this comment!
             //if (overridePos && overrideDest != null)
             //{
             //    newTarget = overrideDest;

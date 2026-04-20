@@ -25,7 +25,6 @@ namespace PathOS
 
         /* Basic Properties */
         private SerializedProperty limitSimulationTime;
-        private SerializedProperty gridSize;
         private SerializedProperty maxSimulationTime;
         private SerializedProperty endOnCompletionGoal;
         private SerializedProperty endSimulationOnDeath;
@@ -130,7 +129,6 @@ namespace PathOS
 
             //Grab properties.
             limitSimulationTime = serial.FindProperty("limitSimulationTime");
-            gridSize = serial.FindProperty("scale");
             maxSimulationTime = serial.FindProperty("maxSimulationTime");
             endOnCompletionGoal = serial.FindProperty("endOnCompletionGoal");
             endSimulationOnDeath = serial.FindProperty("endSimulationOnDeath");
@@ -216,7 +214,6 @@ namespace PathOS
             //Show basic properties.
             EditorGUILayout.PropertyField(limitSimulationTime);
             if (limitSimulationTime.boolValue) EditorGUILayout.PropertyField(maxSimulationTime);
-            EditorGUILayout.PropertyField(gridSize);
             EditorGUILayout.PropertyField(endOnCompletionGoal, completionLabel);
             EditorGUILayout.PropertyField(endSimulationOnDeath, deathLabel);
             EditorGUILayout.PropertyField(showLevelMarkup);

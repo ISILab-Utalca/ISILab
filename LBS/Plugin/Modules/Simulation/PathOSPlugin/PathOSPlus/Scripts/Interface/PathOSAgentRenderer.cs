@@ -141,8 +141,7 @@ namespace PathOS
 
             //We want to draw the memory "map" in the lower-left corner of the screen.
             //Grab a persistent reference to the texture.
-            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid();
-            Invoke("ChangeTexture", 3);
+            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid(0);
 
             //Map legend.
             mapLegendIcons = new List<Rect>();
@@ -272,6 +271,15 @@ namespace PathOS
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 showLegend = !showLegend;
+            }
+
+            // Set memory texture visualization according to floor height
+            int currentFloor = (int)(transform.position.y / agent.memory.gridSampleSize.y);
+            if (currentFloor != agent.memory.memoryMap.ActiveFloor)
+            {
+                Debug.Log($"Changing memory texture to {currentFloor} index");
+                agent.memory.memoryMap.ActiveFloor = currentFloor;
+                navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid(currentFloor);
             }
         }
 
@@ -429,12 +437,6 @@ namespace PathOS
             screenPos.z -= 2.0f;
 
             return transformCam.ScreenToWorldPoint(screenPos);
-        }
-
-        private void ChangeTexture()
-        {
-            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid();
-            Invoke("ChangeTexture", 3);
         }
     }
 

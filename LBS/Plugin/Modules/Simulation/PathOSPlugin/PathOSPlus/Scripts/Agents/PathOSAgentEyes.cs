@@ -381,7 +381,7 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN :
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
 
-            Debug.Log($"raycastHit.point.y : {position.y}");
+            //Debug.Log($"raycastHit.point.y : {position.y}");
             agent.memory.memoryMap.Fill(position, fillCode);
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =

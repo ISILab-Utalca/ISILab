@@ -150,7 +150,9 @@ namespace ISILab.Runtime.Examples
             {
                 targetRotation = facingDirection;
             }
-            playerModel.forward = Vector3.Slerp(playerModel.forward, targetRotation, rotationSpeed * Time.deltaTime);
+
+            var fwd = Vector3.Slerp(playerModel.forward, targetRotation, rotationSpeed * Time.deltaTime);
+            if (fwd != Vector3.zero) playerModel.forward = fwd;
             modelAnimator.SetFloat("MoveBlend", movementDirectionSmooth.magnitude / movementSpeed);
 
             // Gravity
