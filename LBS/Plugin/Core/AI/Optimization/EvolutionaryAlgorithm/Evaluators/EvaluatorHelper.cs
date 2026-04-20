@@ -1193,6 +1193,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 int cost = -1;
                 if (connectedTM is null) return cost;
 
+                evalInfo.StartMeasure();
+
                 Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
                 PriorityQueue<JPSNode, int> open = new();
@@ -1275,6 +1277,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     targetJumpPoints.RemoveAt(0);
                 }
 
+                evalInfo.StopMeasure();
                 return cost;
 
                 /// LOCAL FUNCTIONS
