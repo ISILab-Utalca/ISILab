@@ -6,9 +6,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 {
     public class ThemeableWindow: EditorWindow
     {
-        public void OnGUI()
+        public void CreateGUI()
         {
-
+            
         }
 
 

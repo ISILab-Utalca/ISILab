@@ -1,26 +1,16 @@
-using ISILab.AI.Optimization.Populations;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
-using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using LBS.VisualElements;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor.Experimental.GraphView;
-using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static PathOS.PathOSNavUtility.NavmeshMemoryMapper;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.LBS.VisualElements
 {

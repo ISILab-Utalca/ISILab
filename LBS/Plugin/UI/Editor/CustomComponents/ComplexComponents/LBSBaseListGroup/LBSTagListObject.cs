@@ -35,19 +35,50 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region PROPERTIES
-        public string Name => tagName;
+        public string Name {
+            get => tagName;
+            set
+            {
+                tagName = value;
+                tagLabel.text = tagName;
+            }
+        }
         public objectType Type
         {
             get => type;
             set
             {
                 type = value;
-                groupLabel.SetEnabled(type == objectType.Group);
+                groupLabel.style.visibility = type == objectType.Group ? Visibility.Visible : Visibility.Hidden;
+                groupLabel.style.display = type == objectType.Group ? DisplayStyle.Flex : DisplayStyle.None;
+
+                var imageIcon = type == objectType.Group
+                    ? AssetMacro.LoadAssetByGuid<VectorImage>("77d90e8f8c8d77c4e9b1a89d13df5779")
+                    : AssetMacro.LoadAssetByGuid<VectorImage>("40d548834301ba14f96af3e1715add5f");
+                icon.style.backgroundImage = new StyleBackground(imageIcon);
             }
         }
-        public Bundle.TagType TagType => tagType;
-        public object AssociatedTag => associatedTag;
-        public LBSTagListGroup Owner => owner;
+        public Bundle.TagType TagType
+        {
+            get => tagType;
+            set => tagType = value;
+        }
+        public object AssociatedTag
+        {
+            get => associatedTag;
+            set
+            {
+                associatedTag = value;
+                if(associatedTag.GetType() ==typeof(LBSTagGroup)) {
+                    AddLayerTag();
+                }
+            }
+        }
+        public LBSTagListGroup Owner
+        {
+            get => owner;
+            set => owner = value;
+        }
 
         [UxmlAttribute]
         public bool IsRemovable
@@ -102,7 +133,6 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             Debug.Log("loading " + tagName + " as " + type);
 
             //Set image
-            icon = this.Q<VisualElement>("Icon");
             VectorImage imageIcon = type == objectType.Group 
                 ? AssetMacro.LoadAssetByGuid<VectorImage>("77d90e8f8c8d77c4e9b1a89d13df5779") 
                 : AssetMacro.LoadAssetByGuid<VectorImage>("40d548834301ba14f96af3e1715add5f");
@@ -121,22 +151,24 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             if(type == objectType.Group)
             {
                 var associatedTagGroup = associatedTag as LBSTagGroup;
+                layerTag = new LBSTagListLayerTag(this, "Interior", layerTypeRemovable);
                 //Only for groups for now
                 if (associatedTagGroup!=null)
                 {
                     switch(associatedTagGroup.type)
                     {
                         case LBSTagGroup.TagType.Structural:
-                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Interior", layerTypeRemovable));
+                            layerTag = new LBSTagListLayerTag(this, "Interior", layerTypeRemovable);
                             break;
                         case LBSTagGroup.TagType.Aesthetic:
-                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Exterior", layerTypeRemovable));
+                            layerTag = new LBSTagListLayerTag(this, "Exterior", layerTypeRemovable);
                             break;
                         case LBSTagGroup.TagType.Element:
-                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Population", layerTypeRemovable));
+                            layerTag = new LBSTagListLayerTag(this, "Population", layerTypeRemovable);
                             break;
 
                     }
+                    layerTagContainer.Add(layerTag);
                 }
                 
             }
@@ -157,9 +189,38 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                     owner.OnTagRemoved?.Invoke(layerTag);
                 }
             };
+            icon = this.Q<VisualElement>("Icon");
             tagLabel = this.Q<Label>("TagName");
             groupLabel = this.Q<Label>("GroupLabel");
             layerTagContainer = this.Q<VisualElement>("LayerTagContainer");
+        }
+
+        public void AddLayerTag()
+        {
+            layerTagContainer.Clear();
+            //Lastly, the layer tag!
+            if (type == objectType.Group)
+            {
+                var associatedTagGroup = associatedTag as LBSTagGroup;
+                //Only for groups for now
+                if (associatedTagGroup != null)
+                {
+                    switch (associatedTagGroup.type)
+                    {
+                        case LBSTagGroup.TagType.Structural:
+                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Interior", false));
+                            break;
+                        case LBSTagGroup.TagType.Aesthetic:
+                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Exterior", false));
+                            break;
+                        case LBSTagGroup.TagType.Element:
+                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Population", false));
+                            break;
+
+                    }
+                }
+
+            }
         }
         #endregion
     }
