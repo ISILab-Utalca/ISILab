@@ -1,5 +1,7 @@
 using ISILab.AI.Optimization;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
 {
@@ -20,11 +22,30 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
     public struct EvaluationInfo
     {
         public int visitedNodes;
+        public Stopwatch sw;
+        public List<double> measures;
 
         public EvaluationInfo(int visitedNodes)
         {
             this.visitedNodes = visitedNodes;
+            sw = new Stopwatch();
+            measures = new List<double>();
         }
+
+        public void StartMeasure()
+        {
+            sw.Reset();
+            sw.Start();
+        }
+
+        public void StopMeasure()
+        {
+            sw.Stop();
+            double measure = sw.Elapsed.TotalMilliseconds;//(double)sw.ElapsedTicks / Stopwatch.Frequency / 1000.0;
+            measures.Add(measure);
+        }
+
+        public double Average() => measures.Average();
     }
 
     public interface IDistanceEvaluator : IEvaluator

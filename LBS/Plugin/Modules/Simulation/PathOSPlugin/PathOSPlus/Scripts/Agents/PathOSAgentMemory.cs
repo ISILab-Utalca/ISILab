@@ -32,7 +32,7 @@ namespace PathOS
         //The agent's memory model of the complete navmesh.
         [Header("Navmesh Memory Model")]
         [Tooltip("The edge length of a tile in the memory map (in units)")]
-        public float gridSampleSize = 2.0f;
+        public Vector3 gridSampleSize = new Vector3(2.0f, 2.0f, 2.0f);
         public PathOSNavUtility.NavmeshMemoryMapper memoryMap { get; set; } // GABO TODO: Should update already-explored space
                                                                             // when dynamic obstacle toggling (e.g. Walls) changes the NavMesh!!!
                                                                             // Otherwise may ignore paths if they were seen as blocked before
@@ -56,7 +56,7 @@ namespace PathOS
                 manager = PathOSManager.instance;
 
             //Initialize the (blank) model of the agent's internal "map".
-            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(gridSampleSize);
+            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(gridSampleSize, manager.floorCount);
             memoryMap.memory = this;
 
             //Commit any "always-known" entities to memory.

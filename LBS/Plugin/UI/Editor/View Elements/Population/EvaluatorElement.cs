@@ -28,6 +28,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         private List<bool> interfaceBoolList;
         private List<VisualElement> interfaceBoolListVisualElements;
 
+        private List<ParameterData> parameters;
+
         public string EvLabelString
         {
             get => evLabel.text;
@@ -45,10 +47,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             InitInternal();
         }
 
-        public EvaluatorElement(string label, bool b1, bool b2, bool b3)
+        public EvaluatorElement(string label, bool b1, bool b2, bool b3, List<ParameterData> parameters)
         {
             InitInternal();
             setEvaluatorElement(label, b1, b2, b3);
+            this.parameters = parameters;
         }
 
         private void InitInternal()
@@ -137,7 +140,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             }
 
             EvaluatorsParameterWindow window = EditorWindow.GetWindow<EvaluatorsParameterWindow>(false, expectedTitle, true);
-            //window.InitData();
+            window.ParameterList = parameters ;
+            window.LoadParamVisualList();
 
             // 2. ASIGNAR EL ICONO
             // Opción A: Usar un icono interno de Unity (ej: un engranaje o una lista)

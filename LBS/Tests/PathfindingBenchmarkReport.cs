@@ -24,6 +24,7 @@ namespace ISILab.LBS.Tests
             BundleTilemapChromosome chromosome = null;
             SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
             SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time");
 
             List<LBSLayer> oldContext = new();
 
@@ -32,6 +33,8 @@ namespace ISILab.LBS.Tests
                 double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
                 //Measure.Custom(fitnessGroup, fitness);
                 Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                double avg = info.Average();
+                Measure.Custom(meanExecutionTime, avg);
             })
             .WarmupCount(5)
             .MeasurementCount(10)
@@ -75,8 +78,10 @@ namespace ISILab.LBS.Tests
         }
 
         string pathfindExample1 =//"dd3a891e0aa36dd4c9a3df0826e5a6cb"
-            //"835410d40128b35468bbd7f01deccbb3" // (small)
-            "c582f8c0beac2a64f817ce3e1ea3c000" // (medium)
+            //"835410d40128b35468bbd7f01deccbb3" // (small 1)
+            //"c582f8c0beac2a64f817ce3e1ea3c000" // (medium 1)
+            //"340b5a38ad6dc6340a509604941ea5f3" // (big 1)
+            "9d647ab227a18bb49b015b055efe51de" // (big 2)
             ;
         public void PathfindExample1(PathfindingAlgorithm searchType)
         {
@@ -84,6 +89,7 @@ namespace ISILab.LBS.Tests
             BundleTilemapChromosome chromosome = null;
             SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
             SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time");
 
             List<LBSLayer> oldContext = new();
 
@@ -91,6 +97,8 @@ namespace ISILab.LBS.Tests
             {
                 double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
                 Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                double avg = info.Average();
+                Measure.Custom(meanExecutionTime, avg);
             })
             .WarmupCount(5)
             .MeasurementCount(10)

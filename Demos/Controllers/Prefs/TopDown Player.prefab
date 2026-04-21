@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 227216314688223035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: -0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59,13 +59,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381722117555790699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.67559016, y: 0, z: 0, w: 0.7372774}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.5, y: 10, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8666753835159661881}
-  m_LocalEulerAnglesHint: {x: 85, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!20 &7689973465458904536
 Camera:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 8.4
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -259,9 +259,7 @@ MonoBehaviour:
   dashingSpeed: 15
   shootingSpeed: 2.5
   accelerationSpeed: 20
-  movementDirection: {x: 0, y: 0, z: 0}
-  movementDirectionSmooth: {x: 0, y: 0, z: 0}
-  facingDirection: {x: 0, y: 0, z: 0}
+  gravityModifier: 10
   rotationSpeed: 10
   idleRotationSpeed: 5
   cameraTransform: {fileID: 8666753835159661881}
@@ -272,7 +270,6 @@ MonoBehaviour:
   maxZoomDistance: 10
   zoomSpeed: 5
   zoomDistance: 5
-  isMoving: 0
 --- !u!114 &934908532787036918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
+  modelObjects: []
 --- !u!114 &-7125584757590014680
 MonoBehaviour:
   m_ObjectHideFlags: 0

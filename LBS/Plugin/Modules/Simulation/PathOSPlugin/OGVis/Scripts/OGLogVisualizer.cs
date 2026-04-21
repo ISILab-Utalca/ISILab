@@ -307,6 +307,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                                 dataExtents.max.x = p.x;
                             if (p.x < dataExtents.min.x)
                                 dataExtents.min.x = p.x;
+                            if (p.y > dataExtents.max.y)
+                                dataExtents.max.y = p.y;
+                            if (p.y < dataExtents.min.y)
+                                dataExtents.min.y = p.y;
                             if (p.z > dataExtents.max.z)
                                 dataExtents.max.z = p.z;
                             if (p.z < dataExtents.min.z)

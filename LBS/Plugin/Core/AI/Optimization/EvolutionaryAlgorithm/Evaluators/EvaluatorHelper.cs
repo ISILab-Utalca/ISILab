@@ -82,6 +82,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             if (from >= others.Count)
                 return;
 
+            evalInfo.StartMeasure();
+
             List<int> remainingOthers = new List<int>(others);
             remainingOthers.RemoveRange(0, from);
             remainingOthers.Remove(startPos);
@@ -178,7 +180,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             {
                                 distances[from, j] = distances[j, from] = i + 1;
                                 remainingOthers.Remove(index);
-                                if (remainingOthers.Count == 0) return;
+                                if (remainingOthers.Count == 0)
+                                {
+                                    evalInfo.StartMeasure();
+                                    return;
+                                }
                                 break;
                             }
                         }
@@ -190,12 +196,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 foreach (int step in nextStep) remainingStep.Enqueue(step);
             }
+
+            evalInfo.StartMeasure();
         }
 
         public static void FloodFillChebyshev(int startPos, List<int> others, int from, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
         {
             if (from >= others.Count)
                 return;
+
+            evalInfo.StartMeasure();
 
             List<int> remainingOthers = new List<int>(others);
             remainingOthers.RemoveRange(0, from);
@@ -309,7 +319,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             {
                                 distances[from, j] = distances[j, from] = i + 1;
                                 remainingOthers.Remove(index);
-                                if (remainingOthers.Count == 0) return;
+                                if (remainingOthers.Count == 0)
+                                {
+                                    evalInfo.StopMeasure();
+                                    return;
+                                }
                                 break;
                             }
                         }
@@ -321,6 +335,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                 foreach (int step in nextStep) remainingStep.Enqueue(step);
             }
+
+            evalInfo.StopMeasure();
         }
 
         public static void PartialFloodFill(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
@@ -329,6 +345,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
             //if (from >= others.Count)
             //    return;
+
+            evalInfo.StartMeasure();
 
             List<int> remainingOthers = new List<int>(others.Except(filtered));
             //remainingOthers.RemoveRange(0, from);
@@ -430,7 +448,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                                 remainingOthers.Remove(index);
                                 //if (!filtered.Contains(index))
                                 found.Add(index);
-                                if (remainingOthers.Count == 0) return;
+                                if (remainingOthers.Count == 0)
+                                {
+                                    evalInfo.StopMeasure();
+                                    return;
+                                }
                                 allowedSteps[index] = limit;
                                 break;
                             }
@@ -447,6 +469,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     else
                         allowedSteps.Remove(step);
             }
+
+            evalInfo.StopMeasure();
         }
 
         public static void PartialFloodFillChebyshev(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
@@ -455,6 +479,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
             //if (from >= others.Count)
             //    return;
+
+            evalInfo.StartMeasure();
 
             List<int> remainingOthers = new List<int>(others.Except(filtered));
             //remainingOthers.RemoveRange(0, from);
@@ -585,7 +611,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                                 remainingOthers.Remove(index);
                                 //if (!filtered.Contains(index))
                                 found.Add(index);
-                                if (remainingOthers.Count == 0) return;
+                                if (remainingOthers.Count == 0)
+                                {
+                                    evalInfo.StopMeasure();
+                                    return;
+                                }
                                 allowedSteps[index] = limit;
                                 break;
                             }
@@ -602,6 +632,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     else
                         allowedSteps.Remove(step);
             }
+
+            evalInfo.StopMeasure();
         }
 
         public static void Manhattan(int startPos, List<int> others, int from, ref int[,] distances, BundleTilemapChromosome chrom)
@@ -680,6 +712,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         {
             int cost = -1;
             if (connectedTM is null) return cost;
+
+            evalInfo.StartMeasure();
 
             PriorityQueue<AStarNode, int> open = new();
             HashSet<AStarNode> closed = new();
@@ -791,6 +825,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 }
             }
 
+            evalInfo.StopMeasure();
+
             return cost;
         }
 
@@ -798,6 +834,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         {
             int cost = -1;
             if (connectedTM is null) return cost;
+
+            evalInfo.StartMeasure();
 
             PriorityQueue<AStarNode, int> open = new();
             HashSet<AStarNode> closed = new();
@@ -901,6 +939,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                 }
             }
+
+            evalInfo.StopMeasure();
 
             return cost;
         }
@@ -1193,6 +1233,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 int cost = -1;
                 if (connectedTM is null) return cost;
 
+                evalInfo.StartMeasure();
+
                 Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
                 PriorityQueue<JPSNode, int> open = new();
@@ -1275,6 +1317,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     targetJumpPoints.RemoveAt(0);
                 }
 
+                evalInfo.StopMeasure();
                 return cost;
 
                 /// LOCAL FUNCTIONS
@@ -1328,6 +1371,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             {
                 int cost = -1;
                 if (connectedTM is null) return cost;
+
+                evalInfo.StartMeasure();
 
                 Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
@@ -1410,6 +1455,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     connectedTM.PathfindNodes[targetJumpPoints[0]] = null;
                     targetJumpPoints.RemoveAt(0);
                 }
+
+                evalInfo.StopMeasure();
 
                 return cost;
 

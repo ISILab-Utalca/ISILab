@@ -552,6 +552,7 @@ namespace PathOS
             Vector3 newTarget = origin;
 
             // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target. // Or maybe not...
+            // ROD: I'm also in this comment!
             //if (overridePos && overrideDest != null)
             //{
             //    newTarget = overrideDest;
@@ -779,10 +780,8 @@ namespace PathOS
             //Memory path update.
             if (memoryState.onMemPath)
             {
-                Vector3 curXZ = GetPosition();
-                curXZ.y = 0.0f;
-
-                if (Vector3.SqrMagnitude(curXZ - memoryState.memWaypoint)
+                Vector3 pos = GetPosition();
+                if (Vector3.SqrMagnitude(pos - memoryState.memWaypoint)
                     < Constants.Navigation.WAYPOINT_EPSILON_SQR)
                 {
                     memoryState.memPathWaypoints.RemoveAt(0);
@@ -829,10 +828,8 @@ namespace PathOS
 
                         //Compress unreachability check to XZ plane.
                         Vector3 agentPos = GetPosition();
-                        agentPos.y = 0.0f;
 
                         Vector3 targetPos = entity.perceivedPos;
-                        targetPos.y = 0.0f;
 
                         if (Vector3.SqrMagnitude(agentPos - targetPos) >= adjVisitSqr)
                             memory.MakeUnreachable(entity);

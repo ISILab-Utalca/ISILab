@@ -22,7 +22,7 @@ namespace ISILab.LBS.Behaviours
     public class SimulationBehaviour : LBSBehaviour
     {
         #region FIELDS
-        [SerializeField, SerializeReference, JsonRequired] // GABO TODO: Deberia ir o no JsonIgnore?????? De todas maneras hay error de serialziacion (queda nulo)
+        [JsonRequired]
         private SimulationModule module;
         #endregion
 
@@ -230,6 +230,32 @@ namespace ISILab.LBS.Behaviours
             }
         }
 
+        #region INHERITED METHODS
+
+        public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+        {
+            List<SimulationTile> oldTiles = new List<SimulationTile>();
+            List<SimulationTile> newTiles = new List<SimulationTile>();
+
+            var prevModuleList = OwnerLayer.Modules(prevLevelIndex);
+            var nextModuleList = OwnerLayer.Modules(nextLevelIndex);
+
+            var prevSectorizedMod = prevModuleList.Find(
+                m => m.GetType() == typeof(SimulationModule)) as SimulationModule;
+            var nextSectorizedMod = nextModuleList.Find(
+                m => m.GetType() == typeof(SimulationModule)) as SimulationModule;
+
+            foreach (var pTile in prevSectorizedMod.GetTiles())
+            {
+                oldTiles.Add(pTile);
+            }
+            foreach (var pTile in nextSectorizedMod.GetTiles())
+            {
+                newTiles.Add(pTile);
+            }
+
+            RequestFullRepaint(oldTiles, newTiles);
+        }
         public override object Clone()
         {
             return new SimulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
@@ -273,7 +299,7 @@ namespace ISILab.LBS.Behaviours
         {
             return base.GetHashCode();
         }
-
+        #endregion
 
         #endregion
     }
