@@ -18,6 +18,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         private LBSCustomLabel evLabel;
         private LBSCustomButton evConfigButton;
         private LBSCustomButton evDeleteButton;
+        private LBSCustomButton evOpenSOButton;
         private VisualElement interfaceIcon1;
         private VisualElement interfaceIcon2;
         private VisualElement interfaceIcon3;
@@ -64,6 +65,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             evDeleteButton.RegisterCallback<ClickEvent>(DeleteEvaluatorElement);
             evConfigButton = this.Q<LBSCustomButton>("evOptions");
             evConfigButton.RegisterCallback<ClickEvent>(OpenEvaluatorConfig);
+            evOpenSOButton = this.Q<LBSCustomButton>("evOpenSO");
+            evOpenSOButton.RegisterCallback<ClickEvent>(OpenSO);
+
+            //Here i manually set the "Scriptable Object" Icon while we dont have a vector option
+            Texture2D soIcon = EditorGUIUtility.IconContent("ScriptableObject On Icon").image as Texture2D;
+            evOpenSOButton.style.backgroundImage = new StyleBackground(soIcon);
+            evOpenSOButton.style.backgroundSize = new StyleBackgroundSize(
+    new BackgroundSize(new Length(80, LengthUnit.Percent), new Length(80, LengthUnit.Percent)));
+
 
             interfaceIcon1 = this.Q<VisualElement>("InterfaceIcon1");
             interfaceIcon2 = this.Q<VisualElement>("InterfaceIcon2");
@@ -155,6 +165,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
 
             window.minSize = new UnityEngine.Vector2(300, 300);
             window.Show();
+        }
+        public void OpenSO(ClickEvent evt)
+        {
+
         }
     }
 }
