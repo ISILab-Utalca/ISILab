@@ -118,7 +118,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     {
         ParameterData newParameter = new ParameterData(
             paramGenName.value,
-            GetTypeFromSTring(paramGenClassDropDown.label),
+            paramGenClassDropDown.value,
             paramGenInitialValue.value
             );
 
