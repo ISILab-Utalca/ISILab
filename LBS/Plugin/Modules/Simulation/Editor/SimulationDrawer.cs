@@ -104,6 +104,7 @@ namespace ISILab.LBS.Drawers
             }
         }
 
+        #region INHERTIED METHODS
         public override void HideVisuals(object target, MainView view)
         {
             if (target is not SimulationBehaviour behaviour) return;
@@ -118,7 +119,6 @@ namespace ISILab.LBS.Drawers
                 }
             }
         }
-
         public override void ShowVisuals(object target, MainView view)
         {
             if (target is not SimulationBehaviour behaviour) return;
@@ -133,11 +133,11 @@ namespace ISILab.LBS.Drawers
                 }
             }
         }
-
         public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
         {
             //return new Texture2D((int)(sourceRect.width * tesselationSize.x), (int)(sourceRect.height * tesselationSize.y));
             return null;
         }
+        #endregion
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR;
 
 
 /*
@@ -345,6 +346,11 @@ namespace PathOS
 
             NavMeshHit hit = new NavMeshHit();
 
+            // Calculate offset to camera's near clipping plane
+            Plane camNear = new Plane(cam.transform.forward, origin + cam.nearClipPlane * cam.transform.forward);
+            camNear.Raycast(new Ray(origin, dir), out float offsetDist);
+            origin = origin + dir.normalized * offsetDist;
+
             result = Physics.Raycast(origin, dir, out RaycastHit raycastHit, navmeshCastDistance);
             position = raycastHit.point;
             distance = raycastHit.distance; // No retorna esta distancia, sino la de hit.
@@ -353,11 +359,12 @@ namespace PathOS
                 result = NavMesh.SamplePosition(raycastHit.point, out hit, 1, NavMesh.AllAreas);
                 if (result)
                 {
-                    var diffX = Mathf.Abs(raycastHit.point.x - hit.position.x);
+                    var diffX = Mathf.Abs(raycastHit.point.x - hit.position.x); // -> this part is doing nothing
                     var diffY = Mathf.Abs(raycastHit.point.y - hit.position.y);
                     var diffZ = Mathf.Abs(raycastHit.point.z - hit.position.z);
-                    Vector2 diff = new Vector2(diffX, diffZ);
+                    Vector2 diff = new Vector3(diffX, diffY, diffZ);
                     //Debug.LogWarning("Sample Deviation: " + diff + " | Height diff: " + diffY + $"\t | Raycast: {raycastHit.point} Sample: {hit.position}");
+
                     position = hit.position;
                     distance = Vector3.Distance(origin, position);
                 }
@@ -374,6 +381,7 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN :
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
 
+            //Debug.Log($"raycastHit.point.y : {position.y}");
             agent.memory.memoryMap.Fill(position, fillCode);
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =

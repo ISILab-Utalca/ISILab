@@ -178,13 +178,11 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             if (obstacles.IsNull) { return null; }
             return obstacles.GetObstacle(tile) as (SimulationTile, SimulationObstacleConnections.Category)?;
         }
-        // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
         public (SimulationTile, SimulationTag)? GetDynamicTag(int x, int y)
         {
             if (dynamicTagTiles.IsNull) { return null; }
             return dynamicTagTiles.GetDynamicTag(x, y);
         }
-        // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
         public (SimulationTile, SimulationTag)? GetDynamicTag(SimulationTile tile)
         {
             if (dynamicTagTiles.IsNull) { return null; }

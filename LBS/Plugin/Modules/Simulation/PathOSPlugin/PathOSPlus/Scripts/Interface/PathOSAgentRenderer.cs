@@ -31,21 +31,21 @@ namespace PathOS
 
         public static Color[] mapLegendColors =
         {
-        PathOS.UI.mapUnknown,
-        PathOS.UI.mapSeen,
-        PathOS.UI.mapVisited,
-        PathOS.UI.mapObstacle
-    };
+            PathOS.UI.mapUnknown,
+            PathOS.UI.mapSeen,
+            PathOS.UI.mapVisited,
+            PathOS.UI.mapObstacle
+        };
 
         public static Texture2D[] mapLegendTextures;
 
         public static string[] mapLegendText =
         {
-        "Unknown",
-        "Seen",
-        "Visited",
-        "Obstacle"
-    };
+            "Unknown",
+            "Seen",
+            "Visited",
+            "Obstacle"
+        };
 
         private Texture2D blankLegendTex;
 
@@ -62,13 +62,13 @@ namespace PathOS
 
         private string[] gizmoLegendText =
         {
-        "Target",
-        "Visited",
-        "Visible",
-        "In Memory",
-        "Unreachable",
-        "Invisible" // GABO
-    };
+            "Target",
+            "Visited",
+            "Visible",
+            "In Memory",
+            "Unreachable",
+            "Invisible" // GABO
+        };
 
         [Header("Map Drawing")]
         //Should we show the navmesh map contained in the agent's memory?
@@ -141,7 +141,7 @@ namespace PathOS
 
             //We want to draw the memory "map" in the lower-left corner of the screen.
             //Grab a persistent reference to the texture.
-            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid();
+            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid(0);
 
             //Map legend.
             mapLegendIcons = new List<Rect>();
@@ -272,6 +272,15 @@ namespace PathOS
             {
                 showLegend = !showLegend;
             }
+
+            // Set memory texture visualization according to floor height
+            int currentFloor = (int)(transform.position.y / agent.memory.gridSampleSize.y);
+            if (currentFloor != agent.memory.memoryMap.ActiveFloor)
+            {
+                Debug.Log($"Changing memory texture to {currentFloor} index");
+                agent.memory.memoryMap.ActiveFloor = currentFloor;
+                navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid(currentFloor);
+            }
         }
 
         private void OnApplicationQuit()
@@ -302,8 +311,10 @@ namespace PathOS
                 UpdateRenderViewCoords();
 
             if (showMemoryMap)
+            {
                 GUI.DrawTexture(navmeshMapScreenCoords,
                     navmeshMemoryMap, ScaleMode.ScaleToFit, false);
+            }
 
             if (showPlayerView)
                 GUI.DrawTexture(playerViewTextureCoords,

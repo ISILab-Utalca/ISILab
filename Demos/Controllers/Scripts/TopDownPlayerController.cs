@@ -21,6 +21,7 @@ namespace ISILab.Runtime.Examples
         public float shootingSpeed = 2.5f;
         private float targetSpeed;
         public float accelerationSpeed = 20f;
+        public float gravityModifier = 1f;
 
         private Vector3 movementDirection;
         private Vector3 movementDirectionSmooth = Vector3.zero;
@@ -149,8 +150,16 @@ namespace ISILab.Runtime.Examples
             {
                 targetRotation = facingDirection;
             }
-            playerModel.forward = Vector3.Slerp(playerModel.forward, targetRotation, rotationSpeed * Time.deltaTime);
+
+            var fwd = Vector3.Slerp(playerModel.forward, targetRotation, rotationSpeed * Time.deltaTime);
+            if (fwd != Vector3.zero) playerModel.forward = fwd;
             modelAnimator.SetFloat("MoveBlend", movementDirectionSmooth.magnitude / movementSpeed);
+
+            // Gravity
+            if (!characterController.isGrounded)
+            {
+                characterController.Move(Vector3.down * Time.deltaTime * gravityModifier);
+            }
         }
 
         private void UpdateCamera()
