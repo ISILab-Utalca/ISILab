@@ -202,15 +202,15 @@ namespace PathOS
                         }
 
                         entity.perceivedPos = entityPos;
-                        agent.memory.Memorize(entity);
+                        agent.GetMemory().Memorize(entity);
 
                         //Mandatory/completion/boss goals are committed to LTM automatically.
                         if (entity.entityType == EntityType.ET_GOAL_MANDATORY
                             || entity.entityType == EntityType.ET_GOAL_COMPLETION
                              || entity.entityType == EntityType.ET_HAZARD_ENEMY_BOSS)
-                            agent.memory.CommitUnforgettable(entity);
+                            agent.GetMemory().CommitUnforgettable(entity);
 
-                        agent.memory.TryCommitLTM(entity);
+                        agent.GetMemory().TryCommitLTM(entity);
                     }
                 }
             }
@@ -328,12 +328,12 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE :
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
 
-            agent.memory.memoryMap.Fill(hit.position, fillCode);
+            agent.GetMemory().memoryMap.Fill(hit.position, fillCode);
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.memory.memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
+            agent.GetMemory().memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
                 out memHit, true);
 
             return hit;
@@ -382,12 +382,12 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
 
             //Debug.Log($"raycastHit.point.y : {position.y}");
-            agent.memory.memoryMap.Fill(position, fillCode);
+            agent.GetMemory().memoryMap.Fill(position, fillCode);
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.memory.memoryMap.RayMemoryMap(new Ray(origin, dir), distance, out memHit, true, false); // No mapea 1 a 1, sino a lo largo, en lineas.
+            agent.GetMemory().memoryMap.RayMemoryMap(new Ray(origin, dir), distance, out memHit, true, false); // No mapea 1 a 1, sino a lo largo, en lineas.
 
             return hit;
         }

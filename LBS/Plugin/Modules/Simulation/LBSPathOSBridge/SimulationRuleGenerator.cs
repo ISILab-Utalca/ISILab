@@ -2,6 +2,7 @@ using ISILab.Commons.Extensions;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
+using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
 using LBS.Components;
 using PathOS;
 using System;
@@ -75,15 +76,16 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             List<(SimulationTile, LevelEntity)> generatedEntities = new();
             List<(SimulationTile, GameObject)> walls = new();
             Dictionary<string, int> objectNames = new();
-            GameObject agentGameObject = null;
+            GameObject agentGO = null;
 
             // PathOS escentials
             PathOSManager manager = GenerateManager(parent.transform, window).GetComponent<PathOSManager>();
+
             GenerateScreenshotCamera(parent.transform, window);
             GenerateWorldCamera(parent.transform);
 
             // LBSFloor
-            int notEmptyFloorCount = 0;
+            int notEmptyFloorCount = 0; // Only counts floor with items
             for (int i = 0; i < layer.FloorCount; i++)
             {
                 // Floor variables
@@ -110,10 +112,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     var instance = GenerateSimulationTile(parent.transform, settings, tile, i);
                     
                     // Player settings
-                    if(tile.Tag != null && tile.Tag.label == "Player" && agentGameObject is null)
+                    if(tile.Tag != null && tile.Tag.label == "Player" && agentGO is null)
                     {
-                        agentGameObject = instance.gameObject;
-                        window.SetAgentReference(agentGameObject.GetComponent<PathOSAgent>());
+                        agentGO = instance.gameObject;
+                        window.SetAgentReference(agentGO.GetComponent<PathOSAgent>());
                         continue;
                     }
                     // Wall settings
@@ -146,17 +148,25 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             }
 
             // Error case: agentGameObject wasn't generated
-            if(agentGameObject is null)
+            if(agentGO is null)
             {
                 return new GeneratedGO(parent, 
                     new LBSLog("[SimulatorRuleGenerator]: The simulation layer needs a Player entity on the level to generate.",
                     LogType.Error, 3));
             }
+
             manager.floorCount = notEmptyFloorCount;
+            manager.gameObject.GetComponent<OGLogManager>().floorCount = notEmptyFloorCount;
+            var heatmapVisualizer = manager.gameObject.GetComponentInChildren<OGLogHeatmap>().gameObject;
+            for(int i = 1; i < notEmptyFloorCount; i++)
+            {
+                GameObject.Instantiate(heatmapVisualizer, manager.gameObject.transform);
+            }
+
 
             // Apply agent reference to all generated components
-            PathOSAgent agentComp = agentGameObject.GetComponent<PathOSAgent>();
-            agentComp.memory.gridSampleSize = settings.scale;
+            PathOSAgent agentComp = agentGO.GetComponent<PathOSAgent>();
+            agentComp.GetMemory().gridSampleSize = settings.scale;
             foreach (LBSGeneratedSimulation generated in allGeneratedComponents)
             {
                 generated.agent = agentComp;

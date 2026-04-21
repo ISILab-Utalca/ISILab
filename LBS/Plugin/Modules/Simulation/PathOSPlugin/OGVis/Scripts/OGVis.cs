@@ -168,14 +168,14 @@ namespace OGVis
             foreach (VectorT p in positions)
             {
                 pathPoints.Add(new Vector3(
-                        p.pos.x, displayHeight, p.pos.z));
+                        p.pos.x, p.pos.y + displayHeight, p.pos.z));
             }
 
             //Resample event positions to account for axis flattening.
             foreach (InteractionEvent e in interactionEvents)
             {
                 e.pos.x = e.realPos.x;
-                e.pos.y = displayHeight;
+                e.pos.y = e.realPos.y + displayHeight;
                 e.pos.z = e.realPos.z;
             }
         }

@@ -141,7 +141,7 @@ namespace PathOS
 
             //We want to draw the memory "map" in the lower-left corner of the screen.
             //Grab a persistent reference to the texture.
-            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid(0);
+            navmeshMemoryMap = agent.GetMemory().memoryMap.GetVisualGrid(0);
 
             //Map legend.
             mapLegendIcons = new List<Rect>();
@@ -209,7 +209,7 @@ namespace PathOS
         {
             //Little bit of simple math to constrain the map's size and ensure
             //it is drawn in the correct location.
-            float navmeshMapAsp = agent.memory.memoryMap.GetAspect();
+            float navmeshMapAsp = agent.GetMemory().memoryMap.GetAspect();
             float navmeshMapX = 0.0f, navmeshMapY = 0.0f;
 
             if (navmeshMapAsp > 1.0f)
@@ -274,12 +274,12 @@ namespace PathOS
             }
 
             // Set memory texture visualization according to floor height
-            int currentFloor = (int)(transform.position.y / agent.memory.gridSampleSize.y);
-            if (currentFloor != agent.memory.memoryMap.ActiveFloor)
+            int currentFloor = (int)(transform.position.y / agent.GetMemory().gridSampleSize.y);
+            if (currentFloor != agent.GetMemory().memoryMap.ActiveFloor)
             {
                 Debug.Log($"Changing memory texture to {currentFloor} index");
-                agent.memory.memoryMap.ActiveFloor = currentFloor;
-                navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid(currentFloor);
+                agent.GetMemory().memoryMap.ActiveFloor = currentFloor;
+                navmeshMemoryMap = agent.GetMemory().memoryMap.GetVisualGrid(currentFloor);
             }
         }
 
@@ -390,7 +390,7 @@ namespace PathOS
 
             Vector3 targetPos = agent.GetTargetPosition();
 
-            List<PathOS.EntityMemory> memory = agent.memory.entities;
+            List<PathOS.EntityMemory> memory = agent.GetMemory().entities;
             PathOS.PerceivedEntity agentTargetEntity = agent.GetDestinationEntity();
 
             //Memorized objects.
