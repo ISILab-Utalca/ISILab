@@ -45,7 +45,7 @@ namespace ISILab.LBS.Drawers
             //Debug.Log(view.graphElements.Count());
         }
 
-        public override void Update(object target, MainView view, Vector2 teselationSize)
+        public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)
         {
             if (target is not SchemaBehaviour schema) return;
             var zonesMod = schema.OwnerLayer.GetModule<SectorizedTileMapModule>();

@@ -20,21 +20,17 @@ namespace ISILab.LBS.Drawers.Editor
         {
             if (target is not QuestBehaviour bh) return;
 
-            // First time or forced redraw: Load everything
+            UpdateTiles(bh, view, tesselationSize);
+
             if (!Loaded || FullRedrawRequested)
             {
-                // Clear existing just in case
-                HideVisuals(bh, view);
-
                 LoadAllTiles(bh, view);
                 Loaded = true;
                 FullRedrawRequested = false;
             }
-
-            Update(bh, view, tesselationSize);
         }
 
-        public override void Update(object target, MainView view, Vector2 teselationSize)
+        public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)
         {
             if (target is not QuestBehaviour bh) return;
 
@@ -54,31 +50,32 @@ namespace ISILab.LBS.Drawers.Editor
             var graph = bh.Graph;
             if (graph == null) return;
 
-            // Use the base LBSBehaviour method to get objects marked for removal
             foreach (var expiredKey in bh.RetrieveExpiredTiles())
             {
                 var existing = view.GetElementsFromLayer(bh.OwnerLayer, expiredKey);
                 if (existing == null) continue;
 
-                foreach (var element in existing.ToList()) // ToList to avoid modification errors
+                foreach (var element in existing.ToList())
                 {
                     view.Remove(element);
                 }
             }
         }
-
         private void PaintNewTiles(object target, MainView view)
         {
             var bh = (QuestBehaviour)target;
             var graph = bh.Graph;
             if (graph == null) return;
 
-            // Consume the new tile requests from the behavior
-            foreach (object key in bh.RetrieveNewTiles())
+            var tiles = bh.RetrieveNewTiles();
+            foreach (object key in tiles)
             {
+
+                var existing = view.GetElementsFromLayer(bh.OwnerLayer, key);
+                if (existing != null && existing.Count > 0) continue;
+
                 VisualElement ve = null;
 
-                // Handle Nodes
                 if (key is GraphNode node)
                 {
                     ve = node switch
@@ -87,8 +84,11 @@ namespace ISILab.LBS.Drawers.Editor
                         OrNode or AndNode => CreateBranchView(node),
                         _ => null
                     };
+                    if (ve is QuestGraphNodeView nodeView)
+                    {
+                        nodeView.SelectView(node.IsSelected());
+                    }
                 }
-                // Handle Edges (The key is a ValueTuple (QuestEdge, GraphNode))
                 else if (key is ValueTuple<QuestEdge, GraphNode> edgeKey)
                 {
                     var edge = edgeKey.Item1;
@@ -130,8 +130,8 @@ namespace ISILab.LBS.Drawers.Editor
                 foreach (var el in elements)
                 {
                     if (el is not QuestGraphNodeView nodeView) continue;
-                    nodeView.Refresh();
                     nodeView.style.display = layerVisible ? DisplayStyle.Flex : DisplayStyle.None;
+                    nodeView.Refresh();
                 }
             }
 
@@ -146,9 +146,9 @@ namespace ISILab.LBS.Drawers.Editor
 
                     foreach (var el in elements)
                     {
-                        if (el is not LBSQuestEdgeView edgeView) continue;
-                        edgeView.UpdatePositions();
+                        if (el is not QuestEdgeView edgeView) continue;
                         edgeView.style.display = layerVisible ? DisplayStyle.Flex : DisplayStyle.None;
+                        edgeView.UpdatePositions();
                     }
                 }
             }
@@ -242,19 +242,24 @@ namespace ISILab.LBS.Drawers.Editor
             if (ve != null)
             {
                 ve.style.display = style;
+                if(ve is QuestGraphNodeView nodeView)
+                    nodeView.SelectView(nodeView.Node.IsSelected());
             }
         }
 
-        private static LBSQuestEdgeView CreateEdgeView(
+        private static QuestEdgeView CreateEdgeView(
             QuestGraph graph,
             QuestEdge edge,
             QuestGraphNodeView n1,
             QuestGraphNodeView n2)
         {
-            var edgeView = new LBSQuestEdgeView(graph, edge, n1, n2, 1.5f, 3.5f); 
+            var edgeView = new QuestEdgeView(graph, edge, n1, n2, 1.5f, 3.5f); 
 
             n1.Refresh();
             n2.Refresh();
+            edgeView.UpdatePositions();
+            // Force an update after the next frame to ensure coordinates are settled
+            edgeView.schedule.Execute(() => edgeView.UpdatePositions()).ExecuteLater(50);
 
             return edgeView;
         }

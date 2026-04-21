@@ -47,10 +47,11 @@ namespace ISILab.LBS.Behaviours
         public override void OnAttachLayer(LBSLayer layer)
         {
             OwnerLayer = layer;
-            layer.OnChange += UpdateKeys;
+
             layer.OnChange += () =>
             {
                 Graph.SelectedGraphNode = null;
+                UpdateKeys();
             };
 
             Graph.OnAddNode += (node) =>
@@ -96,14 +97,27 @@ namespace ISILab.LBS.Behaviours
         {
             if (Graph == null) return;
 
-            var allKeys = Graph.GraphNodes.Cast<object>()
-                .Concat(Graph.GraphEdges.Cast<object>())
-                .ToList();
+            List<object> allKeys = new List<object>();
+
+            // Add Node as keys
+            foreach (var node in Graph.GraphNodes)
+            {
+                allKeys.Add(node);
+            }
+
+            // Add Edges AS TUPLES (as they are registered in PaintNewTiles/LoadAllTiles in Drawer)
+            foreach (var edge in Graph.GraphEdges)
+            {
+                foreach (var from in edge.From)
+                {
+                    allKeys.Add((edge, from));
+                }
+            }
 
             UpdateKeys(allKeys);
         }
 
-        
+
         #region IBLUEPRINTABLE
         public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
         {

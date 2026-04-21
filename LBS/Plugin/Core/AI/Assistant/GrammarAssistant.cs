@@ -268,8 +268,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public override void OnAttachLayer(LBSLayer layer)
         {
             base.OnAttachLayer(layer);
-
-  
             ActionExtensions.AddUnique(ref Graph.OnNodeSelected, CallAssistant);
         }
 

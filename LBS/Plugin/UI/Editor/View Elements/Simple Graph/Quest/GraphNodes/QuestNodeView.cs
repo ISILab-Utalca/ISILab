@@ -11,8 +11,14 @@ namespace ISILab.LBS.VisualElements
 {
     public class QuestNodeView : QuestGraphNodeView
     {
+        #region CONSTS
+        const float iconSize = 24f;
+        const float padding = 40f;
+        const float minWidth = 100f;
+        #endregion
+
         #region FIELDS
-        
+
         private static VisualTreeAsset _asset;
 
         #region VIEWS
@@ -90,8 +96,6 @@ namespace ISILab.LBS.VisualElements
 
             UpdateGrammarState();
 
-            UpdateWidth();
-
             UpdatePosition();
 
         }
@@ -130,6 +134,8 @@ namespace ISILab.LBS.VisualElements
         #region Updates
         public void UpdatePosition()
         {
+            UpdateWidth();
+
             SetPosition(new Rect(GetPosition().position,
                 new Vector2(                
                 _root.resolvedStyle.width ,
@@ -141,29 +147,26 @@ namespace ISILab.LBS.VisualElements
 
         private void UpdateWidth()
         {
-            if (_label.resolvedStyle.width == 0 || float.IsNaN(_label.resolvedStyle.width))
+            // Use the Font and Style of the label to measure text without waiting for layout
+            var textSize = _label.MeasureTextSize(_label.text, 0, VisualElement.MeasureMode.Undefined, 0, VisualElement.MeasureMode.Undefined);
+
+            if (string.IsNullOrEmpty(_label.text)) return;
+
+
+            float iconTotal = iconSize;
+            if (Node is QuestNode qn)
             {
-                schedule.Execute(UpdateWidth).ExecuteLater(1);
-                return;
+                // add icon spaces
+                if (!qn.Data.IsValid()) iconTotal += iconSize;
+                if (!Node.ValidGrammar) iconTotal += iconSize;
+                if (!Node.ValidConnections) iconTotal += iconSize;
+                if (qn.NodeType != QuestNode.ENodeType.Middle) iconTotal += iconSize;
             }
 
-            float padding = 72f;
-            float minWidth = 100f;
-            float typeIconWidth = GetElementWidthIfVisible(_scrollIcon, 24f);
-            float grammarIconWidth = GetElementWidthIfVisible(_iconGrammarInvalid, 24f);
-            float dataIconWidth = GetElementWidthIfVisible(_iconNodeDataInvalid, 24f);
-            float connectionIconWidth = GetElementWidthIfVisible(InvalidConnectionIcon, 24f);
-            float startWidth = GetElementWidthIfVisible(_start, 24f);
-            float goalWidth = GetElementWidthIfVisible(_goal, 24f);
-            
-            var textSize = _label.MeasureTextSize(_label.text,0, VisualElement.MeasureMode.Undefined, 0, VisualElement.MeasureMode.Undefined);
-            float newWidth = Mathf.Max(minWidth, textSize.x + padding + grammarIconWidth + connectionIconWidth + typeIconWidth + dataIconWidth + startWidth + goalWidth);
+            float calculatedWidth = textSize.x + iconTotal + padding;
+            float finalWidth = Mathf.Max(minWidth, calculatedWidth);
 
-            _root.style.width = new StyleLength(newWidth);
-            _label.style.width = new StyleLength(StyleKeyword.Auto);
-            _label.style.whiteSpace = WhiteSpace.NoWrap;
-
-            MarkDirtyRepaint();
+            _root.style.width = finalWidth;
         }
         #endregion
 

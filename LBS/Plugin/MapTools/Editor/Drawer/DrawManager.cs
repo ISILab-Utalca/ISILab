@@ -117,7 +117,7 @@ namespace ISILab.LBS
                 Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
                 if (drawer == null) continue;
                 layer.GetBehaviour<LBSBehaviour>()?.CheckKeys();
-                drawer.Update(component, MainView.Instance, layer.TileSize);
+                drawer.UpdateTiles(component, MainView.Instance, layer.TileSize);
             }
         }
 
@@ -137,7 +137,7 @@ namespace ISILab.LBS
             Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
             if (drawer is null) return;
             layer.GetBehaviour<LBSBehaviour>()?.CheckKeys();
-            drawer.Update(component, MainView.Instance, layer.TileSize);
+            drawer.UpdateTiles(component, MainView.Instance, layer.TileSize);
         }
 
         private void HideVisuals<T>(List<T> components, LBSLayer layer)
@@ -226,7 +226,7 @@ namespace ISILab.LBS
             }
             DrawLevel(level);
 
-            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer), typeof(QuestBehaviorDrawer), typeof (QuestNodeBehaviourDrawer), typeof (NoteDrawer) };
+            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer), typeof(QuestBehaviorDrawer), typeof (NodeBehaviourDrawer), typeof (NoteDrawer) };
         }
 
         private void DrawLevel(LBSLevelData level)

@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
-    <ui:VisualElement style="flex-grow: 1; justify-content: space-between; align-items: stretch; align-self: stretch; align-content: auto; flex-wrap: nowrap; max-height: none; border-left-color: rgb(48, 48, 48); border-right-color: rgb(48, 48, 48); border-top-color: rgb(48, 48, 48); border-bottom-color: rgb(48, 48, 48); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; margin-top: 3px; margin-right: 3px; margin-bottom: 3px; margin-left: 3px;">
-        <LBS.VisualElements.SimplePallete name="ConditionsPallete" />
-    </ui:VisualElement>
     <ui:VisualElement style="flex-grow: 1; background-color: rgb(48, 48, 48); min-height: auto; padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 8px; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px;">
         <uie:ObjectField label="Grammar Asset" name="Grammar" type="ISILab.AI.Grammar.LBSGrammar, LBS" />
         <LBS.VisualElements.SimplePallete name="ActionsPallete" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1; justify-content: space-between; align-items: stretch; align-self: stretch; align-content: auto; flex-wrap: nowrap; max-height: none; border-left-color: rgb(48, 48, 48); border-right-color: rgb(48, 48, 48); border-top-color: rgb(48, 48, 48); border-bottom-color: rgb(48, 48, 48); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; margin-top: 3px; margin-right: 3px; margin-bottom: 3px; margin-left: 3px;">
+        <LBS.VisualElements.SimplePallete name="ConditionsPallete" />
     </ui:VisualElement>
 </ui:UXML>

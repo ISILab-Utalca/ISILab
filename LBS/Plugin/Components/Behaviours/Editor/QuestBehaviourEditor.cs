@@ -83,7 +83,10 @@ namespace ISILab.LBS.VisualElements
 
 
 
-        private void Redraw(GraphNode node) => DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
+        private void Redraw(GraphNode node)
+        {
+            DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
+        }
 
         public void SetTools(ToolKit toolkit)
         {
@@ -97,7 +100,7 @@ namespace ISILab.LBS.VisualElements
             var t2 = new LBSTool(_removeNode);
             t2.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
 
-            _addNode.SetRemover(_removeNode);
+            //_addNode.SetRemover(_removeNode);
             
             _connectNodes = new ConnectQuestNodes();
             var t3 = new LBSTool(_connectNodes);

@@ -66,7 +66,7 @@ namespace ISILab.LBS.VisualElements
 
             LBSInspectorPanel.ActivateBehaviourTab();
             VisualElement nodeBehaviour = LBSInspectorPanel.Instance.ActiveInspector.GetInspector(
-                typeof(QuestNodeBehaviour), LBSMainWindow.Instance._selectedLayer);
+                typeof(NodeDataBehaviour), LBSMainWindow.Instance._selectedLayer);
             
             LBSFocusHighlight.Highlight(nodeBehaviour);
         }

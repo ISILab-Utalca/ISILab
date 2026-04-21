@@ -42,7 +42,7 @@ namespace ISILab.LBS.Components
         public LBSEventHooker EventHooker => _eventHooker;
         public QuestNode Node => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;
-        public LBSLayer Layer => Graph.OwnerLayer;
+        public LBSLayer OwnerLayer => Graph.OwnerLayer;
 
         public Rect Area
         {
@@ -94,7 +94,7 @@ namespace ISILab.LBS.Components
 
         public override int GetHashCode()
         {
-            return  ownerNode.GetHashCode() + ID.GetHashCode() + Graph.GetHashCode() + Graph.OwnerLayer.GetHashCode();
+            return  ownerNode.GetHashCode() + ID.GetHashCode() + Graph.GetHashCode();
         }
 
         #region DATA

@@ -222,6 +222,6 @@ namespace ISILab.LBS.Drawers
 
         public override void ShowVisuals(object target, MainView view) { }
 
-        public override void Update(object target, MainView view, Vector2 tesselationSize) { }
+        public override void UpdateTiles(object target, MainView view, Vector2 tesselationSize) { }
     }
 }

@@ -130,10 +130,12 @@ namespace ISILab.LBS.Components
         public void Select(bool forceReselect = false)
         {
             // node already selected, force delegate calls
-            if (forceReselect && this == Graph.SelectedGraphNode) Graph.Reselect();
+            if (forceReselect && this == Graph.SelectedGraphNode) 
+                Graph.Reselect();
           
             // normal selection
-            else Graph.SelectedGraphNode = this;
+            else 
+                Graph.SelectedGraphNode = this;
             
         }
 
@@ -162,7 +164,7 @@ namespace ISILab.LBS.Components
         
         public override int GetHashCode()
         {
-            return ID.GetHashCode() + Graph.GetHashCode() + Graph.OwnerLayer.GetHashCode();
+            return ID.GetHashCode() + Graph.GetHashCode();
         }
 
         protected abstract GraphNode CreateCloneInstance();

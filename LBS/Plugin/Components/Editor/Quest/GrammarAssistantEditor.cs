@@ -65,7 +65,10 @@ namespace ISILab.LBS.Editor
         #endregion
 
         #region CONSTRUCTORS
-        public GrammarAssistantEditor() { }
+        public GrammarAssistantEditor() 
+        {
+            
+        }
 
         public GrammarAssistantEditor(GrammarAssistant target) : base(target)
         {
@@ -77,14 +80,15 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-            //if (assistant != null) return;
+            if (assistant != null) return;
 
-            target = paramTarget;
+            //target = paramTarget;
             assistant = target as GrammarAssistant;
 
             //ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
-            assistant.OnCallAssistant = null;
-            ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
+           // assistant.OnCallAssistant = null;
+           // ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
+            ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
             grammarField.value = Graph.Grammar;
         }
 

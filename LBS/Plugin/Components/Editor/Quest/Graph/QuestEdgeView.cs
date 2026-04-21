@@ -9,7 +9,7 @@ using UnityEditor;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class LBSQuestEdgeView : GraphElement
+    public class QuestEdgeView : GraphElement
     {
         private const float curveBendStrength = 0.4f;
         
@@ -22,7 +22,7 @@ namespace ISILab.LBS.VisualElements
         private readonly QuestGraphNodeView _node1;
         private readonly QuestGraphNodeView _node2;
 
-        public LBSQuestEdgeView(QuestGraph questGraph, QuestEdge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5f, float stroke = 3f)
+        public QuestEdgeView(QuestGraph questGraph, QuestEdge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5f, float stroke = 3f)
         {
             _graph = questGraph ?? throw new ArgumentNullException(nameof(questGraph));
             _edge = edge ?? throw new ArgumentNullException(nameof(edge));
@@ -107,28 +107,55 @@ namespace ISILab.LBS.VisualElements
 
             Vector2 dir = (_endPos - _startPos).normalized;
             float distance = Vector2.Distance(_startPos, _endPos);
-            float bend = distance * curveBendStrength; 
+            float bend = distance * curveBendStrength;
 
-            // Move perpendicular to the line
-            Vector2 perp1 = new Vector2(-dir.x, dir.y);
-            Vector2 perp2 = new Vector2(dir.x, -dir.y);
-            
-            Vector2 controlPoint1 = _startPos + dir * (distance * 0.4f) + perp1 * bend ;
-            Vector2 controlPoint2 = _endPos - dir * (distance * 0.4f) + perp2 * bend ;
-            
-            // Direction is tangent at the end of the line
-            Vector2 endDir = painter.DrawBezierLine(_startPos, controlPoint1, controlPoint2, _endPos, 
+            // Perpendicular vectors for the bend
+            Vector2 perp1 = new Vector2(-dir.y, dir.x); // Fixed: should be (-y, x) for true perpendicular
+            Vector2 perp2 = new Vector2(dir.y, -dir.x);
+
+            Vector2 controlPoint1 = _startPos + dir * (distance * 0.4f) + perp1 * bend;
+            Vector2 controlPoint2 = _endPos - dir * (distance * 0.4f) + perp2 * bend;
+
+            // 1. Draw the actual curve
+            Vector2 endDir = painter.DrawBezierLine(_startPos, controlPoint1, controlPoint2, _endPos,
                 painter.strokeColor, painter.strokeColor);
 
-            // if at similar Y positions of visual elements, use normal direction
-            if (MathF.Abs(_startPos.y - _endPos.y) <= _node1.worldBound.height)
+            // 2. Calculate the midpoint (t = 0.5)
+            Vector2 midPoint = GetBezierPoint(0.5f, _startPos, controlPoint1, controlPoint2, _endPos);
+
+            // 3. Draw the middle circle
+            painter.BeginPath();
+            painter.Arc(midPoint, 6f, 0, 360); // 6f is the radius, adjust as needed
+            painter.Fill(); // Or painter.stroke() if you want an outline
+
+            // Handle direction logic for the arrow
+            if (Mathf.Abs(_startPos.y - _endPos.y) <= _node1.worldBound.height)
             {
                 endDir = dir;
             }
-            
-            
-            painter.DrawArrow(_endPos, endDir,16,3f, painter.strokeColor);
+
+            // 4. Draw decorations
+            painter.DrawArrow(_endPos, endDir, 16, 3f, painter.strokeColor);
             painter.DrawCircle(_startPos, 10, painter.strokeColor);
+        }
+
+        /// <summary>
+        /// Calculates a point along a cubic Bezier curve at time t (0 to 1)
+        /// </summary>
+        private Vector2 GetBezierPoint(float t, Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
+        {
+            float u = 1 - t;
+            float tt = t * t;
+            float uu = u * u;
+            float uuu = uu * u;
+            float ttt = tt * t;
+
+            Vector2 p = uuu * p0; // (1-t)^3 * P0
+            p += 3 * uu * t * p1; // 3 * (1-t)^2 * t * P1
+            p += 3 * u * tt * p2; // 3 * (1-t) * t^2 * P2
+            p += ttt * p3;         // t^3 * P3
+
+            return p;
         }
 
 

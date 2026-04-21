@@ -3,12 +3,13 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using LBS.Components;
 using System;
+using System.Collections.Generic;
 using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
 {
     [RequieredModule(typeof(QuestGraph))]
-    public class QuestNodeBehaviour : LBSBehaviour
+    public class NodeDataBehaviour : LBSBehaviour
     {
         public QuestNodeData SelectedNodeData => Graph.SelectedQuestNode?.Data;
         public QuestGraph Graph => OwnerLayer.GetModule<QuestGraph>();
@@ -21,7 +22,7 @@ namespace ISILab.LBS.Behaviours
         /// </summary>
       
 
-        public QuestNodeBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
+        public NodeDataBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
         }
 
@@ -34,7 +35,7 @@ namespace ISILab.LBS.Behaviours
         
         public override object Clone()
         {
-            return new QuestNodeBehaviour(this.IconGuid, this.Name, this.ColorTint);
+            return new NodeDataBehaviour(this.IconGuid, this.Name, this.ColorTint);
         }
 
         public override void OnAttachLayer(LBSLayer layer)
@@ -42,6 +43,22 @@ namespace ISILab.LBS.Behaviours
             OwnerLayer = layer;
 
             ActionExtensions.AddUnique(ref OnNodeDataChanged, OnDataChanged);
+
+
+            layer.OnChange += () =>
+            {
+                UpdateKeys();
+            };
+
+            Graph.OnRemoveNode += (node) =>
+            {
+                RequestTileRemove(node.Data);
+            };
+
+            Graph.OnAddNode += (node) => 
+            {
+                RequestTilePaint(node.Data);
+            };
         }
 
         private void OnDataChanged(GraphNode node)
@@ -50,16 +67,31 @@ namespace ISILab.LBS.Behaviours
             Graph.OnNodeSelected?.Invoke(node);
         }
 
-        public override void OnDetachLayer(LBSLayer layer) { }
-        
-        private void ChangeVisuals()
+        public override void OnDetachLayer(LBSLayer layer) 
         {
-            RequestTileRemove(this);
-            RequestTilePaint(this);
+            OwnerLayer = null;
+            layer.OnChange -= UpdateKeys;
+        }
+        
+        public override void CheckKeys() 
+        {
+            UpdateKeys();
+        } 
+
+        public void UpdateKeys()
+        {
+            if (Graph == null) return;
+
+            List<object> allKeys = new List<object>();
+
+            // Add Node as keys
+            foreach (var node in Graph.GetQuestNodes())
+            {
+                allKeys.Add(node.Data);
+            }
+
+            UpdateKeys(allKeys);
         }
 
-        public override void CheckKeys() { } // Quest Behaviour does this for the rest of behaviours from the quest layer
-
-   
     }
 }

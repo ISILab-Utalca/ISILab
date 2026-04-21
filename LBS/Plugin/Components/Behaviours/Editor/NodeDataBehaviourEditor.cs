@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
@@ -12,17 +8,22 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Components.Data;
 using LBS;
 using LBS.VisualElements;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
     
-    [LBSCustomEditor("QuestFlowBehaviour", typeof(QuestNodeBehaviour))]
-    public class QuestNodeBehaviourEditor : LBSCustomEditor, IToolProvider
+    [LBSCustomEditor("NodeDataBehaviour", typeof(NodeDataBehaviour))]
+    public class NodeDataBehaviourEditor : LBSCustomEditor, IToolProvider
     {
         #region FIELDS
-        private QuestNodeBehaviour nodeBehavior;
+        private NodeDataBehaviour behaviour;
 
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
@@ -57,28 +58,28 @@ namespace ISILab.LBS.VisualElements
         #endregion
         
         #region CONSTRUCTORS
-        public QuestNodeBehaviourEditor(object target) : base(target)
+        public NodeDataBehaviourEditor(object target) : base(target)
         {
             SetInfo(target);
             CreateVisualElement();
-            nodeBehavior.Graph.Reselect();
+            behaviour.Graph.Reselect();
         }
         #endregion
         
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-            nodeBehavior = paramTarget as QuestNodeBehaviour;
-            if (nodeBehavior == null) return;
+            behaviour = paramTarget as NodeDataBehaviour;
+            if (behaviour == null) return;
 
-            ActionExtensions.AddUnique(ref nodeBehavior.OnNodeDataChanged, OnSelectNode);
-            ActionExtensions.AddUnique(ref nodeBehavior.Graph.OnNodeSelected, OnSelectNode);
+            ActionExtensions.AddUnique(ref behaviour.OnNodeDataChanged, OnSelectNode);
+            ActionExtensions.AddUnique(ref behaviour.Graph.OnNodeSelected, OnSelectNode);
         }
         
         protected sealed override VisualElement CreateVisualElement()
         {
             Clear();
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestNodeBehaviourEditor");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("NodeBehaviourEditor");
             visualTree.CloneTree(this);
             
             #region Get VisualElements from UXML
@@ -105,7 +106,7 @@ namespace ISILab.LBS.VisualElements
             {
                 if (ToolKit.Instance.GetActiveManipulatorInstance() is not QuestPicker pickerManipulator) return;
                 
-                QuestNodeData actionData = nodeBehavior.SelectedNodeData;
+                QuestNodeData actionData = behaviour.SelectedNodeData;
                 if (actionData is null) return;
                 
                 pickerManipulator.PickTriggerPosition = true;
@@ -134,7 +135,7 @@ namespace ISILab.LBS.VisualElements
             // cant change complete mode
             _hooker.Selector.RegisterValueChangedCallback(evt =>
             {
-                QuestNodeData data = nodeBehavior.SelectedNodeData;
+                QuestNodeData data = behaviour.SelectedNodeData;
                 if (data is null) return;
                 _hooker.Hooker = data.EventHooker;
             });
@@ -152,7 +153,7 @@ namespace ISILab.LBS.VisualElements
 
         private void SetNodeDataArea(Rect newValue)
         {
-            QuestNodeData nodeData = nodeBehavior.SelectedNodeData;
+            QuestNodeData nodeData = behaviour.SelectedNodeData;
             if (nodeData is null) return;
             
             newValue.x = Mathf.Round(newValue.x);
@@ -161,7 +162,7 @@ namespace ISILab.LBS.VisualElements
             newValue.width = MathF.Abs(newValue.width);
             
             nodeData.Area = newValue;
-            DrawManager.Instance.RedrawLayer(nodeBehavior.OwnerLayer);
+            DrawManager.Instance.RedrawLayer(behaviour.OwnerLayer);
         }
 
         /// <summary>
@@ -173,7 +174,7 @@ namespace ISILab.LBS.VisualElements
             QuestPicker questPicker = new();
             LBSTool toolPicker = new(questPicker);
             toolPicker.OnSelect += LBSInspectorPanel.ActivateBehaviourTab;
-            toolkit.ActivateTool(toolPicker, nodeBehavior?.OwnerLayer, target);
+            toolkit.ActivateTool(toolPicker, behaviour?.OwnerLayer, target);
 
             // context exclusive from the Node Panel
             VisualElement toolButton = toolkit.GetToolButton(typeof(QuestPicker));
@@ -184,6 +185,9 @@ namespace ISILab.LBS.VisualElements
 
         private void OnSelectNode(GraphNode graphNode)
         {
+
+            DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
+
             QuestNode node = graphNode as QuestNode;
             bool validNode = node != null;
 
@@ -210,7 +214,7 @@ namespace ISILab.LBS.VisualElements
             if (!validNode) return;
 
             // on complete display
-            _hooker.Hooker = (nodeBehavior.SelectedNodeData?.EventHooker);
+            _hooker.Hooker = (behaviour.SelectedNodeData?.EventHooker);
 
             // set default data display
             _paramActionLabel.text = node.TerminalID;
@@ -226,6 +230,8 @@ namespace ISILab.LBS.VisualElements
                 VisualElement ve = new VisualElement();
                 fieldsVisualElements.Add(ve);
             }
+
+            
 
         }
 

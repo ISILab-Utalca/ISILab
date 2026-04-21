@@ -121,12 +121,13 @@ namespace ISILab.LBS.Modules
         public QuestGraph()
         {
             // changing one edge can change the values of all the graph so we recheck all the graph for
-            OnAddEdge += _ =>  ValidateGraph();
-            OnRemoveEdge += _ =>  ValidateGraph();
-
+            ActionExtensions.AddUnique(ref OnAddEdge, PostEdge);
+            ActionExtensions.AddUnique(ref OnRemoveEdge, PostEdge);
             ActionExtensions.AddUnique(ref OnAddNode, AddNode);
             ActionExtensions.AddUnique(ref OnRemoveNode, RemoveNode);
         }
+
+        private void PostEdge(QuestEdge edge) => ValidateGraph();
 
         #endregion
 
@@ -151,6 +152,7 @@ namespace ISILab.LBS.Modules
         private void AddNode(QuestNode node)
         {
             SelectedGraphNode = node;
+            ValidateGraph();
         }
 
         private void RemoveNode(QuestNode node)

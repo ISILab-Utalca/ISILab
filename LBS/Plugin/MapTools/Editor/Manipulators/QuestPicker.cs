@@ -18,7 +18,7 @@ namespace ISILab.LBS.Manipulators
     public class QuestPicker : LBSManipulator
     {
         // Private fields
-        private QuestNodeBehaviour _behaviour;
+        private NodeDataBehaviour _behaviour;
 
         public bool PickTriggerPosition = false;
         
@@ -50,7 +50,7 @@ namespace ISILab.LBS.Manipulators
         public override void Init(LBSLayer layer, object owner = null)
         {
             base.Init(layer, owner);
-            _behaviour = layer.GetBehaviour<QuestNodeBehaviour>();
+            _behaviour = layer.GetBehaviour<NodeDataBehaviour>();
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)

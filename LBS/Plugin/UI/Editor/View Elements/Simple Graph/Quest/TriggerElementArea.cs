@@ -65,7 +65,7 @@ namespace ISILab.LBS.VisualElements
             _currentColor = _data.Terminal.color;
 
             // Calculate initial visual position
-            Vector2 position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(
+            Vector2 position = _data.OwnerLayer.FixedToPosition(
                 new Vector2Int((int)area.x, (int)area.y), true);
             Rect drawArea = new(position, new Vector2(area.width * GraphGridLength, area.height * GraphGridLength));
 
@@ -172,7 +172,7 @@ namespace ISILab.LBS.VisualElements
                 _resizing = false;
                 handleArea.style.display = DisplayStyle.None;
 
-                if (_data.Layer is null) return;
+                if (_data.OwnerLayer is null) return;
 
                 Rect currentRect = GetPosition();
 
@@ -213,12 +213,12 @@ namespace ISILab.LBS.VisualElements
                 _activeHandle = null;
 
 
-                Vector2 position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
+                Vector2 position = _data.OwnerLayer.FixedToPosition(new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
                 Rect drawArea = new(position, new Vector2(_data.Area.width * GraphGridLength, _data.Area.height * GraphGridLength));
                 SetPosition(drawArea);
 
                 //DrawManager.Instance.RedrawLayer(_data.Layer);
-                DrawManager.Instance.DrawSingleComponent(this, _data.Layer);
+                DrawManager.Instance.DrawSingleComponent(this, _data.OwnerLayer);
             });
 
             // Hide the areas by default(show when click on handle, hide on mouse up)
@@ -237,9 +237,7 @@ namespace ISILab.LBS.VisualElements
             Painter2D painter = mgc.painter2D;
             painter.BeginPath(); 
 
-            LBSLayer lbsLayer = _data.Layer;
-
-            var nodeElements = MainView.Instance.GetElementsFromLayer(lbsLayer, _data.Node);
+            var nodeElements = MainView.Instance.GetElementsFromLayer(_data.OwnerLayer, _data.Node);
             GraphElement node = nodeElements?.FirstOrDefault();
             if (node == null) return;
 
@@ -266,7 +264,7 @@ namespace ISILab.LBS.VisualElements
             
             
             Vector2Int tilePosition = new Vector2Int((int)_data.Area.x, (int)_data.Area.y);
-            _dragStartPosition = LBSMainWindow.Instance._selectedLayer.FixedToPosition(tilePosition, true);
+            _dragStartPosition = _data.Graph.OwnerLayer.FixedToPosition(tilePosition, true);
 
             DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
             
@@ -327,7 +325,7 @@ namespace ISILab.LBS.VisualElements
             
 
             _data.Node.Select();
-            DrawManager.Instance.RedrawLayer(_data.Layer);
+            DrawManager.Instance.RedrawLayer(_data.OwnerLayer);
             DrawManager.Instance.PickingModeRestoreAll();
 
             RestoreManipulator();
@@ -391,7 +389,7 @@ namespace ISILab.LBS.VisualElements
             _currentColor = _data.Terminal.color;
 
             // Update position
-            Vector2 position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(
+            Vector2 position = newData.OwnerLayer.FixedToPosition(
                 new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
 
             Rect drawArea = new(
