@@ -53,6 +53,19 @@ namespace ISILab.LBS.Behaviours
                 Graph.SelectedGraphNode = null;
             };
 
+            Graph.OnAddNode += (node) =>
+            {
+                RequestTilePaint(node);
+            };
+
+            Graph.OnAddEdge += (edge) =>
+            {
+                foreach (var from in edge.From)
+                {
+                    RequestTilePaint((edge, from));
+                }
+            };
+
             Graph.OnRemoveNode += (node) =>
             {
                 RequestTileRemove(node);
@@ -60,7 +73,10 @@ namespace ISILab.LBS.Behaviours
 
             Graph.OnRemoveEdge += (edge) =>
             {
-                RequestTileRemove(edge);
+                foreach(var from in edge.From)
+                {
+                    RequestTileRemove((edge, from));
+                }
             };
         }
 
@@ -73,12 +89,18 @@ namespace ISILab.LBS.Behaviours
 
         public override void CheckKeys()
         {
-            UpdateKeys(Graph.GraphNodes.ToList<object>());
+            UpdateKeys();
         }
 
         public void UpdateKeys()
         {
-            UpdateKeys(Graph.GraphNodes.ToList<object>());
+            if (Graph == null) return;
+
+            var allKeys = Graph.GraphNodes.Cast<object>()
+                .Concat(Graph.GraphEdges.Cast<object>())
+                .ToList();
+
+            UpdateKeys(allKeys);
         }
 
         

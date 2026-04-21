@@ -17,87 +17,92 @@ namespace ISILab.LBS.Drawers.Editor
     [Drawer(typeof(QuestNodeBehaviour))]
     public class QuestNodeBehaviourDrawer : Drawer
     {
-        /// <summary>
-        /// Draws the information that corresponds to the quest node behavior selected node.
-        /// </summary>
-        /// <param name="target"></param>
-        /// <param name="view"></param>
-        /// <param name="tesselationSize"></param>
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
-            if (target is not QuestNodeBehaviour behaviour) return;
-            if (behaviour.OwnerLayer is not { } layer) return;
+            if (target is not QuestNodeBehaviour bh || bh.OwnerLayer == null) return;
 
-            QuestNodeData actionData = behaviour?.SelectedNodeData;
-            if (actionData is null) return;
-
-            DisplayStyle display = behaviour.OwnerLayer.IsVisible
-                ? DisplayStyle.Flex
-                : DisplayStyle.None;
-
-            // 🔍 Try get existing
-            var existing = view.GetElementsFromLayer(layer, behaviour);
-            TriggerElementArea triggerView = null;
-
-            if (existing != null && existing.Count > 0)
+            // 1. Only draw if this behavior belongs to the currently selected layer
+            if (bh.OwnerLayer != LBSMainWindow.Instance._selectedLayer)
             {
+                HideVisuals(bh, view);
                 return;
             }
-            else
+
+            // 2. Use actionData as the key
+            QuestNodeData actionData = bh.SelectedNodeData;
+            if (actionData?.Node == null) return;
+
+            // Check if TriggerElementArea already exists for this actionData
+            var existing = view.GetElementsFromLayer(bh.OwnerLayer, actionData);
+            if (existing != null && existing.Count > 0)
             {
-                var nodeData = behaviour.SelectedNodeData;
-                if (nodeData?.Node == null) return;
+                ShowVisuals(bh, view);
+                return;
+            }
 
-                var elements = view.GetElementsFromLayer(layer, nodeData.Node);
-                if (elements == null || !elements.Any()) return;
+            // 3. Find the parent QuestNodeView
+            // Note: We use actionData.Node to find the parent view, but actionData as the key for the trigger
+            var nodeElements = view.GetElementsFromLayer(bh.OwnerLayer, actionData.Node);
+            var selectedActionView = nodeElements?.FirstOrDefault() as QuestNodeView;
 
-                var selectedActionView = elements.First() as QuestNodeView;
-                if (selectedActionView == null) return;
-
-                triggerView = new TriggerElementArea(
+            if (selectedActionView != null)
+            {
+                var triggerView = new TriggerElementArea(
                     actionData,
                     actionData.Area,
                     selectedActionView
                 );
 
-                view.AddElementToLayerContainer(layer, behaviour, triggerView);
-            }
-
-            if (triggerView != null)
-            {
-                triggerView.style.display = display;
+                // Register with actionData as key
+                view.AddElementToLayerContainer(bh.OwnerLayer, actionData, triggerView);
+                triggerView.style.display = bh.OwnerLayer.IsVisible ? DisplayStyle.Flex : DisplayStyle.None;
             }
         }
+
+        public override void Update(object target, MainView view, Vector2 teselationSize)
+        {
+            if (target is not QuestNodeBehaviour bh || bh.OwnerLayer == null) return;
+
+            // Selection check to prevent updating visuals on unselected layers
+            if (bh.OwnerLayer != LBSMainWindow.Instance._selectedLayer) return;
+
+            var actionData = bh.SelectedNodeData;
+            if (actionData == null) return;
+
+            var existing = view.GetElementsFromLayer(bh.OwnerLayer, actionData)?.FirstOrDefault();
+            if (existing is TriggerElementArea trigger)
+            {
+                // If TriggerElementArea needs per-frame updates, do them here
+            }
+        }
+
+        public override void HideVisuals(object target, MainView view)
+            => ToggleVisuals(target, view, DisplayStyle.None);
 
         public override void ShowVisuals(object target, MainView view)
-        {
-            // Get behaviours
-            if (target is not QuestNodeBehaviour behaviour) return;
-            
-            foreach (object tile in behaviour.Keys)
-            {
-                foreach (GraphElement graphElement in view.GetElementsFromLayer(behaviour.OwnerLayer, tile).Where(graphElement => graphElement != null))
-                {
-                    graphElement.style.display = DisplayStyle.Flex;
-                }
-            }
-        }
-        public override void HideVisuals(object target, MainView view)
-        {
-            // Get behaviours
-            if (target is not QuestNodeBehaviour behaviour) return;
-            
-            foreach (object tile in behaviour.Keys)
-            {
-                if (tile == null) continue;
+            => ToggleVisuals(target, view, DisplayStyle.Flex);
 
-                var elements = view.GetElementsFromLayer(behaviour.OwnerLayer, tile);
-                foreach (GraphElement graphElement in elements)
+        private void ToggleVisuals(object target, MainView view, DisplayStyle style)
+        {
+            if (target is not QuestNodeBehaviour bh || bh.OwnerLayer == null) return;
+
+            // Since actionData is the key, we must retrieve it from the behavior
+            var actionData = bh.SelectedNodeData;
+            if (actionData == null) return;
+
+
+            foreach(var node in bh.Graph.GetQuestNodes())
+            {
+                var elements = view.GetElementsFromLayer(bh.OwnerLayer, node.Data);
+                if (elements == null) return;
+
+                foreach (var el in elements)
                 {
-                    graphElement.style.display = DisplayStyle.None;
+                    if (node.Data != actionData) el.style.display = DisplayStyle.None;
+                    else if (el != null) el.style.display = style;
                 }
             }
+
         }
-    }        
-    
+    }
 }

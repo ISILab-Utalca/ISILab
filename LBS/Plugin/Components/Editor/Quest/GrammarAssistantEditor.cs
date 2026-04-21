@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
@@ -17,9 +12,15 @@ using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.VisualElements;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
@@ -59,6 +60,7 @@ namespace ISILab.LBS.Editor
         private string[] nextArray;
         private string[] prevArray;
         private List<string>[] expandArray;
+        private GraphNode lastSelectedGraphNode;
 
         #endregion
 
@@ -75,15 +77,14 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
+            //if (assistant != null) return;
+
             target = paramTarget;
             assistant = target as GrammarAssistant;
 
-            if(Graph is not null)
-            {
-                if (Graph.Equals(assistant.Graph)) return;
-            }
-
-            ActionExtensions.AddUnique(ref Graph.OnNodeSelected, UpdatePanel);
+            //ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
+            assistant.OnCallAssistant = null;
+            ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
             grammarField.value = Graph.Grammar;
         }
 
@@ -114,9 +115,11 @@ namespace ISILab.LBS.Editor
 
         private void UpdatePanel(GraphNode selectedGraphNode = null)
         {
-            if (LBSMainWindow.Instance._selectedLayer != Graph.OwnerLayer) return;
+            if (selectedGraphNode == lastSelectedGraphNode) return;
+            if (LBSMainWindow.Instance._selectedLayer != assistant.OwnerLayer) return;
             if (Graph is null) return;
 
+            lastSelectedGraphNode = selectedGraphNode;
             grammarField.value = Graph.Grammar;
             paramActionLabel.text = "none";
             nodeIDLabel.text = "none";
@@ -148,7 +151,6 @@ namespace ISILab.LBS.Editor
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
             {
-                
                 UpdateNextSuggestions(nextArray, Graph.SelectedQuestNode);
                 UpdatePrevSuggestions(prevArray, Graph.SelectedQuestNode);
                 UpdateExpandSuggestions(expandArray, Graph.SelectedQuestNode);
@@ -162,12 +164,17 @@ namespace ISILab.LBS.Editor
         
         void RunTask(string selectedAction)
         {
-            ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
+            var currentAssistant = assistant;
+            var currentGrammar = assistant.Graph.Grammar;
+
+            if (currentGrammar == null) return;
+
+            ((IAssistantThreadedEditor)this).SetUpTask(this, currentAssistant);
             Task.Run(() =>
             {
                 try
                 {
-                    nextArray = assistant
+                    nextArray = currentAssistant
                         .GetAllValidNextActionsInsert(selectedAction, progress =>
                         {
                             // progress from 0 → 0.33
@@ -177,7 +184,7 @@ namespace ISILab.LBS.Editor
                     
                     Thread.Sleep(1);
                      
-                    prevArray = assistant
+                    prevArray = currentAssistant
                         .GetAllValidPrevActionsInsert(selectedAction, progress =>
                         {
                             // progress from 0.33 → 0.66
@@ -187,7 +194,7 @@ namespace ISILab.LBS.Editor
                     
                     Thread.Sleep(1);
                     
-                    expandArray = assistant
+                    expandArray = currentAssistant
                         .GetAllExpansions(selectedAction, progress =>
                         {
                             // progress from 0.67 → 1.0
@@ -199,12 +206,12 @@ namespace ISILab.LBS.Editor
                    Thread.Sleep(1);
                    string log = "All valid grammar recommendations found.";
                    LogType logType = LogType.Log;
-                   EditorApplication.delayCall += () => assistant.OnTermination?.Invoke(log, logType, null);
+                   EditorApplication.delayCall += () => currentAssistant.OnTermination?.Invoke(log, logType, null);
                    
                 }
                 catch (Exception ex)
                 {
-                    ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, currentAssistant);
                 }
 
             }, CancelToken);
@@ -265,7 +272,7 @@ namespace ISILab.LBS.Editor
             ListView listView,
             Func<string, Action> actionFactory)
         {
-            if (invalidPanel != null)
+            if (invalidPanel != null && data != null)
                 invalidPanel.style.display = data.Any() ? DisplayStyle.None : DisplayStyle.Flex;
 
             if (listView == null) return;
@@ -300,10 +307,10 @@ namespace ISILab.LBS.Editor
 
         private void UpdateExpandSuggestions(List<string>[] expandArray, QuestNode currentQuest)
         {
-            if (expandInvalidPanel != null)
+            if (expandInvalidPanel != null && expandArray != null)
                 expandInvalidPanel.style.display = expandArray.Any() ? DisplayStyle.None : DisplayStyle.Flex;
 
-            if (expandSuggested == null) return;
+            if (expandSuggested == null && expandArray.Length == 0) return;
 
             expandSuggested.style.display = expandArray.Any() ? DisplayStyle.Flex : DisplayStyle.None;
             expandSuggested.itemsSource = expandArray;

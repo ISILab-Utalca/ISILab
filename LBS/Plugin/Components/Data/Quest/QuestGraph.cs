@@ -135,6 +135,12 @@ namespace ISILab.LBS.Modules
         #region Action methods
         public void Reselect()
         {
+
+            // Print the address of the Assistant and the Graph it is using
+            int graphAddr = System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(this);
+
+            Debug.Log($"[Graph {graphAddr}] On Node selected");
+
             // delegeates related to the graph node selection
             OnNodeSelected?.Invoke(selectedNode);
 
@@ -384,8 +390,8 @@ namespace ISILab.LBS.Modules
         public bool RemoveEdge(QuestEdge edge)
         {
             if (edge == null) return false;
-            graphEdges.Remove(edge);
             OnRemoveEdge?.Invoke(edge);
+            graphEdges.Remove(edge);
             return true;
         }
 
@@ -595,7 +601,7 @@ namespace ISILab.LBS.Modules
             }
             
             root = node;
-            root.NodeType = QuestNode.ENodeType.Start;
+            if(root != null) root.NodeType = QuestNode.ENodeType.Start;
 
             ValidateGraph();
         }

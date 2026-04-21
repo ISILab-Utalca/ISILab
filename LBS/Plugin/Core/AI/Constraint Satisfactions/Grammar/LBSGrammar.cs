@@ -32,16 +32,15 @@ namespace ISILab.AI.Grammar
         {
             get
             {
-                terminals.Clear();
-                foreach (var terminal in LBSTerminals)
+                // Only rebuild if it's empty or null, don't clear every time
+                if (terminals == null || terminals.Count == 0)
                 {
-                    terminals.Add(terminal.id);
+                    terminals = lbsTerminals.Select(t => t.id).ToList();
                 }
-
                 return terminals;
-   
             }
         }
+
         public List<string> Rules
         {
             get
@@ -71,9 +70,17 @@ namespace ISILab.AI.Grammar
             rules ??= new List<string>();
         }
 
-        public bool IsRule(string id) => Rules.Contains(id);
-        public bool IsTerminal(string id) => TerminalActions.Contains(id);
+        public bool IsRule(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return false;
+            return Rules.Contains(id);
+        }
 
+        public bool IsTerminal(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return false;
+            return TerminalActions.Contains(id);
+        }
 
         public GrammarTerminal GetTerminal(string id) => LBSTerminals.FirstOrDefault(t => t.id.Equals(id));
         public GrammarRule GetRule(string id) => LBSRules.FirstOrDefault(r => r.id.Equals(id));
@@ -184,6 +191,12 @@ namespace ISILab.AI.Grammar
         {
             if (!visited.Add(element)) return;
 
+            if (IsTerminal(element))
+            {
+                result.Add(element);
+                return;
+            }
+
             foreach (var rule in LBSRules)
             {
                 foreach (var expansion in rule.Expansions)
@@ -223,7 +236,6 @@ namespace ISILab.AI.Grammar
         {
             if (!visited.Add(element)) return;
 
-            // ✅ If it's already a terminal → done
             if (IsTerminal(element))
             {
                 result.Add(element);

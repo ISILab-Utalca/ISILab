@@ -1,5 +1,6 @@
 using ISILab.AI.Grammar;
 using ISILab.Commons.Extensions;
+using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
@@ -24,6 +25,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
     {
         private QuestBehaviour questBehaviour;
         private QuestGraph graph;
+
+        public Action<GraphNode> OnCallAssistant;
 
         [JsonIgnore]
         public QuestGraph Graph => graph ??= OwnerLayer.GetModule<QuestGraph>();
@@ -265,7 +268,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public override void OnAttachLayer(LBSLayer layer)
         {
             base.OnAttachLayer(layer);
+
+  
+            ActionExtensions.AddUnique(ref Graph.OnNodeSelected, CallAssistant);
         }
+
+        private void CallAssistant(GraphNode node) => OnCallAssistant?.Invoke(node);
 
         public override void OnGUI() { }
 

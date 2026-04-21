@@ -70,7 +70,7 @@ namespace ISILab.LBS.VisualElements
             OnMoving?.Invoke(GetPosition());
         }
 
-        public override void UpdateGrammarState()
+        protected override void UpdateGrammarState()
         {
             base.UpdateGrammarState();
             _root.SetBorder(!Node.ValidConnections ? InvalidGrammarColor : ValidGrammarColor, 1f);

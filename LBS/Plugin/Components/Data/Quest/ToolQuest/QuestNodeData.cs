@@ -92,6 +92,11 @@ namespace ISILab.LBS.Components
         }
         public bool IsValid() { return true; }
 
+        public override int GetHashCode()
+        {
+            return  ownerNode.GetHashCode() + ID.GetHashCode() + Graph.GetHashCode() + Graph.OwnerLayer.GetHashCode();
+        }
+
         #region DATA
         public List<string> ReferencedLayerNames()
         {

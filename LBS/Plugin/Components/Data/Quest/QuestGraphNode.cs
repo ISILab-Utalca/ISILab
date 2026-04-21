@@ -126,11 +126,14 @@ namespace ISILab.LBS.Components
         /// <summary>
         /// Selects the node as the active node in the graph
         /// </summary>
-        /// <param name="reselect">will call all the delegates when a new node is selected, even if its already selected</param>
-        public void Select(bool reselect = false)
+        /// <param name="forceReselect">will call all the delegates when a new node is selected, even if its already selected</param>
+        public void Select(bool forceReselect = false)
         {
-            Graph.SelectedGraphNode = this;
-            if (reselect) Graph.Reselect();
+            // node already selected, force delegate calls
+            if (forceReselect && this == Graph.SelectedGraphNode) Graph.Reselect();
+          
+            // normal selection
+            else Graph.SelectedGraphNode = this;
             
         }
 
@@ -154,12 +157,12 @@ namespace ISILab.LBS.Components
         public override bool Equals(object obj)
         {
             if(obj is not GraphNode ode) return false;
-            return ID == ode.ID;
+            return ID == ode.ID && Graph == ode.Graph && Graph.OwnerLayer == ode.Graph.OwnerLayer;
         }
         
         public override int GetHashCode()
         {
-            return ID?.GetHashCode() ?? 0;
+            return ID.GetHashCode() + Graph.GetHashCode() + Graph.OwnerLayer.GetHashCode();
         }
 
         protected abstract GraphNode CreateCloneInstance();

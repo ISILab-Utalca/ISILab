@@ -71,7 +71,7 @@ namespace ISILab.LBS.VisualElements
 
         #region Grammar State
 
-        public virtual void UpdateGrammarState()
+        protected virtual void UpdateGrammarState()
         {
             InvalidConnectionIcon.style.display = Node.ValidConnections ? DisplayStyle.None : DisplayStyle.Flex;
         }
@@ -92,7 +92,7 @@ namespace ISILab.LBS.VisualElements
             {
                 LBSInspectorPanel.ActivateBehaviourTab();
 
-                Node.Select(true);
+                Node.Select();
                 _isDragging = true;
                 this.CaptureMouse();
             }

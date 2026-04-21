@@ -168,7 +168,7 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Grammar State
-        public sealed override void UpdateGrammarState()
+        protected sealed override void UpdateGrammarState()
         {
             if(Node is not QuestNode qn) return;
          
