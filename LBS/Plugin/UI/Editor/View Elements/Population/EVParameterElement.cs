@@ -7,20 +7,21 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.ParameterElement
+namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElement
 {
     /// <summary>
     /// Visual element used to show parameters in a list.
     /// </summary>
     [UxmlElement]
-    public partial class ParameterElement : LBSComplexVisualElement
+    public partial class EVParameterElement : LBSComplexVisualElement
     {
         private string paramlabelString;
         private LBSCustomLabel paramLabel;
 
         private bool canBeDeleted = false;
         private LBSCustomButton paramDeleteButton;
-        public event Action<ParameterElement> OnDelete;
+
+        public event Action<EVParameterElement> OnDelete;
 
         public string ParamLabelString
         {
@@ -33,11 +34,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.ParameterElement
             set => canBeDeleted = value;
         }
         
-        public ParameterElement() : base()
+        public EVParameterElement() : base()
         {
             Initialize();
         }
-        public ParameterElement(string label, bool b) : base()
+        public EVParameterElement(string label, bool b) : base()
         {
             Initialize(label, b);
         }
@@ -55,7 +56,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.ParameterElement
 
         public void setParameterElement(string label, bool b)
         {
-            paramlabelString = label;
+            ParamLabelString = label;
             canBeDeleted = b;
         }
         public override int GetHashCode()
