@@ -63,16 +63,22 @@ public class EvaluatorData
 public struct ParameterData
 {
     public string name;
-    public Type varType;
+    public string varTypeAsString;
     public string initialValue;
     public bool isDeletable;
 
-    public ParameterData(string name, Type varType, string initialValue, bool isDeletable = true)
+    public ParameterData(string name, string varType, string initialValue, bool isDeletable = true)
     {
         this.name = name;
-        this.varType = varType;
+        this.varTypeAsString = varType;
         this.initialValue = initialValue;
         this.isDeletable = isDeletable;
+    }
+
+    public Type VarType
+    {
+        get => string.IsNullOrEmpty(varTypeAsString) ? null : Type.GetType(varTypeAsString);
+        set => varTypeAsString = value?.AssemblyQualifiedName;
     }
 }
 
