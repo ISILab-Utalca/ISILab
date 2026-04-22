@@ -8,7 +8,7 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Editor.UI.CustomComponents;
 using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
+
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;

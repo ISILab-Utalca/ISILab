@@ -7,7 +7,6 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor.Windows.TagManager;
 using System;
 using System.Collections;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
