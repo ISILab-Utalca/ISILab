@@ -30,6 +30,12 @@ namespace OGVis
     {
         public Vector3 min;
         public Vector3 max;
+
+        public static Extents InverseLimit => new Extents()
+        {
+            min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue),
+            max = new Vector3(float.MinValue, float.MinValue, float.MinValue)
+        };
     }
 
     //Utility class for loading/storing player logfiles.
