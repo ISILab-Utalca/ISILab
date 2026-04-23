@@ -18,6 +18,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         private LBSCustomLabel evLabel;
         private LBSCustomButton evConfigButton;
         private LBSCustomButton evDeleteButton;
+        private LBSCustomButton evOpenSOButton;
         private VisualElement interfaceIcon1;
         private VisualElement interfaceIcon2;
         private VisualElement interfaceIcon3;
@@ -50,7 +51,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         public EvaluatorElement(string label, bool b1, bool b2, bool b3, List<ParameterData> parameters)
         {
             InitInternal();
-            setEvaluatorElement(label, b1, b2, b3);
+            SetEvaluatorElement(label, b1, b2, b3);
             this.parameters = parameters;
         }
 
@@ -64,6 +65,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             evDeleteButton.RegisterCallback<ClickEvent>(DeleteEvaluatorElement);
             evConfigButton = this.Q<LBSCustomButton>("evOptions");
             evConfigButton.RegisterCallback<ClickEvent>(OpenEvaluatorConfig);
+            evOpenSOButton = this.Q<LBSCustomButton>("evOpenSO");
+            evOpenSOButton.RegisterCallback<ClickEvent>(OpenSO);
+
+            //Here i manually set the "Scriptable Object" Icon while we dont have a vector option
+            Texture2D soIcon = EditorGUIUtility.IconContent("ScriptableObject On Icon").image as Texture2D;
+            evOpenSOButton.style.backgroundImage = new StyleBackground(soIcon);
+            evOpenSOButton.style.backgroundSize = new StyleBackgroundSize(
+                new BackgroundSize(new Length(80, LengthUnit.Percent), new Length(80, LengthUnit.Percent)));
+
 
             interfaceIcon1 = this.Q<VisualElement>("InterfaceIcon1");
             interfaceIcon2 = this.Q<VisualElement>("InterfaceIcon2");
@@ -79,30 +89,31 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             };
         }
 
-        public void setEvaluatorElement(string label, bool b1, bool b2, bool b3)
+        public void SetEvaluatorElement(string label, bool b1, bool b2, bool b3)
         {
             EvLabelString = label;
-            setInterfaceBooleanList(b1, b2, b3);
+            SetInterfaceBooleanList(b1, b2, b3);
+            SetSOButtonVisibility();
         }
-        public void setInterfaceBooleanList(bool b1, bool b2, bool b3)
+        public void SetInterfaceBooleanList(bool b1, bool b2, bool b3)
         {
             interfaceBoolList[0] = b1;
             interfaceBoolList[1] = b2;
             interfaceBoolList[2] = b3;
-            setInterfaceIconVisibility(b1, b2, b3);
+            SetInterfaceIconVisibility(b1, b2, b3);
         }
-        public void setInterfaceBooleanByIndex(int i, bool b)
+        public void SetInterfaceBooleanByIndex(int i, bool b)
         {
             interfaceBoolList[i] = b;
-            setInterfaceIconVisibilitybyIndex(i, b);
+            SetInterfaceIconVisibilitybyIndex(i, b);
         }
-        public void setInterfaceIconVisibility(bool b1, bool b2, bool b3)
+        public void SetInterfaceIconVisibility(bool b1, bool b2, bool b3)
         {
             interfaceBoolListVisualElements[0].visible = b1;
             interfaceBoolListVisualElements[1].visible = b2;
             interfaceBoolListVisualElements[2].visible = b3;
         }
-        public void setInterfaceIconVisibilitybyIndex(int i, bool b)
+        public void SetInterfaceIconVisibilitybyIndex(int i, bool b)
         {
             interfaceBoolListVisualElements[i].visible = b;
         }
@@ -155,6 +166,18 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
 
             window.minSize = new UnityEngine.Vector2(300, 300);
             window.Show();
+        }
+        public void OpenSO(ClickEvent evt)
+        {
+
+        }
+
+        public void SetSOButtonVisibility()
+        {
+            if (!interfaceBoolList[0])
+            {
+                evOpenSOButton.visible = false;
+            }
         }
     }
 }

@@ -3,8 +3,11 @@ using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.UI.Editor.Windows.TagManager;
 using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,7 +23,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         private string tagName = "Tag";
         private bool removable = true;
 
-        private object associatedTag = null;
+        private ScriptableObject associatedTag = null;
         #endregion
 
         #region VISUAL ELEMENTS
@@ -63,7 +66,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             get => tagType;
             set => tagType = value;
         }
-        public object AssociatedTag
+        public ScriptableObject AssociatedTag
         {
             get => associatedTag;
             set
@@ -106,7 +109,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             Init();
         }
 
-        public LBSTagListObject(LBSTagListGroup group, object associatedTag, bool removable, bool layerTypeRemovable = false) : base()
+        public LBSTagListObject(LBSTagListGroup group, ScriptableObject associatedTag, bool removable, bool layerTypeRemovable = false) : base()
         {
             Init();
 
@@ -130,7 +133,6 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 tagName = indivTag.label;
                 type = objectType.Individual;
             }
-            Debug.Log("loading " + tagName + " as " + type);
 
             //Set image
             VectorImage imageIcon = type == objectType.Group 
@@ -184,9 +186,18 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             deleteButton = this.Q<LBSToolbarButton>("DeleteButton");
             deleteButton.clicked += () =>
             {
-                if (owner != null)
+                if(owner.AssociatedTag!=null)
                 {
-                    owner.OnTagRemoved?.Invoke(layerTag);
+                    var choice = EditorUtility.DisplayDialogComplex("Removal Options", "Choose the operation you want to proceed with:", "Remove from Group", "Delete Tag", "Cancel");
+                    switch(choice)
+                    {
+                        case 0: RemoveFromGroup(); break;
+                        case 1: DeleteTag(); break;
+                        case 2: break;
+                    }
+                } else
+                {
+                    DeleteTag();
                 }
             };
             icon = this.Q<VisualElement>("Icon");
@@ -220,6 +231,69 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                     }
                 }
 
+            }
+        }
+        
+        public void RemoveFromGroup()
+        {
+            var answer = EditorUtility.DisplayDialog("Remove Tag?", "Removing this tag from its associated group. Proceed?", "Continue", "Cancel");
+
+            //We know the associated tag isn't null, so we can freely call it
+            if(answer)
+            {
+                //Remove the tag from the grouptag's list, which has to be made from there.
+                owner.OnTagRemoved?.Invoke(associatedTag);
+
+                //Then remove the tag from the associated tag group.
+                var ownerTag = owner.AssociatedTag as LBSTagGroup;
+
+                var toRemove = associatedTag as LBSTag;
+                if (ownerTag != null)
+                {
+                    if (ownerTag.Tags.Contains(toRemove))
+                    {
+                        ownerTag.Remove(toRemove);
+                        TagManagerWindow.OnTagOrphaned?.Invoke(toRemove);
+                    }
+                }
+            }
+        }
+
+        public void DeleteTag()
+        {
+            var answer = EditorUtility.DisplayDialog("Delete Tag?", "Deleting this tag. Proceed?", "Continue", "Cancel");
+
+            if(answer)
+            {
+                owner.OnTagRemoved?.Invoke(associatedTag);
+
+                //Orphan all tags! (if group)
+                var associatedGroup = associatedTag as LBSTagGroup;
+                if(associatedGroup!=null)
+                {
+                    foreach(LBSTag tag in associatedGroup.Tags)
+                    {
+                        associatedGroup.Remove(tag);
+                        TagManagerWindow.OnTagOrphaned(tag);
+                    }
+                }
+
+                //Remove from owner! (Just in case)
+                var ownerTag = owner.AssociatedTag as LBSTagGroup;
+                var toRemove = associatedTag as LBSTag;
+                if (ownerTag != null)
+                {
+                    if (ownerTag.Tags.Contains(toRemove))
+                    {
+                        ownerTag.Remove(toRemove);
+                    }
+                }
+
+
+                var filePath = AssetDatabase.GetAssetPath(associatedTag);
+                AssetDatabase.DeleteAsset(filePath);
+
+                //...How do I actually make it delete stuff? lmao - Alice
             }
         }
         #endregion

@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
+    <ui:VisualElement name="MainVE" style="flex-grow: 1; justify-content: flex-start; align-content: center; align-items: stretch;">
+        <ui:VisualElement name="LabelContainer" style="flex-grow: 0; justify-content: flex-start; flex-direction: row; align-self: auto; align-items: center; padding-top: 10px; padding-bottom: 10px;">
+            <ui:Label text="Create New..." name="CreateNew" style="margin-right: 5px; margin-left: 5px; -unity-text-outline-width: 0.5px; -unity-text-outline-color: rgba(0, 0, 0, 0.59); -unity-font-style: bold;" />
+            <ui:VisualElement name="WarningVE" style="flex-grow: 1; align-items: flex-end; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; display: flex; visibility: hidden;">
+                <ui:VisualElement name="WarningContainer" style="flex-grow: 1; flex-direction: row; background-color: rgba(255, 170, 0, 0.39); border-left-color: rgb(255, 170, 0); border-right-color: rgb(255, 170, 0); border-top-color: rgb(255, 170, 0); border-bottom-color: rgb(255, 170, 0); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; margin-right: 5px;">
+                    <ISILab.LBS.CustomComponents.LBSCustomImage name="LBSCustomImage" l-b-s-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/Icon=Warning.svg?fileID=7388822144124034973&amp;guid=5549d02f87d9642469d0336544f4cb88&amp;type=3#Icon=Warning" style="margin-left: 2px;" />
+                    <ISILab.LBS.CustomComponents.LBSCustomLabel text="Warning Sample" name="WarningLabel" style="margin-right: 2px; padding-top: 1px; padding-bottom: 1px; padding-left: 2px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="TitleContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-around; align-content: flex-start; padding-left: 3px; padding-right: 3px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(0, 0, 0, 0.4); border-right-color: rgba(0, 0, 0, 0.4); border-top-color: rgba(0, 0, 0, 0.4); border-bottom-color: rgba(0, 0, 0, 0.4); background-color: rgba(0, 0, 0, 0.16); border-right-width: 1px; border-left-width: 1px; margin-right: 5px; margin-left: 5px;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Name" style="-unity-text-outline-color: rgba(0, 0, 0, 0.59); -unity-text-outline-width: 0.33px; width: 40px; align-self: center; align-items: center; -unity-text-align: middle-center;" />
+            <ISILab.LBS.CustomComponents.LBSCustomTextField name="NameField" style="height: 35px; align-self: center; flex-grow: 1; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ButtonContainer" style="flex-grow: 0; flex-direction: row-reverse; margin-top: 10px; margin-bottom: 10px; padding-top: 0; padding-bottom: 0; height: 20px;">
+            <ISILab.LBS.CustomComponents.LBSCustomButton text="Create" name="CreateButton" style="border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); background-color: rgba(255, 255, 255, 0.1); margin-top: 0; margin-bottom: 0;" />
+            <ISILab.LBS.CustomComponents.LBSCustomButton text="Cancel" name="CancelButton" style="border-left-color: rgba(0, 0, 0, 0.39); border-right-color: rgba(0, 0, 0, 0.39); border-top-color: rgba(0, 0, 0, 0.39); border-bottom-color: rgba(0, 0, 0, 0.39); background-color: rgba(255, 255, 255, 0.1); padding-right: 3px; margin-top: 0; margin-bottom: 0;" />
+            <ui:VisualElement name="TypeContainer" style="flex-grow: 1; align-content: auto; justify-content: center; padding-right: 5px; padding-left: 5px; align-items: flex-start; align-self: auto; display: none;">
+                <ISILab.LBS.Plugin.UI.Editor.CustomComponents.LBSCustomEnumFlagField name="TypeField" label="Type" type="ISILab.LBS.LBSTagGroup+TagType, LBS" include-obsolete-values="false" style="margin-top: 2px; margin-bottom: 2px; margin-right: 0; margin-left: 0; align-content: flex-start; justify-content: flex-start; display: flex; flex-grow: 0; flex-shrink: 0; width: 100%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="GroupContainer" style="flex-grow: 1; align-content: auto; justify-content: center; padding-right: 5px; padding-left: 5px; display: flex; align-items: stretch;">
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField type="ISILab.LBS.LBSTagGroup, LBS" label="Group" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/Icon=TagFolder.svg?fileID=7388822144124034973&amp;guid=6d6d8f36e289129438c65d3c3509ee83&amp;type=3#Icon=TagFolder" name="GroupField" style="align-self: auto; align-items: stretch; display: flex;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
