@@ -76,8 +76,13 @@ namespace ISILab.LBS.Components
             this.ownerNode = ownerNode;
             this.Terminal = terminal;
 
-            fields = GrammarField.Copy(Terminal.fields);
-            
+            foreach(var field in Terminal.fields)
+            {
+                fields.Add(field.DeepCopy());
+            }
+
+
+
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
 
