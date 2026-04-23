@@ -554,9 +554,9 @@ namespace ISILab.LBS.Modules
         /// </summary>
         /// <param name="expandActions">all the actions that correspond to a new node</param>
         /// <param name="referenceNode">the node that will be expanded(replaced)</param>
-        public void ExpandNode(List<string> expandActions, QuestNode referenceNode)
+        public QuestNode ExpandNode(List<string> expandActions, QuestNode referenceNode)
         {
-            if(!expandActions.Any()) return;
+            if(!expandActions.Any()) return null;
 
             QuestNode iterationNode = referenceNode;
             
@@ -588,6 +588,8 @@ namespace ISILab.LBS.Modules
             }
 
             RemoveQuestNode(referenceNode);
+            SelectedGraphNode = iterationNode;
+            return iterationNode;
         }
         
         #endregion

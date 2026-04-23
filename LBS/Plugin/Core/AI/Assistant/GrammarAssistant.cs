@@ -23,14 +23,19 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
     [RequieredModule(typeof(QuestGraph))]
     public class GrammarAssistant : LBSAssistant
     {
+        #region FIELDS
         private QuestBehaviour questBehaviour;
         private QuestGraph graph;
+        private bool disabled = false;
+        #endregion
 
+        #region PROPERTIES
         public Action<GraphNode> OnCallAssistant;
-
+        public bool Disabled => disabled;
         [JsonIgnore]
         public QuestGraph Graph => graph ??= OwnerLayer.GetModule<QuestGraph>();
         public QuestBehaviour Behavior => questBehaviour ??= OwnerLayer.GetBehaviour<QuestBehaviour>();
+        #endregion
 
         public GrammarAssistant(string IconGuid, string name, Color colorTint)
             : base(IconGuid, name, colorTint) { }
@@ -233,10 +238,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return () =>
             {
                 var stopwatch = Stopwatch.StartNew();
-
-                Graph.ExpandNode(expandAction, referenceNode);
-
+                disabled = true;
+                var node = Graph.ExpandNode(expandAction, referenceNode);
+                disabled = false;
                 stopwatch.Stop();
+
+                if(node != null) 
+                {
+                    Graph.Reselect();
+                }
                 Debug.Log($"ExpandAction took {stopwatch.ElapsedMilliseconds} ms");
             };
         }

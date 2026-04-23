@@ -117,6 +117,8 @@ namespace ISILab.LBS.Editor
 
         private void UpdatePanel(GraphNode selectedGraphNode = null)
         {
+            if (assistant.Disabled) return;
+
             if (selectedGraphNode == lastSelectedGraphNode) 
             {
                 Debug.Log("Same node selected - return");

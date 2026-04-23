@@ -17,7 +17,7 @@ namespace ISILab.LBS.Drawers.Editor
         {
             if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) return;
 
-            PaintNewTiles(view, bh);
+            UpdateTiles(bh, view, tesselationSize);
 
             // load level
             if (!Loaded || FullRedrawRequested)
@@ -84,7 +84,7 @@ namespace ISILab.LBS.Drawers.Editor
                 view.AddElementToLayerContainer(bh.OwnerLayer, data, triggerView);
 
                 // update visibility
-                triggerView.style.display = bh.OwnerLayer.IsVisible ? DisplayStyle.Flex : DisplayStyle.None;
+                triggerView.style.display = data == bh.Graph.SelectedQuestData ? DisplayStyle.Flex : DisplayStyle.None;
             }
         }
 
