@@ -283,8 +283,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         private void CallAssistant(GraphNode node)
         {
-            Debug.Log($"<color=yellow>[Assistant Debug]</color> Graph triggered CallAssistant for {node?.ID}");
-            DebugOnCallAssistant(); // Check the list right before invoking
+         //   Debug.Log($"<color=yellow>[Assistant Debug]</color> Graph triggered CallAssistant for {node?.ID}");
+         //   DebugOnCallAssistant(); // Check the list right before invoking
             OnCallAssistant?.Invoke(node);
         }
 

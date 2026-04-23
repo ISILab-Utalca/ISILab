@@ -6,6 +6,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using LBS.VisualElements;
 using UnityEditor.Experimental.GraphView;
@@ -66,11 +67,19 @@ namespace ISILab.LBS.VisualElements
             _data = data;
             ActionExtensions.AddUnique(ref _data.OnDataChanged, UpdateData);
 
-            if (_data.Terminal != null)
+            var terminal = _data.Terminal;
+
+            if (terminal != null)
             {
-                _currentColor = _data.Terminal.color;
-                cornerTargetIcon.style.backgroundImage = new StyleBackground(_data.Terminal.Icon);
-                targetIcon.style.backgroundImage = new StyleBackground(_data.Terminal.Icon);
+                _currentColor = terminal.color;
+                var icon = new StyleBackground(terminal.Icon);
+                cornerTargetIcon.style.backgroundImage = icon;
+                targetIcon.style.backgroundImage = icon;
+            }
+            else
+            {
+                Debug.LogError($"[LBS] TriggerElementArea failed to load GrammarTerminal for ID: {_data.ID}");
+                _currentColor = LBSSettings.Instance.view.errorColor; // Error visibility
             }
 
             // Icons

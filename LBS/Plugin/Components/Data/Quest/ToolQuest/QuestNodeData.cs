@@ -32,7 +32,7 @@ namespace ISILab.LBS.Components
 
         // terminal from which we obtain color/icons
         [SerializeField] private string terminalGUID;
-        [SerializeField] private GrammarTerminal terminal;
+        private GrammarTerminal terminal;
         [SerializeField] private List<GrammarField> fields;
 
         #endregion
@@ -74,9 +74,9 @@ namespace ISILab.LBS.Components
         public QuestNodeData(QuestNode ownerNode, GrammarTerminal terminal)
         {
             this.ownerNode = ownerNode;
-            this.terminal = terminal;
+            this.Terminal = terminal;
 
-            fields = GrammarField.Copy(terminal.fields);
+            fields = GrammarField.Copy(Terminal.fields);
             
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
@@ -98,6 +98,7 @@ namespace ISILab.LBS.Components
             area = data.area;
             fields = data.fields;
             _eventHooker = data._eventHooker;
+            Terminal = data.Terminal;
         }
 
         public override bool Equals(object obj)

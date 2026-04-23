@@ -258,7 +258,7 @@ namespace ISILab.LBS.VisualElements
 
         public override VisualElement GetSelectVisualElement()
         {
-            return this.Q<VisualElement>("Capsule");
+            return this;
         }
         #endregion
     }

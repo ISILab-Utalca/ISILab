@@ -68,8 +68,8 @@ namespace ISILab.LBS.VisualElements
             var worldPos2 = _node2.GetSelectVisualElement().worldBound.center;
             var dir = (worldPos2 - worldPos1).normalized;
             
-            var edge1 = GetRectEdgePoint(_node1.GetSelectVisualElement().worldBound, dir, 5f);   // circle offset
-            var edge2 = GetRectEdgePoint(_node2.GetSelectVisualElement().worldBound, -dir, 5f);  // arrow offset
+            var edge1 = GetRectEdgePoint(_node1.GetSelectVisualElement().worldBound, dir, 10f);   // circle offset
+            var edge2 = GetRectEdgePoint(_node2.GetSelectVisualElement().worldBound, -dir, 10f);  // arrow offset
 
             _startPos = this.WorldToLocal(edge1);
             _endPos   = this.WorldToLocal(edge2);

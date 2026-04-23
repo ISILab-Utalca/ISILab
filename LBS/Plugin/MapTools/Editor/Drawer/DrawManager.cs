@@ -296,7 +296,7 @@ namespace ISILab.LBS
             }
         }
 
-        private void ChangePickingMode(VisualElement element, PickingMode newPickingMode, List<VisualElement> exceptions)
+        public void ChangePickingMode(VisualElement element, PickingMode newPickingMode, List<VisualElement> exceptions)
         {
             if (element == null)
             {
