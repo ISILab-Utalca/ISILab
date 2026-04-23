@@ -11,9 +11,9 @@
             </ISILab.LBS.CustomComponents.LBSCustomFoldout>
             <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluator Generator" initial-value="true" name="LBSCustomFoldout_evGen" icon-color="#C2F671FF" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=add_cross_01.svg?fileID=7388822144124034973&amp;guid=75362f3dc887ec1458c528c808f2bb6e&amp;type=3#Icon=add_cross_01" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
                 <ISILab.LBS.CustomComponents.LBSCustomTextField label="Name" name="evGenName" />
-                <ISILab.LBS.CustomComponents.LBSCustomToggleField value="true" name="evGenToggle1" label="Configurable" tooltip="Parameter values can be changed from the MAP Elites preset." />
                 <ISILab.LBS.CustomComponents.LBSCustomToggleField value="true" name="evGenToggle2" label="Uses Context Layers" tooltip="Considers Context Layers for the evaluation." />
-                <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle3" label="Measures distances" tooltip="Calculates the distances between population elements to be used in the evaluation. To achieve this, a pathfinding algorithm is executed." style="align-items: flex-end;" />
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField value="false" name="evGenToggle3" label="Measures distances" tooltip="Calculates the distances between population elements to be used in the evaluation. To achieve this, a pathfinding algorithm is executed." />
+                <ISILab.LBS.CustomComponents.LBSCustomToggleField value="true" name="evGenToggle1" label="Configurable" tooltip="Parameter values can be changed from the MAP Elites preset." />
                 <ISILab.LBS.CustomComponents.LBSCustomButton text="Generate Evaluator" name="evGenGenerateButton" />
                 <ISILab.LBS.CustomComponents.LBSCustomButton text="Open Evaluators Folder" name="evGenOpenFolderButton" />
             </ISILab.LBS.CustomComponents.LBSCustomFoldout>
