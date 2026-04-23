@@ -39,7 +39,7 @@ namespace ISILab.LBS.Editor
         #endregion
 
         #region PROPERTIES
-        private QuestGraph Graph => assistant.Graph;
+        private QuestGraph Graph => assistant?.Graph;
         #endregion
 
         #region VIEW
@@ -81,15 +81,17 @@ namespace ISILab.LBS.Editor
         public sealed override void SetInfo(object paramTarget)
         {
             target = paramTarget;
+
+            if (assistant != null) return;
+
             assistant = target as GrammarAssistant;
 
-            if (assistant != null)
-            {
-                assistant.OnCallAssistant = null;
-                ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
-                grammarField.value = Graph?.Grammar;
-            }
+            assistant.OnCallAssistant = null;
+            ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
+            grammarField.value = Graph?.Grammar;
+
         }
+
         protected sealed override VisualElement CreateVisualElement()
         {
             Clear();

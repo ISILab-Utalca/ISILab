@@ -281,7 +281,34 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             ActionExtensions.AddUnique(ref Graph.OnNodeSelected, CallAssistant);
         }
 
-        private void CallAssistant(GraphNode node) => OnCallAssistant?.Invoke(node);
+        private void CallAssistant(GraphNode node)
+        {
+            Debug.Log($"<color=yellow>[Assistant Debug]</color> Graph triggered CallAssistant for {node?.ID}");
+            DebugOnCallAssistant(); // Check the list right before invoking
+            OnCallAssistant?.Invoke(node);
+        }
+
+        private void DebugOnCallAssistant()
+        {
+            if (OnCallAssistant == null)
+            {
+                Debug.Log("<color=red>[Assistant Debug]</color> OnCallAssistant is NULL (No subscribers).");
+                return;
+            }
+
+            var delegates = OnCallAssistant.GetInvocationList();
+            Debug.Log($"<color=cyan>[Assistant Debug]</color> Total Subscribers: {delegates.Length}");
+
+            for (int i = 0; i < delegates.Length; i++)
+            {
+                var d = delegates[i];
+                string targetName = d.Target != null ? d.Target.ToString() : "Static Method";
+                bool isUnityObject = d.Target is UnityEngine.Object;
+                bool isAlive = !isUnityObject || (d.Target as UnityEngine.Object) != null;
+
+                Debug.Log($"  [{i}] Method: <b>{d.Method.Name}</b> | Target: <b>{targetName}</b> | Alive: <b>{isAlive}</b>");
+            }
+        }
 
         public override void OnGUI() { }
 

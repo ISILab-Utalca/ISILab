@@ -505,8 +505,8 @@ namespace ISILab.LBS.Modules
             
             // Add edge from reference → new node
             AddEdge(referenceNode, newNode);
-            OnUpdateGraph?.Invoke();
 
+            SelectedGraphNode = newNode;
             return newNode;
         }
 
@@ -545,6 +545,8 @@ namespace ISILab.LBS.Modules
             // Add edge from new node →reference
             AddEdge(newNode, referenceNode);
             OnUpdateGraph?.Invoke();
+
+            SelectedGraphNode = newNode;
 
             return newNode;
         }

@@ -191,12 +191,6 @@ namespace ISILab.AI.Grammar
         {
             if (!visited.Add(element)) return;
 
-            if (IsTerminal(element))
-            {
-                result.Add(element);
-                return;
-            }
-
             foreach (var rule in LBSRules)
             {
                 foreach (var expansion in rule.Expansions)
@@ -216,7 +210,7 @@ namespace ISILab.AI.Grammar
                             {
                                 GetLastTerminals(prev, result, new HashSet<string>());
                             }
-                            else
+                            if (IsTerminal(prev))
                             {
                                 result.Add(prev);
                             }
