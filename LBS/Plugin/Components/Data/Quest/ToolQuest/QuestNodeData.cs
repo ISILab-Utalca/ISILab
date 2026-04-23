@@ -31,6 +31,7 @@ namespace ISILab.LBS.Components
         [SerializeField] private LBSEventHooker _eventHooker;
 
         // terminal from which we obtain color/icons
+        [SerializeField] private string terminalGUID;
         [SerializeField] private GrammarTerminal terminal;
         [SerializeField] private List<GrammarField> fields;
 
@@ -38,7 +39,21 @@ namespace ISILab.LBS.Components
 
         #region PROPERTIES
         public List<GrammarField> Fields => fields;
-        public GrammarTerminal Terminal => terminal;
+        public GrammarTerminal Terminal
+        {
+            get
+            {
+                terminal ??= LBSAssetMacro.LoadAssetByGuid<GrammarTerminal>(terminalGUID);
+                return terminal;
+            }
+
+            set
+            {
+                terminal = value;
+                terminalGUID = LBSAssetMacro.GetGuidFromAsset(terminal);
+            }
+        }
+
         public LBSEventHooker EventHooker => _eventHooker;
         public QuestNode Node => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;

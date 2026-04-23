@@ -54,24 +54,34 @@ namespace ISILab.LBS.VisualElements
         public TriggerElementArea(QuestNodeData data, Rect area, QuestNodeView nodeView,
             bool centerTarget = true)
         {
-            _isCenter = centerTarget;
-            _data = data;
-
-            ActionExtensions.AddUnique(ref _data.OnDataChanged, UpdateData);
 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TriggerElementArea");
             visualTree.CloneTree(this);
 
-            _currentColor = _data.Terminal.color;
+            VisualElement triggerElementGizmo = this.Q<VisualElement>("TriggerElementSelector");
+            VisualElement targetIcon = this.Q<VisualElement>("TargetIcon");
+            VisualElement cornerTargetIcon = this.Q<VisualElement>("CornerTargetIcon");
+
+            _isCenter = centerTarget;
+            _data = data;
+            ActionExtensions.AddUnique(ref _data.OnDataChanged, UpdateData);
+
+            if (_data.Terminal != null)
+            {
+                _currentColor = _data.Terminal.color;
+                cornerTargetIcon.style.backgroundImage = new StyleBackground(_data.Terminal.Icon);
+                targetIcon.style.backgroundImage = new StyleBackground(_data.Terminal.Icon);
+            }
+
+            // Icons
+            targetIcon.style.display = _isCenter ? DisplayStyle.Flex : DisplayStyle.None;
+            cornerTargetIcon.style.display = _isCenter ? DisplayStyle.None : DisplayStyle.Flex;
 
             // Calculate initial visual position
             Vector2 position = _data.OwnerLayer.FixedToPosition(
                 new Vector2Int((int)area.x, (int)area.y), true);
             Rect drawArea = new(position, new Vector2(area.width * GraphGridLength, area.height * GraphGridLength));
-
             SetPosition(drawArea);
-
-            VisualElement triggerElementGizmo = this.Q<VisualElement>("TriggerElementSelector");
 
             // Styling
             Color backgroundColor = _currentColor;
@@ -83,16 +93,7 @@ namespace ISILab.LBS.VisualElements
             triggerElementGizmo.style.borderRightColor = _currentColor;
             triggerElementGizmo.style.borderLeftColor = _currentColor;
 
-
-            VisualElement targetIcon = this.Q<VisualElement>("TargetIcon");
-            targetIcon.style.backgroundImage = new StyleBackground(data.Terminal.Icon);
-
-            VisualElement cornerTargetIcon = this.Q<VisualElement>("CornerTargetIcon");
-            cornerTargetIcon.style.backgroundImage = new StyleBackground(data.Terminal.Icon);
-
-            targetIcon.style.display = _isCenter ? DisplayStyle.Flex : DisplayStyle.None;
-            cornerTargetIcon.style.display = _isCenter ? DisplayStyle.None : DisplayStyle.Flex;
-
+            // Border setups
             SetupResizeHandle("Handle_bl", HandleBottomLeft, _isCenter);
             SetupResizeHandle("Handle_br", HandleBottomRight, _isCenter);
             SetupResizeHandle("Handle_tl", HandleTopLeft, _isCenter);
@@ -105,12 +106,13 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
 
+            // callbacks
             nodeView.OnMoving += (_) => UpdateData(_data);
-
             generateVisualContent -= OnGenerateVisualContent;
             generateVisualContent += OnGenerateVisualContent;
 
             activeTriggerElementArea = this;
+
         }
 
         private void OnMouseEnter(MouseEnterEvent evt)
@@ -385,7 +387,7 @@ namespace ISILab.LBS.VisualElements
 
         public void UpdateData(QuestNodeData newData)
         {
-            if (_data != newData) return;
+            if (_data != newData || _data.Terminal == null) return;
             _currentColor = _data.Terminal.color;
 
             // Update position
