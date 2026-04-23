@@ -52,13 +52,7 @@ namespace ISILab.LBS.Drawers.Editor
 
             foreach (var expiredKey in bh.RetrieveExpiredTiles())
             {
-                var existing = view.GetElementsFromLayer(bh.OwnerLayer, expiredKey);
-                if (existing == null) continue;
-
-                foreach (var element in existing.ToList())
-                {
-                    view.Remove(element);
-                }
+                view.ClearElementFromComponent(expiredKey, bh.OwnerLayer);
             }
         }
         private void PaintNewTiles(object target, MainView view)
@@ -72,7 +66,8 @@ namespace ISILab.LBS.Drawers.Editor
             {
 
                 var existing = view.GetElementsFromLayer(bh.OwnerLayer, key);
-                if (existing != null && existing.Count > 0) continue;
+                if (existing != null && existing.Count > 0) 
+                    continue;
 
                 VisualElement ve = null;
 

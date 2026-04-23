@@ -35,12 +35,9 @@ namespace ISILab.LBS.Drawers.Editor
         {
             if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) return;
 
-            foreach (var expiredData in bh.RetrieveExpiredTiles())
+            foreach (var expiredKey in bh.RetrieveExpiredTiles())
             {
-                var elements = view.GetElementsFromLayer(bh.OwnerLayer, expiredData);
-                if (elements == null || elements.Count == 0) continue;
-
-                foreach (var el in elements.ToList()) view.Remove(el);
+                view.ClearElementFromComponent(expiredKey, bh.OwnerLayer);
             }
 
             PaintNewTiles(view, bh);

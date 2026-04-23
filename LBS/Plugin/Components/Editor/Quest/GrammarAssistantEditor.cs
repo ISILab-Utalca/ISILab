@@ -80,15 +80,18 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-            if (assistant != null) return;
+            if (assistant != null)
+            {
+                assistant.OnCallAssistant = null;
+            }
 
             //target = paramTarget;
             assistant = target as GrammarAssistant;
 
             //ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
-           // assistant.OnCallAssistant = null;
-           // ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
-            ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
+            assistant.OnCallAssistant = null;
+            ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
+           // ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
             grammarField.value = Graph.Grammar;
         }
 
@@ -119,10 +122,23 @@ namespace ISILab.LBS.Editor
 
         private void UpdatePanel(GraphNode selectedGraphNode = null)
         {
-            if (selectedGraphNode == lastSelectedGraphNode) return;
-            if (LBSMainWindow.Instance._selectedLayer != assistant.OwnerLayer) return;
-            if (Graph is null) return;
+            if (selectedGraphNode == lastSelectedGraphNode) 
+            {
+                Debug.Log("Same node selected - return");
+                return; 
+            }
+            if (selectedGraphNode != null && LBSMainWindow.Instance._selectedLayer != selectedGraphNode.Graph.OwnerLayer) 
+            {
+                Debug.Log("Different layer from node selected - return");
+                return;
+            }
+            if (Graph is null)
+            {
+                Debug.Log("No graph - return");
+                return;
+            }
 
+            Debug.Log($"last [{lastSelectedGraphNode}] | new [{selectedGraphNode}]");
             lastSelectedGraphNode = selectedGraphNode;
             grammarField.value = Graph.Grammar;
             paramActionLabel.text = "none";

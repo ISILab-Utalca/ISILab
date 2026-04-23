@@ -1,10 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -288,6 +289,25 @@ namespace ISILab.LBS.Plugin.UI.Editor
             foreach (var g in gElements)
             {
                 RemoveElement(g);
+            }
+        }
+
+        /// <summary>
+        /// Remove a key and element from a layer's container
+        /// </summary>
+        /// <param name="tile"></param>
+        /// <param name="layer"></param>
+        public void ClearElementFromComponent(object tile, LBSLayer layer)
+        {
+            if (!_layers.TryGetValue(layer, out var container)) return;
+            if (tile is null) return;
+
+            var elements = container.ClearElement(tile);
+            if (elements is null || !elements.Any()) return;
+
+            foreach (var element in elements)
+            {
+                RemoveElement(element);
             }
         }
         
