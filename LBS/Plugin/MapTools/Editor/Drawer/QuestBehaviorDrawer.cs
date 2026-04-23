@@ -61,8 +61,7 @@ namespace ISILab.LBS.Drawers.Editor
             var graph = bh.Graph;
             if (graph == null) return;
 
-            var tiles = bh.RetrieveNewTiles();
-            foreach (object key in tiles)
+            foreach (object key in bh.RetrieveNewTiles())
             {
 
                 var existing = view.GetElementsFromLayer(bh.OwnerLayer, key);

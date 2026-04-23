@@ -80,21 +80,16 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
+            target = paramTarget;
+            assistant = target as GrammarAssistant;
+
             if (assistant != null)
             {
                 assistant.OnCallAssistant = null;
+                ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
+                grammarField.value = Graph?.Grammar;
             }
-
-            //target = paramTarget;
-            assistant = target as GrammarAssistant;
-
-            //ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
-            assistant.OnCallAssistant = null;
-            ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
-           // ActionExtensions.AddUnique(ref assistant.Graph.OnNodeSelected, UpdatePanel);
-            grammarField.value = Graph.Grammar;
         }
-
         protected sealed override VisualElement CreateVisualElement()
         {
             Clear();
