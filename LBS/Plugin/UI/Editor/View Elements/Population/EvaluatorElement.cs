@@ -109,13 +109,25 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         }
         public void SetInterfaceIconVisibility(bool b1, bool b2, bool b3)
         {
+            /*
             interfaceBoolListVisualElements[0].visible = b1;
             interfaceBoolListVisualElements[1].visible = b2;
             interfaceBoolListVisualElements[2].visible = b3;
+            */
+            SetInterfaceIconVisibilitybyIndex(0,b1);
+            SetInterfaceIconVisibilitybyIndex(1,b2);
+            SetInterfaceIconVisibilitybyIndex(2,b3);
         }
         public void SetInterfaceIconVisibilitybyIndex(int i, bool b)
         {
-            interfaceBoolListVisualElements[i].visible = b;
+            //interfaceBoolListVisualElements[i].visible = b;
+
+            //gray icons instead of invisible icons
+            if (!b)
+            {
+                interfaceBoolListVisualElements[i].style.unityBackgroundImageTintColor = Color.gray;
+            }
+                
         }
         public override int GetHashCode()
         {
@@ -176,7 +188,24 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         {
             if (!interfaceBoolList[0])
             {
-                evOpenSOButton.visible = false;
+                //evOpenSOButton.visible = false;
+
+                //disabled button instead of invisible
+                evOpenSOButton.SetEnabled(false);
+                //evOpenSOButton.pickingMode = PickingMode.Ignore;
+                //evOpenSOButton.focusable = false;
+                //evOpenSOButton.style.unityBackgroundImageTintColor = Color.gray;
+                
+                evOpenSOButton.RegisterCallback<MouseEnterEvent>(evt =>
+                {
+                    evt.StopImmediatePropagation();
+                }, TrickleDown.TrickleDown);
+
+                evOpenSOButton.RegisterCallback<MouseLeaveEvent>(evt =>
+                {
+                    evt.StopImmediatePropagation();
+                }, TrickleDown.TrickleDown);
+
             }
         }
     }
