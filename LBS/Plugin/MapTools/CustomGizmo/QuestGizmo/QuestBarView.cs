@@ -67,7 +67,7 @@ namespace ISILab.LBS.VisualElements
             _tracker = tracker;
             _trigger = trigger;
             
-            action.text = trigger.Node.QuestAction;
+            action.text = trigger.Node.TerminalID;
             
             if(trigger.Node.NodeType == QuestNode.ENodeType.Middle) stepType.style.display = DisplayStyle.None;
             else

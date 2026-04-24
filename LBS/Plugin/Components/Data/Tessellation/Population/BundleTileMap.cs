@@ -7,7 +7,6 @@ using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using LBS.Components;
 using LBS.Components.TileMap;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -340,6 +339,20 @@ namespace ISILab.LBS.Modules
     [System.Serializable]
     public class TileBundleGroup : ICloneable
     {
+        #region STATICS
+        private static readonly Dictionary<string, Func<BundleTileMapAddons>> AddonFactory = new()
+        {
+            { "Patrol",        () => new Addon_Patrol() },
+            { "Destructible",  () => new Addon_Destruct() },
+            { "Drops",         () => new Addon_Drop() },
+            { "Interactable",  () => new Addon_Interact() },
+            { "TriggerArea",   () => new Addon_Trigger() },
+            { "TriggerUnlock", () => new Addon_TriggerUnlock() },
+            { "Unlock",        () => new Addon_Unlock() }
+        };
+        #endregion
+
+        #region FIELDS
         [SerializeField, JsonRequired]
         List<LBSTile> tileGroup = new List<LBSTile>();
         [SerializeField, JsonRequired]
@@ -354,6 +367,7 @@ namespace ISILab.LBS.Modules
 
         [SerializeField, SerializeReference]
         List<BundleTileMapAddons> addons = new();
+        #endregion
 
         #region PROPERTIES
 
@@ -445,24 +459,6 @@ namespace ISILab.LBS.Modules
                 this.Addons = _addons;
             else
                 BuildAddons(bData); // TODO omit duplicates
-        }
-
-        private void BuildAddons(BundleData bData)
-        {
-            Addons = new List<BundleTileMapAddons>();
-
-            var tagCharacteristic = bData.GetCharacteristic<LBSTagsCharacteristic>();
-            if (tagCharacteristic is null) return;
-            foreach (var Tag in tagCharacteristic.Tags)
-            {
-                if (Tag.Label == "Patrol") Addons.Add(new Addon_Patrol());
-                if (Tag.Label == "Destructible") Addons.Add(new Addon_Destruct());
-                if (Tag.Label == "Drops") Addons.Add(new Addon_Drop());
-                if (Tag.Label == "Interactable") Addons.Add(new Addon_Interact());
-                if (Tag.Label == "TriggerArea") Addons.Add(new Addon_Trigger());
-                if (Tag.Label == "TriggerUnlock") Addons.Add(new Addon_TriggerUnlock());
-                if (Tag.Label == "Unlock") Addons.Add(new Addon_Unlock());
-            }
         }
 
         public TileBundleGroup(Vector2 position, Vector2 size, BundleData bData, Vector2 rotation)
@@ -597,6 +593,23 @@ namespace ISILab.LBS.Modules
             if (!this.rotation.Equals(other.rotation)) return false;
 
             return true;
+        }
+
+        private void BuildAddons(BundleData bData)
+        {
+            Addons = new List<BundleTileMapAddons>();
+
+            var tags = bData.GetCharacteristic<LBSTagsCharacteristic>()?.Tags;
+            if (tags == null) return;
+
+            foreach (var tag in tags)
+            {
+                // If the label exists in our map, run the associated function to create the addon
+                if (AddonFactory.TryGetValue(tag.Label, out var createAddon))
+                {
+                    Addons.Add(createAddon());
+                }
+            }
         }
 
         public T GetAddon<T>() where T : BundleTileMapAddons

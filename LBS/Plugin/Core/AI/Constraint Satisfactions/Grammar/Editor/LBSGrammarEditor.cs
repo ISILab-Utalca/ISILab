@@ -1,93 +1,306 @@
-using UnityEditor;
-using UnityEngine;
 using ISILab.AI.Grammar;
+using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Core.Settings;
+using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Speech.Recognition;
+using System.Xml.Linq;
+using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 namespace ISILab.LBS.VisualElements
 {
     [CustomEditor(typeof(LBSGrammar))]
     public class LBSGrammarEditor : UnityEditor.Editor
     {
-        private TextAsset _grammarAsset;
-        private bool _foldout;
-        private bool _terminalFoldout;
-        private readonly Dictionary<string, bool> _ruleFoldouts = new();
+        #region FIELDS
+        private LBSGrammar grammar;
 
-        public override void OnInspectorGUI()
+        private TreeView rulesTree;
+        
+        private VisualElement terminals;
+        private const int columns = 6;
+
+
+        private ObjectField grammarFileField;
+        private Button processButton;
+
+        #endregion
+
+        private void OnEnable()
         {
-            var grammar = (LBSGrammar)target;
+            CreateInspectorGUI();
+        }
+        public override VisualElement CreateInspectorGUI()
+        {
+            var root = new VisualElement();
 
-            // Show grammar rules
-            _foldout = EditorGUILayout.Foldout(_foldout, "Grammar Rules", true);
-            if (_foldout)
+            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSGrammarDisplay");
+            visualTree.CloneTree(root);
+
+            grammar = (LBSGrammar)target;
+
+            rulesTree = root.Q<TreeView>("RulesTree");
+            terminals = root.Q<VisualElement>("Terminals");
+            grammarFileField = root.Q<ObjectField>("GrammarFileField");
+            processButton = root.Q<Button>("ProcessButton");
+
+            Reload();
+
+            return root;
+        }
+
+        #region Visual Element Binding
+
+        private void BindButton()
+        {
+            if (processButton == null) return;
+
+            processButton.clicked += ImportGrammarStart;
+        }
+        private void BindObjectField()
+        {
+            if (grammarFileField == null) return;
+
+            if (grammar.PathGUID != null)
             {
-                var rules = grammar.RuleEntries;
-                foreach (var rule in rules)
-                {
-                    _ruleFoldouts.TryAdd(rule.ruleID, false);
-
-                    _ruleFoldouts[rule.ruleID] = EditorGUILayout.Foldout(_ruleFoldouts[rule.ruleID], rule.ruleID);
-                    if (_ruleFoldouts[rule.ruleID])
-                    {
-                        foreach (var expansion in rule.expansions)
-                        {
-                            foreach (var terminals in expansion.items)
-                            {
-                                EditorGUILayout.LabelField("▪ " + terminals);
-                            }
-                           
-                        }
-                    }
-                }
-
-                if (rules.Count == 0)
-                {
-                    EditorGUILayout.LabelField("No rules loaded.");
-                }
+                grammarFileField.value = AssetDatabase.LoadAssetAtPath<TextAsset>(AssetDatabase.GUIDToAssetPath(grammar.PathGUID));
             }
 
-            // Show terminal actions
-            EditorGUILayout.Space(10);
-            _terminalFoldout = EditorGUILayout.Foldout(_terminalFoldout, "Terminal Actions", true);
-            if (_terminalFoldout)
+            grammarFileField.objectType = typeof(TextAsset);
+            grammarFileField.allowSceneObjects = false;
+
+            grammarFileField.RegisterValueChangedCallback(evt =>
             {
-                var terminals = grammar.TerminalActions;
-                if (terminals.Count == 0)
+                var asset = evt.newValue as TextAsset;
+
+                if (asset == null) return;
+
+                string path = AssetDatabase.GetAssetPath(asset);
+
+                if (!path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
                 {
-                    EditorGUILayout.LabelField("No terminal actions found.");
+                    Debug.LogError("Only .xml grammar files are allowed.");
+                    grammarFileField.value = null;
                 }
-                else
+            });
+        }
+        private void BindRules()
+        {
+            if (rulesTree == null) return;
+            rulesTree.Clear();
+            if (grammar.LBSRules == null || grammar.LBSRules.Count == 0) return;
+
+            var items = new List<TreeViewItemData<object>>();
+            int id = 0;
+
+            foreach (var rule in grammar.LBSRules)
+            {
+                if (rule == null) continue;
+                var expansionItems = new List<TreeViewItemData<object>>();
+
+                foreach (var expansion in rule.Expansions)
                 {
-                    foreach (var action in terminals)
-                    {
-                        EditorGUILayout.LabelField("▪ " + action);
-                    }
+                    expansionItems.Add(new TreeViewItemData<object>(
+                        id++,
+                        expansion
+                    ));
                 }
+
+                items.Add(new TreeViewItemData<object>(
+                    id++,
+                    rule,
+                    expansionItems
+                ));
             }
 
-            // Import Section
-            EditorGUILayout.Space(10);
-            GUILayout.Label("Import SRGS Grammar", EditorStyles.boldLabel);
-            _grammarAsset = (TextAsset)EditorGUILayout.ObjectField("Grammar File", _grammarAsset, typeof(TextAsset), false);
+            rulesTree.SetRootItems(items);
 
-            if (_grammarAsset != null && GUILayout.Button("Read Grammar File"))
+            rulesTree.makeItem = () => new VisualElement
             {
-                try
-                {
-                    string assetPath = AssetDatabase.GetAssetPath(_grammarAsset);
-                    var structure = LBSGrammarReader.ReadGrammar(assetPath);
+                style = {
+                    flexDirection = FlexDirection.Row,
+                    alignContent = Align.Center,
+                    alignSelf = Align.Stretch
+                }
+            };
 
-                    grammar.SetGrammarStructure(structure);
-                    EditorUtility.SetDirty(grammar);
-                    _ruleFoldouts.Clear();
-                    Debug.Log($"Grammar imported with {structure.Rules.Count} rules and {structure.terminals.Count} terminal actions.");
-                }
-                catch (Exception ex)
+            rulesTree.bindItem = (element, i) =>
+            {
+                element.Clear();
+
+                var data = rulesTree.GetItemDataForIndex<object>(i);
+
+                // top most rule
+                if (data is GrammarRule rule)
                 {
-                    Debug.LogError("Import failed: " + ex.Message);
+                    element.Add(OptionGrammarView(rule));
+                    return;
                 }
+
+                // expansions
+                if (data is GrammarExpansion expansion)
+                {
+                    for (int j = 0; j < expansion.sequence.Count; j++)
+                    {
+                        GrammarElement resolved = grammar.GetGrammarElement(expansion.sequence[j]) as GrammarElement;
+                        if (resolved == null) continue;
+
+                        element.Add(OptionGrammarView(resolved));
+
+                        if (j < expansion.sequence.Count - 1)
+                            element.Add(new Label(" → "));
+                    }
+                }
+            };
+            rulesTree.Rebuild();
+
+        }
+        private void BindTerminals()
+        {
+            if (terminals == null) return;
+            if (grammar.LBSTerminals == null || grammar.LBSTerminals.Count == 0) return;
+
+            terminals.Clear();
+            int column = columns;
+            VisualElement ActiveRow = null;
+            foreach (var terminal in grammar.LBSTerminals)
+            {
+                if (terminal == null) continue;
+
+
+                column++;
+                if (column >= columns)
+                {
+                    ActiveRow = new VisualElement();
+                    ActiveRow.style.flexDirection = FlexDirection.Row;
+                    column = 0;
+                    terminals.Add(ActiveRow);
+                }
+
+
+                ActiveRow.Add(OptionGrammarView(terminal));
+
             }
         }
+        private void Reload()
+        {
+            BindObjectField();
+            BindButton();
+            BindRules();
+            BindTerminals();
+        }
+
+        #endregion
+
+        #region Grammar Import
+        private void ImportGrammarStart()
+        {
+            if (!ValidateGrammarFile(out var path)) return;
+
+            LBSGrammarReader.ReadGrammar(grammar, path);
+
+            grammar.PathGUID = LBSAssetMacro.GetGuidFromAsset(grammarFileField.value);
+
+            EditorUtility.SetDirty(grammar);
+            AssetDatabase.SaveAssets();
+
+            ImportGrammarFinished();
+        }
+
+        private bool ValidateGrammarFile(out string path)
+        {
+            path = null;
+
+            if (grammarFileField.value == null)
+            {
+                Debug.LogError("No grammar file selected.");
+                return false;
+            }
+
+            path = AssetDatabase.GetAssetPath(grammarFileField.value);
+            return true;
+        }
+
+        private void ImportGrammarFinished()
+        {
+            EditorApplication.delayCall += Reload;
+
+            LBSMainWindow.MessageNotify(
+                new LBSLog("Grammar generated successfully.")
+            );
+        }
+
+        #endregion
+
+        #region Utility
+
+        private void FocusRule(object obj)
+        {
+            if (obj is not GrammarRule rule) return;
+
+            int index = FindRuleIndex(rule);
+            if (index < 0) return;
+
+            rulesTree.CollapseAll();
+
+            rulesTree.SetSelection(new[] { index });
+            rulesTree.ScrollToItem(index);
+
+            VisualElement container = rulesTree.GetRootElementForIndex(index);
+
+            if (container != null)
+            {
+                OptionView view = container.Q<OptionView>();
+                view?.SetSelected(true);
+                Debug.Log("Focusing on:" + (view.Target as GrammarElement).id);
+            }
+        }
+
+        private int FindRuleIndex(GrammarRule targetRule)
+        {
+            for (int i = 0; i < rulesTree.viewController.itemsSource.Count; i++)
+            {
+                var data = rulesTree.GetItemDataForIndex<object>(i);
+                if (data is GrammarRule rule && rule.id == targetRule.id)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private OptionView OptionGrammarView(GrammarElement Element)
+        {
+            OptionView option = new OptionView();
+            option.style.display = DisplayStyle.Flex;
+            option.Target = Element;
+            option.Label = Element.id;
+            option.FrameColor = Element.color;
+            option.Icon = Element.Icon;
+
+            if (Element is GrammarTerminal) 
+            { 
+                option.tooltip = "Terminal: Can be placed in Graph"; 
+            }
+            if (Element is GrammarRule)
+            { 
+                option.tooltip = "Rule: Represents valid Graph Placements";
+                option.OnSelect = FocusRule;
+                option.RegisterCallback<ClickEvent>(evt => option.OnSelect?.Invoke(option.Target));
+            }
+            return option;
+        }
+
+        #endregion
     }
 }

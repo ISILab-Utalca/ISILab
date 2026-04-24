@@ -1,7 +1,8 @@
-﻿using System;
-using ISILab.LBS.Modules;
+﻿using ISILab.LBS.Modules;
 using Newtonsoft.Json;
+using System;
 using UnityEngine;
+using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.LBS.Components
 {
@@ -43,7 +44,7 @@ namespace ISILab.LBS.Components
         protected QuestGraph graph;
 
         [SerializeField]
-        protected Rect nodeViewRect;
+        protected Rect nodePosition;
 
         #endregion
 
@@ -60,6 +61,9 @@ namespace ISILab.LBS.Components
             set => id = value;
         }
         
+        /// <summary>
+        /// The cell position in the grid
+        /// </summary>
         public Vector2Int Position
         {
             get => new(x, y);
@@ -82,21 +86,27 @@ namespace ISILab.LBS.Components
             set => validConnections = value;
         }
         
-        public Rect NodeViewPosition
+        /// <summary>
+        /// The position of the node visual element.
+        /// </summary>
+        public Rect NodePosition
         {
-            get => nodeViewRect;
+            get => nodePosition;
             set
             {
                 // to avoid assigning the view Rect that's undefined (the visual element is being laid out)
                 if (!float.IsFinite(value.size.x) || !float.IsFinite(value.size.y)) return;
                 if (value.size == Vector2.zero || value.size == Vector2.one) return;
 
-                nodeViewRect = value;
+                nodePosition = value;
             }
 
         }
 
         #endregion
+
+        public Action OnSelect;
+        public Action OnDeselect;
 
         #region CONSTRUCTORS
         protected GraphNode() { }
@@ -108,11 +118,27 @@ namespace ISILab.LBS.Components
             y = (int)position.y;
             this.graph = graph;
             validGrammar = false;
-            nodeViewRect = new Rect(position, Vector2.zero);
+            nodePosition = new Rect(position, Vector2.zero);
         }
         #endregion
 
         #region METHODS
+        /// <summary>
+        /// Selects the node as the active node in the graph
+        /// </summary>
+        /// <param name="forceReselect">will call all the delegates when a new node is selected, even if its already selected</param>
+        public void Select(bool forceReselect = false)
+        {
+            // node already selected, force delegate calls
+            if (forceReselect && this == Graph.SelectedGraphNode) 
+                Graph.Reselect();
+          
+            // normal selection
+            else 
+                Graph.SelectedGraphNode = this;
+            
+        }
+
         public object Clone()
         {
             var clone = CreateCloneInstance();
@@ -122,7 +148,7 @@ namespace ISILab.LBS.Components
 
             clone.validGrammar = validGrammar;
             clone.validConnections = validConnections;
-            clone.nodeViewRect = nodeViewRect;
+            clone.nodePosition = nodePosition;
             clone.x = x;
             clone.y = y;
             clone.graph = graph;
@@ -133,12 +159,12 @@ namespace ISILab.LBS.Components
         public override bool Equals(object obj)
         {
             if(obj is not GraphNode ode) return false;
-            return ID == ode.ID;
+            return ID == ode.ID && Graph == ode.Graph && Graph.OwnerLayer == ode.Graph.OwnerLayer;
         }
         
         public override int GetHashCode()
         {
-            return ID?.GetHashCode() ?? 0;
+            return ID.GetHashCode() + Graph.GetHashCode();
         }
 
         protected abstract GraphNode CreateCloneInstance();
@@ -147,8 +173,10 @@ namespace ISILab.LBS.Components
 
         public bool Equal(GraphNode other)
         {
-            return nodeViewRect == other.nodeViewRect;
+            return nodePosition == other.nodePosition;
         }
+
+        public bool IsSelected() => Graph.SelectedGraphNode == this;
         #endregion
     }
 
@@ -198,10 +226,10 @@ namespace ISILab.LBS.Components
 
         #region FIELDS
         [SerializeField, SerializeReference, JsonRequired]
-        private QuestActionData data;
+        private QuestNodeData data;
 
         [SerializeField, JsonRequired]
-        private string questAction = "";
+        private string terminalID = "";
 
         [SerializeField, JsonRequired]
         private ENodeType nodeType;
@@ -212,17 +240,17 @@ namespace ISILab.LBS.Components
 
         #region PROPERTIES
         [JsonIgnore]
-        public QuestActionData Data
+        public QuestNodeData Data
         {
             get => data;
             set => data = value;
         }
 
         [JsonIgnore]
-        public string QuestAction
+        public string TerminalID
         {
-            get => questAction;
-            set => questAction = value;
+            get => terminalID;
+            set => terminalID = value;
         }
 
         [JsonIgnore]
@@ -246,22 +274,18 @@ namespace ISILab.LBS.Components
 
         public QuestNode(string id, Vector2 position, string action, QuestGraph graph) : base(id, position, graph)
         {
-            questAction = action;
+            terminalID = action;
             nodeType = ENodeType.Middle;
-            InstanceDataByAction(action);
+
+            data = new QuestNodeData(this, graph.Grammar.GetTerminal(action));
         }
         #endregion
 
         #region METHODS
-        private void InstanceDataByAction(string action)
-        {
-            if (string.IsNullOrEmpty(action)) return;
-            data = QuestNodeDataFactory.CreateByTag(action, this);
-        }
 
         protected override GraphNode CreateCloneInstance()
         {
-            var clone = new QuestNode(ID, Position, questAction, graph)
+            var clone = new QuestNode(ID, Position, terminalID, graph)
             {
                 nodeType = nodeType,
                 questState = questState,
@@ -272,7 +296,7 @@ namespace ISILab.LBS.Components
 
         public override string ToString()
         {
-            return questAction;
+            return terminalID;
         }
 
         public override bool IsValid()

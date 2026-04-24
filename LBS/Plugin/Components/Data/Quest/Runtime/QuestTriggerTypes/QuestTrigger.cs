@@ -90,7 +90,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <summary>
         /// Replace and cast the incoming parameter to the required data type
         /// </summary>
-        protected virtual void SetData(QuestActionData data)
+        protected virtual void SetData(QuestNodeData data)
         {
             throw new NotImplementedException();
         }

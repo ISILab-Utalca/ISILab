@@ -47,7 +47,6 @@ namespace ISILab.LBS.Drawers.Editor
             {
                 // Reset layer input when changing to another layer
                 _suggestionViews.Clear();
-                QuestGraphNodeView.Deselect();
 
             };
         }

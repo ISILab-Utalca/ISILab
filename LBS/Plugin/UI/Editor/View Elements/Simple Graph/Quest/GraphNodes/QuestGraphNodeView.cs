@@ -10,6 +10,8 @@ using ISILab.LBS.Plugin.Core.Settings;
 using LBS.VisualElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 using ISILab.LBS.Behaviours;
+using ISILab.Extensions;
+using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.VisualElements 
 {
@@ -20,17 +22,40 @@ namespace ISILab.LBS.VisualElements
         protected static readonly Color InvalidGrammarColor     = LBSSettings.Instance.view.errorColor;
         protected static readonly Color DefaultBackgroundColor = LBSSettings.Instance.view.toolkitNormalDark;
         protected static readonly Color ValidGrammarColor   = LBSSettings.Instance.view.successColor;
-        
+
         #endregion
 
         #region Fields
 
-        public GraphNode Node;
+        private GraphNode node;
+
+        public GraphNode Node
+        {
+            get => node;
+            set
+            {
+                node = value;
+                ActionExtensions.AddUnique(ref node.OnSelect, OnSelect);
+                ActionExtensions.AddUnique(ref node.Graph.OnUpdateGraph, Refresh);
+                ActionExtensions.AddUnique(ref node.OnDeselect, OnDeselect);
+                ActionExtensions.AddUnique(ref OnMoving, UpdateNodePosition);
+            }
+        }
+
+        private void OnSelect()
+        {
+            SelectView(true);
+
+        }
+
+        private void OnDeselect()
+        {
+            SelectView(false);
+        }
+
         protected VisualElement InvalidConnectionIcon;
 
-        private static Type _prevManipulatorType;
-
-        private static QuestGraphNodeView _selectedGraph;
+        private static Type prevManipulator;
 
         private const float Alpha = 0.33f;
 
@@ -46,9 +71,9 @@ namespace ISILab.LBS.VisualElements
 
         #region Grammar State
 
-        public virtual void DisplayGrammarState(GraphNode node)
+        protected virtual void UpdateGrammarState()
         {
-            InvalidConnectionIcon.style.display = node.ValidConnections ? DisplayStyle.None : DisplayStyle.Flex;
+            InvalidConnectionIcon.style.display = Node.ValidConnections ? DisplayStyle.None : DisplayStyle.Flex;
         }
         
         #endregion
@@ -66,34 +91,31 @@ namespace ISILab.LBS.VisualElements
             if (evt.button == 0 && ToolKit.Instance.GetActiveManipulatorInstance() is SelectManipulator)
             {
                 LBSInspectorPanel.ActivateBehaviourTab();
-                if (Node.Graph.GraphNodes.Contains(Node))
-                {
-                    var bh = Node?.Graph?.OwnerLayer?.GetBehaviour<QuestBehaviour>();
-                    if(bh != null) bh.SelectedGraphNode = Node;
 
-                    _isDragging = true;
-                    this.CaptureMouse();
-                }
+                Node.Select();
+                _isDragging = true;
+                this.CaptureMouse();
             }
             
-            //DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
             DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
         }
 
         protected virtual void OnMouseMove(MouseMoveEvent e)
         {
             if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
-            if (this != _selectedGraph) return;
             // only move the selected node
-            if (Node == null) return;
+            if (Node == null || !Node.IsSelected()) return;
             if (e.pressedButtons != 1) return; // only while dragging
             if (!MainView.Instance.HasManipulator<SelectManipulator>()) return;
-            
+
             var grabPosition = GetPosition().position + e.mouseDelta / MainView.Instance.viewTransform.scale;
             grabPosition *= MainView.Instance.viewport.transform.scale;
 
             var newPos = new Rect(grabPosition.x, grabPosition.y, resolvedStyle.width, resolvedStyle.height);
             SetPosition(newPos);
+
+            OnMoving?.Invoke(newPos);
+            MarkDirtyRepaint();
         }
 
         protected virtual void OnMouseLeave(MouseLeaveEvent e) 
@@ -114,9 +136,10 @@ namespace ISILab.LBS.VisualElements
             RestoreManipulator();
             DrawManager.Instance.PickingModeRestoreAll();
             DrawManager.Instance.RedrawLayer(Node.Graph.OwnerLayer);
+
             _isDragging = false;
             this.ReleaseMouse();
-            
+
             /// avoid recall on assistant
             Type activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance().GetType();
             bool usingSelect = activeManipulator == typeof(SelectManipulator);
@@ -139,34 +162,42 @@ namespace ISILab.LBS.VisualElements
             // only set select if using addnode
             if (usingAddNode)
             {
-                if (_prevManipulatorType is null)
+                if (prevManipulator is null)
                 {
-                    _prevManipulatorType = ActiveManipulator;
+                    prevManipulator = ActiveManipulator;
                 }
                 
                 ToolKit.Instance.SetActive(typeof(SelectManipulator));
             }
             
         }
-        
+
+        public abstract void Refresh();
+
         private void RestoreManipulator()
         {
-            if (_prevManipulatorType is not null)
+            if (prevManipulator is not null)
             {
-                ToolKit.Instance.SetActive(_prevManipulatorType);
-                _prevManipulatorType = null;
+                ToolKit.Instance.SetActive(prevManipulator);
+                prevManipulator = null;
             }
         }
         #endregion
+
+        private void UpdateNodePosition(Rect rect)
+        {
+            if (Node == null) return;
+            Node.NodePosition = rect;
+        }
 
         #region Selection
 
         public abstract VisualElement GetSelectVisualElement();
 
-        public void IsSelected(bool isSelected)
+        public void SelectView(bool select)
         {
             var color = DefaultBackgroundColor;
-            if (isSelected)
+            if (select)
             {
                 color = Node.IsValid() ? ValidGrammarColor : InvalidGrammarColor;
         
@@ -175,25 +206,11 @@ namespace ISILab.LBS.VisualElements
                 float g = color.g * Alpha;
                 float b = color.b * Alpha;
                 color = new Color(r, g, b, 1f); 
-
-                _selectedGraph = this;
             }
 
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");
             coloredVe.style.backgroundColor = new StyleColor(color);
         }
-
-        public static void Deselect()
-        {
-            _selectedGraph?.IsSelected(false);
-            _selectedGraph = null;
-        }
-
-        public bool IsSelectedView()
-        {
-            return _selectedGraph == this;
-        } 
-        
         #endregion
     }
 }

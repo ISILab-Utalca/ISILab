@@ -47,7 +47,7 @@ namespace ISILab.LBS.VisualElements.Editor
             };
             _goToButton.clicked += () =>
             {
-                var graphPos =_generatedQuestNode.Graph.OwnerLayer.FixedToPosition(_generatedQuestNode.NodeViewPosition.position.ToInt(), true);
+                var graphPos =_generatedQuestNode.Graph.OwnerLayer.FixedToPosition(_generatedQuestNode.NodePosition.position.ToInt(), true);
                 _generatedQuestNode.Graph.GoToNodeInGraph(graphPos.ToInt());
             };
 
@@ -57,7 +57,7 @@ namespace ISILab.LBS.VisualElements.Editor
         {
             if (genNode == null) return;
             _generatedQuestNode = genNode;
-            _actionLabel.text = genNode.QuestAction;
+            _actionLabel.text = genNode.TerminalID;
         }
     }
 }

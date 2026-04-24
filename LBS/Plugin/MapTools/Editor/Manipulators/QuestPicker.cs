@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 using System;
 using ISILab.LBS.Macros;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -17,13 +18,12 @@ namespace ISILab.LBS.Manipulators
     public class QuestPicker : LBSManipulator
     {
         // Private fields
-        private QuestNodeBehaviour _behaviour;
-        private QuestBehaviour questBehavior;
+        private NodeDataBehaviour _behaviour;
 
         public bool PickTriggerPosition = false;
         
         // Public properties
-        public QuestActionData ActiveData { get; set; }
+        public QuestNodeData ActiveData { get; set; }
 
         /// <summary>
         /// Callback invoked when a bundle is picked. Only one function is allowed at a time.
@@ -50,13 +50,12 @@ namespace ISILab.LBS.Manipulators
         public override void Init(LBSLayer layer, object owner = null)
         {
             base.Init(layer, owner);
-            _behaviour = layer.GetBehaviour<QuestNodeBehaviour>();
-            questBehavior = layer.GetBehaviour<QuestBehaviour>();
+            _behaviour = layer.GetBehaviour<NodeDataBehaviour>();
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if (questBehavior.SelectedGraphNode is not QuestNode node || ActiveData == null) return;
+            if (_behaviour.Graph.SelectedQuestNode == null || ActiveData == null) return;
                 
             Vector2Int location = LBSMainWindow._gridPosition;
 
@@ -80,7 +79,7 @@ namespace ISILab.LBS.Manipulators
                 }
             }
 
-            questBehavior.NodeDataChanged(node);
+            ActiveData.Node.Select();
 
             if (EditorGUI.EndChangeCheck())
             {

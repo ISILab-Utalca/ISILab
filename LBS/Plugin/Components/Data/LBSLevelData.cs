@@ -157,6 +157,7 @@ namespace ISILab.LBS
         /// <returns></returns>
         public LBSLayer RemoveAt(int index)
         {
+            if (index > layers.Count) return null;
             var layer = layers[index];
             layers.RemoveAt(index);
             RemoveLayerFromContext(layer);

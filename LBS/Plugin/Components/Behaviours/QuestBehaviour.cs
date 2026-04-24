@@ -17,45 +17,12 @@ namespace ISILab.LBS.Behaviours
         public Type activeGraphNodeType = null;
         public string ActionToSet { get; set; }
 
-        private GraphNode _selectedNode;
 
         #region PROPERTIES
 
         public QuestGraph Graph => OwnerLayer.GetModule<QuestGraph>();
 
-        public GraphNode SelectedGraphNode
-        {
-            get => _selectedNode;
-            set
-            {
-                if (value is not null && _selectedNode is not null)
-                {
-                    if (value.Equals(_selectedNode)) return;
-                }
-
-                _selectedNode = value;
-                _onNodeSelected?.Invoke(_selectedNode);
-            }
-        }
-
-
-        public QuestActionData SelectedNodeData => SelectedQuestNode?.Data;
-
-        public QuestNode SelectedQuestNode => SelectedGraphNode as QuestNode;
         #endregion
-
-        #region ACTIONS
-
-        private Action<GraphNode> _onNodeSelected;
-
-        public event Action<GraphNode> OnGraphNodeSelected
-        {
-            add { _onNodeSelected += value; }
-            remove { _onNodeSelected -= value; }
-        }
-
-        #endregion
-
 
         #region CONSTRUCTOR
 
@@ -80,18 +47,40 @@ namespace ISILab.LBS.Behaviours
         public override void OnAttachLayer(LBSLayer layer)
         {
             OwnerLayer = layer;
-            layer.OnChange += UpdateKeys;
 
-            OwnerLayer.GetModule<QuestGraph>().OnAddNode += OnAddNode;
-            OwnerLayer.GetModule<QuestGraph>().OnRemoveNode += OnRemoveNode;
+            layer.OnChange += () =>
+            {
+                Graph.SelectedGraphNode = null;
+                UpdateKeys();
+            };
+
+            Graph.OnAddNode += (node) =>
+            {
+                RequestTilePaint(node);
+            };
+
+            Graph.OnAddEdge += (edge) =>
+            {
+                foreach (var from in edge.From)
+                {
+                    RequestTilePaint((edge, from));
+                }
+            };
+
+            Graph.OnRemoveNode += (node) =>
+            {
+                RequestTileRemove(node);
+            };
+
+            Graph.OnRemoveEdge += (edge) =>
+            {
+                foreach(var from in edge.From)
+                {
+                    RequestTileRemove((edge, from));
+                }
+            };
         }
 
-        private void OnAddNode(QuestNode node) => SelectedGraphNode = node;
-
-        private void OnRemoveNode(QuestNode node)
-        {
-            if (SelectedGraphNode == node) SelectedGraphNode = null;
-        }
 
         public override void OnDetachLayer(LBSLayer layer)
         {
@@ -101,18 +90,31 @@ namespace ISILab.LBS.Behaviours
 
         public override void CheckKeys()
         {
-            UpdateKeys(Graph.GraphNodes.ToList<object>());
+            UpdateKeys();
         }
 
         public void UpdateKeys()
         {
-            UpdateKeys(Graph.GraphNodes.ToList<object>());
-        }
+            if (Graph == null) return;
 
-        public void NodeDataChanged(GraphNode node)
-        {
-            if (Equals(_selectedNode, node)) return;
-            _onNodeSelected?.Invoke(node);
+            List<object> allKeys = new List<object>();
+
+            // Add Node as keys
+            foreach (var node in Graph.GraphNodes)
+            {
+                allKeys.Add(node);
+            }
+
+            // Add Edges AS TUPLES (as they are registered in PaintNewTiles/LoadAllTiles in Drawer)
+            foreach (var edge in Graph.GraphEdges)
+            {
+                foreach (var from in edge.From)
+                {
+                    allKeys.Add((edge, from));
+                }
+            }
+
+            UpdateKeys(allKeys);
         }
 
 
@@ -176,13 +178,13 @@ namespace ISILab.LBS.Behaviours
                 Vector2Int distanceToAnchor = node.Position - parentAnchor;
                 node.Position = delta + distanceToAnchor;
 
-                Vector2 distanceToAnchorView = node.NodeViewPosition.position - parentAnchorViewPos;
+                Vector2 distanceToAnchorView = node.NodePosition.position - parentAnchorViewPos;
 
                 Vector2 newViewPos = deltaView + distanceToAnchorView;
 
-                node.NodeViewPosition = new Rect(
+                node.NodePosition = new Rect(
                     newViewPos,
-                    node.NodeViewPosition.size
+                    node.NodePosition.size
                 );
             }
         }

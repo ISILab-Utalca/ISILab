@@ -33,9 +33,9 @@ MonoBehaviour:
     - rid: 7118756570821821104
     - rid: 7118756570821821105
     behaviours:
-    - rid: 7118756570821821129
     - rid: 7118756570821821106
     - rid: 7118756570821821130
+    - rid: 1036301199104803716
     assistants:
     - rid: 7118756570821821107
     - rid: 7118756570821821141
@@ -60,86 +60,115 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1036301199104803716
+      type: {class: NodeDataBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+      data:
+        visible: 1
+        ownerLayerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
+          id: Quest
+          name: Layer Quest
+          activeFloor: 0
+          floors:
+          - rid: 7118756570821821096
+          - rid: 7118756570821821097
+          - rid: 7118756570821821098
+          - rid: 7118756570821821099
+          - rid: 7118756570821821100
+          - rid: 7118756570821821101
+          - rid: 7118756570821821102
+          - rid: 7118756570821821103
+          - rid: 7118756570821821104
+          - rid: 7118756570821821105
+          behaviours:
+          - rid: 7118756570821821106
+          - rid: 7118756570821821130
+          - rid: 1036301199104803716
+          assistants:
+          - rid: 7118756570821821107
+          - rid: 7118756570821821141
+          generatorRules:
+          - rid: 7118756570821821108
+          settings:
+            useBundleSize: 0
+            lightVolume: 0
+            reflectionProbe: 0
+            scale: {x: 2, y: 2, z: 2}
+            resize: {x: 0, y: 0}
+            position: {x: 0, y: 0, z: 0}
+            replacePrevious: 1
+            buildLightProbes: 1
+            bakeLights: 0
+            optimization3d: 0
+            generatedRootName: Quest
+            rootParentName: Root_Parent
+          index: 0
+        colorTint: {r: 0.5294118, g: 0.8392157, b: 0.9607843, a: 1}
+        name: Node Data
+        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
+        icon: {fileID: 0}
     - rid: 7118756570821821096
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 7118756570821821109
         - rid: 7118756570821821110
         - rid: 7118756570821821131
-        - rid: 7118756570821821142
     - rid: 7118756570821821097
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 7118756570821821111
-        - rid: 7118756570821821112
-        - rid: 7118756570821821132
         - rid: 7118756570821821143
+        - rid: 7118756570821821132
     - rid: 7118756570821821098
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821113
-        - rid: 7118756570821821114
         - rid: 7118756570821821133
-        - rid: 7118756570821821144
     - rid: 7118756570821821099
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821115
-        - rid: 7118756570821821116
         - rid: 7118756570821821134
-        - rid: 7118756570821821145
     - rid: 7118756570821821100
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821117
-        - rid: 7118756570821821118
         - rid: 7118756570821821135
-        - rid: 7118756570821821146
     - rid: 7118756570821821101
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821119
-        - rid: 7118756570821821120
         - rid: 7118756570821821136
-        - rid: 7118756570821821147
     - rid: 7118756570821821102
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821121
-        - rid: 7118756570821821122
         - rid: 7118756570821821137
-        - rid: 7118756570821821148
     - rid: 7118756570821821103
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821123
-        - rid: 7118756570821821124
         - rid: 7118756570821821138
-        - rid: 7118756570821821149
     - rid: 7118756570821821104
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821125
-        - rid: 7118756570821821126
         - rid: 7118756570821821139
-        - rid: 7118756570821821150
     - rid: 7118756570821821105
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
         - rid: 7118756570821821127
-        - rid: 7118756570821821128
         - rid: 7118756570821821140
-        - rid: 7118756570821821151
     - rid: 7118756570821821106
       type: {class: QuestBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
@@ -164,7 +193,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -213,7 +242,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -241,58 +270,6 @@ MonoBehaviour:
     - rid: 7118756570821821108
       type: {class: QuestRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
       data: 
-    - rid: 7118756570821821109
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821110
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
       data:
@@ -317,7 +294,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -342,112 +319,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821111
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821112
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821113
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -473,7 +344,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -498,60 +369,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821114
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821115
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -577,7 +394,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -602,60 +419,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821116
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821117
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -681,7 +444,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -706,60 +469,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821118
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821119
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -785,7 +494,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -810,60 +519,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821120
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821121
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -889,7 +544,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -914,60 +569,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821122
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821123
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -993,7 +594,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1018,60 +619,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821124
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821125
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -1097,7 +644,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1122,60 +669,6 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821126
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821127
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
@@ -1201,7 +694,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1226,110 +719,7 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821128
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821129
-      type: {class: QuestNodeBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
-      data:
-        visible: 1
-        ownerLayerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        colorTint: {r: 0.5294118, g: 0.8392157, b: 0.9607843, a: 1}
-        name: Node Behavior
-        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
-        icon: {fileID: 0}
     - rid: 7118756570821821130
       type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
@@ -1354,7 +744,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1403,7 +793,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1449,7 +839,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1495,7 +885,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1541,7 +931,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1587,7 +977,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1633,7 +1023,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1679,7 +1069,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1725,7 +1115,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1771,7 +1161,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1817,7 +1207,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1863,7 +1253,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1889,58 +1279,8 @@ MonoBehaviour:
         iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 0}
         suggestionAmount: 3
-    - rid: 7118756570821821142
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
         suggestions: []
         displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
     - rid: 7118756570821821143
       type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
       data:
@@ -1965,7 +1305,7 @@ MonoBehaviour:
           - rid: 7118756570821821105
           behaviours:
           - rid: 7118756570821821106
-          - rid: 7118756570821821129
+          - rid: -2
           - rid: 7118756570821821130
           assistants:
           - rid: 7118756570821821107
@@ -1990,422 +1330,4 @@ MonoBehaviour:
         graphEdges: []
         root:
           rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821144
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821145
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821146
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821147
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821148
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821149
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821150
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
-        grammarGuid: 63ab688b53411154db5edd0ec7171c42
-    - rid: 7118756570821821151
-      type: {class: QuestGraph, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraph
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          activeFloor: 0
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 7118756570821821129
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Quest
-            rootParentName: Root_Parent
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        suggestions: []
-        displaySuggestions: 0
         grammarGuid: 63ab688b53411154db5edd0ec7171c42
