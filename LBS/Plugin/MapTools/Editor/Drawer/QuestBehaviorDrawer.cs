@@ -159,8 +159,9 @@ namespace ISILab.LBS.Drawers.Editor
             var allElements = view.GetAllElementsInLayer(bh.OwnerLayer);
             foreach(var element in allElements)
             {
-                element.style.opacity = opacity;
-                DrawManager.Instance.ChangePickingMode(element, pickMode, new List<VisualElement>());
+                //element.style.opacity = opacity;
+                element.SetEnabled(isSelected);
+                //DrawManager.Instance.ChangePickingMode(element, pickMode, new List<VisualElement>());
             }
 
 
