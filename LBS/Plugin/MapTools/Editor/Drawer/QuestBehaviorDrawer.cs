@@ -188,6 +188,9 @@ namespace ISILab.LBS.Drawers.Editor
 
                 if (nodeView == null) continue;
 
+                // disable when loading levels
+                nodeView.SetEnabled(false);
+
                 view.AddElementToLayerContainer(graph.OwnerLayer, node, nodeView);
             }
 
@@ -213,6 +216,9 @@ namespace ISILab.LBS.Drawers.Editor
 
                     view.AddElementToLayerContainer(graph.OwnerLayer, key, edgeView);
                     edgeView.layer = fromView.layer + 1;
+
+                    // disable when loading levels
+                    edgeView.SetEnabled(false);
                 }
             }
         }

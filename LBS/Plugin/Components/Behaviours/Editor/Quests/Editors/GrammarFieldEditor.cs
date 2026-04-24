@@ -39,7 +39,8 @@ namespace ISILab.LBS.VisualElements
             visualTree.CloneTree(this);
 
             nameLabel = this.Q<LBSCustomLabel>("Name");
-            nameLabel.text = (target as GrammarField)?.name;
+            var name = (target as GrammarField)?.name;
+            nameLabel.text = name;
 
             content = this.Q<VisualElement>("Content");
             return this;

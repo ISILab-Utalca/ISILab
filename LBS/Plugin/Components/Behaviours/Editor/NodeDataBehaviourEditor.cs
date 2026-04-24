@@ -277,7 +277,6 @@ namespace ISILab.LBS.VisualElements
                 showAddRemoveFooter = true,
                 headerTitle = listField.name,
                 showFoldoutHeader = true,
-                fixedItemHeight = 30
             };
 
             listView.makeItem = () =>
