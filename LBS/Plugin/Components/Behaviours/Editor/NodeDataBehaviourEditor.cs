@@ -1,3 +1,4 @@
+using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
@@ -15,6 +16,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -22,14 +24,26 @@ namespace ISILab.LBS.VisualElements
     [LBSCustomEditor("NodeDataBehaviour", typeof(NodeDataBehaviour))]
     public class NodeDataBehaviourEditor : LBSCustomEditor, IToolProvider
     {
+        #region CONSTS
+
+        private static readonly Dictionary<Type, Type> FieldTypeToVisualElement = new()
+        {
+            { typeof(GrammarFloat), typeof(FieldFloat) },
+            { typeof(GrammarString), typeof(FieldString) },
+            { typeof(GrammarObject), typeof(FieldReferenceGraph) },
+            { typeof(GrammarType), typeof(FieldReferenceType) },
+            { typeof(GrammarInt), typeof(FieldInt) }
+        };
+
+        #endregion
+
         #region FIELDS
         private NodeDataBehaviour behaviour;
 
         private const float ActionBorderThickness = 1f;
         private const float BackgroundOpacity = 0.25f;
-        
         #endregion
-        
+
         #region VIEW FIELDS
         /// <summary>
         /// Displays the action string
@@ -79,7 +93,7 @@ namespace ISILab.LBS.VisualElements
         protected sealed override VisualElement CreateVisualElement()
         {
             Clear();
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("NodeBehaviourEditor");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("NodeDataBehaviour");
             visualTree.CloneTree(this);
             
             #region Get VisualElements from UXML
@@ -216,23 +230,71 @@ namespace ISILab.LBS.VisualElements
             // on complete display
             _hooker.Hooker = (behaviour.SelectedNodeData?.EventHooker);
 
-            // set default data display
-            _paramActionLabel.text = node.TerminalID;
-            _nodeIDLabel.text = node.ID;
-            SetBaseNodeData(node.Data);
+            SetNode(node);
+            SetFields(node);
+        }
 
-            // specific visual elements display per fields
-            foreach (var terminalField in node.Data.Fields)
+        private void SetFields(QuestNode node)
+        {
+            if(node?.Data?.Fields == null) return;
+
+            fieldsVisualElements.Clear();
+
+            foreach (var field in node.Data.Fields)
             {
-                var terminalID = terminalField.name;
-                // find a visualelement class with the terminalID as attribute and instance it
-               // VisualElement ve = Activator.CreateInstance() as VisualElement;
-                VisualElement ve = new VisualElement();
-                fieldsVisualElements.Add(ve);
+                if (field.IsList)
+                {
+                    CreateFieldList(field);
+                }
+                else
+                {
+                    var ve = CreateField(field);
+                    if (ve != null) fieldsVisualElements.Add(ve);
+                }
             }
+        }
 
-            
+        private VisualElement CreateField(GrammarField field)
+        {
+            if (field != null)
+            {
+                Type fieldType = field.GetType();
 
+                if (FieldTypeToVisualElement.TryGetValue(fieldType, out Type veType))
+                {
+                    return (VisualElement)Activator.CreateInstance(veType, field);
+                }
+            }
+            return null;
+        }
+
+        private void CreateFieldList(GrammarField listField)
+        {
+            var listView = new ListView
+            {
+                itemsSource = listField.ItemsSource,
+                reorderable = true,
+                showAddRemoveFooter = true,
+                headerTitle = listField.name,
+                showFoldoutHeader = true,
+                fixedItemHeight = 30
+            };
+
+            listView.makeItem = () =>
+            {
+                var dummy = (GrammarField)Activator.CreateInstance(listField.PrimitiveType);
+                return CreateField(dummy);
+            };
+
+            listView.bindItem = (element, index) =>
+            {
+                if (element is GrammarFieldEditor editor)
+                {
+                    editor.SetNewInfo(listView.itemsSource[index]);
+                }
+            };
+
+            fieldsVisualElements.Add(listView);
         }
 
         /// <summary>
@@ -240,8 +302,15 @@ namespace ISILab.LBS.VisualElements
         /// Adds fields by type
         /// </summary>
         /// <param name="data"></param>
-        private void SetBaseNodeData(QuestNodeData data)
+        private void SetNode(QuestNode node)
         {
+            if(node == null ) return;
+            var data = node.Data;
+            if(data == null ) return;
+
+            _paramActionLabel.text = node.TerminalID;
+            _nodeIDLabel.text = node.ID;
+
             Color terminalColor = data.Terminal.color;
             Color backgroundColor = terminalColor;
             backgroundColor.a = BackgroundOpacity;
