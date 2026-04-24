@@ -46,7 +46,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         public static void CreateConfigurableEvaluator(string name, bool configurable, bool context, bool distance)
         {
             string evaluatorsFolder = LBSSettings.Instance.paths.evaluatorsPath;
-            string evaluatorsVEsFolder = LBSSettings.Instance.paths.baseFolderPath + "/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators";
+            string evaluatorsVEsFolder = LBSSettings.Instance.paths.evaluatorsVEPath;
 
             string path = evaluatorsFolder + Path.DirectorySeparatorChar + name + ".cs";
             //    EditorUtility.SaveFilePanelInProject(
@@ -174,7 +174,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     .Replace        ("#FIELDS_CLONATION#"                   , fieldsClonation);
                 File.WriteAllText(path, template);
 
-                string VEPath = evaluatorsVEsFolder + "/Editor/" + className + "VE.cs";
+                //string VEPath = evaluatorsVEsFolder + "/Editor/" + className + "VE.cs";
+                string VEPath = evaluatorsVEsFolder + "/" + className + "VE.cs";
 
                 string VE = GetText(VISUAL_ELEMENT_GUID)
                     .ReplaceOrErase ("#CONFIGURATION_NAMESPACES#"   , GetText(VE_CONFIGURATION_NAMESPACES)  , configurable)

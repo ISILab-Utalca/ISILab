@@ -215,7 +215,7 @@ namespace ISILab.LBS.VisualElements
         protected override void OnMouseEnter(MouseEnterEvent evt)
         {
             if (Node == null) return;
-
+            if (!this.enabledSelf) return;
             base.OnMouseEnter(evt);
 
             if (!_isDragging)

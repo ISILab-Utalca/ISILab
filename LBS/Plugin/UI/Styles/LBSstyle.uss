@@ -1868,3 +1868,14 @@ Toggle > .lbs-default-icon {
 .lbs-custom-toggle > .unity-toggle__input > .unity-toggle__checkmark {
     background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon@32.png') !important;
 }
+
+.lbs-custom-dropdown-marginless > VisualElement:last-child {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.lbs-button-only-tooltip-when-disabled {}
+
+.lbs-button-only-tooltip-when-disabled:disabled:hover {
+    background-color: transparent;
+}

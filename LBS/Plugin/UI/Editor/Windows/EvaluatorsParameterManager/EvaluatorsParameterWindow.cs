@@ -3,6 +3,7 @@ using ISILab.LBS;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElement;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
@@ -63,6 +64,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
         InitUI();
         //LoadParamVisualList();
         RefreshData();
+        ChangeTheme(LBSSettings.Instance.view.LBSTheme);
     }
 
     public void InitUI()
@@ -118,7 +120,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     {
         ParameterData newParameter = new ParameterData(
             paramGenName.value,
-            GetTypeFromSTring(paramGenClassDropDown.label),
+            paramGenClassDropDown.value,
             paramGenInitialValue.value
             );
 

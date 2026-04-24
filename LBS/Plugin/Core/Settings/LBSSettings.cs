@@ -92,6 +92,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
             instance.paths.tagFolderPath = userFolder + "/Tags";
             instance.paths.meshFolderPath = userFolder + "/Meshes";
             instance.paths.evaluatorsPath = userFolder + "/Evaluators";
+            instance.paths.evaluatorsVEPath = instance.paths.evaluatorsPath + "/Editor";
 
             instance.paths.WFCpresetsFolderPath = userFolder + "/Presets/WFC";
 
@@ -158,6 +159,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
             public string tagFolderPath                 = "Assets/ISILab/LBS/Content/Tags";
             public string meshFolderPath                = "Assets/ISILab/LBS/Content/Meshes";
             public string evaluatorsPath                = "Assets/ISILab/LBS/Content/Evaluators";
+            public string evaluatorsVEPath              = "Assets/ISILab/LBS/Content/Evaluators/Editor";
 
             public string WFCpresetsFolderPath          = "Assets/ISILab/LBS/Content/Presets/WFC";
 
