@@ -2,6 +2,7 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -113,7 +114,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             //gray icons instead of invisible icons
             if (!b)
             {
-                interfaceBoolListVisualElements[i].style.unityBackgroundImageTintColor = Color.gray;
+                //interfaceBoolListVisualElements[i].style.unityBackgroundImageTintColor = Color.gray;
+                interfaceBoolListVisualElements[i].RemoveFromClassList("lbs-custom-colored-icon");
+                interfaceBoolListVisualElements[i].AddToClassList("lbs-custom-colored-icon-disabled");
+            }
+            else 
+            {
+                interfaceBoolListVisualElements[i].RemoveFromClassList("lbs-custom-colored-icon-disabled");
+                interfaceBoolListVisualElements[i].AddToClassList("lbs-custom-colored-icon");
             }
                 
         }

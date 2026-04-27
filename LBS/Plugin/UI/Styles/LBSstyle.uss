@@ -1882,3 +1882,12 @@ Toggle > .lbs-default-icon {
 .lbs-button-only-tooltip-when-disabled:disabled:hover {
     background-color: transparent;
 }
+
+.lbs-custom-colored-icon {
+    -unity-background-image-tint-color: var(--lbs-icon-color);
+}
+
+.lbs-custom-colored-icon-disabled {
+    -unity-background-image-tint-color: var(--lbs-unselected-icon-color);
+}
+
