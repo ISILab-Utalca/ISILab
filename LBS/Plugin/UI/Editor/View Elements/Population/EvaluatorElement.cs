@@ -68,13 +68,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             evOpenSOButton = this.Q<LBSCustomButton>("evOpenSO");
             evOpenSOButton.RegisterCallback<ClickEvent>(OpenSO);
 
-            //Here i manually set the "Scriptable Object" Icon while we dont have a vector option
-            Texture2D soIcon = EditorGUIUtility.IconContent("ScriptableObject On Icon").image as Texture2D;
-            evOpenSOButton.style.backgroundImage = new StyleBackground(soIcon);
-            evOpenSOButton.style.backgroundSize = new StyleBackgroundSize(
-                new BackgroundSize(new Length(80, LengthUnit.Percent), new Length(80, LengthUnit.Percent)));
-
-
             interfaceIcon1 = this.Q<VisualElement>("InterfaceIcon1");
             interfaceIcon2 = this.Q<VisualElement>("InterfaceIcon2");
             interfaceIcon3 = this.Q<VisualElement>("InterfaceIcon3");
@@ -109,11 +102,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         }
         public void SetInterfaceIconVisibility(bool b1, bool b2, bool b3)
         {
-            /*
-            interfaceBoolListVisualElements[0].visible = b1;
-            interfaceBoolListVisualElements[1].visible = b2;
-            interfaceBoolListVisualElements[2].visible = b3;
-            */
             SetInterfaceIconVisibilitybyIndex(0,b1);
             SetInterfaceIconVisibilitybyIndex(1,b2);
             SetInterfaceIconVisibilitybyIndex(2,b3);
@@ -145,7 +133,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             
             // 2. Comparamos el título actual con el que queremos poner
             // Usamos la misma cadena exacta que definiste para el título
-            string expectedTitle = $"Param Config: {EvLabelString}";
+            string expectedTitle = $"{EvLabelString}";
 
             if (existingWindow != null)
             {
@@ -195,7 +183,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
                 //evOpenSOButton.pickingMode = PickingMode.Ignore;
                 //evOpenSOButton.focusable = false;
                 //evOpenSOButton.style.unityBackgroundImageTintColor = Color.gray;
-                
+
+                evOpenSOButton.tooltip = "Open Scriptable Object.\nOnly available for configurable evaluators";
+
                 evOpenSOButton.RegisterCallback<MouseEnterEvent>(evt =>
                 {
                     evt.StopImmediatePropagation();
