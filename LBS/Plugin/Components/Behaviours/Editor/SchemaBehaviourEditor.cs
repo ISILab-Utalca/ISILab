@@ -129,7 +129,7 @@ namespace ISILab.LBS.Behaviours.Editor
         {
             behaviour = paramTarget as SchemaBehaviour;
 
-            behaviour.LevelChangedAction = () => {
+            behaviour.LevelChangedCallback = (_) => {
                 SetAreaPallete();
                 SetConnectionPallete();
             };

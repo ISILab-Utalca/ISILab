@@ -1,4 +1,5 @@
 using ISILab.Commons.Extensions;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
@@ -90,6 +91,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             {
                 // Floor variables
                 SimulationModule simMod = layer.GetModule<SimulationModule>("", i);
+                SimulationBehaviour simBehaviour = layer.GetBehaviour<SimulationBehaviour>();
+
                 List<SimulationTile> tiles = simMod.GetTiles();
                 if (tiles.Count < 1) continue;
                 notEmptyFloorCount++;
@@ -106,6 +109,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 GameObject wallsContainer = new GameObject("Walls");
                 wallsContainer.transform.SetParent(floorParent.transform);
 
+                // 3er Objeto hijo, contenedor de escaleras
+                GameObject stairContainer = new GameObject("Stairs");
+                stairContainer.transform.SetParent(floorParent.transform);
 
                 foreach (SimulationTile tile in tiles)
                 {
@@ -123,6 +129,12 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     {
                         instance.transform.SetParent(wallsContainer.transform);
                         walls.Add((tile, instance.gameObject));
+                    }
+                    // Stair settings
+                    else if(tile.Tag != null && (tile.Tag == simBehaviour.lowStairTag || tile.Tag == simBehaviour.highStairTag))
+                    {
+                        instance.transform.SetParent(stairContainer.transform);
+                        instance.transform.position += (tile.Tag == simBehaviour.lowStairTag) ? Vector3.up * settings.scale.y * 0.25f : Vector3.up * settings.scale.y * 0.75f;
                     }
                     // Entities settings
                     else
@@ -162,7 +174,6 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             {
                 GameObject.Instantiate(heatmapVisualizer, manager.gameObject.transform);
             }
-
 
             // Apply agent reference to all generated components
             PathOSAgent agentComp = agentGO.GetComponent<PathOSAgent>();
@@ -238,7 +249,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 currInstance = PrefabUtility.InstantiatePrefab(agentPrefab, parent) as GameObject;
 
                 // Set position
-                currInstance.transform.position = new Vector3(tile.X * scale.x, floor * scale.y, tile.Y * scale.z);
+                currInstance.transform.position = new Vector3((tile.X - 0.5f) * scale.x, floor * scale.y, (tile.Y - 0.5f) * scale.z);
 
                 // Copy player camera component
                 var player = GameObject.FindFirstObjectByType<CharacterController>();
@@ -284,7 +295,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             currRenderer.enabled = false;
 
             // Set Position
-            currInstance.transform.position = new Vector3(tile.X * scale.x, floor * scale.y, tile.Y * scale.z);
+            currInstance.transform.position = new Vector3((tile.X - 0.5f) * scale.x, floor * scale.y, (tile.Y - 0.5f) * scale.z);
 
             // Add simulation component
             LBSGeneratedSimulation genComp = currInstance.AddComponent<LBSGeneratedSimulation>();
