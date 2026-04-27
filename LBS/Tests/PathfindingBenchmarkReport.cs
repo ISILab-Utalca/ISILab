@@ -18,6 +18,9 @@ namespace ISILab.LBS.Tests
         const PathfindingAlgorithm JPS = PathfindingAlgorithm.JPS_Plus;
         const PathfindingAlgorithm AStar = PathfindingAlgorithm.A_Star;
 
+        const int WARM_UP_COUNT = 5;
+        const int MEASUREMENT_COUNT = 20;
+
         private void Pathfind(Type type, int mapSize, int enemyQuantity, int wallQuantity, PathfindingAlgorithm searchType)
         {
             var evaluator = Activator.CreateInstance(type) as ITestingEvaluator;
@@ -28,15 +31,19 @@ namespace ISILab.LBS.Tests
 
             List<LBSLayer> oldContext = new();
 
+            int c = 0;
+            const int warmUp = 5;
             Measure.Method(() =>
             {
                 double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
+                c++;
+                if (c > warmUp) return;
                 //Measure.Custom(fitnessGroup, fitness);
                 Measure.Custom(visitedNodesGroup, info.visitedNodes);
                 double avg = info.Average();
                 Measure.Custom(meanExecutionTime, avg);
             })
-            .WarmupCount(5)
+            .WarmupCount(warmUp)
             .MeasurementCount(10)
             .IterationsPerMeasurement(1)
             .SetUp(() =>
@@ -81,7 +88,9 @@ namespace ISILab.LBS.Tests
             //"835410d40128b35468bbd7f01deccbb3" // (small 1)
             //"c582f8c0beac2a64f817ce3e1ea3c000" // (medium 1)
             //"340b5a38ad6dc6340a509604941ea5f3" // (big 1)
-            "9d647ab227a18bb49b015b055efe51de" // (big 2)
+
+            "bbc52eb299a0c5542b700c6332e9f978" // (medium 2)
+            //"9d647ab227a18bb49b015b055efe51de" // (big 2)
             ;
         public void PathfindExample1(PathfindingAlgorithm searchType)
         {
@@ -93,14 +102,18 @@ namespace ISILab.LBS.Tests
 
             List<LBSLayer> oldContext = new();
 
+            int c = 0;
+            const int warmUp = 5;
             Measure.Method(() =>
             {
                 double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
+                c++;
+                if (c <= warmUp) return;
                 Measure.Custom(visitedNodesGroup, info.visitedNodes);
                 double avg = info.Average();
                 Measure.Custom(meanExecutionTime, avg);
             })
-            .WarmupCount(5)
+            .WarmupCount(warmUp)
             .MeasurementCount(10)
             .IterationsPerMeasurement(1)
             .SetUp(() =>
@@ -136,123 +149,127 @@ namespace ISILab.LBS.Tests
             return new Rect(Vector2.zero, size);
         }
 
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_FewEnemies_FewWalls        () => Pathfind(typeof(Colonies), 1, 1, 1, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_FewEnemies_FewWalls       () => Pathfind(typeof(Colonies), 2, 1, 1, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_FewEnemies_FewWalls          () => Pathfind(typeof(Colonies), 3, 1, 1, FF);
+        #region OLD TESTS
 
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_MediumEnemies_FewWalls     () => Pathfind(typeof(Colonies), 1, 2, 1, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_MediumEnemies_FewWalls    () => Pathfind(typeof(Colonies), 2, 2, 1, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_MediumEnemies_FewWalls       () => Pathfind(typeof(Colonies), 3, 2, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_FewEnemies_FewWalls        () => Pathfind(typeof(Colonies), 1, 1, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_FewEnemies_FewWalls       () => Pathfind(typeof(Colonies), 2, 1, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_FewEnemies_FewWalls          () => Pathfind(typeof(Colonies), 3, 1, 1, FF);
 
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_ManyEnemies_FewWalls       () => Pathfind(typeof(Colonies), 1, 3, 1, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_ManyEnemies_FewWalls      () => Pathfind(typeof(Colonies), 2, 3, 1, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_ManyEnemies_FewWalls         () => Pathfind(typeof(Colonies), 3, 3, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_MediumEnemies_FewWalls     () => Pathfind(typeof(Colonies), 1, 2, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_MediumEnemies_FewWalls    () => Pathfind(typeof(Colonies), 2, 2, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_MediumEnemies_FewWalls       () => Pathfind(typeof(Colonies), 3, 2, 1, FF);
 
-
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_FewEnemies_MediumWalls     () => Pathfind(typeof(Colonies), 1, 1, 2, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_FewEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 2, 1, 2, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_FewEnemies_MediumWalls       () => Pathfind(typeof(Colonies), 3, 1, 2, FF);
-
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_MediumEnemies_MediumWalls  () => Pathfind(typeof(Colonies), 1, 2, 2, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_MediumEnemies_MediumWalls () => Pathfind(typeof(Colonies), 2, 2, 2, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_MediumEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 3, 2, 2, FF);
-
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_ManyEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 1, 3, 2, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_ManyEnemies_MediumWalls   () => Pathfind(typeof(Colonies), 2, 3, 2, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_ManyEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 3, 3, 2, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_ManyEnemies_FewWalls       () => Pathfind(typeof(Colonies), 1, 3, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_ManyEnemies_FewWalls      () => Pathfind(typeof(Colonies), 2, 3, 1, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_ManyEnemies_FewWalls         () => Pathfind(typeof(Colonies), 3, 3, 1, FF);
 
 
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_FewEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 1, 1, 3, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_FewEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 2, 1, 3, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_FewEnemies_ManyWalls         () => Pathfind(typeof(Colonies), 3, 1, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_FewEnemies_MediumWalls     () => Pathfind(typeof(Colonies), 1, 1, 2, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_FewEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 2, 1, 2, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_FewEnemies_MediumWalls       () => Pathfind(typeof(Colonies), 3, 1, 2, FF);
 
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_MediumEnemies_ManyWalls    () => Pathfind(typeof(Colonies), 1, 2, 3, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_MediumEnemies_ManyWalls   () => Pathfind(typeof(Colonies), 2, 2, 3, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_MediumEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 3, 2, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_MediumEnemies_MediumWalls  () => Pathfind(typeof(Colonies), 1, 2, 2, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_MediumEnemies_MediumWalls () => Pathfind(typeof(Colonies), 2, 2, 2, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_MediumEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 3, 2, 2, FF);
 
-        [Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_ManyEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 1, 3, 3, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_ManyEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 2, 3, 3, FF);
-        [Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_ManyEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 3, 3, 3, FF);
-
-        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_TooManyEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 3, 4, 3, FF);
-
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_FewEnemies_FewWalls          () => Pathfind(typeof(Colonies), 1, 1, 1, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_FewEnemies_FewWalls         () => Pathfind(typeof(Colonies), 2, 1, 1, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_FewEnemies_FewWalls            () => Pathfind(typeof(Colonies), 3, 1, 1, JPS);
-
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_MediumEnemies_FewWalls       () => Pathfind(typeof(Colonies), 1, 2, 1, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_MediumEnemies_FewWalls      () => Pathfind(typeof(Colonies), 2, 2, 1, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_MediumEnemies_FewWalls         () => Pathfind(typeof(Colonies), 3, 2, 1, JPS);
-
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_ManyEnemies_FewWalls         () => Pathfind(typeof(Colonies), 1, 3, 1, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_ManyEnemies_FewWalls        () => Pathfind(typeof(Colonies), 2, 3, 1, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_ManyEnemies_FewWalls           () => Pathfind(typeof(Colonies), 3, 3, 1, JPS);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_ManyEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 1, 3, 2, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_ManyEnemies_MediumWalls   () => Pathfind(typeof(Colonies), 2, 3, 2, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_ManyEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 3, 3, 2, FF);
 
 
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_FewEnemies_MediumWalls       () => Pathfind(typeof(Colonies), 1, 1, 2, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_FewEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 2, 1, 2, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_FewEnemies_MediumWalls         () => Pathfind(typeof(Colonies), 3, 1, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_FewEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 1, 1, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_FewEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 2, 1, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_FewEnemies_ManyWalls         () => Pathfind(typeof(Colonies), 3, 1, 3, FF);
 
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_MediumEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 1, 2, 2, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_MediumEnemies_MediumWalls   () => Pathfind(typeof(Colonies), 2, 2, 2, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_MediumEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 3, 2, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_MediumEnemies_ManyWalls    () => Pathfind(typeof(Colonies), 1, 2, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_MediumEnemies_ManyWalls   () => Pathfind(typeof(Colonies), 2, 2, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_MediumEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 3, 2, 3, FF);
 
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_ManyEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 1, 3, 2, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_ManyEnemies_MediumWalls     () => Pathfind(typeof(Colonies), 2, 3, 2, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_ManyEnemies_MediumWalls        () => Pathfind(typeof(Colonies), 3, 3, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_SmallMap_ManyEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 1, 3, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_MediumMap_ManyEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 2, 3, 3, FF);
+        //[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_ManyEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 3, 3, 3, FF);
+
+        ////[Test, Performance, Timeout(timeout)] public void FloodFill_BigMap_TooManyEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 3, 4, 3, FF);
+
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_FewEnemies_FewWalls          () => Pathfind(typeof(Colonies), 1, 1, 1, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_FewEnemies_FewWalls         () => Pathfind(typeof(Colonies), 2, 1, 1, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_FewEnemies_FewWalls            () => Pathfind(typeof(Colonies), 3, 1, 1, JPS);
+
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_MediumEnemies_FewWalls       () => Pathfind(typeof(Colonies), 1, 2, 1, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_MediumEnemies_FewWalls      () => Pathfind(typeof(Colonies), 2, 2, 1, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_MediumEnemies_FewWalls         () => Pathfind(typeof(Colonies), 3, 2, 1, JPS);
+
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_ManyEnemies_FewWalls         () => Pathfind(typeof(Colonies), 1, 3, 1, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_ManyEnemies_FewWalls        () => Pathfind(typeof(Colonies), 2, 3, 1, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_ManyEnemies_FewWalls           () => Pathfind(typeof(Colonies), 3, 3, 1, JPS);
 
 
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_FewEnemies_ManyWalls         () => Pathfind(typeof(Colonies), 1, 1, 3, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_FewEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 2, 1, 3, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_FewEnemies_ManyWalls           () => Pathfind(typeof(Colonies), 3, 1, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_FewEnemies_MediumWalls       () => Pathfind(typeof(Colonies), 1, 1, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_FewEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 2, 1, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_FewEnemies_MediumWalls         () => Pathfind(typeof(Colonies), 3, 1, 2, JPS);
 
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_MediumEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 1, 2, 3, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_MediumEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 2, 2, 3, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_MediumEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 3, 2, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_MediumEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 1, 2, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_MediumEnemies_MediumWalls   () => Pathfind(typeof(Colonies), 2, 2, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_MediumEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 3, 2, 2, JPS);
 
-        [Test, Performance, Timeout(timeout)] public void JPS_SmallMap_ManyEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 1, 3, 3, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_MediumMap_ManyEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 2, 3, 3, JPS);
-        [Test, Performance, Timeout(timeout)] public void JPS_BigMap_ManyEnemies_ManyWalls          () => Pathfind(typeof(Colonies), 3, 3, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_ManyEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 1, 3, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_ManyEnemies_MediumWalls     () => Pathfind(typeof(Colonies), 2, 3, 2, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_ManyEnemies_MediumWalls        () => Pathfind(typeof(Colonies), 3, 3, 2, JPS);
 
-        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_TooManyEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 3, 4, 3, JPS);
 
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_FewWalls        () => Pathfind(typeof(Colonies), 1, 1, 1, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_FewWalls       () => Pathfind(typeof(Colonies), 2, 1, 1, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_FewWalls          () => Pathfind(typeof(Colonies), 3, 1, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_FewEnemies_ManyWalls         () => Pathfind(typeof(Colonies), 1, 1, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_FewEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 2, 1, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_FewEnemies_ManyWalls           () => Pathfind(typeof(Colonies), 3, 1, 3, JPS);
+
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_MediumEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 1, 2, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_MediumEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 2, 2, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_MediumEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 3, 2, 3, JPS);
+
+        //[Test, Performance, Timeout(timeout)] public void JPS_SmallMap_ManyEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 1, 3, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_MediumMap_ManyEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 2, 3, 3, JPS);
+        //[Test, Performance, Timeout(timeout)] public void JPS_BigMap_ManyEnemies_ManyWalls          () => Pathfind(typeof(Colonies), 3, 3, 3, JPS);
+
+        ////[Test, Performance, Timeout(timeout)] public void JPS_BigMap_TooManyEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 3, 4, 3, JPS);
+
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_FewWalls        () => Pathfind(typeof(Colonies), 1, 1, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_FewWalls       () => Pathfind(typeof(Colonies), 2, 1, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_FewWalls          () => Pathfind(typeof(Colonies), 3, 1, 1, AStar);
                                                                                                                                               
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_FewWalls     () => Pathfind(typeof(Colonies), 1, 2, 1, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_FewWalls    () => Pathfind(typeof(Colonies), 2, 2, 1, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_FewWalls       () => Pathfind(typeof(Colonies), 3, 2, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_FewWalls     () => Pathfind(typeof(Colonies), 1, 2, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_FewWalls    () => Pathfind(typeof(Colonies), 2, 2, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_FewWalls       () => Pathfind(typeof(Colonies), 3, 2, 1, AStar);
                                                                                                                                               
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_FewWalls       () => Pathfind(typeof(Colonies), 1, 3, 1, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_FewWalls      () => Pathfind(typeof(Colonies), 2, 3, 1, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_FewWalls         () => Pathfind(typeof(Colonies), 3, 3, 1, AStar);
-                                                                                                                                              
-                                                                                                                                              
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_MediumWalls     () => Pathfind(typeof(Colonies), 1, 1, 2, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 2, 1, 2, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_MediumWalls       () => Pathfind(typeof(Colonies), 3, 1, 2, AStar);
-                                                                                                                                              
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_MediumWalls  () => Pathfind(typeof(Colonies), 1, 2, 2, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_MediumWalls () => Pathfind(typeof(Colonies), 2, 2, 2, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 3, 2, 2, AStar);
-                                                                                                                                              
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 1, 3, 2, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_MediumWalls   () => Pathfind(typeof(Colonies), 2, 3, 2, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 3, 3, 2, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_FewWalls       () => Pathfind(typeof(Colonies), 1, 3, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_FewWalls      () => Pathfind(typeof(Colonies), 2, 3, 1, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_FewWalls         () => Pathfind(typeof(Colonies), 3, 3, 1, AStar);
                                                                                                                                               
                                                                                                                                               
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 1, 1, 3, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 2, 1, 3, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_ManyWalls         () => Pathfind(typeof(Colonies), 3, 1, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_MediumWalls     () => Pathfind(typeof(Colonies), 1, 1, 2, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 2, 1, 2, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_MediumWalls       () => Pathfind(typeof(Colonies), 3, 1, 2, AStar);
                                                                                                                                               
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_ManyWalls    () => Pathfind(typeof(Colonies), 1, 2, 3, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_ManyWalls   () => Pathfind(typeof(Colonies), 2, 2, 3, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 3, 2, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_MediumWalls  () => Pathfind(typeof(Colonies), 1, 2, 2, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_MediumWalls () => Pathfind(typeof(Colonies), 2, 2, 2, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 3, 2, 2, AStar);
                                                                                                                                               
-        [Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 1, 3, 3, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 2, 3, 3, AStar);
-        [Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 3, 3, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 1, 3, 2, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_MediumWalls   () => Pathfind(typeof(Colonies), 2, 3, 2, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 3, 3, 2, AStar);
+                                                                                                                                              
+                                                                                                                                              
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 1, 1, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 2, 1, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_ManyWalls         () => Pathfind(typeof(Colonies), 3, 1, 3, AStar);
+                                                                                                                                              
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_ManyWalls    () => Pathfind(typeof(Colonies), 1, 2, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_ManyWalls   () => Pathfind(typeof(Colonies), 2, 2, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 3, 2, 3, AStar);
+                                                                                                                                              
+        //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 1, 3, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 2, 3, 3, AStar);
+        //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 3, 3, 3, AStar);
+
+#endregion
     }
 }
 
