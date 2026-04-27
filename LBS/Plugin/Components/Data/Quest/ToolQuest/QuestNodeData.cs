@@ -33,7 +33,7 @@ namespace ISILab.LBS.Components
         // terminal from which we obtain color/icons
         [SerializeField] private string terminalGUID;
         private GrammarTerminal terminal;
-        [SerializeField] private List<GrammarField> fields;
+        [SerializeField] private List<GrammarField> fields = new();
 
         #endregion
 
@@ -43,7 +43,7 @@ namespace ISILab.LBS.Components
         {
             get
             {
-                terminal ??= LBSAssetMacro.LoadAssetByGuid<GrammarTerminal>(terminalGUID);
+                terminal = terminal != null ? terminal : LBSAssetMacro.LoadAssetByGuid<GrammarTerminal>(terminalGUID);
                 return terminal;
             }
 
@@ -78,10 +78,8 @@ namespace ISILab.LBS.Components
 
             foreach(var field in Terminal.fields)
             {
-                fields.Add(field.DeepCopy());
+                fields.Add((GrammarField)field.Clone());
             }
-
-
 
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
             area = new Rect(pos.x, pos.y, 1, 1);
