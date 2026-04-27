@@ -37,7 +37,7 @@ namespace ISILab.AI.Categorization
             "- Vertex-Based Exterior Layers.\n" +
             "- Any type of Population Layer.";
 
-        public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+        public Dictionary<(int, int), float> DistancePool { get; set; } = new();
 
         public EvaluationInfo EvaluationInfo { get; set; } = new EvaluationInfo(1);
         private bool useEvaluationInfo = false;
@@ -59,6 +59,8 @@ namespace ISILab.AI.Categorization
 
         [SerializeField]
         public PathfindingAlgorithm searchType;
+
+        public PathfindingHeuristic searchHeuristic;
 
         #endregion
 
@@ -228,7 +230,7 @@ namespace ISILab.AI.Categorization
             }
 
             List<Colony> colonies = new();
-            int[,] distances = new int[size, size];
+            float[,] distances = new float[size, size];
             for (int i = 0; i < size; i++)
                 for (int j = 0; j < size; j++)
                     distances[i, j] = -1;
@@ -277,7 +279,7 @@ namespace ISILab.AI.Categorization
                                         filter.Add(colony.center);
                                     }
                                     distances[i, i] = 0;
-                                    EvaluatorHelper.PartialFloodFillChebyshev(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluatorHelper.PartialFloodFill(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod, PathfindingHeuristic.Chebyshev, ref info);
                                     if(useEvaluationInfo) EvaluationInfo = info;
                                     IEnumerable<int> members = found.Except(skip);
                                     colony.members.AddRange(members);
@@ -311,8 +313,8 @@ namespace ISILab.AI.Categorization
                                     {
                                         if (filter.Contains(itemIndices[j])) continue;
                                         distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
-                                            EvaluatorHelper.PartialAStarRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info) :
-                                            EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info);
+                                            EvaluatorHelper.PartialAStarRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, searchHeuristic, ref info) :
+                                            EvaluatorHelper.JPSPlus.PartialJPSRun(maxDist, itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, searchHeuristic, ref info);
                                         if (useEvaluationInfo) EvaluationInfo = info;
                                         if (distances[i, j] < 0) continue; // Not found at specified distance
                                         if(!skip.Contains(itemIndices[j])) members.Add(itemIndices[j]); // Add to incoming colony
@@ -373,7 +375,7 @@ namespace ISILab.AI.Categorization
                 for (int i = 0; i < cSize - 1; i++)
                     for (int j = i + 1; j < cSize; j++)
                     {
-                        int dist = distances[itemIndices.IndexOf(colony[i]), itemIndices.IndexOf(colony[j])];
+                        float dist = distances[itemIndices.IndexOf(colony[i]), itemIndices.IndexOf(colony[j])];
                         if (dist > maxDist || dist < 0)
                             score--;
                     }
@@ -541,7 +543,7 @@ namespace ISILab.AI.Categorization
                 return 0.0f;
             }
 
-            int[,] distances = new int[size, size];
+            float[,] distances = new float[size, size];
 
             if (layer is not null)
             {
@@ -581,7 +583,7 @@ namespace ISILab.AI.Categorization
                                         }
                                     }
                                     others = itemIndices.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFillChebyshev(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, PathfindingHeuristic.Chebyshev, ref info);
                                     if (useEvaluationInfo) EvaluationInfo = info;
 #else
                                     EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
@@ -662,7 +664,7 @@ namespace ISILab.AI.Categorization
 
             while (members.Count < size)
             {
-                List<int> distSum = new();
+                List<float> distSum = new();
                 List<List<int>> nearest = new();
                 List<int> coreSuitability = new();
                 List<int> suitables = new();
@@ -676,7 +678,7 @@ namespace ISILab.AI.Categorization
                     for (int j = 0; j < size; j++)
                     {
                         if (i == j || members.Contains(j)) continue;
-                        int d = distances[i, j];
+                        float d = distances[i, j];
                         distSum[i] += d;
                         if (d <= maxDist)
                         {
@@ -695,7 +697,7 @@ namespace ISILab.AI.Categorization
                         suitables.Add(i);
                 }
 
-                int bestDist = distSum[suitables[0]];
+                float bestDist = distSum[suitables[0]];
                 int core = suitables[0];
                 for (int i = 1; i < suitables.Count; i++)
                 {

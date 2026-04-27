@@ -18,8 +18,45 @@ namespace ISILab.LBS.Tests
         const PathfindingAlgorithm JPS = PathfindingAlgorithm.JPS_Plus;
         const PathfindingAlgorithm AStar = PathfindingAlgorithm.A_Star;
 
+        const PathfindingHeuristic Manhattan = PathfindingHeuristic.Manhattan;
+        const PathfindingHeuristic Octile = PathfindingHeuristic.Octile;
+        const PathfindingHeuristic Chebyshev = PathfindingHeuristic.Chebyshev;
+
         const int WARM_UP_COUNT = 5;
         const int MEASUREMENT_COUNT = 20;
+
+        private void ColoniesPathfind(string levelGuid, int mapSize, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
+        {
+            var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+            SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time");
+
+            int c = 0;
+            Measure.Method(() =>
+            {
+                double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
+                c++;
+                if (c > WARM_UP_COUNT) return;
+                Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                Measure.Custom(meanExecutionTime, info.Average());
+            })
+            .WarmupCount(WARM_UP_COUNT)
+            .MeasurementCount(MEASUREMENT_COUNT)
+            .IterationsPerMeasurement(1)
+            .SetUp(() =>
+            {
+                GetLevel(levelGuid);
+                IRangedEvaluator eval = evaluator as IRangedEvaluator;
+                SetUpMAPElitesTest(levelGuid, dungeonPresetPath, eval, eval, eval, "", GetArea(mapSize));
+                chromosome = GetChromosomeFromAssistant();
+                (eval as Colonies).searchType = searchType;
+                //(eval as Colonies).heuristic = heuristic;
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .Run();
+        }
 
         private void Pathfind(Type type, int mapSize, int enemyQuantity, int wallQuantity, PathfindingAlgorithm searchType)
         {
@@ -143,11 +180,14 @@ namespace ISILab.LBS.Tests
                 case 1: size = new Vector2(15, 10); break;
                 case 2: size = new Vector2(30, 20); break;
                 case 3: size = new Vector2(40, 40); break;
+                case 4: size = new Vector2(75, 75); break;
                 default: size = default; break;
             }
 
             return new Rect(Vector2.zero, size);
         }
+
+        
 
         #region OLD TESTS
 
