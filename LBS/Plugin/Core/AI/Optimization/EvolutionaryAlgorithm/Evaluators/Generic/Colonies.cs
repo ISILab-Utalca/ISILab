@@ -1,6 +1,7 @@
 //#define EVAL_TEST
 
 using ISILab.AI.Optimization;
+using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
@@ -278,7 +279,9 @@ namespace ISILab.AI.Categorization
                                     distances[i, i] = 0;
                                     EvaluatorHelper.PartialFloodFillChebyshev(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
                                     if(useEvaluationInfo) EvaluationInfo = info;
-                                    colony.members.AddRange(found.Except(skip));
+                                    IEnumerable<int> members = found.Except(skip);
+                                    colony.members.AddRange(members);
+                                    Debug.Log($"{i} => {members.Select(m => itemIndices.IndexOf(m)).ToList().ElementsToString()}");
                                     skip.UnionWith(found);
                                 }
                                 break;
@@ -316,6 +319,7 @@ namespace ISILab.AI.Categorization
                                         skip.Add(itemIndices[j]);
                                     }
                                     colony.members.AddRange(members);
+                                    Debug.Log($"{i} => {members.Select(m => itemIndices.IndexOf(m)).ToList().ElementsToString()}");
                                     //colonies.Add(new(members));
                                     //colonies[^1] = colonies[^1].SetCenter(chrom);
                                 }

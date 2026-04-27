@@ -616,7 +616,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                                     evalInfo.StopMeasure();
                                     return;
                                 }
-                                allowedSteps[index] = limit;
+                                //allowedSteps[index] = limit;
                                 break;
                             }
                         }
