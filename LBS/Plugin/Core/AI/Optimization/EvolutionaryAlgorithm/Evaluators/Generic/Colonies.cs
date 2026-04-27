@@ -160,7 +160,7 @@ namespace ISILab.AI.Categorization
         public float EvaluateWithInfo(IOptimizable evaluable, out EvaluationInfo evalInfo)
         {
             useEvaluationInfo = true;
-            EvaluationInfo = new(1);
+            EvaluationInfo = new EvaluationInfo(1);
             float result = Evaluate(evaluable);
             evalInfo = EvaluationInfo;
             return result;

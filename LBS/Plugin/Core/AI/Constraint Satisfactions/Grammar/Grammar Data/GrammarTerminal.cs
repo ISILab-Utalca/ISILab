@@ -17,9 +17,10 @@ namespace ISILab.AI.Grammar
     public class GrammarTerminal : GrammarElement
     {
         private const string defaultIconGuid = "bb0770b945366c94c822cf3255eb885d";
-        private static readonly Color fallbackColor = Color.white; 
+        private static readonly Color fallbackColor = Color.white;
 
-        [SerializeField] 
+        // polymorphic classes use ref
+        [SerializeReference]
         public List<GrammarField> fields = new();
 
         public override void OnEnable()

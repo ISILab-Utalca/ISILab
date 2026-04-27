@@ -209,6 +209,8 @@ public static class LBSGrammarReader
 
             foreach (XmlNode field in node.SelectNodes("g:field", ns))
                 AddField(terminal, field);
+
+            Debug.Log($"terminal{id} has {terminal.fields.Count} fields ");
         }
     }
 
