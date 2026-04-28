@@ -172,7 +172,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
 
             window.titleContent = new GUIContent(expectedTitle, icon);
 
-            window.minSize = new UnityEngine.Vector2(300, 300);
+            window.minSize = new UnityEngine.Vector2(300, 84);
             window.Show();
         }
         public void OpenSO(ClickEvent evt)

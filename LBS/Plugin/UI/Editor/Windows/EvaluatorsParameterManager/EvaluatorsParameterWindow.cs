@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Configuration;
 using System.Xml.Linq;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static ISILab.LBS.Editor.PopulationAssistantTab;
@@ -46,7 +47,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     }
     #endregion
 
-    public void CreateGUI()
+    public new void CreateGUI()
     {
         FindDatabase();
 
@@ -138,13 +139,6 @@ public class EvaluatorsParameterWindow : ThemeableWindow
             default: return typeof(int);
         }
     }
-    public void LoadParamVisualList()
-    {
-        foreach (ParameterData param in parameterList)
-        {
-            AddParamToVisualList(param);
-        }
-    }
     public void ResetParamGenerator()
     {
         paramGenName.value = "";
@@ -155,6 +149,13 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     {
         if (rootVisualElement == null) return;
         //UI refresh logic
+    }
+    public void LoadParamVisualList()
+    {
+        foreach (ParameterData param in parameterList)
+        {
+            AddParamToVisualList(param);
+        }
     }
     public void AddParamToVisualList(ParameterData param)
     {
@@ -176,15 +177,14 @@ public class EvaluatorsParameterWindow : ThemeableWindow
                     // Si el usuario acept?, lo borramos de la interfaz
                     // 'target' es el elemento que dispar? el evento
                     //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
-                    paramListView.hierarchy.Remove(elem);
+                    paramListView.hierarchy.ElementAt(0).Remove(elem);
                     parameterList.Remove(param);
                     //DeleteParameterPhysicalFile(evData.Name);     <-- Falta hacer
                     evDatabase.SaveDatabaseChanges();
                 }
             };
-        
 
-        paramListView.hierarchy.Add(paramVE);
+        paramListView.hierarchy.ElementAt(0).Add(paramVE);
     }
     public void RemoveParam(ParameterData param)
     {
