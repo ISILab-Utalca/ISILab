@@ -51,6 +51,8 @@ namespace ISILab.AI.Grammar
         }
 
         public abstract object Clone();
+        public virtual void SetValue(object newValue) { }
+        public virtual object GetValue() => null;
     }
 
 
@@ -67,21 +69,51 @@ namespace ISILab.AI.Grammar
             clone.value = value;
             return clone;
         }
+        public override void SetValue(object newValue)
+        {
+            if (newValue is T typedValue)
+            {
+                value = typedValue;
+            }
+            else
+            {
+                try
+                {
+                    value = (T)Convert.ChangeType(newValue, typeof(T));
+                }
+                catch
+                {
+                    UnityEngine.Debug.LogError($"[Grammar] Cannot assign {newValue?.GetType()} to {typeof(T)}");
+                }
+            }
+        }
+
+        public override object GetValue() => value;
     }
 
     [Serializable]
-    public abstract class GrammarListField<T> : GrammarField, GrammarListFieldMarker
+    public abstract class GrammarListField<TField> : GrammarField, GrammarListFieldMarker
+    where TField : GrammarField, new()
     {
-        public List<T> value = new();
+        public List<TField> value = new();
 
         public override IList ItemsSource => value;
 
         public override object Clone()
         {
-            var clone = (GrammarListField<T>)Activator.CreateInstance(GetType());
+            var clone = (GrammarListField<TField>)Activator.CreateInstance(GetType());
             clone.name = name;
-            clone.value = new List<T>(value);
+
+            foreach (var item in value)
+                clone.value.Add((TField)item.Clone());
+
             return clone;
+        }
+
+        public override void SetValue(object newValue)
+        {
+            if (newValue is List<TField> list)
+                value = list;
         }
     }
 
@@ -99,11 +131,34 @@ namespace ISILab.AI.Grammar
 
     #region LISTS
 
-    [Serializable] public class GrammarIntList : GrammarListField<int> { public override Type PrimitiveType => typeof(GrammarInt); }
-    [Serializable] public class GrammarFloatList : GrammarListField<float> { public override Type PrimitiveType => typeof(GrammarFloat); }
-    [Serializable] public class GrammarStringList : GrammarListField<string> { public override Type PrimitiveType => typeof(GrammarString); }
-    [Serializable] public class GrammarObjectList : GrammarListField<UnityEngine.Object> { public override Type PrimitiveType => typeof(GrammarObject); }
-    [Serializable] public class GrammarTypeList : GrammarListField<string> { public override Type PrimitiveType => typeof(GrammarType); }
+    [Serializable]
+    public class GrammarIntList : GrammarListField<GrammarInt>
+    {
+        public override Type PrimitiveType => typeof(GrammarInt);
+    }
 
+    [Serializable]
+    public class GrammarFloatList : GrammarListField<GrammarFloat>
+    {
+        public override Type PrimitiveType => typeof(GrammarFloat);
+    }
+
+    [Serializable]
+    public class GrammarStringList : GrammarListField<GrammarString>
+    {
+        public override Type PrimitiveType => typeof(GrammarString);
+    }
+
+    [Serializable]
+    public class GrammarObjectList : GrammarListField<GrammarObject>
+    {
+        public override Type PrimitiveType => typeof(GrammarObject);
+    }
+
+    [Serializable]
+    public class GrammarTypeList : GrammarListField<GrammarType>
+    {
+        public override Type PrimitiveType => typeof(GrammarType);
+    }
     #endregion
 }

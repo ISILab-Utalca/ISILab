@@ -45,5 +45,35 @@ namespace ISILab.LBS.VisualElements
             content = this.Q<VisualElement>("Content");
             return this;
         }
+
+        protected void SetTargetValue<T>(ChangeEvent<T> evt)
+        {
+            if (target == null) 
+                return;
+            (target as GrammarField).SetValue(evt.newValue);
+        }
+
+        protected T GetTargetValue<T>()
+        {
+            if (target is GrammarField field)
+            {
+                object value = field.GetValue();
+
+                if (value is T typedValue)
+                    return typedValue;
+
+                try
+                {
+                    return (T)Convert.ChangeType(value, typeof(T));
+                }
+                catch
+                {
+                    UnityEngine.Debug.LogError(
+                        $"[Grammar] Cannot convert {value?.GetType()} to {typeof(T)}");
+                }
+            }
+
+            return default;
+        }
     }
 }

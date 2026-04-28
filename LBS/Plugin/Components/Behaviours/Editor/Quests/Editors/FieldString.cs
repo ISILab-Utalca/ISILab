@@ -26,14 +26,12 @@ namespace ISILab.LBS.VisualElements
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldString");
             visualTree.CloneTree(this);
 
-            var stringField = this.Q<LBSCustomTextField>("Text");
-            stringField.RegisterValueChangedCallback<string>(evt =>
+            this.Q<LBSCustomTextField>().RegisterValueChangedCallback(evt =>
             {
-                if(target is GrammarString gs)
-                {
-                    gs.value = evt.newValue;
-                }
+                SetTargetValue(evt);
             });
+
+            this.Q<LBSCustomTextField>().value = GetTargetValue<string>();
             return this;
         }
     }

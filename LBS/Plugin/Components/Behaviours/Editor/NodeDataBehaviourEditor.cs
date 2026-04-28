@@ -11,12 +11,8 @@ using LBS;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
-using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -279,6 +275,15 @@ namespace ISILab.LBS.VisualElements
                 showFoldoutHeader = true,
             };
 
+            listView.itemsAdded += (indices) => {
+                foreach (var i in indices)
+                {
+                    // Create force declare the grammar field list entry
+                    var newItem = (GrammarField)Activator.CreateInstance(listField.PrimitiveType);
+                    listField.ItemsSource[i] = newItem;
+                }
+            };
+
             listView.makeItem = () =>
             {
                 var dummy = (GrammarField)Activator.CreateInstance(listField.PrimitiveType);
@@ -289,7 +294,7 @@ namespace ISILab.LBS.VisualElements
             {
                 if (element is GrammarFieldEditor editor)
                 {
-                    editor.SetNewInfo(listView.itemsSource[index]);
+                    editor.SetNewInfo((GrammarField)listView.itemsSource[index]);
                 }
             };
 

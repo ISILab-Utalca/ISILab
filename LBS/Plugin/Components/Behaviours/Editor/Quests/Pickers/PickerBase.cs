@@ -1,28 +1,47 @@
-﻿using ISILab.LBS.Plugin.Core.Settings;
-using UnityEngine;
+﻿using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Manipulators;
+using LBS.VisualElements;
+using System;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class PickerBase : VisualElement
+
+    public abstract class PickerBase : VisualElement
     {
         private static Button _activeButton;
-        //private readonly Color _color = LBSSettings.Instance.view.toolkitNormal;
-        private readonly Color _selected = LBSSettings.Instance.view.newToolkitSelected;
 
-        /// <summary>
-        /// Call when a picker button is clicked in order to set the active button visually
-        /// to correspond to a Picker in the editor toolbar
-        /// </summary>
-        /// <param name="button"></param>
+        protected LBSCustomObjectField ObjectField;
+        protected Button PickButton;
+
+        public Action OnClicked;
+
+        protected void BindCommonButton()
+        {
+            PickButton.clicked += () =>
+            {
+                ActivateButton(PickButton);
+                OnClicked?.Invoke();
+            };
+        }
+
         protected void ActivateButton(Button button)
         {
-            if (_activeButton is not null)
-            {
-                //_activeButton.style.backgroundColor = _color; // deactivate previous
-            }
+            if(_activeButton != null) 
             _activeButton = button;
-            //_activeButton.style.backgroundColor = _selected; // activate newest
+        }
+
+        protected static void ActivateQuestPicker()
+        {
+            ToolKit.Instance.SetActive(typeof(QuestPicker));
+
+            if (ToolKit.Instance.GetActiveManipulator() is QuestPicker qp)
+                qp.PickTriggerPosition = false;
+        }
+
+        public void ClearPicker()
+        {
+            OnClicked = null;
         }
     }
 }

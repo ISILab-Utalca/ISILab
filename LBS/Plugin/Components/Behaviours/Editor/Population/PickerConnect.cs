@@ -1,17 +1,10 @@
 using System;
 using ISILab.Commons.Utility.Editor;
-using ISILab.DevTools.Macros;
-using ISILab.LBS.Components;
-using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.VisualElements;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -20,24 +13,17 @@ namespace ISILab.LBS.VisualElements
     {   
         private readonly Button _buttonPickerTarget;
 
-
-        public Action OnClicked;
         private static VisualTreeAsset visualTree;
 
         public Action<SchemaTileConnectionView, ConnectionData> OnConnectionClicked;
+
         #region Constructors
 
         public PickerConnect()
         {
             Clear();
 
-           
-            if (!visualTree)
-            {
-                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PickerConnect");
-                return;
-            }
-
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("PickerConnect");
             visualTree.CloneTree(this);
 
             _buttonPickerTarget = this.Q<Button>("PickerTarget");
