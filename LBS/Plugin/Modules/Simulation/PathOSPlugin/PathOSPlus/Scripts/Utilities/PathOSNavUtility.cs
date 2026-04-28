@@ -346,7 +346,7 @@ namespace PathOS
                 gridX = (int)(diff.x / sampleGridSize.x);
                 gridY = (int)(diff.y / sampleGridSize.y);
                 gridZ = (int)(diff.z / sampleGridSize.z);
-                Debug.Log($"({point.y}) - ({diff.y}) - ({gridY})");
+                //Debug.Log($"({point.y}) - ({diff.y}) - ({gridY})");
                 //Debug.Log($"({sampleGridSize.x} {sampleGridSize.y} {sampleGridSize.z})");
                 //Debug.Log($"({gridX} {gridY} {gridZ})");
                 //Debug.Log($"({point.x} {point.y} {point.z})");

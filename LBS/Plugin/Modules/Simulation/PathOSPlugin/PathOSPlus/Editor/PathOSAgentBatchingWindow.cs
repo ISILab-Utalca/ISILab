@@ -996,18 +996,38 @@ namespace PathOS
             if (!validPrefabFile) return;
 
             PathOSAgent prefab = AssetDatabase.LoadAssetAtPath<PathOSAgent>(GetLocalPrefabFile());
-
             if (null == prefab) return;
 
+            var player = GameObject.FindFirstObjectByType<CharacterController>();
+            var agent = GameObject.FindFirstObjectByType<PathOSAgentMemory>();
             for (int i = 0; i < count; ++i)
             {
+                // Instantiate batch agent
                 GameObject newAgent = PrefabUtility.InstantiatePrefab(prefab.gameObject) as GameObject;
+                
+                // GameObject Settings
                 newAgent.transform.position = startLocation;
                 newAgent.name = "Temporary Batch Agent " +
                     (instantiatedAgents.Count).ToString();
 
-                instantiatedAgents.Add(
-                    new RuntimeAgentReference(newAgent.GetComponent<PathOSAgent>()));
+                // PathOSAgent Settings
+                var agentComp = newAgent.GetComponent<PathOSAgent>();
+                if(agentComp != null && agent != null)
+                {
+                    agentComp.GetMemory().gridSampleSize = agent.gridSampleSize;
+                }
+
+                // Set new eyes
+                if (player is not null)
+                {
+                    PathOSAgentEyes eyesComp = newAgent.GetComponent<PathOSAgentEyes>();
+                    eyesComp.cam.gameObject.SetActive(false);
+                    GameObject camObj = player.GetComponentInChildren<Camera>().gameObject;
+                    GameObject camClone = GameObject.Instantiate(camObj, eyesComp.transform);
+                    eyesComp.cam = camClone.GetComponent<Camera>();
+                }
+
+                instantiatedAgents.Add(new RuntimeAgentReference(agentComp));
             }
         }
 

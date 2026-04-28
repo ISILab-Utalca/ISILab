@@ -371,6 +371,7 @@ namespace PathOS
                     navAgent.SetDestination(memoryState.memPathWaypoints[0]);
                     navigationState.pathResolved = false;
                     memoryState.memWaypoint.x = memoryState.memPathWaypoints[0].x;
+                    //memoryState.memWaypoint.y = memoryState.memPathWaypoints[0].y; // experimental
                     memoryState.memWaypoint.z = memoryState.memPathWaypoints[0].z;
                 }
                 else navigationState.RouteDestination(this);
@@ -796,6 +797,7 @@ namespace PathOS
                         navAgent.SetDestination(memoryState.memPathWaypoints[0]);
                         navigationState.pathResolved = false;
                         memoryState.memWaypoint.x = memoryState.memPathWaypoints[0].x;
+                        //memoryState.memWaypoint.y = memoryState.memPathWaypoints[0].y; // experimental
                         memoryState.memWaypoint.z = memoryState.memPathWaypoints[0].z;
                     }
                 }

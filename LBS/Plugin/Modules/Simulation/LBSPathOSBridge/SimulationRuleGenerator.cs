@@ -134,7 +134,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     else if(tile.Tag != null && (tile.Tag == simBehaviour.lowStairTag || tile.Tag == simBehaviour.highStairTag))
                     {
                         instance.transform.SetParent(stairContainer.transform);
-                        instance.transform.position += (tile.Tag == simBehaviour.lowStairTag) ? Vector3.up * settings.scale.y * 0.25f : Vector3.up * settings.scale.y * 0.75f;
+                        instance.transform.localPosition += (tile.Tag == simBehaviour.lowStairTag) ? Vector3.up * (settings.scale.y * 0.25f + 0.25f): Vector3.up * (settings.scale.y * 0.75f + 0.25f);
                     }
                     // Entities settings
                     else
