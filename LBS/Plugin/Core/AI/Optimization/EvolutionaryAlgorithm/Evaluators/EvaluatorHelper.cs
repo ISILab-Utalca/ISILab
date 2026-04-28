@@ -1103,6 +1103,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
             evalInfo.StopMeasure();
 
+            //Debug.Log("CLOSED: " + closed.Count);
+
             return cost;
         }
 

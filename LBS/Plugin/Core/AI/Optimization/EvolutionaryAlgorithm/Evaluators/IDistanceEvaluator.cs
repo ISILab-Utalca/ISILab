@@ -15,9 +15,18 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
     public enum PathfindingHeuristic
     {
-        Manhattan,  // No diagonals
-        Octile,     // Diagonals = x sqrt(2)
-        Chebyshev   // Diagonals = x
+        /// <summary>
+        /// No diagonals
+        /// </summary>
+        Manhattan,
+        /// <summary>
+        /// Diagonals = x sqrt(2)
+        /// </summary>
+        Octile,
+        /// <summary>
+        /// Diagonals = x
+        /// </summary>
+        Chebyshev
     }
 
     public struct EvaluationInfo

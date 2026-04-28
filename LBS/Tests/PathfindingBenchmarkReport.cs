@@ -25,34 +25,65 @@ namespace ISILab.LBS.Tests
         const int WARM_UP_COUNT = 5;
         const int MEASUREMENT_COUNT = 20;
 
-        private void ColoniesPathfind(string levelGuid, int mapSize, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
+        static readonly string[] levels = new string[]
+        {
+            level1,
+            level2,
+            level3,
+            level4,
+            level5,
+            level6,
+            level7,
+            level8,
+            level9,
+            level10,
+            level11,
+            level12
+        };
+
+        const string level1 =  "8fcb3f8620553e34b8968069d24dc0a8";
+        const string level2 =  "489960a220fb386498c0d94c22a979c0";
+        const string level3 =  "99aea4d41c519c34389bb29a54bcb41f";
+        const string level4 =  "46fded00b5f05974bb4c2f200ed65ce0";
+        const string level5 =  "f655e86b2ca92ff4b824400014562fde";
+        const string level6 =  "fe7e011a4f10daa4ebb6ff3701516bfd";
+        const string level7 =  "9db451314b628c84ca6b366fdb87f81c";
+        const string level8 =  "a652c5df35f5e9945951556497349b62";
+        const string level9 =  "4d30b728085df3843a89b4c4def7e354";
+        const string level10 = "8701497f3bda71342893a133381b8cb0";
+        const string level11 = "9e52fa05cc04b5a4cbb0752588af5a27";
+        const string level12 = "a49e34122d48f53438e7dd8051abd8e5";
+
+        private void ColoniesPathfind(int level, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
         {
             var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
             BundleTilemapChromosome chromosome = null;
             SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
             SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
-            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time");
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
+
+            int mapSize = Mathf.CeilToInt(level / 3f);
 
             int c = 0;
             Measure.Method(() =>
             {
                 double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
                 c++;
-                if (c > WARM_UP_COUNT) return;
+                if (c <= WARM_UP_COUNT) return;
                 Measure.Custom(visitedNodesGroup, info.visitedNodes);
-                Measure.Custom(meanExecutionTime, info.Average());
+                Measure.Custom(meanExecutionTime, info.Average() * 1000);
             })
             .WarmupCount(WARM_UP_COUNT)
             .MeasurementCount(MEASUREMENT_COUNT)
             .IterationsPerMeasurement(1)
             .SetUp(() =>
             {
-                GetLevel(levelGuid);
+                GetLevel(levels[level-1]);
                 IRangedEvaluator eval = evaluator as IRangedEvaluator;
-                SetUpMAPElitesTest(levelGuid, dungeonPresetPath, eval, eval, eval, "", GetArea(mapSize));
+                SetUpMAPElitesTest(levels[level-1], dungeonPresetPath, eval, eval, eval, "", GetArea(mapSize));
                 chromosome = GetChromosomeFromAssistant();
                 (eval as Colonies).searchType = searchType;
-                //(eval as Colonies).heuristic = heuristic;
+                (eval as Colonies).searchHeuristic = heuristic;
             })
             .CleanUp(CleanUpMAPElitesTest)
             .Run();
@@ -168,9 +199,9 @@ namespace ISILab.LBS.Tests
             })
             .Run();
         }
-        [Test, Performance, Timeout(timeout)] public void PathfindExample1_FloodFill () => PathfindExample1(FF);
-        [Test, Performance, Timeout(timeout)] public void PathfindExample1_JPSPlus () => PathfindExample1(JPS);
-        [Test, Performance, Timeout(timeout)] public void PathfindExample1_AStar() => PathfindExample1(AStar);
+        //[Test, Performance, Timeout(timeout)] public void PathfindExample1_FloodFill () => PathfindExample1(FF);
+        //[Test, Performance, Timeout(timeout)] public void PathfindExample1_JPSPlus () => PathfindExample1(JPS);
+        //[Test, Performance, Timeout(timeout)] public void PathfindExample1_AStar() => PathfindExample1(AStar);
 
         private Rect GetArea(int value)
         {
@@ -187,7 +218,124 @@ namespace ISILab.LBS.Tests
             return new Rect(Vector2.zero, size);
         }
 
-        
+        [Test, Performance, Timeout(timeout)] public void Level_A_Manhattan_FloodFill   () => ColoniesPathfind(1,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Manhattan_FloodFill   () => ColoniesPathfind(2,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Manhattan_FloodFill   () => ColoniesPathfind(3,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Manhattan_FloodFill   () => ColoniesPathfind(4,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Manhattan_FloodFill   () => ColoniesPathfind(5,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Manhattan_FloodFill   () => ColoniesPathfind(6,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Manhattan_FloodFill   () => ColoniesPathfind(7,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Manhattan_FloodFill   () => ColoniesPathfind(8,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Manhattan_FloodFill   () => ColoniesPathfind(9,   FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Manhattan_FloodFill   () => ColoniesPathfind(10,  FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Manhattan_FloodFill   () => ColoniesPathfind(11,  FF,     Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Manhattan_FloodFill   () => ColoniesPathfind(12,  FF,     Manhattan);
+
+        [Test, Performance, Timeout(timeout)] public void Level_A_Manhattan_AStar       () => ColoniesPathfind(1,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Manhattan_AStar       () => ColoniesPathfind(2,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Manhattan_AStar       () => ColoniesPathfind(3,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Manhattan_AStar       () => ColoniesPathfind(4,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Manhattan_AStar       () => ColoniesPathfind(5,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Manhattan_AStar       () => ColoniesPathfind(6,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Manhattan_AStar       () => ColoniesPathfind(7,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Manhattan_AStar       () => ColoniesPathfind(8,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Manhattan_AStar       () => ColoniesPathfind(9,   AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Manhattan_AStar       () => ColoniesPathfind(10,  AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Manhattan_AStar       () => ColoniesPathfind(11,  AStar,  Manhattan);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Manhattan_AStar       () => ColoniesPathfind(12,  AStar,  Manhattan);
+
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_A         () => ColoniesPathfind(1,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_B         () => ColoniesPathfind(2,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_C         () => ColoniesPathfind(3,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_D         () => ColoniesPathfind(4,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_E         () => ColoniesPathfind(5,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_F         () => ColoniesPathfind(6,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_G         () => ColoniesPathfind(7,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_H         () => ColoniesPathfind(8,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_I         () => ColoniesPathfind(9,   JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_J         () => ColoniesPathfind(10,  JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_K         () => ColoniesPathfind(11,  JPS,    Manhattan);
+        //[Test, Performance, Timeout(timeout)] public void Manhattan_JPS_Level_L         () => ColoniesPathfind(12,  JPS,    Manhattan);
+
+
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_A      () => ColoniesPathfind(1,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_B      () => ColoniesPathfind(2,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_C      () => ColoniesPathfind(3,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_D      () => ColoniesPathfind(4,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_E      () => ColoniesPathfind(5,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_F      () => ColoniesPathfind(6,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_G      () => ColoniesPathfind(7,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_H      () => ColoniesPathfind(8,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_I      () => ColoniesPathfind(9,   FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_J      () => ColoniesPathfind(10,  FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_K      () => ColoniesPathfind(11,  FF,     Octile);
+        //[Test, Performance, Timeout(timeout)] public void Octile_FloodFill_Level_L      () => ColoniesPathfind(12,  FF,     Octile);
+
+        [Test, Performance, Timeout(timeout)] public void Level_A_Octile_AStar          () => ColoniesPathfind(1,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Octile_AStar          () => ColoniesPathfind(2,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Octile_AStar          () => ColoniesPathfind(3,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Octile_AStar          () => ColoniesPathfind(4,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Octile_AStar          () => ColoniesPathfind(5,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Octile_AStar          () => ColoniesPathfind(6,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Octile_AStar          () => ColoniesPathfind(7,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Octile_AStar          () => ColoniesPathfind(8,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Octile_AStar          () => ColoniesPathfind(9,   AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Octile_AStar          () => ColoniesPathfind(10,  AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Octile_AStar          () => ColoniesPathfind(11,  AStar,  Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Octile_AStar          () => ColoniesPathfind(12,  AStar,  Octile);
+                                                          
+        [Test, Performance, Timeout(timeout)] public void Level_A_Octile_JPS            () => ColoniesPathfind(1,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Octile_JPS            () => ColoniesPathfind(2,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Octile_JPS            () => ColoniesPathfind(3,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Octile_JPS            () => ColoniesPathfind(4,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Octile_JPS            () => ColoniesPathfind(5,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Octile_JPS            () => ColoniesPathfind(6,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Octile_JPS            () => ColoniesPathfind(7,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Octile_JPS            () => ColoniesPathfind(8,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Octile_JPS            () => ColoniesPathfind(9,   JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Octile_JPS            () => ColoniesPathfind(10,  JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Octile_JPS            () => ColoniesPathfind(11,  JPS,    Octile);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Octile_JPS            () => ColoniesPathfind(12,  JPS,    Octile);
+
+
+        [Test, Performance, Timeout(timeout)] public void Level_A_Chebyshev_FloodFill   () => ColoniesPathfind(1,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Chebyshev_FloodFill   () => ColoniesPathfind(2,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Chebyshev_FloodFill   () => ColoniesPathfind(3,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Chebyshev_FloodFill   () => ColoniesPathfind(4,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Chebyshev_FloodFill   () => ColoniesPathfind(5,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Chebyshev_FloodFill   () => ColoniesPathfind(6,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Chebyshev_FloodFill   () => ColoniesPathfind(7,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Chebyshev_FloodFill   () => ColoniesPathfind(8,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Chebyshev_FloodFill   () => ColoniesPathfind(9,   FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Chebyshev_FloodFill   () => ColoniesPathfind(10,  FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Chebyshev_FloodFill   () => ColoniesPathfind(11,  FF,     Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_FloodFill   () => ColoniesPathfind(12,  FF,     Chebyshev);
+                                                          
+        [Test, Performance, Timeout(timeout)] public void Level_A_Chebyshev_AStar       () => ColoniesPathfind(1,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Chebyshev_AStar       () => ColoniesPathfind(2,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Chebyshev_AStar       () => ColoniesPathfind(3,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Chebyshev_AStar       () => ColoniesPathfind(4,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Chebyshev_AStar       () => ColoniesPathfind(5,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Chebyshev_AStar       () => ColoniesPathfind(6,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Chebyshev_AStar       () => ColoniesPathfind(7,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Chebyshev_AStar       () => ColoniesPathfind(8,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Chebyshev_AStar       () => ColoniesPathfind(9,   AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Chebyshev_AStar       () => ColoniesPathfind(10,  AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Chebyshev_AStar       () => ColoniesPathfind(11,  AStar,  Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_AStar       () => ColoniesPathfind(12,  AStar,  Chebyshev);
+                                                          
+        [Test, Performance, Timeout(timeout)] public void Level_A_Chebyshev_JPS         () => ColoniesPathfind(1,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Chebyshev_JPS         () => ColoniesPathfind(2,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Chebyshev_JPS         () => ColoniesPathfind(3,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Chebyshev_JPS         () => ColoniesPathfind(4,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Chebyshev_JPS         () => ColoniesPathfind(5,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Chebyshev_JPS         () => ColoniesPathfind(6,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Chebyshev_JPS         () => ColoniesPathfind(7,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Chebyshev_JPS         () => ColoniesPathfind(8,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Chebyshev_JPS         () => ColoniesPathfind(9,   JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Chebyshev_JPS         () => ColoniesPathfind(10,  JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Chebyshev_JPS         () => ColoniesPathfind(11,  JPS,    Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_JPS         () => ColoniesPathfind(12,  JPS,    Chebyshev);
 
         #region OLD TESTS
 
@@ -274,42 +422,42 @@ namespace ISILab.LBS.Tests
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_FewWalls        () => Pathfind(typeof(Colonies), 1, 1, 1, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_FewWalls       () => Pathfind(typeof(Colonies), 2, 1, 1, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_FewWalls          () => Pathfind(typeof(Colonies), 3, 1, 1, AStar);
-                                                                                                                                              
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_FewWalls     () => Pathfind(typeof(Colonies), 1, 2, 1, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_FewWalls    () => Pathfind(typeof(Colonies), 2, 2, 1, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_FewWalls       () => Pathfind(typeof(Colonies), 3, 2, 1, AStar);
-                                                                                                                                              
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_FewWalls       () => Pathfind(typeof(Colonies), 1, 3, 1, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_FewWalls      () => Pathfind(typeof(Colonies), 2, 3, 1, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_FewWalls         () => Pathfind(typeof(Colonies), 3, 3, 1, AStar);
-                                                                                                                                              
-                                                                                                                                              
+
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_MediumWalls     () => Pathfind(typeof(Colonies), 1, 1, 2, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 2, 1, 2, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_MediumWalls       () => Pathfind(typeof(Colonies), 3, 1, 2, AStar);
-                                                                                                                                              
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_MediumWalls  () => Pathfind(typeof(Colonies), 1, 2, 2, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_MediumWalls () => Pathfind(typeof(Colonies), 2, 2, 2, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 3, 2, 2, AStar);
-                                                                                                                                              
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_MediumWalls    () => Pathfind(typeof(Colonies), 1, 3, 2, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_MediumWalls   () => Pathfind(typeof(Colonies), 2, 3, 2, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_MediumWalls      () => Pathfind(typeof(Colonies), 3, 3, 2, AStar);
-                                                                                                                                              
-                                                                                                                                              
+
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_FewEnemies_ManyWalls       () => Pathfind(typeof(Colonies), 1, 1, 3, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_FewEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 2, 1, 3, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_FewEnemies_ManyWalls         () => Pathfind(typeof(Colonies), 3, 1, 3, AStar);
-                                                                                                                                              
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_MediumEnemies_ManyWalls    () => Pathfind(typeof(Colonies), 1, 2, 3, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_MediumEnemies_ManyWalls   () => Pathfind(typeof(Colonies), 2, 2, 3, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_MediumEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 3, 2, 3, AStar);
-                                                                                                                                              
+
         //[Test, Performance, Timeout(timeout)] public void AStar_SmallMap_ManyEnemies_ManyWalls      () => Pathfind(typeof(Colonies), 1, 3, 3, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_MediumMap_ManyEnemies_ManyWalls     () => Pathfind(typeof(Colonies), 2, 3, 3, AStar);
         //[Test, Performance, Timeout(timeout)] public void AStar_BigMap_ManyEnemies_ManyWalls        () => Pathfind(typeof(Colonies), 3, 3, 3, AStar);
 
-#endregion
+        #endregion
     }
 }
 

@@ -279,11 +279,11 @@ namespace ISILab.AI.Categorization
                                         filter.Add(colony.center);
                                     }
                                     distances[i, i] = 0;
-                                    EvaluatorHelper.PartialFloodFill(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod, PathfindingHeuristic.Chebyshev, ref info);
+                                    EvaluatorHelper.PartialFloodFill(maxDist, itemIndices[i], itemIndices, filter, i, out List<int> found, ref distances, tilePos, chrom, sectorMod, connectedMod, searchHeuristic, ref info);
                                     if(useEvaluationInfo) EvaluationInfo = info;
                                     IEnumerable<int> members = found.Except(skip);
                                     colony.members.AddRange(members);
-                                    Debug.Log($"{i} => {members.Select(m => itemIndices.IndexOf(m)).ToList().ElementsToString()}");
+                                    //Debug.Log($"{i} => {members.Select(m => itemIndices.IndexOf(m)).ToList().ElementsToString()}");
                                     skip.UnionWith(found);
                                 }
                                 break;
@@ -321,7 +321,7 @@ namespace ISILab.AI.Categorization
                                         skip.Add(itemIndices[j]);
                                     }
                                     colony.members.AddRange(members);
-                                    Debug.Log($"{i} => {members.Select(m => itemIndices.IndexOf(m)).ToList().ElementsToString()}");
+                                    //Debug.Log($"{i} => {members.Select(m => itemIndices.IndexOf(m)).ToList().ElementsToString()}");
                                     //colonies.Add(new(members));
                                     //colonies[^1] = colonies[^1].SetCenter(chrom);
                                 }
@@ -363,7 +363,7 @@ namespace ISILab.AI.Categorization
                 }
                 l += "\n";
             }
-            Debug.Log(l);
+            //Debug.Log(l);
 
             foreach(Colony colony in colonies)
             {
@@ -417,6 +417,7 @@ namespace ISILab.AI.Categorization
             minColonySize = 2;
 
             searchType = PathfindingAlgorithm.JPS_Plus;
+            searchHeuristic = PathfindingHeuristic.Chebyshev;
         
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }
@@ -471,6 +472,7 @@ namespace ISILab.AI.Categorization
             clone.minColonySize = minColonySize;
 
             clone.searchType = searchType;
+            clone.searchHeuristic = searchHeuristic;
 
             clone.DistancePool = DistancePool;
 
