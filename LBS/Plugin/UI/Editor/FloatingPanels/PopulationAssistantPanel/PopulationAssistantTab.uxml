@@ -6,9 +6,6 @@
             <ui:ListView name="MapElitesList" reorderable="true" show-foldout-header="false" show-add-remove-footer="false" allow-remove="false" allow-add="false" reorder-mode="Animated" show-border="true" horizontal-scrolling="false" show-bound-collection-size="true" fixed-item-height="32" virtualization-method="DynamicHeight" style="border-top-width: 1px; flex-shrink: 0;" />
         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
         <ISILab.LBS.CustomComponents.LBSCustomFoldout left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Manipulators/Icon=Lens.svg?fileID=7388822144124034973&amp;guid=62e7dd1353e2943429fd736f5b600695&amp;type=3#Icon=Lens" icon-color="#C2F671FF" text="Evaluators">
-            <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluators List" initial-value="true" name="LBSCustomFoldout_evList" icon-color="#C2F671FF" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/Icon=LineParallel3white-01.svg?fileID=7388822144124034973&amp;guid=cbb3effb558b77f4c8b58a6f2c4b91e5&amp;type=3#Icon=LineParallel3white-01" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
-                <ISILab.LBS.CustomComponents.LBSCustomListView name="evList" />
-            </ISILab.LBS.CustomComponents.LBSCustomFoldout>
             <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluator Generator" initial-value="true" name="LBSCustomFoldout_evGen" icon-color="#C2F671FF" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=add_cross_01.svg?fileID=7388822144124034973&amp;guid=75362f3dc887ec1458c528c808f2bb6e&amp;type=3#Icon=add_cross_01" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
                 <ISILab.LBS.CustomComponents.LBSCustomTextField label="Name" name="evGenName" />
                 <ISILab.LBS.CustomComponents.LBSCustomToggleField value="true" name="evGenToggle1" label="Configurable" tooltip="Parameter values can be changed from the MAP Elites preset." />
@@ -16,6 +13,9 @@
                 <ISILab.LBS.CustomComponents.LBSCustomToggleField value="true" name="evGenToggle2" label="Uses Context Layers" tooltip="Considers Context Layers for the evaluation." />
                 <ISILab.LBS.CustomComponents.LBSCustomButton text="Generate Evaluator" name="evGenGenerateButton" />
                 <ISILab.LBS.CustomComponents.LBSCustomButton text="Open Evaluators Folder" name="evGenOpenFolderButton" />
+            </ISILab.LBS.CustomComponents.LBSCustomFoldout>
+            <ISILab.LBS.CustomComponents.LBSCustomFoldout text="Evaluators List" initial-value="true" name="LBSCustomFoldout_evList" icon-color="#C2F671FF" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Population/Icon=LineParallel3white-01.svg?fileID=7388822144124034973&amp;guid=cbb3effb558b77f4c8b58a6f2c4b91e5&amp;type=3#Icon=LineParallel3white-01" style="align-self: stretch; align-items: stretch; justify-content: flex-start;">
+                <ISILab.LBS.CustomComponents.LBSCustomListView name="evList" />
             </ISILab.LBS.CustomComponents.LBSCustomFoldout>
         </ISILab.LBS.CustomComponents.LBSCustomFoldout>
     </ui:VisualElement>
