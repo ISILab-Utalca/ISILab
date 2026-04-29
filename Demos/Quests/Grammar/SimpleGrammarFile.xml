@@ -75,6 +75,105 @@
 		<field type="int" name="Item Amount" />
 		<field type="referenceGraph" name="Item in Level" />
 		<field type="List.int" name="Item Prices"/>
+		<field type="string" name="item name" />
 	</terminal>
 
 </grammar>
+
+
+<!--
+Field types for terminal. If you want to add fields to terminal, they must be part of the grammar field
+existing classes, these can be expanded upon in case new data wants to be gathere. the default supported
+types are:
+
+PRIMITIVE TYPES
+/>
+int
+    Stores whole numbers.
+
+        Example:
+            <field type="int" name="Amount" />
+
+float
+    Stores decimal numbers.
+
+        Example:
+            <field type="float" name="Speed" />
+
+string
+    Stores text.
+
+        Example:
+            <field type="string" name="NPC Name" />}
+
+referenceType
+    Stores a Bundle/Object type identifier (string/class type reference).
+
+    Example:
+        <field type="referenceType" name="Enemy Type" />
+
+referenceGraph
+    Stores a graph target / in-level reference.
+
+        Example:
+            <field type="referenceGraph" name="Target Location" />
+
+
+SPECIAL TYPES
+
+eventHook
+    Stores an event hooker callback/action.
+
+        Example:
+            <field type="eventHook" name="On Complete" />
+
+area
+    Stores a Rect area (x,y,width,height).
+
+        Example:
+            <field type="area" name="Spawn Area" />
+
+
+LIST TYPES
+
+List.int
+    List of integer fields.
+
+        Example:
+            <field type="List.int" name="Rewards" />
+
+List.float
+    List of float fields.
+
+        Example:
+            <field type="List.float" name="Drop Chances" />
+
+List.string
+    List of string fields.
+
+        Example:
+            <field type="List.string" name="Dialogue Lines" />
+
+List.referenceType
+    List of type references.
+
+    Example:
+        <field type="List.referenceType" name="Allowed Enemy Types" />
+
+List.referenceGraph
+    List of graph references.
+
+    Example:
+        <field type="List.referenceGraph" name="Patrol Points" />
+
+
+
+Terminal Definition Example
+<terminal id="take">
+    <field type="referenceType" name="Item Type" />
+    <field type="int" name="Item Amount" />
+    <field type="referenceGraph" name="Item In Level" />
+    <field type="List.int" name="Item Prices" />
+    <field type="string" name="Item Name" />
+</terminal>
+-->

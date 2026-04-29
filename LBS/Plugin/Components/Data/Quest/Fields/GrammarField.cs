@@ -157,6 +157,17 @@ namespace ISILab.AI.Grammar
         public override Type PrimitiveType => typeof(GrammarString); 
     }
     [Serializable]
+    public class GrammarBool : GrammarField<bool>
+    {
+        public override Type PrimitiveType => typeof(GrammarBool);
+    }
+    [Serializable]
+    public class GrammarColor : GrammarField<Color>
+    {
+        public override Type PrimitiveType => typeof(GrammarColor);
+    }
+
+    [Serializable]
     public class GrammarObject : GrammarField<BundleTargetGraph>
     {
         public override Type PrimitiveType => typeof(GrammarObject);
@@ -171,7 +182,10 @@ namespace ISILab.AI.Grammar
 
         public override object GetValue() => value;
     }
-    [Serializable] public class GrammarObjectType : GrammarField<string> { public override Type PrimitiveType => typeof(GrammarObjectType); }
+    [Serializable] public class GrammarObjectType : GrammarField<string> 
+    { 
+        public override Type PrimitiveType => typeof(GrammarObjectType); 
+    }
 
     #endregion
 
