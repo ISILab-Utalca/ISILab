@@ -9,7 +9,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     {
         [HideInInspector]
         public PathOSAgent agent;
-        [HideInInspector]
+        //[HideInInspector]
         public LevelEntity levelEntity;
         [HideInInspector]
         public bool hideAtStart = false;

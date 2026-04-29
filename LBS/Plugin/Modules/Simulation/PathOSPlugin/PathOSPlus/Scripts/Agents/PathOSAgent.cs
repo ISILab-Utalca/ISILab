@@ -77,29 +77,31 @@ namespace PathOS
 
         private void Awake()
         {
-            healthState.Init();
-            Debug.Log(healthState.health);
+
+            // Get components
             eyes = GetComponent<PathOSAgentEyes>();
             memory = GetComponent<PathOSAgentMemory>();
             navAgent = GetComponent<NavMeshAgent>();
-            heuristics = gameObject.GetComponent<HeuristicOS>();
-
-     
-            completed = false;
-
+            heuristics = GetComponent<HeuristicOS>();
             cameraObject = GameObject.FindWithTag("PathOSCamera");
 
+            // Set starting position as current destination 
             navigationState.currentDest = new TargetDest();
             navigationState.currentDest.pos = GetPosition();
+
+            // Set initial state
+            completed = false;
+
+            heuristics.Init(this);
+            healthState.Init();
+            Debug.Log(healthState.health);
 
             memoryState.memPathWaypoints = new List<Vector3>();
             explorationState.unreachableReference = new List<Vector3>();
 
+            // Get singleton instances
             manager ??= PathOSManager.instance;
             logger ??= OGLogManager.instance;
-
-            heuristics.Init(this);
-
         }
 
         private void Start()

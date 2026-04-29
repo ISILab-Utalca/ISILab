@@ -227,7 +227,7 @@ namespace ISILab.LBS.Behaviours
             foreach (LBSTile stair in lowStairTiles)
                 AddTile(lowStairTag, stair.x, stair.y, EntityType.ET_POI);
             foreach (LBSTile stair in highStairTiles)
-                AddTile(highStairTag, stair.x, stair.y, EntityType.ET_POI);
+                AddTile(highStairTag, stair.x, stair.y, EntityType.ET_GOAL_MANDATORY);
         }
 
         public void ClearMapping()

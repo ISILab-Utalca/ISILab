@@ -366,10 +366,9 @@ namespace ISILab.LBS.VisualElements
 
                 foreach (LBSStair stair in interiorLayer.GetModule<StairsModule>("", floor).Stairs)
                 {
+                    if (stair.Direction < 0) continue;
                     interiorTiles[SchemaBehaviour.LowStair].Add(new LBSTile(stair.Positions[0]));
-
-                    var aux = stair.Direction > 0 ? SchemaBehaviour.HighStair : SchemaBehaviour.LowStair;
-                    interiorTiles[aux].Add(new LBSTile(stair.Positions[stair.Positions.Count - 1]));
+                    interiorTiles[SchemaBehaviour.HighStair].Add(new LBSTile(stair.Positions[stair.Positions.Count - 1]));
                 }
             }
         }
