@@ -165,6 +165,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             EvaluatorsParameterWindow window = EditorWindow.GetWindow<EvaluatorsParameterWindow>(false, expectedTitle, true);
             window.ParameterList = parameters ;
             window.LoadParamVisualList();
+            window.EvRef = EvLabelString;
 
             // 2. ASIGNAR EL ICONO
             // Opción A: Usar un icono interno de Unity (ej: un engranaje o una lista)
