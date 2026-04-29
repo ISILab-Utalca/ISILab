@@ -1,7 +1,9 @@
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.AI.Grammar
@@ -77,15 +79,23 @@ namespace ISILab.AI.Grammar
             if (newValue is T typedValue)
             {
                 // call back to ctrz support. mark dirty in NodeDataBehaviorEditor
-                data.OnBeginChange?.Invoke();
+                data?.OnBeginChange?.Invoke();
                 value = typedValue;
-                data.OnEndChange?.Invoke();
+                data?.OnEndChange?.Invoke();
+
+
+                data?.OnDataChanged?.Invoke(data);
             }
             else
             {
                 try
                 {
+                    data?.OnBeginChange?.Invoke();
                     value = (T)Convert.ChangeType(newValue, typeof(T));
+                    data?.OnEndChange?.Invoke();
+
+
+                    data?.OnDataChanged?.Invoke(data);
                 }
                 catch
                 {
@@ -126,10 +136,26 @@ namespace ISILab.AI.Grammar
     #endregion
 
     #region PRIMITIVES
-
-    [Serializable] public class GrammarInt : GrammarField<int> { public override Type PrimitiveType => typeof(GrammarInt); }
-    [Serializable] public class GrammarFloat : GrammarField<float> { public override Type PrimitiveType => typeof(GrammarFloat); }
-    [Serializable] public class GrammarString : GrammarField<string> { public override Type PrimitiveType => typeof(GrammarString); }
+    [Serializable] public class GrammarEventHook : GrammarField<LBSEventHooker> 
+    {
+        public override Type PrimitiveType => typeof(LBSEventHooker);
+    }
+    [Serializable] public class GrammarArea : GrammarField<Rect>
+    {
+        public override Type PrimitiveType => typeof(Rect);
+    }
+    [Serializable] public class GrammarInt : GrammarField<int> 
+    { 
+        public override Type PrimitiveType => typeof(GrammarInt); 
+    }
+    [Serializable] public class GrammarFloat : GrammarField<float> 
+    { 
+        public override Type PrimitiveType => typeof(GrammarFloat); 
+    }
+    [Serializable] public class GrammarString : GrammarField<string> 
+    { 
+        public override Type PrimitiveType => typeof(GrammarString); 
+    }
     [Serializable]
     public class GrammarObject : GrammarField<BundleTargetGraph>
     {

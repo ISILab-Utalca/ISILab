@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using UnityEngine;
 using static UnityEngine.Analytics.IAnalytic;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Components
 {
@@ -276,7 +277,6 @@ namespace ISILab.LBS.Components
         {
             terminalID = action;
             nodeType = ENodeType.Middle;
-
             data = new QuestNodeData(this, graph.Grammar.GetTerminal(action));
         }
         #endregion

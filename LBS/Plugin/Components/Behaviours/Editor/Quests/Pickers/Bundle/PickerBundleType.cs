@@ -15,7 +15,8 @@ using UnityEngine.UIElements;
 public partial class PickerBundleType : PickerBase
 {
     private static VisualTreeAsset visualTree;
-    protected LBSCustomObjectField objectField;
+    protected LBSCustomObjectField _objectField;
+    private VisualElement _warning;
 
     public Action<LBSLayer, TileBundleGroup> OnBundlePicked { get; set; }
 
@@ -24,15 +25,17 @@ public partial class PickerBundleType : PickerBase
         visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("PickerBundleType");
         visualTree.CloneTree(this);
 
-        objectField = this.Q<LBSCustomObjectField>("TargetFieldBundle");
-        objectField.SetEnabled(true);
+        _objectField = this.Q<LBSCustomObjectField>("TargetFieldBundle");
+        _objectField.SetEnabled(true);
+
+        _warning = this.Q<VisualElement>("Warning");
 
         BindPickButton();
     }
 
     public override void SetInfo(string label, string tooltip)
     {
-        objectField.labelElement.text = label + " (Type)";
+        _objectField.labelElement.text = label + " (Type)";
         this.tooltip = tooltip;
     }
 
@@ -58,7 +61,8 @@ public partial class PickerBundleType : PickerBase
             return;
 
         // display bundle
-        objectField.value = LBSAssetMacro.LoadAssetByGuid<Bundle>(target.GUID);
+        _objectField.value = LBSAssetMacro.LoadAssetByGuid<Bundle>(target.GUID);
 
+        _warning.style.display = target.IsValid() ? DisplayStyle.None : DisplayStyle.Flex;
     }
 }

@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Manipulators;
 using LBS.VisualElements;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,9 +11,11 @@ namespace ISILab.LBS.VisualElements
     public partial class PickerVector2Int : PickerBase
     {
 
-        public RectField areaView;
-
+        public RectField _areaView;
+        
         private static VisualTreeAsset visualTree;
+
+        public Action<Rect> OnAreaChange;
 
         #region CONSTRUCTORS
         public PickerVector2Int() : base()
@@ -20,14 +23,11 @@ namespace ISILab.LBS.VisualElements
             visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("PickerVector2Int");
             visualTree.CloneTree(this);
 
-            areaView = this.Q<RectField>("Area");
-            areaView.tooltip = "an area in the level graph.";
-            areaView.RegisterValueChangedCallback<Rect>((rect) =>
+            _areaView = this.Q<RectField>("Area");
+            _areaView.tooltip = "an area in the level graph.";
+            _areaView.RegisterValueChangedCallback((rect) =>
             {
-                var activeData = GetActionData();
-                if (activeData == null) return;
-                activeData.SetArea(rect.newValue);
-
+                OnAreaChange.Invoke(rect.newValue);
             });
 
             BindPickButton();
@@ -40,7 +40,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetInfo(string label, string tooltip)
         {
-            areaView.labelElement.text = label;
+            _areaView.labelElement.text = label;
             this.tooltip = tooltip;
         }
 
@@ -59,9 +59,13 @@ namespace ISILab.LBS.VisualElements
                     pos.y,
                     pickerManipulator.ActiveData.Area.width,
                     pickerManipulator.ActiveData.Area.height);
-
-                areaView.value = newRect;
+                SetArea(newRect);
             };
+        }
+
+        internal void SetArea(Rect area)
+        {
+            _areaView.value = area;
         }
 
         #endregion

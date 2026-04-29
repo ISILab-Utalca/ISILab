@@ -11,23 +11,18 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Components
 {
 
     [Serializable]
-    public class QuestNodeData : ScriptableObject
+    public class QuestNodeData
     {
         #region FIELDS
 
         [SerializeField, SerializeReference]
         protected QuestNode ownerNode;
-
-        [SerializeField] 
-        protected Rect area;
-
-        [SerializeField] 
-        private LBSEventHooker _eventHooker;
 
         // terminal from which we obtain color/icons
         [SerializeField] private string terminalGUID;
@@ -35,6 +30,14 @@ namespace ISILab.LBS.Components
 
         [SerializeReference] 
         private List<GrammarField> fields = new();
+
+        // for direct acccess but it exists within fields
+        [SerializeReference]
+        private GrammarEventHook _eventHookerField;
+
+        // for direct acccess but it exists within fields
+        [SerializeReference]
+        private GrammarArea _areaField;
 
         #endregion
 
@@ -62,22 +65,14 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public LBSEventHooker EventHooker => _eventHooker;
+
+        public string ID => Node.ID;
         public QuestNode Node => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;
         public LBSLayer OwnerLayer => Graph.OwnerLayer;
+        public LBSEventHooker EventHooker => _eventHookerField.GetValue() as LBSEventHooker;
+        public Rect Area => _areaField.value;
 
-        public Rect Area
-        {
-            get => area;
-            set
-            {
-                area = value;
-                OnDataChanged?.Invoke(this);
-            }
-        }
-
-        public string ID => Node.ID;
 
         #endregion
 
@@ -85,23 +80,31 @@ namespace ISILab.LBS.Components
 
         public QuestNodeData(QuestNode ownerNode, GrammarTerminal terminal)
         {
-            this.ownerNode = ownerNode;
-            this.Terminal = terminal;
 
-            foreach(var field in Terminal.fields)
-            {
+            this.ownerNode = ownerNode;
+            Terminal = terminal;
+
+            _areaField = new GrammarArea { data = this, name = "Area" };
+            _eventHookerField = new GrammarEventHook { data = this, name = "Events" };
+
+            fields = new();
+
+            fields.Add(_areaField);
+            fields.Add(_eventHookerField);
+
+            foreach (var field in Terminal.fields)
                 fields.Add((GrammarField)field.Clone());
-            }
+
+
+            foreach (var field in fields)
+                field.data = this;
 
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
-            area = new Rect(pos.x, pos.y, 1, 1);
-
-            // all data actions must have the event hooker by default
-            _eventHooker = new LBSEventHooker();
+            _areaField.SetValue(new Rect(pos.x, pos.y, 1, 1));
 
             // bind actions for Ctrl+Z
             var ndb = Graph.OwnerLayer.GetBehaviour<NodeDataBehaviour>();
-            OnBeginChange += () => ndb.OnNodeDataChangedBegin?.Invoke(this); 
+            OnBeginChange += () => ndb.OnNodeDataChangedBegin?.Invoke(this);
             OnEndChange += () => ndb.OnNodeDataChangedEnd?.Invoke(this);
         }
 
@@ -114,9 +117,9 @@ namespace ISILab.LBS.Components
         public virtual void Clone(QuestNodeData data)
         {
             ownerNode = data.ownerNode;
-            area = data.area;
+            _areaField = data._areaField;
             fields = data.fields;
-            _eventHooker = data._eventHooker;
+            _eventHookerField = data._eventHookerField;
             Terminal = data.Terminal;
         }
 
@@ -164,7 +167,7 @@ namespace ISILab.LBS.Components
             float width = maxX - minX;
             float height = maxY - minY;
 
-            area = new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height));
+            _areaField.SetValue(new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height)));
         }
 
         #endregion
@@ -248,12 +251,8 @@ namespace ISILab.LBS.Components
             return false;
         }
 
-        public void SetArea(Rect newValue)
-        {
-            OnBeginChange.Invoke();
-            Area = newValue;
-            OnEndChange.Invoke();
-        }
+        public void SetArea(Rect newValue) => _areaField.SetValue(newValue);
+
 
 
         #endregion

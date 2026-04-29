@@ -19,17 +19,6 @@
             <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/Vectorial/Population/Icon=Important&apos;); -unity-background-scale-mode: scale-and-crop; background-size: 100% 100%; min-height: 36px; max-height: 36px; min-width: 36px; max-width: 36px; align-self: center; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px;" />
             <ui:Label text="No node is currently selected." style="align-self: center; padding-left: 12px; justify-content: space-between; align-content: stretch; align-items: stretch; flex-grow: 1;" />
         </ui:VisualElement>
-        <ui:VisualElement name="BaseData" style="flex-grow: 0; flex-direction: column; border-left-color: rgba(0, 0, 0, 0.3); border-right-color: rgba(0, 0, 0, 0.3); border-top-color: rgba(0, 0, 0, 0.3); border-bottom-color: rgba(0, 0, 0, 0.3); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px; padding-left: 3px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px;">
-            <ISILab.LBS.CustomComponents.LBSCustomFoldout text="On Action Node Complete" left-icon="project://database/Assets/ISILab/Commons/Assets2D/Resources/Icons/Vectorial/Simulation/PathOS/PathOS=Trigger.svg?fileID=7388822144124034973&amp;guid=b69e655b736484944931f774d8c16403&amp;type=3#PathOS=Trigger" initial-value="false">
-                <ui:VisualElement name="EventComplete" style="flex-grow: 1;">
-                    <ISILab.LBS.CustomComponents.LBSCustomEventHooker name="EventHooker" />
-                </ui:VisualElement>
-            </ISILab.LBS.CustomComponents.LBSCustomFoldout>
-            <ui:VisualElement style="flex-grow: 1; flex-direction: column; padding-top: 6px;">
-                <ISILab.LBS.CustomComponents.LBSCustomLabel text="Node Area" />
-                <ISILab.LBS.VisualElements.PickerVector2Int name="Manipulator" />
-            </ui:VisualElement>
-        </ui:VisualElement>
         <ui:VisualElement name="InstancedContent" style="flex-grow: 1;" />
     </ui:VisualElement>
     <ISILab.LBS.CustomComponents.LBSToolbarToggle />
