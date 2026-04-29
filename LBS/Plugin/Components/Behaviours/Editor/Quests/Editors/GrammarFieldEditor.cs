@@ -10,7 +10,7 @@ namespace ISILab.LBS.VisualElements
 {
     public class GrammarFieldEditor : LBSCustomEditor
     {
-        private LBSCustomLabel nameLabel;
+        private LBSCustomFoldout foldout;
 
         // field umxl are added here
         protected VisualElement content;
@@ -38,11 +38,42 @@ namespace ISILab.LBS.VisualElements
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarFieldEditor");
             visualTree.CloneTree(this);
 
-            nameLabel = this.Q<LBSCustomLabel>("Name");
-            nameLabel.text = (target as GrammarField)?.name;
+            foldout = this.Q<LBSCustomFoldout>();
+            var name = (target as GrammarField)?.name;
+            foldout.text = name;
 
             content = this.Q<VisualElement>("Content");
             return this;
+        }
+
+        protected void SetTargetValue<T>(ChangeEvent<T> evt)
+        {
+            if (target == null) 
+                return;
+            (target as GrammarField).SetValue(evt.newValue);
+        }
+
+        protected T GetTargetValue<T>()
+        {
+            if (target is GrammarField field)
+            {
+                object value = field.GetValue();
+
+                if (value is T typedValue)
+                    return typedValue;
+
+                try
+                {
+                    return (T)Convert.ChangeType(value, typeof(T));
+                }
+                catch
+                {
+                    UnityEngine.Debug.LogError(
+                        $"[Grammar] Cannot convert {value?.GetType()} to {typeof(T)}");
+                }
+            }
+
+            return default;
         }
     }
 }

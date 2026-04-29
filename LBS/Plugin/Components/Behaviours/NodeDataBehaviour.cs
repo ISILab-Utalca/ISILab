@@ -14,13 +14,14 @@ namespace ISILab.LBS.Behaviours
         public QuestNodeData SelectedNodeData => Graph.SelectedQuestNode?.Data;
         public QuestGraph Graph => OwnerLayer.GetModule<QuestGraph>();
 
-        public Action<GraphNode> OnNodeDataChanged; 
-
+        public Action<GraphNode> OnNodeDataChanged;
+        public Action<QuestNodeData> OnNodeDataChangedBegin;
+        public Action<QuestNodeData> OnNodeDataChangedEnd;
         /// <summary>
         /// Assigned from the QuestNodeView On MouseDown event. It will assign the current selected node, allowing to
         /// modify it based on its action type.
         /// </summary>
-      
+
 
         public NodeDataBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {
@@ -30,8 +31,6 @@ namespace ISILab.LBS.Behaviours
         {
   
         }
-
-       
         
         public override object Clone()
         {
