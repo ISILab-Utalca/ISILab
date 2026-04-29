@@ -1,9 +1,6 @@
 using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Editor;
-using System;
-using System.Diagnostics;
+using ISILab.LBS.Components;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -24,10 +21,20 @@ namespace ISILab.LBS.VisualElements
             base.CreateVisualElement();
 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldReferenceGraph");
-            visualTree.CloneTree(this);
-            this.Q<PickerBundleGraph>().OnClicked += () => {
-                UnityEngine.Debug.Log("Clicked a graph ref");
+            visualTree.CloneTree(content);
+
+            var pbg = this.Q<PickerBundleGraph>();
+
+            pbg.OnBundlePicked = (layer, tile) =>
+            {
+                var btg = new BundleTargetGraph(layer, tile);
+                pbg.SetLayerTarget(btg);
+                (target as GrammarObject).SetValue(btg);
             };
+
+            BundleTarget btg = (target as GrammarObject).GetValue() as BundleTargetGraph;
+            if (btg.IsValid())
+                pbg.SetLayerTarget(btg);
 
             return this;
         }

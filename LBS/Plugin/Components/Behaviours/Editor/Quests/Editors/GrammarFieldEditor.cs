@@ -10,7 +10,7 @@ namespace ISILab.LBS.VisualElements
 {
     public class GrammarFieldEditor : LBSCustomEditor
     {
-        private LBSCustomLabel nameLabel;
+        private LBSCustomFoldout foldout;
 
         // field umxl are added here
         protected VisualElement content;
@@ -38,9 +38,9 @@ namespace ISILab.LBS.VisualElements
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarFieldEditor");
             visualTree.CloneTree(this);
 
-            nameLabel = this.Q<LBSCustomLabel>("Name");
+            foldout = this.Q<LBSCustomFoldout>();
             var name = (target as GrammarField)?.name;
-            nameLabel.text = name;
+            foldout.text = name;
 
             content = this.Q<VisualElement>("Content");
             return this;

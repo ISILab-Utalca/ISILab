@@ -291,7 +291,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
       private static void AssignObjectByBundleGraph(
             QuestNode node,
-            BundleGraph bundleGraph,
+            BundleTargetGraph bundleGraph,
             LBSGenerator3DSettings settings,
             Vector3 basePos,
             float y,
@@ -316,16 +316,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 var lbsGenerated = collider.GetComponent<LBSGenerated>();
                 if (lbsGenerated == null || lbsGenerated.BundleRef == null) continue;
-                if (lbsGenerated.LayerName != bundleGraph.GetLayerName()) continue; 
+                if (lbsGenerated.LayerName != bundleGraph.Layer?.Name) continue; 
 
-                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GetGuid());
+                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GUID);
                 if (lbsGenerated.BundleRef != bundleRef) continue;
 
                 assignAction?.Invoke(collider.gameObject);
                 return;
             }
 
-            Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GetGuid()}' found at position {scenePosition} for node {node.ID}");
+            Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GUID}' found at position {scenePosition} for node {node.ID}");
         }
 
         private static Vector3 GetScenePosition(Rect graphArea, LBSGenerator3DSettings settings, Vector3 basePos, float y,

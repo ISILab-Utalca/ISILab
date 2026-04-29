@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
-using ISILab.LBS.Editor.Windows;
 using UnityEditor.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -14,7 +13,7 @@ namespace ISILab.LBS.VisualElements
         #region CONSTS
         const float iconSize = 24f;
         const float padding = 40f;
-        const float minWidth = 100f;
+        const float minWidth = 160;
         #endregion
 
         #region FIELDS
@@ -42,7 +41,7 @@ namespace ISILab.LBS.VisualElements
         public QuestNodeView(QuestNode graphNode)
         {
             if (_asset == null)
-                _asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestActionView");
+                _asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestNodeView");
 
             _asset.CloneTree(this);
 
@@ -148,19 +147,28 @@ namespace ISILab.LBS.VisualElements
         private void UpdateWidth()
         {
             // Use the Font and Style of the label to measure text without waiting for layout
-            var textSize = _label.MeasureTextSize(_label.text, 0, VisualElement.MeasureMode.Undefined, 0, VisualElement.MeasureMode.Undefined);
+            var textSize = _label.MeasureTextSize(
+                _label.text, 
+                0,
+                MeasureMode.Undefined, 
+                0,
+                MeasureMode.Undefined);
 
-            if (string.IsNullOrEmpty(_label.text)) return;
-
+            if (string.IsNullOrEmpty(_label.text)) 
+                return;
 
             float iconTotal = iconSize;
             if (Node is QuestNode qn)
             {
                 // add icon spaces
-                if (!qn.Data.IsValid()) iconTotal += iconSize;
-                if (!Node.ValidGrammar) iconTotal += iconSize;
-                if (!Node.ValidConnections) iconTotal += iconSize;
-                if (qn.NodeType != QuestNode.ENodeType.Middle) iconTotal += iconSize;
+                if (!qn.Data.IsValid()) 
+                    iconTotal += iconSize;
+                if (!Node.ValidGrammar) 
+                    iconTotal += iconSize;
+                if (!Node.ValidConnections) 
+                    iconTotal += iconSize;
+                if (qn.NodeType != QuestNode.ENodeType.Middle)
+                    iconTotal += iconSize;
             }
 
             float calculatedWidth = textSize.x + iconTotal + padding;

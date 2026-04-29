@@ -1,113 +1,76 @@
 using System;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Bundles;
 using LBS.Components;
 using UnityEngine;
 
 namespace ISILab.LBS.Components
 {
-    
+
     [Serializable]
-    public abstract class LayerTarget
+    public class BundleTarget
     {
-        [SerializeReference][SerializeField]protected LBSLayer layer;
-        
-        public LBSLayer GetLayer() => layer;
-        
-        public string GetLayerName()
+        [SerializeField] private string guid = string.Empty;
+        public string GUID => guid;
+
+        public BundleTarget(Bundle bundle)
         {
-            return layer?.Name ?? "";
+            if (bundle == null) return;
+            guid = LBSAssetMacro.GetGuidFromAsset(bundle);
         }
 
-        public abstract string GetGuid();
-        public abstract bool Valid();
-        
-        public override bool Equals(object obj)
+        public BundleTarget(TileBundleGroup bundle)
         {
-            LayerTarget other =  obj as LayerTarget;
-            return other?.GetGuid() == GetGuid();
+            guid = bundle?.GetGuid() ?? string.Empty;
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(layer);
-        }
+        public virtual bool IsValid() => !string.IsNullOrEmpty(guid);
+
+        public override bool Equals(object obj) => obj is BundleTarget other && other.guid == guid;
+        public override int GetHashCode() => HashCode.Combine(guid);
+
+        // quick BundleTarget target = someTileBundle;
+        public static implicit operator BundleTarget(TileBundleGroup b) => new(b);
     }
-    
+
     /// <summary>
     /// Saves the bundle guid and the position in the graph to get in the scene
     /// </summary>
     /// 
     [Serializable]
-    public class BundleGraph : LayerTarget
+    public class BundleTargetGraph : BundleTarget
     {
-        [SerializeReference] [SerializeField] private TileBundleGroup tileBundle;
-        [SerializeField] private string guid = string.Empty;
-        [SerializeField] private QuestNodeData _actionData;
-        // must be assigned on all bundleGraphs to the Resize Function
-        
-        public BundleGraph(QuestNodeData actionData, LBSLayer layer = null, TileBundleGroup tileBundle = null)
+        [SerializeField] private LBSLayer layer;
+        [SerializeReference] private TileBundleGroup tileBundle;
+
+
+        public LBSLayer Layer => layer;
+        public TileBundleGroup Bundle => tileBundle;
+
+        public BundleTargetGraph(LBSLayer layer, TileBundleGroup bundle)
+            : base(bundle)
         {
             this.layer = layer;
-            
-            this.tileBundle = tileBundle;
-            _actionData = actionData;
-            
-            if(this.tileBundle is null) return;
-            guid = this.tileBundle.GetGuid();
-            
-            if(_actionData is null) return;
-            this.tileBundle!.OnRemoved += ClearTileBundle;
+            this.tileBundle = bundle;
+
+            if (tileBundle != null)
+                tileBundle.OnRemoved += RemoveBundle;
         }
 
-        private void ClearTileBundle()
+        private void RemoveBundle()
         {
+            if (tileBundle != null) tileBundle.OnRemoved -= RemoveBundle;
             tileBundle = null;
         }
 
-        public Vector2Int Position => new((int)Area.x, (int)Area.y);
-        public Rect Area
-        {
-            get
-            {   
-                if(tileBundle is null) return Rect.zero;
-                return tileBundle.AreaRect;
-            }
-        }
+        public Vector2Int Position => tileBundle != null ?
+            new Vector2Int((int)tileBundle.AreaRect.x, (int)tileBundle.AreaRect.y) :
+            Vector2Int.zero;
 
-        public override bool Valid() => GetGuid() != string.Empty;
-        public override string GetGuid()
-        {
-            return guid;
-        }
-        
+        public Rect Area => tileBundle?.AreaRect ?? Rect.zero;
+        public override bool IsValid() => base.IsValid() && layer != null;
+
     }
-    
-    
-    /// <summary>
-    /// Saves the bundle type
-    /// </summary>
-    [Serializable]
-    public class BundleType : LayerTarget
-    {
-        [SerializeField]private string guid = string.Empty;
-        
-        public BundleType(
-            LBSLayer layer = null, 
-            TileBundleGroup tileBundle = null)
-        {
-            this.layer = layer;
-            if (tileBundle != null) guid = tileBundle.GetGuid();
-        }
 
-        public override string GetGuid()
-        {
-            return guid;
-        }
-
-        public override bool Valid()
-        {
-            return GetGuid()!= string.Empty;
-        }
-        
-    }
 }

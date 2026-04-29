@@ -1,6 +1,88 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8242477459743842905
+--- !u!114 &-8064864718286587184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_kill
+  m_EditorClassIdentifier: 
+  id: kill
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+  fields: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &-6478823468619104130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_take
+  m_EditorClassIdentifier: 
+  id: take
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+  fields:
+  - rid: 1036301357456818764
+  - rid: 1036301357456818765
+  - rid: 1036301357456818766
+  - rid: 1036301357456818767
+  references:
+    version: 2
+    RefIds:
+    - rid: 1036301357456818764
+      type: {class: GrammarObjectType, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        name: Item Type
+        value: 
+    - rid: 1036301357456818765
+      type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        name: Item Amount
+        value: 0
+    - rid: 1036301357456818766
+      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        name: Item in Level
+        value: {fileID: 0}
+    - rid: 1036301357456818767
+      type: {class: GrammarIntList, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        name: Item Prices
+        value: []
+--- !u!114 &-4575786479751472544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Capture
+  m_EditorClassIdentifier: 
+  id: Capture
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
+  color: {r: 1, g: 1, b: 1, a: 1}
+  Expansions:
+  - sequence:
+    - Get
+    - Goto
+    - capture
+--- !u!114 &-4249462315311530822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,7 +110,7 @@ MonoBehaviour:
     - Get
     - Subquest
     - listen
---- !u!114 &-7951697957310051424
+--- !u!114 &-4137573912628278678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,16 +120,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_go to
+  m_Name: Terminal_read
   m_EditorClassIdentifier: 
-  id: go to
+  id: read
   iconGuid: bb0770b945366c94c822cf3255eb885d
   color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
   fields: []
   references:
     version: 2
     RefIds: []
---- !u!114 &-7376028795964791988
+--- !u!114 &-3652412271744214818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_spy
+  m_EditorClassIdentifier: 
+  id: spy
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+  fields: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &-3148365447037449743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Kill
+  m_EditorClassIdentifier: 
+  id: Kill
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
+  color: {r: 1, g: 1, b: 1, a: 1}
+  Expansions:
+  - sequence:
+    - Goto
+    - kill
+--- !u!114 &-2834199866509077271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,26 +194,7 @@ MonoBehaviour:
     - Goto
     - Subquest
     - exchange
---- !u!114 &-6835071034040922406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_kill
-  m_EditorClassIdentifier: 
-  id: kill
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-  fields: []
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &-6767097858068822468
+--- !u!114 &-1872531547503452850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +213,64 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &-4683039608559577097
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413f9f532ddefee4cb50a01f79231155, type: 3}
+  m_Name: SimpleGrammar
+  m_EditorClassIdentifier: 
+  lbsRules:
+  - {fileID: 5944241971235044138}
+  - {fileID: 7388056646780310292}
+  - {fileID: 8982429947759697808}
+  - {fileID: -4249462315311530822}
+  - {fileID: -2834199866509077271}
+  - {fileID: 7913214789546173530}
+  - {fileID: -3148365447037449743}
+  - {fileID: -4575786479751472544}
+  - {fileID: 2123364341753452711}
+  lbsTerminals:
+  - {fileID: 923564527581942235}
+  - {fileID: 4766021738659605811}
+  - {fileID: 1171246301545510094}
+  - {fileID: -4137573912628278678}
+  - {fileID: 601831722267454371}
+  - {fileID: 2492623410095518080}
+  - {fileID: -6478823468619104130}
+  - {fileID: -8064864718286587184}
+  - {fileID: 801889132150895048}
+  - {fileID: -3652412271744214818}
+  - {fileID: -1872531547503452850}
+  terminals:
+  - go to
+  - explore
+  - listen
+  - read
+  - gather
+  - exchange
+  - take
+  - kill
+  - capture
+  - spy
+  - report
+  rules:
+  - Quest
+  - Subquest
+  - Goto
+  - Learn
+  - Get
+  - Steal
+  - Kill
+  - Capture
+  - Spy
+  pathGuid: 1cd76f1a51a1e7c41ace7edd8b63bd31
+--- !u!114 &601831722267454371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,16 +280,113 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_spy
+  m_Name: Terminal_gather
   m_EditorClassIdentifier: 
-  id: spy
+  id: gather
   iconGuid: bb0770b945366c94c822cf3255eb885d
   color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
   fields: []
   references:
     version: 2
     RefIds: []
---- !u!114 &-4195740979850486380
+--- !u!114 &801889132150895048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_capture
+  m_EditorClassIdentifier: 
+  id: capture
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+  fields: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &923564527581942235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_go to
+  m_EditorClassIdentifier: 
+  id: go to
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+  fields: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1171246301545510094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_listen
+  m_EditorClassIdentifier: 
+  id: listen
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+  fields: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &2123364341753452711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Spy
+  m_EditorClassIdentifier: 
+  id: Spy
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
+  color: {r: 1, g: 1, b: 1, a: 1}
+  Expansions:
+  - sequence:
+    - Goto
+    - spy
+    - Goto
+    - report
+--- !u!114 &2492623410095518080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_exchange
+  m_EditorClassIdentifier: 
+  id: exchange
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
+  fields: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &4766021738659605811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,27 +405,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &-3459700278208818390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Capture
-  m_EditorClassIdentifier: 
-  id: Capture
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  Expansions:
-  - sequence:
-    - Get
-    - Goto
-    - capture
---- !u!114 &-2915826869601470544
+--- !u!114 &5944241971235044138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +437,7 @@ MonoBehaviour:
     - Capture
   - sequence:
     - Spy
---- !u!114 &-2549362756429317658
+--- !u!114 &7388056646780310292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,236 +447,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Goto
+  m_Name: Rule_Subquest
   m_EditorClassIdentifier: 
-  id: Goto
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  Expansions:
-  - sequence:
-    - explore
-  - sequence:
-    - Learn
-    - go to
-  - sequence:
-    - go to
---- !u!114 &-912512680937921775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_gather
-  m_EditorClassIdentifier: 
-  id: gather
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-  fields: []
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &-444984676439255895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_read
-  m_EditorClassIdentifier: 
-  id: read
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-  fields: []
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &-232112551334775746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_listen
-  m_EditorClassIdentifier: 
-  id: listen
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-  fields: []
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 413f9f532ddefee4cb50a01f79231155, type: 3}
-  m_Name: SimpleGrammar
-  m_EditorClassIdentifier: 
-  lbsRules:
-  - {fileID: -2915826869601470544}
-  - {fileID: 9035094723301404600}
-  - {fileID: -2549362756429317658}
-  - {fileID: -8242477459743842905}
-  - {fileID: -7376028795964791988}
-  - {fileID: 6015636283779993251}
-  - {fileID: 6815413479394583716}
-  - {fileID: -3459700278208818390}
-  - {fileID: 349392530592771744}
-  lbsTerminals:
-  - {fileID: -7951697957310051424}
-  - {fileID: -4195740979850486380}
-  - {fileID: -232112551334775746}
-  - {fileID: -444984676439255895}
-  - {fileID: -912512680937921775}
-  - {fileID: 3975280991751140795}
-  - {fileID: 753201771926067521}
-  - {fileID: -6835071034040922406}
-  - {fileID: 4992145839587993685}
-  - {fileID: -4683039608559577097}
-  - {fileID: -6767097858068822468}
-  terminals:
-  - go to
-  - explore
-  - listen
-  - read
-  - gather
-  - exchange
-  - take
-  - kill
-  - capture
-  - spy
-  - report
-  rules:
-  - Quest
-  - Subquest
-  - Goto
-  - Learn
-  - Get
-  - Steal
-  - Kill
-  - Capture
-  - Spy
-  pathGuid: 1cd76f1a51a1e7c41ace7edd8b63bd31
---- !u!114 &349392530592771744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Spy
-  m_EditorClassIdentifier: 
-  id: Spy
+  id: Subquest
   iconGuid: d7b2c9af591bee4429f705ae7ae6abea
   color: {r: 1, g: 1, b: 1, a: 1}
   Expansions:
   - sequence:
     - Goto
-    - spy
+  - sequence:
     - Goto
-    - report
---- !u!114 &753201771926067521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_take
-  m_EditorClassIdentifier: 
-  id: take
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-  fields:
-  - rid: 1036301352439122368
-  - rid: 1036301352439122369
-  - rid: 1036301352439122370
-  - rid: 1036301352439122371
-  references:
-    version: 2
-    RefIds:
-    - rid: 1036301352439122368
-      type: {class: GrammarType, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        name: Item Type
-        value: 
-    - rid: 1036301352439122369
-      type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        name: Item Amount
-        value: 0
-    - rid: 1036301352439122370
-      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        name: Item in Level
-        value: {fileID: 0}
-    - rid: 1036301352439122371
-      type: {class: GrammarIntList, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        name: Item Prices
-        value: []
---- !u!114 &3975280991751140795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_exchange
-  m_EditorClassIdentifier: 
-  id: exchange
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-  fields: []
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &4992145839587993685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_capture
-  m_EditorClassIdentifier: 
-  id: capture
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-  fields: []
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &6015636283779993251
+    - Quest
+    - go to
+--- !u!114 &7913214789546173530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -464,7 +482,7 @@ MonoBehaviour:
     - Goto
     - Kill
     - take
---- !u!114 &6815413479394583716
+--- !u!114 &8982429947759697808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,34 +492,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Kill
+  m_Name: Rule_Goto
   m_EditorClassIdentifier: 
-  id: Kill
+  id: Goto
   iconGuid: d7b2c9af591bee4429f705ae7ae6abea
   color: {r: 1, g: 1, b: 1, a: 1}
   Expansions:
   - sequence:
-    - Goto
-    - kill
---- !u!114 &9035094723301404600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Subquest
-  m_EditorClassIdentifier: 
-  id: Subquest
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  Expansions:
+    - explore
   - sequence:
-    - Goto
+    - Learn
+    - go to
   - sequence:
-    - Goto
-    - Quest
     - go to

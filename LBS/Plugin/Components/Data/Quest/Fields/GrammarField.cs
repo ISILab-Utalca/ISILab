@@ -1,6 +1,8 @@
+using ISILab.LBS.Components;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.AI.Grammar
 {
@@ -9,6 +11,7 @@ namespace ISILab.AI.Grammar
     [Serializable]
     public abstract class GrammarField : ICloneable
     {
+        public QuestNodeData data;
         public string name;
 
         /// Primitive type used by this field
@@ -44,7 +47,7 @@ namespace ISILab.AI.Grammar
                 "int" => new GrammarInt { name = name },
                 "float" => new GrammarFloat { name = name },
                 "string" => new GrammarString { name = name },
-                "referencetype" => new GrammarType { name = name },
+                "referencetype" => new GrammarObjectType { name = name },
                 "referencegraph" => new GrammarObject { name = name },
                 _ => throw new Exception($"Unknown field type {type}")
             };
@@ -73,7 +76,10 @@ namespace ISILab.AI.Grammar
         {
             if (newValue is T typedValue)
             {
+                // call back to ctrz support. mark dirty in NodeDataBehaviorEditor
+                data.OnBeginChange?.Invoke();
                 value = typedValue;
+                data.OnEndChange?.Invoke();
             }
             else
             {
@@ -124,8 +130,22 @@ namespace ISILab.AI.Grammar
     [Serializable] public class GrammarInt : GrammarField<int> { public override Type PrimitiveType => typeof(GrammarInt); }
     [Serializable] public class GrammarFloat : GrammarField<float> { public override Type PrimitiveType => typeof(GrammarFloat); }
     [Serializable] public class GrammarString : GrammarField<string> { public override Type PrimitiveType => typeof(GrammarString); }
-    [Serializable] public class GrammarObject : GrammarField<UnityEngine.Object> { public override Type PrimitiveType => typeof(GrammarObject); }
-    [Serializable] public class GrammarType : GrammarField<string> { public override Type PrimitiveType => typeof(GrammarType); }
+    [Serializable]
+    public class GrammarObject : GrammarField<BundleTargetGraph>
+    {
+        public override Type PrimitiveType => typeof(GrammarObject);
+
+        public override void SetValue(object newValue)
+        {
+            if (newValue is BundleTargetGraph target)
+            {
+                value = target;
+            }
+        }
+
+        public override object GetValue() => value;
+    }
+    [Serializable] public class GrammarObjectType : GrammarField<string> { public override Type PrimitiveType => typeof(GrammarObjectType); }
 
     #endregion
 
@@ -156,9 +176,9 @@ namespace ISILab.AI.Grammar
     }
 
     [Serializable]
-    public class GrammarTypeList : GrammarListField<GrammarType>
+    public class GrammarTypeList : GrammarListField<GrammarObjectType>
     {
-        public override Type PrimitiveType => typeof(GrammarType);
+        public override Type PrimitiveType => typeof(GrammarObjectType);
     }
     #endregion
 }

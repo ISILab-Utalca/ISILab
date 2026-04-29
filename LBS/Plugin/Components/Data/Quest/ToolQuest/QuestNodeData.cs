@@ -1,39 +1,47 @@
-using ISILab.DevTools.Macros;
+using ISILab.AI.Grammar;
 using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Components.Data;
 using LBS.Components;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
-using ISILab.LBS.Plugin.Components.Data;
-using ISILab.AI.Grammar;
 
 namespace ISILab.LBS.Components
 {
 
     [Serializable]
-    public class QuestNodeData
+    public class QuestNodeData : ScriptableObject
     {
         #region FIELDS
 
-        [SerializeField, SerializeReference, JsonRequired]
+        [SerializeField, SerializeReference]
         protected QuestNode ownerNode;
 
-        [SerializeField, JsonRequired] protected Rect area;
+        [SerializeField] 
+        protected Rect area;
 
-        [SerializeField] private LBSEventHooker _eventHooker;
+        [SerializeField] 
+        private LBSEventHooker _eventHooker;
 
         // terminal from which we obtain color/icons
         [SerializeField] private string terminalGUID;
         private GrammarTerminal terminal;
-        [SerializeField] private List<GrammarField> fields = new();
+
+        [SerializeReference] 
+        private List<GrammarField> fields = new();
+
+        #endregion
+
+        #region ACTIONS
+
+        public Action OnBeginChange;
+        public Action OnEndChange;
 
         #endregion
 
@@ -62,7 +70,11 @@ namespace ISILab.LBS.Components
         public Rect Area
         {
             get => area;
-            set => area = value;
+            set
+            {
+                area = value;
+                OnDataChanged?.Invoke(this);
+            }
         }
 
         public string ID => Node.ID;
@@ -87,6 +99,10 @@ namespace ISILab.LBS.Components
             // all data actions must have the event hooker by default
             _eventHooker = new LBSEventHooker();
 
+            // bind actions for Ctrl+Z
+            var ndb = Graph.OwnerLayer.GetBehaviour<NodeDataBehaviour>();
+            OnBeginChange += () => ndb.OnNodeDataChangedBegin?.Invoke(this); 
+            OnEndChange += () => ndb.OnNodeDataChangedEnd?.Invoke(this);
         }
 
         #endregion
@@ -131,10 +147,10 @@ namespace ISILab.LBS.Components
             Debug.LogWarning("SetDataByTiles not implemented for " + GetType().Name);
         }
 
-        protected void ResizeToFitBundles(IEnumerable<BundleGraph> bundles)
+        protected void ResizeToFitBundles(IEnumerable<BundleTargetGraph> bundles)
         {
             List<Rect> validRects = bundles
-                .Where(b => b != null && b.Valid())
+                .Where(b => b != null && b.IsValid())
                 .Select(b => b.Area)
                 .ToList();
 
@@ -158,7 +174,7 @@ namespace ISILab.LBS.Components
         protected bool TrySetBundleGraphList(
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
-            ref List<BundleGraph> listVar,
+            ref List<BundleTargetGraph> listVar,
             Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
@@ -174,7 +190,7 @@ namespace ISILab.LBS.Components
 
                 if (!bTagRequirement) continue;
 
-                listVar.Add(new BundleGraph(this, graphData.Item1, graphData.Item2));
+                listVar.Add(new BundleTargetGraph(graphData.Item1, graphData.Item2));
             }
 
             return listVar.Any();
@@ -184,7 +200,7 @@ namespace ISILab.LBS.Components
         protected bool TrySetBundleGraph(
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
-            ref BundleGraph graphVar,
+            ref BundleTargetGraph graphVar,
             Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
@@ -199,7 +215,7 @@ namespace ISILab.LBS.Components
 
                 if (!bTagRequirement) continue;
 
-                graphVar = new BundleGraph(this, graphData.Item1, graphData.Item2);
+                graphVar = new BundleTargetGraph(graphData.Item1, graphData.Item2);
                 if (graphVar != null) return true;
             }
 
@@ -210,7 +226,7 @@ namespace ISILab.LBS.Components
         protected bool TrySetBundleType(
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
-            ref BundleType typeVar,
+            ref BundleTarget typeVar,
             Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
@@ -225,11 +241,18 @@ namespace ISILab.LBS.Components
 
                 if (!bTagRequirement) continue;
 
-                typeVar = new BundleType(null, suggestionTile);
+                typeVar = new BundleTarget(suggestionTile);
                 if (typeVar != null) return true;
             }
 
             return false;
+        }
+
+        public void SetArea(Rect newValue)
+        {
+            OnBeginChange.Invoke();
+            Area = newValue;
+            OnEndChange.Invoke();
         }
 
 
