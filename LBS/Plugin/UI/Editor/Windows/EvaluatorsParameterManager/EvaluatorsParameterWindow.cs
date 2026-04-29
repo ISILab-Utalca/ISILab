@@ -34,6 +34,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     #region FIELDS
     private EvaluatorsDatabase evDatabase;
     private List<ParameterData> parameterList;
+    private string evRef;
     #endregion
 
     #region PROPERTIES
@@ -44,6 +45,11 @@ public class EvaluatorsParameterWindow : ThemeableWindow
             parameterList = value;
             RefreshData();
         }
+    }
+    public string EvRef
+    {
+        get { return evRef; }
+        set { evRef = value; }
     }
     #endregion
 
@@ -64,7 +70,6 @@ public class EvaluatorsParameterWindow : ThemeableWindow
        
         InitUI();
         ResetParamGenerator();
-        //LoadParamVisualList();
         RefreshData();
         ChangeTheme(LBSSettings.Instance.view.LBSTheme);
     }
@@ -105,15 +110,14 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     public void GenerateNewParameter(ClickEvent evt)
     {
         paramGenName.value = LBSTextUtilities.ReturnValidName(paramGenName.value);
-        if (!string.IsNullOrWhiteSpace(paramGenName.value))
+        if (!string.IsNullOrWhiteSpace(paramGenName.value) && CheckIfParamInitialValueIsValid())
         {
             ParameterData paramToCreate = ReturnNewParameter();
             // add new param to paramlist
             ParameterList.Add(paramToCreate);
             // generate param code
+            AddParamCode(paramToCreate);
             AddParamToVisualList(paramToCreate);
-            //                      SEBA
-
             // refresh
             RefreshData();
             ResetParamGenerator();
@@ -163,6 +167,24 @@ public class EvaluatorsParameterWindow : ThemeableWindow
         }
 
         return isUniqueName;
+    }
+    //SEGUIR ACÁ
+    public bool CheckIfParamInitialValueIsValid()
+    {
+        //si es característica o lista de característica, init value debería estar vacío
+        if((paramGenClassDropDown.value == "LBSCharacteristic" ||
+           paramGenClassDropDown.value == "List<LBSCharacteristic>"))
+        {
+            return string.IsNullOrWhiteSpace(paramGenInitialValue.value);
+        }
+        else if (paramGenClassDropDown.value == "bool")
+        {
+            return (paramGenInitialValue.value == "true" || paramGenInitialValue.value == "false");
+        }
+        else return false;
+     
+            //"int",
+            //"float",
     }
     private Type GetTypeFromSTring(string name)
     {
@@ -216,15 +238,27 @@ public class EvaluatorsParameterWindow : ThemeableWindow
                     //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
                     paramListView.hierarchy.ElementAt(0).Remove(elem);
                     parameterList.Remove(param);
-                    //DeleteParameterPhysicalFile(evData.Name);     <-- Falta hacer
+                    DeleteParamCode(param);     
                     evDatabase.SaveDatabaseChanges();
                 }
             };
 
         paramListView.hierarchy.ElementAt(0).Add(paramVE);
     }
-    public void RemoveParam(ParameterData param)
+
+    //estas son las funciones en las que el seba deberia añadir sus cosas,
+    // ev ref es un string con el nombre del evaluador que se está editando
+
+    
+
+    //SEGUIR ACÁ
+    public void AddParamCode(ParameterData paramData)
     {
-        ParameterList.Remove(param);
+        UnityEngine.Object paramToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+    }
+
+    public void DeleteParamCode(ParameterData paramData)
+    {
+        UnityEngine.Object paramToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
     }
 }
