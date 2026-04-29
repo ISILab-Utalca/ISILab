@@ -389,7 +389,7 @@ namespace ISILab.LBS.Editor
 
         public void GenerateEvaluator(ClickEvent evt)
         {
-            string cleanName = GetEvGenData().Name.Trim();
+            string cleanName = LBSTextUtilities.ReturnValidName(GetEvGenData().Name);
             if (!string.IsNullOrWhiteSpace(cleanName))
             {
                 EvaluatorData finalEvData = GetEvGenData();
@@ -410,11 +410,10 @@ namespace ISILab.LBS.Editor
             {
                 bool confirm = EditorUtility.DisplayDialog(
                     "Error",                                                    // Título
-                    "Evaluator's name cannot be empty",                         // Mensaje
+                    "Evaluator's name cannot be empty or have special characters other than \"_\"",                           // Mensaje
                     "OK"                                                        // Botón de cancelar
                 );
             }
-            
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)
@@ -480,7 +479,6 @@ namespace ISILab.LBS.Editor
             if (AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath) != null)
             {
                 bool success = AssetDatabase.DeleteAsset(fullPath);
-
                 
                 if (success)
                     Debug.Log($"<color=red>[ISILab]</color> Archivo eliminado: {fullPath}");

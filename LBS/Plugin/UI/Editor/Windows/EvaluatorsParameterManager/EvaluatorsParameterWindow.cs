@@ -63,6 +63,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
         }
        
         InitUI();
+        ResetParamGenerator();
         //LoadParamVisualList();
         RefreshData();
         ChangeTheme(LBSSettings.Instance.view.LBSTheme);
@@ -103,21 +104,33 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     }
     public void GenerateNewParameter(ClickEvent evt)
     {
-        ParameterData paramToCreate = NewParameter();
-        // add new param to paramlist
-        ParameterList.Add(paramToCreate);
-        // generate param code
-        AddParamToVisualList(paramToCreate);
-        //                      SEBA
+        paramGenName.value = LBSTextUtilities.ReturnValidName(paramGenName.value);
+        if (!string.IsNullOrWhiteSpace(paramGenName.value))
+        {
+            ParameterData paramToCreate = ReturnNewParameter();
+            // add new param to paramlist
+            ParameterList.Add(paramToCreate);
+            // generate param code
+            AddParamToVisualList(paramToCreate);
+            //                      SEBA
 
-        // refresh
-        RefreshData();
-        ResetParamGenerator();
-        // profit
-        Debug.Log("Parámetro creado :-)");
-        evDatabase.SaveDatabaseChanges();
+            // refresh
+            RefreshData();
+            ResetParamGenerator();
+            // profit
+            Debug.Log("Parámetro creado :-)");
+            evDatabase.SaveDatabaseChanges();
+        }
+        else
+        {
+            bool confirm = EditorUtility.DisplayDialog(
+                "Error",                                                    // Título
+                "Parameter's name cannot be empty or have special characters other than \"_\"",                         // Mensaje
+                "OK"                                                        // Botón de cancelar
+            );
+        }
     }
-    public ParameterData NewParameter()
+    public ParameterData ReturnNewParameter()
     {
         ParameterData newParameter = new ParameterData(
             paramGenName.value,
@@ -125,7 +138,31 @@ public class EvaluatorsParameterWindow : ThemeableWindow
             paramGenInitialValue.value
             );
 
-        return newParameter;
+        return ReturnParamDataWUniqueName(newParameter);
+    }
+
+    public ParameterData ReturnParamDataWUniqueName(ParameterData paramData)
+    {
+        string newName = paramData.name;
+        int counter = 0;
+        while (!CheckUniqueEvName(newName))
+        {
+            counter++;
+            newName = paramData.name + "_" + counter.ToString();
+        }
+        paramData.name = newName;
+        return paramData;
+    }
+
+    public bool CheckUniqueEvName(string baseName)
+    {
+        bool isUniqueName = true;
+        foreach (ParameterData evData in parameterList)
+        {
+            if (evData.name == baseName) isUniqueName = false;
+        }
+
+        return isUniqueName;
     }
     private Type GetTypeFromSTring(string name)
     {
@@ -141,9 +178,9 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     }
     public void ResetParamGenerator()
     {
-        paramGenName.value = "";
-        paramGenClassDropDown.value = "";
-        paramGenInitialValue.value = "";
+        paramGenName.value = "newParam";
+        paramGenClassDropDown.value = "int";
+        paramGenInitialValue.value = "0";
     }
     public void RefreshData()
     {
