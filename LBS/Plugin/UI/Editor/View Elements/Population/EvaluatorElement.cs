@@ -192,29 +192,26 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
                     Type t = assembly.GetType("ISILab.AI.Categorization." + evLabel.text);
                     if (t != null)
                     {
-                        Debug.Log("NAAAAAAAAAAAAAAAH");
                         object instance = Activator.CreateInstance(t);
 
                         if (instance is IConfigurableEvaluator cEvaluator)
                         {
                             cEvaluator.InitializeDefault();
                         }
-                        return;
                     }
                 }
             }
-            UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath);
-            // Focus the Project window
-            EditorUtility.FocusProjectWindow();
 
-            // Select the object, which makes the project window jump to that folder
-            Selection.activeObject = obj;
-
-            // Optional: Ping the object to highlight it visually
-            EditorGUIUtility.PingObject(obj);
-
-            //OPEN FOLDER
-            AssetDatabase.OpenAsset(obj);
+            EditorApplication.delayCall += () =>
+            {
+                // Focus the Project window
+                UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath);
+                EditorUtility.FocusProjectWindow();
+                // Select the object, which makes the project window jump to that folder
+                Selection.activeObject = obj;
+                // Optional: Ping the object to highlight it visually
+                EditorGUIUtility.PingObject(obj);
+            };
         }
 
         public void SetSOButtonVisibility()
