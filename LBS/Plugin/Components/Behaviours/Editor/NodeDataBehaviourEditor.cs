@@ -6,7 +6,6 @@ using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
-using ISILab.LBS.Plugin.Components.Data;
 using LBS;
 using LBS.VisualElements;
 using System;
@@ -14,7 +13,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -26,6 +24,9 @@ namespace ISILab.LBS.VisualElements
 
         private static readonly Dictionary<Type, Type> FieldTypeToVisualElement = new()
         {
+
+            { typeof(GrammarEventHook), typeof(FieldEventHook)},
+            { typeof(GrammarArea), typeof(FieldArea)},
             { typeof(GrammarFloat), typeof(FieldFloat) },
             { typeof(GrammarString), typeof(FieldString) },
             { typeof(GrammarObject), typeof(FieldReferenceGraph) },
@@ -59,14 +60,6 @@ namespace ISILab.LBS.VisualElements
         
         private VisualElement _actionColor;
         private VisualElement _actionIcon;
-        
-        private PickerVector2Int _positionPicker;
-
-        private VisualElement _selectedNodePanel;
-
-        private VisualElement _onEventCompleteVe;
-        private LBSCustomEventHooker _hooker;
-
 
         private static VisualTreeAsset visualTree;
 
@@ -95,15 +88,17 @@ namespace ISILab.LBS.VisualElements
 
         private void DataChangeValueBegin(QuestNodeData data)
         {
+            var x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(data, "Node Data Changed");
+            Undo.RegisterCompleteObjectUndo(x, "Node Data Changed");
         }
 
         private void DataChangeValueEnd(QuestNodeData data)
         {
+            var x = LBSController.CurrentLevel;
             if (EditorGUI.EndChangeCheck())
             {
-                EditorUtility.SetDirty(data);
+                EditorUtility.SetDirty(x);
             }
         }
 
@@ -116,7 +111,6 @@ namespace ISILab.LBS.VisualElements
             _nodePanel = this.Q<VisualElement>("ID");
             _actionPanel = this.Q<VisualElement>("Action");
             _noNodeSelectedPanel = this.Q<VisualElement>("NoNodeSelectedPanel");
-            _selectedNodePanel = this.Q<VisualElement>("NodeSelectedPanel");
             
             fieldsVisualElements = this.Q<VisualElement>("InstancedContent");
             
@@ -127,31 +121,9 @@ namespace ISILab.LBS.VisualElements
             _nodeIDLabel = this.Q<Label>("ParamID");
             #endregion
             
- 
-            // position picker
-            _positionPicker = this.Q<PickerVector2Int>("Manipulator");
-            _positionPicker.SetInfo("Trigger Position", "The position of the trigger in the graph.");
-            
-
-            _onEventCompleteVe = this.Q<VisualElement>("EventComplete");
-            _hooker = this.Q<LBSCustomEventHooker>("EventHooker");
-            _hooker.EventType = LBSEventType.Complete;
-            _hooker.AllowChangeTriggerEnable = false;
-            // cant change complete mode
-            _hooker.Selector.RegisterValueChangedCallback(evt =>
-            {
-                QuestNodeData data = behaviour.SelectedNodeData;
-                if (data is null) return;
-                _hooker.Hooker = data.EventHooker;
-            });
-            _hooker.Selector.allowSceneObjects = true;
-
-                     
             // No node when instanced
             _noNodeSelectedPanel.style.display = DisplayStyle.Flex;
 
-            _hooker.RefreshMethodList();
-            
             return this;
         }
         
@@ -188,24 +160,15 @@ namespace ISILab.LBS.VisualElements
                 style.display = DisplayStyle.Flex;
             }
 
-
             fieldsVisualElements.Clear();
 
             _noNodeSelectedPanel.style.display = validNode ? DisplayStyle.None : DisplayStyle.Flex;  
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _actionPanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
-            _positionPicker.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
-            _selectedNodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
-            _onEventCompleteVe.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
 
             if (!validNode) return;
 
-            // on complete display
-            _hooker.Hooker = (behaviour.SelectedNodeData?.EventHooker);
-            _positionPicker?.PickButton?.SetValueWithoutNotify(false);
-
             SetNode(node);
-            SetFields(node);
         }
 
         private void SetFields(QuestNode node)
@@ -303,7 +266,7 @@ namespace ISILab.LBS.VisualElements
             _actionColor.SetBackgroundColor(backgroundColor);
             _actionColor.SetBorder(terminalColor, ActionBorderThickness);
 
-            _positionPicker.areaView.value = node.Data.Area;
+            SetFields(node);
         }
         
 
