@@ -1,8 +1,13 @@
+using GluonGui.WorkspaceWindow.Views.WorkspaceExplorer;
+using ISILab.LBS.AI.Categorization;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -26,7 +31,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
 
         public event Action<EvaluatorElement> OnDelete;
 
-        private string evlabelString;
         private List<bool> interfaceBoolList;
         private List<VisualElement> interfaceBoolListVisualElements;
 
@@ -177,7 +181,40 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         }
         public void OpenSO(ClickEvent evt)
         {
+            string fullPath = LBSSettings.Instance.paths.assistantPresetFolderPath + "/Evaluators/" + evLabel.text + " configuration.asset";
+            if (File.Exists(fullPath))
+            {
+            }
+            else
+            {
+                foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+                {
+                    Type t = assembly.GetType("ISILab.AI.Categorization." + evLabel.text);
+                    if (t != null)
+                    {
+                        Debug.Log("NAAAAAAAAAAAAAAAH");
+                        object instance = Activator.CreateInstance(t);
 
+                        if (instance is IConfigurableEvaluator cEvaluator)
+                        {
+                            cEvaluator.InitializeDefault();
+                        }
+                        return;
+                    }
+                }
+            }
+            UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath);
+            // Focus the Project window
+            EditorUtility.FocusProjectWindow();
+
+            // Select the object, which makes the project window jump to that folder
+            Selection.activeObject = obj;
+
+            // Optional: Ping the object to highlight it visually
+            EditorGUIUtility.PingObject(obj);
+
+            //OPEN FOLDER
+            AssetDatabase.OpenAsset(obj);
         }
 
         public void SetSOButtonVisibility()
