@@ -55,7 +55,7 @@ namespace PathOS
         internal static PathOSManager manager;
         public static OGLogManager logger { get; set; }
 
-        public PathOSAgentMemory memory { get; set; }
+        private PathOSAgentMemory memory;
         public PathOSAgentEyes eyes { get; private set; }
 
         public float visitThresholdSqr { get; set; }
@@ -926,6 +926,15 @@ namespace PathOS
 
         // GABO: Set all unreachable positions (memory entities not included) as possibly reachable again
         public void ResetUnreachablePositionReferences() => explorationState.TryReset();
+
+        public PathOSAgentMemory GetMemory()
+        {
+            if(memory is null)
+            {
+                memory = GetComponent<PathOSAgentMemory>();
+            }
+            return memory;
+        }
     }
 
 }

@@ -32,6 +32,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         public float sampleRate = 2.0f;
         public float sampleTime { get; set; }
 
+        // Floor count
+        public int floorCount = 10;
+
         private List<GameObject> logObjects = new List<GameObject>();
         private Dictionary<int, OGLogger> loggers = new Dictionary<int, OGLogger>();
 
@@ -114,6 +117,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                 string filename = logFilePrefix + "-" + fileIndex.ToString() + ".csv";
                 logger.InitStream(logDirectory + filename);
 
+                logger.WriteHeader("FLOOR_COUNT," + floorCount);
                 logger.WriteHeader("SAMPLE," + sampleRate);
 
                 loggers.Add(logObjects[i].GetInstanceID(), logger);
