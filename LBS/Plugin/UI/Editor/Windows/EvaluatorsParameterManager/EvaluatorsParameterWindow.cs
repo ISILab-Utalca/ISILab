@@ -110,20 +110,32 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     public void GenerateNewParameter(ClickEvent evt)
     {
         paramGenName.value = LBSTextUtilities.ReturnValidName(paramGenName.value);
-        if (!string.IsNullOrWhiteSpace(paramGenName.value) && CheckIfParamInitialValueIsValid())
+        //if (!string.IsNullOrWhiteSpace(paramGenName.value) && !CheckIfParamInitialValueIsValid())
+        if (!string.IsNullOrWhiteSpace(paramGenName.value))
         {
-            ParameterData paramToCreate = ReturnNewParameter();
-            // add new param to paramlist
-            ParameterList.Add(paramToCreate);
-            // generate param code
-            AddParamCode(paramToCreate);
-            AddParamToVisualList(paramToCreate);
-            // refresh
-            RefreshData();
-            ResetParamGenerator();
-            // profit
-            Debug.Log("Parámetro creado :-)");
-            evDatabase.SaveDatabaseChanges();
+            if (CheckIfParamInitialValueIsValid())
+            {
+                ParameterData paramToCreate = ReturnNewParameter();
+                // generate param code
+                AddParamCode(paramToCreate);
+                // add new param to paramlist
+                ParameterList.Add(paramToCreate);
+                AddParamToVisualList(paramToCreate);
+                // refresh
+                RefreshData();
+                ResetParamGenerator();
+                // profit
+                Debug.Log("Parámetro creado :-)");
+                evDatabase.SaveDatabaseChanges();
+            }
+            else
+            {
+                bool confirm = EditorUtility.DisplayDialog(
+                "Error",                                                    // Título
+                "Invalid initial value",                                    // Mensaje
+                "OK"                                                        // Botón de cancelar
+                );
+            }
         }
         else
         {
@@ -172,21 +184,31 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     public bool CheckIfParamInitialValueIsValid()
     {
         //si es característica o lista de característica, init value debería estar vacío
-        if((paramGenClassDropDown.value == "LBSCharacteristic" ||
+        if(paramGenClassDropDown.value == "int")
+        {
+            int i;
+            return int.TryParse(paramGenInitialValue.value,out i);
+        }
+        else if (paramGenClassDropDown.value == "float")
+        {
+            float f;
+            return float.TryParse(paramGenInitialValue.value, out f);
+        }
+        else if ((paramGenClassDropDown.value == "LBSCharacteristic" ||
            paramGenClassDropDown.value == "List<LBSCharacteristic>"))
         {
             return string.IsNullOrWhiteSpace(paramGenInitialValue.value);
         }
-        else if (paramGenClassDropDown.value == "bool")
+        else if (paramGenClassDropDown.value == "bool") //HACERLO NO CASE SENSITIVE
         {
-            return (paramGenInitialValue.value == "true" || paramGenInitialValue.value == "false");
+            return (paramGenInitialValue.value.ToLower() == "true" || paramGenInitialValue.value.ToLower() == "false");
         }
         else return false;
      
             //"int",
             //"float",
     }
-    private Type GetTypeFromSTring(string name)
+    private Type GetTypeFromString(string name)
     {
         switch (name)
         {
@@ -200,9 +222,9 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     }
     public void ResetParamGenerator()
     {
-        paramGenName.value = "newParam";
-        paramGenClassDropDown.value = "int";
-        paramGenInitialValue.value = "0";
+        //paramGenName.value = "newParam";
+        //paramGenClassDropDown.value = "int";
+        //paramGenInitialValue.value = "";
     }
     public void RefreshData()
     {
@@ -219,7 +241,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     public void AddParamToVisualList(ParameterData param)
     {
         //turn param into VisualElement
-        EVParameterElement paramVE = new EVParameterElement(param.name, param.isDeletable);
+        EVParameterElement paramVE = new EVParameterElement(param.name, param.isDeletable, param.varTypeAsString, param.initialValue);
 
         paramVE.OnDelete += (elem) =>
             {
@@ -248,17 +270,17 @@ public class EvaluatorsParameterWindow : ThemeableWindow
 
     //estas son las funciones en las que el seba deberia añadir sus cosas,
     // ev ref es un string con el nombre del evaluador que se está editando
-
-    
+    // se puede llamar a GetTypeFromString(paramGenClassDropDown.value) para obtener el Type del parámetro
 
     //SEGUIR ACÁ
     public void AddParamCode(ParameterData paramData)
     {
-        UnityEngine.Object paramToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+        UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+        Type type = GetTypeFromString(paramData.varTypeAsString);
     }
 
     public void DeleteParamCode(ParameterData paramData)
     {
-        UnityEngine.Object paramToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+        UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
     }
 }
