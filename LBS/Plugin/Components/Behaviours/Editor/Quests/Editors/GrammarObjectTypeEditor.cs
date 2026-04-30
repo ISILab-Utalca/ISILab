@@ -7,9 +7,10 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class FieldReferenceType : GrammarFieldEditor
+    [GrammarFieldEditor(typeof(GrammarObjectType))]
+    public class GrammarObjectTypeEditor : GrammarFieldEditor
     {
-        public FieldReferenceType(object target) : base(target)
+        public GrammarObjectTypeEditor(object target) : base(target)
         {
         }
 
@@ -22,7 +23,7 @@ namespace ISILab.LBS.VisualElements
         {
             base.CreateVisualElement();
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldReferenceType");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarObjectTypeEditor");
             visualTree.CloneTree(content);
 
             var pbg = this.Q<PickerBundleType>();

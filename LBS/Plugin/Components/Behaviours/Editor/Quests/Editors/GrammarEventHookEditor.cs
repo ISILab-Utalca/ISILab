@@ -1,22 +1,18 @@
 using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Macros;
-using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
-using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.Analytics.IAnalytic;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class FieldEventHook : GrammarFieldEditor
+    [GrammarFieldEditor(typeof(GrammarEventHook))]
+    public class GrammarEventHookEditor : GrammarFieldEditor
     {
         private VisualElement _onEventCompleteVe;
         private LBSCustomEventHooker _hooker;
 
-        public FieldEventHook(object target) : base(target)
+        public GrammarEventHookEditor(object target) : base(target)
         {
         }
 
@@ -29,7 +25,7 @@ namespace ISILab.LBS.VisualElements
         {
             base.CreateVisualElement();
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldEventHook");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarEventHookEditor");
             visualTree.CloneTree(content);
 
             _onEventCompleteVe = this.Q<VisualElement>("EventComplete");

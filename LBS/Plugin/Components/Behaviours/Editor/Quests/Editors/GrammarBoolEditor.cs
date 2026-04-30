@@ -1,16 +1,14 @@
 using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Editor;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class FieldString : GrammarFieldEditor
+    [GrammarFieldEditor(typeof(GrammarBool))]
+    public class GrammarBoolEditor : GrammarFieldEditor
     {
-        public FieldString(object target) : base(target)
+        public GrammarBoolEditor(object target) : base(target)
         {
         }
 
@@ -23,15 +21,15 @@ namespace ISILab.LBS.VisualElements
         {
             base.CreateVisualElement();
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldString");
-            visualTree.CloneTree(this);
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarBoolEditor");
+            visualTree.CloneTree(content);
 
-            this.Q<LBSCustomTextField>().RegisterValueChangedCallback(evt =>
+            this.Q<LBSCustomToggle>().RegisterValueChangedCallback(evt =>
             {
                 SetTargetValue(evt);
             });
 
-            this.Q<LBSCustomTextField>().value = GetTargetValue<string>();
+            this.Q<LBSCustomToggle>().value = GetTargetValue<bool>();
             return this;
         }
     }

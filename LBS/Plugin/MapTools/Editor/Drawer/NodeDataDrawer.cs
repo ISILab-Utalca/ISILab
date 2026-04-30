@@ -5,13 +5,12 @@ using ISILab.LBS.VisualElements;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.UI.Dropdown;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers.Editor
 {
     [Drawer(typeof(NodeDataBehaviour))]
-    public class NodeBehaviourDrawer : Drawer
+    public class NodeDataBehaviourDrawer : Drawer
     {
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {

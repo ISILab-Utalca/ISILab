@@ -1,12 +1,14 @@
+using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class FieldFloat : GrammarFieldEditor
+    [GrammarFieldEditor(typeof(GrammarFloat))]
+    public class GrammarFloatEditor : GrammarFieldEditor
     {
-        public FieldFloat(object target) : base(target)
+        public GrammarFloatEditor(object target) : base(target)
         {
         }
 
@@ -19,7 +21,7 @@ namespace ISILab.LBS.VisualElements
         {
             base.CreateVisualElement();
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldFloat");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarFloatEditor");
             visualTree.CloneTree(content);
             this.Q<LBSCustomFloatField>().RegisterValueChangedCallback((evt) =>
             {
