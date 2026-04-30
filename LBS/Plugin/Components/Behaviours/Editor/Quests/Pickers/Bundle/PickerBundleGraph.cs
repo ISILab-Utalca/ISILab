@@ -28,9 +28,9 @@ public partial class PickerBundleGraph : PickerBundleType
         this.tooltip = tooltip;
     }
 
-    public override void SetLayerTarget(BundleTarget target)
+    public override void SetLayerTarget(BundleTarget target, bool WithoutNotify = false)
     {
-        base.SetLayerTarget(target);
+        base.SetLayerTarget(target, WithoutNotify);
 
         if (target == null)
             return;
@@ -38,8 +38,15 @@ public partial class PickerBundleGraph : PickerBundleType
         // graph only info
         if (target is BundleTargetGraph bg)
         {
+            string layerName = string.Empty;
+            if (bg.Layer != null) layerName = bg.Layer.Name;
+            if (WithoutNotify)
+            {
+                _positionField.SetValueWithoutNotify(bg.Position);
+                _layerTextField.SetValueWithoutNotify(layerName);
+            }
             _positionField.value = bg.Position;
-            if (bg.Layer != null) _layerTextField.value = bg.Layer.Name;
+            _layerTextField.value = layerName;
         }
     }
 }

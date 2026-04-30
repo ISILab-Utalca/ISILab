@@ -29,9 +29,12 @@ namespace ISILab.LBS.VisualElements
                 (target as GrammarArea).SetValue(newArea);
             };
 
-            UnityEngine.Rect area = (target as GrammarArea).value;
-            if (area != null) pv2.SetArea(area);
-
+            (target as GrammarField).Refresh = () =>
+            {
+                UnityEngine.Rect area = (target as GrammarArea).value;
+                pv2._areaView.SetValueWithoutNotify(area);
+            };
+            
             return this;
         }
     }

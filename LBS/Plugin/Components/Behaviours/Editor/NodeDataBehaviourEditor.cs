@@ -77,8 +77,6 @@ namespace ISILab.LBS.VisualElements
                 {
                     FieldTypeToVisualElement[attr.EditorType] = type;
                 }
-
-                Debug.Log($"Editor map: {attr.EditorType.Name} → {type.Name}");
             }
         }
 
@@ -257,6 +255,11 @@ namespace ISILab.LBS.VisualElements
                 if (element is GrammarFieldEditor editor)
                 {
                     editor.SetNewInfo((GrammarField)listView.itemsSource[index]);
+
+                    // might to redraw
+                    behaviour.CheckKeys();
+
+                    DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
                 }
             };
 

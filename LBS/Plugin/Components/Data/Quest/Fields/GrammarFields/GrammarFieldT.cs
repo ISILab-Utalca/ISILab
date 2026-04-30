@@ -23,8 +23,11 @@ namespace ISILab.AI.Grammar
                 value = typedValue;
                 data?.OnEndChange?.Invoke();
 
-
+                // to update behavior editors
                 data?.OnDataChanged?.Invoke(data);
+
+                // to update field editor
+                Refresh?.Invoke();
             }
             else
             {

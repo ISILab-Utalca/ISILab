@@ -2,6 +2,7 @@ using ISILab.LBS.Components;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace ISILab.AI.Grammar
@@ -16,6 +17,11 @@ namespace ISILab.AI.Grammar
         private static readonly Dictionary<string, Type> fieldMap = new();
         public QuestNodeData data;
         public string name;
+        #endregion
+
+        #region ACTIONS
+        // used main to broadcast unto visual elements whenever the value changes.
+        public Action Refresh;
         #endregion
 
         #region PROPERTIES

@@ -27,12 +27,12 @@ namespace ISILab.AI.Grammar
         [SerializeField]
         public string id;
 
-        [SerializeField]
+        [SerializeField, HideInInspector]
         public string iconGuid = string.Empty;
 
         [SerializeField]
         public Color color;
-
+        [SerializeField]
         private VectorImage icon;
 
         public VectorImage Icon
@@ -45,14 +45,27 @@ namespace ISILab.AI.Grammar
                 }
                 return icon;
             }
+
+            set
+            {
+                icon = value;
+                iconGuid = LBSAssetMacro.GetGuidFromAsset(Icon);
+            }
         }
 
         public virtual void OnEnable()
         {
+            // on load get vector image by guid. VectorImage is not serialized
             icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
         }
 
-
+        protected virtual void OnValidate()
+        {
+            if (icon != null)
+            {
+                Icon = icon;
+            }
+        }
     }
 
 }

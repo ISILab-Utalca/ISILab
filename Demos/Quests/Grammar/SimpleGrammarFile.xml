@@ -17,15 +17,17 @@
   <rule id="Subquest">
     <one-of>
       <item> <ruleref uri="#Goto" /> </item>
-      <item> <ruleref uri="#Goto" /> <ruleref uri="#Quest" /> go to </item>
+      <item> <ruleref uri="#Goto" /> <ruleref uri="#Quest" /> go_to
+	  </item>
     </one-of>
   </rule>
 
   <rule id="Goto">
     <one-of>
       <item> explore </item>
-      <item> <ruleref uri="#Learn" /> go to </item>
-      <item> go to </item>
+      <item> <ruleref uri="#Learn" /> go_to
+	  </item>
+      <item> go_to </item>
     </one-of>
   </rule>
 
@@ -33,7 +35,7 @@
     <one-of>
       <item> <ruleref uri="#Goto" /> <ruleref uri="#Subquest" /> listen </item>
       <item> <ruleref uri="#Goto" /> <ruleref uri="#Get" /> read </item>
-      <item> <ruleref uri="#Get" /> <ruleref uri="#Subquest" />  <item> give </item> listen </item>
+      <item> <ruleref uri="#Get" /> <ruleref uri="#Subquest" />  give listen </item>
     </one-of>
   </rule>
 
@@ -47,7 +49,7 @@
 
   <rule id="Steal">
     <one-of>
-      <item> <ruleref uri="#Goto" /> <item> stealth </item> take </item>
+      <item> <ruleref uri="#Goto" /> stealth take </item>
       <item> <ruleref uri="#Goto" /> <ruleref uri="#Kill" /> take </item>
     </one-of>
   </rule>

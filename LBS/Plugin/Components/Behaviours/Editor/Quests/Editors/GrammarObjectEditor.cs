@@ -33,9 +33,12 @@ namespace ISILab.LBS.VisualElements
                 (target as GrammarObject).SetValue(btg);
             };
 
-            BundleTarget btg = (target as GrammarObject).GetValue() as BundleTargetGraph;
-            if (btg.IsValid())
-                pbg.SetLayerTarget(btg);
+            (target as GrammarField).Refresh = () =>
+            {
+                BundleTarget btg = (target as GrammarObject).GetValue() as BundleTargetGraph;
+                if (btg.IsValid())
+                    pbg.SetLayerTarget(btg, true);
+            };
 
             return this;
         }

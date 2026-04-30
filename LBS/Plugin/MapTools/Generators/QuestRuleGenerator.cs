@@ -186,14 +186,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var trigger = (QuestTrigger)go.AddComponent(triggerType);
 
             // Set visual size
-            var size = node.Data.Area;
+            var size = node.Data.Area.value;
             trigger.SetSize(new Vector3(size.width * settings.scale.x,
                                         size.height * settings.scale.y,
                                         size.height * settings.scale.y));
 
             // Set position
-            var x = (node.Data.Area.x + node.Data.Area.width / 2 - 1) * settings.scale.x;
-            var z = (node.Data.Area.y - node.Data.Area.height / 2) * settings.scale.y;
+            var x = (node.Data.Area.value.x + node.Data.Area.value.width / 2 - 1) * settings.scale.x;
+            var z = (node.Data.Area.value.y - node.Data.Area.value.height / 2) * settings.scale.y;
             var y = pivot.transform.position.y;
             go.transform.position = settings.position + new Vector3(x, y, z);
 

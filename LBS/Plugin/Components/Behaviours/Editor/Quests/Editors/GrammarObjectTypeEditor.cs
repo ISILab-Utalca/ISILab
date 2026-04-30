@@ -35,10 +35,13 @@ namespace ISILab.LBS.VisualElements
                 (target as GrammarObjectType).SetValue(guid);
             };
 
-            string guid = (string)(target as GrammarObjectType).GetValue();
-            BundleTarget bundleTarget = new BundleTarget(LBSAssetMacro.LoadAssetByGuid<Bundle>(guid));
-            if (bundleTarget.IsValid())
-                pbg.SetLayerTarget(bundleTarget);
+            (target as GrammarField).Refresh = () =>
+            {
+                string guid = (string)(target as GrammarObjectType).GetValue();
+                BundleTarget bundleTarget = new BundleTarget(LBSAssetMacro.LoadAssetByGuid<Bundle>(guid));
+                if (bundleTarget.IsValid())
+                    pbg.SetLayerTarget(bundleTarget, true);
+            };
 
             return this;
         }

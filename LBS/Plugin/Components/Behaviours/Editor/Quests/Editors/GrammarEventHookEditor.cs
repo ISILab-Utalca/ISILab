@@ -36,6 +36,12 @@ namespace ISILab.LBS.VisualElements
             _hooker.Hooker = (target as GrammarEventHook).value;
             _hooker.Selector.allowSceneObjects = true;
             _hooker.RefreshMethodList();
+
+            (target as GrammarField).Refresh = () =>
+            {
+                _hooker.RefreshMethodList();
+            };
+
             return this;
         }
     }

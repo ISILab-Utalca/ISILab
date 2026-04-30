@@ -29,7 +29,10 @@ namespace ISILab.LBS.VisualElements
                 SetTargetValue(evt);
             });
 
-            this.Q<LBSCustomTextField>().value = GetTargetValue<string>();
+            (target as GrammarField).Refresh = () =>
+            {
+                this.Q<LBSCustomTextField>().SetValueWithoutNotify(GetTargetValue<string>());
+            };
             return this;
         }
     }
