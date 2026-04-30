@@ -471,7 +471,7 @@ namespace PathOS
             {
                 Vector3 point = origin;
 
-                Vector3 d = new Vector3(dir.x, dir.y/*0.0f*/, dir.z);
+                Vector3 d = new Vector3(dir.x, dir.y, dir.z);
                 d.Normalize();
 
                 //What is our sampling distance?
