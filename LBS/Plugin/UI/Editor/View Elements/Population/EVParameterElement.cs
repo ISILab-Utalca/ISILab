@@ -19,6 +19,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
         private LBSCustomLabel paramNameLabel;
         private LBSCustomLabel paramTypeLabel;
         private LBSCustomLabel paramIValueLabel;
+        private VisualElement verticalDivider1;
+        private VisualElement verticalDivider2;
+        //private VisualElement verticalDivider3;
 
         private bool canBeDeleted = false;
         private LBSCustomButton paramDeleteButton;
@@ -33,7 +36,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
         public bool CanBeDeleted
         {
             get => canBeDeleted;
-            set => canBeDeleted = value;
+            set {
+                canBeDeleted = value;
+                if (!value)
+                {
+                    paramDeleteButton.visible = false;
+                    verticalDivider1.style.display = DisplayStyle.None;
+                    verticalDivider2.style.display = DisplayStyle.None;
+                }
+            }
         }
         
         public EVParameterElement() : base()
@@ -45,7 +56,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
             Initialize(label, b, type, iValue);
         }
 
-        public void Initialize(string label = "", bool b = false, string type="", string iValue="")
+        public void Initialize(string label = "", bool b = true, string type="", string iValue="")
         {
             GetVisualTreeForThis();
 
@@ -54,6 +65,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
             paramIValueLabel = this.Q<LBSCustomLabel>("paramIValue");
             paramDeleteButton = this.Q<LBSCustomButton>("paramDelete");
             paramDeleteButton.RegisterCallback<ClickEvent>(DeleteParameterElement);
+            verticalDivider1 = this.Q<VisualElement>("VerticalDivider1");
+            verticalDivider2 = this.Q<VisualElement>("VerticalDivider2");
+            //verticalDivider3 = this.Q<VisualElement>("VerticalDivider3");
 
             setParameterElement(label, b, type, iValue);
         }
@@ -63,7 +77,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
             ParamLabelString = label;
             paramTypeLabel.text = type;
             paramIValueLabel.text = iValue;
-            canBeDeleted = b;
+            CanBeDeleted = b;
         }
         public override int GetHashCode()
         {

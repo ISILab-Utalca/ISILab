@@ -113,6 +113,12 @@ public class EvaluatorsParameterWindow : ThemeableWindow
         paramGenButton = rootVisualElement.Q<LBSCustomButton>("ParamGenButton");
         paramGenButton.RegisterCallback<ClickEvent>(GenerateNewParameter);
 
+        //"TÍTULO PARA LA LISTA"
+        EVParameterElement paramVE = new EVParameterElement("Name", false, "Type", "Initial Value");
+        paramVE.style.unityFontStyleAndWeight = FontStyle.Bold;
+        paramListView.hierarchy.ElementAt(0).Add(paramVE);
+
+
     }
     public void FindDatabase()
     {
@@ -314,7 +320,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
             case IValueType.Int:        ManageIValueUIOnOff(true, false);   break;
             case IValueType.Float:      ManageIValueUIOnOff(true, false);   break;
             case IValueType.Bool:       ManageIValueUIOnOff(false, true);   ManageIValueDropdrownValues(newValue); break;
-            case IValueType.LBSTag:     ManageIValueUIOnOff(false,true);    ManageIValueDropdrownValues(newValue); break;
+            case IValueType.LBSTag:     ManageIValueUIOnOff(false, true);    ManageIValueDropdrownValues(newValue); break;
             case IValueType.LBSTagList: ManageIValueUIOnOff(false, false);  ManageIValueDropdrownValues(newValue); break;
         }
     }

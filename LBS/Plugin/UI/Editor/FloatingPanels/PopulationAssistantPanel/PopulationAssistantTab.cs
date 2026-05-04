@@ -8,6 +8,8 @@ using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
+using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElementTitle;
+using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElement;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -302,6 +304,12 @@ namespace ISILab.LBS.Editor
         private void UpdateEvaluatorsList()
         {
             evaluatorListView.Clear();
+
+            //"TÍTULO PARA LA LISTA"
+            EvaluatorElementTitle evElTitle = new EvaluatorElementTitle("Name", "Interfaces", "Options");
+            evElTitle.style.unityFontStyleAndWeight = FontStyle.Bold;
+            evaluatorListView.hierarchy.ElementAt(0).Add(evElTitle);
+
             foreach (EvaluatorData evData in evaluatorsList)
             {
                 UpdateSingleEvaluator(evData);
