@@ -3,7 +3,9 @@ using ISILab.LBS;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElement;
 using ISILab.LBS.Plugin.UI.Editor.Windows;
@@ -15,11 +17,22 @@ using System.Xml.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
-using static ISILab.LBS.Editor.PopulationAssistantTab;
 
 public class EvaluatorsParameterWindow : ThemeableWindow
 {
+    #region STRUCTURES
+    public enum IValueType
+    {
+        Int,
+        Float,
+        Bool,
+        LBSTag,
+        LBSTagList // Representa List<LBSTag>
+    }
+    #endregion
+
     #region VISUAL ELEMENTS
     //[SerializeField]
     private VisualTreeAsset m_VisualTreeAsset = default;
@@ -27,7 +40,8 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     //Parameter Generator
     private LBSCustomTextField paramGenName;
     private LBSCustomDropdown paramGenClassDropDown;
-    private LBSCustomTextField paramGenInitialValue;
+    private LBSCustomDropdown paramGenIValueDropDown;
+    private LBSCustomTextField paramGenInitialValueText;
     private LBSCustomButton paramGenButton;
     #endregion
 
@@ -53,6 +67,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     }
     #endregion
 
+    #region METHODS
     public new void CreateGUI()
     {
         FindDatabase();
@@ -69,7 +84,7 @@ public class EvaluatorsParameterWindow : ThemeableWindow
         }
        
         InitUI();
-        ResetParamGenerator();
+        InitParamGenerator();
         RefreshData();
         ChangeTheme(LBSSettings.Instance.view.LBSTheme);
     }
@@ -81,15 +96,20 @@ public class EvaluatorsParameterWindow : ThemeableWindow
         paramGenClassDropDown = rootVisualElement.Q<LBSCustomDropdown>("ParamGenDD");
         paramGenClassDropDown.choices = new List<string>
         {
-            "int",
-            "float",
-            "bool",
-            "LBSCharacteristic",
-            "List<LBSCharacteristic>"
+            IValueType.Int.AsString(),
+            IValueType.Float.AsString(),
+            IValueType.Bool.AsString(),
+            IValueType.LBSTag.AsString(),
+            IValueType.LBSTagList.AsString()
         };
+        paramGenClassDropDown.RegisterValueChangedCallback(evt =>
+        {
+            ManageIValueUI(evt.newValue);
+        });
 
-        paramGenInitialValue = rootVisualElement.Q<LBSCustomTextField>("ParamGenIValue");
-        
+        paramGenInitialValueText = rootVisualElement.Q<LBSCustomTextField>("ParamGenIValue");
+        paramGenIValueDropDown = rootVisualElement.Q<LBSCustomDropdown>("paramGenLBSCharDropDown");
+
         paramGenButton = rootVisualElement.Q<LBSCustomButton>("ParamGenButton");
         paramGenButton.RegisterCallback<ClickEvent>(GenerateNewParameter);
 
@@ -149,14 +169,26 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     public ParameterData ReturnNewParameter()
     {
         ParameterData newParameter = new ParameterData(
-            paramGenName.value,
-            paramGenClassDropDown.value,
-            paramGenInitialValue.value
-            );
+                paramGenName.value,
+                paramGenClassDropDown.value,
+                ""
+                );
+
+        if (paramGenClassDropDown.value == IValueType.Int.AsString()|| paramGenClassDropDown.value == IValueType.Float.AsString())
+        {
+            newParameter.initialValue = paramGenInitialValueText.value;
+        }
+        else if (paramGenClassDropDown.value == IValueType.Bool.AsString() || paramGenClassDropDown.value == IValueType.LBSTag.AsString())
+        {
+            newParameter.initialValue = paramGenIValueDropDown.value;
+        }
+        else if (paramGenClassDropDown.value == IValueType.LBSTagList.AsString())
+        {
+            newParameter.initialValue = "";
+        }
 
         return ReturnParamDataWUniqueName(newParameter);
     }
-
     public ParameterData ReturnParamDataWUniqueName(ParameterData paramData)
     {
         string newName = paramData.name;
@@ -169,7 +201,6 @@ public class EvaluatorsParameterWindow : ThemeableWindow
         paramData.name = newName;
         return paramData;
     }
-
     public bool CheckUniqueEvName(string baseName)
     {
         bool isUniqueName = true;
@@ -180,51 +211,48 @@ public class EvaluatorsParameterWindow : ThemeableWindow
 
         return isUniqueName;
     }
-    //SEGUIR ACÁ
     public bool CheckIfParamInitialValueIsValid()
     {
         //si es característica o lista de característica, init value debería estar vacío
-        if(paramGenClassDropDown.value == "int")
+        if(paramGenClassDropDown.value == IValueType.Int.AsString())
         {
             int i;
-            return int.TryParse(paramGenInitialValue.value,out i);
+            return int.TryParse(paramGenInitialValueText.value,out i);
         }
-        else if (paramGenClassDropDown.value == "float")
+        else if (paramGenClassDropDown.value == IValueType.Float.AsString())
         {
             float f;
-            return float.TryParse(paramGenInitialValue.value, out f);
+            return float.TryParse(paramGenInitialValueText.value, out f);
         }
-        else if ((paramGenClassDropDown.value == "LBSCharacteristic" ||
-           paramGenClassDropDown.value == "List<LBSCharacteristic>"))
+        else if ((paramGenClassDropDown.value == IValueType.Bool.AsString() ||
+            paramGenClassDropDown.value == IValueType.LBSTag.AsString() ||
+            paramGenClassDropDown.value == IValueType.LBSTagList.AsString()))
         {
-            return string.IsNullOrWhiteSpace(paramGenInitialValue.value);
-        }
-        else if (paramGenClassDropDown.value == "bool") //HACERLO NO CASE SENSITIVE
-        {
-            return (paramGenInitialValue.value.ToLower() == "true" || paramGenInitialValue.value.ToLower() == "false");
+            return !string.IsNullOrEmpty(paramGenIValueDropDown.value);
         }
         else return false;
-     
-            //"int",
-            //"float",
     }
     private Type GetTypeFromString(string name)
     {
-        switch (name)
+        switch (IValueTypeExtensions.asEnum(name))
         {
-            case "int": return typeof(int);
-            case "float": return typeof(float);
-            case "bool": return typeof(bool);
-            case "LBSCharacteristic": return typeof(LBSCharacteristic);
-            case "List<LBSCharacteristic>": return typeof(List<LBSCharacteristic>);
+            case IValueType.Int: return typeof(int);
+            case IValueType.Float: return typeof(float);
+            case IValueType.Bool: return typeof(bool);
+            case IValueType.LBSTag: return typeof(LBSTag);
+            case IValueType.LBSTagList: return typeof(List<LBSTag>);
             default: return typeof(int);
         }
     }
+    public void InitParamGenerator()
+    {
+        paramGenName.value = "newParam";
+        paramGenClassDropDown.value = IValueType.Int.AsString();
+        paramGenInitialValueText.value = "0";
+        paramGenIValueDropDown.value = "";
+    }
     public void ResetParamGenerator()
     {
-        //paramGenName.value = "newParam";
-        //paramGenClassDropDown.value = "int";
-        //paramGenInitialValue.value = "";
     }
     public void RefreshData()
     {
@@ -267,20 +295,85 @@ public class EvaluatorsParameterWindow : ThemeableWindow
 
         paramListView.hierarchy.ElementAt(0).Add(paramVE);
     }
-
     //estas son las funciones en las que el seba deberia añadir sus cosas,
     // ev ref es un string con el nombre del evaluador que se está editando
     // se puede llamar a GetTypeFromString(paramGenClassDropDown.value) para obtener el Type del parámetro
-
-    //SEGUIR ACÁ
     public void AddParamCode(ParameterData paramData)
     {
         UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
         Type type = GetTypeFromString(paramData.varTypeAsString);
     }
-
     public void DeleteParamCode(ParameterData paramData)
     {
         UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+    }
+    public void ManageIValueUI(string newValue)
+    {
+        switch (IValueTypeExtensions.asEnum(newValue))
+        {
+            case IValueType.Int:        ManageIValueUIOnOff(true, false);   break;
+            case IValueType.Float:      ManageIValueUIOnOff(true, false);   break;
+            case IValueType.Bool:       ManageIValueUIOnOff(false, true);   ManageIValueDropdrownValues(newValue); break;
+            case IValueType.LBSTag:     ManageIValueUIOnOff(false,true);    ManageIValueDropdrownValues(newValue); break;
+            case IValueType.LBSTagList: ManageIValueUIOnOff(false, false);  ManageIValueDropdrownValues(newValue); break;
+        }
+    }
+    public void ManageIValueUIOnOff(bool textBool, bool dropDownValue)
+    {
+        if(textBool)
+            paramGenInitialValueText.style.display = DisplayStyle.Flex;
+        else paramGenInitialValueText.style.display = DisplayStyle.None;
+        
+        if(dropDownValue)
+            paramGenIValueDropDown.style.display = DisplayStyle.Flex;
+        else paramGenIValueDropDown.style.display = DisplayStyle.None;
+    }
+    public void ManageIValueDropdrownValues(string s)
+    {
+        switch (s)
+        {
+            case "bool": 
+                paramGenIValueDropDown.choices = new List<string>{"true","false"};
+                paramGenIValueDropDown.value = paramGenIValueDropDown.choices[0];
+                break;
+            
+            case "LBSTag": 
+                paramGenIValueDropDown.choices = LBSAssetsStorage.Instance.GetNames<LBSTag>();
+                paramGenIValueDropDown.value = paramGenIValueDropDown.choices[0]; 
+                break;
+
+            case "List<LBSTag>": break;
+        }
+    }
+    #endregion
+}
+public static class IValueTypeExtensions
+{
+    // Al usar 'this', la función aparece como una opción del enum
+    public static string AsString(this EvaluatorsParameterWindow.IValueType type)
+    {
+        return type switch
+        {
+            EvaluatorsParameterWindow.IValueType.Int => "int",
+            EvaluatorsParameterWindow.IValueType.Float => "float",
+            EvaluatorsParameterWindow.IValueType.Bool => "bool",
+            EvaluatorsParameterWindow.IValueType.LBSTag => "LBSTag",
+            EvaluatorsParameterWindow.IValueType.LBSTagList => "List<LBSTag>",
+            _ => "Unknown"
+        };
+    }
+
+    public static EvaluatorsParameterWindow.IValueType asEnum(string value)
+    {
+        return value switch
+        {
+            "int" => EvaluatorsParameterWindow.IValueType.Int,
+            "float" => EvaluatorsParameterWindow.IValueType.Float,
+            "bool" => EvaluatorsParameterWindow.IValueType.Bool,
+            "LBSTag" => EvaluatorsParameterWindow.IValueType.LBSTag,
+            "List<LBSTag>" => EvaluatorsParameterWindow.IValueType.LBSTagList,
+
+            _ => EvaluatorsParameterWindow.IValueType.Int // Valor por defecto
+        };
     }
 }
