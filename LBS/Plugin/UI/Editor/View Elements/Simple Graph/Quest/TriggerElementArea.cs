@@ -217,12 +217,11 @@ namespace ISILab.LBS.VisualElements
                 // BottomRight does’t change origin
                 
                 // Update the logical area in tile space
-                _data.Area = new Rect(posX, posY, width, height);
+                _data.SetArea(new Rect(posX, posY, width, height));
                 _data.Node.Select();
 
                 handle.ReleaseMouse();
                 _activeHandle = null;
-
 
                 Vector2 position = _data.OwnerLayer.FixedToPosition(new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
                 Rect drawArea = new(position, new Vector2(_data.Area.width * GraphGridLength, _data.Area.height * GraphGridLength));
@@ -332,7 +331,12 @@ namespace ISILab.LBS.VisualElements
             _isDragging = false;
             this.ReleaseMouse();
 
-            _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
+            _data.SetArea(new Rect(
+                Mathf.Round(GetPosition().x/GraphGridLength), 
+                -Mathf.Round(GetPosition().y/GraphGridLength), 
+                _data.Area.width, 
+                _data.Area.height)
+            );
             
 
             _data.Node.Select();

@@ -25,7 +25,7 @@ namespace ISILab.LBS.VisualElements
         public QuestActionDetailsView()
         {
             if (_asset == null)
-                _asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestActionDetailsView");
+                _asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestNodeDetailsView");
 
             _asset.CloneTree(this);
             

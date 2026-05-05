@@ -1,5 +1,5 @@
-using ISILab.LBS.Editor;
-using System;
+using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.CustomComponents;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
@@ -18,6 +18,15 @@ namespace ISILab.LBS.VisualElements
         protected override VisualElement CreateVisualElement()
         {
             base.CreateVisualElement();
+
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldFloat");
+            visualTree.CloneTree(content);
+            this.Q<LBSCustomFloatField>().RegisterValueChangedCallback((evt) =>
+            {
+                SetTargetValue(evt);
+            });
+
+            this.Q<LBSCustomFloatField>().value = GetTargetValue<float>();
             return this;
         }
     }

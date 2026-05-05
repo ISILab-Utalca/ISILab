@@ -16,7 +16,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
     public partial class EVParameterElement : LBSComplexVisualElement
     {
         private string paramlabelString;
-        private LBSCustomLabel paramLabel;
+        private LBSCustomLabel paramNameLabel;
+        private LBSCustomLabel paramTypeLabel;
+        private LBSCustomLabel paramIValueLabel;
+        private VisualElement verticalDivider1;
+        private VisualElement verticalDivider2;
+        //private VisualElement verticalDivider3;
 
         private bool canBeDeleted = false;
         private LBSCustomButton paramDeleteButton;
@@ -25,39 +30,54 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
 
         public string ParamLabelString
         {
-            get => paramLabel.text;
-            private set => paramLabel.text = value;
+            get => paramNameLabel.text;
+            private set => paramNameLabel.text = value;
         }
         public bool CanBeDeleted
         {
             get => canBeDeleted;
-            set => canBeDeleted = value;
+            set {
+                canBeDeleted = value;
+                if (!value)
+                {
+                    paramDeleteButton.visible = false;
+                    verticalDivider1.style.display = DisplayStyle.None;
+                    verticalDivider2.style.display = DisplayStyle.None;
+                }
+            }
         }
         
         public EVParameterElement() : base()
         {
             Initialize();
         }
-        public EVParameterElement(string label, bool b) : base()
+        public EVParameterElement(string label, bool b, string type, string iValue) : base()
         {
-            Initialize(label, b);
+            Initialize(label, b, type, iValue);
         }
 
-        public void Initialize(string label = "", bool b = false)
+        public void Initialize(string label = "", bool b = true, string type="", string iValue="")
         {
             GetVisualTreeForThis();
 
-            paramLabel = this.Q<LBSCustomLabel>("paramName");
+            paramNameLabel = this.Q<LBSCustomLabel>("paramName");
+            paramTypeLabel = this.Q<LBSCustomLabel>("paramType");
+            paramIValueLabel = this.Q<LBSCustomLabel>("paramIValue");
             paramDeleteButton = this.Q<LBSCustomButton>("paramDelete");
             paramDeleteButton.RegisterCallback<ClickEvent>(DeleteParameterElement);
+            verticalDivider1 = this.Q<VisualElement>("VerticalDivider1");
+            verticalDivider2 = this.Q<VisualElement>("VerticalDivider2");
+            //verticalDivider3 = this.Q<VisualElement>("VerticalDivider3");
 
-            setParameterElement(label, b);
+            setParameterElement(label, b, type, iValue);
         }
 
-        public void setParameterElement(string label, bool b)
+        public void setParameterElement(string label, bool b, string type, string iValue)
         {
             ParamLabelString = label;
-            canBeDeleted = b;
+            paramTypeLabel.text = type;
+            paramIValueLabel.text = iValue;
+            CanBeDeleted = b;
         }
         public override int GetHashCode()
         {
