@@ -313,11 +313,21 @@ namespace PathOS
             return false;
         }
 
-        //This should be updated eventually to do a more sophisticated check accounting
-        //for *apparent* distance - i.e., by adding a couple of physics raycasts from the 
-        //camera.
+        /// <summary>
+        /// Performs a visibility check from the specified origin in the given direction using the NavMesh and updates
+        /// the memory map with the result.
+        /// </summary>
+        /// <remarks>This method updates the agent's memory map to reflect whether the path is obstructed
+        /// or visible, and also maps intermediate tiles encountered during the check. The result can be used to
+        /// determine line-of-sight or navigability for AI agents.</remarks>
+        /// <param name="origin">The starting position in world coordinates from which the visibility check is performed.</param>
+        /// <param name="dir">The direction vector along which to perform the visibility check. The vector is normalized before use.</param>
+        /// <returns>A NavMeshHit structure containing information about the first obstacle hit or the furthest visible point
+        /// along the specified direction.</returns>
         public NavMeshHit ExploreVisibilityCheck(Vector3 origin, Vector3 dir)
         {
+            // Maps the extreme of visibility range as obstacle or seen using NavMesh's Raycast
+
             NavMeshHit hit = new NavMeshHit();
             bool result = NavMesh.Raycast(origin,
                 origin + dir.normalized * navmeshCastDistance + Vector3.up * navmeshCastHeight,
@@ -329,6 +339,8 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
 
             agent.GetMemory().memoryMap.Fill(hit.position, fillCode);
+
+            // Maps the intermediate tiles using NavmeshMemoryMapper's custom Raycast
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
@@ -344,27 +356,27 @@ namespace PathOS
             Vector3 position = origin;
             float distance = 0.0f;
 
-            NavMeshHit hit = new NavMeshHit();
 
             // Calculate offset to camera's near clipping plane
+
             Plane camNear = new Plane(cam.transform.forward, origin + cam.nearClipPlane * cam.transform.forward);
             camNear.Raycast(new Ray(origin, dir), out float offsetDist);
             origin = origin + dir.normalized * offsetDist;
 
+            // Realize a physics raycast from the camera to the direction of exploration.
+
             result = Physics.Raycast(origin, dir, out RaycastHit raycastHit, navmeshCastDistance);
             position = raycastHit.point;
-            distance = raycastHit.distance; // No retorna esta distancia, sino la de hit.
+            distance = raycastHit.distance;
+
+            // If hit an obstacle, get it's nearest point on the navmesh.
+
+            NavMeshHit hit = new NavMeshHit();
             if (result)
             {
                 result = NavMesh.SamplePosition(raycastHit.point, out hit, 1, NavMesh.AllAreas);
                 if (result)
                 {
-                    var diffX = Mathf.Abs(raycastHit.point.x - hit.position.x); // -> this part is doing nothing
-                    var diffY = Mathf.Abs(raycastHit.point.y - hit.position.y);
-                    var diffZ = Mathf.Abs(raycastHit.point.z - hit.position.z);
-                    Vector2 diff = new Vector3(diffX, diffY, diffZ);
-                    //Debug.LogWarning("Sample Deviation: " + diff + " | Height diff: " + diffY + $"\t | Raycast: {raycastHit.point} Sample: {hit.position}");
-
                     position = hit.position;
                     distance = Vector3.Distance(origin, position);
                 }

@@ -462,10 +462,21 @@ namespace PathOS
                 hit.portionUnexplored = (totalSampled > 0) ? (float)numUnexplored / (float)totalSampled : 0.0f;
             }
 
-            // In-progress memory raycast.
-            // Right now the distance will be an estimation of the straight-line distance 
-            // traversable in that direction, and unexplored tiles will stop being counted
-            // if the ray samples from an obstacle tile.
+            /// <summary>
+            /// Performs a raycast through the memory-mapped navigation mesh, sampling along a specified direction and
+            /// distance, and returns information about the encountered tiles and obstacles.
+            /// </summary>
+            /// <remarks>The raycast samples the navigation mesh at regular intervals, stopping when
+            /// it reaches the edge of the grid, encounters more than one obstacle tile, or exceeds the specified
+            /// maximum distance. This method can be used to determine visibility or path obstruction in grid-based
+            /// navigation systems.</remarks>
+            /// <param name="origin">The starting point of the ray in world coordinates.</param>
+            /// <param name="dir">The normalized direction vector along which to cast the ray.</param>
+            /// <param name="maxDistance">The maximum distance, in world units, to cast the ray from the origin.</param>
+            /// <param name="hit">When this method returns, contains information about the raycast, including the number of unexplored
+            /// tiles, the total distance traversed, and the proportion of unexplored tiles encountered.</param>
+            /// <param name="fillSeen">If set to <see langword="true"/>, marks all sampled tiles along the ray as seen. The default is <see
+            /// langword="false"/>.</param>
             public void RaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
                 bool fillSeen = false)
             {
@@ -834,26 +845,42 @@ namespace PathOS
             return p;
         }
 
+
         // GABO: Determines if a given NavMesh agent can reach the specified target position.
         // Due to "GetClosestPointWalkable()" not calculating if a NavMesh agent is ACTUALLY able
         // to get to "p" beyond a limited "margin" (understandable since the original code always
         // expected a completely connected NavMesh) we create the needed auxiliary method.
+
+        /// <summary>
+        /// Determines whether the specified NavMesh agent can reach the given target position within a specified
+        /// margin.
+        /// </summary>
+        /// <remarks>This method first samples the NavMesh near the target position within the specified
+        /// margin, then checks if a complete path exists from the agent's current position to the sampled point. If the
+        /// target is not on the NavMesh or a valid path cannot be found, the method returns false. The result parameter
+        /// is updated with the closest valid position found on the NavMesh.</remarks>
+        /// <param name="agent">The NavMeshAgent instance used to calculate the path to the target position. Must be placed on a valid
+        /// NavMesh.</param>
+        /// <param name="target">The world-space position to reach. The method checks if this position is accessible by the agent.</param>
+        /// <param name="margin">The maximum distance, in world units, to search for a walkable position near the target. Must be
+        /// non-negative.</param>
+        /// <param name="result">When this method returns, contains the closest walkable position on the NavMesh to the target, if found.</param>
+        /// <returns>true if the agent can reach the target position with a complete path; otherwise, false.</returns>
         public static bool CanAgentReachTarget(NavMeshAgent agent, Vector3 target, float margin, ref Vector3 result)
         {
             // Get sampled position from NavMesh
+
             NavMeshHit hitResult = new NavMeshHit();
             bool found = NavMesh.SamplePosition(target, out hitResult, margin, NavMesh.AllAreas);
-            if (found)
-            {
-                result = hitResult.position;
-            }
-            else
+            if (!found)
             {
                 Debug.LogWarning("CanAgentReachTarget(): Target failed position sampling! Is target on the NavMesh?");
                 return false;
             }
+            result = hitResult.position;
 
             // Calculate if path between agent and sampled position exists
+
             NavMeshPath path = new NavMeshPath();
             if (agent.CalculatePath(result, path))
             {
@@ -862,22 +889,17 @@ namespace PathOS
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                // GABO TEMP FIX: For some reason, other agents baking their own meshes invalidates path calculation,
-                // so the warning is limited to single agent testing. It is not consistent with every test map either,
-                // like "PlusSign5Room", or not always at least.
-                if (Resources.FindObjectsOfTypeAll<PathOSAgent>().Length == 1)
-                {
-                    Debug.LogWarning("CanAgentReachTarget(): Invalid pathfinding! Is agent (and/or target) on the NavMesh?");
-                }
                 return false;
             }
+
+            // GABO TEMP FIX: For some reason, other agents baking their own meshes invalidates path calculation,
+            // so the warning is limited to single agent testing. It is not consistent with every test map either,
+            // like "PlusSign5Room", or not always at least.
+            if (Resources.FindObjectsOfTypeAll<PathOSAgent>().Length == 1)
+            {
+                Debug.LogWarning("CanAgentReachTarget(): Invalid pathfinding! Is agent (and/or target) on the NavMesh?");
+            }
+            return false;
         }
 
         // GABO: Gets agent type ID from name.
