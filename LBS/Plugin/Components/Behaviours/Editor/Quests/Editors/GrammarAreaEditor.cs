@@ -1,15 +1,13 @@
 using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
-using ISILab.LBS.Components;
-using ISILab.LBS.Macros;
-using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class FieldArea : GrammarFieldEditor
+    [GrammarFieldEditor(typeof(GrammarArea))]
+    public class GrammarAreaEditor : GrammarFieldEditor
     {
-        public FieldArea(object target) : base(target)
+        public GrammarAreaEditor(object target) : base(target)
         {
         }
 
@@ -22,7 +20,7 @@ namespace ISILab.LBS.VisualElements
         {
             base.CreateVisualElement();
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldArea");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarAreaEditor");
             visualTree.CloneTree(content);
 
             var pv2 = this.Q<PickerVector2Int>();
@@ -31,9 +29,12 @@ namespace ISILab.LBS.VisualElements
                 (target as GrammarArea).SetValue(newArea);
             };
 
-            UnityEngine.Rect area = (target as GrammarArea).value;
-            if (area != null) pv2.SetArea(area);
-
+            (target as GrammarField).Refresh = () =>
+            {
+                UnityEngine.Rect area = (target as GrammarArea).value;
+                pv2._areaView.SetValueWithoutNotify(area);
+            };
+            
             return this;
         }
     }

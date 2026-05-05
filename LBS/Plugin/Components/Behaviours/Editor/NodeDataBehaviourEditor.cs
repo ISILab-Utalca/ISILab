@@ -10,6 +10,7 @@ using LBS;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,23 +21,9 @@ namespace ISILab.LBS.VisualElements
     [LBSCustomEditor("NodeDataBehaviour", typeof(NodeDataBehaviour))]
     public class NodeDataBehaviourEditor : LBSCustomEditor, IToolProvider
     {
-        #region CONSTS
-
-        private static readonly Dictionary<Type, Type> FieldTypeToVisualElement = new()
-        {
-
-            { typeof(GrammarEventHook), typeof(FieldEventHook)},
-            { typeof(GrammarArea), typeof(FieldArea)},
-            { typeof(GrammarFloat), typeof(FieldFloat) },
-            { typeof(GrammarString), typeof(FieldString) },
-            { typeof(GrammarObject), typeof(FieldReferenceGraph) },
-            { typeof(GrammarObjectType), typeof(FieldReferenceType) },
-            { typeof(GrammarInt), typeof(FieldInt) }
-        };
-
-        #endregion
-
         #region FIELDS
+        private static readonly Dictionary<Type, Type> FieldTypeToVisualElement = new();
+
         private NodeDataBehaviour behaviour;
 
         private const float ActionBorderThickness = 1f;
@@ -66,6 +53,33 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region CONSTRUCTORS
+
+
+        static NodeDataBehaviourEditor()
+        {
+            FieldTypeToVisualElement.Clear();
+
+            var editorTypes = TypeCache.GetTypesDerivedFrom<GrammarFieldEditor>();
+
+            foreach (var type in editorTypes)
+            {
+                if (type.IsAbstract) continue;
+
+                var attr = Attribute.GetCustomAttribute(
+                    type,
+                    typeof(GrammarFieldEditorAttribute)
+                ) as GrammarFieldEditorAttribute;
+
+                if (attr == null || attr.EditorType == null)
+                    continue;
+
+                if (!FieldTypeToVisualElement.ContainsKey(attr.EditorType))
+                {
+                    FieldTypeToVisualElement[attr.EditorType] = type;
+                }
+            }
+        }
+
         public NodeDataBehaviourEditor(object target) : base(target)
         {
             SetInfo(target);
@@ -241,6 +255,11 @@ namespace ISILab.LBS.VisualElements
                 if (element is GrammarFieldEditor editor)
                 {
                     editor.SetNewInfo((GrammarField)listView.itemsSource[index]);
+
+                    // might to redraw
+                    behaviour.CheckKeys();
+
+                    DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
                 }
             };
 

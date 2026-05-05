@@ -287,7 +287,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 nodeData.Resize();
 
                 // trigger position is used to draw the suggestion element area
-                var triggerPos = nodeData.Area.position;
+                var triggerPos = nodeData.Area.value.position;
                 // to move the capsule within the suggestion element area
                 Vector2Int offsetPosition = Vector2Int.zero;
 

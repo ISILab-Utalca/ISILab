@@ -1,17 +1,19 @@
+using ISILab.AI.Grammar;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.VisualElements;
 using System.Linq;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.UI.Dropdown;
+using static UnityEngine.Analytics.IAnalytic;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers.Editor
 {
     [Drawer(typeof(NodeDataBehaviour))]
-    public class NodeBehaviourDrawer : Drawer
+    public class NodeDataBehaviourDrawer : Drawer
     {
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
@@ -48,12 +50,16 @@ namespace ISILab.LBS.Drawers.Editor
         {
             foreach (var node in bh.Graph.GetQuestNodes())
             {
-                if (node.Data == null) continue;
+                var data = node.Data;
+                if (data == null) continue;
 
-                var existing = view.GetElementsFromLayer(bh.OwnerLayer, node.Data);
-                if (existing != null && existing.Count > 0) continue;
+                foreach (var areaField in data.GetFields<GrammarArea>())
+                {
+                    var existing = view.GetElementsFromLayer(bh.OwnerLayer, areaField);
+                    if (existing != null && existing.Count > 0) continue;
 
-                CreateTriggerForNode(view, bh, node.Data);
+                    CreateTriggerForNode(view, bh, data);
+                }
             }
         }
 
@@ -61,12 +67,17 @@ namespace ISILab.LBS.Drawers.Editor
         {
             foreach (var tile in bh.RetrieveNewTiles())
             {
-                if (tile is QuestNodeData newNodeData)
+                if (tile is QuestNodeData data)
                 {
-                    var existing = view.GetElementsFromLayer(bh.OwnerLayer, newNodeData);
-                    if (existing != null && existing.Count > 0) continue;
+                    if (data == null) continue;
 
-                    CreateTriggerForNode(view, bh, newNodeData);
+                    foreach (var areaField in data.GetFields<GrammarArea>())
+                    {
+                        var existing = view.GetElementsFromLayer(bh.OwnerLayer, areaField);
+                        if (existing != null && existing.Count > 0) continue;
+
+                        CreateTriggerForNode(view, bh, data);
+                    }
                 }
             }
         }
@@ -78,13 +89,20 @@ namespace ISILab.LBS.Drawers.Editor
             var nodeElements = view.GetElementsFromLayer(bh.OwnerLayer, data.Node);
             var parentView = nodeElements?.FirstOrDefault() as QuestNodeView;
 
+            var displayMode = data == bh.Graph.SelectedQuestData ? DisplayStyle.Flex : DisplayStyle.None;
+
             if (parentView != null)
             {
-                var triggerView = new TriggerElementArea(data, data.Area, parentView);
-                view.AddElementToLayerContainer(bh.OwnerLayer, data, triggerView);
+                foreach (var areaField in data.GetFields<GrammarArea>())
+                {
+                    if (areaField.GetValue() == null) return;
 
-                // update visibility
-                triggerView.style.display = data == bh.Graph.SelectedQuestData ? DisplayStyle.Flex : DisplayStyle.None;
+                    var triggerView = new TriggerElementArea(data, areaField, parentView);
+                    view.AddElementToLayerContainer(bh.OwnerLayer, areaField, triggerView);
+
+                    // update visibility
+                    triggerView.style.display = displayMode;
+                }
             }
         }
 
@@ -107,13 +125,21 @@ namespace ISILab.LBS.Drawers.Editor
             if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) return;
             foreach (var node in bh.Graph.GetQuestNodes())
             {
-                var elements = view.GetElementsFromLayer(bh.OwnerLayer, node.Data);
-                if (elements == null) continue;
+                var data = node.Data;
+                if (data == null) continue;
 
-                foreach (var el in elements)
+                foreach (var areaField in data.GetFields<GrammarArea>())
                 {
-                    if (el == null) continue;
-                    el.style.display = DisplayStyle.None;
+                    if (areaField.GetValue() == null) return;
+
+                    var elements = view.GetElementsFromLayer(bh.OwnerLayer, areaField);
+                    if (elements == null) continue;
+
+                    foreach (var el in elements)
+                    {
+                        if (el == null) continue;
+                        el.style.display = DisplayStyle.None;
+                    }
                 }
             }
         }
@@ -125,14 +151,27 @@ namespace ISILab.LBS.Drawers.Editor
             if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null
                 || bh.OwnerLayer != LBSMainWindow.Instance._selectedLayer) return;
 
-            var selectedData = bh.SelectedNodeData;
-            if (selectedData == null) return;
-            var elements = view.GetElementsFromLayer(bh.OwnerLayer, selectedData);
-            if (elements == null) return;
-
-            foreach (var el in elements)
+           
+            foreach (var node in bh.Graph.GetQuestNodes())
             {
-                el.style.display = DisplayStyle.Flex;
+                if (node.Data != bh.SelectedNodeData) continue;
+
+                var data = node.Data;
+                if (data == null) continue;
+
+                foreach (var areaField in data.GetFields<GrammarArea>())
+                {
+                    if (areaField.GetValue() == null) return;
+
+                    var elements = view.GetElementsFromLayer(bh.OwnerLayer, areaField);
+                    if (elements == null) continue;
+
+                    foreach (var el in elements)
+                    {
+                        if (el == null) continue;
+                        el.style.display = DisplayStyle.Flex;
+                    }
+                }
             }
         }
   

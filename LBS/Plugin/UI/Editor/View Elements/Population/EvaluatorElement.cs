@@ -142,20 +142,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
         {
             EvaluatorsParameterWindow existingWindow = Resources.FindObjectsOfTypeAll<EvaluatorsParameterWindow>().FirstOrDefault();
             
-            // 2. Comparamos el título actual con el que queremos poner
-            // Usamos la misma cadena exacta que definiste para el título
+            // 2. Comparamos el tï¿½tulo actual con el que queremos poner
+            // Usamos la misma cadena exacta que definiste para el tï¿½tulo
             string expectedTitle = $"{EvLabelString}";
 
             if (existingWindow != null)
             {
                 if (existingWindow.titleContent.text != expectedTitle)
                 {
-                    // Si el título es diferente, cerramos la ventana vieja
+                    // Si el tï¿½tulo es diferente, cerramos la ventana vieja
                     existingWindow.Close();
                 }
                 else
                 {
-                    // Si es el mismo, solo le damos foco y no hacemos nada más
+                    // Si es el mismo, solo le damos foco y no hacemos nada mï¿½s
                     existingWindow.Focus();
                     return;
                 }
@@ -167,11 +167,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement
             window.EvRef = EvLabelString;
 
             // 2. ASIGNAR EL ICONO
-            // Opción A: Usar un icono interno de Unity (ej: un engranaje o una lista)
-            // Algunos nombres útiles: "Settings", "d_Settings", "FilterByLabel", "CustomTool"
+            // Opciï¿½n A: Usar un icono interno de Unity (ej: un engranaje o una lista)
+            // Algunos nombres ï¿½tiles: "Settings", "d_Settings", "FilterByLabel", "CustomTool"
             Texture2D icon = EditorGUIUtility.IconContent("Settings").image as Texture2D;
 
-            // Opción B: Usar tu propio icono desde una carpeta Resources o AssetDatabase
+            // Opciï¿½n B: Usar tu propio icono desde una carpeta Resources o AssetDatabase
             // Texture2D icon = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Path/To/YourIcon.png");
 
             window.titleContent = new GUIContent(expectedTitle, icon);

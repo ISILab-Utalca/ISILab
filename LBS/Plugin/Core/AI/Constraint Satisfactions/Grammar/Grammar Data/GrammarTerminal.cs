@@ -28,10 +28,13 @@ namespace ISILab.AI.Grammar
             // Safe: happens after Unity initialization
             var settings = LBSSettings.Instance;
 
-            color = settings != null
+            if(color == null)
+            {
+                color = settings != null
                 ? settings.view.behavioursColor
                 : fallbackColor;
-
+            }
+      
             iconGuid = defaultIconGuid;
 
             base.OnEnable();

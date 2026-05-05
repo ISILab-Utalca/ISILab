@@ -70,7 +70,7 @@ namespace ISILab.LBS.Components
         public QuestGraph Graph => ownerNode.Graph;
         public LBSLayer OwnerLayer => Graph.OwnerLayer;
         public LBSEventHooker EventHooker => _eventHookerField.GetValue() as LBSEventHooker;
-        public Rect Area => _areaField.value;
+        public GrammarArea Area => _areaField;
 
 
         #endregion
@@ -168,6 +168,25 @@ namespace ISILab.LBS.Components
 
             _areaField.SetValue(new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height)));
         }
+        public List<T> GetFields<T>() where T : GrammarField
+        {
+            var result = fields.OfType<T>().ToList();
+            foreach (var field in fields)
+            {
+                if (field is GrammarListFieldMarker listField && field.ItemsSource != null)
+                {
+                    result.AddRange(field.ItemsSource.Cast<GrammarField>().OfType<T>());
+                }
+            }
+
+            return result;
+        }
+
+        public T GetField<T>() where T : GrammarField => GetFields<T>().FirstOrDefault();
+        public GrammarField GetField(string fieldName) => fields.FirstOrDefault(f => f.name == fieldName);
+        public T GetField<T>(string fieldName) where T : GrammarField => fields
+                .OfType<T>()
+                .FirstOrDefault(f => f.name == fieldName);
 
         #endregion
 
