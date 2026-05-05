@@ -138,12 +138,13 @@ namespace LBS.Components
 
             var prevFloor = activeFloor;
             activeFloor = newFloor;
+            Reload();
+
             foreach (var behaviour in Behaviours)
             {
                 behaviour.ChangeLevelRender(prevFloor, newFloor);
-                behaviour.LevelChangedAction?.Invoke();
+                behaviour.LevelChangedCallback?.Invoke(newFloor);
             }//*/
-            Reload();
         }
         #endregion
 

@@ -63,7 +63,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
             // weapons have a child game obejct for trigger detection
             if (!lbsPopGen)
             {
-                obj = other.gameObject.transform.parent.gameObject;
+                obj = other.gameObject.transform.parent is null ? other.gameObject : other.gameObject.transform.parent.gameObject;
                 lbsPopGen = other.gameObject.GetComponentInParent<LBSGeneratedPopulation>();
             }
 

@@ -508,6 +508,8 @@ namespace PathOS
 
         public override string ToString()
         {
+            if (entity is null || entity.entityRef is null) 
+                return "null";
             return entity.entityRef.name;
         }
     }

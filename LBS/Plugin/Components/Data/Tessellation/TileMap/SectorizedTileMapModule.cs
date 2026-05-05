@@ -376,17 +376,20 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             return doors.ToList();
         }
 
-        public Dictionary<string, List<LBSTile>> GetTilesWithConnections(params string[] connections)
+        public Dictionary<string, List<LBSTile>> GetTilesWithConnections(int floor, params string[] connections)
         {
             var lists = new Dictionary<string, List<LBSTile>>();
             foreach (string connection in connections) 
                 lists.Add(connection, new List<LBSTile>());
 
-            var connectedTM = OwnerLayer.GetModule<ConnectedTileMapModule>();
+            var connectedTM = OwnerLayer.GetModule<ConnectedTileMapModule>("", floor);
             IEnumerable<LBSTile> tiles = ZonesWithTiles.SelectMany(zwt => GetTiles(zwt));
             foreach(LBSTile tile in tiles)
             {
-                HashSet<string> set = connectedTM.GetPair(tile).Connections.ToHashSet(); // Null ref (Simulation Layer create)
+                var pair = connectedTM.GetPair(tile);
+                if (pair is null) continue;
+                HashSet<string> set = pair.Connections.ToHashSet(); // Null ref (Simulation Layer create)
+                
                 foreach(string conn in set)
                     if(lists.ContainsKey(conn))
                         lists[conn].Add(tile);

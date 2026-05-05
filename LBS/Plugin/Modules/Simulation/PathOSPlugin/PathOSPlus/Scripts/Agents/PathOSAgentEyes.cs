@@ -387,7 +387,7 @@ namespace PathOS
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.GetMemory().memoryMap.RayMemoryMap(new Ray(origin, dir), distance, out memHit, true, false); // No mapea 1 a 1, sino a lo largo, en lineas.
+            //agent.GetMemory().memoryMap.RayMemoryMap(new Ray(origin, dir), distance, out memHit, true, false); // No mapea 1 a 1, sino a lo largo, en lineas.
 
             return hit;
         }
