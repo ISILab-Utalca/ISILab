@@ -105,8 +105,18 @@ namespace ISILab.LBS.Plugin.Internal
             return result;
         }
 
-        
-        
+        public List<string> GetNames<T>() where T : Object
+        {
+            List<string> names = new List<string>();
+            List<T> objects = Get<T>();
+
+            foreach (T item in objects)
+            {
+                names.Add(item.name);
+            }       
+            return names;
+        }
+
         public List<ScriptableObject> Get(Type type)
         {
             //CleanAllEmpties();
