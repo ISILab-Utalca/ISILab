@@ -4,6 +4,7 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
@@ -306,8 +307,10 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     // se puede llamar a GetTypeFromString(paramGenClassDropDown.value) para obtener el Type del parámetro
     public void AddParamCode(ParameterData paramData)
     {
-        UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+        //UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+        string path = LBSSettings.Instance.paths.evaluatorsPath + System.IO.Path.DirectorySeparatorChar + EvRef + ".cs";
         Type type = GetTypeFromString(paramData.varTypeAsString);
+        EvaluatorCreator.AddParameter(paramData.name, path, type, paramData.initialValue);
     }
     public void DeleteParamCode(ParameterData paramData)
     {
