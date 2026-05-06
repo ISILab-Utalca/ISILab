@@ -40,7 +40,7 @@ namespace ISILab.AI.Categorization
             "- Vertex-Based Exterior Layers.\n" +
             "- Any type of Population Layer.";
 
-        public Dictionary<(int, int), int> DistancePool { get; set; } = new();
+        public Dictionary<(int, int), float> DistancePool { get; set; } = new();
         public EvaluationInfo EvaluationInfo { get; set; } = new(1);
 
         private List<int> permaIndices = null; // Needed for using extra population layers as context
@@ -142,7 +142,7 @@ namespace ISILab.AI.Categorization
                 return 0.0f;
             }
 
-            int[,] distances = new int[size, size];
+            float[,] distances = new float[size, size];
 
             SectorizedTileMapModule sectorMod = null;
             Dictionary<Vector2Int, LBSTile> tilePos = null;
@@ -185,7 +185,7 @@ namespace ISILab.AI.Categorization
                                         }
                                     }
                                     List<int> others = POIs.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(POIs[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluatorHelper.FloodFill(POIs[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, PathfindingHeuristic.Manhattan, ref info);
                                     EvaluationInfo = info;
                                 }
                                 break;
@@ -250,7 +250,7 @@ namespace ISILab.AI.Categorization
                 for (int j = 0; j < size; j++)
                 {
                     if (i == j) continue;
-                    int dist = distances[i, j];
+                    float dist = distances[i, j];
 
                     if (dist > 0 && dist < closestDist)
                     {

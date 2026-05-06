@@ -1,6 +1,8 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
@@ -40,6 +42,8 @@ namespace ISILab.LBS.VisualElements
         // Visual Element
         VisualElement warning;
         VisualElement mappingContent;
+        LBSCustomObjectField lowTagField;
+        LBSCustomObjectField highTagField;
 
         Toggle autoMapToggle;
 
@@ -61,22 +65,28 @@ namespace ISILab.LBS.VisualElements
         {
             behaviour = target as SimulationBehaviour;
             //Debug.Log("BEHAVIOUR CONSTRUCTED");
-            behaviour.AutoMapCallback = MapToCurrentPopulation;
+            behaviour.AutoMapCallback = () => { MapToCurrentPopulation(behaviour.OwnerLayer.ActiveFloor); };
             behaviour.RemoveAutoMapCallbacks = () =>
             {
                 GetPopulationLayers();
                 foreach(LBSLayer layer in populationLayers)
                 {
-                    layer.OnChange -= MapToCurrentPopulation;// _target.AutoMapCallback;
+                    layer.OnChange -= () => { MapToCurrentPopulation(behaviour.OwnerLayer.ActiveFloor); };// _target.AutoMapCallback;
                     //Debug.Log($"Removed Auto Map Callback from layer {layer.Name}");
                 }
+            };
+            behaviour.LevelChangedCallback = (int newFloor) =>
+            {
+                MapToCurrentPopulation(newFloor);
             };
 
             interiorTiles.Add(SchemaBehaviour.Door, new List<LBSTile>());
             interiorTiles.Add(SchemaBehaviour.LockedDoor, new List<LBSTile>());
+            interiorTiles.Add(SchemaBehaviour.LowStair, new List<LBSTile>());
+            interiorTiles.Add(SchemaBehaviour.HighStair, new List<LBSTile>());
 
             CreateVisualElement();
-            MapToCurrentPopulation();
+            MapToCurrentPopulation(behaviour.OwnerLayer.ActiveFloor);
         }
 
         public override void SetInfo(object target)
@@ -107,13 +117,60 @@ namespace ISILab.LBS.VisualElements
             autoMapToggle.SetValueWithoutNotify(pathOS.AutoMap);
             */
             var mapPopulButton = this.Q<Button>("MapPopulation");
-            mapPopulButton.clicked += () => MapToCurrentPopulation();
+            mapPopulButton.clicked += () => MapToCurrentPopulation(behaviour.OwnerLayer.ActiveFloor);
 
             var clearButton = this.Q<Button>("Clear");
             clearButton.clicked += () => ClearMapping();
 
-            // Add and set Tag Pallete
 
+
+            // Low Stair Tag field
+            lowTagField = new LBSCustomObjectField
+            {
+                name = "LowStairTagField",
+                label = "Low Stair Tag",
+                objectType = typeof(LBSTag)
+            };
+            lowTagField.style.marginTop = 4;
+            // Initialize with current value if available
+            if (behaviour != null)
+                lowTagField.SetValueWithoutNotify(behaviour.lowStairTag);
+            // Register callback for value changes
+            lowTagField.RegisterValueChangedCallback(evt =>
+            {
+                behaviour.lowStairTag = evt.newValue as LBSTag;
+                var level = LBSController.CurrentLevel;
+                if (level != null)
+                    EditorUtility.SetDirty(level);
+            });
+            // Add to mapping content container
+            mappingContent.Add(lowTagField);
+            // -----------------------------------------------
+            // High Stair Tag field
+            highTagField = new LBSCustomObjectField
+            {
+                name = "HighStairTagField",
+                label = "High Stair Tag",
+                objectType = typeof(LBSTag)
+            };
+            highTagField.style.marginTop = 4;
+            // Initialize with current value if available
+            if (behaviour != null)
+                highTagField.SetValueWithoutNotify(behaviour.highStairTag);
+            // Register callback for value changes
+            highTagField.RegisterValueChangedCallback(evt =>
+            {
+                behaviour.highStairTag = evt.newValue as LBSTag;
+                var level = LBSController.CurrentLevel;
+                if (level != null)
+                    EditorUtility.SetDirty(level);
+            });
+            // Add to mapping content container
+            mappingContent.Add(highTagField);
+
+
+
+            // Add and set Tag Pallete
             bundlePallete = new SimulationTagPallete();
             Add(bundlePallete);
             bundlePallete.SetName("[LEGACY] PathOS+ Tags");
@@ -228,18 +285,18 @@ namespace ISILab.LBS.VisualElements
         public override void OnFocus()
         {
             base.OnFocus();
-            UpdatePopulationGroups();
-            UpdateInteriorTiles();
+            UpdatePopulationGroups(behaviour.OwnerLayer.ActiveFloor);
+            UpdateInteriorTiles(behaviour.OwnerLayer.ActiveFloor);
         }
 
-        private void UpdatePopulationGroups()
+        private void UpdatePopulationGroups(int floor)
         {
             populationGroups.Clear();
             GetPopulationLayers();
             bool layersExist = populationLayers.Count > 0;
             ShowMappingContent(layersExist);
             if (layersExist)
-                GetPopulationGroups();
+                GetPopulationGroups(floor);
         }
 
         private void GetPopulationLayers()
@@ -251,12 +308,12 @@ namespace ISILab.LBS.VisualElements
             populationLayers = Data.Layers.FindAll(l => l.ID.Equals("Population"));
         }
 
-        private void GetPopulationGroups()
+        private void GetPopulationGroups(int floor)
         {
             var tileMaps = new List<BundleTileMap>();
             foreach (LBSLayer layer in populationLayers)
             {
-                var tileMap = layer.GetModule<BundleTileMap>();
+                var tileMap = layer.GetModule<BundleTileMap>("", floor);
                 if (tileMap != null)
                     tileMaps.Add(tileMap);
             }
@@ -275,17 +332,19 @@ namespace ISILab.LBS.VisualElements
 
         public List<TileBundleGroup> GetCurrentPopulationGroups()
         {
-            UpdatePopulationGroups();
+            UpdatePopulationGroups(behaviour.OwnerLayer.ActiveFloor);
             return populationGroups;
         }
 
-        private void UpdateInteriorTiles()
+        private void UpdateInteriorTiles(int floor)
         {
             interiorTiles[SchemaBehaviour.Door].Clear();
             interiorTiles[SchemaBehaviour.LockedDoor].Clear();
+            interiorTiles[SchemaBehaviour.LowStair].Clear();
+            interiorTiles[SchemaBehaviour.HighStair].Clear();
             GetInteriorLayers();
             if (interiorLayers.Count > 0)
-                GetInteriorTiles();
+                GetInteriorTiles(floor);
         }
 
         private void GetInteriorLayers()
@@ -297,20 +356,27 @@ namespace ISILab.LBS.VisualElements
             interiorLayers = Data.Layers.FindAll(l => l.ID.Equals("Interior"));
         }
 
-        private void GetInteriorTiles()
+        private void GetInteriorTiles(int floor)
         {
             foreach(LBSLayer interiorLayer in interiorLayers)
             {
-                Dictionary<string, List<LBSTile>> lists = interiorLayer.GetModule<SectorizedTileMapModule>().GetTilesWithConnections(SchemaBehaviour.Door, SchemaBehaviour.LockedDoor);
+                Dictionary<string, List<LBSTile>> lists = interiorLayer.GetModule<SectorizedTileMapModule>("", floor).GetTilesWithConnections(floor, SchemaBehaviour.Door, SchemaBehaviour.LockedDoor);
                 interiorTiles[SchemaBehaviour.Door].AddRange(lists[SchemaBehaviour.Door]);
                 interiorTiles[SchemaBehaviour.LockedDoor].AddRange(lists[SchemaBehaviour.LockedDoor]);
+
+                foreach (LBSStair stair in interiorLayer.GetModule<StairsModule>("", floor).Stairs)
+                {
+                    if (stair.Direction < 0) continue;
+                    interiorTiles[SchemaBehaviour.LowStair].Add(new LBSTile(stair.Positions[0]));
+                    interiorTiles[SchemaBehaviour.HighStair].Add(new LBSTile(stair.Positions[stair.Positions.Count - 1]));
+                }
             }
         }
 
-        private void MapToCurrentPopulation()
+        private void MapToCurrentPopulation(int floor)
         {
-            UpdatePopulationGroups();
-            UpdateInteriorTiles();
+            UpdatePopulationGroups(floor);
+            UpdateInteriorTiles(floor);
             MapToPopulation();
         }
 
@@ -320,7 +386,7 @@ namespace ISILab.LBS.VisualElements
 
             EditorGUI.BeginChangeCheck();
 
-            behaviour.MapToPopulation(populationGroups, interiorTiles[SchemaBehaviour.Door], interiorTiles[SchemaBehaviour.LockedDoor]);
+            behaviour.MapToPopulation(populationGroups, interiorTiles[SchemaBehaviour.Door], interiorTiles[SchemaBehaviour.LockedDoor], interiorTiles[SchemaBehaviour.LowStair], interiorTiles[SchemaBehaviour.HighStair]);
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);
