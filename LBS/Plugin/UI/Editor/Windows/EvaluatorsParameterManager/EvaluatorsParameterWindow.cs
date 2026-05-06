@@ -314,7 +314,9 @@ public class EvaluatorsParameterWindow : ThemeableWindow
     }
     public void DeleteParamCode(ParameterData paramData)
     {
-        UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+        //UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+        string path = LBSSettings.Instance.paths.evaluatorsPath + System.IO.Path.DirectorySeparatorChar + EvRef + ".cs";
+        EvaluatorCreator.DeleteParameter(paramData.name, path);
     }
     public void ManageIValueUI(string newValue)
     {

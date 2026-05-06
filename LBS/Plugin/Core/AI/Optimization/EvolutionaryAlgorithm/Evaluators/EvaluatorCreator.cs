@@ -221,6 +221,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
             File.WriteAllText(evalPath, fileText);
 
+            if (!type.Equals(typeof(LBS.Components.LBSTag)))
+                return;
+
             string[] fileLines = File.ReadAllLines(evalPath);
             for(int i = 0; i < fileLines.Length; i++)
             {
@@ -242,6 +245,61 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
             File.WriteAllLines(evalPath, fileLines);
 
+            AssetDatabase.Refresh();
+        }
+
+        public static void DeleteParameter(string evalName, string evalPath)
+        {
+            string[] fileLines = File.ReadAllLines(evalPath);
+            for(int i = 0; i < fileLines.Length; i++)
+            {
+                if (fileLines[i].Contains(evalName))
+                {
+                    if (fileLines[i].Contains("if") || fileLines[i].Contains("for") || fileLines[i].Contains("foreach"))
+                    {
+                        int j = i;
+                        int brackets = 0;
+                        do
+                        {
+                            j++;
+                            if (fileLines[j].Contains('{'))
+                                brackets++;
+                            else if (fileLines[j].Contains('}'))
+                                brackets--;
+                            fileLines[j] = "";
+                        } while (brackets > 0);
+                    }
+                    fileLines[i] = "";
+                    continue;
+                }
+
+                string permaName = "perma" + evalName.UpperFirst();
+                if (fileLines[i].Contains(permaName))
+                {
+                    if (fileLines[i].Contains("#PRESEARCH_CONDITION#"))
+                    {
+                        string toRemove = permaName + " is null";
+                        int ind = fileLines[i].IndexOf(toRemove);
+                        fileLines[i] = fileLines[i].Remove(ind, toRemove.Length);
+                        if (fileLines[i].Substring(ind, 4) == " || ")
+                            fileLines[i] = fileLines[i].Remove(ind, 4);
+                        else if (ind >= 4 && fileLines[i].Substring(ind - 4, 4) == " || ")
+                            fileLines[i] = fileLines[i].Remove(ind - 4, 4);
+                        else
+                            fileLines[i] = fileLines[i].Replace("() && bundleTM is not null", "false");
+                    }
+                    else
+                    {
+                        fileLines[i] = "";
+                    }
+                    continue;
+                }
+
+                string indName = evalName + "Ind";
+                if (fileLines[i].Contains(indName))
+                    fileLines[i] = "";
+            }
+            File.WriteAllLines(evalPath, fileLines);
             AssetDatabase.Refresh();
         }
 
@@ -274,7 +332,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             {
                 case nameof(PathfindingAlgorithm):
                     name = "searchType";
-                    declaration = $"[SerializeField]\n\t\tpublic PathfindingAlgorithm {name};";
+                    declaration = $"[SerializeField] public PathfindingAlgorithm {name};";
                     initialization = $"{name} = PathfindingAlgorithm.JPS_Plus;";
                     load = $"{name} = config.GetValue<PathfindingAlgorithm>(\"Pathfinding Algorithm\");";
                     creation = $"new EnumConfigurationField(\"Pathfinding Algorithm\", {name},\n\t\t\t\t" +
@@ -283,7 +341,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     break;
 
                 case nameof(LBS.Components.LBSTag) when !type.Item2:
-                    declaration = $"[SerializeField, SerializeReference]\n\t\tpublic LBSCharacteristic {name};";
+                    declaration = $"[SerializeField, SerializeReference] public LBSCharacteristic {name};";
                     initialization = $"{name} = new LBSTagsCharacteristic(LBSAssetMacro.GetLBSTag(\"{value}\"));";
                     load = $"{name} = config.GetValue<LBSCharacteristic>(\"{name}\");";
                     creation = $"new MainTagField(\"{name}\", {name}.FirstTag().Label, {name}),";
@@ -309,7 +367,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     break;
 
                 case nameof(LBS.Components.LBSTag) when type.Item2:
-                    declaration = $"[SerializeField, SerializeReference]\n\t\tpublic List<LBSCharacteristic> {name} = new List<LBSCharacteristic>();";
+                    declaration = $"[SerializeField, SerializeReference] public List<LBSCharacteristic> {name} = new List<LBSCharacteristic>();";
                     initialization = $"{name}.Clear();\n";
                     int tagNumber = 3;
                     for (int i = 0; i < tagNumber; i++)
@@ -349,7 +407,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     string primitive = type.Item1.Name == nameof(Int32) ? "int" : "float";
                     string fullPrimitive = type.Item1.Name == nameof(Int32) ? "Integer" : "Float";
 
-                    declaration = $"[SerializeField]\n\t\tpublic {primitive} {name};";
+                    declaration = $"[SerializeField] public {primitive} {name};";
                     initialization = $"{name} = {value};";
                     load = $"{name} = config.GetValue<{primitive}>(\"{name}\");";
                     creation = $"new {fullPrimitive}ConfigurationField(\"{name}\", {name}),";
