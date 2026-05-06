@@ -166,10 +166,12 @@ namespace ISILab.LBS.CustomComponents
             if (toolbarButtonIcon != null)
             {
                 toolbarButtonIcon.style.backgroundImage = new StyleBackground(dotsIcon);
+                m_RightDropDown.visible = false;
             }
 
             this.value = initialValue;
             mToggle.RegisterValueChangedCallback(OnChangeEvent);
+            this.style.marginBottom = 2;
         }
 
         void OnChangeEvent(ChangeEvent<bool> _evt)

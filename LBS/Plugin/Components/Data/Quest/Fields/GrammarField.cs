@@ -1,16 +1,30 @@
+using ISILab.LBS.Components;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace ISILab.AI.Grammar
 {
     public interface GrammarListFieldMarker { }
 
+
     [Serializable]
     public abstract class GrammarField : ICloneable
     {
+        #region FIELDS
+        private static readonly Dictionary<string, Type> fieldMap = new();
+        public QuestNodeData data;
         public string name;
+        #endregion
 
+        #region ACTIONS
+        // used main to broadcast unto visual elements whenever the value changes.
+        public Action Refresh;
+        #endregion
+
+        #region PROPERTIES
         /// Primitive type used by this field
         /// GrammarIntList -> GrammarInt
         /// GrammarInt     -> GrammarInt
@@ -21,89 +35,47 @@ namespace ISILab.AI.Grammar
 
         /// Generic access for ListView.itemsSource
         public virtual IList ItemsSource => null;
+        #endregion
 
+        #region METHODS
+
+        // on unity engine load
+        static GrammarField()
+        {
+            fieldMap.Clear();
+            var grammarFieldTypes = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(a => a.GetTypes());
+
+            foreach (var gft in grammarFieldTypes)
+            {
+                if (gft.IsAbstract) continue;
+
+                var attr = gft.GetCustomAttributes(typeof(GrammarFieldAttribute), false)
+                            .FirstOrDefault() as GrammarFieldAttribute;
+
+                if (attr == null) continue;
+
+                if (!fieldMap.ContainsKey(attr.Id))
+                {
+                    fieldMap[attr.Id] = gft;
+                }
+            }
+        }
         public static GrammarField CreateField(string type, string name)
         {
-            if (type.StartsWith("List."))
-            {
-                string inner = type.Substring(5).ToLower();
+            if (!fieldMap.TryGetValue(type, out var fieldType))
+                throw new Exception($"Unknown field type: {type}. No grammar field class found." +
+                    $"\nMake sure to add a GrammarAttribute to the class.");
 
-                return inner switch
-                {
-                    "int" => new GrammarIntList { name = name },
-                    "float" => new GrammarFloatList { name = name },
-                    "string" => new GrammarStringList { name = name },
-                    "referencetype" => new GrammarTypeList { name = name },
-                    "referencegraph" => new GrammarObjectList { name = name },
-                    _ => throw new Exception($"Unknown list type {inner}")
-                };
-            }
-
-            return type.ToLower() switch
-            {
-                "int" => new GrammarInt { name = name },
-                "float" => new GrammarFloat { name = name },
-                "string" => new GrammarString { name = name },
-                "referencetype" => new GrammarType { name = name },
-                "referencegraph" => new GrammarObject { name = name },
-                _ => throw new Exception($"Unknown field type {type}")
-            };
+            var instance = (GrammarField)Activator.CreateInstance(fieldType);
+            instance.name = name;
+            return instance;
         }
 
         public abstract object Clone();
+        public virtual void SetValue(object newValue) { }
+        public virtual object GetValue() => null;
+
+        #endregion
     }
-
-
-    #region FIELDS
-    [Serializable]
-    public abstract class GrammarField<T> : GrammarField
-    {
-        public T value;
-
-        public override object Clone()
-        {
-            var clone = (GrammarField<T>)Activator.CreateInstance(GetType());
-            clone.name = name;
-            clone.value = value;
-            return clone;
-        }
-    }
-
-    [Serializable]
-    public abstract class GrammarListField<T> : GrammarField, GrammarListFieldMarker
-    {
-        public List<T> value = new();
-
-        public override IList ItemsSource => value;
-
-        public override object Clone()
-        {
-            var clone = (GrammarListField<T>)Activator.CreateInstance(GetType());
-            clone.name = name;
-            clone.value = new List<T>(value);
-            return clone;
-        }
-    }
-
-    #endregion
-
-    #region PRIMITIVES
-
-    [Serializable] public class GrammarInt : GrammarField<int> { public override Type PrimitiveType => typeof(GrammarInt); }
-    [Serializable] public class GrammarFloat : GrammarField<float> { public override Type PrimitiveType => typeof(GrammarFloat); }
-    [Serializable] public class GrammarString : GrammarField<string> { public override Type PrimitiveType => typeof(GrammarString); }
-    [Serializable] public class GrammarObject : GrammarField<UnityEngine.Object> { public override Type PrimitiveType => typeof(GrammarObject); }
-    [Serializable] public class GrammarType : GrammarField<string> { public override Type PrimitiveType => typeof(GrammarType); }
-
-    #endregion
-
-    #region LISTS
-
-    [Serializable] public class GrammarIntList : GrammarListField<int> { public override Type PrimitiveType => typeof(GrammarInt); }
-    [Serializable] public class GrammarFloatList : GrammarListField<float> { public override Type PrimitiveType => typeof(GrammarFloat); }
-    [Serializable] public class GrammarStringList : GrammarListField<string> { public override Type PrimitiveType => typeof(GrammarString); }
-    [Serializable] public class GrammarObjectList : GrammarListField<UnityEngine.Object> { public override Type PrimitiveType => typeof(GrammarObject); }
-    [Serializable] public class GrammarTypeList : GrammarListField<string> { public override Type PrimitiveType => typeof(GrammarType); }
-
-    #endregion
 }

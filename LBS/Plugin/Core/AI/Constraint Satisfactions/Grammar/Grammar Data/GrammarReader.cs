@@ -35,9 +35,8 @@ public static class LBSGrammarReader
             XmlDocument srgsXml = new XmlDocument();
             srgsXml.LoadXml(xml.OuterXml);
 
-            grammar.LBSRules.Clear();
-            grammar.LBSTerminals.Clear();
-
+            grammar.Clear();
+           
             // Remove terminals ONLY from SRGS copy
             RemoveTerminalNodes(srgsXml);
 
@@ -127,7 +126,8 @@ public static class LBSGrammarReader
             switch (sub)
             {
                 case SrgsText text:
-                    AddIfValid(sequence, text.Text);
+                    //AddIfValid(sequence, text.Text);
+                    AddWords(sequence, text.Text);
                     break;
 
                 case SrgsRuleRef ruleRef:
@@ -137,6 +137,22 @@ public static class LBSGrammarReader
         }
 
         return sequence;
+    }
+
+    private static void AddWords(List<string> list, string value)
+    {
+        if (string.IsNullOrWhiteSpace(value)) return;
+
+        var words = value
+            .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (var word in words)
+        {
+            var clean = word.Trim().ToLower();
+            clean = clean.Replace("_", " ");
+            if (!string.IsNullOrEmpty(clean))
+                list.Add(clean);
+        }
     }
 
     private static void AddIfValid(List<string> list, string value)

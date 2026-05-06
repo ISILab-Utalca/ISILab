@@ -17,15 +17,17 @@
   <rule id="Subquest">
     <one-of>
       <item> <ruleref uri="#Goto" /> </item>
-      <item> <ruleref uri="#Goto" /> <ruleref uri="#Quest" /> go to </item>
+      <item> <ruleref uri="#Goto" /> <ruleref uri="#Quest" /> go_to
+	  </item>
     </one-of>
   </rule>
 
   <rule id="Goto">
     <one-of>
       <item> explore </item>
-      <item> <ruleref uri="#Learn" /> go to </item>
-      <item> go to </item>
+      <item> <ruleref uri="#Learn" /> go_to
+	  </item>
+      <item> go_to </item>
     </one-of>
   </rule>
 
@@ -33,7 +35,7 @@
     <one-of>
       <item> <ruleref uri="#Goto" /> <ruleref uri="#Subquest" /> listen </item>
       <item> <ruleref uri="#Goto" /> <ruleref uri="#Get" /> read </item>
-      <item> <ruleref uri="#Get" /> <ruleref uri="#Subquest" />  <item> give </item> listen </item>
+      <item> <ruleref uri="#Get" /> <ruleref uri="#Subquest" />  give listen </item>
     </one-of>
   </rule>
 
@@ -47,7 +49,7 @@
 
   <rule id="Steal">
     <one-of>
-      <item> <ruleref uri="#Goto" /> <item> stealth </item> take </item>
+      <item> <ruleref uri="#Goto" /> stealth take </item>
       <item> <ruleref uri="#Goto" /> <ruleref uri="#Kill" /> take </item>
     </one-of>
   </rule>
@@ -70,11 +72,57 @@
     </one-of>
   </rule>
 
-	<terminal id="take">
-		<field type="referenceType" name="Item Type" />
-		<field type="int" name="Item Amount" />
-		<field type="referenceGraph" name="Item in Level" />
-		<field type="List.int" name="Item Prices"/>
+
+	<terminal id="explore">
+		<field type="List.area" name="Subareas to enter"/>
+	</terminal>
+	
+	<terminal id="listen">
+		<field type="ref" name="Object to listen"/>
+	</terminal>
+	
+	<terminal id="read">
+		<field type="ref" name="Object to read"/>
+	</terminal>
+	
+	<terminal id="give">
+		<field type="ref" name="Type to give" />
+		<field type="int" name="Amount to give" />
+		<field type="ref" name="Object to receive"/>
 	</terminal>
 
+	<terminal id="gather">
+		<field type="refType" name="Item Type" />
+		<field type="int" name="Required amount" />
+	</terminal>
+	
+	<terminal id="stealth">
+		<field type="area" name="Area to reach" />
+		<field type="area" name="Detectable area" />
+		<field type="color" name="Area color"/>
+	</terminal>
+
+	<terminal id="kill">
+		<field type="refType" name="Type to kill" />
+		<field type="int" name="Required kills" />
+	</terminal>
+	
+	<terminal id="capture">
+		<field type="float" name="Time to capture" />
+		<field type="bool" name="Reset on exit during capture" />
+	</terminal>
+
+	<terminal id="take">
+		<field type="ref" name="Object to take"/>
+	</terminal>
+
+	<terminal id="spy">
+		<field type="int" name="Min distance"/>
+		<field type="ref" name="POI to spy"/>
+	</terminal>
+
+	<terminal id="report">
+		<field type="ref" name="POI to report to"/>
+	</terminal>
+	
 </grammar>

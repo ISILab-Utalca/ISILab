@@ -1,28 +1,61 @@
-﻿using ISILab.LBS.Plugin.Core.Settings;
-using UnityEngine;
+﻿using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Manipulators;
+using LBS.VisualElements;
+using System;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class PickerBase : VisualElement
-    {
-        private static Button _activeButton;
-        //private readonly Color _color = LBSSettings.Instance.view.toolkitNormal;
-        private readonly Color _selected = LBSSettings.Instance.view.newToolkitSelected;
 
-        /// <summary>
-        /// Call when a picker button is clicked in order to set the active button visually
-        /// to correspond to a Picker in the editor toolbar
-        /// </summary>
-        /// <param name="button"></param>
-        protected void ActivateButton(Button button)
+    public abstract class PickerBase : VisualElement
+    {
+        private static ToolButton _activeButton;
+
+        private ToolButton pickButton;
+
+        public ToolButton PickButton
         {
-            if (_activeButton is not null)
+            get => pickButton;
+
+            set
             {
-                //_activeButton.style.backgroundColor = _color; // deactivate previous
+                _activeButton?.SetValueWithoutNotify(false);
+                _activeButton = value;
+                _activeButton.OnFocus();
             }
-            _activeButton = button;
-            //_activeButton.style.backgroundColor = _selected; // activate newest
+        }
+
+        protected bool IsSelected()
+        {
+            return PickButton == _activeButton;
+        }
+
+        protected void BindPickButton()
+        {
+            pickButton = this.Q<ToolButton>();
+            pickButton.AddGroupEvent(() =>
+                {
+                    PickButton = pickButton;
+                    ToolKit.Instance.SetActive(typeof(QuestPicker));
+                    if (IsSelected()) PickerLogic();
+                }
+            );
+        }
+
+
+        protected abstract void PickerLogic();
+        public abstract void SetInfo(string name, string tooltip);
+        protected QuestNodeData GetActionData()
+        {
+            var layer = LBSMainWindow.Instance._selectedLayer;
+            if (layer == null) return null;
+            var ndb = layer.GetBehaviour<NodeDataBehaviour>();
+            if (ndb == null) return null;
+            return ndb.SelectedNodeData;
         }
     }
 }

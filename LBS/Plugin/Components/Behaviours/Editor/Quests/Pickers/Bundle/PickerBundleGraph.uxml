@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
+    <ui:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; max-height: none; min-height: auto; margin-right: 1px; margin-left: 1px; margin-bottom: 1px; margin-top: 1px; align-self: stretch; justify-content: space-between; align-items: stretch; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgba(0, 0, 0, 0.3); border-right-color: rgba(0, 0, 0, 0.3); border-top-color: rgba(0, 0, 0, 0.3); border-bottom-color: rgba(0, 0, 0, 0.3); padding-top: 3px; padding-right: 3px; padding-bottom: 3px; padding-left: 3px;">
+        <ui:VisualElement name="VerticalContainer" style="flex-grow: 1; padding-right: 4px; padding-bottom: 0; padding-top: 0; padding-left: 4px;">
+            <ui:VisualElement name="LayerDisplay" style="flex-grow: 1; flex-direction: row; min-height: 24px; max-height: 24px; margin-bottom: 3px; align-self: stretch; justify-content: flex-start;">
+                <ui:Label text="Layer Name" style="flex-grow: 0; flex-shrink: 1; align-self: stretch; -unity-text-align: middle-left; border-right-width: 10px;" />
+                <ui:TextField placeholder-text="filler text" name="Layer" focusable="false" readonly="true" select-line-by-triple-click="false" select-word-by-double-click="false" select-all-on-focus="false" emoji-fallback-support="false" select-all-on-mouse-up="false" enabled="false" style="align-self: stretch; align-items: stretch; flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="HorizontalPosition" style="flex-grow: 1; flex-direction: row; align-self: stretch;">
+                <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/Vectorial/QuestIcons/Vector2_Property_Icon&apos;); min-width: 16px; max-width: 16px; min-height: 16px; max-height: 16px; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px; color: rgb(116, 116, 116); -unity-background-image-tint-color: rgb(116, 116, 116);" />
+                <ui:Label text="Grid Position" style="-unity-text-align: middle-center; align-self: auto;" />
+                <ui:Vector2IntField name="Position" enabled="false" style="flex-grow: 1; justify-content: space-around; min-width: auto; max-width: none; align-self: stretch; flex-direction: column-reverse; -unity-text-align: middle-left; max-height: none; align-items: stretch; align-content: stretch; white-space: normal; -unity-background-scale-mode: stretch-to-fill; flex-wrap: nowrap;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

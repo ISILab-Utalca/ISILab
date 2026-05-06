@@ -1,19 +1,16 @@
-using ISILab.DevTools.Macros;
+using ISILab.AI.Grammar;
 using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Components.Data;
 using LBS.Components;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
-using ISILab.LBS.Plugin.Components.Data;
-using ISILab.AI.Grammar;
 
 namespace ISILab.LBS.Components
 {
@@ -23,17 +20,30 @@ namespace ISILab.LBS.Components
     {
         #region FIELDS
 
-        [SerializeField, SerializeReference, JsonRequired]
+        [SerializeField, SerializeReference]
         protected QuestNode ownerNode;
-
-        [SerializeField, JsonRequired] protected Rect area;
-
-        [SerializeField] private LBSEventHooker _eventHooker;
 
         // terminal from which we obtain color/icons
         [SerializeField] private string terminalGUID;
         private GrammarTerminal terminal;
-        [SerializeField] private List<GrammarField> fields = new();
+
+        [SerializeReference] 
+        private List<GrammarField> fields = new();
+
+        // for direct acccess but it exists within fields
+        [SerializeReference]
+        private GrammarEventHook _eventHookerField;
+
+        // for direct acccess but it exists within fields
+        [SerializeReference]
+        private GrammarArea _areaField;
+
+        #endregion
+
+        #region ACTIONS
+
+        public Action OnBeginChange;
+        public Action OnEndChange;
 
         #endregion
 
@@ -54,18 +64,14 @@ namespace ISILab.LBS.Components
             }
         }
 
-        public LBSEventHooker EventHooker => _eventHooker;
+
+        public string ID => Node.ID;
         public QuestNode Node => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;
         public LBSLayer OwnerLayer => Graph.OwnerLayer;
+        public LBSEventHooker EventHooker => _eventHookerField.GetValue() as LBSEventHooker;
+        public GrammarArea Area => _areaField;
 
-        public Rect Area
-        {
-            get => area;
-            set => area = value;
-        }
-
-        public string ID => Node.ID;
 
         #endregion
 
@@ -73,20 +79,32 @@ namespace ISILab.LBS.Components
 
         public QuestNodeData(QuestNode ownerNode, GrammarTerminal terminal)
         {
-            this.ownerNode = ownerNode;
-            this.Terminal = terminal;
 
-            foreach(var field in Terminal.fields)
-            {
+            this.ownerNode = ownerNode;
+            Terminal = terminal;
+
+            _areaField = new GrammarArea { data = this, name = "Area" };
+            _eventHookerField = new GrammarEventHook { data = this, name = "Events" };
+
+            fields = new();
+
+            fields.Add(_areaField);
+            fields.Add(_eventHookerField);
+
+            foreach (var field in Terminal.fields)
                 fields.Add((GrammarField)field.Clone());
-            }
+
+
+            foreach (var field in fields)
+                field.data = this;
 
             Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
-            area = new Rect(pos.x, pos.y, 1, 1);
+            _areaField.SetValue(new Rect(pos.x, pos.y, 1, 1));
 
-            // all data actions must have the event hooker by default
-            _eventHooker = new LBSEventHooker();
-
+            // bind actions for Ctrl+Z
+            var ndb = Graph.OwnerLayer.GetBehaviour<NodeDataBehaviour>();
+            OnBeginChange += () => ndb.OnNodeDataChangedBegin?.Invoke(this);
+            OnEndChange += () => ndb.OnNodeDataChangedEnd?.Invoke(this);
         }
 
         #endregion
@@ -98,9 +116,9 @@ namespace ISILab.LBS.Components
         public virtual void Clone(QuestNodeData data)
         {
             ownerNode = data.ownerNode;
-            area = data.area;
+            _areaField = data._areaField;
             fields = data.fields;
-            _eventHooker = data._eventHooker;
+            _eventHookerField = data._eventHookerField;
             Terminal = data.Terminal;
         }
 
@@ -131,10 +149,10 @@ namespace ISILab.LBS.Components
             Debug.LogWarning("SetDataByTiles not implemented for " + GetType().Name);
         }
 
-        protected void ResizeToFitBundles(IEnumerable<BundleGraph> bundles)
+        protected void ResizeToFitBundles(IEnumerable<BundleTargetGraph> bundles)
         {
             List<Rect> validRects = bundles
-                .Where(b => b != null && b.Valid())
+                .Where(b => b != null && b.IsValid())
                 .Select(b => b.Area)
                 .ToList();
 
@@ -148,8 +166,27 @@ namespace ISILab.LBS.Components
             float width = maxX - minX;
             float height = maxY - minY;
 
-            area = new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height));
+            _areaField.SetValue(new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height)));
         }
+        public List<T> GetFields<T>() where T : GrammarField
+        {
+            var result = fields.OfType<T>().ToList();
+            foreach (var field in fields)
+            {
+                if (field is GrammarListFieldMarker listField && field.ItemsSource != null)
+                {
+                    result.AddRange(field.ItemsSource.Cast<GrammarField>().OfType<T>());
+                }
+            }
+
+            return result;
+        }
+
+        public T GetField<T>() where T : GrammarField => GetFields<T>().FirstOrDefault();
+        public GrammarField GetField(string fieldName) => fields.FirstOrDefault(f => f.name == fieldName);
+        public T GetField<T>(string fieldName) where T : GrammarField => fields
+                .OfType<T>()
+                .FirstOrDefault(f => f.name == fieldName);
 
         #endregion
 
@@ -158,7 +195,7 @@ namespace ISILab.LBS.Components
         protected bool TrySetBundleGraphList(
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
-            ref List<BundleGraph> listVar,
+            ref List<BundleTargetGraph> listVar,
             Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
@@ -174,7 +211,7 @@ namespace ISILab.LBS.Components
 
                 if (!bTagRequirement) continue;
 
-                listVar.Add(new BundleGraph(this, graphData.Item1, graphData.Item2));
+                listVar.Add(new BundleTargetGraph(graphData.Item1, graphData.Item2));
             }
 
             return listVar.Any();
@@ -184,7 +221,7 @@ namespace ISILab.LBS.Components
         protected bool TrySetBundleGraph(
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
-            ref BundleGraph graphVar,
+            ref BundleTargetGraph graphVar,
             Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
@@ -199,7 +236,7 @@ namespace ISILab.LBS.Components
 
                 if (!bTagRequirement) continue;
 
-                graphVar = new BundleGraph(this, graphData.Item1, graphData.Item2);
+                graphVar = new BundleTargetGraph(graphData.Item1, graphData.Item2);
                 if (graphVar != null) return true;
             }
 
@@ -210,7 +247,7 @@ namespace ISILab.LBS.Components
         protected bool TrySetBundleType(
             List<LBSLayer> layers,
             List<TileBundleGroup> suggestions,
-            ref BundleType typeVar,
+            ref BundleTarget typeVar,
             Bundle.EElementFlag[] flags,
             bool bRequireAllTags = false)
         {
@@ -225,12 +262,15 @@ namespace ISILab.LBS.Components
 
                 if (!bTagRequirement) continue;
 
-                typeVar = new BundleType(null, suggestionTile);
+                typeVar = new BundleTarget(suggestionTile);
                 if (typeVar != null) return true;
             }
 
             return false;
         }
+
+        public void SetArea(Rect newValue) => _areaField.SetValue(newValue);
+
 
 
         #endregion

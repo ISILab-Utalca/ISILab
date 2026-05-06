@@ -186,14 +186,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var trigger = (QuestTrigger)go.AddComponent(triggerType);
 
             // Set visual size
-            var size = node.Data.Area;
+            var size = node.Data.Area.value;
             trigger.SetSize(new Vector3(size.width * settings.scale.x,
                                         size.height * settings.scale.y,
                                         size.height * settings.scale.y));
 
             // Set position
-            var x = (node.Data.Area.x + node.Data.Area.width / 2 - 1) * settings.scale.x;
-            var z = (node.Data.Area.y - node.Data.Area.height / 2) * settings.scale.y;
+            var x = (node.Data.Area.value.x + node.Data.Area.value.width / 2 - 1) * settings.scale.x;
+            var z = (node.Data.Area.value.y - node.Data.Area.value.height / 2) * settings.scale.y;
             var y = pivot.transform.position.y;
             go.transform.position = settings.position + new Vector3(x, y, z);
 
@@ -291,7 +291,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
       private static void AssignObjectByBundleGraph(
             QuestNode node,
-            BundleGraph bundleGraph,
+            BundleTargetGraph bundleGraph,
             LBSGenerator3DSettings settings,
             Vector3 basePos,
             float y,
@@ -316,16 +316,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 var lbsGenerated = collider.GetComponent<LBSGenerated>();
                 if (lbsGenerated == null || lbsGenerated.BundleRef == null) continue;
-                if (lbsGenerated.LayerName != bundleGraph.GetLayerName()) continue; 
+                if (lbsGenerated.LayerName != bundleGraph.Layer?.Name) continue; 
 
-                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GetGuid());
+                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GUID);
                 if (lbsGenerated.BundleRef != bundleRef) continue;
 
                 assignAction?.Invoke(collider.gameObject);
                 return;
             }
 
-            Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GetGuid()}' found at position {scenePosition} for node {node.ID}");
+            Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GUID}' found at position {scenePosition} for node {node.ID}");
         }
 
         private static Vector3 GetScenePosition(Rect graphArea, LBSGenerator3DSettings settings, Vector3 basePos, float y,

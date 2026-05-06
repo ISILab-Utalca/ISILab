@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
@@ -31,8 +32,9 @@ namespace ISILab.LBS.VisualElements
     /// </summary>
     public sealed class TriggerElementArea : GraphElement
     {
-        public static TriggerElementArea activeTriggerElementArea;
-        private readonly QuestNodeData _data;
+
+        private QuestNodeData _nodeData;
+        private readonly GrammarArea _areaField;
         private Color _currentColor;
         
         private string _activeHandle;
@@ -51,34 +53,41 @@ namespace ISILab.LBS.VisualElements
         private Vector2 _dragStartPosition;
         private Vector2 _resizeStartPosition;
         private Type _prevManipulatorType;
+        private VisualElement triggerElementGizmo;
+        private VisualElement targetIcon;
+        private readonly VisualElement cornerTargetIcon;
 
-        public TriggerElementArea(QuestNodeData data, Rect area, QuestNodeView nodeView,
+        public TriggerElementArea(QuestNodeData nodeData, GrammarArea grammarArea, QuestNodeView nodeView,
             bool centerTarget = true)
         {
 
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TriggerElementArea");
             visualTree.CloneTree(this);
 
-            VisualElement triggerElementGizmo = this.Q<VisualElement>("TriggerElementSelector");
-            VisualElement targetIcon = this.Q<VisualElement>("TargetIcon");
-            VisualElement cornerTargetIcon = this.Q<VisualElement>("CornerTargetIcon");
+            triggerElementGizmo = this.Q<VisualElement>("TriggerElementSelector");
+            targetIcon = this.Q<VisualElement>("TargetIcon");
+            cornerTargetIcon = this.Q<VisualElement>("CornerTargetIcon");
 
             _isCenter = centerTarget;
-            _data = data;
-            ActionExtensions.AddUnique(ref _data.OnDataChanged, UpdateData);
+            _areaField = grammarArea;
+            _nodeData = nodeData;
+            ActionExtensions.AddUnique(ref _areaField.data.OnDataChanged, UpdateData);
 
-            var terminal = _data.Terminal;
+            var terminal = _nodeData.Terminal;
 
             if (terminal != null)
             {
                 _currentColor = terminal.color;
+
                 var icon = new StyleBackground(terminal.Icon);
-                cornerTargetIcon.style.backgroundImage = icon;
                 targetIcon.style.backgroundImage = icon;
+                cornerTargetIcon.style.backgroundImage = icon;
+
+                UpdateTargetIcon();
             }
             else
             {
-                Debug.LogError($"[LBS] TriggerElementArea failed to load GrammarTerminal for ID: {_data.ID}");
+                Debug.LogError($"[LBS] TriggerElementArea failed to load GrammarTerminal for ID: {_nodeData.ID}");
                 _currentColor = LBSSettings.Instance.view.errorColor; // Error visibility
             }
 
@@ -87,7 +96,8 @@ namespace ISILab.LBS.VisualElements
             cornerTargetIcon.style.display = _isCenter ? DisplayStyle.None : DisplayStyle.Flex;
 
             // Calculate initial visual position
-            Vector2 position = _data.OwnerLayer.FixedToPosition(
+            var area = _areaField.value;
+            Vector2 position = _nodeData.OwnerLayer.FixedToPosition(
                 new Vector2Int((int)area.x, (int)area.y), true);
             Rect drawArea = new(position, new Vector2(area.width * GraphGridLength, area.height * GraphGridLength));
             SetPosition(drawArea);
@@ -116,18 +126,22 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
 
             // callbacks
-            nodeView.OnMoving += (_) => UpdateData(_data);
+            nodeView.OnMoving += (_) => UpdateData(_nodeData);
             generateVisualContent -= OnGenerateVisualContent;
             generateVisualContent += OnGenerateVisualContent;
 
-            activeTriggerElementArea = this;
+            //activeTriggerElementArea = this;
 
         }
 
-        private void OnMouseEnter(MouseEnterEvent evt)
+        private void UpdateTargetIcon()
         {
-            ShelfManipulator();
+            // target icon only for the default node area (main trigger area). data can have multiple area fields
+            var displayTarget = _nodeData.Area == _areaField ? DisplayStyle.Flex : DisplayStyle.None;
+            targetIcon.style.display = displayTarget;
         }
+
+        private void OnMouseEnter(MouseEnterEvent evt) => ShelfManipulator();
 
         private void OnMouseLeave(MouseLeaveEvent evt)
         {
@@ -183,7 +197,7 @@ namespace ISILab.LBS.VisualElements
                 _resizing = false;
                 handleArea.style.display = DisplayStyle.None;
 
-                if (_data.OwnerLayer is null) return;
+                if (_nodeData.OwnerLayer is null) return;
 
                 Rect currentRect = GetPosition();
 
@@ -215,21 +229,20 @@ namespace ISILab.LBS.VisualElements
                     posY += deltaTileY;
                 }
                 // BottomRight does’t change origin
-                
+
                 // Update the logical area in tile space
-                _data.Area = new Rect(posX, posY, width, height);
-                _data.Node.Select();
+                _areaField.SetValue(new Rect(posX, posY, width, height));
+                _nodeData.Node.Select();
 
                 handle.ReleaseMouse();
                 _activeHandle = null;
 
-
-                Vector2 position = _data.OwnerLayer.FixedToPosition(new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
-                Rect drawArea = new(position, new Vector2(_data.Area.width * GraphGridLength, _data.Area.height * GraphGridLength));
+                Vector2 position = _nodeData.OwnerLayer.FixedToPosition(new Vector2Int((int)_areaField.value.x, (int)_areaField.value.y), true);
+                Rect drawArea = new(position, new Vector2(_areaField.value.width * GraphGridLength, _areaField.value.height * GraphGridLength));
                 SetPosition(drawArea);
 
                 //DrawManager.Instance.RedrawLayer(_data.Layer);
-                DrawManager.Instance.DrawSingleComponent(this, _data.OwnerLayer);
+                DrawManager.Instance.DrawSingleComponent(this, _nodeData.OwnerLayer);
             });
 
             // Hide the areas by default(show when click on handle, hide on mouse up)
@@ -248,7 +261,7 @@ namespace ISILab.LBS.VisualElements
             Painter2D painter = mgc.painter2D;
             painter.BeginPath(); 
 
-            var nodeElements = MainView.Instance.GetElementsFromLayer(_data.OwnerLayer, _data.Node);
+            var nodeElements = MainView.Instance.GetElementsFromLayer(_nodeData.OwnerLayer, _nodeData.Node);
             GraphElement node = nodeElements?.FirstOrDefault();
             if (node == null) return;
 
@@ -274,8 +287,8 @@ namespace ISILab.LBS.VisualElements
             this.CaptureMouse();
             
             
-            Vector2Int tilePosition = new Vector2Int((int)_data.Area.x, (int)_data.Area.y);
-            _dragStartPosition = _data.Graph.OwnerLayer.FixedToPosition(tilePosition, true);
+            Vector2Int tilePosition = new Vector2Int((int)_areaField.value.x, (int)_areaField.value.y);
+            _dragStartPosition = _nodeData.Graph.OwnerLayer.FixedToPosition(tilePosition, true);
 
             DrawManager.Instance.PickingModeChangeAll(PickingMode.Ignore, new List<VisualElement> {this});
             
@@ -332,11 +345,15 @@ namespace ISILab.LBS.VisualElements
             _isDragging = false;
             this.ReleaseMouse();
 
-            _data.Area = new Rect(Mathf.Round(GetPosition().x/GraphGridLength), -Mathf.Round(GetPosition().y/GraphGridLength), _data.Area.width, _data.Area.height);
-            
+            _areaField.SetValue(new Rect(
+                Mathf.Round(GetPosition().x/GraphGridLength), 
+                -Mathf.Round(GetPosition().y/GraphGridLength), 
+                _areaField.value.width, 
+                _areaField.value.height)
+            );
 
-            _data.Node.Select();
-            DrawManager.Instance.RedrawLayer(_data.OwnerLayer);
+            _nodeData.Node.Select();
+            DrawManager.Instance.RedrawLayer(_nodeData.OwnerLayer);
             DrawManager.Instance.PickingModeRestoreAll();
 
             RestoreManipulator();
@@ -396,16 +413,16 @@ namespace ISILab.LBS.VisualElements
 
         public void UpdateData(QuestNodeData newData)
         {
-            if (_data != newData || _data.Terminal == null) return;
-            _currentColor = _data.Terminal.color;
+            if (_nodeData != newData || _nodeData.Terminal == null) return;
+            _currentColor = _nodeData.Terminal.color;
 
             // Update position
-            Vector2 position = newData.OwnerLayer.FixedToPosition(
-                new Vector2Int((int)_data.Area.x, (int)_data.Area.y), true);
+            Vector2 position = _nodeData.OwnerLayer.FixedToPosition(
+                new Vector2Int((int)_areaField.value.x, (int)_areaField.value.y), true);
 
             Rect drawArea = new(
                 position,
-                new Vector2(_data.Area.width * GraphGridLength, _data.Area.height * GraphGridLength)
+                new Vector2(_areaField.value.width * GraphGridLength, _areaField.value.height * GraphGridLength)
             );
 
             SetPosition(drawArea);
@@ -423,7 +440,9 @@ namespace ISILab.LBS.VisualElements
             triggerElementGizmo.style.borderLeftColor = _currentColor;
 
             var targetIcon = this.Q<VisualElement>("TargetIcon");
-            targetIcon.style.backgroundImage = new StyleBackground(_data.Terminal.Icon);
+            targetIcon.style.backgroundImage = new StyleBackground(_nodeData.Terminal.Icon);
+
+            UpdateTargetIcon();
 
             MarkDirtyRepaint();
         }

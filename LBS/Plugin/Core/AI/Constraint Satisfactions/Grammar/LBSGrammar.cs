@@ -355,6 +355,15 @@ namespace ISILab.AI.Grammar
                 }
             }
         }
+
+        internal void Clear()
+        {
+            terminals.Clear();
+            rules.Clear();
+            lbsTerminals.Clear();
+            lbsRules.Clear();
+        }
+
         #endregion
 
 

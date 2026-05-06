@@ -8,6 +8,8 @@ using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
+using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElementTitle;
+using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElement;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -302,6 +304,12 @@ namespace ISILab.LBS.Editor
         private void UpdateEvaluatorsList()
         {
             evaluatorListView.Clear();
+
+            //"TÍTULO PARA LA LISTA"
+            EvaluatorElementTitle evElTitle = new EvaluatorElementTitle("Name", "Interfaces", "Options");
+            evElTitle.style.unityFontStyleAndWeight = FontStyle.Bold;
+            evaluatorListView.hierarchy.ElementAt(0).Add(evElTitle);
+
             foreach (EvaluatorData evData in evaluatorsList)
             {
                 UpdateSingleEvaluator(evData);
@@ -389,7 +397,7 @@ namespace ISILab.LBS.Editor
 
         public void GenerateEvaluator(ClickEvent evt)
         {
-            string cleanName = GetEvGenData().Name.Trim();
+            string cleanName = LBSTextUtilities.ReturnValidName(GetEvGenData().Name);
             if (!string.IsNullOrWhiteSpace(cleanName))
             {
                 EvaluatorData finalEvData = GetEvGenData();
@@ -410,11 +418,10 @@ namespace ISILab.LBS.Editor
             {
                 bool confirm = EditorUtility.DisplayDialog(
                     "Error",                                                    // Título
-                    "Evaluator's name cannot be empty",                         // Mensaje
+                    "Evaluator's name cannot be empty or have special characters other than \"_\"",                           // Mensaje
                     "OK"                                                        // Botón de cancelar
                 );
             }
-            
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)
@@ -480,7 +487,6 @@ namespace ISILab.LBS.Editor
             if (AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath) != null)
             {
                 bool success = AssetDatabase.DeleteAsset(fullPath);
-
                 
                 if (success)
                     Debug.Log($"<color=red>[ISILab]</color> Archivo eliminado: {fullPath}");
