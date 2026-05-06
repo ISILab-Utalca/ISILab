@@ -1,3 +1,4 @@
+using ISILab.AI.Grammar;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
@@ -17,6 +18,8 @@ namespace ISILab.LBS.Behaviours
         public Action<GraphNode> OnNodeDataChanged;
         public Action<QuestNodeData> OnNodeDataChangedBegin;
         public Action<QuestNodeData> OnNodeDataChangedEnd;
+        public Action<GrammarField> OnAddField;
+        public Action<GrammarField> OnRemoveField;
         /// <summary>
         /// Assigned from the QuestNodeView On MouseDown event. It will assign the current selected node, allowing to
         /// modify it based on its action type.
@@ -51,12 +54,28 @@ namespace ISILab.LBS.Behaviours
 
             Graph.OnRemoveNode += (node) =>
             {
-                RequestTileRemove(node.Data);
+                foreach(var field in node.Data.GetFields<GrammarField>())
+                {
+                    RequestTileRemove(field);
+                }
             };
 
             Graph.OnAddNode += (node) => 
             {
-                RequestTilePaint(node.Data);
+                foreach (var field in node.Data.GetFields<GrammarField>())
+                {
+                    RequestTilePaint(field);
+                }
+            };
+
+            OnAddField += (field) =>
+            {
+                RequestTilePaint(field);
+            };
+
+            OnRemoveField += (field) =>
+            {
+                RequestTileRemove(field);
             };
         }
 
@@ -75,7 +94,6 @@ namespace ISILab.LBS.Behaviours
         public override void CheckKeys() 
         {
             UpdateKeys();
-            RequestTilePaint(SelectedNodeData);
         } 
 
         public void UpdateKeys()
@@ -87,7 +105,7 @@ namespace ISILab.LBS.Behaviours
             // Add Node as keys
             foreach (var node in Graph.GetQuestNodes())
             {
-                allKeys.Add(node.Data);
+                allKeys.AddRange(node.Data.GetFields<GrammarField>());
             }
 
             UpdateKeys(allKeys);

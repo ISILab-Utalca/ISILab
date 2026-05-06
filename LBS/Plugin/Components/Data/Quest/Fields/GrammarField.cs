@@ -2,13 +2,11 @@ using ISILab.LBS.Components;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace ISILab.AI.Grammar
 {
     public interface GrammarListFieldMarker { }
-
 
     [Serializable]
     public abstract class GrammarField : ICloneable
@@ -75,7 +73,8 @@ namespace ISILab.AI.Grammar
         public abstract object Clone();
         public virtual void SetValue(object newValue) { }
         public virtual object GetValue() => null;
-
+        public override int GetHashCode() => base.GetHashCode() + name.GetHashCode() + data.GetHashCode();
+        public override string ToString() => data.Node.ID + ": " + name;
         #endregion
     }
 }

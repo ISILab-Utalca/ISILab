@@ -10,7 +10,7 @@ using LBS;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -239,9 +239,31 @@ namespace ISILab.LBS.VisualElements
                 foreach (var i in indices)
                 {
                     // Create force declare the grammar field list entry
-                    var newItem = (GrammarField)Activator.CreateInstance(listField.PrimitiveType);
-                    listField.ItemsSource[i] = newItem;
+                    var field = (GrammarField)Activator.CreateInstance(listField.PrimitiveType);
+                    field.data = listField.data;
+                    field.name = $"{listField.name}  {i}";
+                    listField.ItemsSource[i] = field;
+
+                    behaviour.OnAddField?.Invoke(field);
+                    Debug.Log("adding:" + field.ToString());
+                    // might to redraw
+                    //behaviour.CheckKeys();
+                    DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
                 }
+            };
+
+             listView.itemsRemoved += (items) =>
+             {
+
+      
+                foreach (var item in items.ToList())
+                {
+                    var field = listField.ItemsSource[item] as GrammarField;
+                    Debug.Log("removing:" + field.ToString());
+                    behaviour.OnRemoveField?.Invoke(field);
+                }
+
+                DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
             };
 
             listView.makeItem = () =>
@@ -254,12 +276,9 @@ namespace ISILab.LBS.VisualElements
             {
                 if (element is GrammarFieldEditor editor)
                 {
-                    editor.SetNewInfo((GrammarField)listView.itemsSource[index]);
-
-                    // might to redraw
-                    behaviour.CheckKeys();
-
-                    DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
+                    var item = (GrammarField)listView.itemsSource[index];
+                    item.data = listField.data;
+                    editor.SetNewInfo(item);
                 }
             };
 
