@@ -383,85 +383,6 @@ namespace PathOS
                     return NavmeshMapCode.NM_DNE;
             }
 
-            public void RayMemoryMap(Ray ray, float maxDistance, out NavmeshMemoryMapperCastHit hit, bool fillSeen = false, bool raycast = true)
-            {
-                if (raycast)
-                {
-                    RaycastMemoryMap(ray.origin, ray.direction, maxDistance, out hit, fillSeen);
-                }
-                else
-                {
-                    PointMemoryMap(ray, maxDistance, out hit, fillSeen);
-                }
-            }
-
-            public void PointMemoryMap(Ray ray, float maxDistance, out NavmeshMemoryMapperCastHit hit, bool fillSeen = false)
-            {
-                Vector3 point = ray.origin;
-
-                Vector3 d = ray.direction;
-                d.Normalize();
-
-                //What is our sampling distance?
-                //Depending on the angle between the direction and the grid lines,
-                //this will fluctuate - we effectively want to sample so 
-                //we'll hit in one-tile increments.
-                //This could be improved later to be less approximate and hit
-                //every tile the ray would cross.
-                float theta = Vector3.Angle(Vector3.forward, d);
-                theta = Mathf.Abs(theta);
-
-                //Debug.Log(string.Format("Theta: {0:0.000}", theta));
-
-                theta -= (int)(theta / 90.0f) * 90.0f;
-
-                if (theta > 45.0f)
-                    theta = 90.0f - theta;
-
-                //Debug.Log(string.Format("Clamped Theta: {0:0.000}", theta));
-
-                float sampleDistance = sampleGridSize.y / Mathf.Cos(Mathf.Deg2Rad * theta);
-                //Debug.Log(string.Format("Grid Size: {0:0.000}, Sampling distance: {1:0.000}", sampleGridSize, sampleDistance));
-
-                d = sampleDistance * d;
-
-                int numUnexplored = 0, totalSampled = 0;
-                float totalDistance = 0.0f;
-                int obstacleCount = 0;
-                NavmeshMapCode sample = NavmeshMapCode.NM_DNE;
-
-                for (int i = 1; (i * sampleDistance) < maxDistance && i < maxCastSamples; ++i)
-                {
-                    if((i+1) * sampleDistance > maxDistance)
-                    {
-                        sample = SampleMap(point);
-
-                        if (sample == NavmeshMapCode.NM_UNKNOWN)
-                            ++numUnexplored;
-                        else if (sample == NavmeshMapCode.NM_OBSTACLE)
-                            ++obstacleCount;
-                        //Stop if we reach the edge of the grid or we've crossed more than 
-                        //one obstacle tile (avoid mistaking corners for walls).
-                        else if (sample == NavmeshMapCode.NM_DNE || obstacleCount > 1)
-                            break;
-
-                        //Fill in sight information, if applicable.
-                        if (fillSeen)
-                            Fill(point, NavmeshMapCode.NM_SEEN);
-
-                        ++totalSampled;
-                    }
-                    
-                    point += d;
-
-                    totalDistance += sampleDistance;
-                }
-
-                hit.numUnexplored = numUnexplored;
-                hit.distance = totalDistance;
-                hit.portionUnexplored = (totalSampled > 0) ? (float)numUnexplored / (float)totalSampled : 0.0f;
-            }
-
             /// <summary>
             /// Performs a raycast through the memory-mapped navigation mesh, sampling along a specified direction and
             /// distance, and returns information about the encountered tiles and obstacles.
@@ -477,10 +398,11 @@ namespace PathOS
             /// tiles, the total distance traversed, and the proportion of unexplored tiles encountered.</param>
             /// <param name="fillSeen">If set to <see langword="true"/>, marks all sampled tiles along the ray as seen. The default is <see
             /// langword="false"/>.</param>
+            /// <param name="point">If set to <see langword="true"/>, considers the raycast as a point sample. The default is <see langword="false"/>.</param>
             public void RaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
-                bool fillSeen = false)
+                bool fillSeen = false, bool point = false)
             {
-                Vector3 point = origin;
+                Vector3 samplePoint = origin;
                 Vector3 d = new Vector3(dir.x, dir.y, dir.z);
                 d.Normalize();
 
@@ -509,23 +431,27 @@ namespace PathOS
 
                 for (int i = 1; (i * sampleDistance) < maxDistance && i < maxCastSamples; ++i)
                 {
-                    sample = SampleMap(point);
+                    // If we're doing a point sample, we only want to sample at the end of the ray.
+                    if (!point || (i + 1) * sampleDistance > maxDistance)
+                    {
+                        sample = SampleMap(samplePoint);
 
-                    if (sample == NavmeshMapCode.NM_UNKNOWN)
-                        ++numUnexplored;
-                    else if (sample == NavmeshMapCode.NM_OBSTACLE)
-                        ++obstacleCount;
-                    //Stop if we reach the edge of the grid or we've crossed more than 
-                    //one obstacle tile (avoid mistaking corners for walls).
-                    else if (sample == NavmeshMapCode.NM_DNE || obstacleCount > 1)
-                        break;
+                        if (sample == NavmeshMapCode.NM_UNKNOWN)
+                            ++numUnexplored;
+                        else if (sample == NavmeshMapCode.NM_OBSTACLE)
+                            ++obstacleCount;
+                        // Stop if we reach the edge of the grid or we've crossed more than 
+                        // one obstacle tile (avoid mistaking corners for walls).
+                        else if (sample == NavmeshMapCode.NM_DNE || obstacleCount > 1)
+                            break;
 
-                    //Fill in sight information, if applicable.
-                    if (fillSeen)
-                        Fill(point, NavmeshMapCode.NM_SEEN);
+                        // Fill in sight information, if applicable.
+                        if (fillSeen)
+                            Fill(samplePoint, NavmeshMapCode.NM_SEEN);
 
-                    totalSampled++;
-                    point += d;
+                        totalSampled++;
+                    }
+                    samplePoint += d;
 
                     totalDistance += sampleDistance;
                 }
@@ -539,7 +465,7 @@ namespace PathOS
 
             public void Fill(Vector3 point, NavmeshMapCode code = NavmeshMapCode.NM_VISITED)
             {
-                //Calculate grid indices.
+                // Calculate grid indices.
                 int gridX = 0, gridY = 0, gridZ = 0;
                 GetGridCoords(point, ref gridX, ref gridY, ref gridZ);
 
@@ -552,7 +478,7 @@ namespace PathOS
                 NavmeshMapCode oldCode = default;
                 oldCode = visitedGrid[gridX, gridY, gridZ];
 
-                //Override based on priority of codes.
+                // Override based on priority of codes.
                 if (oldCode >= code)
                     return;
 

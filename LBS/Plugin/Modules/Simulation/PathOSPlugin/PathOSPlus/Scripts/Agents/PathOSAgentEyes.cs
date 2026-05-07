@@ -351,11 +351,17 @@ namespace PathOS
             return hit;
         }
 
+        /// <summary>
+        /// Performs a visibility check from the specified origin
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="dir"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public NavMeshHit ExploreVisibilityCheckFreeMode(Vector3 origin, Vector3 dir, out bool result)
         {
             Vector3 position = origin;
             float distance = 0.0f;
-
 
             // Calculate offset to camera's near clipping plane
 
@@ -370,6 +376,7 @@ namespace PathOS
             distance = raycastHit.distance;
 
             // If hit an obstacle, get it's nearest point on the navmesh.
+            // This will replace position and distance of the NavMeshHit.
 
             NavMeshHit hit = new NavMeshHit();
             if (result)
@@ -388,18 +395,24 @@ namespace PathOS
                 hit.position = position;
             }
 
-            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode = //PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
+            // Maps the extreme of visibility range as obstacle or seen using the NavMeshHit
+
+            PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode fillCode =
             (result) ?
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN :
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
 
-            //Debug.Log($"raycastHit.point.y : {position.y}");
             agent.GetMemory().memoryMap.Fill(position, fillCode);
+
+            // Maps the intermediate tiles using NavmeshMemoryMapper's custom Raycast
+            // Note: Since origin is the camera's position, this maps the tiles along
+            // the ray from the camera to the hit point, which may be more accurate
+            // for visibility checks in free mode... but maybe not?
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            //agent.GetMemory().memoryMap.RayMemoryMap(new Ray(origin, dir), distance, out memHit, true, false); // No mapea 1 a 1, sino a lo largo, en lineas.
+            agent.GetMemory().memoryMap.RaycastMemoryMap(origin, dir, distance, out memHit, true, true); // No mapea 1 a 1, sino a lo largo, en lineas.
 
             return hit;
         }

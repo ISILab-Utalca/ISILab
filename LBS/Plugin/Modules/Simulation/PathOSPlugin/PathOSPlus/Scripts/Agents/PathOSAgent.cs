@@ -405,7 +405,7 @@ namespace PathOS
                     bool goalVisible = Mathf.Abs(angleToGoal) < (eyes.XFOV() * 0.5f); // FP. Generalizar.
 
                     ScoreExploreDirection(GetOriginPos(), goalForward, goalVisible, ref maxScore,
-                        true, navigationState.currentDest.pos);
+                        navigationState.currentDest.pos);
                 }
             }
 
@@ -645,21 +645,38 @@ namespace PathOS
             }
         }
 
-        //maxScore is updated if the direction achieves a higher score.
+        /// <summary>
+        /// Scores and explores a direction based on its potential information gain and various biases, 
+        /// and updates the maximum score if necessary.
+        /// </summary>
+        /// <param name="origin">The starting position for the exploration.</param>
+        /// <param name="dir">The direction to explore.</param>
+        /// <param name="visible">Indicates whether the direction is visible and stores the exploration in memory.</param>
+        /// <param name="maxScore">The current maximum score, which may be updated.</param>
+        /// <param name="overrideDest">The position to override the target with, if applicable.</param>
         private void ScoreExploreDirection(Vector3 origin, Vector3 dir, bool visible, ref float maxScore,
-            bool overridePos = false, Vector3 overrideDest = default)
+            Vector3 overrideDest = default)
         {
             float distance = 0.0f;
             Vector3 newTarget = origin;
 
-            // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target. // Or maybe not...
-            //if (overridePos && overrideDest != null)
-            //{
-            //    newTarget = overrideDest;
-            //}
-            //else
+            // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target. 
+            // Or maybe not...
+            if (overrideDest != null)
             {
-                // 
+                newTarget = overrideDest;
+            }
+
+            // Calculate the distance and position of the "extent" of the direction on the navmesh,
+            // which will be used for scoring and targeting if this direction is selected.
+
+            else
+            {
+
+                // If direction is visibile, explore and map tiles along the direction.
+                // Stores the distance to the "extent" of the direction on the navmesh,
+                // and the position of that "extent" (or the original position if not reachable).
+
                 if (visible)
                 {
                     NavMeshHit hit = new NavMeshHit();
@@ -679,22 +696,22 @@ namespace PathOS
                     }
 
                 }
+
+                // If the direction isn't visible, we want to give it the benefit of the doubt
+                // and allow the agent to explore towards it, unless the agent has already deemed it unreachable.
+
                 else
                 {
-                    //Grab the "extent" of the direction on our memory model of the navmesh.
+                    // Grab the "extent" of the direction on our memory model of the navmesh.
                     PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit;
                     memory.memoryMap.RaycastMemoryMap(origin, dir, eyes.navmeshCastDistance, out hit);
                     distance = hit.distance;
 
-                    // GABO TODO DEBUG
-                    //bool reachable = PathOSNavUtility.GetClosestPointWalkable(
-                    //    origin + distance * dir, exploreTargetMargin, ref newTarget);
                     bool reachable = PathOSNavUtility.CanAgentReachTarget(
                         navAgent,
                         origin + distance * dir,
                         tuning.exploreTargetMargin,
                         ref newTarget);
-                    // FIN DEBUG
 
                     //Disqualify a target if the agent has determined it to be unreachable.
                     if (!reachable || explorationState.IsUnreachable(newTarget))
@@ -702,35 +719,42 @@ namespace PathOS
                 }
             }
 
-            float bias = 0.0f;
-
             //Bias for preferring the goal we have already set.
             //(If we haven't reached it already.)
+
+            float bias = 0.0f;
             bool distanceToTarget = Vector3.SqrMagnitude(
                 newTarget - navigationState.currentDest.pos) < Constants.Navigation.GOAL_EPSILON_SQR;
-            bool distanceToThrehold = (GetPosition() - navigationState.currentDest.pos).magnitude > tuning.exploreThreshold;
+            bool distanceToThreshold = (GetPosition() - navigationState.currentDest.pos).magnitude > tuning.exploreThreshold;
 
-            if (distanceToTarget && distanceToThrehold)
+            if (distanceToTarget && distanceToThreshold)
             {
                 bias += Constants.Behaviour.EXISTING_GOAL_BIAS;
             }
 
+            // Calculate the score for this direction based on the bias
+            // and the potential information gain of exploring in this direction.
+
             float score = ScoreDirection(origin, dir, bias, distance);
 
             //Same inclusion logic as for entity goals.
+
             if (score > maxScore
                 || (maxScore - score)
                 < Constants.Behaviour.SCORE_UNCERTAINTY_THRESHOLD)
             {
+                // Store new max score and create new destination.
+
                 if (score > maxScore)
                     maxScore = score;
 
                 TargetDest newDest = new TargetDest();
                 newDest.score = score;
 
-                //If we're originating from where we stand, target the "end" point.
-                //Else, target the "start" point, and the agent will re-assess its 
-                //options when it gets there.
+                // If we're originating from where we stand, target the "end" point.
+                // Else, target the "start" point, and the agent will re-assess its 
+                // options when it gets there.
+                
                 if (Vector3.SqrMagnitude(origin - GetOriginPos())
                     < Constants.Navigation.EXPLORE_PATH_POS_THRESHOLD_FAC
                     * tuning.exploreThreshold)
@@ -754,19 +778,32 @@ namespace PathOS
                 navigationState.destList.Add(newDest);
             }
 
+            // Add this direction to memory as a potential path,
+            // with its score as the "impression" of the path.
+
             memory.AddPath(new ExploreMemory(origin, dir, newTarget, score));
         }
 
+        /// <summary>
+        /// Calculates the score for exploring in a given direction based on the potential
+        /// information gain and various biases.
+        /// </summary>
+        /// <param name="origin">The starting point of the exploration direction.</param>
+        /// <param name="dir">The direction to explore.</param>
+        /// <param name="bias">The bias to apply to the score.</param>
+        /// <param name="maxDistance">The maximum distance to consider for exploration.</param>
+        /// <returns></returns>
         private float ScoreDirection(Vector3 origin, Vector3 dir, float bias, float maxDistance)
         {
-            dir.Normalize();
+            // Normalize direction and set bias as base score.
 
-            // Set bias as base score
+            dir.Normalize();
             float score = bias;
 
             // Add to the score based on our curiosity and the potential to 
             // "fill in our map" as we move in this direction.
             // This is similar to the scaling created by assessing an exploration direction.
+
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit;
             memory.memoryMap.RaycastMemoryMap(origin, dir, maxDistance, out hit);
 
@@ -774,8 +811,9 @@ namespace PathOS
                 * hit.numUnexplored / PathOSNavUtility.NavmeshMemoryMapper.maxCastSamples
                 * hit.distance / eyes.navmeshCastDistance;
 
-            //Enumerate over all entities the agent knows about, and use them
-            //to affect our assessment of the potential target.
+            // Enumerate over all entities the agent knows about, and use them
+            // to affect our assessment of the potential target.
+
             for (int i = 0; i < memory.entities.Count; ++i)
             {
                 if (memory.entities[i].visited || memory.entities[i].unreachable)
@@ -805,7 +843,7 @@ namespace PathOS
                         continue;
                     }
 
-                    bias += heuristicScale.scale * heuristics.entityScoringLookup[key] * dot * distFactor;
+                    score += heuristicScale.scale * heuristics.entityScoringLookup[key] * dot * distFactor;
                 }
             }
 
