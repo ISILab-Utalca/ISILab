@@ -55,7 +55,7 @@ public partial class PickerBundleType : PickerBase
         };
     }
 
-    public virtual void SetLayerTarget(BundleTarget target)
+    public virtual void SetLayerTarget(BundleTarget target, bool WithoutNotify = false)
     {
         if (target == null)
             return;

@@ -24,7 +24,11 @@ namespace ISILab.AI.Grammar
 
         public override void OnEnable()
         {
-            color = defaultColor;
+            if (color == null)
+            {
+                color = color = defaultColor;
+            }
+           
             iconGuid = defaultIconGuid;
             base.OnEnable();
         }

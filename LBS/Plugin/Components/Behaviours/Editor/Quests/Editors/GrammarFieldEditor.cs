@@ -29,6 +29,9 @@ namespace ISILab.LBS.VisualElements
         {
             SetInfo(paramTarget);
             CreateVisualElement();
+
+            // update values
+            (target as GrammarField).Refresh?.Invoke();
         }
 
         protected override VisualElement CreateVisualElement()

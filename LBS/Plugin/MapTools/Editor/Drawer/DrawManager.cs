@@ -226,7 +226,7 @@ namespace ISILab.LBS
             }
             DrawLevel(level);
 
-            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer), typeof(QuestBehaviorDrawer), typeof (NodeBehaviourDrawer), typeof (NoteDrawer) };
+            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer), typeof(QuestBehaviorDrawer), typeof (NodeDataBehaviourDrawer), typeof (NoteDrawer) };
         }
 
         private void DrawLevel(LBSLevelData level)

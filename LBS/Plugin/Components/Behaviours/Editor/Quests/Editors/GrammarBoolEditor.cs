@@ -1,12 +1,14 @@
+using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.CustomComponents;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    public class FieldInt : GrammarFieldEditor
+    [GrammarFieldEditor(typeof(GrammarBool))]
+    public class GrammarBoolEditor : GrammarFieldEditor
     {
-        public FieldInt(object target) : base(target)
+        public GrammarBoolEditor(object target) : base(target)
         {
         }
 
@@ -19,14 +21,19 @@ namespace ISILab.LBS.VisualElements
         {
             base.CreateVisualElement();
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("FieldInt");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarBoolEditor");
             visualTree.CloneTree(content);
-            this.Q<LBSCustomIntField>().RegisterValueChangedCallback((evt) =>
+
+            this.Q<LBSCustomToggle>().RegisterValueChangedCallback(evt =>
             {
                 SetTargetValue(evt);
             });
-            
-            this.Q<LBSCustomIntField>().value = GetTargetValue<int>();
+
+            (target as GrammarField).Refresh = () =>
+            {
+                this.Q<LBSCustomToggle>().SetValueWithoutNotify(GetTargetValue<bool>());
+            };
+
             return this;
         }
     }

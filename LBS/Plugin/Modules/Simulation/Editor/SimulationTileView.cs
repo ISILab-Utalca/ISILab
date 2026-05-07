@@ -95,14 +95,14 @@ namespace ISILab.LBS.VisualElements
         private void SetColor(Color color)
         {
             background.style.backgroundColor = new StyleColor(color);
-            Debug.Log(color);
+            //Debug.Log(color);
         }
 
         public void SetEvents(SimulationTile tile)
         {
 
             if (tile == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile nulo!"); return; }
-            if (tile.Tag == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile tiene tag nulo!"); }
+            //if (tile.Tag == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile tiene tag nulo!"); }
 
             dynamicTagObject.style.display = tile.IsDynamicTagObject ? DisplayStyle.Flex : DisplayStyle.None;
             dynamicTagTrigger.style.display = tile.IsDynamicTagTrigger ? DisplayStyle.Flex : DisplayStyle.None;

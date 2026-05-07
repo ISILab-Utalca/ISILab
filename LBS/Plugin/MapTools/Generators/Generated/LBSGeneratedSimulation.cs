@@ -9,7 +9,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     {
         [HideInInspector]
         public PathOSAgent agent;
-        [HideInInspector]
+        //[HideInInspector]
         public LevelEntity levelEntity;
         [HideInInspector]
         public bool hideAtStart = false;
@@ -25,11 +25,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private void DeactivateEntity()
         {
+            if (agent.eyes is null) { Debug.LogWarning("Agent eyes component is missing."); return; }
             agent.eyes.AddInvisibleEntity(levelEntity);
         }
 
         public void ReactivateEntity()
         {
+            if (agent.eyes is null) { Debug.LogWarning("Agent eyes component is missing."); return; }
             agent.eyes.RemoveInvisibleEntity(levelEntity);
             PerceivedEntity perceivedEt = agent.eyes.perceptionInfo.Find(et => et.entityRef.Equals(levelEntity));
             if (perceivedEt == null)

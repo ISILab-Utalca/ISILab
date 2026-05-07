@@ -346,7 +346,7 @@ namespace PathOS
                 gridX = (int)(diff.x / sampleGridSize.x);
                 gridY = (int)(diff.y / sampleGridSize.y);
                 gridZ = (int)(diff.z / sampleGridSize.z);
-                Debug.Log($"({point.y}) - ({diff.y}) - ({gridY})");
+                //Debug.Log($"({point.y}) - ({diff.y}) - ({gridY})");
                 //Debug.Log($"({sampleGridSize.x} {sampleGridSize.y} {sampleGridSize.z})");
                 //Debug.Log($"({gridX} {gridY} {gridZ})");
                 //Debug.Log($"({point.x} {point.y} {point.z})");
@@ -462,40 +462,34 @@ namespace PathOS
                 hit.portionUnexplored = (totalSampled > 0) ? (float)numUnexplored / (float)totalSampled : 0.0f;
             }
 
-            //In-progress memory raycast.
-            //Right now the distance will be an estimation of the straight-line distance 
-            //traversable in that direction, and unexplored tiles will stop being counted
-            //if the ray samples from an obstacle tile.
+            // In-progress memory raycast.
+            // Right now the distance will be an estimation of the straight-line distance 
+            // traversable in that direction, and unexplored tiles will stop being counted
+            // if the ray samples from an obstacle tile.
             public void RaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
                 bool fillSeen = false)
             {
                 Vector3 point = origin;
-
-                Vector3 d = new Vector3(dir.x, dir.y/*0.0f*/, dir.z);
+                Vector3 d = new Vector3(dir.x, dir.y, dir.z);
                 d.Normalize();
 
-                //What is our sampling distance?
-                //Depending on the angle between the direction and the grid lines,
-                //this will fluctuate - we effectively want to sample so 
-                //we'll hit in one-tile increments.
-                //This could be improved later to be less approximate and hit
-                //every tile the ray would cross.
+                // What is our sampling distance?
+                // Depending on the angle between the direction and the grid lines,
+                // this will fluctuate - we effectively want to sample so 
+                // we'll hit in one-tile increments.
+                // This could be improved later to be less approximate and hit
+                // every tile the ray would cross.
+
                 float theta = Vector3.Angle(Vector3.forward, d);
                 theta = Mathf.Abs(theta);
-
-                //Debug.Log(string.Format("Theta: {0:0.000}", theta));
-
                 theta -= (int)(theta / 90.0f) * 90.0f;
-
                 if (theta > 45.0f)
                     theta = 90.0f - theta;
 
-                //Debug.Log(string.Format("Clamped Theta: {0:0.000}", theta));
-
-                float sampleDistance = sampleGridSize.y / Mathf.Cos(Mathf.Deg2Rad * theta);
-                //Debug.Log(string.Format("Grid Size: {0:0.000}, Sampling distance: {1:0.000}", sampleGridSize, sampleDistance));
-
+                float sampleDistance = sampleGridSize.z / Mathf.Cos(Mathf.Deg2Rad * theta);
                 d = sampleDistance * d;
+
+                // Sample along the ray until we hit an edge, obstacle, or max distance.
 
                 int numUnexplored = 0, totalSampled = 0;
                 float totalDistance = 0.0f;
@@ -519,11 +513,13 @@ namespace PathOS
                     if (fillSeen)
                         Fill(point, NavmeshMapCode.NM_SEEN);
 
-                    ++totalSampled;
+                    totalSampled++;
                     point += d;
 
                     totalDistance += sampleDistance;
                 }
+
+                // Store hit information.
 
                 hit.numUnexplored = numUnexplored;
                 hit.distance = totalDistance;
@@ -536,21 +532,11 @@ namespace PathOS
                 int gridX = 0, gridY = 0, gridZ = 0;
                 GetGridCoords(point, ref gridX, ref gridY, ref gridZ);
 
-                //int adjustedY = (int) (gridY / sampleGridSize.y);// - 1;
-                //if(gridY < 0) adjustedY = 0;
-                //Debug.Log($"({point.y}) - ({gridY})");// - ({adjustedY})");
                 if (gridX < 0 || gridY < 0 || gridZ < 0
                     || gridX >= visitedGrid.GetLength(0)
                     || gridY >= visitedGrid.GetLength(1)
                     || gridZ >= visitedGrid.GetLength(2))
-                {
-                    //NPDebug.LogError("Navmesh sample location outside of grid bounds!\n" +
-                    //    "Check that navmesh is baked properly. Otherwise there is an " +
-                    //    "issue with PathOS' Navmesh border detection!",
-                    //    typeof(NavmeshMemoryMapper));
-
-                    return;
-                }
+                { return; }
 
                 NavmeshMapCode oldCode = default;
                 oldCode = visitedGrid[gridX, gridY, gridZ];

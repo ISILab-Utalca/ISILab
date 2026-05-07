@@ -30,6 +30,11 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public Bundle selectedToSet;
 
+        [JsonIgnore]
+        public LBSTag lowStairTag;
+        [JsonIgnore]
+        public LBSTag highStairTag;
+
         public List<Bundle> pathOSBundles;
         #endregion
 
@@ -150,14 +155,13 @@ namespace ISILab.LBS.Behaviours
             return module.GetTile(x, y);
         }
 
-        public void MapToPopulation(List<TileBundleGroup> groups, List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles)
+        public void MapToPopulation(List<TileBundleGroup> groups, List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles, List<LBSTile> lowStairTiles, List<LBSTile> highStairTiles)
         {
             //string s = string.Empty;
             //foreach(KeyValuePair<EntityType, PathOSStorage.SimulationEntityData> pair in PathOSStorage.Instance.entityDataPool)
             //{
             //    s += "Entity Type: " + pair.Key + " | Texture: " + (pair.Value.image ? pair.Value.image.name : null) + "\n";
             //}
-            //Debug.Log(s);
 
             Debug.Log("Simulation Mapping performed.");
 
@@ -220,6 +224,10 @@ namespace ISILab.LBS.Behaviours
                 AddTile(null, door.x, door.y, EntityType.ET_POI);
             foreach (LBSTile door in lockedDoorTiles)
                 AddTile(null, door.x, door.y, EntityType.ET_POI, true);
+            foreach (LBSTile stair in lowStairTiles)
+                AddTile(lowStairTag, stair.x, stair.y, EntityType.ET_POI);
+            foreach (LBSTile stair in highStairTiles)
+                AddTile(highStairTag, stair.x, stair.y, EntityType.ET_GOAL_MANDATORY);
         }
 
         public void ClearMapping()

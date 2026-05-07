@@ -33,7 +33,7 @@ namespace ISILab.LBS.Behaviours
         private HashSet<object> _newTiles = new();
         private HashSet<object> _expiredTiles = new();
 
-        private Action levelChangedAction = null;
+        private Action<int> levelChangedCallback = null;
         #endregion
 
         #region PROPERTIES
@@ -88,10 +88,10 @@ namespace ISILab.LBS.Behaviours
         public HashSet<object> Keys => _keys ??= new HashSet<object>();
 
         [JsonIgnore]
-        public Action LevelChangedAction
+        public Action<int> LevelChangedCallback
         {
-            get => levelChangedAction;
-            set => levelChangedAction = value;
+            get => levelChangedCallback;
+            set => levelChangedCallback = value;
         }
         #endregion
 

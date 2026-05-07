@@ -8,15 +8,25 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
     [System.Serializable]
     public enum PathfindingAlgorithm
     {
-        /// <summary>
-        /// Preferable for laberynthin levels.
-        /// </summary>
         Flood_Fill,
-        /// <summary>
-        /// Preferable for open areas with few obstacles.
-        /// </summary>
         JPS_Plus,
         A_Star
+    }
+
+    public enum PathfindingHeuristic
+    {
+        /// <summary>
+        /// No diagonals
+        /// </summary>
+        Manhattan,
+        /// <summary>
+        /// Diagonals = x sqrt(2)
+        /// </summary>
+        Octile,
+        /// <summary>
+        /// Diagonals = x
+        /// </summary>
+        Chebyshev
     }
 
     public struct EvaluationInfo
@@ -50,7 +60,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
     public interface IDistanceEvaluator : IEvaluator
     {
-        public Dictionary<(int, int), int> DistancePool { get; set; }
+        public Dictionary<(int, int), float> DistancePool { get; set; }
     }
 
     public interface ITestingEvaluator : IEvaluator

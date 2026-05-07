@@ -131,7 +131,7 @@ namespace ISILab.LBS.Behaviours
                 Vector2Int nodePos = Vector2Int.zero;
                 if (node is QuestNode qn)
                 {
-                    nodePos = qn.Data.Area.position.ToInt();
+                    nodePos = qn.Data.Area.value.position.ToInt();
                 }
                 bool inside =
                     nodePos.x >= corners.min.x &&

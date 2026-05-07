@@ -57,8 +57,8 @@ namespace ISILab.LBS.VisualElements
                 var newRect = new Rect(
                     pos.x,
                     pos.y,
-                    pickerManipulator.ActiveData.Area.width,
-                    pickerManipulator.ActiveData.Area.height);
+                    pickerManipulator.ActiveData.Area.value.width,
+                    pickerManipulator.ActiveData.Area.value.height);
                 SetArea(newRect);
             };
         }

@@ -75,6 +75,7 @@ namespace ISILab.LBS.Behaviours
         public override void CheckKeys() 
         {
             UpdateKeys();
+            RequestTilePaint(SelectedNodeData);
         } 
 
         public void UpdateKeys()
