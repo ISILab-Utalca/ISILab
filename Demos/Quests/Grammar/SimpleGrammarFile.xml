@@ -86,9 +86,15 @@
 	</terminal>
 	
 	<terminal id="give">
-		<field type="ref" name="Type to give" />
+		<field type="ref" name="Object to give" />
+		<field type="refType" name="Object to receive"/>
+	</terminal>
+
+	<terminal id="exchange">
+		<field type="refType" name="Type to give" />
 		<field type="int" name="Amount to give" />
-		<field type="ref" name="Object to receive"/>
+		<field type="refType" name="Type to receive"/>
+		<field type="int" name="Amount to receive" />
 	</terminal>
 
 	<terminal id="gather">

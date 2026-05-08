@@ -3,13 +3,10 @@ using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Graphs;
-using UnityEditor.Search;
 using UnityEngine;
 
 namespace ISILab.LBS.Modules
@@ -19,8 +16,8 @@ namespace ISILab.LBS.Modules
     {
         #region CONSTANTS
         private const string defaultGrammarGuid = "14cb4d99b22a94a45bac4216aca3f57e"; // Default grammar guid
-        private const float ViewNodeWidthOffset = 100f;
-        private const float SuggestionDistance = 1.5f;
+        public const float ViewNodeWidthOffset = 100f;
+        public const float SuggestionDistance = 1.5f;
         #endregion
 
         #region FIELDS
@@ -269,7 +266,7 @@ namespace ISILab.LBS.Modules
             return node;
         }
 
-        public QuestNode CreateSuggestionNode(string action,  List<QuestNode> tempSuggestions, Vector2 pos = default)
+        public QuestNode GetNodeSuggestion(string action,  List<QuestNode> tempSuggestions, Vector2 pos = default)
         {
             string uniqueSuggestionId = "s" + GenerateUniqueId(action, tempSuggestions.Select(n => n.ID));
             QuestNode node = new QuestNode(uniqueSuggestionId, pos, action, this);

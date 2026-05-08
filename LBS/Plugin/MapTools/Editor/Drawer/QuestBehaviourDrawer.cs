@@ -5,12 +5,10 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers.Editor

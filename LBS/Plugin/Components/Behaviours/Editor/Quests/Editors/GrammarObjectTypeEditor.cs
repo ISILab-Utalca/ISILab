@@ -30,9 +30,9 @@ namespace ISILab.LBS.VisualElements
 
             pbg.OnBundlePicked = (layer, tile) =>
             {
-                pbg.SetLayerTarget(new BundleTarget(tile));
-                var guid = LBSAssetMacro.GetGuidFromAsset(tile.BundleData.Bundle);
-                (target as GrammarObjectType).SetValue(guid);
+                var bt = new BundleTarget(tile);
+                pbg.SetLayerTarget(bt);
+                (target as GrammarObjectType).SetValue(bt);
             };
 
             (target as GrammarField).Refresh = () =>

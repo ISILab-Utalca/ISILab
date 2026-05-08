@@ -114,47 +114,44 @@ namespace ISILab.LBS.Editor
                 TaskBar.EnableProcess(false);
             };
         }
-        
+
         #endregion
-        
-        
+
+
         private void RunTask()
         {
             ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
+
             Task.Run(() =>
             {
                 try
                 {
-                    var bundleToActions = _assistant.GenerateSuggestions((int)GetSuggestionCount(), progress =>
+                    var bundleToActions = _assistant.GenSuggestions((int)GetSuggestionCount(), progress =>
                     {
-                        // progress from 0 to 0.5
-                        ((IAssistantThreadedEditor)this).ReportProgress(0.05f * progress);
+                        ((IAssistantThreadedEditor)this).ReportProgress(0.5f * progress);
                     }, CancelToken);
-                    
-                    
-                    suggestions = _assistant.CreateNewSuggestions(bundleToActions, progress =>
+
+                    EditorApplication.delayCall += () =>
                     {
-                        // progress from 0 to 95
-                        ((IAssistantThreadedEditor)this).ReportProgress(0.05f + 0.95f * progress);
-                    }, CancelToken);
-                    
-                    string log = "Recommended nodes generated.";
-                    LogType logType = LogType.Log;
-                    EditorApplication.delayCall += () => _assistant.OnTermination?.Invoke(log, logType, null);
-                   
+                        if (CancelToken.IsCancellationRequested) return;
+
+                        suggestions = _assistant.GetSuggestions(bundleToActions, progress =>
+                        {
+                            ((IAssistantThreadedEditor)this).ReportProgress(0.5f + (0.5f * progress));
+                        }, CancelToken);
+
+                        string log = "Recommended nodes generated.";
+                        _assistant.OnTermination?.Invoke(log, LogType.Log, null);
+                    };
                 }
                 catch (Exception ex)
                 {
                     ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
-
             }, CancelToken);
         }
 
-        private uint GetSuggestionCount()
-        {
-            return _suggestionField.value;
-        }
+        private uint GetSuggestionCount() => _suggestionField.value;
 
         #region LAYERS
         private void SetupLayerContextList()
@@ -241,7 +238,7 @@ namespace ISILab.LBS.Editor
             _noSuggestionPanel.style.display = hasSuggestions ? DisplayStyle.None : DisplayStyle.Flex;
             _suggestionList.style.display = hasSuggestions ? DisplayStyle.Flex : DisplayStyle.None;
             // redraw to display suggestions
-            DrawManager.Instance.RedrawLayer(_questGraph.OwnerLayer);
+            DrawManager.Instance.UpdateSingleComponent(this, _questGraph.OwnerLayer);
             MarkDirtyRepaint();
         }
         

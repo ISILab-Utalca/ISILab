@@ -5,7 +5,7 @@ namespace ISILab.AI.Grammar
 {
     [Serializable]
     [GrammarField("ref")]
-    public class GrammarObject : GrammarField<BundleTargetGraph>
+    public class GrammarObject : GrammarBundleField<BundleTargetGraph>
     {
         public override Type PrimitiveType => typeof(GrammarObject);
 
@@ -15,6 +15,11 @@ namespace ISILab.AI.Grammar
             {
                 value = target;
             }
+        }
+
+        public override void SetObjectBundle(object[] objs)
+        {
+            base.SetObjectBundle(objs);
         }
 
         public override object GetValue() => value;
