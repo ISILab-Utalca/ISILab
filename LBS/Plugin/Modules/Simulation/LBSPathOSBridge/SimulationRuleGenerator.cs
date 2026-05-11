@@ -131,10 +131,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                         walls.Add((tile, instance.gameObject));
                     }
                     // Stair settings
-                    else if(tile.Tag != null && (tile.Tag == simBehaviour.lowStairTag || tile.Tag == simBehaviour.highStairTag))
+                    else if(tile.Tag != null && (tile.Tag == simBehaviour.upStairTag || tile.Tag == simBehaviour.downStairTag))
                     {
                         instance.transform.SetParent(stairContainer.transform);
-                        instance.transform.localPosition += (tile.Tag == simBehaviour.lowStairTag) ? Vector3.up * (settings.scale.y * 0.25f + 0.25f): Vector3.up * (settings.scale.y * 0.75f + 0.25f);
+                        instance.transform.localPosition += (tile.Tag == simBehaviour.downStairTag) ? Vector3.up * settings.scale.y : Vector3.zero;
                     }
                     // Entities settings
                     else

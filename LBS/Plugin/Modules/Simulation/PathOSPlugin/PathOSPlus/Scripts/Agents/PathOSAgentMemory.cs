@@ -26,6 +26,8 @@ namespace PathOS
         private EntityMemory finalGoal;
         private bool finalGoalCompleted;
 
+        //Remembered stairs.
+
         //Remembered paths/directions.
         public List<ExploreMemory> paths { get; set; }
 
@@ -126,7 +128,7 @@ namespace PathOS
                 //Additionally, the *current* target cannot be forgotten.
                 if (!entity.entity.visible
                     && entity.forgettable
-                    && entity.impressionTime >= agent.memoryState.forgetTime
+                    && entity.impressionTime >= agent.STMemoryState.forgetTime
                     && !PerceivedEntity.SameEntity(targetEntity, entity))
                 {
                     entities.RemoveAt(i);
@@ -141,11 +143,11 @@ namespace PathOS
 
             //Forget any non-visible entities that aren't in long-term memory 
             //over the STM size cap.
-            if (stm.Count > agent.memoryState.stmSize)
+            if (stm.Count > agent.STMemoryState.stmSize)
             {
                 stm.Sort((m1, m2) => m1.impressionTime.CompareTo(m2.impressionTime));
 
-                while (stm.Count > agent.memoryState.stmSize)
+                while (stm.Count > agent.STMemoryState.stmSize)
                 {
                     entities.Remove(stm[stm.Count - 1]);
                     stm.RemoveAt(stm.Count - 1);
@@ -185,7 +187,7 @@ namespace PathOS
 
                 //Paths are ejected from memory if they are forgotten,
                 //or if back-end navmesh logic has determined they cannot be reached.
-                if (paths[i].impressionTime >= agent.memoryState.forgetTime
+                if (paths[i].impressionTime >= agent.STMemoryState.forgetTime
                     || agent.explorationState.IsUnreachable(paths[i].estimatedDest))
                     paths.RemoveAt(i);
             }
@@ -323,7 +325,7 @@ namespace PathOS
                 }
             }
 
-            if (paths.Count >= agent.memoryState.stmSize)
+            if (paths.Count >= agent.STMemoryState.stmSize)
             {
                 if (path.score < minScore)
                     return;

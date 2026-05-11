@@ -47,8 +47,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public const string Door = "Door";
         public const string Window = "Window";
         public const string LockedDoor = "LockedDoor";
-        public const string LowStair = "LowStair";
-        public const string HighStair = "HighStair";
+        public const string DownStair = "DownStair";
+        public const string UpStair = "UpStair";
         //      public const string BlockedDoor = "BlockedDoor";
 
         #endregion

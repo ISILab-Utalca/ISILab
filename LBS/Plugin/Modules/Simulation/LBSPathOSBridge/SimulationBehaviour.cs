@@ -31,9 +31,9 @@ namespace ISILab.LBS.Behaviours
         public Bundle selectedToSet;
 
         [JsonIgnore]
-        public LBSTag lowStairTag;
+        public LBSTag upStairTag;
         [JsonIgnore]
-        public LBSTag highStairTag;
+        public LBSTag downStairTag;
 
         public List<Bundle> pathOSBundles;
         #endregion
@@ -81,9 +81,14 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region METHODS
-        public void AddTile(LBSTag tag, int x, int y, EntityType type, bool lockedDoorPOI = false)
+        public void AddTile(LBSTag tag, int x, int y, EntityType type, bool lockedDoorPOI = false, LBSStair stairRef = null)
         {
             SimulationTile tile = new SimulationTile(this, x, y, type, tag, lockedDoorPOI);
+
+            if (type == EntityType.ET_STAIR_UP || type == EntityType.ET_STAIR_DOWN)
+            {
+                tile.StairRef = stairRef;
+            }
 
             bool isElement = true;
             bool isEvent = false;
@@ -155,7 +160,9 @@ namespace ISILab.LBS.Behaviours
             return module.GetTile(x, y);
         }
 
-        public void MapToPopulation(List<TileBundleGroup> groups, List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles, List<LBSTile> lowStairTiles, List<LBSTile> highStairTiles)
+        public void MapToPopulation(List<TileBundleGroup> groups, 
+            List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles, 
+            List<LBSStair> upStairs, List<LBSStair> downStairs)
         {
             //string s = string.Empty;
             //foreach(KeyValuePair<EntityType, PathOSStorage.SimulationEntityData> pair in PathOSStorage.Instance.entityDataPool)
@@ -224,10 +231,10 @@ namespace ISILab.LBS.Behaviours
                 AddTile(null, door.x, door.y, EntityType.ET_POI);
             foreach (LBSTile door in lockedDoorTiles)
                 AddTile(null, door.x, door.y, EntityType.ET_POI, true);
-            foreach (LBSTile stair in lowStairTiles)
-                AddTile(lowStairTag, stair.x, stair.y, EntityType.ET_POI);
-            foreach (LBSTile stair in highStairTiles)
-                AddTile(highStairTag, stair.x, stair.y, EntityType.ET_GOAL_MANDATORY);
+            foreach (LBSStair stair in upStairs)
+                AddTile(upStairTag, stair.Positions[0].x, stair.Positions[0].y, EntityType.ET_STAIR_UP, false, stair);
+            foreach (LBSStair stair in downStairs)
+                AddTile(downStairTag, stair.Positions[stair.Positions.Count - 1].x, stair.Positions[stair.Positions.Count - 1].y, EntityType.ET_STAIR_DOWN, false, stair);
         }
 
         public void ClearMapping()

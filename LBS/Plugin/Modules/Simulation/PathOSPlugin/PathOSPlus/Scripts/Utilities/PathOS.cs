@@ -29,7 +29,9 @@ namespace PathOS
         ET_HAZARD_ENEMY_BOSS = 230,
         ET_HAZARD_ENVIRONMENT = 250,
         ET_POI = 300,
-        ET_POI_NPC = 350
+        ET_POI_NPC = 350,
+        ET_STAIR_UP = 400,
+        ET_STAIR_DOWN = 410
     };
 
     /* AGENT HEURISTICS */
@@ -205,7 +207,7 @@ namespace PathOS
         public EntityType entityType;
 
         //Simulates compass/map availability.
-        public bool alwaysKnown;
+        public bool alwaysKnown; 
 
         //Individual per-object visitation radius.
         [Tooltip("Should this object have a custom threshold " +
