@@ -107,8 +107,6 @@ namespace ISILab.LBS.Modules
         public Action<Vector2Int> GoToNodeInGraph;
         public Action<QuestEdge> OnAddEdge;
         public Action<QuestEdge> OnRemoveEdge;
-        public Action<QuestNode> OnAddSuggestion;
-        public Action<QuestNode> OnRemoveSuggestion;
         public Action<QuestNode> OnAddNode;
         public Action<QuestNode> OnRemoveNode;
 

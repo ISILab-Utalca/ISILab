@@ -145,7 +145,7 @@ namespace ISILab.LBS.Components
         {
             Debug.LogWarning("Resize not implemented for " + GetType().Name);
         }
-        public void ApplyTilesToData(TerminalToBundleTiles data)
+        public void ApplyTilesToData(QuestCandidate data)
         {
             // assign tiles to any fields that implement IBundleFlags
             foreach (var field in fields) 
@@ -157,7 +157,7 @@ namespace ISILab.LBS.Components
                         var bundle = tile.BundleData.Bundle;
                         if (IBundleFlag.HasAnyFlag(bundle))
                         {
-                            var bt = new BundleTargetGraph(data.Layer, tile);
+                            var bt = new BundleTargetGraph(data.ContextLayer, tile);
                             field.SetValue(bt);
 
                         }

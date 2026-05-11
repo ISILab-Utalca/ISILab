@@ -1,17 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using ISILab.AI.Grammar;
-using ISILab.Commons.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using Newtonsoft.Json;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
@@ -20,38 +17,43 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
 
     /// <summary>
-    /// Stores a <see cref="GrammarTerminal"/> and <see cref="TileBundleGroup"/>s 
-    /// if they have alllowed flags via <see cref="IBundleFlags"/> interface.
+    /// Represents a potential quest configuration mapping a <see cref="GrammarTerminal"/> 
+    /// to compatible world entities (<see cref="TileBundleGroup"/>).
     /// </summary>
-    public class TerminalToBundleTiles : IEquatable<TerminalToBundleTiles>
+    public class QuestCandidate : IEquatable<QuestCandidate>
     {
-        public LBSLayer Layer { get; }
+        public LBSLayer ContextLayer { get; }
         public List<TileBundleGroup> Tiles { get; }
         public GrammarTerminal Terminal { get; }
 
-        public TerminalToBundleTiles(LBSLayer layer, GrammarTerminal terminal, List<TileBundleGroup> tiles = null)
+        public QuestCandidate(LBSLayer layer, GrammarTerminal terminal, List<TileBundleGroup> targets = null)
         {
-            Layer = layer;
-            Tiles = tiles ?? new List<TileBundleGroup>();
+            ContextLayer = layer;
             Terminal = terminal;
+            Tiles = targets ?? new List<TileBundleGroup>();
         }
 
-        public bool Equals(TerminalToBundleTiles other)
+        public bool Equals(QuestCandidate other)
         {
             if (other == null) return false;
-            return Terminal == other.Terminal && Layer == other.Layer && Tiles == other.Tiles;
+            // Equality is based on the Action and the Context; targets are the variable data.
+            return Terminal == other.Terminal && ContextLayer == other.ContextLayer;
         }
 
-        public override int GetHashCode() => HashCode.Combine(Terminal, Layer);
+        public override int GetHashCode() => HashCode.Combine(Terminal, ContextLayer);
     }
-    
 
     [Serializable]
     [RequieredModule(typeof(QuestGraph))]
     public class QuestAssistant : LBSAssistant
     {
+        #region CONSTS
+        private const float listAssignPercent = 0.5f;
+
+        #endregion
+
         #region FIELDS
-        
+
         [SerializeField]
         private uint suggestionAmount = 3;
         private Vector2Int _positionOverlapOffset = new(25, 50);
@@ -87,8 +89,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         #region ACTIONS
 
-        Action<QuestNode> OnSuggestionAdded;
-        Action<QuestNode> OnSuggestionRemoved;
+        public Action<QuestNode> OnSuggestionAdded;
+        public Action<QuestNode> OnSuggestionRemoved;
 
 
         #endregion
@@ -110,11 +112,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             OnSuggestionAdded += (suggestion) =>
             {
+                Suggestions.Add(suggestion);
                 RequestTilePaint(suggestion);
             };
 
             OnSuggestionRemoved += (suggestion) =>
             {
+                Suggestions.Remove(suggestion);
                 RequestTileRemove(suggestion);
             };
 
@@ -165,9 +169,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         /// <summary>
         /// Generates a list of suggestions from population layers.
         /// </summary>
-        public List<TerminalToBundleTiles> GenSuggestions(int suggestionsCount, Action<float> onProgress, CancellationToken token = default)
+        public List<QuestCandidate> GenSuggestions(int suggestionsCount, Action<float> onProgress, CancellationToken token = default)
         {
-            HashSet<TerminalToBundleTiles> suggestions = new HashSet<TerminalToBundleTiles>();
+            HashSet<QuestCandidate> suggestions = new HashSet<QuestCandidate>();
             foreach (var contextLayer in Data.ContextLayers)
             {
                 if (token.IsCancellationRequested) 
@@ -201,7 +205,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         /// Creates suggestion nodes in the quest graph using the suggestion list.
         /// get and preassign tlies to the nodes based on the suggestion list and the context layers in the level data.
         /// </summary>
-        public List<QuestNode> GetSuggestions(List<TerminalToBundleTiles> suggestions, Action<float> onProgress = null, CancellationToken token = default)
+        public List<QuestNode> GetSuggestions(List<QuestCandidate> suggestions, Action<float> onProgress = null, CancellationToken token = default)
         {
             List<QuestNode> suggestedNodes = new List<QuestNode>();
             if(!suggestions.Any()) 
@@ -247,13 +251,13 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         #region PRIVATE METHODS
 
-        private TerminalToBundleTiles GetSuggestion(PopulationBehaviour pb)
+        private QuestCandidate GetSuggestion(PopulationBehaviour pb)
         {
             var groups = GroupTerminalsToTiles(pb);
             if (groups == null || groups.Count == 0) 
                 return null;
 
-            // Pick a random index safely in background thread
+            // Pick a random group suggestion safely in background thread
             var rng = new System.Random();
             var groupsArray = groups.ToArray();
             return groupsArray[rng.Next(groupsArray.Length)];
@@ -264,32 +268,69 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         /// Groups <see cref="GrammarTerminal"/>s to <see cref="TileBundleGroup"/>s 
         /// based on <see cref="IBundleFlags"/> compatibility.
         /// </summary>
-        private HashSet<TerminalToBundleTiles> GroupTerminalsToTiles(PopulationBehaviour pb)
+        private HashSet<QuestCandidate> GroupTerminalsToTiles(PopulationBehaviour pb)
         {
             var grammar = QuestGraph.Grammar;
             if (grammar == null || pb == null)
                 return null;
 
-            var groups = new HashSet<TerminalToBundleTiles>();
+            var groups = new HashSet<QuestCandidate>();
+            
+            // thread safe
+            var rng = new System.Random();
 
             foreach (var terminal in grammar.LBSTerminals)
             {
-                foreach(var field in terminal.fields)
+                foreach (var field in terminal.fields)
                 {
                     if (field is not IBundleFlags bundleFlag)
                         continue;
 
-                    var validTiles = pb.TileBundleGroup
+                    var validTileGroups = pb.TileBundleGroup
                         .Where(tbg => bundleFlag.HasAnyFlag(tbg.BundleData.Bundle))
                         .ToList();
 
-                    if (validTiles.Count <= 0)
+                    if (validTileGroups.Count == 0) 
                         continue;
 
-                    var newGroup = new TerminalToBundleTiles(pb.OwnerLayer, terminal);
-                    foreach (var tile in validTiles)
-                        newGroup.Tiles.Add(tile);
+                    var newGroup = new QuestCandidate(pb.OwnerLayer, terminal);
 
+                    if (field.IsList)
+                    {
+                        //TList / GrammarListFieldMarker
+                        var listSource = field.ItemsSource;
+                        if (listSource == null) 
+                            continue;
+
+                        // how many of the valid tile groups will be added to the list
+                        int count = Mathf.CeilToInt(validTileGroups.Count * listAssignPercent);
+
+                        for (int i = 0; i < count; i++)
+                        {
+                            var tileGroup = validTileGroups[rng.Next(validTileGroups.Count)];
+                            newGroup.Tiles.Add(tileGroup);
+
+                            BundleTargetGraph bt = new BundleTargetGraph(pb.OwnerLayer, tileGroup);
+
+                            var fieldEntry = (GrammarField)Activator.CreateInstance(field.PrimitiveType);
+                            fieldEntry.SetValue(bt);
+
+                            listSource.Add(fieldEntry);
+                        }
+                    }
+
+                    else
+                    {
+                       // if its a single entry assign any valid tile
+                        var tileGroup = validTileGroups[rng.Next(validTileGroups.Count)];
+                        newGroup.Tiles.Add(tileGroup);
+
+                        BundleTargetGraph bt = new BundleTargetGraph(pb.OwnerLayer, tileGroup);
+                        field.SetValue(bt);
+                    }
+
+
+                    // add to the valid group data that can be used to instantiate a suggestion quest
                     groups.Add(newGroup);
                 }
             }

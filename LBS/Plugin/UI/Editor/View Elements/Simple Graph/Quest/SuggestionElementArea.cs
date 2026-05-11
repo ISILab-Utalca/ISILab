@@ -3,6 +3,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -104,15 +105,14 @@ namespace ISILab.LBS.VisualElements
             }
 
             // Buttons
+            _visibleToggle= this.Q<LBSToolbarToggle>("VisibiliityToggle");
+
             _applyButton = this.Q<Button>("ApplyButton");
             _discardButton = this.Q<Button>("DiscardButton");
-            _visibleToggle= this.Q<LBSToolbarToggle>("VisibiliityToggle");
-            _discardButton.clicked += () =>_generatedQuestNode.Graph.OnRemoveSuggestion?.Invoke(_generatedQuestNode);
-            _applyButton.clicked += () =>
-            {
-                _generatedQuestNode.Graph.OnRemoveSuggestion?.Invoke(_generatedQuestNode);
-                _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
-            };
+
+            _discardButton.clicked += RemoveSuggestion;
+            _applyButton.clicked += AddSuggestionToGraph;
+
             _visibleToggle.RegisterCallback<ChangeEvent<bool>>(x =>
             {
                 DisplayTriggerArea(x.newValue);
@@ -163,7 +163,13 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Private Methods
-     
+        private void RemoveSuggestion() => _generatedQuestNode.Graph.OwnerLayer.GetAssistant<QuestAssistant>().OnSuggestionRemoved?.Invoke(_generatedQuestNode);
+
+        private void AddSuggestionToGraph()
+        {
+            _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
+            RemoveSuggestion();
+        }
 
         private void ApplyStyling()
         {
