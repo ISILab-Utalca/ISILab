@@ -7,10 +7,10 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    [GrammarFieldEditor(typeof(GrammarObjectType))]
-    public class GrammarObjectTypeEditor : GrammarFieldEditor
+    [GrammarFieldEditor(typeof(GrammarBundleType))]
+    public class GrammarBundleTypeEditor : GrammarFieldEditor
     {
-        public GrammarObjectTypeEditor(object target) : base(target)
+        public GrammarBundleTypeEditor(object target) : base(target)
         {
         }
 
@@ -23,7 +23,7 @@ namespace ISILab.LBS.VisualElements
         {
             base.CreateVisualElement();
 
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarObjectTypeEditor");
+            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("GrammarBundleTypeEditor");
             visualTree.CloneTree(content);
 
             var pbg = this.Q<PickerBundleType>();
@@ -32,12 +32,12 @@ namespace ISILab.LBS.VisualElements
             {
                 var bt = new BundleTarget(tile);
                 pbg.SetLayerTarget(bt);
-                (target as GrammarObjectType).SetValue(bt);
+                (target as GrammarBundleType).SetValue(bt);
             };
 
             (target as GrammarField).Refresh = () =>
             {
-                string guid = (string)(target as GrammarObjectType).GetValue();
+                string guid = (string)(target as GrammarBundleType).GetValue();
                 BundleTarget bundleTarget = new BundleTarget(LBSAssetMacro.LoadAssetByGuid<Bundle>(guid));
                 if (bundleTarget.IsValid())
                     pbg.SetLayerTarget(bundleTarget, true);

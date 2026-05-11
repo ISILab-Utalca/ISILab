@@ -96,18 +96,18 @@ Stores a boolean.
 
 ## 4. Special Types
 
-### 4.1 `referenceType`
+### 4.1 `Bundle Type`
 Stores a Bundle/Object type reference.
 
 ```xml
-<field type="referenceType" name="Berry Type" />
+<field type="type" name="Enemy Type" />
 ```
 
-### 4.2 `referenceGraph`
+### 4.2 Bundle Target`
 Stores a graph target in the level. Such as a tile, including its layer, position and Bundle.
 
 ```xml
-<field type="referenceGraph" name="Boss Key" />
+<field type="tile" name="Target Location" />
 ```
 
 ### 4.3 `Color`

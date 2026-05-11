@@ -4,10 +4,10 @@ using System;
 namespace ISILab.AI.Grammar
 {
     [Serializable]
-    [GrammarField("ref")]
-    public class GrammarObject : GrammarBundleField<BundleTargetGraph>
+    [GrammarField("tile")]
+    public class GrammarBundleGraph : GrammarBundleField<BundleTargetGraph>
     {
-        public override Type PrimitiveType => typeof(GrammarObject);
+        public override Type PrimitiveType => typeof(GrammarBundleGraph);
 
         public override void SetValue(object newValue)
         {
@@ -26,10 +26,10 @@ namespace ISILab.AI.Grammar
     }
 
     [Serializable]
-    [GrammarField("List.ref")]
-    public class GrammarObjectList : GrammarListField<GrammarObject>
+    [GrammarField("List.tile")]
+    public class GrammarBundleGraphList : GrammarListField<GrammarBundleGraph>
     {
-        public override Type PrimitiveType => typeof(GrammarObject);
+        public override Type PrimitiveType => typeof(GrammarBundleGraph);
     }
 
 }

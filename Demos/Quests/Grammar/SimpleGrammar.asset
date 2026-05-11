@@ -1,658 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8696628589998435346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_read
-  m_EditorClassIdentifier: 
-  id: read
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570575
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570575
-      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Object to read
-        value:
-          guid: 
-          layer:
-            visible: 1
-            blocked: 0
-            iconGuid: 915dd173939598c43ab48bbec50425e8
-            id: LBSLayer
-            name: Layer name
-            activeFloor: 0
-            floors:
-            - rid: 655044144759570576
-            - rid: 655044144759570577
-            - rid: 655044144759570578
-            - rid: 655044144759570579
-            - rid: 655044144759570580
-            - rid: 655044144759570581
-            - rid: 655044144759570582
-            - rid: 655044144759570583
-            - rid: 655044144759570584
-            - rid: 655044144759570585
-            behaviours: []
-            assistants: []
-            generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
-            index: 0
-          tileBundle:
-            rid: -2
-        allowedElements: -1
-    - rid: 655044144759570576
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570577
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570578
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570579
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570580
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570581
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570582
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570583
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570584
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570585
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
---- !u!114 &-8472212126991938744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_stealth
-  m_EditorClassIdentifier: 
-  id: stealth
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570586
-  - rid: 655044144759570587
-  - rid: 655044144759570588
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570586
-      type: {class: GrammarArea, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Area to reach
-        value:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-    - rid: 655044144759570587
-      type: {class: GrammarArea, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Detectable area
-        value:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-    - rid: 655044144759570588
-      type: {class: GrammarColor, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Area color
-        value: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &-7577793467437134877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Subquest
-  m_EditorClassIdentifier: 
-  id: Subquest
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
-  Expansions:
-  - sequence:
-    - Goto
-  - sequence:
-    - Goto
-    - Quest
-    - go to
---- !u!114 &-6828726226499354830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_spy
-  m_EditorClassIdentifier: 
-  id: spy
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570589
-  - rid: 655044144759570590
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570589
-      type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Min distance
-        value: 0
-    - rid: 655044144759570590
-      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: POI to spy
-        value:
-          guid: 
-          layer:
-            visible: 1
-            blocked: 0
-            iconGuid: 915dd173939598c43ab48bbec50425e8
-            id: LBSLayer
-            name: Layer name
-            activeFloor: 0
-            floors:
-            - rid: 655044144759570591
-            - rid: 655044144759570592
-            - rid: 655044144759570593
-            - rid: 655044144759570594
-            - rid: 655044144759570595
-            - rid: 655044144759570596
-            - rid: 655044144759570597
-            - rid: 655044144759570598
-            - rid: 655044144759570599
-            - rid: 655044144759570600
-            behaviours: []
-            assistants: []
-            generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
-            index: 0
-          tileBundle:
-            rid: -2
-        allowedElements: -1
-    - rid: 655044144759570591
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570592
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570593
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570594
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570595
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570596
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570597
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570598
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570599
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570600
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
---- !u!114 &-5379407174680209030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_take
-  m_EditorClassIdentifier: 
-  id: take
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570601
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570601
-      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Object to take
-        value:
-          guid: 
-          layer:
-            visible: 1
-            blocked: 0
-            iconGuid: 915dd173939598c43ab48bbec50425e8
-            id: LBSLayer
-            name: Layer name
-            activeFloor: 0
-            floors:
-            - rid: 655044144759570602
-            - rid: 655044144759570603
-            - rid: 655044144759570604
-            - rid: 655044144759570605
-            - rid: 655044144759570606
-            - rid: 655044144759570607
-            - rid: 655044144759570608
-            - rid: 655044144759570609
-            - rid: 655044144759570610
-            - rid: 655044144759570611
-            behaviours: []
-            assistants: []
-            generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
-            index: 0
-          tileBundle:
-            rid: -2
-        allowedElements: -1
-    - rid: 655044144759570602
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570603
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570604
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570605
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570606
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570607
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570608
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570609
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570610
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570611
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
---- !u!114 &-3933289772082588591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Capture
-  m_EditorClassIdentifier: 
-  id: Capture
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
-  Expansions:
-  - sequence:
-    - Get
-    - Goto
-    - capture
---- !u!114 &-3613150501918688700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_listen
-  m_EditorClassIdentifier: 
-  id: listen
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570612
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570612
-      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Object to listen
-        value:
-          guid: 
-          layer:
-            visible: 1
-            blocked: 0
-            iconGuid: 915dd173939598c43ab48bbec50425e8
-            id: LBSLayer
-            name: Layer name
-            activeFloor: 0
-            floors:
-            - rid: 655044144759570613
-            - rid: 655044144759570614
-            - rid: 655044144759570615
-            - rid: 655044144759570616
-            - rid: 655044144759570617
-            - rid: 655044144759570618
-            - rid: 655044144759570619
-            - rid: 655044144759570620
-            - rid: 655044144759570621
-            - rid: 655044144759570622
-            behaviours: []
-            assistants: []
-            generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
-            index: 0
-          tileBundle:
-            rid: -2
-        allowedElements: -1
-    - rid: 655044144759570613
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570614
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570615
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570616
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570617
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570618
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570619
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570620
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570621
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570622
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
---- !u!114 &-2988806477458778002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_capture
-  m_EditorClassIdentifier: 
-  id: capture
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570623
-  - rid: 655044144759570624
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570623
-      type: {class: GrammarFloat, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Time to capture
-        value: 0
-    - rid: 655044144759570624
-      type: {class: GrammarBool, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Reset on exit during capture
-        value: 0
---- !u!114 &-1354882066021015286
+--- !u!114 &-9057725067156076430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -669,17 +17,17 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 1}
   icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
   fields:
-  - rid: 655044144759570625
-  - rid: 655044144759570626
-  - rid: 655044144759570627
-  - rid: 655044144759570628
+  - rid: 655044217006194688
+  - rid: 655044217006194689
+  - rid: 655044217006194690
+  - rid: 655044217006194691
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 655044144759570625
-      type: {class: GrammarObjectType, ns: ISILab.AI.Grammar, asm: LBS}
+    - rid: 655044217006194688
+      type: {class: GrammarBundleType, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
           ownerNode:
@@ -693,7 +41,7 @@ MonoBehaviour:
         name: Type to give
         value: 
         allowedElements: -1
-    - rid: 655044144759570626
+    - rid: 655044217006194689
       type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
@@ -707,8 +55,8 @@ MonoBehaviour:
             rid: -2
         name: Amount to give
         value: 0
-    - rid: 655044144759570627
-      type: {class: GrammarObjectType, ns: ISILab.AI.Grammar, asm: LBS}
+    - rid: 655044217006194690
+      type: {class: GrammarBundleType, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
           ownerNode:
@@ -722,7 +70,7 @@ MonoBehaviour:
         name: Type to receive
         value: 
         allowedElements: -1
-    - rid: 655044144759570628
+    - rid: 655044217006194691
       type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
@@ -736,7 +84,7 @@ MonoBehaviour:
             rid: -2
         name: Amount to receive
         value: 0
---- !u!114 &-1081407132402598819
+--- !u!114 &-8941027553382850464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -761,7 +109,7 @@ MonoBehaviour:
     - Goto
     - Kill
     - take
---- !u!114 &-904698842205068395
+--- !u!114 &-7766166943334620846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -770,294 +118,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_report
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Goto
   m_EditorClassIdentifier: 
-  id: report
-  iconGuid: bb0770b945366c94c822cf3255eb885d
+  id: Goto
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
   color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570629
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570629
-      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: POI to report to
-        value:
-          guid: 
-          layer:
-            visible: 1
-            blocked: 0
-            iconGuid: 915dd173939598c43ab48bbec50425e8
-            id: LBSLayer
-            name: Layer name
-            activeFloor: 0
-            floors:
-            - rid: 655044144759570630
-            - rid: 655044144759570631
-            - rid: 655044144759570632
-            - rid: 655044144759570633
-            - rid: 655044144759570634
-            - rid: 655044144759570635
-            - rid: 655044144759570636
-            - rid: 655044144759570637
-            - rid: 655044144759570638
-            - rid: 655044144759570639
-            behaviours: []
-            assistants: []
-            generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
-            index: 0
-          tileBundle:
-            rid: -2
-        allowedElements: -1
-    - rid: 655044144759570630
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570631
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570632
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570633
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570634
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570635
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570636
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570637
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570638
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570639
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
---- !u!114 &-253371603305888640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_give
-  m_EditorClassIdentifier: 
-  id: give
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570640
-  - rid: 655044144759570641
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570640
-      type: {class: GrammarObject, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Object to give
-        value:
-          guid: 
-          layer:
-            visible: 1
-            blocked: 0
-            iconGuid: 915dd173939598c43ab48bbec50425e8
-            id: LBSLayer
-            name: Layer name
-            activeFloor: 0
-            floors:
-            - rid: 655044144759570642
-            - rid: 655044144759570643
-            - rid: 655044144759570644
-            - rid: 655044144759570645
-            - rid: 655044144759570646
-            - rid: 655044144759570647
-            - rid: 655044144759570648
-            - rid: 655044144759570649
-            - rid: 655044144759570650
-            - rid: 655044144759570651
-            behaviours: []
-            assistants: []
-            generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
-            index: 0
-          tileBundle:
-            rid: -2
-        allowedElements: -1
-    - rid: 655044144759570641
-      type: {class: GrammarObjectType, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
-            rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Object to receive
-        value: 
-        allowedElements: -1
-    - rid: 655044144759570642
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570643
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570644
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570645
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570646
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570647
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570648
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570649
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570650
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 655044144759570651
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 413f9f532ddefee4cb50a01f79231155, type: 3}
-  m_Name: SimpleGrammar
-  m_EditorClassIdentifier: 
-  lbsRules:
-  - {fileID: 7832204556082672383}
-  - {fileID: -7577793467437134877}
-  - {fileID: 2385044822764609583}
-  - {fileID: 1873749446021384634}
-  - {fileID: 4500909883363549295}
-  - {fileID: -1081407132402598819}
-  - {fileID: 8622205245203716457}
-  - {fileID: -3933289772082588591}
-  - {fileID: 4740284953576357941}
-  lbsTerminals:
-  - {fileID: 4641548013333715588}
-  - {fileID: 6549760874553530021}
-  - {fileID: -3613150501918688700}
-  - {fileID: -8696628589998435346}
-  - {fileID: -253371603305888640}
-  - {fileID: 4795880065063999689}
-  - {fileID: -1354882066021015286}
-  - {fileID: -8472212126991938744}
-  - {fileID: -5379407174680209030}
-  - {fileID: 6665599669442041312}
-  - {fileID: -2988806477458778002}
-  - {fileID: -6828726226499354830}
-  - {fileID: -904698842205068395}
-  terminals: []
-  rules:
-  - Quest
-  - Subquest
-  - Goto
-  - Learn
-  - Get
-  - Steal
-  - Kill
-  - Capture
-  - Spy
-  pathGuid: 1cd76f1a51a1e7c41ace7edd8b63bd31
---- !u!114 &1873749446021384634
+  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
+  Expansions:
+  - sequence:
+    - explore
+  - sequence:
+    - Learn
+    - go to
+  - sequence:
+    - go to
+--- !u!114 &-7665387349110940422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1087,59 +163,7 @@ MonoBehaviour:
     - Subquest
     - give
     - listen
---- !u!114 &2385044822764609583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Goto
-  m_EditorClassIdentifier: 
-  id: Goto
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
-  Expansions:
-  - sequence:
-    - explore
-  - sequence:
-    - Learn
-    - go to
-  - sequence:
-    - go to
---- !u!114 &4500909883363549295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Get
-  m_EditorClassIdentifier: 
-  id: Get
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
-  Expansions:
-  - sequence:
-    - Steal
-  - sequence:
-    - Goto
-    - gather
-  - sequence:
-    - Goto
-    - Get
-    - Goto
-    - Subquest
-    - exchange
---- !u!114 &4641548013333715588
+--- !u!114 &-7436563001885223378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1149,64 +173,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_go to
+  m_Name: Terminal_read
   m_EditorClassIdentifier: 
-  id: go to
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields: []
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &4740284953576357941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
-  m_Name: Rule_Spy
-  m_EditorClassIdentifier: 
-  id: Spy
-  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
-  Expansions:
-  - sequence:
-    - Goto
-    - spy
-    - Goto
-    - report
---- !u!114 &4795880065063999689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_gather
-  m_EditorClassIdentifier: 
-  id: gather
+  id: read
   iconGuid: bb0770b945366c94c822cf3255eb885d
   color: {r: 1, g: 1, b: 1, a: 1}
   icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
   fields:
-  - rid: 655044144759570652
-  - rid: 655044144759570653
+  - rid: 655044217006194692
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 655044144759570652
-      type: {class: GrammarObjectType, ns: ISILab.AI.Grammar, asm: LBS}
+    - rid: 655044217006194692
+      type: {class: GrammarBundleGraph, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
           ownerNode:
@@ -1217,10 +198,244 @@ MonoBehaviour:
             rid: -2
           _areaField:
             rid: -2
-        name: Item Type
+        name: Object to read
+        value:
+          guid: 
+          layer:
+            visible: 1
+            blocked: 0
+            iconGuid: 915dd173939598c43ab48bbec50425e8
+            id: LBSLayer
+            name: Layer name
+            activeFloor: 0
+            floors:
+            - rid: 655044217006194693
+            - rid: 655044217006194694
+            - rid: 655044217006194695
+            - rid: 655044217006194696
+            - rid: 655044217006194697
+            - rid: 655044217006194698
+            - rid: 655044217006194699
+            - rid: 655044217006194700
+            - rid: 655044217006194701
+            - rid: 655044217006194702
+            behaviours: []
+            assistants: []
+            generatorRules: []
+            settings:
+              useBundleSize: 0
+              lightVolume: 0
+              reflectionProbe: 0
+              scale: {x: 2, y: 2, z: 2}
+              resize: {x: 0, y: 0}
+              position: {x: 0, y: 0, z: 0}
+              replacePrevious: 1
+              buildLightProbes: 1
+              bakeLights: 0
+              optimization3d: 0
+              generatedRootName: DEFAULT
+              rootParentName: Root_Parent
+            index: 0
+          tileBundle:
+            rid: -2
+        allowedElements: -1
+    - rid: 655044217006194693
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194694
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194695
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194696
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194697
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194698
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194699
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194700
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194701
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194702
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+--- !u!114 &-6689055394311704877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_give
+  m_EditorClassIdentifier: 
+  id: give
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194703
+  - rid: 655044217006194704
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194703
+      type: {class: GrammarBundleGraph, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Object to give
+        value:
+          guid: 
+          layer:
+            visible: 1
+            blocked: 0
+            iconGuid: 915dd173939598c43ab48bbec50425e8
+            id: LBSLayer
+            name: Layer name
+            activeFloor: 0
+            floors:
+            - rid: 655044217006194705
+            - rid: 655044217006194706
+            - rid: 655044217006194707
+            - rid: 655044217006194708
+            - rid: 655044217006194709
+            - rid: 655044217006194710
+            - rid: 655044217006194711
+            - rid: 655044217006194712
+            - rid: 655044217006194713
+            - rid: 655044217006194714
+            behaviours: []
+            assistants: []
+            generatorRules: []
+            settings:
+              useBundleSize: 0
+              lightVolume: 0
+              reflectionProbe: 0
+              scale: {x: 2, y: 2, z: 2}
+              resize: {x: 0, y: 0}
+              position: {x: 0, y: 0, z: 0}
+              replacePrevious: 1
+              buildLightProbes: 1
+              bakeLights: 0
+              optimization3d: 0
+              generatedRootName: DEFAULT
+              rootParentName: Root_Parent
+            index: 0
+          tileBundle:
+            rid: -2
+        allowedElements: -1
+    - rid: 655044217006194704
+      type: {class: GrammarBundleType, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Object to receive
         value: 
         allowedElements: -1
-    - rid: 655044144759570653
+    - rid: 655044217006194705
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194706
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194707
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194708
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194709
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194710
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194711
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194712
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194713
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194714
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+--- !u!114 &-6452053009493279851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_spy
+  m_EditorClassIdentifier: 
+  id: spy
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194715
+  - rid: 655044217006194716
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194715
       type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
@@ -1232,33 +447,10 @@ MonoBehaviour:
             rid: -2
           _areaField:
             rid: -2
-        name: Required amount
+        name: Min distance
         value: 0
---- !u!114 &6549760874553530021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_explore
-  m_EditorClassIdentifier: 
-  id: explore
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570654
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570654
-      type: {class: GrammarAreaList, ns: ISILab.AI.Grammar, asm: LBS}
+    - rid: 655044217006194716
+      type: {class: GrammarBundleGraph, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
           ownerNode:
@@ -1269,49 +461,113 @@ MonoBehaviour:
             rid: -2
           _areaField:
             rid: -2
-        name: Subareas to enter
-        value: []
---- !u!114 &6665599669442041312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
-  m_Name: Terminal_kill
-  m_EditorClassIdentifier: 
-  id: kill
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
-  fields:
-  - rid: 655044144759570655
-  - rid: 655044144759570656
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 655044144759570655
-      type: {class: GrammarObjectType, ns: ISILab.AI.Grammar, asm: LBS}
-      data:
-        data:
-          ownerNode:
+        name: POI to spy
+        value:
+          guid: 
+          layer:
+            visible: 1
+            blocked: 0
+            iconGuid: 915dd173939598c43ab48bbec50425e8
+            id: LBSLayer
+            name: Layer name
+            activeFloor: 0
+            floors:
+            - rid: 655044217006194717
+            - rid: 655044217006194718
+            - rid: 655044217006194719
+            - rid: 655044217006194720
+            - rid: 655044217006194721
+            - rid: 655044217006194722
+            - rid: 655044217006194723
+            - rid: 655044217006194724
+            - rid: 655044217006194725
+            - rid: 655044217006194726
+            behaviours: []
+            assistants: []
+            generatorRules: []
+            settings:
+              useBundleSize: 0
+              lightVolume: 0
+              reflectionProbe: 0
+              scale: {x: 2, y: 2, z: 2}
+              resize: {x: 0, y: 0}
+              position: {x: 0, y: 0, z: 0}
+              replacePrevious: 1
+              buildLightProbes: 1
+              bakeLights: 0
+              optimization3d: 0
+              generatedRootName: DEFAULT
+              rootParentName: Root_Parent
+            index: 0
+          tileBundle:
             rid: -2
-          terminalGUID: 
-          fields: []
-          _eventHookerField:
-            rid: -2
-          _areaField:
-            rid: -2
-        name: Type to kill
-        value: 
         allowedElements: -1
-    - rid: 655044144759570656
-      type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
+    - rid: 655044217006194717
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194718
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194719
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194720
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194721
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194722
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194723
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194724
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194725
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194726
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+--- !u!114 &-5909809525987231701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_capture
+  m_EditorClassIdentifier: 
+  id: capture
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194727
+  - rid: 655044217006194728
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194727
+      type: {class: GrammarFloat, ns: ISILab.AI.Grammar, asm: LBS}
       data:
         data:
           ownerNode:
@@ -1322,9 +578,23 @@ MonoBehaviour:
             rid: -2
           _areaField:
             rid: -2
-        name: Required kills
+        name: Time to capture
         value: 0
---- !u!114 &7832204556082672383
+    - rid: 655044217006194728
+      type: {class: GrammarBool, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Reset on exit during capture
+        value: 0
+--- !u!114 &-833920500447908024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1357,7 +627,714 @@ MonoBehaviour:
     - Capture
   - sequence:
     - Spy
---- !u!114 &8622205245203716457
+--- !u!114 &-787144909454212117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Get
+  m_EditorClassIdentifier: 
+  id: Get
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
+  Expansions:
+  - sequence:
+    - Steal
+  - sequence:
+    - Goto
+    - gather
+  - sequence:
+    - Goto
+    - Get
+    - Goto
+    - Subquest
+    - exchange
+--- !u!114 &-605886558154296364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_report
+  m_EditorClassIdentifier: 
+  id: report
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194729
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194729
+      type: {class: GrammarBundleGraph, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: POI to report to
+        value:
+          guid: 
+          layer:
+            visible: 1
+            blocked: 0
+            iconGuid: 915dd173939598c43ab48bbec50425e8
+            id: LBSLayer
+            name: Layer name
+            activeFloor: 0
+            floors:
+            - rid: 655044217006194730
+            - rid: 655044217006194731
+            - rid: 655044217006194732
+            - rid: 655044217006194733
+            - rid: 655044217006194734
+            - rid: 655044217006194735
+            - rid: 655044217006194736
+            - rid: 655044217006194737
+            - rid: 655044217006194738
+            - rid: 655044217006194739
+            behaviours: []
+            assistants: []
+            generatorRules: []
+            settings:
+              useBundleSize: 0
+              lightVolume: 0
+              reflectionProbe: 0
+              scale: {x: 2, y: 2, z: 2}
+              resize: {x: 0, y: 0}
+              position: {x: 0, y: 0, z: 0}
+              replacePrevious: 1
+              buildLightProbes: 1
+              bakeLights: 0
+              optimization3d: 0
+              generatedRootName: DEFAULT
+              rootParentName: Root_Parent
+            index: 0
+          tileBundle:
+            rid: -2
+        allowedElements: -1
+    - rid: 655044217006194730
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194731
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194732
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194733
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194734
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194735
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194736
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194737
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194738
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194739
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+--- !u!114 &-76208729577532072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_stealth
+  m_EditorClassIdentifier: 
+  id: stealth
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194740
+  - rid: 655044217006194741
+  - rid: 655044217006194742
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194740
+      type: {class: GrammarArea, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Area to reach
+        value:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+    - rid: 655044217006194741
+      type: {class: GrammarArea, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Detectable area
+        value:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+    - rid: 655044217006194742
+      type: {class: GrammarColor, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Area color
+        value: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413f9f532ddefee4cb50a01f79231155, type: 3}
+  m_Name: SimpleGrammar
+  m_EditorClassIdentifier: 
+  lbsRules:
+  - {fileID: -833920500447908024}
+  - {fileID: 9044453897049748468}
+  - {fileID: -7766166943334620846}
+  - {fileID: -7665387349110940422}
+  - {fileID: -787144909454212117}
+  - {fileID: -8941027553382850464}
+  - {fileID: 8991008411029972013}
+  - {fileID: 6790871691397816568}
+  - {fileID: 114149602736485911}
+  lbsTerminals:
+  - {fileID: 4311524250242418710}
+  - {fileID: 2749591423382946340}
+  - {fileID: 2604064891212948971}
+  - {fileID: -7436563001885223378}
+  - {fileID: -6689055394311704877}
+  - {fileID: 4213369749127527971}
+  - {fileID: -9057725067156076430}
+  - {fileID: -76208729577532072}
+  - {fileID: 4185970331727687379}
+  - {fileID: 4873881047526671635}
+  - {fileID: -5909809525987231701}
+  - {fileID: -6452053009493279851}
+  - {fileID: -605886558154296364}
+  terminals: []
+  rules:
+  - Quest
+  - Subquest
+  - Goto
+  - Learn
+  - Get
+  - Steal
+  - Kill
+  - Capture
+  - Spy
+  pathGuid: 1cd76f1a51a1e7c41ace7edd8b63bd31
+--- !u!114 &114149602736485911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Spy
+  m_EditorClassIdentifier: 
+  id: Spy
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
+  Expansions:
+  - sequence:
+    - Goto
+    - spy
+    - Goto
+    - report
+--- !u!114 &2604064891212948971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_listen
+  m_EditorClassIdentifier: 
+  id: listen
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194743
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194743
+      type: {class: GrammarBundleGraph, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Object to listen
+        value:
+          guid: 
+          layer:
+            visible: 1
+            blocked: 0
+            iconGuid: 915dd173939598c43ab48bbec50425e8
+            id: LBSLayer
+            name: Layer name
+            activeFloor: 0
+            floors:
+            - rid: 655044217006194744
+            - rid: 655044217006194745
+            - rid: 655044217006194746
+            - rid: 655044217006194747
+            - rid: 655044217006194748
+            - rid: 655044217006194749
+            - rid: 655044217006194750
+            - rid: 655044217006194751
+            - rid: 655044217006194752
+            - rid: 655044217006194753
+            behaviours: []
+            assistants: []
+            generatorRules: []
+            settings:
+              useBundleSize: 0
+              lightVolume: 0
+              reflectionProbe: 0
+              scale: {x: 2, y: 2, z: 2}
+              resize: {x: 0, y: 0}
+              position: {x: 0, y: 0, z: 0}
+              replacePrevious: 1
+              buildLightProbes: 1
+              bakeLights: 0
+              optimization3d: 0
+              generatedRootName: DEFAULT
+              rootParentName: Root_Parent
+            index: 0
+          tileBundle:
+            rid: -2
+        allowedElements: -1
+    - rid: 655044217006194744
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194745
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194746
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194747
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194748
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194749
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194750
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194751
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194752
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194753
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+--- !u!114 &2749591423382946340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_explore
+  m_EditorClassIdentifier: 
+  id: explore
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194754
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194754
+      type: {class: GrammarAreaList, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Subareas to enter
+        value: []
+--- !u!114 &4185970331727687379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_take
+  m_EditorClassIdentifier: 
+  id: take
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194755
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194755
+      type: {class: GrammarBundleGraph, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Object to take
+        value:
+          guid: 
+          layer:
+            visible: 1
+            blocked: 0
+            iconGuid: 915dd173939598c43ab48bbec50425e8
+            id: LBSLayer
+            name: Layer name
+            activeFloor: 0
+            floors:
+            - rid: 655044217006194756
+            - rid: 655044217006194757
+            - rid: 655044217006194758
+            - rid: 655044217006194759
+            - rid: 655044217006194760
+            - rid: 655044217006194761
+            - rid: 655044217006194762
+            - rid: 655044217006194763
+            - rid: 655044217006194764
+            - rid: 655044217006194765
+            behaviours: []
+            assistants: []
+            generatorRules: []
+            settings:
+              useBundleSize: 0
+              lightVolume: 0
+              reflectionProbe: 0
+              scale: {x: 2, y: 2, z: 2}
+              resize: {x: 0, y: 0}
+              position: {x: 0, y: 0, z: 0}
+              replacePrevious: 1
+              buildLightProbes: 1
+              bakeLights: 0
+              optimization3d: 0
+              generatedRootName: DEFAULT
+              rootParentName: Root_Parent
+            index: 0
+          tileBundle:
+            rid: -2
+        allowedElements: -1
+    - rid: 655044217006194756
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194757
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194758
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194759
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194760
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194761
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194762
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194763
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194764
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 655044217006194765
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+--- !u!114 &4213369749127527971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_gather
+  m_EditorClassIdentifier: 
+  id: gather
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194766
+  - rid: 655044217006194767
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194766
+      type: {class: GrammarBundleType, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Item Type
+        value: 
+        allowedElements: -1
+    - rid: 655044217006194767
+      type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Required amount
+        value: 0
+--- !u!114 &4311524250242418710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_go to
+  m_EditorClassIdentifier: 
+  id: go to
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &4873881047526671635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70aabba80f19114183bfbc67b5331da, type: 3}
+  m_Name: Terminal_kill
+  m_EditorClassIdentifier: 
+  id: kill
+  iconGuid: bb0770b945366c94c822cf3255eb885d
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  fields:
+  - rid: 655044217006194768
+  - rid: 655044217006194769
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 655044217006194768
+      type: {class: GrammarBundleType, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Type to kill
+        value: 
+        allowedElements: -1
+    - rid: 655044217006194769
+      type: {class: GrammarInt, ns: ISILab.AI.Grammar, asm: LBS}
+      data:
+        data:
+          ownerNode:
+            rid: -2
+          terminalGUID: 
+          fields: []
+          _eventHookerField:
+            rid: -2
+          _areaField:
+            rid: -2
+        name: Required kills
+        value: 0
+--- !u!114 &6790871691397816568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Capture
+  m_EditorClassIdentifier: 
+  id: Capture
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
+  Expansions:
+  - sequence:
+    - Get
+    - Goto
+    - capture
+--- !u!114 &8991008411029972013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1377,3 +1354,26 @@ MonoBehaviour:
   - sequence:
     - Goto
     - kill
+--- !u!114 &9044453897049748468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26bee036e13b744966ab027a123d19, type: 3}
+  m_Name: Rule_Subquest
+  m_EditorClassIdentifier: 
+  id: Subquest
+  iconGuid: d7b2c9af591bee4429f705ae7ae6abea
+  color: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 7388822144124034973, guid: d7b2c9af591bee4429f705ae7ae6abea, type: 3}
+  Expansions:
+  - sequence:
+    - Goto
+  - sequence:
+    - Goto
+    - Quest
+    - go to

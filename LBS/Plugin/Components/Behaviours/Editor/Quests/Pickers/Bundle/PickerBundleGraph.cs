@@ -1,10 +1,16 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
+using LBS.Components;
+using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 [UxmlElement]
 public partial class PickerBundleGraph : PickerBundleType
 {
+
     private TextField _layerTextField;
     private Vector2IntField _positionField;
     
@@ -18,13 +24,15 @@ public partial class PickerBundleGraph : PickerBundleType
         _layerTextField = this.Q<TextField>("Layer");
         _positionField = this.Q<Vector2IntField>("Position");
 
-        _objectField.SetEnabled(false);
+        // we have to select with the picker manipulator so the layer and position gets stored.
+        // the object field is only meant to display the bundle of the stored tile
+        _bundleField.SetEnabled(false);
     }
 
 
     public override void SetInfo(string label, string tooltip)
     {
-        _objectField.labelElement.text = label + " (In Graph)";
+        _bundleField.labelElement.text = label + " (In Graph)";
         this.tooltip = tooltip;
     }
 
@@ -49,4 +57,5 @@ public partial class PickerBundleGraph : PickerBundleType
             _layerTextField.value = layerName;
         }
     }
+
 }

@@ -166,7 +166,7 @@ namespace ISILab.LBS.Components
             }
 
             // set the area size to contain all bundles in the layer
-            var bundleTargetFields = GetFields<GrammarObject>();
+            var bundleTargetFields = GetFields<GrammarBundleGraph>();
             List<BundleTargetGraph> bundleTargets = new();
             foreach (var field in bundleTargetFields)
             {

@@ -17,11 +17,12 @@ using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using LBS.Components;
 using LBS.VisualElements;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
+using ISILab.LBS.Plugin.Core.Settings;
 
 namespace ISILab.LBS.Editor
 {
     [LBSCustomEditor("QuestAssistant", typeof(QuestAssistant))]
-    public class QuestAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
+    public class QuestAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
     {
         
         #region FIELDS
@@ -109,6 +110,18 @@ namespace ISILab.LBS.Editor
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
             {
+                if(_assistant.Suggestions == null || tempSuggestions == null) 
+                { 
+                    LBSLog log = new LBSLog(
+                        "No suggestions generated. Missing Layer Context", 
+                        LogType.Error,
+                        2);
+                    LBSMainWindow.MessageNotify(log);
+                    
+                    return; 
+                }
+
+
                 foreach (var item in _assistant.Suggestions)
                     _assistant.OnSuggestionRemoved?.Invoke(item);
 
@@ -131,7 +144,7 @@ namespace ISILab.LBS.Editor
             {
                 try
                 {
-                    var bundleToActions = _assistant.GenSuggestions((int)GetSuggestionCount(), progress =>
+                    var bundleToActions = _assistant.GenerateCandidates((int)GetSuggestionCount(), progress =>
                     {
                         ((IAssistantThreadedEditor)this).ReportProgress(0.5f * progress);
                     }, CancelToken);
@@ -270,7 +283,6 @@ namespace ISILab.LBS.Editor
             DrawManager.Instance.UpdateSingleComponent(_assistant, _assistant.OwnerLayer);
         }
         
-        public void SetTools(ToolKit toolkit) { }
         #endregion
     }
 }

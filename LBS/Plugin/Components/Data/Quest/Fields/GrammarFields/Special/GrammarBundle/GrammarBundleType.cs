@@ -3,15 +3,14 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using System;
 using System.Linq;
-using UnityEngine;
 
 namespace ISILab.AI.Grammar
 {
     [Serializable]
-    [GrammarField("refType")]
-    public class GrammarObjectType : GrammarBundleField<string>
+    [GrammarField("type")]
+    public class GrammarBundleType : GrammarBundleField<string>
     {
-        public override Type PrimitiveType => typeof(GrammarObjectType);
+        public override Type PrimitiveType => typeof(GrammarBundleType);
 
         public override void SetValue(object newValue)
         {
@@ -32,9 +31,9 @@ namespace ISILab.AI.Grammar
     }
 
     [Serializable]
-    [GrammarField("List.refType")]
-    public class GrammarTypeList : GrammarListField<GrammarObjectType>
+    [GrammarField("List.type")]
+    public class GrammarBundleTypeList : GrammarListField<GrammarBundleType>
     {
-        public override Type PrimitiveType => typeof(GrammarObjectType);
+        public override Type PrimitiveType => typeof(GrammarBundleType);
     }
 }

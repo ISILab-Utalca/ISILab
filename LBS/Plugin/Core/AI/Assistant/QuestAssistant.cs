@@ -49,14 +49,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
     {
         #region CONSTS
         private const float listAssignPercent = 0.5f;
-
+        private readonly Vector2Int _positionOverlapOffset = new(25, 50);
         #endregion
 
         #region FIELDS
 
         [SerializeField]
         private uint suggestionAmount = 3;
-        private Vector2Int _positionOverlapOffset = new(25, 50);
+
 
         [SerializeField]
         private List<QuestNode> suggestions = new();
@@ -112,12 +112,17 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             OnSuggestionAdded += (suggestion) =>
             {
+                if (suggestion == null) 
+                    return;
                 Suggestions.Add(suggestion);
                 RequestTilePaint(suggestion);
             };
 
             OnSuggestionRemoved += (suggestion) =>
             {
+                if (suggestion == null)
+                    return;
+
                 Suggestions.Remove(suggestion);
                 RequestTileRemove(suggestion);
             };
@@ -167,34 +172,32 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         /// <summary>
-        /// Generates a list of suggestions from population layers.
+        /// Step 1: Scans the world population to find all possible quests that could exist.
+        /// This runs in a background thread.
         /// </summary>
-        public List<QuestCandidate> GenSuggestions(int suggestionsCount, Action<float> onProgress, CancellationToken token = default)
+        public List<QuestCandidate> GenerateCandidates(int count, Action<float> onProgress, CancellationToken token = default)
         {
-            HashSet<QuestCandidate> suggestions = new HashSet<QuestCandidate>();
-            foreach (var contextLayer in Data.ContextLayers)
+            var candidates = new HashSet<QuestCandidate>();
+            var rng = new System.Random();
+
+            foreach (var layer in Data.ContextLayers)
             {
-                if (token.IsCancellationRequested) 
-                    return suggestions.ToList();
-                
-                var pb = contextLayer.GetBehaviour<PopulationBehaviour>();
-                if (pb == null) continue;
-                for (int index = 0; index < suggestionsCount; index++)
+                if (token.IsCancellationRequested) break;
+
+                var population = layer.GetBehaviour<PopulationBehaviour>();
+                if (population == null) continue;
+
+                for (int i = 0; i < count; i++)
                 {
-                    if (token.IsCancellationRequested) 
-                        return suggestions.ToList();
-                    
-                    var newSuggestion = GetSuggestion(pb);
-                    if(newSuggestion == null) 
-                        continue;
+                    if (token.IsCancellationRequested) break;
 
-                    suggestions.Add(newSuggestion);
-                    onProgress?.Invoke((float)index / suggestions.Count);
+                    var candidate = FindQuestSuggestion(population, rng);
+                    if (candidate != null) candidates.Add(candidate);
+
+                    onProgress?.Invoke((float)i / count);
                 }
-
             }
-
-            return suggestions.ToList();
+            return candidates.ToList();
         }
 
         #endregion
@@ -202,143 +205,116 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
 
         /// <summary>
-        /// Creates suggestion nodes in the quest graph using the suggestion list.
-        /// get and preassign tlies to the nodes based on the suggestion list and the context layers in the level data.
+        /// Step 2: Converts the raw Candidates into actual Graph Nodes on the Main Thread.
         /// </summary>
-        public List<QuestNode> GetSuggestions(List<QuestCandidate> suggestions, Action<float> onProgress = null, CancellationToken token = default)
+        public List<QuestNode> GetSuggestions(List<QuestCandidate> candidates, Action<float> onProgress = null, CancellationToken token = default)
         {
-            List<QuestNode> suggestedNodes = new List<QuestNode>();
-            if(!suggestions.Any()) 
-                return suggestedNodes;
-            
-            List<Vector2> existingPositions = new();
-            suggestions = suggestions.Distinct().ToList();
-            for (var index = 0; index < suggestions.Count; index++)
+            var realizedNodes = new List<QuestNode>();
+            var occupiedPositions = new List<Vector2>();
+
+            for (int i = 0; i < candidates.Count; i++)
             {
-                if(token.IsCancellationRequested) 
-                    return suggestedNodes;
+                if (token.IsCancellationRequested) break;
 
-                var suggestion = suggestions[index];
-                var newNode = QuestGraph.GetNodeSuggestion(suggestion.Terminal.id, suggestedNodes);
-                var nodeData = newNode.Data;
+                var candidate = candidates[i];
+                var newNode = Graph.GetNodeSuggestion(candidate.Terminal.id, realizedNodes);
 
-               // suggestion.Tiles.Shuffle();
+                // Map the world data to the quest fields
+                newNode.Data.ApplyTilesToData(candidate);
 
-                nodeData.ApplyTilesToData(suggestion);
+                // Layout Logic
+                PositionNodeWithoutOverlap(newNode, occupiedPositions);
 
-
-                // trigger position is used to draw the suggestion element area
-                var triggerPos = nodeData.Area.value.position;
-                // to move the capsule within the suggestion element area
-                Vector2Int offsetPosition = Vector2Int.zero;
-
-                while (existingPositions.Contains(triggerPos))
-                {
-                    triggerPos += _positionOverlapOffset;
-                    offsetPosition.x += (int)QuestGraph.SuggestionDistance;
-                    offsetPosition.y += (int)QuestGraph.ViewNodeWidthOffset;
-                }
-
-                existingPositions.Add(triggerPos);
-                newNode.Position = offsetPosition;
-                suggestedNodes.Add(newNode);
-                
-                onProgress?.Invoke((float)index/suggestions.Count);
+                realizedNodes.Add(newNode);
+                onProgress?.Invoke((float)i / candidates.Count);
             }
-            
-            return suggestedNodes;
+
+            return realizedNodes;
         }
 
-        #region PRIVATE METHODS
+        #region PRIVATE SOLVER
 
-        private QuestCandidate GetSuggestion(PopulationBehaviour pb)
+        private QuestCandidate FindQuestSuggestion(PopulationBehaviour population, System.Random rng)
         {
-            var groups = GroupTerminalsToTiles(pb);
-            if (groups == null || groups.Count == 0) 
-                return null;
+            var validOptions = FindValidTerminalMappings(population, rng);
+            if (validOptions == null || validOptions.Count == 0) return null;
 
-            // Pick a random group suggestion safely in background thread
-            var rng = new System.Random();
-            var groupsArray = groups.ToArray();
-            return groupsArray[rng.Next(groupsArray.Length)];
+            return validOptions.ElementAt(rng.Next(validOptions.Count));
         }
 
-
-        /// <summary>
-        /// Groups <see cref="GrammarTerminal"/>s to <see cref="TileBundleGroup"/>s 
-        /// based on <see cref="IBundleFlags"/> compatibility.
-        /// </summary>
-        private HashSet<QuestCandidate> GroupTerminalsToTiles(PopulationBehaviour pb)
+        private HashSet<QuestCandidate> FindValidTerminalMappings(PopulationBehaviour population, System.Random rng)
         {
-            var grammar = QuestGraph.Grammar;
-            if (grammar == null || pb == null)
-                return null;
-
-            var groups = new HashSet<QuestCandidate>();
-            
-            // thread safe
-            var rng = new System.Random();
+            var possibleMappings = new HashSet<QuestCandidate>();
+            var grammar = Graph.Grammar;
 
             foreach (var terminal in grammar.LBSTerminals)
             {
                 foreach (var field in terminal.fields)
                 {
-                    if (field is not IBundleFlags bundleFlag)
-                        continue;
+                    if (field is not IBundleFlags filter) continue;
 
-                    var validTileGroups = pb.TileBundleGroup
-                        .Where(tbg => bundleFlag.HasAnyFlag(tbg.BundleData.Bundle))
+                    var matches = population.TileBundleGroup
+                        .Where(tbg => filter.HasAnyFlag(tbg.BundleData.Bundle))
                         .ToList();
 
-                    if (validTileGroups.Count == 0) 
-                        continue;
+                    if (matches.Count == 0) continue;
 
-                    var newGroup = new QuestCandidate(pb.OwnerLayer, terminal);
+                    var candidate = new QuestCandidate(population.OwnerLayer, terminal);
 
                     if (field.IsList)
                     {
-                        //TList / GrammarListFieldMarker
-                        var listSource = field.ItemsSource;
-                        if (listSource == null) 
-                            continue;
-
-                        // how many of the valid tile groups will be added to the list
-                        int count = Mathf.CeilToInt(validTileGroups.Count * listAssignPercent);
-
-                        for (int i = 0; i < count; i++)
-                        {
-                            var tileGroup = validTileGroups[rng.Next(validTileGroups.Count)];
-                            newGroup.Tiles.Add(tileGroup);
-
-                            BundleTargetGraph bt = new BundleTargetGraph(pb.OwnerLayer, tileGroup);
-
-                            var fieldEntry = (GrammarField)Activator.CreateInstance(field.PrimitiveType);
-                            fieldEntry.SetValue(bt);
-
-                            listSource.Add(fieldEntry);
-                        }
+                        PopulateListField(field, candidate, matches, population.OwnerLayer, rng);
                     }
-
                     else
                     {
-                       // if its a single entry assign any valid tile
-                        var tileGroup = validTileGroups[rng.Next(validTileGroups.Count)];
-                        newGroup.Tiles.Add(tileGroup);
-
-                        BundleTargetGraph bt = new BundleTargetGraph(pb.OwnerLayer, tileGroup);
-                        field.SetValue(bt);
+                        PopulateSingleField(field, candidate, matches, population.OwnerLayer, rng);
                     }
 
-
-                    // add to the valid group data that can be used to instantiate a suggestion quest
-                    groups.Add(newGroup);
+                    possibleMappings.Add(candidate);
                 }
             }
-
-            return groups;
+            return possibleMappings;
         }
 
+        private void PopulateSingleField(GrammarField field, QuestCandidate candidate, List<TileBundleGroup> options, LBSLayer layer, System.Random rng)
+        {
+            var choice = options[rng.Next(options.Count)];
+            candidate.Tiles.Add(choice);
+            field.SetValue(new BundleTargetGraph(layer, choice));
+        }
+
+        private void PopulateListField(GrammarField field, QuestCandidate candidate, List<TileBundleGroup> options, LBSLayer layer, System.Random rng)
+        {
+            int requiredCount = Mathf.CeilToInt(options.Count * listAssignPercent);
+
+            for (int i = 0; i < requiredCount; i++)
+            {
+                var choice = options[rng.Next(options.Count)];
+                candidate.Tiles.Add(choice);
+
+                var wrapper = (GrammarField)Activator.CreateInstance(field.PrimitiveType);
+                wrapper.SetValue(new BundleTargetGraph(layer, choice));
+                field.ItemsSource.Add(wrapper);
+            }
+        }
+
+        private void PositionNodeWithoutOverlap(QuestNode node, List<Vector2> existingPositions)
+        {
+            var pos = node.Data.Area.value.position;
+            var visualOffset = Vector2Int.zero;
+
+            while (existingPositions.Contains(pos))
+            {
+                pos += _positionOverlapOffset;
+                visualOffset.x += (int)QuestGraph.SuggestionDistance;
+                visualOffset.y += (int)QuestGraph.ViewNodeWidthOffset;
+            }
+
+            existingPositions.Add(pos);
+            node.Position = visualOffset;
+        }
 
         #endregion
+
     }
 }
