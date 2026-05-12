@@ -206,6 +206,43 @@ namespace PathOS
         [EntityDisplay]
         public EntityType entityType;
 
+        // Stuff only used for stairs, to link the up and down stair entities together.
+        [SerializeField]
+        private LevelEntity otherStairRef;
+        private int directionSign = 0; // 1 for up, -1 for down, 0 for none
+
+        public LevelEntity OtherStairRef
+        {
+            get => otherStairRef;
+            set
+            {
+                if (entityType != EntityType.ET_STAIR_UP && entityType != EntityType.ET_STAIR_DOWN)
+                {
+                    Debug.LogWarning("Only entities of type ET_STAIR_UP or ET_STAIR_DOWN can have a stair reference.");
+                    return;
+                }
+                otherStairRef = value;
+            }
+        }
+        public int DirectionSign
+        {
+            get => directionSign;
+            set
+            {
+                if (entityType != EntityType.ET_STAIR_UP && entityType != EntityType.ET_STAIR_DOWN)
+                {
+                    Debug.LogWarning("Only entities of type ET_STAIR_UP or ET_STAIR_DOWN can have a direction sign.");
+                    return;
+                }
+                if (value != 1 && value != -1)
+                {
+                    Debug.LogWarning("Direction sign must be either 1 (for up) or -1 (for down).");
+                    return;
+                }
+                directionSign = value;
+            }
+        }
+
         //Simulates compass/map availability.
         public bool alwaysKnown; 
 

@@ -162,7 +162,7 @@ namespace ISILab.LBS.Behaviours
 
         public void MapToPopulation(List<TileBundleGroup> groups, 
             List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles, 
-            List<LBSStair> upStairs, List<LBSStair> downStairs)
+            List<LBSStair> upStairs)
         {
             //string s = string.Empty;
             //foreach(KeyValuePair<EntityType, PathOSStorage.SimulationEntityData> pair in PathOSStorage.Instance.entityDataPool)
@@ -233,8 +233,6 @@ namespace ISILab.LBS.Behaviours
                 AddTile(null, door.x, door.y, EntityType.ET_POI, true);
             foreach (LBSStair stair in upStairs)
                 AddTile(upStairTag, stair.Positions[0].x, stair.Positions[0].y, EntityType.ET_STAIR_UP, false, stair);
-            foreach (LBSStair stair in downStairs)
-                AddTile(downStairTag, stair.Positions[stair.Positions.Count - 1].x, stair.Positions[stair.Positions.Count - 1].y, EntityType.ET_STAIR_DOWN, false, stair);
         }
 
         public void ClearMapping()

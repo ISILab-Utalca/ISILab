@@ -52,7 +52,7 @@ namespace ISILab.LBS.VisualElements
 
         List<LBSLayer> interiorLayers = new List<LBSLayer>();
         Dictionary<string, List<LBSTile>> interiorTiles = new Dictionary<string, List<LBSTile>>();
-        Dictionary<string, List<LBSStair>> interiorStairs = new Dictionary<string, List<LBSStair>>();
+        List<LBSStair> interiorStairs = new List<LBSStair>();
         #endregion
 
         #region PROPERTIES
@@ -83,9 +83,7 @@ namespace ISILab.LBS.VisualElements
 
             interiorTiles.Add(SchemaBehaviour.Door, new List<LBSTile>());
             interiorTiles.Add(SchemaBehaviour.LockedDoor, new List<LBSTile>());
-            interiorStairs.Add(SchemaBehaviour.DownStair, new List<LBSStair>());
-            interiorStairs.Add(SchemaBehaviour.UpStair, new List<LBSStair>());
-
+            interiorStairs = new List<LBSStair>();
             CreateVisualElement();
             MapToCurrentPopulation(behaviour.OwnerLayer.ActiveFloor);
         }
@@ -341,8 +339,7 @@ namespace ISILab.LBS.VisualElements
         {
             interiorTiles[SchemaBehaviour.Door].Clear();
             interiorTiles[SchemaBehaviour.LockedDoor].Clear();
-            interiorStairs[SchemaBehaviour.DownStair].Clear();
-            interiorStairs[SchemaBehaviour.UpStair].Clear();
+            interiorStairs.Clear();
             GetInteriorLayers();
             if (interiorLayers.Count > 0)
                 GetInteriorTiles(floor);
@@ -367,14 +364,8 @@ namespace ISILab.LBS.VisualElements
 
                 foreach (LBSStair stair in interiorLayer.GetModule<StairsModule>("", floor).Stairs)
                 {
-                    if (stair.Direction < 0)
-                    {
-                        interiorStairs[SchemaBehaviour.DownStair].Add(stair);
-                    }
-                    else
-                    {
-                        interiorStairs[SchemaBehaviour.UpStair].Add(stair);
-                    }
+                    if (stair.Direction < 0) continue;
+                    interiorStairs.Add(stair);
                 }
             }
         }
@@ -394,7 +385,7 @@ namespace ISILab.LBS.VisualElements
 
             behaviour.MapToPopulation(populationGroups, 
                 interiorTiles[SchemaBehaviour.Door], interiorTiles[SchemaBehaviour.LockedDoor], 
-                interiorStairs[SchemaBehaviour.UpStair], interiorStairs[SchemaBehaviour.DownStair]);
+                interiorStairs);
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);

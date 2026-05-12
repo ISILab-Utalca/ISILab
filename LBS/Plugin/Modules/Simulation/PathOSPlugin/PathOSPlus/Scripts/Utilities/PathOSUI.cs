@@ -107,7 +107,9 @@ namespace PathOS
             entityLabels[EntityType.ET_HAZARD_ENEMY_BOSS],
             entityLabels[EntityType.ET_HAZARD_ENVIRONMENT],
             entityLabels[EntityType.ET_POI],
-            entityLabels[EntityType.ET_POI_NPC]
+            entityLabels[EntityType.ET_POI_NPC],
+            entityLabels[EntityType.ET_STAIR_UP],
+            entityLabels[EntityType.ET_STAIR_DOWN]
         };
 
         public static Dictionary<string, EntityType> entityLookup =
@@ -127,7 +129,9 @@ namespace PathOS
                 { "Boss",               EntityType.ET_HAZARD_ENEMY_BOSS },
                 { "Environment Hazard", EntityType.ET_HAZARD_ENVIRONMENT },
                 { "POI",                EntityType.ET_POI },
-                { "NPC",                EntityType.ET_POI_NPC }
+                { "NPC",                EntityType.ET_POI_NPC },
+                { "Stair Up",           EntityType.ET_STAIR_UP },
+                { "Stair Down",         EntityType.ET_STAIR_DOWN }
             };
     }
 }

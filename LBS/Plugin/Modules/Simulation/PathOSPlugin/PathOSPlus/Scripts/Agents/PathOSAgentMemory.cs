@@ -26,8 +26,6 @@ namespace PathOS
         private EntityMemory finalGoal;
         private bool finalGoalCompleted;
 
-        //Remembered stairs.
-
         //Remembered paths/directions.
         public List<ExploreMemory> paths { get; set; }
 
@@ -78,7 +76,9 @@ namespace PathOS
                     finalGoalTracker.Add(newMemory);
                 }
                 else if (entity.entityType == EntityType.ET_GOAL_COMPLETION)
+                {
                     finalGoal = new EntityMemory(entity);
+                }
             }
         }
 
@@ -484,6 +484,65 @@ namespace PathOS
                 // Put old option back
                 currNavMesh.useGeometry = oldGeometryCollector;
             }
+        }
+
+        public EntityMemory GetClosestStair(Vector3 position, int direction)
+        {
+            var positionFloor = CalculateAproximatedFloor(position.y);
+            var stairMemories = GetStairMemoriesForFloor(positionFloor, direction);
+            
+            EntityMemory closestStair = null;
+            float closestDistanceSqr = Mathf.Infinity;
+            foreach (var stairMemory in stairMemories)
+            {
+                float distanceSqr = (stairMemory.entity.perceivedPos - position).sqrMagnitude;
+                if (distanceSqr < closestDistanceSqr)
+                {
+                    closestDistanceSqr = distanceSqr;
+                    closestStair = stairMemory;
+                }
+            }
+
+            return closestStair;
+        }
+
+        public EntityMemory[] GetStairMemoriesForFloor(int floor, int direction)
+        {
+            List<EntityMemory> stairMemories = new List<EntityMemory>();
+            foreach (EntityMemory memory in entities)
+            {
+                var typeMatch = direction > 0 ? 
+                    memory.entity.entityType == EntityType.ET_STAIR_UP :
+                    memory.entity.entityType == EntityType.ET_STAIR_DOWN;
+                
+                if (typeMatch && CalculateAproximatedFloor(memory.entity.perceivedPos.y) == floor)
+                {
+                    stairMemories.Add(memory);
+                }
+            }
+
+            return stairMemories.ToArray();
+        }
+
+        public EntityMemory GetOtherStair(EntityMemory stairMemory)
+        {
+            // Return false cases
+            if (stairMemory.entity.entityType != EntityType.ET_STAIR_UP && stairMemory.entity.entityType != EntityType.ET_STAIR_DOWN)
+                return null;
+
+            var other = stairMemory.entity.entityRef.OtherStairRef;
+            var otherMemory = entities.Find(e => e.entity.entityRef == other);
+            return otherMemory;
+        }
+
+        private int CalculateAproximatedFloor(float yPosition)
+        {
+            // Calcula el piso aproximado dividiendo la posición Y entre la altura de piso (gridSampleSize.y)
+            // y redondeando al entero más cercano.
+            if (gridSampleSize.y <= 0f)
+                return 0; // Evita división por cero
+
+            return Mathf.RoundToInt(yPosition / gridSampleSize.y);
         }
     }
 }

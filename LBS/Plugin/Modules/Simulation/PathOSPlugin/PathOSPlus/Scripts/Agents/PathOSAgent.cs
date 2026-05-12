@@ -55,7 +55,7 @@ namespace PathOS
         internal static PathOSManager manager;
         public static OGLogManager logger { get; set; }
 
-        private PathOSAgentMemory LTMemory;
+        private PathOSAgentMemory agentMemory;
         public PathOSAgentEyes eyes { get; private set; }
 
         public float visitThresholdSqr { get; set; }
@@ -80,7 +80,7 @@ namespace PathOS
         {
             // Get components
             eyes = GetComponent<PathOSAgentEyes>();
-            LTMemory = GetComponent<PathOSAgentMemory>();
+            agentMemory = GetComponent<PathOSAgentMemory>();
             navAgent = GetComponent<NavMeshAgent>();
             heuristics = GetComponent<HeuristicOS>();
             cameraObject = GameObject.FindWithTag("PathOSCamera");
@@ -147,7 +147,7 @@ namespace PathOS
             //we've "changed our mind" without doing anything.
             var radius = Constants.Navigation.GOAL_EPSILON_SQR;
             var distanceToDest = Vector3.SqrMagnitude(GetPosition() - navigationState.currentDest.pos);
-            var isDestVisited = navigationState.currentDest.entity != null && LTMemory.Visited(navigationState.currentDest.entity);
+            var isDestVisited = navigationState.currentDest.entity != null && agentMemory.Visited(navigationState.currentDest.entity);
 
             if (navigationState.changeTargetCount > 0 && (distanceToDest < radius || isDestVisited))
             {
@@ -166,7 +166,7 @@ namespace PathOS
             }
 
             //Update spatial memory.
-            LTMemory.memoryMap.Fill(navAgent.transform.position);
+            agentMemory.memoryMap.Fill(navAgent.transform.position);
 
             //Update of periodic actions.
             navigationState.routeTimer += Time.deltaTime;
@@ -246,7 +246,7 @@ namespace PathOS
                         Vector3 targetPos = PathOSNavUtility.XZPos(entity.perceivedPos);
 
                         if (Vector3.SqrMagnitude(agentPos - targetPos) >= adjVisitSqr)
-                            LTMemory.MakeUnreachable(entity);
+                            agentMemory.MakeUnreachable(entity);
 
                         //Reset the number of times we've changed our mind
                         //without doing anything (since we tried to get here).
@@ -284,7 +284,7 @@ namespace PathOS
 
             //Set the agent's completion flag.
             if (manager.endOnCompletionGoal
-                && LTMemory.FinalGoalCompleted())
+                && agentMemory.FinalGoalCompleted())
             {
                 completed = true;
                 gameObject.SetActive(false);
@@ -368,7 +368,7 @@ namespace PathOS
             EntityMemory currentGoalMemory = null;
             if (navigationState.currentDest.entity != null)
             {
-                currentGoalMemory = LTMemory.GetMemory(navigationState.currentDest.entity);
+                currentGoalMemory = agentMemory.GetMemory(navigationState.currentDest.entity);
 
                 if (null == currentGoalMemory)
                 {
@@ -408,19 +408,19 @@ namespace PathOS
 
             // Calculate score for each entity in memory that isn't the current goal.
 
-            for (int i = 0; i < LTMemory.entities.Count; ++i)
+            for (int i = 0; i < agentMemory.entities.Count; ++i)
             {
-                if (!ReferenceEquals(currentGoalMemory, LTMemory.entities[i]))
-                    ScoreEntity(LTMemory.entities[i], ref maxScore);
+                if (!ReferenceEquals(currentGoalMemory, agentMemory.entities[i]))
+                    ScoreEntity(agentMemory.entities[i], ref maxScore);
             }
 
             // Calculate score for paths' directions in memory
             // Treated as not visible since they are based on the player's "idea" of the space.
 
-            for (int i = 0; i < LTMemory.paths.Count; ++i)
+            for (int i = 0; i < agentMemory.paths.Count; ++i)
             {
-                ScoreExploreDirection(LTMemory.paths[i].originPoint,
-                    LTMemory.paths[i].direction,
+                ScoreExploreDirection(agentMemory.paths[i].originPoint,
+                    agentMemory.paths[i].direction,
                     false, ref maxScore);
             }
 
@@ -488,7 +488,7 @@ namespace PathOS
                 STMemoryState.onMemPath = false;
 
                 if (memChanceRoll <= STMemoryState.memPathChance)
-                    STMemoryState.onMemPath = LTMemory.memoryMap.NavigateAStar(
+                    STMemoryState.onMemPath = agentMemory.memoryMap.NavigateAStar(
                         GetPosition(), navigationState.currentDest.pos, ref STMemoryState.memPathWaypoints);
 
                 if (STMemoryState.onMemPath)
@@ -501,7 +501,7 @@ namespace PathOS
                 // Once an entity has been selected as a destination,
                 // commit it to long-term memory.
                 if (null != navigationState.currentDest.entity)
-                    LTMemory.CommitLTM(navigationState.currentDest.entity);
+                    agentMemory.CommitLTM(navigationState.currentDest.entity);
             }
 
             explorationState.assessedGoalsInit = true;
@@ -698,7 +698,7 @@ namespace PathOS
                 {
                     // Grab the "extent" of the direction on our memory model of the navmesh.
                     PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit;
-                    LTMemory.memoryMap.RaycastMemoryMap(origin, dir, eyes.navmeshCastDistance, out hit);
+                    agentMemory.memoryMap.RaycastMemoryMap(origin, dir, eyes.navmeshCastDistance, out hit);
                     distance = hit.distance;
 
                     bool reachable = PathOSNavUtility.CanAgentReachTarget(
@@ -775,7 +775,7 @@ namespace PathOS
             // Add this direction to memory as a potential path,
             // with its score as the "impression" of the path.
 
-            LTMemory.AddPath(new ExploreMemory(origin, dir, newTarget, score));
+            agentMemory.AddPath(new ExploreMemory(origin, dir, newTarget, score));
         }
 
         /// <summary>
@@ -799,7 +799,7 @@ namespace PathOS
             // This is similar to the scaling created by assessing an exploration direction.
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit;
-            LTMemory.memoryMap.RaycastMemoryMap(origin, dir, maxDistance, out hit);
+            agentMemory.memoryMap.RaycastMemoryMap(origin, dir, maxDistance, out hit);
 
             score += (heuristics.heuristicScaleLookup[Heuristic.CURIOSITY])
                 * hit.numUnexplored / PathOSNavUtility.NavmeshMemoryMapper.maxCastSamples
@@ -808,13 +808,13 @@ namespace PathOS
             // Enumerate over all entities the agent knows about, and use them
             // to affect our assessment of the potential target.
 
-            for (int i = 0; i < LTMemory.entities.Count; ++i)
+            for (int i = 0; i < agentMemory.entities.Count; ++i)
             {
-                if (LTMemory.entities[i].visited || LTMemory.entities[i].unreachable)
+                if (agentMemory.entities[i].visited || agentMemory.entities[i].unreachable)
                     continue;
 
                 //Vector to the entity.
-                Vector3 entityVec = LTMemory.entities[i].RecallPos() - origin;
+                Vector3 entityVec = agentMemory.entities[i].RecallPos() - origin;
 
                 //Scale our factor by inverse square of distance.
                 float distFactor = (entityVec.sqrMagnitude < Constants.Behaviour.DIST_SCORE_FACTOR_SQR) ?
@@ -829,7 +829,7 @@ namespace PathOS
                 foreach (HeuristicScale heuristicScale in heuristics.modifiableHeuristicScales)
                 {
                     (Heuristic, EntityType) key = (heuristicScale.heuristic,
-                        LTMemory.entities[i].entity.entityType);
+                        agentMemory.entities[i].entity.entityType);
 
                     if (!heuristics.entityScoringLookup.ContainsKey(key))
                     {
@@ -847,7 +847,7 @@ namespace PathOS
         private float RouteComputeTimeCalculated()
         {
             return Constants.Navigation.ROUTE_COMPUTE_BASE
-                + Constants.Memory.RETRIEVAL_TIME * LTMemory.entities.Count;
+                + Constants.Memory.RETRIEVAL_TIME * agentMemory.entities.Count;
         }
         
         private void MakeEntityDestinationAccurate()
@@ -872,7 +872,7 @@ namespace PathOS
 
             if (!reachable)
             {
-                LTMemory.MakeUnreachable(navigationState.currentDest.entity);
+                agentMemory.MakeUnreachable(navigationState.currentDest.entity);
                 navigationState.ResetDestinationSelf(this);
             }
 
@@ -895,7 +895,7 @@ namespace PathOS
             if (isFinalGoal)
             {
                 //If mandatory goals remain, the final goal can't be targeted.
-                if (this.LTMemory.MandatoryGoalsLeft() || !explorationState.assessedGoalsInit)
+                if (this.agentMemory.MandatoryGoalsLeft() || !explorationState.assessedGoalsInit)
                     return bias;
 
                 bias += Mathf.Lerp(Constants.Behaviour.FINAL_GOAL_BONUS_MIN,
@@ -1012,7 +1012,7 @@ namespace PathOS
         // GABO: Set all unreachable positions (memory entities not included) as possibly reachable again
         public void ResetUnreachablePositionReferences() => explorationState.TryReset();
 
-        public PathOSAgentMemory GetMemory() => LTMemory is null ? LTMemory = GetComponent<PathOSAgentMemory>() : LTMemory;
+        public PathOSAgentMemory GetMemory() => agentMemory is null ? agentMemory = GetComponent<PathOSAgentMemory>() : agentMemory;
         #endregion
 
     }
