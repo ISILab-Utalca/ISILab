@@ -1,4 +1,6 @@
-﻿using ISILab.AI.Categorization;
+﻿
+
+using ISILab.AI.Categorization;
 using ISILab.Commons;
 using ISILab.Commons.Extensions;
 using ISILab.LBS.Modules;
@@ -9,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
 {
@@ -77,9 +80,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
     {
         const float SQRT2 = 1.41421356f;
 
-        /// <summary>
-        /// Devuelve un valor igual a la distancia entre dos puntos, segun una heuristica definida.
-        /// </summary>
         private static float Heuristic(Vector2Int start, Vector2Int goal, PathfindingHeuristic heuristic, float givenCost = 0)
         {
             int dx = Mathf.Abs(goal.x - start.x),
@@ -89,48 +89,33 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             {
                 case PathfindingHeuristic.Manhattan: 
                     return dx + dy;
+                    break;
 
                 case PathfindingHeuristic.Octile:
                     return Mathf.Min(dx, dy) * SQRT2 + Mathf.Max(dx, dy) - Mathf.Min(dx, dy);
+                    break;
 
                 case PathfindingHeuristic.Chebyshev:
                     return Mathf.Max(dx, dy);
+                    break;
             }
             return float.MaxValue - givenCost;
         }
 
-        /// <summary>
-        /// Realiza una busqueda desde una posicion hasta TODAS las demas posiciones.
-        /// </summary>
-        /// <param name="startPos">Posicion de inicio.</param>
-        /// <param name="others">Otras posiciones a buscar.</param>
-        /// <param name="from">Cuantas posiciones ignorar; serian las que ya han realizado su propia busqueda, para evitar hacer la busqueda inversa</param>
-        /// <param name="distances">Matriz de distancias a completar.</param>
-        /// <param name="tilePos">Pares de posiciones y tiles.</param>
-        /// <param name="chrom">Informacion del cromosoma</param>
-        /// <param name="sectorizedTM">Modulo de zonas.</param>
-        /// <param name="connectedTM">Modulo de conexiones</param>
-        /// <param name="heuristic"></param>
-        /// <param name="evalInfo"></param>
         public static void FloodFill(int startPos, List<int> others, int from, ref float[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, PathfindingHeuristic heuristic, ref EvaluationInfo evalInfo)
         {
-            // Flood Fill no es compatible con heuristica Octile
             if (heuristic == PathfindingHeuristic.Octile) return;
 
             if (from >= others.Count)
                 return;
 
-            // Inicia medicion de tiempo de 1 ejecucion del algoritmo
             evalInfo.StartMeasure();
 
-            // Posiciones a encontrar
             List<int> remainingOthers = new List<int>(others);
             remainingOthers.RemoveRange(0, from);
             remainingOthers.Remove(startPos);
 
-            // Posiciones no exploradas
             var remaining = new HashSet<int>();
-            // Posiciones exploradas
             var closed = new HashSet<int>();
 
             foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
@@ -140,14 +125,25 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 remaining.Add(index);
             }
 
-            // Queue de posiciones a explorar en el siguiente paso
+            //List<TileZonePair> pairTiles = sectorizedTM.PairTiles;
+            //for (int i = 0; i < chrom.Rect.height; i++)
+            //{
+            //    for (int j = 0; j < chrom.Rect.width; j++)
+            //    {
+            //        int index = (int)chrom.Rect.height * i + j;
+            //        if (pairTiles.Any(tzp => tzp.Tile.Position.Equals(chrom.ToGlobalPosition(index))))
+            //            remaining.Add(index);
+            //    }
+            //}
+
+            //Debug.Log(remaining.Count);
+
             var remainingStep = new Queue<int>();
             remainingStep.Enqueue(startPos);
 
             List<Vector2Int> dirs = new();
             switch (heuristic)
             {
-                // Direcciones a revisar, 4 u 8 segun heuristica. Comienza con la derecha y sigue en sentido antihorario
                 case PathfindingHeuristic.Manhattan: dirs = Directions.Bidimencional.Edges; break;
                 case PathfindingHeuristic.Chebyshev: dirs = Directions.Bidimencional.All;   break;
             }
@@ -158,18 +154,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
             }
 
-            /// CICLO PRINCIPAL
-            
+            //int i;
             for (int i = 0; remaining.Count > 0; i++)
             {
-                // Termina si no se agregaron nuevas posiciones para explorar
                 if (remainingStep.Count == 0)
                     break;
 
                 HashSet<int> nextStepCheck = new HashSet<int>();
                 List<int> nextStep = new List<int>();
 
-                while (remainingStep.Count > 0) // Casillas que deben revisar sus vecinos en esta iteracion. Todas tienen distancia == i
+                while (remainingStep.Count > 0)
                 {
                     int current = remainingStep.Dequeue();
 
@@ -181,10 +175,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
                     List<string> currentConnections = connectedTM.GetConnections(currentTile);
 
-                    // Revisar en cada direccion
                     for (int k = 0; k < dirCount; k++)
                     {
-                        // Si el tile tiene conexiones obstaculos en la direccion actual, ignorar y revisar la siguiente
                         if (!OriginClear()) continue;
 
                         bool OriginClear()
@@ -230,21 +222,17 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         Vector2Int newPos = currentPos + dir;
                         int index = chrom.GlobalToIndex(newPos);
 
-                        // Si el tile vecino ya se habia considerado, revisar siguiente direccion
                         if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index) || remainingStep.Contains(index))
                             continue;
 
-                        // El nuevo tile debe pertenecer a una zona
                         Zone otherZone = sectorizedTM.GetZone(newPos);
                         if (otherZone is null) continue;
 
-                        // El nuevo tile debe ser no nulo
                         if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
 
                         int invIndex = inverseIndices[k];
                         if (invIndex == -1) continue;
 
-                        // El nuevo tile tampoco debe tener obstaculos en la direccion inversa
                         if (!NewClear()) continue;
 
                         bool NewClear()
@@ -279,17 +267,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                         evalInfo.visitedNodes++;
 
-                        // Revisar si el nuevo tile es cualquiera de los buscados
                         for (int j = from; j < others.Count; j++)
                         {
                             if (index == others[j])
                             {
                                 distances[from, j] = distances[j, from] = i + 1;
                                 remainingOthers.Remove(index);
-                                // Termina el algoritmo si se han encontrado todos los elementos
                                 if (remainingOthers.Count == 0)
                                 {
-                                    // Finaliza la medicion de tiempo.
                                     evalInfo.StopMeasure();
                                     return;
                                 }
@@ -302,47 +287,165 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                 }
 
-                // Si faltan elementos por encontrar, la busqueda continua desde los vecinos revisados en esta iteracion
                 foreach (int step in nextStep) remainingStep.Enqueue(step);
             }
 
-            // Finaliza la medicion de tiempo.
             evalInfo.StopMeasure();
         }
 
-        /// <summary>
-        /// Realiza una busqueda desde una posicion hasta un LIMITE de distancia establecida
-        /// </summary>
-        /// <param name="limit">Distancia maxima desde el inicio antes de detener la busqueda.</param>
-        /// <param name="startPos">Posicion de inicio.</param>
-        /// <param name="others">Otras posiciones a buscar.</param>
-        /// <param name="filtered">Objetivos a omitir. En el caso del evaluador Colonies, son los que ya fueron encontrados y anexados a una colonia.</param>
-        /// <param name="from">Cuantas posiciones ignorar; serian las que ya han realizado su propia busqueda, para evitar hacer la busqueda inversa</param>
-        /// <param name="found">Objetivos encontrados dentro del limite de distancia</param>
-        /// <param name="distances">Matriz de distancias a completar.</param>
-        /// <param name="tilePos">Pares de posiciones y tiles.</param>
-        /// <param name="chrom">Informacion del cromosoma</param>
-        /// <param name="sectorizedTM">Modulo de zonas.</param>
-        /// <param name="connectedTM">Modulo de conexiones</param>
-        /// <param name="heuristic"></param>
-        /// <param name="evalInfo"></param>
+        //public static void FloodFillChebyshev(int startPos, List<int> others, int from, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
+        //{
+        //    if (from >= others.Count)
+        //        return;
+
+        //    evalInfo.StartMeasure();
+
+        //    List<int> remainingOthers = new List<int>(others);
+        //    remainingOthers.RemoveRange(0, from);
+        //    remainingOthers.Remove(startPos);
+
+        //    var remaining = new HashSet<int>();
+        //    var closed = new HashSet<int>();
+
+        //    foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
+        //    {
+        //        int index = chrom.GlobalToIndex(tile.Position);
+        //        if (index < 0) continue;
+        //        remaining.Add(index);
+        //    }
+
+        //    var remainingStep = new Queue<int>();
+        //    remainingStep.Enqueue(startPos);
+
+        //    List<Vector2Int> dirs = Directions.Bidimencional.All;
+        //    int dirCount = dirs.Count;
+        //    int[] inverseIndices = new int[dirCount];
+        //    for (int k = 0; k < dirCount; k++)
+        //    {
+        //        inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
+        //    }
+
+        //    int i; // Distancia recorrida
+        //    for (i = 0; remaining.Count > 0 && remainingStep.Count > 0; i++) // Casillas que falta por revisar
+        //    {
+        //        if (remainingStep.Count == 0)
+        //            break;
+
+        //        HashSet<int> nextStepCheck = new HashSet<int>();
+        //        List<int> nextStep = new List<int>();
+
+        //        while (remainingStep.Count > 0) // Casillas que deben revisar sus vecinos en esta iteracion. Todas tienen distancia == i
+        //        {
+        //            int current = remainingStep.Dequeue();
+
+        //            Vector2Int currentPos = chrom.ToGlobalPosition(current);
+
+        //            remaining.Remove(current);
+        //            closed.Add(current);
+
+        //            if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
+        //            List<string> currentConnections = connectedTM.GetConnections(currentTile);
+
+        //            for (int k = 0; k < dirCount; k++)
+        //            {
+        //                int dir4low = k / 2;
+        //                int dir4high = (dir4low + 1) % 4;
+        //                List<string> currentDirConnections = new() { currentConnections[dir4low] };
+        //                if (k % 2 != 0)
+        //                {
+        //                    if (!(tilePos.ContainsKey(currentPos + dirs[dir4low * 2]) &&
+        //                        tilePos.ContainsKey(currentPos + dirs[dir4high * 2])))
+        //                        continue;
+        //                    currentDirConnections.Add(currentConnections[dir4high]);
+        //                }
+
+        //                bool impassable = false;
+        //                foreach (string conn in currentDirConnections)
+        //                {
+        //                    if (!((conn.Length == 4 && conn == "Door") ||
+        //                        (conn.Length == 5 && conn == "Empty")))
+        //                    {
+        //                        impassable = true;
+        //                        break;
+        //                    }
+        //                }
+        //                if (impassable) continue;
+
+        //                Vector2Int dir = dirs[k];
+        //                Vector2Int newPos = currentPos + dir;
+        //                int index = chrom.GlobalToIndex(newPos);
+
+        //                //if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index)) // Quiza en vez de nextStepCheck simplemente se pueda revisar nextStep
+        //                //    continue;
+
+        //                if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index) || remainingStep.Contains(index)) continue;
+
+        //                Zone otherZone = sectorizedTM.GetZone(newPos);
+        //                if (otherZone is null) continue;
+
+        //                if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
+
+        //                int invIndex = inverseIndices[k];
+        //                if (invIndex == -1) continue;
+
+        //                List<string> newConnections = connectedTM.GetConnections(newTile);
+        //                List<string> newDirConnections = new() { newConnections[invIndex / 2] };
+        //                if (k % 2 != 0) newDirConnections.Add(newConnections[(invIndex / 2 + 1) % 4]);
+        //                //string connection = connectedTM.GetConnections(newTile)[invIndex];
+
+        //                foreach (string conn in newDirConnections)
+        //                {
+        //                    if (!((conn.Length == 4 && conn == "Door") ||
+        //                      (conn.Length == 5 && conn == "Empty")))
+        //                    {
+        //                        impassable = true;
+        //                        break;
+        //                    }
+        //                }
+        //                if (impassable) continue;
+
+        //                evalInfo.visitedNodes++;
+
+        //                for (int j = from; j < others.Count; j++)
+        //                {
+        //                    if (index == others[j])
+        //                    {
+        //                        distances[from, j] = distances[j, from] = i + 1;
+        //                        remainingOthers.Remove(index);
+        //                        if (remainingOthers.Count == 0)
+        //                        {
+        //                            evalInfo.StopMeasure();
+        //                            return;
+        //                        }
+        //                        break;
+        //                    }
+        //                }
+
+        //                nextStep.Add(index);
+        //                nextStepCheck.Add(index);
+        //            }
+        //        }
+
+        //        foreach (int step in nextStep) remainingStep.Enqueue(step);
+        //    }
+
+        //    evalInfo.StopMeasure();
+        //}
+
         public static void PartialFloodFill(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref float[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, PathfindingHeuristic heuristic, ref EvaluationInfo evalInfo)
         {
             found = new List<int>() { };
 
-            // Flood Fill no es compatible con heuristica Octile
-            if (heuristic == PathfindingHeuristic.Octile) return;
+            //if (from >= others.Count)
+            //    return;
 
-            // Inicia medicion de tiempo de 1 ejecucion del algoritmo
             evalInfo.StartMeasure();
 
-            // Posiciones a encontrar (filtradas)
             List<int> remainingOthers = new List<int>(others.Except(filtered));
+            //remainingOthers.RemoveRange(0, from);
             remainingOthers.Remove(startPos);
 
-            // Posiciones no exploradas
             var remaining = new HashSet<int>();
-            // Posiciones exploradas
             var closed = new HashSet<int>();
 
             foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
@@ -352,16 +455,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 remaining.Add(index);
             }
 
-            // Queue de posiciones a explorar en el siguiente paso
             var remainingStep = new Queue<int>();
             remainingStep.Enqueue(startPos);
 
-            //Dictionary<int, int> allowedSteps = new() { [startPos] = limit };
+            Dictionary<int, int> allowedSteps = new() { [startPos] = limit };
 
             List<Vector2Int> dirs = new();
             switch (heuristic)
             {
-                // Direcciones a revisar, 4 u 8 segun heuristica. Comienza con la derecha y sigue en sentido antihorario
                 case PathfindingHeuristic.Manhattan: dirs = Directions.Bidimencional.Edges; break;
                 case PathfindingHeuristic.Chebyshev: dirs = Directions.Bidimencional.All; break;
             }
@@ -372,11 +473,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
             }
 
-            /// CICLO PRINCIPAL
-
-            for (int i = 0; remaining.Count > 0 && remainingStep.Count > 0; i++) // Casillas que falta por revisar
+            int i; // Distancia recorrida
+            for (i = 0; remaining.Count > 0 && remainingStep.Count > 0; i++) // Casillas que falta por revisar
             {
-                // Termina si no se agregaron nuevas posiciones para explorar
                 if (remainingStep.Count == 0)
                     break;
 
@@ -395,13 +494,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
                     List<string> currentConnections = connectedTM.GetConnections(currentTile);
 
-                    // Revisar en cada direccion
                     for (int k = 0; k < dirCount; k++)
                     {
-                        // Si el tile tiene conexiones obstaculos en la direccion actual, ignorar y revisar la siguiente
-                        if (!OriginClear()) continue;
+                        if (!ClearOrigin()) continue;
 
-                        bool OriginClear()
+                        bool ClearOrigin()
                         {
                             switch (heuristic)
                             {
@@ -443,30 +540,28 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         Vector2Int newPos = currentPos + dir;
                         int index = chrom.GlobalToIndex(newPos);
 
-                        // Si el tile vecino ya se habia considerado, revisar siguiente direccion
+                        //if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index)) // Quiza en vez de nextStepCheck simplemente se pueda revisar nextStep
+                        //    continue;
+
                         if (index < 0 || remainingStep.Contains(index)) continue;
-                        //bool updateSteps = false;
+                        bool updateSteps = false;
                         if (nextStepCheck.Contains(index) || closed.Contains(index))
                         {
-                            //if (allowedSteps[index] < allowedSteps[current] - 1)
-                            //{
-                            //    updateSteps = true;
-                            //}
-                            //else 
-                                continue;
+                            if (allowedSteps[index] < allowedSteps[current] - 1)
+                            {
+                                updateSteps = true;
+                            }
+                            else continue;
                         }
 
-                        // El nuevo tile debe pertenecer a una zona
                         Zone otherZone = sectorizedTM.GetZone(newPos);
                         if (otherZone is null) continue;
 
-                        // El nuevo tile debe ser no nulo
                         if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
 
                         int invIndex = inverseIndices[k];
                         if (invIndex == -1) continue;
 
-                        // El nuevo tile tampoco debe tener obstaculos en la direccion inversa
                         if (!NewClear()) continue;
 
                         bool NewClear()
@@ -499,12 +594,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             return true;
                         }
 
-                        //if (updateSteps) allowedSteps.Remove(index);
-                        //allowedSteps.Add(index, allowedSteps[current] - 1);
+                        if (updateSteps) allowedSteps.Remove(index);
+                        allowedSteps.Add(index, allowedSteps[current] - 1);
 
                         evalInfo.visitedNodes++;
 
-                        // Revisar si el nuevo tile es cualquiera de los buscados
                         for (int j = from; j < others.Count; j++)
                         {
                             if (filtered.Contains(others[j])) continue;
@@ -512,11 +606,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             {
                                 distances[from, j] = distances[j, from] = i + 1;
                                 remainingOthers.Remove(index);
+                                //if (!filtered.Contains(index))
                                 found.Add(index);
-                                // Termina el algoritmo si se han encontrado todos los elementos
                                 if (remainingOthers.Count == 0)
                                 {
-                                    // Finaliza la medicion de tiempo.
                                     evalInfo.StopMeasure();
                                     return;
                                 }
@@ -530,17 +623,178 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                 }
 
-                // Si faltan elementos por encontrar, la busqueda continua desde los vecinos revisados en esta iteracion
                 foreach (int step in nextStep)
-                    //if (allowedSteps[step] > 0)
+                    if (allowedSteps[step] > 0)
                         remainingStep.Enqueue(step);
-                    //else
-                    //    allowedSteps.Remove(step);
+                    else
+                        allowedSteps.Remove(step);
             }
 
-            // Finaliza la medicion de tiempo.
             evalInfo.StopMeasure();
         }
+
+        //public static void PartialFloodFillChebyshev(int limit, int startPos, List<int> others, List<int> filtered, int from, out List<int> found, ref int[,] distances, Dictionary<Vector2Int, LBSTile> tilePos, BundleTilemapChromosome chrom, SectorizedTileMapModule sectorizedTM, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
+        //{
+        //    found = new List<int>() { };
+
+        //    //if (from >= others.Count)
+        //    //    return;
+
+        //    evalInfo.StartMeasure();
+
+        //    List<int> remainingOthers = new List<int>(others.Except(filtered));
+        //    //remainingOthers.RemoveRange(0, from);
+        //    remainingOthers.Remove(startPos);
+
+        //    var remaining = new HashSet<int>();
+        //    var closed = new HashSet<int>();
+
+        //    foreach (LBSTile tile in sectorizedTM.PairTiles.Select(tzp => tzp.Tile))
+        //    {
+        //        int index = chrom.GlobalToIndex(tile.Position);
+        //        if (index < 0) continue;
+        //        remaining.Add(index);
+        //    }
+
+        //    var remainingStep = new Queue<int>();
+        //    remainingStep.Enqueue(startPos);
+
+        //    Dictionary<int, int> allowedSteps = new() { [startPos] = limit };
+
+        //    List<Vector2Int> dirs = Directions.Bidimencional.All;
+        //    int dirCount = dirs.Count;
+        //    int[] inverseIndices = new int[dirCount];
+        //    for (int k = 0; k < dirCount; k++)
+        //    {
+        //        inverseIndices[k] = dirs.FindIndex(d => d == -dirs[k]);
+        //    }
+
+        //    int i; // Distancia recorrida
+        //    for (i = 0; remaining.Count > 0 && remainingStep.Count > 0; i++) // Casillas que falta por revisar
+        //    {
+        //        if (remainingStep.Count == 0)
+        //            break;
+
+        //        HashSet<int> nextStepCheck = new HashSet<int>();
+        //        List<int> nextStep = new List<int>();
+
+        //        while (remainingStep.Count > 0) // Casillas que deben revisar sus vecinos en esta iteracion. Todas tienen distancia == i
+        //        {
+        //            int current = remainingStep.Dequeue();
+
+        //            Vector2Int currentPos = chrom.ToGlobalPosition(current);
+
+        //            remaining.Remove(current);
+        //            closed.Add(current);
+
+        //            if (!tilePos.TryGetValue(currentPos, out LBSTile currentTile)) continue;
+        //            List<string> currentConnections = connectedTM.GetConnections(currentTile);
+
+        //            for (int k = 0; k < dirCount; k++)
+        //            {
+        //                int dir4low = k / 2;
+        //                int dir4high = (dir4low + 1) % 4;
+        //                List<string> currentDirConnections = new() { currentConnections[dir4low] };
+        //                if (k % 2 != 0)
+        //                {
+        //                    if (!(tilePos.ContainsKey(currentPos + dirs[dir4low * 2]) && 
+        //                        tilePos.ContainsKey(currentPos + dirs[dir4high * 2])))
+        //                        continue;
+        //                    currentDirConnections.Add(currentConnections[dir4high]);
+        //                }
+
+        //                bool impassable = false;
+        //                foreach (string conn in currentDirConnections)
+        //                {
+        //                    if (!((conn.Length == 4 && conn == "Door") ||
+        //                        (conn.Length == 5 && conn == "Empty")))
+        //                    {
+        //                        impassable = true;
+        //                        break;
+        //                    }
+        //                }
+        //                if (impassable) continue;
+
+        //                Vector2Int dir = dirs[k];
+        //                Vector2Int newPos = currentPos + dir;
+        //                int index = chrom.GlobalToIndex(newPos);
+
+        //                //if (index < 0 || nextStepCheck.Contains(index) || closed.Contains(index)) // Quiza en vez de nextStepCheck simplemente se pueda revisar nextStep
+        //                //    continue;
+
+        //                if (index < 0 || remainingStep.Contains(index)) continue;
+        //                bool updateSteps = false;
+        //                if (nextStepCheck.Contains(index) || closed.Contains(index))
+        //                {
+        //                    if (allowedSteps[index] < allowedSteps[current] - 1)
+        //                    {
+        //                        updateSteps = true;
+        //                    }
+        //                    else continue;
+        //                }
+
+        //                Zone otherZone = sectorizedTM.GetZone(newPos);
+        //                if (otherZone is null) continue;
+
+        //                if (!tilePos.TryGetValue(newPos, out LBSTile newTile)) continue;
+
+        //                int invIndex = inverseIndices[k];
+        //                if (invIndex == -1) continue;
+
+        //                List<string> newConnections = connectedTM.GetConnections(newTile);
+        //                List<string> newDirConnections = new() { newConnections[invIndex / 2] };
+        //                if (k % 2 != 0) newDirConnections.Add(newConnections[(invIndex / 2 + 1) % 4]);
+        //                //string connection = connectedTM.GetConnections(newTile)[invIndex];
+
+        //                foreach (string conn in newDirConnections)
+        //                {
+        //                    if (!((conn.Length == 4 && conn == "Door") ||
+        //                      (conn.Length == 5 && conn == "Empty")))
+        //                    {
+        //                        impassable = true;
+        //                        break;
+        //                    }
+        //                }
+        //                if (impassable) continue;
+
+        //                if (updateSteps) allowedSteps.Remove(index);
+        //                allowedSteps.Add(index, allowedSteps[current] - 1);
+
+        //                evalInfo.visitedNodes++;
+
+        //                for (int j = from; j < others.Count; j++)
+        //                {
+        //                    if (filtered.Contains(others[j])) continue;
+        //                    if (index == others[j])
+        //                    {
+        //                        distances[from, j] = distances[j, from] = i + 1;
+        //                        remainingOthers.Remove(index);
+        //                        //if (!filtered.Contains(index))
+        //                        found.Add(index);
+        //                        if (remainingOthers.Count == 0)
+        //                        {
+        //                            evalInfo.StopMeasure();
+        //                            return;
+        //                        }
+        //                        //allowedSteps[index] = limit;
+        //                        break;
+        //                    }
+        //                }
+
+        //                nextStep.Add(index);
+        //                nextStepCheck.Add(index);
+        //            }
+        //        }
+
+        //        foreach (int step in nextStep)
+        //            if (allowedSteps[step] > 0)
+        //                remainingStep.Enqueue(step);
+        //            else
+        //                allowedSteps.Remove(step);
+        //    }
+
+        //    evalInfo.StopMeasure();
+        //}
 
         public static void Manhattan(int startPos, List<int> others, int from, ref float[,] distances, BundleTilemapChromosome chrom)
         {
@@ -553,7 +807,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
         }
 
-        public static void PartialManhattan(int startPos, List<int> others, int from, out List<int> found, ref float[,] distances, BundleTilemapChromosome chrom, int limit)
+        public static void PartialManhattan(int limit, int startPos, List<int> others, int from, out List<int> found, ref float[,] distances, BundleTilemapChromosome chrom)
         {
             found = new List<int>();
             for (int i = from; i < others.Count; i++)
@@ -614,7 +868,129 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             public override string ToString() => base.ToString();
         }
 
-        public static float AStarRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, PathfindingHeuristic heuristic, ref EvaluationInfo evalInfo, int limit = int.MaxValue)
+        public static float AStarRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
+        {
+            float cost = -1;
+            if (connectedTM is null) return cost;
+
+            evalInfo.StartMeasure();
+
+            PriorityQueue<AStarNode, float> open = new();
+            HashSet<AStarNode> closed = new();
+
+            AStarNode startNode = connectedTM.PathfindNodes[startInd];
+            startNode.parent = null;
+            startNode.givenCost = 0;
+            startNode.finalCost = 0;
+
+            open.Push(startNode, 0);
+
+            Vector2Int goalPos = area.ToGlobalPosition(goalInd);
+
+            while (!open.IsEmpty())
+            {
+                AStarNode current = open.Pop();
+
+                if(current.pos == goalPos)
+                {
+                    cost = current.givenCost;
+                    break;
+                }
+
+                //AStarNode parent = current.parent;
+
+                List<string> currentConnections = connectedTM.GetConnections(current.pos);
+
+                List<Vector2Int> dirs = Directions.Bidimencional.All;
+                for(int i = 0; i < dirs.Count; i++)
+                {
+                    // Revisar muros
+                    int dir4low = i / 2;
+                    int dir4high = (dir4low + 1) % 4;
+                    List<string> currentDirConnections = new() { currentConnections[dir4low] };
+                    if (i % 2 != 0)
+                    {
+                        if(!(Array.Find(connectedTM.PathfindNodes, n => n is not null && n.pos.Equals(current.pos + dirs[dir4low * 2])) is not null &&
+                            Array.Find(connectedTM.PathfindNodes, n => n is not null && n.pos.Equals(current.pos + dirs[dir4high * 2])) is not null))
+                            continue;
+                        currentDirConnections.Add(currentConnections[dir4high]);
+                    }
+
+                    bool impassable = false;
+                    foreach(string conn in currentDirConnections)
+                    {
+                        if(!((conn.Length == 4 && conn == "Door") ||
+                            (conn.Length == 5 && conn == "Empty")))
+                        {
+                            impassable = true;
+                            break;
+                        }
+                    }
+                    if (impassable) continue;
+
+                    AStarNode newSuccesor = null;
+
+                    Vector2Int newPos = current.pos + dirs[i];
+                    int newInd = area.GlobalToIndex(newPos);
+                    if (connectedTM.GetPair(newPos) is null || newInd == -1) continue;
+
+                    List<string> newConnections = connectedTM.GetConnections(newPos);
+                    List<string> newDirConnections = new() { newConnections[(dir4low + 2) % 4] };
+                    if (i % 2 != 0) newDirConnections.Add(newConnections[(dir4high + 2) % 4]);
+
+                    foreach (string conn in newDirConnections)
+                    {
+                        if (!((conn.Length == 4 && conn == "Door") ||
+                          (conn.Length == 5 && conn == "Empty")))
+                        {
+                            impassable = true;
+                            break;
+                        }
+                    }
+                    if (impassable) continue;
+                    
+                    if (connectedTM.PathfindNodes[newInd] is null)
+                    {
+                        //newSuccesor = new AStarNode(newPos);
+                        //connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] = newSuccesor;
+                    }
+                    else
+                    {
+                        newSuccesor = connectedTM.PathfindNodes[newInd];
+                    }
+                    float givenCost = current.givenCost + 1;
+
+                    bool notNull = newSuccesor is not null;
+                    bool contains = closed.Contains(newSuccesor);
+                    bool costsLess = givenCost < newSuccesor.givenCost;
+                    //if (newSuccesor.pos == new Vector2Int(4, 14))
+                    //    ;
+                    //if (contains && costsLess && newSuccesor.pos.x > 0 && newSuccesor.pos.x < 6 && newSuccesor.pos.y > 12 && newSuccesor.pos.y < 16)
+                    //    ;
+
+                    if(notNull && (!contains || costsLess))
+                    {
+                        newSuccesor.parent = current;
+                        newSuccesor.givenCost = givenCost;
+
+                        int dx = Mathf.Abs(goalPos.x - newSuccesor.pos.x),
+                            dy = Mathf.Abs(goalPos.y - newSuccesor.pos.y);
+                        newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+
+                        closed.Add(newSuccesor);
+
+                        open.Push(newSuccesor, newSuccesor.finalCost);
+                        evalInfo.visitedNodes++;
+                    }
+                }
+            }
+
+            evalInfo.StopMeasure();
+
+            return cost;
+        }
+
+        public static float PartialAStarRun(int limit, int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, PathfindingHeuristic heuristic, ref EvaluationInfo evalInfo)
         {
             float cost = -1;
             if (connectedTM is null) return cost;
@@ -642,6 +1018,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     cost = current.givenCost;
                     break;
                 }
+
+                //AStarNode parent = current.parent;
 
                 List<string> currentConnections = connectedTM.GetConnections(current.pos);
 
@@ -695,7 +1073,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                     }
                     if (impassable) continue;
 
-                    if (connectedTM.PathfindNodes[newInd] is not null)
+                    if (connectedTM.PathfindNodes[newInd] is null)
+                    {
+                        //newSuccesor = new AStarNode(newPos);
+                        //connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] = newSuccesor;
+                    }
+                    else
                     {
                         newSuccesor = connectedTM.PathfindNodes[newInd];
                     }
@@ -706,6 +1089,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                         newSuccesor.parent = current;
                         newSuccesor.givenCost = givenCost;
 
+                        //int dx = Mathf.Abs(goalPos.x - newSuccesor.pos.x),
+                        //    dy = Mathf.Abs(goalPos.y - newSuccesor.pos.y);
                         newSuccesor.finalCost = givenCost + Heuristic(newSuccesor.pos, goalPos, heuristic, givenCost);
 
                         closed.Add(newSuccesor);
@@ -717,6 +1102,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
             }
 
             evalInfo.StopMeasure();
+
+            //Debug.Log("CLOSED: " + closed.Count);
 
             return cost;
         }
@@ -1004,29 +1391,154 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                 new[] {6, 7, 0}
             };
 
-            /// <summary>
-            /// Realiza una busqueda desde una posicion inicial hasta un UNICO destino.
-            /// </summary>
-            /// <param name="startInd">Posicion de inicio.</param>
-            /// <param name="goalInd">Posicion destino.</param>
-            /// <param name="area">Area del mapa sobre el que corre la busqueda.</param>
-            /// <param name="connectedTM">Modulo de conexiones</param>
-            /// <param name="heuristic"></param>
-            /// <param name="evalInfo"></param>
-            /// <param name="limit">Distancia maxima desde el inicio antes de detener la busqueda.</param>
-            /// <returns></returns>
-            public static float JPSRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, PathfindingHeuristic heuristic, ref EvaluationInfo evalInfo, int limit = int.MaxValue)
+            public static float JPSRun(int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, ref EvaluationInfo evalInfo)
+            {
+                float cost = -1;
+                if (connectedTM is null) return cost;
+
+                evalInfo.StartMeasure();
+
+                Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
+
+                PriorityQueue<JPSNode, float> open = new();
+                HashSet<JPSNode> closed = new();
+
+                JPSNode startNode = connectedTM.PathfindNodes[startInd] as JPSNode;
+                startNode.parent = null;
+                startNode.givenCost = 0;
+                startNode.finalCost = 0;
+
+                open.Push(startNode, 0);
+
+                Vector2Int goalPos = area.ToGlobalPosition(goalInd);
+
+                List<int> targetJumpPoints = new List<int>();
+
+                while (!open.IsEmpty())
+                {
+                    JPSNode current = open.Pop();
+
+                    if (current.pos == goalPos)
+                    {
+                        cost = current.givenCost;
+                        break;
+                    }
+
+                    //JPSNode parent = current.parent as JPSNode;
+                    int[] nodeDistances = JPDistances[current.pos];
+
+                    int[] dirs = current.parent is null ? new[] { 0, 1, 2, 3, 4, 5, 6, 7 } : validDirLookUpTable[current.fromDir];
+                    foreach (int dir in dirs)
+                    {
+                        JPSNode newSuccesor = null;
+                        float givenCost = 0;
+
+                        int maxGoalDiff = Mathf.Max(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y)),
+                            minGoalDiff = Mathf.Min(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y));
+                        if (dir % 2 == 0 &&
+                            GoalAtDirection(current.pos, dir, goalPos, true) &&
+                            maxGoalDiff <= Mathf.Abs(nodeDistances[dir]))
+                        {
+                            newSuccesor = connectedTM.PathfindNodes[goalInd] as JPSNode;
+                            givenCost = current.givenCost + maxGoalDiff;
+                        }
+                        else if (dir % 2 == 1 &&
+                            GoalAtDirection(current.pos, dir, goalPos) &&
+                            minGoalDiff <= Mathf.Abs(nodeDistances[dir]))
+                        {
+                            // TARGET JUMP POINT
+                            newSuccesor = GetNodeAtDist(current.pos, dir, minGoalDiff);
+                            givenCost = current.givenCost + Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y));
+                        }
+                        else if (nodeDistances[dir] > 0)
+                        {
+                            newSuccesor = GetNodeAtDist(current.pos, dir, nodeDistances[dir]);
+                            givenCost = Mathf.Max(Mathf.Abs(newSuccesor.pos.x - current.pos.x), Mathf.Abs(newSuccesor.pos.y - current.pos.y)) + current.givenCost;
+                        }
+
+                        if (newSuccesor is not null && (!closed.Contains(newSuccesor) || givenCost < newSuccesor.givenCost))
+                        {
+                            newSuccesor.parent = current;
+                            newSuccesor.givenCost = givenCost;
+                            newSuccesor.fromDir = dir;
+
+                            int dx = Mathf.Abs(goalPos.x - newSuccesor.pos.x),
+                                dy = Mathf.Abs(goalPos.y - newSuccesor.pos.y);
+                            newSuccesor.finalCost = givenCost + Mathf.Max(dx, dy); // Chebyshev
+
+                            closed.Add(newSuccesor);
+
+                            open.Push(newSuccesor, newSuccesor.finalCost);
+                            evalInfo.visitedNodes++;
+                        }
+                    }
+                }
+
+                while (targetJumpPoints.Count > 0)
+                {
+                    connectedTM.PathfindNodes[targetJumpPoints[0]] = null;
+                    targetJumpPoints.RemoveAt(0);
+                }
+
+                evalInfo.StopMeasure();
+                return cost;
+
+                /// LOCAL FUNCTIONS
+
+                bool GoalAtDirection(Vector2Int pos, int dir, Vector2Int goalPos, bool exact = false)
+                {
+                    if (dir < 0 && dir >= 8) return false;
+
+                    int dx = goalPos.x - pos.x,
+                        dy = goalPos.y - pos.y;
+                    bool equalMagnitude = Mathf.Abs(dy) == Mathf.Abs(dx);
+
+                    bool[] returns = new bool[]
+                    {
+                        dy == 0 && dx > 0,
+                        dy > 0  && dx > 0   && (equalMagnitude || !exact),
+                        dy > 0  && dx == 0,
+                        dy > 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy == 0 && dx < 0,
+                        dy < 0  && dx < 0   && (equalMagnitude || !exact),
+                        dy < 0  && dx == 0,
+                        dy < 0  && dx > 0   && (equalMagnitude || !exact)
+                    };
+
+                    return returns[dir];
+                }
+
+                JPSNode GetNodeAtDist(Vector2Int pos, int dir, int dist)
+                {
+                    JPSNode newNode = null;
+                    List<Vector2Int> dirs = Directions.Bidimencional.All;
+                    Vector2Int move = dirs[dir] * dist;
+                    Vector2Int newPos = pos + move;
+
+                    if (connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] is null)
+                    {
+                        newNode = new JPSNode(newPos);
+                        connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] = newNode;
+                        targetJumpPoints.Add(area.GlobalToIndex(newPos));
+                    }
+                    else
+                    {
+                        newNode = connectedTM.PathfindNodes[area.GlobalToIndex(newPos)] as JPSNode;
+                    }
+
+                    return newNode;
+                }
+            }
+
+            public static float PartialJPSRun(int limit, int startInd, int goalInd, Rect area, ConnectedTileMapModule connectedTM, PathfindingHeuristic heuristic, ref EvaluationInfo evalInfo)
             {
                 float cost = -1;
 
-                // JPS+ no es compatible con heuristica Manhattan
                 if (heuristic == PathfindingHeuristic.Manhattan || connectedTM is null)
                     return cost;
 
-                // Inicia medicion de tiempo de 1 ejecucion del algoritmo
                 evalInfo.StartMeasure();
 
-                // Distancias a cada Jump Point o muro, en 8 direcciones
                 Dictionary<Vector2Int, int[]> JPDistances = connectedTM.JPSDistances;
 
                 PriorityQueue<JPSNode, float> open = new();
@@ -1064,7 +1576,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
                         int maxGoalDiff = Mathf.Max(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y)),
                             minGoalDiff = Mathf.Min(Mathf.Abs(goalPos.x - current.pos.x), Mathf.Abs(goalPos.y - current.pos.y));
-                        // Cardinal
                         if (dir % 2 == 0 &&
                             GoalAtDirection(current.pos, dir, goalPos, true) &&
                             maxGoalDiff <= Mathf.Abs(nodeDistances[dir]))
@@ -1072,7 +1583,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             newSuccesor = connectedTM.PathfindNodes[goalInd] as JPSNode;
                             givenCost = current.givenCost + maxGoalDiff;
                         }
-                        // Diagonal
                         else if (dir % 2 == 1 &&
                             GoalAtDirection(current.pos, dir, goalPos) &&
                             minGoalDiff <= Mathf.Abs(nodeDistances[dir]))
@@ -1093,6 +1603,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
                             newSuccesor.givenCost = givenCost;
                             newSuccesor.fromDir = dir;
 
+                            //int dx = Mathf.Abs(goalPos.x - newSuccesor.pos.x),
+                            //    dy = Mathf.Abs(goalPos.y - newSuccesor.pos.y);
                             newSuccesor.finalCost = givenCost + Heuristic(newSuccesor.pos, goalPos, heuristic, givenCost);
 
                             closed.Add(newSuccesor);
