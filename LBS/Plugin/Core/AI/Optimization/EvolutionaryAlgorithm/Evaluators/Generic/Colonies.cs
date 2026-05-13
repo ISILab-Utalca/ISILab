@@ -588,7 +588,7 @@ namespace ISILab.AI.Categorization
                                         }
                                     }
                                     others = itemIndices.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, PathfindingHeuristic.Chebyshev, ref info);
+                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, searchHeuristic, ref info);
                                     if (useEvaluationInfo) EvaluationInfo = info;
 #else
                                     EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
@@ -612,8 +612,8 @@ namespace ISILab.AI.Categorization
 #endif
                                         {
                                             distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
-                                                EvaluatorHelper.AStarRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info) :
-                                                EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info);
+                                                EvaluatorHelper.AStarRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, searchHeuristic, ref info) :
+                                                EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, searchHeuristic, ref info);
                                             if (useEvaluationInfo) EvaluationInfo = info;
                                         }
                                     }

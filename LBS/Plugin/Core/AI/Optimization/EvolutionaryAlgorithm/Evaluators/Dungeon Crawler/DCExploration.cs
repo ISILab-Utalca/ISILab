@@ -203,8 +203,8 @@ namespace ISILab.AI.Categorization
                                         else
                                         {
                                             distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
-                                                EvaluatorHelper.AStarRun(POIs[i], POIs[j], chrom.Rect, connectedMod, ref info) :
-                                                EvaluatorHelper.JPSPlus.JPSRun(POIs[i], POIs[j], chrom.Rect, connectedMod, ref info);
+                                                EvaluatorHelper.AStarRun(POIs[i], POIs[j], chrom.Rect, connectedMod, PathfindingHeuristic.Octile, ref info) :
+                                                EvaluatorHelper.JPSPlus.JPSRun(POIs[i], POIs[j], chrom.Rect, connectedMod, PathfindingHeuristic.Octile, ref info);
                                             EvaluationInfo = info;
                                         }
                                     }
