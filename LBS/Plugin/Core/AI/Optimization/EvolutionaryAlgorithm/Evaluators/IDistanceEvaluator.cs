@@ -13,6 +13,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         A_Star
     }
 
+    [System.Serializable]
     public enum PathfindingHeuristic
     {
         /// <summary>
@@ -56,6 +57,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
         }
 
         public double Average() => measures.Average();
+        public int MeasureCount() => measures.Count();
     }
 
     public interface IDistanceEvaluator : IEvaluator

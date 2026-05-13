@@ -4,6 +4,7 @@ using LBS.Components;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading;
 using Unity.PerformanceTesting;
 using UnityEngine;
@@ -55,6 +56,18 @@ namespace ISILab.LBS.Tests.Pathfinding
         const string level11 = "9e52fa05cc04b5a4cbb0752588af5a27";
         const string level12 = "a49e34122d48f53438e7dd8051abd8e5";
 
+        const string ultraLabyrinth =
+            "995a3afcb9fc6e64c90596fd7328d761" // Half (90)
+            //"be4a28232962e824fa38cea4a871fb04" // Half (150)
+            //"f061d26c69f5ae74db19d2671f0776b9" // 150
+            //"9418ed86a5efcf34983d879ebf43f084" // 200
+            ;
+        static readonly string[] cheese = new string[]
+        {
+            "0553b266d7302e6449ebb9b2961e8d3e",
+            "f3d011ec0655b1e48a1fbfa5c9e3dfa5"
+        };
+
         protected void ColoniesPathfind(int level, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
         {
             var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
@@ -86,7 +99,99 @@ namespace ISILab.LBS.Tests.Pathfinding
                 (eval as Colonies).searchType = searchType;
                 (eval as Colonies).searchHeuristic = heuristic;
             })
-            .CleanUp(CleanUpMAPElitesTest)
+            .CleanUp(() =>
+            {
+                (evaluator as Colonies).searchHeuristic = PathfindingHeuristic.Chebyshev;
+                CleanUpMAPElitesTest();
+            })
+            .Run();
+        }
+        protected void UltraLabyrinthPathfind(PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
+        {
+            var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+            SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
+            SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
+
+            //int mapSize = Mathf.CeilToInt(level / 3f);
+
+            int c = 0;
+            Measure.Method(() =>
+            {
+                UnityEngine.Assertions.Assert.IsTrue((evaluator as Colonies).searchType == searchType);
+                UnityEngine.Assertions.Assert.IsTrue((evaluator as Colonies).searchHeuristic == heuristic);
+                double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
+                c++;
+                if (c <= WARM_UP_COUNT) return;
+                Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                Measure.Custom(meanExecutionTime, info.Average() * 1000);
+                Measure.Custom(measures, info.MeasureCount());
+            })
+            .WarmupCount(WARM_UP_COUNT)
+            .MeasurementCount(5)
+            .IterationsPerMeasurement(1)
+            .SetUp(() =>
+            {
+                GetLevel(ultraLabyrinth);
+                IRangedEvaluator eval = evaluator as IRangedEvaluator;
+                SetUpMAPElitesTest(ultraLabyrinth, dungeonPresetPath, eval, eval, eval, "", GetArea(4));
+                chromosome = GetChromosomeFromAssistant();
+                (eval as Colonies).searchType = searchType;
+                (eval as Colonies).searchHeuristic = heuristic;
+            })
+            .CleanUp(() =>
+            {
+                (evaluator as Colonies).searchHeuristic = PathfindingHeuristic.Chebyshev;
+                CleanUpMAPElitesTest();
+            })
+            .Run();
+        }
+
+        protected void CheesePathfind(int ind, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
+        {
+            var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
+            BundleTilemapChromosome chromosome = null;
+            SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
+            SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
+            SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
+
+            //int mapSize = Mathf.CeilToInt(level / 3f);
+            Vector2Int[] sizes = new Vector2Int[]
+            {
+                new Vector2Int(11, 11),
+                new Vector2Int(25, 23)
+            };
+
+            int c = 0;
+            Measure.Method(() =>
+            {
+                double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
+                c++;
+                if (c <= WARM_UP_COUNT) return;
+                Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                Measure.Custom(meanExecutionTime, info.Average() * 1000);
+                Measure.Custom(measures, info.MeasureCount());
+            })
+            .WarmupCount(WARM_UP_COUNT)
+            .MeasurementCount(5)
+            .IterationsPerMeasurement(1)
+            .SetUp(() =>
+            {
+                GetLevel(cheese[ind]);
+                IRangedEvaluator eval = evaluator as IRangedEvaluator;
+                SetUpMAPElitesTest(cheese[ind], dungeonPresetPath, eval, eval, eval, "", new Rect(Vector2.zero, sizes[ind]));
+                chromosome = GetChromosomeFromAssistant();
+                (eval as Colonies).searchType = searchType;
+                (eval as Colonies).searchHeuristic = heuristic;
+            })
+            .CleanUp(() =>
+            {
+                (evaluator as Colonies).searchHeuristic = PathfindingHeuristic.Chebyshev;
+                CleanUpMAPElitesTest();
+            })
             .Run();
         }
 
@@ -218,6 +323,13 @@ namespace ISILab.LBS.Tests.Pathfinding
 
             return new Rect(Vector2.zero, size);
         }
+
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_FloodFill() => UltraLabyrinthPathfind(FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_JPS() => UltraLabyrinthPathfind(JPS, Chebyshev); 
+        [Test, Performance, Timeout(timeout)] public void Cheese1_Chebyshev_FloodFill() => CheesePathfind(0, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Cheese1_Chebyshev_JPS() => CheesePathfind(0, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Cheese2_Chebyshev_FloodFill() => CheesePathfind(1, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Cheese2_Chebyshev_JPS() => CheesePathfind(1, JPS, Chebyshev);
 
         #region OLD TESTS
 
@@ -443,6 +555,23 @@ namespace ISILab.LBS.Tests.Pathfinding
         [Test, Performance, Timeout(timeout)] public void Level_J_Chebyshev_JPS() => ColoniesPathfind(10, JPS, Chebyshev);
         [Test, Performance, Timeout(timeout)] public void Level_K_Chebyshev_JPS() => ColoniesPathfind(11, JPS, Chebyshev);
         [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_JPS() => ColoniesPathfind(12, JPS, Chebyshev);
+    }
+
+    [TestFixture, Obsolete]
+    public class ChebyshevAStar : PathfindingBenchmarkReport
+    {
+        [Test, Performance, Timeout(timeout)] public void Level_A_Chebyshev_AStar() => ColoniesPathfind(1,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_B_Chebyshev_AStar() => ColoniesPathfind(2,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_C_Chebyshev_AStar() => ColoniesPathfind(3,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_D_Chebyshev_AStar() => ColoniesPathfind(4,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_E_Chebyshev_AStar() => ColoniesPathfind(5,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_F_Chebyshev_AStar() => ColoniesPathfind(6,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_G_Chebyshev_AStar() => ColoniesPathfind(7,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_H_Chebyshev_AStar() => ColoniesPathfind(8,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_I_Chebyshev_AStar() => ColoniesPathfind(9,  AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_J_Chebyshev_AStar() => ColoniesPathfind(10, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_K_Chebyshev_AStar() => ColoniesPathfind(11, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_AStar() => ColoniesPathfind(12, AStar, Chebyshev);
     }
 }
 

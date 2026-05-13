@@ -20,27 +20,27 @@ namespace ISILab.DevTools.Editor
             int blockSize = texSize / mapSize;
             char[,] map = new char[mapSize, mapSize];
             if (tex == null) return;
-            for(int i = 0; i < mapSize; i++)
+            for(int y = 0; y < mapSize; y++)
             {
-                for(int j = 0; j < mapSize; j++)
+                for(int x = 0; x < mapSize; x++)
                 {
                     int t = 0, f = 0;
-                    Color[] pixels = tex.GetPixels(i * blockSize, j * blockSize, blockSize, blockSize);
+                    Color[] pixels = tex.GetPixels(y * blockSize, x * blockSize, blockSize, blockSize);
                     foreach(Color pixel in pixels)
                     {
                         if (pixel == white)
                             t++;
                         else f++;
                     }
-                    map[i, j] = t < f ? '0' : '1';
+                    map[x, y] = t < f ? '0' : '1';
                 }
             }
             string l = "";
-            for(int i = 0; i < mapSize; i++)
+            for(int y = 0; y < mapSize; y++)
             {
-                for (int j = 0; j < mapSize; j++)
+                for (int x = 0; x < mapSize; x++)
                 {
-                    l += map[i, j];
+                    l += map[x, y];
                 }
                 l += "\n";
             }
