@@ -113,13 +113,13 @@ namespace ISILab.LBS.Manipulators
             {
                 if (picked is QuestGraphNodeView nodeView)
                 {
-                    Debug.Log("found: " + nodeView.Node.ID);
+                    //Debug.Log("found: " + nodeView.Node.ID);
                     return nodeView; 
                 }
 
                 picked = picked.parent;
             }
-            Debug.Log("NOT FOUND");
+           // Debug.Log("NOT FOUND");
             return null;
         }
     }

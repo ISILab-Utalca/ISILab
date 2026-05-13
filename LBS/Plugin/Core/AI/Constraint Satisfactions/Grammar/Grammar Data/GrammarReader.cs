@@ -2,10 +2,10 @@ using ISILab.AI.Grammar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Speech.Recognition;
 using System.Speech.Recognition.SrgsGrammar;
 using System.Xml;
 using UnityEditor;
+using UnityEditor.Compilation;
 using UnityEngine;
 
 public static class LBSGrammarReader
@@ -44,13 +44,15 @@ public static class LBSGrammarReader
 
             CreateRules(srgs, grammar);
             CreateTerminals(grammar);
-
-            // get terminals from original xml
-            ApplyTerminalFields(xml, grammar);
+            AddTerminalFields(xml, grammar);
+            GenerateMonobehaviors(grammar);
 
             EditorUtility.SetDirty(grammar);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+
+            // must recompile so the monobehaviors generated are recognized immeditely 
+            CompilationPipeline.RequestScriptCompilation();
         }
         catch (Exception ex)
         {
@@ -59,11 +61,11 @@ public static class LBSGrammarReader
         }
     }
 
-    private static XmlDocument LoadXml(string path)
+    private static void GenerateMonobehaviors(LBSGrammar grammar)
     {
-        var xml = new XmlDocument();
-        xml.Load(path);
-        return xml;
+        // auto generate quest trigger monobehaviors to apply on Quest Rule Generation
+        foreach (var terminal in grammar.LBSTerminals)
+            QuestScriptGenerator.Generate(terminal);
     }
 
     private static SrgsDocument ParseSrgs(XmlDocument xml)
@@ -205,7 +207,7 @@ public static class LBSGrammarReader
     
     #region Terminal Fields
 
-    private static void ApplyTerminalFields(XmlDocument xml, LBSGrammar grammar)
+    private static void AddTerminalFields(XmlDocument xml, LBSGrammar grammar)
     {
         var ns = new XmlNamespaceManager(xml.NameTable);
         ns.AddNamespace("g", "http://www.w3.org/2001/06/grammar");
