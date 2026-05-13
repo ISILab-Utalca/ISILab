@@ -131,12 +131,6 @@ namespace ISILab.LBS.Modules
         #region Action methods
         public void Reselect()
         {
-
-            // Print the address of the Assistant and the Graph it is using
-            int graphAddr = System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(this);
-
-            Debug.Log($"[Graph {graphAddr}] On Node selected");
-
             // delegeates related to the graph node selection
             OnNodeSelected?.Invoke(selectedNode);
 

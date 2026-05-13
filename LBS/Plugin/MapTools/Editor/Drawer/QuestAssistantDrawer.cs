@@ -84,8 +84,8 @@ namespace ISILab.LBS.Drawers.Editor
 
             bool assTabActive = LBSInspectorPanel.Instance.IsAssistantTabActive();
             bool isSelected = qa.OwnerLayer == LBSMainWindow.Instance._selectedLayer && assTabActive;
-            bool layerVisible = qa.OwnerLayer.IsVisible && assTabActive;
-            
+            bool layerVisible = qa.OwnerLayer.IsVisible && assTabActive && isSelected;
+
             // Refresh existing Nodes
             foreach (QuestNode suggestion in qa.Suggestions)
             {

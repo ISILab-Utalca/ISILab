@@ -1,10 +1,5 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
-using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
-using LBS.Components;
-using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 [UxmlElement]

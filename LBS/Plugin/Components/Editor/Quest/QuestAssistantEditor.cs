@@ -10,14 +10,13 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using LBS.Components;
-using LBS.VisualElements;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 using ISILab.LBS.Plugin.Core.Settings;
+using System.Linq;
 
 namespace ISILab.LBS.Editor
 {
@@ -101,6 +100,7 @@ namespace ISILab.LBS.Editor
 
         #region IAssistantThreadedEditor
         
+      
         public CancellationToken CancelToken { get; set; }
         public CancellationTokenSource CancellationTokenSource { get; set; }
         public ToolBarMain TaskBar { get; set; }
@@ -110,14 +110,16 @@ namespace ISILab.LBS.Editor
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
             {
-                if(_assistant.Suggestions == null || tempSuggestions == null) 
+                if( 
+                tempSuggestions == null || 
+                tempSuggestions.ToList().Count == 0) 
                 { 
                     LBSLog log = new LBSLog(
                         "No suggestions generated. Missing Layer Context", 
                         LogType.Error,
                         2);
                     LBSMainWindow.MessageNotify(log);
-                    
+                    TaskBar.EnableProcess(false);
                     return; 
                 }
 

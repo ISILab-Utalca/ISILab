@@ -1,14 +1,11 @@
 using ISILab.AI.Grammar;
 using ISILab.LBS.Behaviours;
-using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.VisualElements;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.Analytics.IAnalytic;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers.Editor
@@ -82,24 +79,25 @@ namespace ISILab.LBS.Drawers.Editor
             foreach (var tile in bh.RetrieveNewTiles())
             {
                 var field = tile as GrammarField;
-                if (field == null) return;
+                if (field == null) 
+                    return;
 
                 var displayMode = (field.data == bh.Graph.SelectedQuestData) ? DisplayStyle.Flex : DisplayStyle.None;
 
                 // already drawn no need to draw
                 var existing = view.GetElementsFromLayer(bh.OwnerLayer, field);
                 if (existing != null && existing.Count > 0)
-                { 
-                    Debug.Log("element for field " + field.name + " already exists, skipping");
                     continue; 
-                }
+                
 
                 var questNodeView = view.GetElementsFromLayer(bh.OwnerLayer, field.data.Node);
-                if (questNodeView == null && questNodeView.Count == 0) continue;
+                if (questNodeView == null && questNodeView.Count == 0) 
+                    continue;
 
                 // make graph element if its required
                 var visual = CreateGrammarGraphView(field, questNodeView.FirstOrDefault() as QuestNodeView);
-                if (visual == null) continue;
+                if (visual == null) 
+                    continue;
 
                 view.AddElementToLayerContainer(bh.OwnerLayer, field, visual);
                 visual.style.display = displayMode;
@@ -121,15 +119,18 @@ namespace ISILab.LBS.Drawers.Editor
 
         public override void HideVisuals(object target, MainView view)
         {
-            if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) return;
+            if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) 
+                return;
             foreach (var key in bh.Keys)
             {
                 var elements = view.GetElementsFromLayer(bh.OwnerLayer, key);
-                if (elements == null) continue;
+                if (elements == null) 
+                    continue;
 
                 foreach (var el in elements)
                 {
-                    if (el == null) continue;
+                    if (el == null) 
+                        continue;
                     el.style.display = DisplayStyle.None;
                 }
             }
@@ -140,20 +141,23 @@ namespace ISILab.LBS.Drawers.Editor
             HideVisuals(target, view);
 
             if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null
-                || bh.OwnerLayer != LBSMainWindow.Instance._selectedLayer) return;
+                || bh.OwnerLayer != LBSMainWindow.Instance._selectedLayer) 
+                return;
 
             foreach (var key in bh.Keys)
             {
                 var field = key as GrammarField;
                 var data = field?.data;
-                if (data != bh.SelectedNodeData) continue;
+                if (data != bh.SelectedNodeData) 
+                    continue;
 
                     var elements = view.GetElementsFromLayer(bh.OwnerLayer, key);
                 if (elements == null) continue;
 
                 foreach (var el in elements)
                 {
-                    if (el == null) continue;
+                    if (el == null) 
+                        continue;
                     el.style.display = DisplayStyle.Flex;
                 }
             }
