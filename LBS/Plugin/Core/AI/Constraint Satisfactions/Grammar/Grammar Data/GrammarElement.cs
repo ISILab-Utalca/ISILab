@@ -31,7 +31,7 @@ namespace ISILab.AI.Grammar
         public string iconGuid = string.Empty;
 
         [SerializeField]
-        public Color color;
+        public Color color = Color.white;
         [SerializeField]
         private VectorImage icon;
 

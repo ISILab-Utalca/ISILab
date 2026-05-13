@@ -5,12 +5,10 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.Drawers.Editor
@@ -158,11 +156,8 @@ namespace ISILab.LBS.Drawers.Editor
 
             var allElements = view.GetAllElementsInLayer(bh.OwnerLayer);
             foreach(var element in allElements)
-            {
-                //element.style.opacity = opacity;
                 element.SetEnabled(isSelected);
-                //DrawManager.Instance.ChangePickingMode(element, pickMode, new List<VisualElement>());
-            }
+            
 
 
         }

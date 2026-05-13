@@ -383,93 +383,26 @@ namespace PathOS
                     return NavmeshMapCode.NM_DNE;
             }
 
-            public void RayMemoryMap(Ray ray, float maxDistance, out NavmeshMemoryMapperCastHit hit, bool fillSeen = false, bool raycast = true)
-            {
-                if (raycast)
-                {
-                    RaycastMemoryMap(ray.origin, ray.direction, maxDistance, out hit, fillSeen);
-                }
-                else
-                {
-                    PointMemoryMap(ray, maxDistance, out hit, fillSeen);
-                }
-            }
-
-            public void PointMemoryMap(Ray ray, float maxDistance, out NavmeshMemoryMapperCastHit hit, bool fillSeen = false)
-            {
-                Vector3 point = ray.origin;
-
-                Vector3 d = ray.direction;
-                d.Normalize();
-
-                //What is our sampling distance?
-                //Depending on the angle between the direction and the grid lines,
-                //this will fluctuate - we effectively want to sample so 
-                //we'll hit in one-tile increments.
-                //This could be improved later to be less approximate and hit
-                //every tile the ray would cross.
-                float theta = Vector3.Angle(Vector3.forward, d);
-                theta = Mathf.Abs(theta);
-
-                //Debug.Log(string.Format("Theta: {0:0.000}", theta));
-
-                theta -= (int)(theta / 90.0f) * 90.0f;
-
-                if (theta > 45.0f)
-                    theta = 90.0f - theta;
-
-                //Debug.Log(string.Format("Clamped Theta: {0:0.000}", theta));
-
-                float sampleDistance = sampleGridSize.y / Mathf.Cos(Mathf.Deg2Rad * theta);
-                //Debug.Log(string.Format("Grid Size: {0:0.000}, Sampling distance: {1:0.000}", sampleGridSize, sampleDistance));
-
-                d = sampleDistance * d;
-
-                int numUnexplored = 0, totalSampled = 0;
-                float totalDistance = 0.0f;
-                int obstacleCount = 0;
-                NavmeshMapCode sample = NavmeshMapCode.NM_DNE;
-
-                for (int i = 1; (i * sampleDistance) < maxDistance && i < maxCastSamples; ++i)
-                {
-                    if((i+1) * sampleDistance > maxDistance)
-                    {
-                        sample = SampleMap(point);
-
-                        if (sample == NavmeshMapCode.NM_UNKNOWN)
-                            ++numUnexplored;
-                        else if (sample == NavmeshMapCode.NM_OBSTACLE)
-                            ++obstacleCount;
-                        //Stop if we reach the edge of the grid or we've crossed more than 
-                        //one obstacle tile (avoid mistaking corners for walls).
-                        else if (sample == NavmeshMapCode.NM_DNE || obstacleCount > 1)
-                            break;
-
-                        //Fill in sight information, if applicable.
-                        if (fillSeen)
-                            Fill(point, NavmeshMapCode.NM_SEEN);
-
-                        ++totalSampled;
-                    }
-                    
-                    point += d;
-
-                    totalDistance += sampleDistance;
-                }
-
-                hit.numUnexplored = numUnexplored;
-                hit.distance = totalDistance;
-                hit.portionUnexplored = (totalSampled > 0) ? (float)numUnexplored / (float)totalSampled : 0.0f;
-            }
-
-            // In-progress memory raycast.
-            // Right now the distance will be an estimation of the straight-line distance 
-            // traversable in that direction, and unexplored tiles will stop being counted
-            // if the ray samples from an obstacle tile.
+            /// <summary>
+            /// Performs a raycast through the memory-mapped navigation mesh, sampling along a specified direction and
+            /// distance, and returns information about the encountered tiles and obstacles.
+            /// </summary>
+            /// <remarks>The raycast samples the navigation mesh at regular intervals, stopping when
+            /// it reaches the edge of the grid, encounters more than one obstacle tile, or exceeds the specified
+            /// maximum distance. This method can be used to determine visibility or path obstruction in grid-based
+            /// navigation systems.</remarks>
+            /// <param name="origin">The starting point of the ray in world coordinates.</param>
+            /// <param name="dir">The normalized direction vector along which to cast the ray.</param>
+            /// <param name="maxDistance">The maximum distance, in world units, to cast the ray from the origin.</param>
+            /// <param name="hit">When this method returns, contains information about the raycast, including the number of unexplored
+            /// tiles, the total distance traversed, and the proportion of unexplored tiles encountered.</param>
+            /// <param name="fillSeen">If set to <see langword="true"/>, marks all sampled tiles along the ray as seen. The default is <see
+            /// langword="false"/>.</param>
+            /// <param name="point">If set to <see langword="true"/>, considers the raycast as a point sample. The default is <see langword="false"/>.</param>
             public void RaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
-                bool fillSeen = false)
+                bool fillSeen = false, bool point = false)
             {
-                Vector3 point = origin;
+                Vector3 samplePoint = origin;
                 Vector3 d = new Vector3(dir.x, dir.y, dir.z);
                 d.Normalize();
 
@@ -498,23 +431,27 @@ namespace PathOS
 
                 for (int i = 1; (i * sampleDistance) < maxDistance && i < maxCastSamples; ++i)
                 {
-                    sample = SampleMap(point);
+                    // If we're doing a point sample, we only want to sample at the end of the ray.
+                    if (!point || (i + 1) * sampleDistance > maxDistance)
+                    {
+                        sample = SampleMap(samplePoint);
 
-                    if (sample == NavmeshMapCode.NM_UNKNOWN)
-                        ++numUnexplored;
-                    else if (sample == NavmeshMapCode.NM_OBSTACLE)
-                        ++obstacleCount;
-                    //Stop if we reach the edge of the grid or we've crossed more than 
-                    //one obstacle tile (avoid mistaking corners for walls).
-                    else if (sample == NavmeshMapCode.NM_DNE || obstacleCount > 1)
-                        break;
+                        if (sample == NavmeshMapCode.NM_UNKNOWN)
+                            ++numUnexplored;
+                        else if (sample == NavmeshMapCode.NM_OBSTACLE)
+                            ++obstacleCount;
+                        // Stop if we reach the edge of the grid or we've crossed more than 
+                        // one obstacle tile (avoid mistaking corners for walls).
+                        else if (sample == NavmeshMapCode.NM_DNE || obstacleCount > 1)
+                            break;
 
-                    //Fill in sight information, if applicable.
-                    if (fillSeen)
-                        Fill(point, NavmeshMapCode.NM_SEEN);
+                        // Fill in sight information, if applicable.
+                        if (fillSeen)
+                            Fill(samplePoint, NavmeshMapCode.NM_SEEN);
 
-                    totalSampled++;
-                    point += d;
+                        totalSampled++;
+                    }
+                    samplePoint += d;
 
                     totalDistance += sampleDistance;
                 }
@@ -528,7 +465,7 @@ namespace PathOS
 
             public void Fill(Vector3 point, NavmeshMapCode code = NavmeshMapCode.NM_VISITED)
             {
-                //Calculate grid indices.
+                // Calculate grid indices.
                 int gridX = 0, gridY = 0, gridZ = 0;
                 GetGridCoords(point, ref gridX, ref gridY, ref gridZ);
 
@@ -541,7 +478,7 @@ namespace PathOS
                 NavmeshMapCode oldCode = default;
                 oldCode = visitedGrid[gridX, gridY, gridZ];
 
-                //Override based on priority of codes.
+                // Override based on priority of codes.
                 if (oldCode >= code)
                     return;
 
@@ -834,26 +771,42 @@ namespace PathOS
             return p;
         }
 
+
         // GABO: Determines if a given NavMesh agent can reach the specified target position.
         // Due to "GetClosestPointWalkable()" not calculating if a NavMesh agent is ACTUALLY able
         // to get to "p" beyond a limited "margin" (understandable since the original code always
         // expected a completely connected NavMesh) we create the needed auxiliary method.
+
+        /// <summary>
+        /// Determines whether the specified NavMesh agent can reach the given target position within a specified
+        /// margin.
+        /// </summary>
+        /// <remarks>This method first samples the NavMesh near the target position within the specified
+        /// margin, then checks if a complete path exists from the agent's current position to the sampled point. If the
+        /// target is not on the NavMesh or a valid path cannot be found, the method returns false. The result parameter
+        /// is updated with the closest valid position found on the NavMesh.</remarks>
+        /// <param name="agent">The NavMeshAgent instance used to calculate the path to the target position. Must be placed on a valid
+        /// NavMesh.</param>
+        /// <param name="target">The world-space position to reach. The method checks if this position is accessible by the agent.</param>
+        /// <param name="margin">The maximum distance, in world units, to search for a walkable position near the target. Must be
+        /// non-negative.</param>
+        /// <param name="result">When this method returns, contains the closest walkable position on the NavMesh to the target, if found.</param>
+        /// <returns>true if the agent can reach the target position with a complete path; otherwise, false.</returns>
         public static bool CanAgentReachTarget(NavMeshAgent agent, Vector3 target, float margin, ref Vector3 result)
         {
             // Get sampled position from NavMesh
+
             NavMeshHit hitResult = new NavMeshHit();
             bool found = NavMesh.SamplePosition(target, out hitResult, margin, NavMesh.AllAreas);
-            if (found)
-            {
-                result = hitResult.position;
-            }
-            else
+            if (!found)
             {
                 Debug.LogWarning("CanAgentReachTarget(): Target failed position sampling! Is target on the NavMesh?");
                 return false;
             }
+            result = hitResult.position;
 
             // Calculate if path between agent and sampled position exists
+
             NavMeshPath path = new NavMeshPath();
             if (agent.CalculatePath(result, path))
             {
@@ -862,22 +815,17 @@ namespace PathOS
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                // GABO TEMP FIX: For some reason, other agents baking their own meshes invalidates path calculation,
-                // so the warning is limited to single agent testing. It is not consistent with every test map either,
-                // like "PlusSign5Room", or not always at least.
-                if (Resources.FindObjectsOfTypeAll<PathOSAgent>().Length == 1)
-                {
-                    Debug.LogWarning("CanAgentReachTarget(): Invalid pathfinding! Is agent (and/or target) on the NavMesh?");
-                }
                 return false;
             }
+
+            // GABO TEMP FIX: For some reason, other agents baking their own meshes invalidates path calculation,
+            // so the warning is limited to single agent testing. It is not consistent with every test map either,
+            // like "PlusSign5Room", or not always at least.
+            if (Resources.FindObjectsOfTypeAll<PathOSAgent>().Length == 1)
+            {
+                Debug.LogWarning("CanAgentReachTarget(): Invalid pathfinding! Is agent (and/or target) on the NavMesh?");
+            }
+            return false;
         }
 
         // GABO: Gets agent type ID from name.

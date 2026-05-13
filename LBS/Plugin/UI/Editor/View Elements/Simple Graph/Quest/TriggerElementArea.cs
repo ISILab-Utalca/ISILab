@@ -57,7 +57,7 @@ namespace ISILab.LBS.VisualElements
         private VisualElement targetIcon;
         private readonly VisualElement cornerTargetIcon;
 
-        public TriggerElementArea(QuestNodeData nodeData, GrammarArea grammarArea, QuestNodeView nodeView,
+        public TriggerElementArea(GrammarArea grammarArea, QuestNodeView nodeView,
             bool centerTarget = true)
         {
 
@@ -70,7 +70,7 @@ namespace ISILab.LBS.VisualElements
 
             _isCenter = centerTarget;
             _areaField = grammarArea;
-            _nodeData = nodeData;
+            _nodeData = _areaField.data;
             ActionExtensions.AddUnique(ref _areaField.data.OnDataChanged, UpdateData);
 
             var terminal = _nodeData.Terminal;

@@ -5,6 +5,7 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
@@ -144,9 +145,38 @@ namespace ISILab.LBS.Components
         {
             Debug.LogWarning("Resize not implemented for " + GetType().Name);
         }
-        public void SetDataByTiles(List<LBSLayer> layers, List<TileBundleGroup> tiles)
+        public void ApplyTilesToData(QuestCandidate data)
         {
-            Debug.LogWarning("SetDataByTiles not implemented for " + GetType().Name);
+            // assign tiles to any fields that implement IBundleFlags
+            foreach (var field in fields) 
+            {
+                if (this is IBundleFlags IBundleFlag)
+                {
+                    foreach (var tile in data.Tiles)
+                    {
+                        var bundle = tile.BundleData.Bundle;
+                        if (IBundleFlag.HasAnyFlag(bundle))
+                        {
+                            var bt = new BundleTargetGraph(data.ContextLayer, tile);
+                            field.SetValue(bt);
+
+                        }
+                    }
+                }
+            }
+
+            // set the area size to contain all bundles in the layer
+            var bundleTargetFields = GetFields<GrammarBundleGraph>();
+            List<BundleTargetGraph> bundleTargets = new();
+            foreach (var field in bundleTargetFields)
+            {
+                if(field.GetValue() is BundleTargetGraph btg) 
+                {
+                    bundleTargets.Add(btg);
+                }
+            }
+
+            ResizeToFitBundles(bundleTargets);
         }
 
         protected void ResizeToFitBundles(IEnumerable<BundleTargetGraph> bundles)
@@ -168,6 +198,7 @@ namespace ISILab.LBS.Components
 
             _areaField.SetValue(new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height)));
         }
+
         public List<T> GetFields<T>() where T : GrammarField
         {
             var result = fields.OfType<T>().ToList();

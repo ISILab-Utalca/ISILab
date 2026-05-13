@@ -1,10 +1,8 @@
 using UnityEngine.UIElements;
-
-using System;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
-using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -39,18 +37,25 @@ namespace ISILab.LBS.VisualElements.Editor
             _goToButton = this.Q<Button>("GoToButton");
             _applyButton = this.Q<Button>("ApplyButton");
             _discardButton = this.Q<Button>("DiscardButton");
-            _discardButton.clicked += () => _generatedQuestNode.Graph.OnRemoveSuggestion?.Invoke(_generatedQuestNode);
-            _applyButton.clicked += () =>
-            {
-                _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
-                _generatedQuestNode.Graph.OnRemoveSuggestion?.Invoke(_generatedQuestNode);
-            };
-            _goToButton.clicked += () =>
-            {
-                var graphPos =_generatedQuestNode.Graph.OwnerLayer.FixedToPosition(_generatedQuestNode.NodePosition.position.ToInt(), true);
-                _generatedQuestNode.Graph.GoToNodeInGraph(graphPos.ToInt());
-            };
+            
+            _discardButton.clicked += RemoveSuggestion;
+            _applyButton.clicked += AddSuggestionToGraph;
+            _goToButton.clicked += GoToNode;
 
+        }
+
+        private void RemoveSuggestion() => _generatedQuestNode.Graph.OwnerLayer.GetAssistant<QuestAssistant>().OnSuggestionRemoved?.Invoke(_generatedQuestNode);
+
+        private void AddSuggestionToGraph()
+        {
+            _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
+            RemoveSuggestion();
+        }
+
+        private void GoToNode()
+        {
+            var graphPos = _generatedQuestNode.Graph.OwnerLayer.FixedToPosition(_generatedQuestNode.NodePosition.position.ToInt(), true);
+            _generatedQuestNode.Graph.GoToNodeInGraph(graphPos.ToInt());
         }
 
         public void UpdateData(QuestNode genNode)

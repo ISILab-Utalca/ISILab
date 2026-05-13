@@ -53,7 +53,9 @@ namespace PathOS
         {EntityType.ET_HAZARD_ENEMY_BOSS, "hazard_enemy_boss" },
         {EntityType.ET_HAZARD_ENVIRONMENT, "hazard_environment" },
         {EntityType.ET_POI, "poi_environment" },
-        {EntityType.ET_POI_NPC, "poi_npc" }
+        {EntityType.ET_POI_NPC, "poi_npc" },
+        {EntityType.ET_STAIR_UP, "stair_up" },
+        {EntityType.ET_STAIR_DOWN, "stair_down" }
     };
 
 
@@ -73,7 +75,9 @@ namespace PathOS
         {EntityType.ET_HAZARD_ENEMY_BOSS, "Enemy Hazard Boss" },
         {EntityType.ET_HAZARD_ENVIRONMENT, "Environmental Hazard" },
         {EntityType.ET_POI, "Point-of-Interest (e.g., setpiece)" },
-        {EntityType.ET_POI_NPC, "NPC (non-hostile)" }
+        {EntityType.ET_POI_NPC, "NPC (non-hostile)" },
+        {EntityType.ET_STAIR_UP, "Stair going up" },
+        {EntityType.ET_STAIR_DOWN, "Stair going down" }
     };
 
         private float simulationTimer = 0.0f;

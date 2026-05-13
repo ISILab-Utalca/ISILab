@@ -1,10 +1,13 @@
+using ISILab.LBS.Plugin.Components.Bundles;
 using System;
+using UnityEngine;
 
 namespace ISILab.AI.Grammar
 {
     [Serializable]
     public abstract class GrammarField<T> : GrammarField
     {
+
         public T value;
 
         public override object Clone()
@@ -48,5 +51,7 @@ namespace ISILab.AI.Grammar
         }
 
         public override object GetValue() => value;
+
+
     }
 }
