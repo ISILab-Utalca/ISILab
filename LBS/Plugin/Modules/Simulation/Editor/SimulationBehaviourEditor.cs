@@ -42,8 +42,8 @@ namespace ISILab.LBS.VisualElements
         // Visual Element
         VisualElement warning;
         VisualElement mappingContent;
-        LBSCustomObjectField lowTagField;
-        LBSCustomObjectField highTagField;
+        LBSCustomObjectField upStairTagField;
+        LBSCustomObjectField downStairTagField;
 
         Toggle autoMapToggle;
 
@@ -52,6 +52,7 @@ namespace ISILab.LBS.VisualElements
 
         List<LBSLayer> interiorLayers = new List<LBSLayer>();
         Dictionary<string, List<LBSTile>> interiorTiles = new Dictionary<string, List<LBSTile>>();
+        List<LBSStair> interiorStairs = new List<LBSStair>();
         #endregion
 
         #region PROPERTIES
@@ -82,9 +83,7 @@ namespace ISILab.LBS.VisualElements
 
             interiorTiles.Add(SchemaBehaviour.Door, new List<LBSTile>());
             interiorTiles.Add(SchemaBehaviour.LockedDoor, new List<LBSTile>());
-            interiorTiles.Add(SchemaBehaviour.LowStair, new List<LBSTile>());
-            interiorTiles.Add(SchemaBehaviour.HighStair, new List<LBSTile>());
-
+            interiorStairs = new List<LBSStair>();
             CreateVisualElement();
             MapToCurrentPopulation(behaviour.OwnerLayer.ActiveFloor);
         }
@@ -125,48 +124,48 @@ namespace ISILab.LBS.VisualElements
 
 
             // Low Stair Tag field
-            lowTagField = new LBSCustomObjectField
+            upStairTagField = new LBSCustomObjectField
             {
-                name = "LowStairTagField",
-                label = "Low Stair Tag",
+                name = "UpStairTagField",
+                label = "Up Stair Tag",
                 objectType = typeof(LBSTag)
             };
-            lowTagField.style.marginTop = 4;
+            upStairTagField.style.marginTop = 4;
             // Initialize with current value if available
             if (behaviour != null)
-                lowTagField.SetValueWithoutNotify(behaviour.lowStairTag);
+                upStairTagField.SetValueWithoutNotify(behaviour.upStairTag);
             // Register callback for value changes
-            lowTagField.RegisterValueChangedCallback(evt =>
+            upStairTagField.RegisterValueChangedCallback(evt =>
             {
-                behaviour.lowStairTag = evt.newValue as LBSTag;
+                behaviour.upStairTag = evt.newValue as LBSTag;
                 var level = LBSController.CurrentLevel;
                 if (level != null)
                     EditorUtility.SetDirty(level);
             });
             // Add to mapping content container
-            mappingContent.Add(lowTagField);
+            mappingContent.Add(upStairTagField);
             // -----------------------------------------------
             // High Stair Tag field
-            highTagField = new LBSCustomObjectField
+            downStairTagField = new LBSCustomObjectField
             {
-                name = "HighStairTagField",
-                label = "High Stair Tag",
+                name = "DownStairTagField",
+                label = "Down Stair Tag",
                 objectType = typeof(LBSTag)
             };
-            highTagField.style.marginTop = 4;
+            downStairTagField.style.marginTop = 4;
             // Initialize with current value if available
             if (behaviour != null)
-                highTagField.SetValueWithoutNotify(behaviour.highStairTag);
+                downStairTagField.SetValueWithoutNotify(behaviour.downStairTag);
             // Register callback for value changes
-            highTagField.RegisterValueChangedCallback(evt =>
+            downStairTagField.RegisterValueChangedCallback(evt =>
             {
-                behaviour.highStairTag = evt.newValue as LBSTag;
+                behaviour.downStairTag = evt.newValue as LBSTag;
                 var level = LBSController.CurrentLevel;
                 if (level != null)
                     EditorUtility.SetDirty(level);
             });
             // Add to mapping content container
-            mappingContent.Add(highTagField);
+            mappingContent.Add(downStairTagField);
 
 
 
@@ -340,8 +339,7 @@ namespace ISILab.LBS.VisualElements
         {
             interiorTiles[SchemaBehaviour.Door].Clear();
             interiorTiles[SchemaBehaviour.LockedDoor].Clear();
-            interiorTiles[SchemaBehaviour.LowStair].Clear();
-            interiorTiles[SchemaBehaviour.HighStair].Clear();
+            interiorStairs.Clear();
             GetInteriorLayers();
             if (interiorLayers.Count > 0)
                 GetInteriorTiles(floor);
@@ -367,8 +365,7 @@ namespace ISILab.LBS.VisualElements
                 foreach (LBSStair stair in interiorLayer.GetModule<StairsModule>("", floor).Stairs)
                 {
                     if (stair.Direction < 0) continue;
-                    interiorTiles[SchemaBehaviour.LowStair].Add(new LBSTile(stair.Positions[0]));
-                    interiorTiles[SchemaBehaviour.HighStair].Add(new LBSTile(stair.Positions[stair.Positions.Count - 1]));
+                    interiorStairs.Add(stair);
                 }
             }
         }
@@ -386,7 +383,9 @@ namespace ISILab.LBS.VisualElements
 
             EditorGUI.BeginChangeCheck();
 
-            behaviour.MapToPopulation(populationGroups, interiorTiles[SchemaBehaviour.Door], interiorTiles[SchemaBehaviour.LockedDoor], interiorTiles[SchemaBehaviour.LowStair], interiorTiles[SchemaBehaviour.HighStair]);
+            behaviour.MapToPopulation(populationGroups, 
+                interiorTiles[SchemaBehaviour.Door], interiorTiles[SchemaBehaviour.LockedDoor], 
+                interiorStairs);
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(level);

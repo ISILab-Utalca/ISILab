@@ -130,8 +130,8 @@ namespace PathOS
 
         internal void RouteDestination(PathOSAgent agent)
         {
-            agent.navAgent.SetDestination(currentDest.pos);
             pathResolved = false;
+            agent.navAgent.SetDestination(currentDest.pos);
         }
 
     }

@@ -123,12 +123,12 @@ namespace PathOS
 
             agent.visitThresholdSqr = agent.tuning.visitThreshold * agent.tuning.visitThreshold;
 
-            agent.memoryState.forgetTime = Mathf.Lerp(
+            agent.STMemoryState.forgetTime = Mathf.Lerp(
                 Constants.Memory.FORGET_TIME_MIN,
                 Constants.Memory.FORGET_TIME_MAX,
                 exp);
 
-            agent.memoryState.stmSize = Mathf.RoundToInt(Mathf.Lerp(
+            agent.STMemoryState.stmSize = Mathf.RoundToInt(Mathf.Lerp(
                 Constants.Memory.MEM_CAPACITY_MIN,
                 Constants.Memory.MEM_CAPACITY_MAX,
                 exp));
@@ -142,7 +142,7 @@ namespace PathOS
                 (GetHeuristicValue(Heuristic.CAUTION) +
                  1f - GetHeuristicValue(Heuristic.CURIOSITY)) * 0.5f;
 
-            agent.memoryState.memPathChance = Mathf.Lerp(
+            agent.STMemoryState.memPathChance = Mathf.Lerp(
                 Constants.Behaviour.MEMORY_NAV_CHANCE_MIN,
                 Constants.Behaviour.MEMORY_NAV_CHANCE_MAX,
                 memPathScale);
