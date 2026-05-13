@@ -78,21 +78,27 @@
 	</terminal>
 	
 	<terminal id="listen">
-		<field type="ref" name="Object to listen"/>
+		<field type="tile" name="Object to listen"/>
 	</terminal>
 	
 	<terminal id="read">
-		<field type="ref" name="Object to read"/>
+		<field type="tile" name="Object to read"/>
 	</terminal>
 	
 	<terminal id="give">
-		<field type="ref" name="Type to give" />
+		<field type="tile" name="Object to give" />
+		<field type="type" name="Object to receive"/>
+	</terminal>
+
+	<terminal id="exchange">
+		<field type="type" name="Type to give" />
 		<field type="int" name="Amount to give" />
-		<field type="ref" name="Object to receive"/>
+		<field type="type" name="Type to receive"/>
+		<field type="int" name="Amount to receive" />
 	</terminal>
 
 	<terminal id="gather">
-		<field type="refType" name="Item Type" />
+		<field type="type" name="Item Type" />
 		<field type="int" name="Required amount" />
 	</terminal>
 	
@@ -103,7 +109,7 @@
 	</terminal>
 
 	<terminal id="kill">
-		<field type="refType" name="Type to kill" />
+		<field type="type" name="Type to kill" />
 		<field type="int" name="Required kills" />
 	</terminal>
 	
@@ -113,16 +119,16 @@
 	</terminal>
 
 	<terminal id="take">
-		<field type="ref" name="Object to take"/>
+		<field type="tile" name="Object to take"/>
 	</terminal>
 
 	<terminal id="spy">
 		<field type="int" name="Min distance"/>
-		<field type="ref" name="POI to spy"/>
+		<field type="tile" name="POI to spy"/>
 	</terminal>
 
 	<terminal id="report">
-		<field type="ref" name="POI to report to"/>
+		<field type="tile" name="POI to report to"/>
 	</terminal>
 	
 </grammar>

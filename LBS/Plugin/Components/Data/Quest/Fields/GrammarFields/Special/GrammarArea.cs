@@ -16,4 +16,5 @@ namespace ISILab.AI.Grammar
     {
         public override Type PrimitiveType => typeof(GrammarArea);
     }
+
 }

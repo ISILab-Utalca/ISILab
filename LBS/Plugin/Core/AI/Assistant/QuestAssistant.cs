@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using ISILab.Commons.Extensions;
+using ISILab.AI.Grammar;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.Components.Bundles;
+using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -15,141 +15,48 @@ using Random = UnityEngine.Random;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
-    #region TILE BUNDLE GROUP TO ACTION WRAPPER
+
     /// <summary>
-    /// Stores a tile of bundles to a string that can be applied on them
+    /// Represents a potential quest configuration mapping a <see cref="GrammarTerminal"/> 
+    /// to compatible world entities (<see cref="TileBundleGroup"/>).
     /// </summary>
-    public readonly struct TileBundleToAction : IEquatable<TileBundleToAction>
+    public class QuestCandidate : IEquatable<QuestCandidate>
     {
+        public LBSLayer ContextLayer { get; }
         public List<TileBundleGroup> Tiles { get; }
-        public string Action { get; }
+        public GrammarTerminal Terminal { get; }
 
-        public TileBundleToAction(List<TileBundleGroup> tiles, string action)
+        public QuestCandidate(LBSLayer layer, GrammarTerminal terminal, List<TileBundleGroup> targets = null)
         {
-            Tiles = tiles ?? new List<TileBundleGroup>();
-            Action = action ?? string.Empty;
+            ContextLayer = layer;
+            Terminal = terminal;
+            Tiles = targets ?? new List<TileBundleGroup>();
         }
 
-        public bool Equals(TileBundleToAction other)
+        public bool Equals(QuestCandidate other)
         {
-            if (Action == other.Action) return true;
-            if (Tiles == null && other.Tiles == null) return true;
-            
-            return false;
+            if (other == null) return false;
+            // Equality is based on the Action and the Context; targets are the variable data.
+            return Terminal == other.Terminal && ContextLayer == other.ContextLayer;
         }
 
-        public override bool Equals(object obj) => obj is TileBundleToAction other && Equals(other);
-
-        public override int GetHashCode() => HashCode.Combine(Tiles, Action);
+        public override int GetHashCode() => HashCode.Combine(Terminal, ContextLayer);
     }
-    #endregion
-    
-    #region ACTION INFO (Action and RequiredTags)
-    /// <summary>
-    /// Represents an action with a name and required tags.
-    /// </summary>
-    public struct ActionInfo
-    {
-        public string Action { get; }
-        public List<string> RequiredLBSTags { get; }
-
-        public ActionInfo(string action, List<string> requiredTags = null)
-        {
-            Action = action;
-            RequiredLBSTags = requiredTags ?? new List<string>();
-        }
-    }
-
-    /// <summary>
-    /// Represents a combination of population types for action mapping.
-    /// </summary>
-    public readonly struct ElementFlagToAction : IEquatable<ElementFlagToAction>
-    {
-        public readonly List<Bundle.EElementFlag> Types;
-
-        public ElementFlagToAction(IEnumerable<Bundle.EElementFlag> types)
-        {
-            Types = types.OrderBy(t => (int)t).ToList();
-        }
-
-        public bool Equals(ElementFlagToAction other) =>
-            Types.Count == other.Types.Count && Types.SequenceEqual(other.Types);
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 0;
-                foreach (var t in Types)
-                    hash += t.GetHashCode();
-                return hash;
-            }
-        }
-    }
-    #endregion
-
-    #region ACTION DEFINITIONS
-    /// <summary>
-    /// Defines valid actions for combinations of population types.
-    /// </summary>
-    public static class ElementActionDictionary
-    {
-        public static readonly Dictionary<ElementFlagToAction, List<ActionInfo>> Definitions = new()
-        {
-            {
-                new ElementFlagToAction(new[] { Bundle.EElementFlag.Character }),
-                new List<ActionInfo>
-                {
-                    new ActionInfo("stealth"),
-                    new ActionInfo("spy")
-                }
-            },
-            {
-                new ElementFlagToAction(new[] { Bundle.EElementFlag.Enemy }),
-                new List<ActionInfo>
-                {
-                    new ActionInfo("kill"),
-                    new ActionInfo("capture")
-                }
-            },
-            {
-                new ElementFlagToAction(new[] { Bundle.EElementFlag.Ally }),
-                new List<ActionInfo>
-                {
-                    new ActionInfo("listen"),
-                    new ActionInfo("report")
-                }
-            },
-            {
-                new ElementFlagToAction(new[] { Bundle.EElementFlag.Item }),
-                new List<ActionInfo>
-                {
-                    new ActionInfo("gather"), 
-                    new ActionInfo("take"),
-                    new ActionInfo("read")
-                }
-            },
-            {
-                new ElementFlagToAction(new[] { Bundle.EElementFlag.Ally, Bundle.EElementFlag.Item }),
-                new List<ActionInfo>
-                {
-                    new ActionInfo("give"), 
-                    new ActionInfo("exchange")
-                }
-            }
-        };
-    }
-    #endregion
 
     [Serializable]
     [RequieredModule(typeof(QuestGraph))]
     public class QuestAssistant : LBSAssistant
     {
+        #region CONSTS
+        private const float listAssignPercent = 0.5f;
+        private readonly Vector2Int _positionOverlapOffset = new(25, 50);
+        #endregion
+
         #region FIELDS
-        
+
         [SerializeField]
         private uint suggestionAmount = 3;
-        private Vector2Int _positionOverlapOffset = new(25, 50);
+
 
         [SerializeField]
         private List<QuestNode> suggestions = new();
@@ -180,6 +87,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         #endregion
 
+        #region ACTIONS
+
+        public Action<QuestNode> OnSuggestionAdded;
+        public Action<QuestNode> OnSuggestionRemoved;
+
+
+        #endregion
+
+
         #region CONSTRUCTORS
         public QuestAssistant() : base(null, null, Color.black) { }
 
@@ -189,6 +105,29 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         #region PUBLIC METHODS
         public override object Clone() => new QuestAssistant(IconGuid, Name, ColorTint);
+
+        public override void OnAttachLayer(LBSLayer layer)
+        {
+            base.OnAttachLayer(layer);
+
+            OnSuggestionAdded += (suggestion) =>
+            {
+                if (suggestion == null) 
+                    return;
+                Suggestions.Add(suggestion);
+                RequestTilePaint(suggestion);
+            };
+
+            OnSuggestionRemoved += (suggestion) =>
+            {
+                if (suggestion == null)
+                    return;
+
+                Suggestions.Remove(suggestion);
+                RequestTileRemove(suggestion);
+            };
+
+        }
 
         public override void OnGUI() { }
 
@@ -211,11 +150,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             for (int i = 1; i < count - 1; i++)
             {
                 var nextActions = grammarAssistant.GetAllValidNextActionsInsert(currentNode.TerminalID);
-                if (!nextActions.Any()) break;
+                if (!nextActions.Any()) 
+                    break;
 
                 var newAction = nextActions[Random.Range(0, nextActions.Count)];
                 currentNode = QuestGraph.AddNewQuestNode(newAction, Vector2.zero);
             }
+
+            
         }
 
         /// <summary>
@@ -230,200 +172,149 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         /// <summary>
-        /// Generates suggestion nodes based on population data from context layers.
+        /// Step 1: Scans the world population to find all possible quests that could exist.
+        /// This runs in a background thread.
         /// </summary>
-        public  List<TileBundleToAction> GenerateSuggestions(int suggestionsCount, Action<float> onProgress = null, CancellationToken token = default)
+        public List<QuestCandidate> GenerateCandidates(int count, Action<float> onProgress, CancellationToken token = default)
         {
-            return GenerateSuggestionList(suggestionsCount, onProgress, token);
+            var candidates = new HashSet<QuestCandidate>();
+            var rng = new System.Random();
+
+            foreach (var layer in Data.ContextLayers)
+            {
+                if (token.IsCancellationRequested) break;
+
+                var population = layer.GetBehaviour<PopulationBehaviour>();
+                if (population == null) continue;
+
+                for (int i = 0; i < count; i++)
+                {
+                    if (token.IsCancellationRequested) break;
+
+                    var candidate = FindQuestSuggestion(population, rng);
+                    if (candidate != null) candidates.Add(candidate);
+
+                    onProgress?.Invoke((float)i / count);
+                }
+            }
+            return candidates.ToList();
         }
 
         #endregion
 
-        #region PRIVATE METHODS
-        /// <summary>
-        /// Generates a list of suggestions from population layers.
-        /// </summary>
-        private List<TileBundleToAction> GenerateSuggestionList(int suggestionsCount,  Action<float> onProgress,  CancellationToken token = default)
-        {
-            HashSet<TileBundleToAction> suggestionList = new HashSet<TileBundleToAction>();
-            foreach (var contextLayer in Data.ContextLayers)
-            {
-                if (token.IsCancellationRequested) return suggestionList.ToList();
-                var populationLayer = contextLayer.GetBehaviour<PopulationBehaviour>();
-                if (populationLayer == null) continue;
-                for (int index = 0; index < suggestionsCount; index++)
-                {
-                    if (token.IsCancellationRequested) return suggestionList.ToList();
-                    var newSuggestion = SuggestActionFromPopulation(populationLayer);
-                    suggestionList.Add(newSuggestion);
-                    onProgress?.Invoke((float)index/suggestionList.Count);
-                }
-     
-            }
-            
-            return suggestionList.ToList();
-        }
+
 
         /// <summary>
-        /// Creates suggestion nodes in the quest graph using the suggestion list.
+        /// Step 2: Converts the raw Candidates into actual Graph Nodes on the Main Thread.
         /// </summary>
-        public  List<QuestNode> CreateNewSuggestions(List<TileBundleToAction> suggestions, Action<float> onProgress = null, CancellationToken token = default)
+        public List<QuestNode> GetSuggestions(List<QuestCandidate> candidates, Action<float> onProgress = null, CancellationToken token = default)
         {
-            List<QuestNode> Suggestions = new List<QuestNode>();
-            Suggestions.Clear();
-            if(!suggestions.Any()) return Suggestions;
-            
-            List<Vector2> existingPositions = new();
-            suggestions = suggestions.Distinct().ToList();
-            for (var index = 0; index < suggestions.Count; index++)
+            var realizedNodes = new List<QuestNode>();
+            var occupiedPositions = new List<Vector2>();
+
+            for (int i = 0; i < candidates.Count; i++)
             {
-                if(token.IsCancellationRequested) return Suggestions;
-                var entry = suggestions[index];
-                var newNode = QuestGraph.CreateSuggestionNode(entry.Action, Suggestions);
-                var nodeData = newNode.Data;
+                if (token.IsCancellationRequested) break;
 
-                entry.Tiles.Shuffle();
-                nodeData.SetDataByTiles(Data.ContextLayers, entry.Tiles);
-                nodeData.Resize();
+                var candidate = candidates[i];
+                var newNode = Graph.GetNodeSuggestion(candidate.Terminal.id, realizedNodes);
 
-                // trigger position is used to draw the suggestion element area
-                var triggerPos = nodeData.Area.value.position;
-                // to move the capsule within the suggestion element area
-                Vector2Int offsetPosition = Vector2Int.zero;
+                // Map the world data to the quest fields
+                newNode.Data.ApplyTilesToData(candidate);
 
-                while (existingPositions.Contains(triggerPos))
-                {
-                    triggerPos += _positionOverlapOffset;
-                    offsetPosition += _positionOverlapOffset;
-                }
+                // Layout Logic
+                PositionNodeWithoutOverlap(newNode, occupiedPositions);
 
-                existingPositions.Add(triggerPos);
-                newNode.Position = offsetPosition;
-                Suggestions.Add(newNode);
-                
-                onProgress?.Invoke((float)index/suggestions.Count);
+                realizedNodes.Add(newNode);
+                onProgress?.Invoke((float)i / candidates.Count);
             }
-            
-            return Suggestions;
+
+            return realizedNodes;
         }
 
-        private List<KeyValuePair<ElementFlagToAction, HashSet<TileBundleGroup>>> GetValidGroups(PopulationBehaviour populationLayer)
+        #region PRIVATE SOLVER
+
+        private QuestCandidate FindQuestSuggestion(PopulationBehaviour population, System.Random rng)
         {
-            var groups = GroupTilesByPopulationType(populationLayer);
-            return groups.Where(g => g.Value.Any()).ToList();
+            var validOptions = FindValidTerminalMappings(population, rng);
+            if (validOptions == null || validOptions.Count == 0) return null;
+
+            return validOptions.ElementAt(rng.Next(validOptions.Count));
         }
 
-        /// <summary>
-        /// Maps tileGroups to their valid actions based on population type combination.
-        /// </summary>
-        private Dictionary<TileBundleGroup, HashSet<string>> MapTilesToActions(HashSet<TileBundleGroup> tileGroups, ElementFlagToAction combo)
+        private HashSet<QuestCandidate> FindValidTerminalMappings(PopulationBehaviour population, System.Random rng)
         {
-            var tilesToActions = new Dictionary<TileBundleGroup, HashSet<string>>();
-            foreach (var tileGroup in tileGroups)
+            var possibleMappings = new HashSet<QuestCandidate>();
+            var grammar = Graph.Grammar;
+
+            foreach (var terminal in grammar.LBSTerminals)
             {
-                var validActions = GetActionsByTileGroup(tileGroup, combo);
-                if (validActions.Any())
+                foreach (var field in terminal.fields)
                 {
-                    tilesToActions[tileGroup] = new HashSet<string>(validActions);
-                }
-            }
-            return tilesToActions;
-        }
+                    if (field is not IBundleFlags filter) continue;
 
-        /// <summary>
-        /// Groups tiles by population type combinations.
-        /// </summary>
-        private Dictionary<ElementFlagToAction, HashSet<TileBundleGroup>> GroupTilesByPopulationType(PopulationBehaviour populationLayer)
-        {
-            var dictionary = ElementActionDictionary.Definitions.Keys
-                .ToDictionary(entryDef => entryDef, _ => new HashSet<TileBundleGroup>());
+                    var matches = population.TileBundleGroup
+                        .Where(tbg => filter.HasAnyFlag(tbg.BundleData.Bundle))
+                        .ToList();
 
-            foreach (var tile in populationLayer.TileBundleGroup)
-            {
-                var flag = tile.BundleData.Bundle.ElementFlag;
-                foreach (ElementFlagToAction flagToAction in dictionary.Keys)
-                {
-                    if (flagToAction.Types.Contains(flag))
-                        dictionary[flagToAction].Add(tile);
+                    if (matches.Count == 0) continue;
+
+                    var candidate = new QuestCandidate(population.OwnerLayer, terminal);
+
+                    if (field.IsList)
+                    {
+                        PopulateListField(field, candidate, matches, population.OwnerLayer, rng);
+                    }
+                    else
+                    {
+                        PopulateSingleField(field, candidate, matches, population.OwnerLayer, rng);
+                    }
+
+                    possibleMappings.Add(candidate);
                 }
             }
-            return dictionary;
+            return possibleMappings;
         }
 
-        /// <summary>
-        /// Gets valid actions for a tile based on the population type combination.
-        /// </summary>
-        private List<string> GetActionsByTileGroup(TileBundleGroup tile, ElementFlagToAction combo)
+        private void PopulateSingleField(GrammarField field, QuestCandidate candidate, List<TileBundleGroup> options, LBSLayer layer, System.Random rng)
         {
-            if (!ElementActionDictionary.Definitions.TryGetValue(combo, out var actions))
-                return new List<string>();
-
-            var validActionNames = new List<string>();
-            foreach (var action in actions)
-            {
-                if (action.RequiredLBSTags.All(tag => tile.BundleData.Bundle.GetHasTagCharacteristic(tag)))
-                {
-                    validActionNames.Add(action.Action);
-                }
-            }
-            return validActionNames;
+            var choice = options[rng.Next(options.Count)];
+            candidate.Tiles.Add(choice);
+            field.SetValue(new BundleTargetGraph(layer, choice));
         }
 
-        private TileBundleToAction SuggestActionFromPopulation(PopulationBehaviour populationLayer)
+        private void PopulateListField(GrammarField field, QuestCandidate candidate, List<TileBundleGroup> options, LBSLayer layer, System.Random rng)
         {
-            var validGroups = GetValidGroups(populationLayer);
-            if (!validGroups.Any())
-                return new TileBundleToAction(new List<TileBundleGroup>(), string.Empty);
+            int requiredCount = Mathf.CeilToInt(options.Count * listAssignPercent);
 
-            var rnd = new System.Random();
-
-            // Pick a random index safely in background thread
-            var chosenGroup = validGroups[rnd.Next(0, validGroups.Count)];
-            var chosenTiles = chosenGroup.Value;
-
-            // Map tiles to valid actions
-            var tilesToActions = MapTilesToActions(chosenTiles, chosenGroup.Key);
-            if (!tilesToActions.Any())
-                return new TileBundleToAction(new List<TileBundleGroup>(), string.Empty);
-
-            return GetActionByTileGroup(tilesToActions, rnd);
-}
-
-        private TileBundleToAction GetActionByTileGroup(Dictionary<TileBundleGroup, HashSet<string>> tilesToActions, System.Random rnd)
-        {
-            if (!tilesToActions.Any())
-                return new TileBundleToAction(new List<TileBundleGroup>(), string.Empty);
-
-            // Shuffle dictionary keys to avoid consistent order
-            var shuffledKeys = tilesToActions.Keys.OrderBy(_ => rnd.Next()).ToList();
-
-            var commonActions = new HashSet<string>(tilesToActions[shuffledKeys[rnd.Next(shuffledKeys.Count)]]);
-            foreach (var key in shuffledKeys.Skip(1))
+            for (int i = 0; i < requiredCount; i++)
             {
-                commonActions.IntersectWith(tilesToActions[key]);
-                if (!commonActions.Any())
-                    break;
+                var choice = options[rng.Next(options.Count)];
+                candidate.Tiles.Add(choice);
+
+                var wrapper = (GrammarField)Activator.CreateInstance(field.PrimitiveType);
+                wrapper.SetValue(new BundleTargetGraph(layer, choice));
+                field.ItemsSource.Add(wrapper);
+            }
+        }
+
+        private void PositionNodeWithoutOverlap(QuestNode node, List<Vector2> existingPositions)
+        {
+            var pos = node.Data.Area.value.position;
+            var visualOffset = Vector2Int.zero;
+
+            while (existingPositions.Contains(pos))
+            {
+                pos += _positionOverlapOffset;
+                visualOffset.x += (int)QuestGraph.SuggestionDistance;
+                visualOffset.y += (int)QuestGraph.ViewNodeWidthOffset;
             }
 
-            if (commonActions.Any())
-            {
-                // Shuffle commonActions
-                var shuffledActions = commonActions.OrderBy(_ => rnd.Next()).ToList();
-                var action = shuffledActions[rnd.Next(shuffledActions.Count)];
-                return new TileBundleToAction(tilesToActions.Keys.ToList(), action);
-            }
-
-            // Fallback to a random tile and action
-            var randomEntry = tilesToActions.ElementAt(rnd.Next(0, tilesToActions.Count));
-            var shuffledEntryActions = randomEntry.Value.OrderBy(_ => rnd.Next()).ToList();
-            var fallbackAction = shuffledEntryActions.Count > 0 ? shuffledEntryActions[rnd.Next(shuffledEntryActions.Count)] : string.Empty;
-
-            return new TileBundleToAction(
-                new List<TileBundleGroup> { randomEntry.Key },
-                fallbackAction
-            );
+            existingPositions.Add(pos);
+            node.Position = visualOffset;
         }
 
         #endregion
+
     }
 }

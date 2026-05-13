@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
@@ -8,7 +7,6 @@ using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
-using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using LBS.VisualElements;
 using UnityEngine;
@@ -44,7 +42,19 @@ namespace ISILab.LBS.VisualElements
         public static string BehavioursTab = "Behaviours";
         public static string AssistantsTab = "Assistants";
         
-        public LBSInspector ActiveInspector;
+        private LBSInspector activeInspector;
+        public LBSInspector ActiveInspector
+        {
+            get => activeInspector;
+            set
+            {
+                LBSInspector prev = ActiveInspector;
+                activeInspector = value;
+
+                ActiveInspector?.OnFocus?.Invoke();
+                prev?.OnUnfocus?.Invoke();
+            }
+        }
 
         public static Rect Layout { get => Instance.layout; }
 
@@ -116,14 +126,9 @@ namespace ISILab.LBS.VisualElements
             if (string.IsNullOrEmpty(name)) return;
             if (!VEs.TryGetValue(name, out LBSInspector inspector))  return;
             if (inspector == null) return;
-            
-            // Notify previous active
-            if(ActiveInspector is not null) ActiveInspector.OnUnfocus?.Invoke();
-            
+
             // Assign and notify new
             ActiveInspector = inspector;
-            inspector.OnFocus?.Invoke();
-            
             SetContent(inspector);
         }
 
@@ -159,6 +164,7 @@ namespace ISILab.LBS.VisualElements
         internal void SetTarget(LBSLayer layer)
         {
             ToolKit.Instance.Clear();
+
             // updates the inspector panel locals and tools
             foreach (KeyValuePair<string, LBSInspector> ve in VEs)
             {
@@ -167,9 +173,7 @@ namespace ISILab.LBS.VisualElements
                 inspector.SetTarget(layer);
              
                 // Focus updates
-                ActiveInspector?.OnUnfocus?.Invoke();
                 ActiveInspector = inspector;
-                ActiveInspector?.OnFocus?.Invoke();
             }
 
             // by default we set the pallete tab
@@ -228,6 +232,7 @@ namespace ISILab.LBS.VisualElements
             // Avoid reopening the same tab constantly
             ve.style.display = DisplayStyle.Flex;
             panel.tabsGroup.ChangeActive(tab);
+            
             LBSMainWindow.Instance.InspectorToggleButtonChange(tab);
         }
 

@@ -1,6 +1,5 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
-using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
@@ -20,7 +19,6 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
