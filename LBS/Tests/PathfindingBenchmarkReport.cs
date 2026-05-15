@@ -57,8 +57,10 @@ namespace ISILab.LBS.Tests.Pathfinding
         const string level12 = "a49e34122d48f53438e7dd8051abd8e5";
 
         const string ultraLabyrinth =
-            "995a3afcb9fc6e64c90596fd7328d761" // Half (90)
+            //"995a3afcb9fc6e64c90596fd7328d761" // Micro (100) // Sobreescribi Half (90) sin querer xdn't pero se puede rehacer a partir del 150
+            "a2389a54af9bb5b49899b56d1551992a" // Micro (77)
             //"be4a28232962e824fa38cea4a871fb04" // Half (150)
+            //"50a1ad21d6d768e4eac31c15c86d695a" // Half (200)
             //"f061d26c69f5ae74db19d2671f0776b9" // 150
             //"9418ed86a5efcf34983d879ebf43f084" // 200
             ;
