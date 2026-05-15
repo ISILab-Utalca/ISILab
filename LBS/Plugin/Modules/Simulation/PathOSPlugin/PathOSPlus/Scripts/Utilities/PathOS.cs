@@ -448,7 +448,7 @@ namespace PathOS
         //Used for identification/comparison.
         protected int instanceID;
 
-        public EntityType entityType;
+        public EntityType entityType => entityRef.entityType;
         public Vector3 perceivedPos;
 
         public bool visible = false;
@@ -461,7 +461,6 @@ namespace PathOS
         {
             this.entityRef = entityRef;
             this.instanceID = entityRef.objectRef.GetInstanceID();
-            this.entityType = entityRef.entityType;
             this.perceivedPos = entityRef.objectRef.transform.position;
         }
 

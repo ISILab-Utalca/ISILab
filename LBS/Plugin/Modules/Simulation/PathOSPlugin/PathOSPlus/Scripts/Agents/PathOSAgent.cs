@@ -32,7 +32,7 @@ namespace PathOS
 
         [HideInInspector] public NavigationState navigationState = new();
         [HideInInspector] public ExplorationState explorationState = new();
-        [HideInInspector] public MemoryState STMemoryState = new();
+        [HideInInspector] public MemoryState memoryState = new();
         [HideInInspector] public HealthState healthState = new();
 
 
@@ -66,8 +66,8 @@ namespace PathOS
 
         public float MemPathChance
         {
-            get => STMemoryState.memPathChance;
-            set => STMemoryState.memPathChance = value;
+            get => memoryState.memPathChance;
+            set => memoryState.memPathChance = value;
         }
 
         [SerializeField]
@@ -100,7 +100,7 @@ namespace PathOS
             healthState.Init();
             Debug.Log(healthState.health);
 
-            STMemoryState.memPathWaypoints = new List<Vector3>();
+            memoryState.memPathWaypoints = new List<Vector3>();
             explorationState.unreachableReference = new List<Vector3>();
         }
 
@@ -122,10 +122,10 @@ namespace PathOS
                 Time.timeScale = 1.0f;
             }
         }
-        
+
         private void Update()
         {
-            //Inactive state toggle for debugging purposes (or if the agent is finished).
+            // Inactive state toggle for debugging purposes (or if the agent is finished).
             if (freezeAgent || completed)
                 return;
 
@@ -141,42 +141,115 @@ namespace PathOS
                 Time.timeScale = timeScale;
             }
 
-            healthState.UpdateDeadState();
+            // Updates dead condition and interaction with health or enemy entities.
+            HealthStateUpdate();
 
-            //If we've reached our destination, reset the number of times
-            //we've "changed our mind" without doing anything.
-            var radius = Constants.Navigation.GOAL_EPSILON_SQR;
-            var distanceToDest = Vector3.SqrMagnitude(GetPosition() - navigationState.currentDest.pos);
-            var isDestVisited = navigationState.currentDest.entity != null && agentMemory.Visited(navigationState.currentDest.entity);
+            // Update visited spatial memory.
+            agentMemory.memoryMap.Fill(navAgent.transform.position);
 
-            if (navigationState.changeTargetCount > 0 && (distanceToDest < radius || isDestVisited))
+            // Updates timers for periodic updates (rerouting, perception, look-around).
+            UpdateTimers();
+
+            // Rerouting update.
+            if (navigationState.routeTimer >= RouteComputeTimeCalculated())
             {
-                navigationState.changeTargetCount = 0;
+                ChanceReroute();
+            }
 
-                if (navigationState.currentDest.entity != null)
+            // Memory path update.
+            // Follows to the next waypoint if the current one was reached.
+            if (memoryState.onMemPath)
+            {
+                float distanceToWaypoint = Vector3.SqrMagnitude(GetPosition() - memoryState.memWaypoint);
+                if (distanceToWaypoint < Constants.Navigation.WAYPOINT_EPSILON_SQR)
                 {
-                    healthTuning.CalculateHealth(
-                        tuning,
-                        healthState,
-                        navigationState.currentDest.entity.entityType);
+                    memoryState.GoNextWaypoint(this, navigationState);
+                }
+            }
+            // 
+            else if (navigationState.DestinationIsInaccurate())
+            {
+                MakeEntityDestinationAccurate();
+            }
 
-                    //Updates weights based on the player's health
-                    heuristics.UpdateWeightsBasedOnHealth(this);
+            // Targeting update.
+            // This prevents the agent from getting stuck.
+            if (navigationState.NavmeshPathIncomplete(this))
+            {
+                FixNavmeshPath();
+            }
+
+            //Perception update.
+            //This will allow the agent's eyes to "process" nearby entities
+            //and also update the time threshold for looking around based 
+            //on nearby hazards.
+            if (navigationState.perceptionTimer >= Constants.Perception.PERCEPTION_COMPUTE_TIME)
+            {
+                navigationState.perceptionTimer = 0.0f;
+                PerceptionUpdate();
+            }
+
+            //Look-around update.
+            if (navigationState.ShouldLookAround())
+            {
+                navigationState.lookTimer = 0.0f;
+                navigationState.lookingAround = true;
+                StartCoroutine(navigationState.LookAround(this));
+            }
+
+            //Set the agent's completion flag.
+            if (manager.endOnCompletionGoal
+                && agentMemory.FinalGoalCompleted())
+            {
+                completed = true;
+                gameObject.SetActive(false);
+            }
+
+            //Camera follow update
+            if (cameraFollow)
+            {
+                if (cameraObject != null) cameraObject.transform.position = new Vector3(transform.position.x, 15.0f, transform.position.z);
+            }
+
+
+            void HealthStateUpdate()
+            {
+                healthState.UpdateDeadState();
+
+                //If we've reached our destination, reset the number of times
+                //we've "changed our mind" without doing anything.
+                var radius = Constants.Navigation.GOAL_EPSILON_SQR;
+                var distanceToDest = Vector3.SqrMagnitude(GetPosition() - navigationState.currentDest.pos);
+                var isDestVisited = navigationState.currentDest.entity != null && agentMemory.Visited(navigationState.currentDest.entity);
+
+                if (navigationState.changeTargetCount > 0 && (distanceToDest < radius || isDestVisited))
+                {
+                    navigationState.changeTargetCount = 0;
+
+                    if (navigationState.currentDest.entity != null)
+                    {
+                        healthTuning.CalculateHealth(
+                            tuning,
+                            healthState,
+                            navigationState.currentDest.entity.entityType);
+
+                        //Updates weights based on the player's health
+                        heuristics.UpdateWeightsBasedOnHealth(this);
+                    }
                 }
             }
 
-            //Update spatial memory.
-            agentMemory.memoryMap.Fill(navAgent.transform.position);
+            void UpdateTimers()
+            {
+                //Update of periodic actions.
+                navigationState.routeTimer += Time.deltaTime;
+                navigationState.perceptionTimer += Time.deltaTime;
 
-            //Update of periodic actions.
-            navigationState.routeTimer += Time.deltaTime;
-            navigationState.perceptionTimer += Time.deltaTime;
+                if (!navigationState.lookingAround)
+                    navigationState.lookTimer += Time.deltaTime;
+            }
 
-            if (!navigationState.lookingAround)
-                navigationState.lookTimer += Time.deltaTime;
-
-            //Rerouting update.
-            if (navigationState.routeTimer >= RouteComputeTimeCalculated())
+            void ChanceReroute()
             {
                 navigationState.routeTimer = 0.0f;
 
@@ -191,40 +264,39 @@ namespace PathOS
                 }
             }
 
-            //Memory path update.
-            if (STMemoryState.onMemPath)
+            void MakeEntityDestinationAccurate()
             {
-                Vector3 pos = GetPosition();
-                if (Vector3.SqrMagnitude(pos - STMemoryState.memWaypoint)
-                    < Constants.Navigation.WAYPOINT_EPSILON_SQR)
+                // NavMesh reachability check.
+                bool reachable = PathOSNavUtility.CanAgentReachTarget(
+                        navAgent,
+                        navigationState.currentDest.entity.ActualPosition(),
+                        navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
+                        ref navigationState.currentDest.pos);
+
+                if (reachable)
+                    reachable = Vector3.SqrMagnitude(
+                        PathOSNavUtility.XZPos(navigationState.currentDest.pos) -
+                        PathOSNavUtility.XZPos(navigationState.currentDest.entity.ActualPosition()))
+                        < visitThresholdSqr;
+
+                if (!reachable)
                 {
-                    STMemoryState.memPathWaypoints.RemoveAt(0);
-
-                    if (STMemoryState.memPathWaypoints.Count == 0)
-                    {
-                        STMemoryState.onMemPath = false;
-                        navigationState.RouteDestination(this);
-                    }
-                    else
-                    {
-                        navAgent.SetDestination(STMemoryState.memPathWaypoints[0]);
-                        navigationState.pathResolved = false;
-                    }
+                    agentMemory.MakeUnreachable(navigationState.currentDest.entity);
+                    navigationState.ResetDestinationSelf(this);
                 }
+
+                navigationState.currentDest.accurate = true;
+                navigationState.RouteDestination(this);
+
             }
-            else if (navigationState.DestinationIsInaccurate())
-                MakeEntityDestinationAccurate();
 
-
-            //Debug.LogWarning(!pathResolved + " && " + NavmeshPathIncomplete());
-            //Targeting update. This prevents the agent from getting stuck.
-            if (navigationState.NavmeshPathIncomplete(this))
+            void FixNavmeshPath()
             {
                 //If we're following a memory path,
                 //abort and route to the final target on the Navmesh.
-                if (STMemoryState.onMemPath)
+                if (memoryState.onMemPath)
                 {
-                    STMemoryState.onMemPath = false;
+                    memoryState.onMemPath = false;
                     navigationState.RouteDestination(this);
                 }
                 //If we're dealing with an entity...
@@ -263,42 +335,10 @@ namespace PathOS
 
                 navigationState.pathResolved = true;
             }
-
-            //Perception update.
-            //This will allow the agent's eyes to "process" nearby entities
-            //and also update the time threshold for looking around based 
-            //on nearby hazards.
-            if (navigationState.perceptionTimer >= Constants.Perception.PERCEPTION_COMPUTE_TIME)
-            {
-                navigationState.perceptionTimer = 0.0f;
-                PerceptionUpdate();
-            }
-
-            //Look-around update.
-            if (navigationState.ShouldLookAround())
-            {
-                navigationState.lookTimer = 0.0f;
-                navigationState.lookingAround = true;
-                StartCoroutine(navigationState.LookAround(this));
-            }
-
-            //Set the agent's completion flag.
-            if (manager.endOnCompletionGoal
-                && agentMemory.FinalGoalCompleted())
-            {
-                completed = true;
-                gameObject.SetActive(false);
-            }
-
-            //Camera follow update
-            if (cameraFollow)
-            {
-                if (cameraObject != null) cameraObject.transform.position = new Vector3(transform.position.x, 15.0f, transform.position.z);
-            }
         }
         #endregion
 
-        #region PRIVATE METHODS
+            #region PRIVATE METHODS
         private void LogAgentData()
         {
             if (logger != null)
@@ -343,24 +383,9 @@ namespace PathOS
             explorationState.pastCumulativeEntityScore = explorationState.cumulativeEntityScore;
             explorationState.cumulativeEntityScore = 0.0f;
 
-            // Get eyes' forward, up and right vectors
-            // Used in the calculation of exploration directions.
+            // Get eyes' forward, up and right vectors.
 
-            Vector3 eyesForward = default;
-            switch (eyes.camType)
-            {
-                case PathOSAgentEyes.CamType.FreeMode:
-                    eyesForward = eyes.cam.transform.forward;
-                    break;
-
-                case PathOSAgentEyes.CamType.FirstPerson:
-                    eyesForward = transform.forward;
-                    eyesForward.y = 0.0f;
-                    eyesForward.Normalize();
-                    break;
-            }
-            Vector3 yRotationAxis = eyes.cam.transform.up;
-            Vector3 xRotationAxis = eyes.cam.transform.right;
+            GetEyesAxes(out Vector3 eyesForward, out Vector3 yRotationAxis, out Vector3 xRotationAxis, eyes.camType);
 
             // Calculate score for the current goal (if it's entity).
             // (else) Calculate goal distance and visibility for exploration direction scoring.
@@ -485,15 +510,15 @@ namespace PathOS
                 navigationState.currentDest = dest;
 
                 float memChanceRoll = Random.Range(0.0f, 1.0f);
-                STMemoryState.onMemPath = false;
+                memoryState.onMemPath = false;
 
-                if (memChanceRoll <= STMemoryState.memPathChance)
-                    STMemoryState.onMemPath = agentMemory.memoryMap.NavigateAStar(
-                        GetPosition(), navigationState.currentDest.pos, ref STMemoryState.memPathWaypoints);
+                if (memChanceRoll <= memoryState.memPathChance)
+                    memoryState.onMemPath = agentMemory.memoryMap.NavigateAStar(
+                        GetPosition(), navigationState.currentDest.pos, ref memoryState.memPathWaypoints);
 
-                if (STMemoryState.onMemPath)
+                if (memoryState.onMemPath)
                 {
-                    navAgent.SetDestination(STMemoryState.memPathWaypoints[0]);
+                    navAgent.SetDestination(memoryState.memPathWaypoints[0]);
                     navigationState.pathResolved = false;
                 }
                 else navigationState.RouteDestination(this);
@@ -509,6 +534,33 @@ namespace PathOS
             //if (verboseDebugging)
                 NPDebug.LogMessage("Position: " + navAgent.transform.position +
                     ", Destination: " + navigationState.currentDest);
+
+
+            // Get eyes' forward, up and right vectors
+            // Used in the calculation of exploration directions.
+            void GetEyesAxes(out Vector3 eyesForward, out Vector3 yRotationAxis, out Vector3 xRotationAxis, PathOSAgentEyes.CamType eyesType)
+            {
+                eyesForward = default;
+                yRotationAxis = default;
+                xRotationAxis = default;
+
+                switch (eyesType)
+                {
+                    case PathOSAgentEyes.CamType.FreeMode:
+                        eyesForward = eyes.cam.transform.forward;
+                        yRotationAxis = eyes.cam.transform.up;
+                        xRotationAxis = eyes.cam.transform.right;
+                        break;
+
+                    case PathOSAgentEyes.CamType.FirstPerson:
+                        eyesForward = transform.forward;
+                        eyesForward.y = 0.0f;
+                        eyesForward.Normalize();
+                        yRotationAxis = Vector3.up;
+                        xRotationAxis = Quaternion.AngleAxis(90.0f, Vector3.up) * eyesForward;
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -742,13 +794,17 @@ namespace PathOS
                 if (score > maxScore)
                     maxScore = score;
 
-                TargetDest newDest = new TargetDest();
-                newDest.score = score;
+                TargetDest newDest = new TargetDest()
+                {
+                    score = score,
+                    accurate = true,
+                    entity = null
+                };
 
                 // If we're originating from where we stand, target the "end" point.
                 // Else, target the "start" point, and the agent will re-assess its 
                 // options when it gets there.
-                
+
                 if (Vector3.SqrMagnitude(origin - GetOriginPos())
                     < Constants.Navigation.EXPLORE_PATH_POS_THRESHOLD_FAC
                     * tuning.exploreThreshold)
@@ -767,8 +823,6 @@ namespace PathOS
                     }
                 }
 
-                newDest.accurate = true;
-                newDest.entity = null;
                 navigationState.destList.Add(newDest);
             }
 
@@ -848,36 +902,6 @@ namespace PathOS
         {
             return Constants.Navigation.ROUTE_COMPUTE_BASE
                 + Constants.Memory.RETRIEVAL_TIME * agentMemory.entities.Count;
-        }
-        
-        private void MakeEntityDestinationAccurate()
-        {
-            // GABO TODO DEBUG: Reachability
-            //bool reachable = PathOSNavUtility.GetClosestPointWalkable(
-            //            currentDest.entity.ActualPosition(),
-            //            navAgent.height * PathOS.Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
-            //            ref currentDest.pos);
-            bool reachable = PathOSNavUtility.CanAgentReachTarget(
-                    navAgent,
-                    navigationState.currentDest.entity.ActualPosition(),
-                    navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
-                    ref navigationState.currentDest.pos);
-            // FIN DEBUG
-
-            if (reachable)
-                reachable = Vector3.SqrMagnitude(
-                    PathOSNavUtility.XZPos(navigationState.currentDest.pos) -
-                    PathOSNavUtility.XZPos(navigationState.currentDest.entity.ActualPosition()))
-                    < visitThresholdSqr;
-
-            if (!reachable)
-            {
-                agentMemory.MakeUnreachable(navigationState.currentDest.entity);
-                navigationState.ResetDestinationSelf(this);
-            }
-
-            navigationState.currentDest.accurate = true;
-            navigationState.RouteDestination(this);
         }
         
         private void PerceptionUpdate() => navigationState.UpdateLookTime(this);
