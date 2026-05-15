@@ -47,8 +47,12 @@ namespace ISILab.AI.Grammar
                     string cleanName = field.name.Replace(" ", "");
                     string displayName = $", InspectorName(\"{field.name}\")";
 
-                    fieldDefs.AppendLine($"    [SerializeField{protectedAttribute}{displayName}] private {typeName} _{cleanName};");
-                    fieldMaps.AppendLine($"        _{cleanName} = data.Fields.Find(f => f.name == \"{field.name}\") as {typeName};");
+                    fieldDefs.AppendLine(
+                        $"     [SerializeField{protectedAttribute}{displayName}] " +
+                                $"private {typeName} _{cleanName};");
+
+                    fieldMaps.AppendLine(
+                        $"        _{cleanName} = data.Fields.Find(f => f.name == \"{field.name}\") as {typeName};");
                 }
             }
 
@@ -56,14 +60,15 @@ namespace ISILab.AI.Grammar
             return $@"using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.AI.Grammar;
 using ISILab.LBS.Plugin.MapTools.Generators;
+
 namespace ISILab.AI.Grammar
 {{
     public class {className} : QuestTrigger 
     {{
         [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
+        [SerializeField] 
+        private GrammarTerminal _terminal;
 
     {fieldDefs.ToString()}
         protected override void SetData(QuestNodeData data) 

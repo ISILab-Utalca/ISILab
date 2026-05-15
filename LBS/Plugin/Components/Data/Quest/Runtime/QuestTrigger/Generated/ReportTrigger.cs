@@ -8,10 +8,12 @@ namespace ISILab.AI.Grammar
     public class ReportTrigger : QuestTrigger 
     {
         [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
+        [SerializeField] 
+        private GrammarTerminal _terminal;
 
         [Header("Grammar Fields")]
-    [SerializeField,Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("POI to report to")] private GrammarBundleGraph _POItoreportto;
+    [SerializeField,Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("POI to report to")] 
+        private GrammarBundleGraph _POItoreportto;
 
         protected override void SetData(QuestNodeData data) 
         {

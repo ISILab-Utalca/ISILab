@@ -1,8 +1,7 @@
 using UnityEngine;
-using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.AI.Grammar;
 using ISILab.LBS.Plugin.MapTools.Generators;
+
 namespace ISILab.AI.Grammar
 {
     public class GoToTrigger : QuestTrigger 
