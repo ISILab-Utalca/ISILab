@@ -3,6 +3,7 @@ using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
 using System;
 using System.Linq;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.AI.Grammar
 {
@@ -28,6 +29,8 @@ namespace ISILab.AI.Grammar
 
             SetValue(LBSAssetMacro.GetGuidFromAsset(bundle));
         }
+
+        public override Bundle GetBundle() => LBSAssetMacro.LoadAssetByGuid<Bundle>(value);
     }
 
     [Serializable]

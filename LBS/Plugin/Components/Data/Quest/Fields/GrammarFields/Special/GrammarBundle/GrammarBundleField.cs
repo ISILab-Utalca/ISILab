@@ -5,8 +5,10 @@ using UnityEngine;
 
 namespace ISILab.AI.Grammar
 {  
-    public interface IBundleFlags
+    public interface IBundleStored
     {
+        Bundle GetBundle();
+
         // Must implmenet. ie, must add a BundleFlag field to the interfaced class
         Bundle.EElementFlag AllowedElements { get; }
 
@@ -29,13 +31,15 @@ namespace ISILab.AI.Grammar
     
 
     [Serializable]
-    public abstract class GrammarBundleField<T> : GrammarField<T>, IBundleFlags
+    public abstract class GrammarBundleField<T> : GrammarField<T>, IBundleStored
     {
         // by default we can assign any bundle
         [SerializeField]
         protected Bundle.EElementFlag allowedElements = (Bundle.EElementFlag)~0;
 
         public Bundle.EElementFlag AllowedElements => allowedElements;
+
+        abstract public Bundle GetBundle();
 
         public virtual void SetObjectBundle(object[] objs)
         {

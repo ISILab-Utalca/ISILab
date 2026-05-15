@@ -41,34 +41,36 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class BundleTargetGraph : BundleTarget
     {
-        [SerializeField] private LBSLayer layer;
-        [SerializeReference] private TileBundleGroup tileBundle;
+        [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren] 
+        private LBSLayer layer;
+        [SerializeReference, Commons.Attributes.ReadOnlyIncludeChildren] 
+        private TileBundleGroup tileBundleGroup;
 
 
         public LBSLayer Layer => layer;
-        public TileBundleGroup Bundle => tileBundle;
+        public TileBundleGroup TileBundleGroup => tileBundleGroup;
 
         public BundleTargetGraph(LBSLayer layer, TileBundleGroup bundle)
             : base(bundle)
         {
             this.layer = layer;
-            this.tileBundle = bundle;
+            this.tileBundleGroup = bundle;
 
-            if (tileBundle != null)
-                tileBundle.OnRemoved += RemoveBundle;
+            if (tileBundleGroup != null)
+                tileBundleGroup.OnRemoved += RemoveBundle;
         }
 
         private void RemoveBundle()
         {
-            if (tileBundle != null) tileBundle.OnRemoved -= RemoveBundle;
-            tileBundle = null;
+            if (tileBundleGroup != null) tileBundleGroup.OnRemoved -= RemoveBundle;
+            tileBundleGroup = null;
         }
 
-        public Vector2Int Position => tileBundle != null ?
-            new Vector2Int((int)tileBundle.AreaRect.x, (int)tileBundle.AreaRect.y) :
+        public Vector2Int Position => tileBundleGroup != null ?
+            new Vector2Int((int)tileBundleGroup.AreaRect.x, (int)tileBundleGroup.AreaRect.y) :
             Vector2Int.zero;
 
-        public Rect Area => tileBundle?.AreaRect ?? Rect.zero;
+        public Rect Area => tileBundleGroup?.AreaRect ?? Rect.zero;
         public override bool IsValid() => base.IsValid() && layer != null;
 
     }

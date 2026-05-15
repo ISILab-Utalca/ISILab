@@ -1,6 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using GeneticSharp.Domain.Mutations;
+using ISILab.AI.Grammar;
+using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
@@ -8,14 +8,17 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
+using ISILab.LBS.VisualElements;
 using LBS.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.EventSystems.EventTrigger;
 using Object = UnityEngine.Object;
-
-using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
-using ISILab.LBS.VisualElements;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -26,7 +29,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private float _currentFrameDelay = frameDelay;
         
         // the probe radius detects objects at a given position in the scene, based on the existing graph
-        private const float ProbeRadius = 2f;
+        private const float ProbeRadius = 10f;
         
         private Action<string> _onLayerRequired;
         public event Action<string> OnLayerRequired
@@ -59,7 +62,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns></returns>
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
-            var pivot = new GameObject(layer.ID);
+            var pivot = new GameObject("Quest Tracker");
             var observer = pivot.AddComponent<QuestTracker>();
 
             CloneRefs.Start();
@@ -165,10 +168,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             foreach (var node in quest.GetQuestNodes())
             {
-                Type triggerType = QuestTagRegistry.GetTriggerTypeForTag(node.TerminalID);
+                Type triggerType = node.Data.Terminal.Script.GetClass();
                 if (triggerType == null)
                 {
-                    Debug.LogError($"No trigger type found for tag '{node.TerminalID}' in QuestTagRegistry");
+                    Debug.LogError($"The terminal {node.Data.Terminal} has no script field attached!");
                     continue;
                 }
 
@@ -196,10 +199,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var z = (node.Data.Area.value.y - node.Data.Area.value.height / 2) * settings.scale.y;
             var y = pivot.transform.position.y;
             go.transform.position = settings.position + new Vector3(x, y, z);
-
-            // Assign data
-            FindPopulationObjects(trigger, settings, node, settings.position, y, new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
-
+           
             if (!node.Data.IsValid())
             {
                 Debug.LogError($"Node Data '{node.ID}' doesn't have a valid data");
@@ -209,15 +209,80 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             trigger.SetNode(node);
 
+            // Assign data
+            AssignGameObjects(trigger, settings, settings.position, y, new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
 
             // all are active in the scene, on play they are activated in order
             go.SetActive(true);
             return go;
         }
 
-        private static void FindPopulationObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, QuestNode node, Vector3 position, float y, Vector3 vector3)
+        private static void AssignGameObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, Vector3 position, float y, Vector3 vector3)
         {
-            throw new NotImplementedException();
+
+            List<Vector3> scenePositions = new();
+            var grammarBundleGraphs = trigger.Node.Data.GetFields<GrammarBundleGraph>();
+            foreach (var gbg in grammarBundleGraphs)
+            {
+                // Calculate the world position of the BundleGraph's position
+                scenePositions.Add(
+                    GetScenePosition(
+                        gbg.value.TileBundleGroup.AreaRect, 
+                        settings, 
+                        position, 
+                        y, 
+                        vector3));
+            }
+
+            List<LBSGenerated> lbsgens = new();
+            // Instead of OverlapSphere
+            var allGenerated = Object.FindObjectsByType<LBSGenerated>(FindObjectsSortMode.None);
+            foreach (var lbsgen in allGenerated)
+            {
+                foreach(var scenePosition in scenePositions)
+                {
+                    if (Vector3.Distance(lbsgen.transform.position, scenePosition) <= ProbeRadius)
+                    {
+                        lbsgens.Add(lbsgen);
+                    }
+                }
+            }
+
+            foreach (var field in trigger.Node.Data.Fields)
+            {
+                var bundleStored = field as GrammarBundleGraph;
+                if (bundleStored == null) continue;
+                var bundle = bundleStored.GetBundle();
+
+                if (field.IsList)
+                    foreach(var entry in field.ItemsSource)                 
+                        AssignGameObjectBundle(trigger, bundle, lbsgens);
+
+                else
+                    AssignGameObjectBundle(trigger, bundle, lbsgens);
+            }
+
+        }
+
+        private static void AssignGameObjectBundle(
+            QuestTrigger trigger,
+            Bundle bundle,
+            List<LBSGenerated> lbsgens)
+        {
+            if (bundle == null)
+                return;
+
+            // add a different lbsgen each time
+            lbsgens.Shuffle();
+
+            foreach (var lbsgen in lbsgens)
+            {
+                if (lbsgen.BundleRef == bundle)
+                {
+                    trigger.AddGo(lbsgen.gameObject);
+                    return;
+                }
+            }
         }
 
         private static void CreateBranchNodeComponents(QuestGraph quest, QuestTracker tracker, Dictionary<QuestNode, GameObject> questNodeGameObjects)

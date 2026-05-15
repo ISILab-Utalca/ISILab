@@ -1,7 +1,6 @@
 using ISILab.LBS.Components;
 using System;
 using System.Collections.Generic;
-using Unity.Collections;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -17,14 +16,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         [SerializeField][SerializeReference][HideInInspector] 
         protected QuestNode node;
         
-        [SerializeField, ReadOnly] 
+        [SerializeField, Commons.Attributes.ReadOnly] 
         private string nodeID;
         
         protected BoxCollider BoxCollider;
         
         [SerializeField]
-        protected bool isCompleted;
-       
+        protected QuestState state;
+
+        [SerializeField]
+        private List<GameObject> gos = new();
+
         private List<GraphNode> _destinations = new();
 
         private LBSGeneratedEventHook eventHooker;
@@ -35,10 +37,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region PROPERTIES
 
         public string NodeID => nodeID;
-        public bool IsCompleted
+
+        public QuestState State
         {
-            get => isCompleted;
-            set => isCompleted = value;
+            get => state;
+            set => state = value;
         }
         
         public QuestNode Node
@@ -65,6 +68,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private void Awake()
         {
             eventHooker ??= gameObject.AddComponent<LBSGeneratedEventHook>();
+        }
+
+        public void AddGo(GameObject go) => gos.Add(go);
+        public void RemoveGo(GameObject go)
+        {
+            if (gos.Contains(go))
+            {
+                gos.Remove(go);
+            }
         }
 
         #region SET UP
@@ -153,10 +165,12 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private void Complete()
         {
-            isCompleted = true;
-            if (eventHooker != null) eventHooker.BroadcastEvent(Components.Data.LBSEventType.Complete);
+            // flag to completed
+            State = QuestState.Completed;
 
-            if(node != null) node.QuestState = QuestState.Completed;
+            // call any events on the event hooker
+            if (eventHooker != null) 
+                eventHooker.BroadcastEvent(Components.Data.LBSEventType.Complete);
 
             gameObject.SetActive(false);
             OnTriggerCompleted?.Invoke(this);

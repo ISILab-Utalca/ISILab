@@ -1,8 +1,11 @@
+using ISILab.Commons.Attributes;
 using ISILab.LBS.Components;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using UnityEngine;
 
 namespace ISILab.AI.Grammar
 {
@@ -13,7 +16,11 @@ namespace ISILab.AI.Grammar
     {
         #region FIELDS
         private static readonly Dictionary<string, Type> fieldMap = new();
+
+        [SerializeField, HideInInspector]
         public QuestNodeData data;
+
+        [SerializeField, Commons.Attributes.ReadOnly]
         public string name;
         #endregion
 
