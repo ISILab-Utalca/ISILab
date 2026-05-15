@@ -46,6 +46,8 @@ namespace ISILab.LBS.Components
         public Action OnBeginChange;
         public Action OnEndChange;
 
+        public Action<QuestNodeData> OnDataChanged;
+
         #endregion
 
         #region PROPERTIES
@@ -109,8 +111,6 @@ namespace ISILab.LBS.Components
         }
 
         #endregion
-
-        public Action<QuestNodeData> OnDataChanged;
 
         #region METHODS
 

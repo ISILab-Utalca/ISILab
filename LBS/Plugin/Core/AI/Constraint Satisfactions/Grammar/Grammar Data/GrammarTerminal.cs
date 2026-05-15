@@ -1,5 +1,7 @@
+using ISILab.DevTools.Macros;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -42,7 +44,7 @@ namespace ISILab.AI.Grammar
                     var scriptGuid = AssetDatabase.FindAssets($"{generatedClassName} t:MonoScript");
                     if(scriptGuid != null && scriptGuid.Length != 0)
                     {
-                        script = LBSAssetMacro.LoadAssetByGuid<MonoScript>(scriptGuid[0]);
+                        Script = LBSAssetMacro.LoadAssetByGuid<MonoScript>(scriptGuid[0]);
                     }
                 }
                 return script;
@@ -53,6 +55,9 @@ namespace ISILab.AI.Grammar
                 if (value == null)
                     return;
                 script = value;
+
+                // assign reference to script - its readonly. Terminal in a questtrigger can only be assigned here
+                var scriptGuid = AssetMacro.GetGuidFromAsset(script);
                 generatedClassName = script.name;
             }
         }

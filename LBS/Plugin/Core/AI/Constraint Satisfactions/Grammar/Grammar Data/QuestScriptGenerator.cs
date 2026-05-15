@@ -5,11 +5,16 @@ using UnityEditor;
 
 namespace ISILab.AI.Grammar
 {
-
     public static class QuestScriptGenerator
     {
         private const string FolderPath = "Assets/ISILab/LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/Generated";
-        private const string Protection = ",Commons.Attributes.ReadOnlyIncludeChildren";
+        private const string Protection = ", Commons.Attributes.ReadOnlyIncludeChildren";
+
+        // Indentation Constants for readability
+        private const string Tab1 = "    ";
+        private const string Tab2 = "        ";
+        private const string Tab3 = "            ";
+
         public static void Generate(GrammarTerminal terminal)
         {
             string className = GetSafeClassName(terminal.id);
@@ -28,36 +33,36 @@ namespace ISILab.AI.Grammar
             return System.Globalization.CultureInfo.CurrentCulture.TextInfo
                 .ToTitleCase(id.Replace(" ", "_")).Replace("_", "");
         }
+
         private static string BuildScriptContent(string className, GrammarTerminal terminal)
         {
             StringBuilder fieldDefs = new StringBuilder();
             StringBuilder fieldMaps = new StringBuilder();
 
-            // 1. Only build the strings if fields actually exist
             if (terminal.fields != null && terminal.fields.Count > 0)
             {
-                fieldDefs.AppendLine("    [Header(\"Grammar Fields\")]");
+                fieldDefs.AppendLine($"{Tab2}[Header(\"Grammar Fields\")]");
                 foreach (var field in terminal.fields)
                 {
-                    string protectedAttribute = string.Empty;
-                    if (field is IBundleStored) 
-                        protectedAttribute = Protection;
-
+                    string protectedAttr = field is IBundleStored ? Protection : string.Empty;
                     string typeName = field.GetType().Name;
                     string cleanName = field.name.Replace(" ", "");
                     string displayName = $", InspectorName(\"{field.name}\")";
 
-                    fieldDefs.AppendLine(
-                        $"     [SerializeField{protectedAttribute}{displayName}] " +
-                                $"private {typeName} _{cleanName};");
+                    // 1. Define the class-level field (The persistent storage)
+                    fieldDefs.AppendLine($"{Tab2}[SerializeField{protectedAttr}{displayName}]");
+                    fieldDefs.AppendLine($"{Tab2}private {typeName} _{cleanName};");
+                    fieldDefs.AppendLine();
 
-                    fieldMaps.AppendLine(
-                        $"        _{cleanName} = data.Fields.Find(f => f.name == \"{field.name}\") as {typeName};");
+                    // 2. Logic: Find the source, then transfer the value instead of the reference
+                    fieldMaps.AppendLine($"{Tab3}var source{cleanName} = fields.Find(f => f.name == \"{field.name}\") as {typeName};");
+                    fieldMaps.AppendLine($"{Tab3}if (source{cleanName} != null) _{cleanName}.SetValue(source{cleanName}.value);");
+                    fieldMaps.AppendLine();
                 }
             }
 
-            // 2. The template now safely injects the strings (which will be empty if count is 0)
-            return $@"using UnityEngine;
+            return $@"
+using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.MapTools.Generators;
@@ -66,20 +71,15 @@ namespace ISILab.AI.Grammar
 {{
     public class {className} : QuestTrigger 
     {{
-        [Commons.Attributes.ReadOnly]
-        [SerializeField] 
-        private GrammarTerminal _terminal;
-
-    {fieldDefs.ToString()}
-        protected override void SetData(QuestNodeData data) 
+{fieldDefs}
+        protected override void BindFields(List<GrammarField> fields) 
         {{
-            _terminal = data.Terminal;
-    {fieldMaps.ToString()}
+{fieldMaps.ToString().TrimEnd()}
         }}
 
-        protected override bool CanComplete() => false;
+        protected override bool CanComplete() => true;
     }}
-}}";
+}}".Trim();
         }
 
         private static void SaveScript(string fileName, string content)
@@ -93,5 +93,4 @@ namespace ISILab.AI.Grammar
             Debug.Log($"[QuestGenerator] Script saved to: {fullPath}");
         }
     }
-
 }

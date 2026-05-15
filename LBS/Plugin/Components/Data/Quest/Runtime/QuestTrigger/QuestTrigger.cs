@@ -1,3 +1,4 @@
+using ISILab.AI.Grammar;
 using ISILab.LBS.Components;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         [SerializeField]
         private List<GameObject> gos = new();
-
+        [SerializeField]
         private List<GraphNode> _destinations = new();
 
         private LBSGeneratedEventHook eventHooker;
+
+        [ISILab.Commons.Attributes.ReadOnly]
+        [SerializeField]
+        private GrammarTerminal _terminal;
 
         #endregion
 
@@ -48,6 +53,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             get => node;
             set => node = value;
+        }
+        public GrammarTerminal Terminal
+        {
+            get => _terminal;
+            set => _terminal = value;
         }
 
         public GraphNode OwnerBranchNode { get; set; }
@@ -81,6 +91,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region SET UP
 
+        /// <summary>
+        /// Call to set SetTypedData from Runtime Function
+        /// </summary>
+        public virtual void Init() => EnsureCollider();
+
         protected void EnsureCollider()
         {
             if (BoxCollider != null) return;
@@ -91,21 +106,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             BoxCollider.size = Vector3.one;
         }
 
-        /// <summary>
-        /// Call to set SetTypedData from Runtime Function
-        /// </summary>
-        public virtual void Init()
-        {
-            EnsureCollider();
-        }
-
-        /// <summary>
-        /// Replace and cast the incoming parameter to the required data type
-        /// </summary>
-        protected virtual void SetData(QuestNodeData data)
-        {
-            throw new NotImplementedException();
-        }
 
         /// <summary>
         /// Always call base from overwrites as base sets the ID that quest observer uses on start 
@@ -116,9 +116,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             nodeID = paramNode.ID;
             eventHooker ??= gameObject.AddComponent<LBSGeneratedEventHook>();
             eventHooker.AssignEvents(paramNode.Data.EventHooker);
-            SetData(node.Data);
+
+            Terminal = node.Data.Terminal;
+            BindFields(node.Data.Fields);
 
         }
+
+        /// <summary>
+        /// Replace and cast the incoming parameter to the required data type
+        /// </summary>
+        protected virtual void BindFields(List<GrammarField> fields) => throw new NotImplementedException();
+
 
         /// <summary>
         /// All triggers require a size by initialization.

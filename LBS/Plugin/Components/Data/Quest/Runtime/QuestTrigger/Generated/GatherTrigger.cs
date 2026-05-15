@@ -1,27 +1,29 @@
 using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.AI.Grammar;
 using ISILab.LBS.Plugin.MapTools.Generators;
+
 namespace ISILab.AI.Grammar
 {
     public class GatherTrigger : QuestTrigger 
     {
-        [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
-
         [Header("Grammar Fields")]
-    [SerializeField,Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Item Type")] private GrammarBundleType _ItemType;
-    [SerializeField, InspectorName("Required amount")] private GrammarInt _Requiredamount;
+        [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Item Type")]
+        private GrammarBundleType _ItemType;
 
-        protected override void SetData(QuestNodeData data) 
+        [SerializeField, InspectorName("Required amount")]
+        private GrammarInt _Requiredamount;
+
+
+        protected override void BindFields(List<GrammarField> fields) 
         {
-            _terminal = data.Terminal;
-            _ItemType = data.Fields.Find(f => f.name == "Item Type") as GrammarBundleType;
-        _Requiredamount = data.Fields.Find(f => f.name == "Required amount") as GrammarInt;
+            var sourceItemType = fields.Find(f => f.name == "Item Type") as GrammarBundleType;
+            if (sourceItemType != null) _ItemType.SetValue(sourceItemType.value);
 
+            var sourceRequiredamount = fields.Find(f => f.name == "Required amount") as GrammarInt;
+            if (sourceRequiredamount != null) _Requiredamount.SetValue(sourceRequiredamount.value);
         }
 
-        protected override bool CanComplete() => false;
+        protected override bool CanComplete() => true;
     }
 }

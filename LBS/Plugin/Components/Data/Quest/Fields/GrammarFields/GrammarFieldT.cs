@@ -1,5 +1,6 @@
 using ISILab.LBS.Plugin.Components.Bundles;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace ISILab.AI.Grammar
@@ -7,13 +8,29 @@ namespace ISILab.AI.Grammar
     [Serializable]
     public abstract class GrammarField<T> : GrammarField
     {
+        [HideInInspector]
         public T value;
-
         public override object Clone()
         {
             var clone = (GrammarField<T>)Activator.CreateInstance(GetType());
             clone.name = name;
-            clone.value = value;
+
+            if (value is ICloneable cloneableValue)
+            {
+                // bundle clones
+                clone.value = (T)cloneableValue.Clone();
+            }
+            else if (value is IList listValue)
+            {
+                // listing clones
+                clone.value = (T)Activator.CreateInstance(value.GetType(), listValue);
+            }
+            else
+            {
+                // primitive clones
+                clone.value = value;
+            }
+
             return clone;
         }
         public override void SetValue(object newValue)

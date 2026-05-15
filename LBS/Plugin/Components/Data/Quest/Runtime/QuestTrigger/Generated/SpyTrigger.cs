@@ -1,27 +1,29 @@
 using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.AI.Grammar;
 using ISILab.LBS.Plugin.MapTools.Generators;
+
 namespace ISILab.AI.Grammar
 {
     public class SpyTrigger : QuestTrigger 
     {
-        [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
-
         [Header("Grammar Fields")]
-    [SerializeField, InspectorName("Min distance")] private GrammarInt _Mindistance;
-    [SerializeField,Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("POI to spy")] private GrammarBundleGraph _POItospy;
+        [SerializeField, InspectorName("Min distance")]
+        private GrammarInt _Mindistance;
 
-        protected override void SetData(QuestNodeData data) 
+        [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("POI to spy")]
+        private GrammarBundleGraph _POItospy;
+
+
+        protected override void BindFields(List<GrammarField> fields) 
         {
-            _terminal = data.Terminal;
-            _Mindistance = data.Fields.Find(f => f.name == "Min distance") as GrammarInt;
-        _POItospy = data.Fields.Find(f => f.name == "POI to spy") as GrammarBundleGraph;
+            var sourceMindistance = fields.Find(f => f.name == "Min distance") as GrammarInt;
+            if (sourceMindistance != null) _Mindistance.SetValue(sourceMindistance.value);
 
+            var sourcePOItospy = fields.Find(f => f.name == "POI to spy") as GrammarBundleGraph;
+            if (sourcePOItospy != null) _POItospy.SetValue(sourcePOItospy.value);
         }
 
-        protected override bool CanComplete() => false;
+        protected override bool CanComplete() => true;
     }
 }
