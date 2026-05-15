@@ -1,17 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor;
 using ISILab.LBS.VisualElements;
 using LBS.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Manipulators
+namespace ISILab.LBS.Plugin.MapTools.Editor.Manipulators
 {
 
     public class CaptureInArea : ManipulateTeselation
@@ -21,8 +22,8 @@ namespace ISILab.LBS.Manipulators
         private List<LBSLayer> capturedBlueprintData = new();
         // overwrite the defalt feedback of teselation as behavior is inhertied to follow mouse position
         private static AreaFeedback areaFeedback;
-        private bool CaptureStarted = false;
-        private bool Capturing = false;
+        private bool CaptureStarted;
+        private bool Capturing;
         private bool autoCapture = true;
         #endregion
 
@@ -125,9 +126,7 @@ namespace ISILab.LBS.Manipulators
 
             Vector2Int AreaStart = AreaFeedback.StartPosition.ToInt();
             Vector2Int AreaEnd = AreaFeedback.EndPosition.ToInt();
-            
-            /** Tesselation clamping adds bordering tiles, subtracting tilesize keeps the correct bounds
-             */
+
             var teselleationAreaStart = AreaStart;
             var tesellationAreaEnd = AreaEnd;
 
