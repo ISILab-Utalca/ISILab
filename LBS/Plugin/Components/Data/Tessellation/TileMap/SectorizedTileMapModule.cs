@@ -414,8 +414,8 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             var neighborhood = new List<Zone>();
             for (int i = 0; i < directions.Count; i++)
             {
-                var otherPos = position + directions[i];
-                var t = GetPairTile(otherPos);
+                Vector2Int otherPos = position + directions[i];
+                TileZonePair t = GetPairTile(otherPos);
                 if (t == null)
                     neighborhood.Add(null);
                 else
@@ -426,14 +426,14 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         private int NeighborhoodValue(Vector2Int position, List<Vector2Int> directions) // (!) el nombre es malisimo mejorar, esta tambien es de la clase de las tablas del gabo
         {
-            var value = 0;
-            var t = GetPairTile(position);
+            int value = 0;
+            TileZonePair t = GetPairTile(position);
             if (t == null)
                 return -1;
-            var zones = CheckZonesInNeighborhood(position, directions);
+            List<Zone> zones = CheckZonesInNeighborhood(position, directions);
             for (int i = 0; i < directions.Count; i++)
             {
-                var otherPos = position + directions[i];
+                Vector2Int otherPos = position + directions[i];
                 if (zones[i] == null || !zones[i].Equals(t.Zone))
                 {
                     value += Mathf.RoundToInt(Mathf.Pow(2, i));
@@ -445,7 +445,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public bool IsConvexCorner(Vector2 pos, List<Vector2Int> directions)
         {
-            var s = NeighborhoodValue(pos.ToInt(), directions);
+            int s = NeighborhoodValue(pos.ToInt(), directions);
             if (s != 0)
             {
                 if (s % 3 == 0 || s == 7 || s == 11 || s == 13 || s == 14)
@@ -456,7 +456,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public bool IsConcaveCorner(Vector2 pos, List<Vector2Int> directions)
         {
-            var s = NeighborhoodValue(pos.ToInt(), directions);
+            int s = NeighborhoodValue(pos.ToInt(), directions);
             if (s == 1 || s == 2 || s == 4 || s == 8)
                 return true;
             return false;
@@ -464,7 +464,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public bool IsWall(Vector2 pos, List<Vector2Int> directions)
         {
-            var s = NeighborhoodValue(pos.ToInt(), directions);
+            int s = NeighborhoodValue(pos.ToInt(), directions);
             if (s == 1 || s == 2 || s == 4 || s == 8)
                 return true;
             return false;
@@ -474,7 +474,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         internal List<LBSTile> GetConvexCorners(Zone zone) // (??)  esto solo funciona para "4 conected", deberia estar en una clase aparte?, si en la clase de las tablas del gabo
         {
             var corners = new List<LBSTile>();
-            foreach (var t in pairs)
+            foreach (TileZonePair t in pairs)
             {
                 if (t.Zone != zone)
                     continue;
@@ -493,7 +493,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
             var corners = new List<LBSTile>();
 
-            foreach (var t in pairs)
+            foreach (TileZonePair t in pairs)
             {
                 if (t.Zone != zone)
                     continue;
@@ -503,7 +503,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
                 for (int i = 0; i < Dirs.Count; i++)
                 {
-                    var other = GetPairTile(t.Tile.Position + Dirs[i]);
+                    TileZonePair other = GetPairTile(t.Tile.Position + Dirs[i]);
                     if (other == null)
                         continue;
                     if (IsWall(other.Tile.Position, Dirs))
@@ -520,24 +520,24 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         {
             var walls = new List<WallData>();
 
-            var convexCorners = GetConvexCorners(zone);
-            var allCorners = GetConcaveCorners(zone);
+            List<LBSTile> convexCorners = GetConvexCorners(zone);
+            List<LBSTile> allCorners = GetConcaveCorners(zone);
             allCorners.AddRange(convexCorners);
 
-            foreach (var current in convexCorners)
+            foreach (LBSTile current in convexCorners)
             {
                 LBSTile other = null;
                 int lessDist = int.MaxValue;
-                foreach (var candidate in allCorners)
+                foreach (LBSTile candidate in allCorners)
                 {
                     if (current == candidate)
                         continue;
 
-                    var tile = current;
+                    LBSTile tile = current;
                     if (tile.Position.x - candidate.Position.x != 0)
                         continue;
 
-                    var dist = Mathf.Abs(tile.Position.y - candidate.Position.y);
+                    int dist = Mathf.Abs(tile.Position.y - candidate.Position.y);
                     if (dist < lessDist)
                     {
                         lessDist = dist;
@@ -545,21 +545,20 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
                     }
                 }
 
-                if (other == null)
-                    other = current;
+                other ??= current;
 
                 if (walls.Any(w => (w.First == other.Position) && (w.Last == current.Position)))
                     continue;
 
                 var wallTiles = new List<Vector2Int>();
-                var oth = other.Position;
-                var end = Mathf.Max(current.Position.y, oth.y);
-                var start = Mathf.Min(current.Position.y, oth.y);
+                Vector2Int oth = other.Position;
+                int end = Mathf.Max(current.Position.y, oth.y);
+                int start = Mathf.Min(current.Position.y, oth.y);
                 for (int i = 0; i <= end - start; i++)
                 {
                     wallTiles.Add(new Vector2Int(current.Position.x, start + i));
                 }
-                var dir = (current.Position.x >= ZoneCentroid(GetZone(current)).x) ? Vector2Int.right : Vector2Int.left;
+                Vector2Int dir = (current.Position.x >= ZoneCentroid(GetZone(current)).x) ? Vector2Int.right : Vector2Int.left;
 
                 var wall = new WallData(this.id, dir, wallTiles);
                 walls.Add(wall);
@@ -571,24 +570,24 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
         {
             var walls = new List<WallData>();
 
-            var convexCorners = GetConvexCorners(zone);
-            var allCorners = GetConcaveCorners(zone);
+            List<LBSTile> convexCorners = GetConvexCorners(zone);
+            List<LBSTile> allCorners = GetConcaveCorners(zone);
             allCorners.AddRange(convexCorners);
 
-            foreach (var current in convexCorners)
+            foreach (LBSTile current in convexCorners)
             {
                 LBSTile other = null;
                 int lessDist = int.MaxValue;
-                foreach (var candidate in allCorners)
+                foreach (LBSTile candidate in allCorners)
                 {
                     if (current == candidate)
                         continue;
 
-                    var tile = current;
+                    LBSTile tile = current;
                     if (tile.Position.y - candidate.Position.y != 0)
                         continue;
 
-                    var dist = Mathf.Abs(tile.Position.x - candidate.Position.x);
+                    int dist = Mathf.Abs(tile.Position.x - candidate.Position.x);
                     if (dist < lessDist)
                     {
                         lessDist = dist;
@@ -596,21 +595,20 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
                     }
                 }
 
-                if (other == null)
-                    other = current;
+                other ??= current;
 
                 if (walls.Any(w => (w.First == other.Position) && (w.Last == current.Position)))
                     continue;
 
                 var wallTiles = new List<Vector2Int>();
-                var oth = other.Position;
-                var end = Mathf.Max(current.Position.x, oth.x);
-                var start = Mathf.Min(current.Position.x, oth.x);
+                Vector2Int oth = other.Position;
+                int end = Mathf.Max(current.Position.x, oth.x);
+                int start = Mathf.Min(current.Position.x, oth.x);
                 for (int i = 0; i <= end - start; i++)
                 {
                     wallTiles.Add(new Vector2Int(start + i, current.Position.y));
                 }
-                var dir = (current.Position.y >= ZoneCentroid(GetZone(current)).y) ? Vector2Int.up : Vector2Int.down;
+                Vector2Int dir = (current.Position.y >= ZoneCentroid(GetZone(current)).y) ? Vector2Int.up : Vector2Int.down;
                 var wall = new WallData(this.id, dir, wallTiles);
                 walls.Add(wall);
             }

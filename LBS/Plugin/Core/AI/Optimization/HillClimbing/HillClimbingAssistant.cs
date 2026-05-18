@@ -199,14 +199,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             var zonesMod = layer.GetModule<SectorizedTileMapModule>();
             var connection = layer.GetModule<ConnectedTileMapModule>();
 
-            foreach (var tile in tileModule.Tiles)
+            foreach (LBSTile tile in tileModule.Tiles)
             {
-                var currZone = zonesMod.GetZone(tile);
+                Zone currZone = zonesMod.GetZone(tile);
 
-                var currConnects = connection.GetConnections(tile);
-                var neigs = tileModule.GetTileNeighbors(tile, Dirs);
+                List<string> currConnects = connection.GetConnections(tile);
+                List<LBSTile> neigs = tileModule.GetTileNeighbors(tile, Dirs);
 
-                var edt = connection.GetPair(tile).EditedByIA;
+                List<bool> edt = connection.GetPair(tile).EditedByIA;
 
                 for (int i = 0; i < Dirs.Count; i++)
                 {
@@ -222,10 +222,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                         continue;
                     }
 
-                    var otherZone = zonesMod.GetZone(neigs[i]);
+                    Zone otherZone = zonesMod.GetZone(neigs[i]);
                     if (otherZone == currZone)
                     {
-                        connection.SetConnection(tile, i, "Empty", true);
+                        string conn = connection.GetConnections(neigs[i])[(i + 2) % 4];
+                        bool notWallNorEmpty = conn != "Wall" && conn != "Empty" && conn != "";
+                        connection.SetConnection(tile, i, notWallNorEmpty ? conn : "Empty", true);
                     }
                     else
                     {
@@ -246,10 +248,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             var connectedZones = layer.GetModule<ConnectedZonesModule>();
             var connectedTiles = layer.GetModule<ConnectedTileMapModule>();
 
-            foreach (var tile in tilesMod.Tiles)
+            foreach (LBSTile tile in tilesMod.Tiles)
             {
                 // Get connection for each tile
-                var connection = connectedTiles.GetConnections(tile);
+                List<string> connection = connectedTiles.GetConnections(tile);
                 for (int i = 0; i < connection.Count; i++)
                 {
                     // set all DOORS to WALLS
@@ -258,15 +260,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 }
             }
 
-            foreach (var edge in connectedZones.Edges)
+            foreach (ZoneEdge edge in connectedZones.Edges)
             {
                 // Get zones
-                var zone1 = edge.First;
-                var zone2 = edge.Second;
+                Zone zone1 = edge.First;
+                Zone zone2 = edge.Second;
 
                 // Get tiles form both zones
-                var tilesZ1 = zonesMod.GetTiles(zone1);
-                var tilesZ2 = zonesMod.GetTiles(zone2);
+                List<LBSTile> tilesZ1 = zonesMod.GetTiles(zone1);
+                List<LBSTile> tilesZ2 = zonesMod.GetTiles(zone2);
 
                 // Cheack if both zones contain tiles
                 if (tilesZ1.Count <= 0 || tilesZ2.Count <= 0)
@@ -274,12 +276,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                 // Create list of posibles pair tiles
                 var pairs = new List<(LBSTile, LBSTile)>();
-                foreach (var t1 in tilesZ1)
+                foreach (LBSTile t1 in tilesZ1)
                 {
-                    foreach (var t2 in tilesZ2)
+                    foreach (LBSTile t2 in tilesZ2)
                     {
                         // Calculate dist between tiles
-                        var dist = (t1.Position - t2.Position).magnitude;
+                        float dist = (t1.Position - t2.Position).magnitude;
 
                         // If tiles are neightbors
                         if (dist == 1)
@@ -294,16 +296,16 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     continue;
 
                 // Select a random pair
-                var selc = pairs.Random();
+                (LBSTile, LBSTile) selc = pairs.Random();
 
                 // Get direction indexs
-                var dir = selc.Item1.Position - selc.Item2.Position;
-                var indx1 = Directions.Bidimencional.Edges.IndexOf(-dir);
-                var indx2 = Directions.Bidimencional.Edges.IndexOf(dir);
+                Vector2Int dir = selc.Item1.Position - selc.Item2.Position;
+                int indx1 = Directions.Bidimencional.Edges.IndexOf(-dir);
+                int indx2 = Directions.Bidimencional.Edges.IndexOf(dir);
 
                 // Get direction pairs
-                var p1 = connectedTiles.GetPair(selc.Item1);
-                var p2 = connectedTiles.GetPair(selc.Item2);
+                TileConnectionsPair p1 = connectedTiles.GetPair(selc.Item1);
+                TileConnectionsPair p2 = connectedTiles.GetPair(selc.Item2);
 
                 // Set connections
                 p1.SetConnection(indx1, "Door", true);

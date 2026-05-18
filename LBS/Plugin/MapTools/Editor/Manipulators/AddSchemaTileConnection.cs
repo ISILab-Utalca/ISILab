@@ -88,7 +88,7 @@ namespace ISILab.LBS.Manipulators
                 var tile = _schema.GetTile(_line.Positions[i]);
                 selectedTiles.Add(tile);
             }
-            bool requiresWall = _line.Positions.Count > 1;
+            bool requiresWall = _line.Positions.Count > 2;
 
             // Set Undo action
             LoadedLevel level = LBSController.CurrentLevel;
