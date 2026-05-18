@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
 using Newtonsoft.Json;
 using PathOS;
 using UnityEngine;
@@ -33,6 +34,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         private LBSSimulationObstacleConnections obstacles;
         [SerializeField]
         private SimulationDynamicTagConnections dynamicTagTiles;
+        // Stairs fields
+        [SerializeField]
+        private LBSStair stairRef;
         #endregion
 
         #region CONSTRUCTORS
@@ -73,6 +77,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         public LBSTag Tag { get { return tag; } set { tag = value; } }
         public bool LockedDoorPOI { get => lockedDoorPOI; set => lockedDoorPOI = value; }
         public EntityType EntityType { get => entityType; set => entityType = value; }
+        public LBSStair StairRef { get { return stairRef; } set { stairRef = value; } }
         public bool IsDynamicTagObject
         {
             get { return isDynamicTagObject; }
@@ -178,13 +183,11 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             if (obstacles.IsNull) { return null; }
             return obstacles.GetObstacle(tile) as (SimulationTile, SimulationObstacleConnections.Category)?;
         }
-        // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
         public (SimulationTile, SimulationTag)? GetDynamicTag(int x, int y)
         {
             if (dynamicTagTiles.IsNull) { return null; }
             return dynamicTagTiles.GetDynamicTag(x, y);
         }
-        // GABO TODO: Arreglar metodo cuando se arregle la clase y devolver NULO similar a GetObstacle
         public (SimulationTile, SimulationTag)? GetDynamicTag(SimulationTile tile)
         {
             if (dynamicTagTiles.IsNull) { return null; }
@@ -279,9 +282,9 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
             if (!other.owner.Equals(owner)) return false;
 
-            if(!other.Position.Equals(Position)) return false;
+            if (!other.Position.Equals(Position)) return false;
 
-            if(!Equals(other.Tag, Tag)) return false;
+            if (!Equals(other.Tag, Tag)) return false;
 
             // Not tested yet
             //if(other.IsDynamicTagObject != IsDynamicTagObject) return false;
@@ -338,7 +341,5 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         //    }
         //}
         #endregion
-
-
     }
 }

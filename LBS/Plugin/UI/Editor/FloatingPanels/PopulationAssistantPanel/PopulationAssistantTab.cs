@@ -1,22 +1,21 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
-using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement;
+using ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElementTitle;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using LBS.Components.TileMap;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.ObjectChangeEventStream;
 
 namespace ISILab.LBS.Editor
 {
@@ -50,14 +49,6 @@ namespace ISILab.LBS.Editor
         private LBSCustomToggleField    evaluatorGeneratorInterface3;
         private LBSCustomButton         evaluatorGeneratorCreateButton;
         private LBSCustomButton         evaluatorGeneratorOpenEvFolderButton;
-
-        // Evaluator's Parameter Editor (Should be in a new window but im writing it here in the meantime)
-        private LBSCustomListView       parameterList;
-        private LBSCustomTextField      parameterGeneratorName;
-        private LBSCustomToggle         parameterGeneratorType;
-        private LBSCustomToggleField    parameterGeneratorisList;
-        private LBSCustomButton         parameterGeneratorAddButton;
-
         #endregion
 
         #region FIELDS
@@ -310,6 +301,12 @@ namespace ISILab.LBS.Editor
         private void UpdateEvaluatorsList()
         {
             evaluatorListView.Clear();
+
+            //"TÍTULO PARA LA LISTA"
+            EvaluatorElementTitle evElTitle = new EvaluatorElementTitle("Name", "Interfaces", "Options");
+            evElTitle.style.unityFontStyleAndWeight = FontStyle.Bold;
+            evaluatorListView.hierarchy.ElementAt(0).Add(evElTitle);
+
             foreach (EvaluatorData evData in evaluatorsList)
             {
                 UpdateSingleEvaluator(evData);
@@ -319,10 +316,11 @@ namespace ISILab.LBS.Editor
         private void UpdateSingleEvaluator(EvaluatorData evData)
         {
             EvaluatorElement evElement = new EvaluatorElement(
-                evData.name,
-                evData.interface1,
-                evData.interface2,
-                evData.interface3
+                evData.Name,
+                evData.Interface1,
+                evData.Interface2,
+                evData.Interface3,
+                evData.ParamList
                 );
 
             evElement.OnDelete += (elem) =>
@@ -330,7 +328,7 @@ namespace ISILab.LBS.Editor
                 // Mostramos el diálogo nativo de Unity
                 bool confirm = EditorUtility.DisplayDialog(
                     "Eliminar Evaluador",               // Título
-                    $"¿Estás seguro de que deseas eliminar el evaluador '{evData.name}'?", // Mensaje
+                    $"¿Estás seguro de que deseas eliminar el evaluador '{evData.Name}'?", // Mensaje
                     "Eliminar",                         // Botón de confirmar
                     "Cancelar"                          // Botón de cancelar
                 );
@@ -342,8 +340,9 @@ namespace ISILab.LBS.Editor
                     //elem.parent.hierarchy.Remove(elem); <- if i can do that why do all of this?
                     evaluatorListView.hierarchy.Remove(elem);
                     evaluatorsList.Remove(evData);
-
-                    SaveEvaluatorDatabaseChanges();
+                    DeleteEvaluatorPhysicalFile(evData.Name);
+                    DeleteEvaluatorVEPhysicalFile(evData.Name);
+                    evDatabase.SaveDatabaseChanges();
                 }
             };
 
@@ -371,14 +370,14 @@ namespace ISILab.LBS.Editor
 
         public EvaluatorData ReturnEvDataWUniqueName(EvaluatorData evData)
         {
-            string newName = evData.name;
+            string newName = evData.Name;
             int counter = 0;
             while (!CheckUniqueEvName(newName))
             {
                 counter++;
-                newName = evData.name + "_" +counter.ToString();
+                newName = evData.Name + "_" +counter.ToString();
             }
-            evData.name= newName;
+            evData.Name = newName;
             return evData;
         }
 
@@ -387,7 +386,7 @@ namespace ISILab.LBS.Editor
             bool isUniqueName = true;
             foreach (EvaluatorData evData in evaluatorsList)
             {
-                if (evData.name == baseName) isUniqueName = false;
+                if (evData.Name == baseName) isUniqueName = false;
             }
 
             return isUniqueName;
@@ -395,33 +394,31 @@ namespace ISILab.LBS.Editor
 
         public void GenerateEvaluator(ClickEvent evt)
         {
-            string cleanName = GetEvGenData().name.Trim();
+            string cleanName = LBSTextUtilities.ReturnValidName(GetEvGenData().Name);
             if (!string.IsNullOrWhiteSpace(cleanName))
             {
                 EvaluatorData finalEvData = GetEvGenData();
-                finalEvData.name = cleanName;
+                finalEvData.Name = cleanName;
                 finalEvData = ReturnEvDataWUniqueName(finalEvData);
 
                 evaluatorsList.Add(finalEvData);
                 UpdateSingleEvaluator(finalEvData);
 
-                SaveEvaluatorDatabaseChanges();
+                evDatabase.SaveDatabaseChanges();
 
 
                 //llamar al creador de evaluadores y entregarle finalEvData
-                //EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.name, finalEvData.interface1, finalEvData.interface2, finalEvData.interface3);
+                EvaluatorCreator.CreateConfigurableEvaluator(finalEvData.Name, finalEvData.Interface1, finalEvData.Interface2, finalEvData.Interface3);
                 ResetEvaluatorGen();
             }
-            /*
             else
             {
                 bool confirm = EditorUtility.DisplayDialog(
-                    "Error",                                                    // T�tulo
-                    "Evaluator's name cannot be empty",                         // Mensaje
-                    "OK"                                                        // Bot�n de cancelar
+                    "Error",                                                    // Título
+                    "Evaluator's name cannot be empty or have special characters other than \"_\"",                           // Mensaje
+                    "OK"                                                        // Botón de cancelar
                 );
             }
-            */
         }
 
         public void OpenEvaluatorsFolder(ClickEvent evt)
@@ -446,6 +443,65 @@ namespace ISILab.LBS.Editor
             }
         }
 
+        private void DeleteEvaluatorPhysicalFile(string evaluatorName)
+        {
+            #if UNITY_EDITOR
+            // 1. Obtener la ruta desde tus settings (ajusta la extensión si no es .cs)
+            string folderPath = LBSSettings.Instance.paths.evaluatorsPath;
+            string fileName = $"{evaluatorName}.cs";
+            string fullPath = System.IO.Path.Combine(folderPath, fileName);
+
+            // 2. Verificar si el archivo existe antes de intentar borrar
+            if (AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath) != null)
+            {
+                bool success = AssetDatabase.DeleteAsset(fullPath);
+
+                
+                if (success)
+                    Debug.Log($"<color=red>[ISILab]</color> Archivo eliminado: {fullPath}");
+                else
+                    Debug.LogWarning($"[ISILab] No se pudo eliminar el archivo en: {fullPath}");
+                
+                //Debug.Log("File to be Deleted: "+fullPath);
+            }
+            else
+            {
+                Debug.LogWarning($"[ISILab] No se encontró el archivo físico para '{evaluatorName}' en {fullPath}");
+            }
+
+            AssetDatabase.Refresh();
+            #endif
+        }
+        private void DeleteEvaluatorVEPhysicalFile(string evaluatorName)
+        {
+            #if UNITY_EDITOR
+            // 1. Obtener la ruta desde tus settings (ajusta la extensión si no es .cs)
+            string folderPath = LBSSettings.Instance.paths.evaluatorsVEPath;
+            string fileName = $"{evaluatorName+"VE"}.cs";
+            string fullPath = System.IO.Path.Combine(folderPath, fileName);
+
+            // 2. Verificar si el archivo existe antes de intentar borrar
+            if (AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(fullPath) != null)
+            {
+                bool success = AssetDatabase.DeleteAsset(fullPath);
+                
+                if (success)
+                    Debug.Log($"<color=red>[ISILab]</color> Archivo eliminado: {fullPath}");
+                else
+                    Debug.LogWarning($"[ISILab] No se pudo eliminar el archivo en: {fullPath}");
+                
+                //Debug.Log("File to be Deleted: "+fullPath);
+            }
+            else
+            {
+                Debug.LogWarning($"[ISILab] No se encontró el archivo físico para '{evaluatorName}' en {fullPath}");
+            }
+
+            AssetDatabase.Refresh();
+            #endif
+        }
+
+        /*
         private void SaveEvaluatorDatabaseChanges()
         {
             if (evDatabase != null)
@@ -459,6 +515,7 @@ namespace ISILab.LBS.Editor
                 Debug.Log("<color=orange>[ISILab]</color> Cambios en la base de datos guardados localmente.");
             }
         }
+        */
 
         #endregion
 

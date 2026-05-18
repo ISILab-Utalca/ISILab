@@ -3,7 +3,6 @@ using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using System;
 using System.Collections.Generic;
@@ -16,9 +15,9 @@ namespace ISILab.LBS.Modules
     public class QuestGraph : LBSModule, ICloneable, ISelectable
     {
         #region CONSTANTS
-        private string defaultGrammarGuid = "63ab688b53411154db5edd0ec7171c42"; // Default grammar guid
-        private const float ViewNodeWidthOffset = 100f;
-        private const float SuggestionDistance = 1.5f;
+        private const string defaultGrammarGuid = "14cb4d99b22a94a45bac4216aca3f57e"; // Default grammar guid
+        public const float ViewNodeWidthOffset = 100f;
+        public const float SuggestionDistance = 1.5f;
         #endregion
 
         #region FIELDS
@@ -32,11 +31,12 @@ namespace ISILab.LBS.Modules
         private QuestNode root;
        
         [SerializeField]
-        private string grammarGuid = "63ab688b53411154db5edd0ec7171c42"; // Default grammar guid
+        private string grammarGuid = defaultGrammarGuid; 
 
-        private LBSGrammar _grammar;
+        private LBSGrammar grammar;
 
-        private Action _onUpdateGraph;
+
+
         #endregion
 
         #region PROPERTIES
@@ -49,36 +49,64 @@ namespace ISILab.LBS.Modules
         {
             get
             {
-                if (_grammar != null) return _grammar;
+                if (grammar != null) return grammar;
 
                 Grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>(grammarGuid)
                       ?? AssetMacro.LoadAssetByGuid<LBSGrammar>(defaultGrammarGuid);
 
-                return _grammar;
+                return grammar;
             }
             set
             {
-                _grammar = value;
-                grammarGuid = AssetMacro.GetGuidFromAsset(value);
+                grammar = value;
+                grammarGuid = AssetMacro.GetGuidFromAsset(Grammar);
                 ValidateGraph();
             }
         }
 
-
-        public event Action RedrawGraph
+        public GraphNode SelectedGraphNode
         {
-            add => _onUpdateGraph += value;
-            remove => _onUpdateGraph -= value;
+            get => selectedNode;
+            set
+            {
+                if (value is not null && selectedNode is not null)
+                {
+                    if (value.Equals(selectedNode)) return;
+                }
+
+
+                // assign if its null or it is a graphnode contained in the existing nodes
+                if (value == null || (value is not null && GraphNodes.Contains(value)))
+                {
+
+                    // deselect the previous node
+                    selectedNode?.OnDeselect?.Invoke();
+
+                    selectedNode = value;
+                    Reselect();
+
+                }
+            }
         }
-        
+
+        public QuestNodeData SelectedQuestData => SelectedQuestNode?.Data;
+
+        public QuestNode SelectedQuestNode => SelectedGraphNode as QuestNode;
+
+        #endregion
+
+        #region ACTIONS
+
+        public Action OnUpdateGraph;
+        private GraphNode selectedNode;
+        public Action<GraphNode> OnNodeSelected;
+
         #endregion
 
         #region EVENTS
         public Action<Vector2Int> GoToNodeInGraph;
         public Action<QuestEdge> OnAddEdge;
         public Action<QuestEdge> OnRemoveEdge;
-        public Action<QuestNode> OnAddSuggestion;
-        public Action<QuestNode> OnRemoveSuggestion;
         public Action<QuestNode> OnAddNode;
         public Action<QuestNode> OnRemoveNode;
 
@@ -88,13 +116,41 @@ namespace ISILab.LBS.Modules
         public QuestGraph()
         {
             // changing one edge can change the values of all the graph so we recheck all the graph for
-            OnAddEdge += _ =>  ValidateGraph();
-            OnRemoveEdge += _ =>  ValidateGraph();
+            ActionExtensions.AddUnique(ref OnAddEdge, PostEdge);
+            ActionExtensions.AddUnique(ref OnRemoveEdge, PostEdge);
+            ActionExtensions.AddUnique(ref OnAddNode, AddNode);
+            ActionExtensions.AddUnique(ref OnRemoveNode, RemoveNode);
         }
+
+        private void PostEdge(QuestEdge edge) => ValidateGraph();
+
         #endregion
-        
+
         #region METHODS
-        
+
+        #region Action methods
+        public void Reselect()
+        {
+            // delegeates related to the graph node selection
+            OnNodeSelected?.Invoke(selectedNode);
+
+            // delgates related to the node only
+            selectedNode?.OnSelect?.Invoke();
+        }
+
+        private void AddNode(QuestNode node)
+        {
+            SelectedGraphNode = node;
+            ValidateGraph();
+        }
+
+        private void RemoveNode(QuestNode node)
+        {
+            if (SelectedGraphNode == node) SelectedGraphNode = null;
+        }
+
+        #endregion
+
         #region Grammar
 
         private void ValidateGrammar()
@@ -164,7 +220,7 @@ namespace ISILab.LBS.Modules
             ValidateGrammar();
             RootValidation();
 
-            _onUpdateGraph?.Invoke();
+            OnUpdateGraph?.Invoke();
         }
 
         #endregion
@@ -175,7 +231,7 @@ namespace ISILab.LBS.Modules
         {
             foreach (GraphNode node in graphNodes)
             {
-                if (node.NodeViewPosition.Contains(pos) && node is T casted)
+                if (node.NodePosition.Contains(pos) && node is T casted)
                     return casted;
             }
             return null;
@@ -202,7 +258,7 @@ namespace ISILab.LBS.Modules
             return node;
         }
 
-        public QuestNode CreateSuggestionNode(string action,  List<QuestNode> tempSuggestions, Vector2 pos = default)
+        public QuestNode GetNodeSuggestion(string action,  List<QuestNode> tempSuggestions, Vector2 pos = default)
         {
             string uniqueSuggestionId = "s" + GenerateUniqueId(action, tempSuggestions.Select(n => n.ID));
             QuestNode node = new QuestNode(uniqueSuggestionId, pos, action, this);
@@ -220,13 +276,13 @@ namespace ISILab.LBS.Modules
         public void AddSuggestionNode(QuestNode generatedQuestNode)
         {
             if(generatedQuestNode is null) return;
-            Vector2Int pos = generatedQuestNode.NodeViewPosition.position.ToInt();
+            Vector2Int pos = generatedQuestNode.NodePosition.position.ToInt();
             Vector2 graphPos = OwnerLayer.FixedToPosition(pos, true);
-            QuestNode node = AddNewQuestNode(generatedQuestNode.QuestAction, graphPos);
+            QuestNode node = AddNewQuestNode(generatedQuestNode.TerminalID, graphPos);
              node.Data = generatedQuestNode.Data;
-             node.NodeViewPosition = new Rect(
+             node.NodePosition = new Rect(
                  graphPos, 
-                 generatedQuestNode.NodeViewPosition.size * SuggestionDistance);
+                 generatedQuestNode.NodePosition.size * SuggestionDistance);
         }
 
         private string GenerateUniqueId(string baseName, IEnumerable<string> existingIds)
@@ -325,8 +381,8 @@ namespace ISILab.LBS.Modules
         public bool RemoveEdge(QuestEdge edge)
         {
             if (edge == null) return false;
-            graphEdges.Remove(edge);
             OnRemoveEdge?.Invoke(edge);
+            graphEdges.Remove(edge);
             return true;
         }
 
@@ -336,8 +392,8 @@ namespace ISILab.LBS.Modules
             {
                 foreach (GraphNode from in e.From)
                 {
-                    Vector2 c1 = new Rect(from.NodeViewPosition).center;
-                    Vector2 c2 = new Rect(e.To.NodeViewPosition).center;
+                    Vector2 c1 = new Rect(from.NodePosition).center;
+                    Vector2 c2 = new Rect(e.To.NodePosition).center;
                     if (pos.DistanceToLine(c1, c2) < delta)
                         return e;
                 }
@@ -424,7 +480,7 @@ namespace ISILab.LBS.Modules
             }
 
             // Position new node next to reference
-            Vector2 position = referenceNode.NodeViewPosition.position;
+            Vector2 position = referenceNode.NodePosition.position;
             position.x += (int)ViewNodeWidthOffset;
 
             QuestNode newNode = AddNewQuestNode(action, position);
@@ -438,8 +494,8 @@ namespace ISILab.LBS.Modules
             
             // Add edge from reference → new node
             AddEdge(referenceNode, newNode);
-            _onUpdateGraph?.Invoke();
 
+            SelectedGraphNode = newNode;
             return newNode;
         }
 
@@ -459,7 +515,7 @@ namespace ISILab.LBS.Modules
             }
 
             // Position new node next to reference
-            Vector2 position = referenceNode.NodeViewPosition.position;
+            Vector2 position = referenceNode.NodePosition.position;
             position.x -= (int)ViewNodeWidthOffset;
 
             QuestNode newNode = AddNewQuestNode(action, position);
@@ -477,7 +533,9 @@ namespace ISILab.LBS.Modules
             
             // Add edge from new node →reference
             AddEdge(newNode, referenceNode);
-            _onUpdateGraph?.Invoke();
+            OnUpdateGraph?.Invoke();
+
+            SelectedGraphNode = newNode;
 
             return newNode;
         }
@@ -487,9 +545,9 @@ namespace ISILab.LBS.Modules
         /// </summary>
         /// <param name="expandActions">all the actions that correspond to a new node</param>
         /// <param name="referenceNode">the node that will be expanded(replaced)</param>
-        public void ExpandNode(List<string> expandActions, QuestNode referenceNode)
+        public QuestNode ExpandNode(List<string> expandActions, QuestNode referenceNode)
         {
-            if(!expandActions.Any()) return;
+            if(!expandActions.Any()) return null;
 
             QuestNode iterationNode = referenceNode;
             
@@ -521,6 +579,8 @@ namespace ISILab.LBS.Modules
             }
 
             RemoveQuestNode(referenceNode);
+            SelectedGraphNode = iterationNode;
+            return iterationNode;
         }
         
         #endregion
@@ -536,7 +596,7 @@ namespace ISILab.LBS.Modules
             }
             
             root = node;
-            root.NodeType = QuestNode.ENodeType.Start;
+            if(root != null) root.NodeType = QuestNode.ENodeType.Start;
 
             ValidateGraph();
         }
@@ -544,8 +604,10 @@ namespace ISILab.LBS.Modules
         private void RootValidation()
         {
            if(root is not null) 
-            { 
-                root.ValidConnections = !GetRoots(root).Any() && GetBranches(root).Any();
+            {
+                var roots = !GetRoots(root).Any();
+                var branches = GetBranches(root).Any();
+                root.ValidConnections = roots && branches; 
                 root.NodeType = QuestNode.ENodeType.Start;
             }
         }
@@ -608,7 +670,6 @@ namespace ISILab.LBS.Modules
         public override Rect GetBounds() => throw new NotImplementedException();
         public override void Rewrite(LBSModule other) => throw new NotImplementedException();
 
-    
         #endregion
 
         #endregion

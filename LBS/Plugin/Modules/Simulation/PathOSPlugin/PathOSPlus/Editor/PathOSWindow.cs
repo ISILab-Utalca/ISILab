@@ -47,6 +47,7 @@ namespace PathOS
 
         [SerializeField]
         private bool hasScreenshot, hasManager, hasAgent;
+        public bool HasAgent => hasAgent;
 
         [SerializeField]
         private int screenshotID, managerID, agentID;

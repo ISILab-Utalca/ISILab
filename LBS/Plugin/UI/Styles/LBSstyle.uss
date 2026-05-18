@@ -1868,3 +1868,28 @@ Toggle > .lbs-default-icon {
 .lbs-custom-toggle > .unity-toggle__input > .unity-toggle__checkmark {
     background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon@32.png') !important;
 }
+
+.lbs-custom-dropdown-marginless {}
+
+.lbs-custom-dropdown-marginless > VisualElement:last-child {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.lbs-button-only-tooltip-when-disabled {}
+
+.lbs-button-only-tooltip-when-disabled:disabled:hover {
+    background-color: var(--lbs-selectable-gray-color);
+}
+
+.lbs-custom-colored-icon {
+    -unity-background-image-tint-color: var(--lbs-icon-color);
+}
+
+.lbs-custom-colored-icon-disabled {
+    -unity-background-image-tint-color: var(--lbs-unselected-icon-color);
+}
+
+.lbs-custom-foldout #unity-content {
+    flex-grow: 1;
+}

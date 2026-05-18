@@ -55,6 +55,9 @@ namespace LBS.Components.TileMap // FIX: change namespace to ISILab.LBS.Bundle
         {
             get
             {
+                if(bundle != null) 
+                    return bundle;
+
                 bundle = AssetMacro.LoadAssetByGuid<Bundle>(GUID);
                 if (bundle == null)
                     bundle = LBSAssetsStorage.Instance.Get<Bundle>().Find(b => b.name == bundleName); // For compatibility

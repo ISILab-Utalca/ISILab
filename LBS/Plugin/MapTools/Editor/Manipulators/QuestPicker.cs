@@ -11,20 +11,26 @@ using UnityEditor;
 
 namespace ISILab.LBS.Manipulators
 {
+    public enum QuestPickType
+    {
+        Position,
+        Bundle,
+    }
+
     /// <summary>
     /// Allows selecting a population bundle from any layer and assigns it to the selected quest node if compatible.
     /// </summary>
     public class QuestPicker : LBSManipulator
     {
-        // Private fields
-        private QuestNodeBehaviour _behaviour;
-        private QuestBehaviour questBehavior;
 
-        public bool PickTriggerPosition = false;
+        private QuestPickType activeType;
+        private NodeDataBehaviour _behaviour;
         
-        // Public properties
-        public QuestActionData ActiveData { get; set; }
-
+        public QuestNodeData ActiveData { get; set; }
+        public QuestPickType ActiveType
+        {
+            set => activeType = value;
+        }
         /// <summary>
         /// Callback invoked when a bundle is picked. Only one function is allowed at a time.
         ///- layer
@@ -50,13 +56,12 @@ namespace ISILab.LBS.Manipulators
         public override void Init(LBSLayer layer, object owner = null)
         {
             base.Init(layer, owner);
-            _behaviour = layer.GetBehaviour<QuestNodeBehaviour>();
-            questBehavior = layer.GetBehaviour<QuestBehaviour>();
+            _behaviour = layer.GetBehaviour<NodeDataBehaviour>();
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if (questBehavior.SelectedGraphNode is not QuestNode node || ActiveData == null) return;
+            if (_behaviour.Graph.SelectedQuestNode == null || ActiveData == null) return;
                 
             Vector2Int location = LBSMainWindow._gridPosition;
 
@@ -64,23 +69,24 @@ namespace ISILab.LBS.Manipulators
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Pick Population Element");
 
-            if (PickTriggerPosition)
+            switch (activeType)
             {
-                // Only sets position on the trigger
-                OnPositionPicked?.Invoke(location);
-            }
-            else
-            {
-                Tuple<LBSLayer, TileBundleGroup> foundTile = LBSLayerHelper.GetBundleTileByMouse(endPosition, LBS.loadedLevel.data.Layers);
-                if (foundTile is not null)
-                {
-                    OnBundlePicked?.Invoke(foundTile.Item1, foundTile.Item2);
-                    // If a new bundle is added try to resize (only implement if using bundleGraph field)
-                    ActiveData.Resize();
-                }
+                case QuestPickType.Position:
+                    OnPositionPicked?.Invoke(location);
+                    break;
+                case QuestPickType.Bundle:
+                    Tuple<LBSLayer, TileBundleGroup> foundTile = LBSLayerHelper.GetBundleTileByMouse(endPosition, LBS.loadedLevel.data.Layers);
+                    if (foundTile is not null)
+                    {
+                        OnBundlePicked?.Invoke(foundTile.Item1, foundTile.Item2);
+                        // If a new bundle is added try to resize (only implement if using bundleGraph field)
+                        ActiveData.Resize();
+                    }
+                    break;
             }
 
-            questBehavior.NodeDataChanged(node);
+           
+            ActiveData.Node.Select();
 
             if (EditorGUI.EndChangeCheck())
             {

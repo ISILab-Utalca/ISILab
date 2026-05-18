@@ -54,6 +54,7 @@ namespace ISILab.LBS
             UpdateVisibility(layer);
 
             // Draw behaviours and assistants (if both share same drawer system)
+            DrawVisibleComponents(layer.Modules(), layer);
             DrawVisibleComponents(layer.Behaviours, layer);
             DrawVisibleComponents(layer.Assistants, layer);
         }
@@ -66,6 +67,7 @@ namespace ISILab.LBS
             _view.ClearLayerContainer(layer);
             UpdateVisibility(layer);
 
+            UpdateVisibleComponents(layer.Modules(), layer);
             UpdateVisibleComponents(layer.Behaviours, layer);
             UpdateVisibleComponents(layer.Assistants, layer);
         }
@@ -115,7 +117,7 @@ namespace ISILab.LBS
                 Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
                 if (drawer == null) continue;
                 layer.GetBehaviour<LBSBehaviour>()?.CheckKeys();
-                drawer.Update(component, MainView.Instance, layer.TileSize);
+                drawer.UpdateTiles(component, MainView.Instance, layer.TileSize);
             }
         }
 
@@ -135,7 +137,7 @@ namespace ISILab.LBS
             Drawer drawer = GetOrCreateDrawer(component.GetType(), layer);
             if (drawer is null) return;
             layer.GetBehaviour<LBSBehaviour>()?.CheckKeys();
-            drawer.Update(component, MainView.Instance, layer.TileSize);
+            drawer.UpdateTiles(component, MainView.Instance, layer.TileSize);
         }
 
         private void HideVisuals<T>(List<T> components, LBSLayer layer)
@@ -224,7 +226,7 @@ namespace ISILab.LBS
             }
             DrawLevel(level);
 
-            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer), typeof(QuestGraphDrawer), typeof (QuestNodeBehaviourDrawer), typeof (NoteDrawer) };
+            List<Type> GetNewDrawers() => new List<Type>() { typeof(ExteriorDrawer), typeof(SchemaDrawer), typeof(PopulationDrawer), typeof(PopulationTileDrawer), typeof(QuestBehaviorDrawer), typeof (NodeDataBehaviourDrawer), typeof (NoteDrawer) };
         }
 
         private void DrawLevel(LBSLevelData level)
@@ -294,7 +296,7 @@ namespace ISILab.LBS
             }
         }
 
-        private void ChangePickingMode(VisualElement element, PickingMode newPickingMode, List<VisualElement> exceptions)
+        public void ChangePickingMode(VisualElement element, PickingMode newPickingMode, List<VisualElement> exceptions)
         {
             if (element == null)
             {

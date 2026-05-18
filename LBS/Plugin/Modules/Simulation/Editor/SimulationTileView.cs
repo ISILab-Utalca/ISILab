@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
+using PathOS;
 using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -51,6 +52,7 @@ namespace ISILab.LBS.VisualElements
 
             PathOSStorage storage = PathOSStorage.Instance;
             SimulationEntityData data;
+
             // Set data
             if (tile.Tag != null && tile.Tag.Label.Equals("Player"))
             {
@@ -95,14 +97,14 @@ namespace ISILab.LBS.VisualElements
         private void SetColor(Color color)
         {
             background.style.backgroundColor = new StyleColor(color);
-            Debug.Log(color);
+            //Debug.Log(color);
         }
 
         public void SetEvents(SimulationTile tile)
         {
 
             if (tile == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile nulo!"); return; }
-            if (tile.Tag == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile tiene tag nulo!"); }
+            //if (tile.Tag == null) { Debug.LogWarning("SimulationTileView.SetEvents(): Tile tiene tag nulo!"); }
 
             dynamicTagObject.style.display = tile.IsDynamicTagObject ? DisplayStyle.Flex : DisplayStyle.None;
             dynamicTagTrigger.style.display = tile.IsDynamicTagTrigger ? DisplayStyle.Flex : DisplayStyle.None;

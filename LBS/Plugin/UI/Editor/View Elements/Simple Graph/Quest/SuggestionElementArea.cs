@@ -1,9 +1,9 @@
-using System;
+
 using ISILab.Commons.Utility.Editor;
-using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,11 +17,12 @@ namespace ISILab.LBS.VisualElements
     public sealed class SuggestionElementArea : GraphElement
     {
         #region Constants
+        private const float BorderWidth = 4f;
         private const float GraphGridLength = 100;
         #endregion
 
         #region Fields
-        private readonly QuestActionData _data;
+        private readonly QuestNodeData _data;
         private readonly QuestNode _generatedQuestNode;
 
         private Button _applyButton;
@@ -80,11 +81,11 @@ namespace ISILab.LBS.VisualElements
 
             // Target icons
             var targetIcon = this.Q<VisualElement>("TargetIcon");
-            targetIcon.style.backgroundImage = new StyleBackground(_data.GetIcon());
+            targetIcon.style.backgroundImage = new StyleBackground(_data.Terminal.Icon);
             targetIcon.style.display = DisplayStyle.None;
 
             var cornerTargetIcon = this.Q<VisualElement>("CornerTargetIcon");
-            cornerTargetIcon.style.backgroundImage = new StyleBackground(_data.GetIcon());
+            cornerTargetIcon.style.backgroundImage = new StyleBackground(_data.Terminal.Icon);
             cornerTargetIcon.style.display = DisplayStyle.None;
         }
 
@@ -97,22 +98,21 @@ namespace ISILab.LBS.VisualElements
      
             // Action label
             var actionLabel = this.Q<Label>("ActionLabel");
-            if (!string.IsNullOrEmpty(_generatedQuestNode.QuestAction))
+            if (!string.IsNullOrEmpty(_generatedQuestNode.TerminalID))
             {
-                actionLabel.text = char.ToUpper(_generatedQuestNode.QuestAction[0]) +
-                                   _generatedQuestNode.QuestAction.Substring(1);
+                actionLabel.text = char.ToUpper(_generatedQuestNode.TerminalID[0]) +
+                                   _generatedQuestNode.TerminalID.Substring(1);
             }
 
             // Buttons
+            _visibleToggle= this.Q<LBSToolbarToggle>("VisibiliityToggle");
+
             _applyButton = this.Q<Button>("ApplyButton");
             _discardButton = this.Q<Button>("DiscardButton");
-            _visibleToggle= this.Q<LBSToolbarToggle>("VisibiliityToggle");
-            _discardButton.clicked += () =>_generatedQuestNode.Graph.OnRemoveSuggestion?.Invoke(_generatedQuestNode);
-            _applyButton.clicked += () =>
-            {
-                _generatedQuestNode.Graph.OnRemoveSuggestion?.Invoke(_generatedQuestNode);
-                _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
-            };
+
+            _discardButton.clicked += RemoveSuggestion;
+            _applyButton.clicked += AddSuggestionToGraph;
+
             _visibleToggle.RegisterCallback<ChangeEvent<bool>>(x =>
             {
                 DisplayTriggerArea(x.newValue);
@@ -130,7 +130,7 @@ namespace ISILab.LBS.VisualElements
             {
                 capsule.UnregisterCallback(onGeometryReady);
 
-                if (_generatedQuestNode.NodeViewPosition == Rect.zero)
+                if (_generatedQuestNode.NodePosition == Rect.zero)
                 {
                     // add offset to capsule (previously set in the assistant generation function 
                     capsule.style.left = capsule.resolvedStyle.left + _generatedQuestNode.Position.x;
@@ -143,7 +143,7 @@ namespace ISILab.LBS.VisualElements
 
                     var capsuleOffset = _generatedQuestNode.Graph.OwnerLayer.ToFixedPosition(capsulePos);
                     var graphPos = _generatedQuestNode.Graph.OwnerLayer.ToFixedPosition(GetPosition().position);
-                    _generatedQuestNode.NodeViewPosition = new Rect(
+                    _generatedQuestNode.NodePosition = new Rect(
                         graphPos,
                         new Vector2(capsule.resolvedStyle.width, capsule.resolvedStyle.height)
                     );
@@ -163,35 +163,59 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region Private Methods
+        private void RemoveSuggestion() => _generatedQuestNode.Graph.OwnerLayer.GetAssistant<QuestAssistant>().OnSuggestionRemoved?.Invoke(_generatedQuestNode);
+
+        private void AddSuggestionToGraph()
+        {
+            _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
+            RemoveSuggestion();
+        }
+
         private void ApplyStyling()
         {
-            Color backgroundColor = _data.Color;
-            backgroundColor.a = 0.2f;
-            _triggerElementGizmo.style.backgroundColor = backgroundColor;
-            _triggerElementGizmo.style.unityBackgroundImageTintColor = backgroundColor;
+            var baseColor = _data.Terminal.color;
 
-            const float borderWidth = 4f;
-            _triggerElementGizmo.style.borderBottomWidth = borderWidth;
-            _triggerElementGizmo.style.borderLeftWidth = borderWidth;
-            _triggerElementGizmo.style.borderRightWidth = borderWidth;
-            _triggerElementGizmo.style.borderTopWidth = borderWidth;
+            SetBackground(baseColor, 0.2f);
+            SetBorderWidth(BorderWidth);
         }
 
         private void SetSelected(bool isSelected)
         {
+            var baseColor = _data.Terminal.color;
+
             _triggerElementGizmo.style.backgroundImage = isSelected ? _triggerBackground : null;
-            
-            Color backgroundColor = _data.Color;
-            backgroundColor.a = isSelected ? 0.2f : 0f;
-            _triggerElementGizmo.style.backgroundColor = backgroundColor;
-            _triggerElementGizmo.style.unityBackgroundImageTintColor = backgroundColor;
-            
-            Color color = _data.Color;
-            color.a = isSelected ? 1f : 0f;
-            _triggerElementGizmo.style.borderBottomColor = color;
-            _triggerElementGizmo.style.borderTopColor = color;
-            _triggerElementGizmo.style.borderRightColor = color;
-            _triggerElementGizmo.style.borderLeftColor = color;
+
+            SetBackground(baseColor, isSelected ? 0.2f : 0f);
+            SetBorderColor(baseColor, isSelected ? 1f : 0f);
+        }
+
+        private void SetBackground(Color color, float alpha)
+        {
+            color.a = alpha;
+            _triggerElementGizmo.style.backgroundColor = color;
+            _triggerElementGizmo.style.unityBackgroundImageTintColor = color;
+        }
+
+        private void SetBorderWidth(float width)
+        {
+            var style = _triggerElementGizmo.style;
+
+            style.borderBottomWidth = width;
+            style.borderTopWidth = width;
+            style.borderLeftWidth = width;
+            style.borderRightWidth = width;
+        }
+
+        private void SetBorderColor(Color color, float alpha)
+        {
+            color.a = alpha;
+
+            var style = _triggerElementGizmo.style;
+
+            style.borderBottomColor = color;
+            style.borderTopColor = color;
+            style.borderLeftColor = color;
+            style.borderRightColor = color;
         }
         #endregion
     }

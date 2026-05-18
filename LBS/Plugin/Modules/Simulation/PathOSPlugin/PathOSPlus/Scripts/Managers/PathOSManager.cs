@@ -19,6 +19,8 @@ namespace PathOS
     //Simple class for defining entities in the level.
     public class PathOSManager : NPSingleton<PathOSManager>
     {
+        public int floorCount = 0;
+
         public const string simulationEndedEditorPrefsID = "PathOSSimulationEndFlag";
         public bool limitSimulationTime = false;
 
@@ -51,7 +53,9 @@ namespace PathOS
         {EntityType.ET_HAZARD_ENEMY_BOSS, "hazard_enemy_boss" },
         {EntityType.ET_HAZARD_ENVIRONMENT, "hazard_environment" },
         {EntityType.ET_POI, "poi_environment" },
-        {EntityType.ET_POI_NPC, "poi_npc" }
+        {EntityType.ET_POI_NPC, "poi_npc" },
+        {EntityType.ET_STAIR_UP, "stair_up" },
+        {EntityType.ET_STAIR_DOWN, "stair_down" }
     };
 
 
@@ -71,7 +75,9 @@ namespace PathOS
         {EntityType.ET_HAZARD_ENEMY_BOSS, "Enemy Hazard Boss" },
         {EntityType.ET_HAZARD_ENVIRONMENT, "Environmental Hazard" },
         {EntityType.ET_POI, "Point-of-Interest (e.g., setpiece)" },
-        {EntityType.ET_POI_NPC, "NPC (non-hostile)" }
+        {EntityType.ET_POI_NPC, "NPC (non-hostile)" },
+        {EntityType.ET_STAIR_UP, "Stair going up" },
+        {EntityType.ET_STAIR_DOWN, "Stair going down" }
     };
 
         private float simulationTimer = 0.0f;
@@ -409,18 +415,18 @@ namespace PathOS
                 affectedAgent.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(currentSmallestUnassignedIdIndex).agentTypeID;
 
                 // Make "unreachable" entities and paths potentially reachable again
-                affectedAgent.memory.SetAllMemoriesAndPathsAsReachable();
+                affectedAgent.GetMemory().SetAllMemoriesAndPathsAsReachable();
                 // Clear obstacles in agent memory map (TEMP SOLUTION in order to prevent agent from getting stuck)
-                affectedAgent.memory.memoryMap.ResetObstacles();
+                affectedAgent.GetMemory().memoryMap.ResetObstacles();
             }
             else
             {
                 surface.BuildNavMesh();
 
                 // Make "unreachable" entities and paths potentially reachable again
-                affectedAgent.memory.SetAllMemoriesAndPathsAsReachable();
+                affectedAgent.GetMemory().SetAllMemoriesAndPathsAsReachable();
                 // Clear obstacles in agent memory (TEMP SOLUTION in order to prevent agent from getting stuck)
-                affectedAgent.memory.memoryMap.ResetObstacles();
+                affectedAgent.GetMemory().memoryMap.ResetObstacles();
             }
 
             // Remove temporary BoxColliders from objects that didn't have them.

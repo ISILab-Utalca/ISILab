@@ -1,0 +1,16 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="flex-grow: initial; flex-direction: column; min-height: auto; max-height: none; align-items: stretch; align-self: stretch; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px; flex-shrink: 1;">
+        <uie:ObjectField label="Grammar File" type="UnityEngine.TextCore.Text.TextAsset, UnityEngine.TextCoreTextEngineModule" name="GrammarFileField" focusable="false" allow-scene-objects="false" />
+        <ui:Button text="Process Grammar" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/Quest=CsharpScript_Solid.svg?fileID=7388822144124034973&amp;guid=a82385e0207a498439acc13cb373510a&amp;type=3#Quest=CsharpScript_Solid" selectable="false" name="ProcessButton" style="padding-top: 1px; margin-top: 10px;" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon label="Grammar Rules" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/Icon=QuestAction.svg?fileID=7388822144124034973&amp;guid=8e6d54caf2a0f1548b7303b3800070ed&amp;type=3#Icon=QuestAction" direction="RowReverse" style="align-self: center;" />
+            <ui:TreeView name="RulesTree" auto-expand="false" show-border="true" virtualization-method="DynamicHeight" horizontal-scrolling="true" selection-type="None" style="flex-shrink: 1; flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ISILab.LBS.CustomComponents.LBSCustomLabelIcon label="Terminal Actions (Quest Nodes)" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/GrammarAssistant/Icon=QuestNode.svg?fileID=7388822144124034973&amp;guid=bb0770b945366c94c822cf3255eb885d&amp;type=3#Icon=QuestNode" direction="RowReverse" style="align-self: center;" />
+        <ui:VisualElement name="Terminals" style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

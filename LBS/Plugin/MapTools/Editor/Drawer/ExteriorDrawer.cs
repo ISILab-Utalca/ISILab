@@ -41,7 +41,7 @@ namespace ISILab.LBS.Drawers
             }
         }
 
-        public override void Update(object target, MainView view, Vector2 teselationSize)
+        public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)
         {
             if (target is not ExteriorBehaviour exterior) return;
             var connectMod = exterior.OwnerLayer.GetModule<ConnectedTileMapModule>();

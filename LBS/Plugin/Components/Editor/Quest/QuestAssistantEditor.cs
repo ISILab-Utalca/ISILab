@@ -10,18 +10,18 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using LBS.Components;
-using LBS.VisualElements;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
+using ISILab.LBS.Plugin.Core.Settings;
+using System.Linq;
 
 namespace ISILab.LBS.Editor
 {
     [LBSCustomEditor("QuestAssistant", typeof(QuestAssistant))]
-    public class QuestAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
+    public class QuestAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
     {
         
         #region FIELDS
@@ -37,7 +37,7 @@ namespace ISILab.LBS.Editor
         private VisualElement _lockedContextEntryContainer;
         private LBSCustomLabelIcon _noSuggestionPanel;
         private LBSCustomUnsignedIntegerField _suggestionField;
-        private IEnumerable<QuestNode> suggestions;
+        private IEnumerable<QuestNode> tempSuggestions;
 
         #endregion
 
@@ -100,6 +100,7 @@ namespace ISILab.LBS.Editor
 
         #region IAssistantThreadedEditor
         
+      
         public CancellationToken CancelToken { get; set; }
         public CancellationTokenSource CancellationTokenSource { get; set; }
         public ToolBarMain TaskBar { get; set; }
@@ -109,52 +110,68 @@ namespace ISILab.LBS.Editor
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
             {
-                _assistant.Suggestions.AddRange(suggestions);
+                if( 
+                tempSuggestions == null || 
+                tempSuggestions.ToList().Count == 0) 
+                { 
+                    LBSLog log = new LBSLog(
+                        "No suggestions generated. Missing Layer Context", 
+                        LogType.Error,
+                        2);
+                    LBSMainWindow.MessageNotify(log);
+                    TaskBar.EnableProcess(false);
+                    return; 
+                }
+
+
+                foreach (var item in _assistant.Suggestions)
+                    _assistant.OnSuggestionRemoved?.Invoke(item);
+
+                foreach (var item in tempSuggestions)
+                    _assistant.OnSuggestionAdded?.Invoke(item);              
+                    
                 UpdateSuggestionsDisplay();
                 TaskBar.EnableProcess(false);
             };
         }
-        
+
         #endregion
-        
-        
+
+
         private void RunTask()
         {
             ((IAssistantThreadedEditor)this).SetUpTask(this, _assistant);
+
             Task.Run(() =>
             {
                 try
                 {
-                    var bundleToActions = _assistant.GenerateSuggestions((int)GetSuggestionCount(), progress =>
+                    var bundleToActions = _assistant.GenerateCandidates((int)GetSuggestionCount(), progress =>
                     {
-                        // progress from 0 to 0.5
-                        ((IAssistantThreadedEditor)this).ReportProgress(0.05f * progress);
+                        ((IAssistantThreadedEditor)this).ReportProgress(0.5f * progress);
                     }, CancelToken);
-                    
-                    
-                    suggestions = _assistant.CreateNewSuggestions(bundleToActions, progress =>
+
+                    EditorApplication.delayCall += () =>
                     {
-                        // progress from 0 to 95
-                        ((IAssistantThreadedEditor)this).ReportProgress(0.05f + 0.95f * progress);
-                    }, CancelToken);
-                    
-                    string log = "Recommended nodes generated.";
-                    LogType logType = LogType.Log;
-                    EditorApplication.delayCall += () => _assistant.OnTermination?.Invoke(log, logType, null);
-                   
+                        if (CancelToken.IsCancellationRequested) return;
+
+                        tempSuggestions = _assistant.GetSuggestions(bundleToActions, progress =>
+                        {
+                            ((IAssistantThreadedEditor)this).ReportProgress(0.5f + (0.5f * progress));
+                        }, CancelToken);
+
+                        string log = "Recommended nodes generated.";
+                        _assistant.OnTermination?.Invoke(log, LogType.Log, null);
+                    };
                 }
                 catch (Exception ex)
                 {
                     ((IAssistantThreadedEditor)this).OnTaskException(ex, _assistant);
                 }
-
             }, CancelToken);
         }
 
-        private uint GetSuggestionCount()
-        {
-            return _suggestionField.value;
-        }
+        private uint GetSuggestionCount() => _suggestionField.value;
 
         #region LAYERS
         private void SetupLayerContextList()
@@ -231,17 +248,17 @@ namespace ISILab.LBS.Editor
             _suggestionList.makeItem = () => new QuestNodeSuggestion();
             _suggestionList.bindItem = BindQuestNodeSuggestion;
             _suggestionList.itemsSource = _assistant.Suggestions;
-          //  UpdateSuggestionsDisplay();
         }
         
         private void UpdateSuggestionsDisplay()
         {
             bool hasSuggestions = _suggestionList.itemsSource.Count > 0;
+            
             _suggestionList.Rebuild();
             _noSuggestionPanel.style.display = hasSuggestions ? DisplayStyle.None : DisplayStyle.Flex;
             _suggestionList.style.display = hasSuggestions ? DisplayStyle.Flex : DisplayStyle.None;
-            // redraw to display suggestions
-            DrawManager.Instance.RedrawLayer(_questGraph.OwnerLayer);
+           
+            DrawManager.Instance.UpdateSingleComponent(_assistant, _questGraph.OwnerLayer);
             MarkDirtyRepaint();
         }
         
@@ -250,18 +267,9 @@ namespace ISILab.LBS.Editor
             if (element is not QuestNodeSuggestion suggestionEntry) return;
 
             suggestionEntry.UpdateData(_assistant.Suggestions[index]);
-            _questGraph.OnRemoveSuggestion += (suggestionToRemove) =>
-            {
-                _assistant.Suggestions.Remove(suggestionToRemove);
-            };
-            _questGraph.OnRemoveSuggestion -= HandleRemoveSuggestion;
-            _questGraph.OnRemoveSuggestion += HandleRemoveSuggestion;
+            _assistant.OnSuggestionRemoved += (node) => UpdateSuggestionsDisplay();
         }
         
-        private void HandleRemoveSuggestion(QuestNode node)
-        {
-            UpdateSuggestionsDisplay();
-        }
         #endregion
         
         public override void OnFocus()
@@ -277,7 +285,6 @@ namespace ISILab.LBS.Editor
             DrawManager.Instance.UpdateSingleComponent(_assistant, _assistant.OwnerLayer);
         }
         
-        public void SetTools(ToolKit toolkit) { }
         #endregion
     }
 }

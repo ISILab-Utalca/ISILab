@@ -102,8 +102,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // Label changes
             _questLabel.style.color = new StyleColor(color);
             _questLabel.text = closed
-                ? $"<s>{_questNode.QuestAction}</s>"
-                : _questNode.QuestAction;
+                ? $"<s>{_questNode.TerminalID}</s>"
+                : _questNode.TerminalID;
         }
     }
 }

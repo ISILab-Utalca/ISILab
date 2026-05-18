@@ -31,21 +31,21 @@ namespace PathOS
 
         public static Color[] mapLegendColors =
         {
-        PathOS.UI.mapUnknown,
-        PathOS.UI.mapSeen,
-        PathOS.UI.mapVisited,
-        PathOS.UI.mapObstacle
-    };
+            PathOS.UI.mapUnknown,
+            PathOS.UI.mapSeen,
+            PathOS.UI.mapVisited,
+            PathOS.UI.mapObstacle
+        };
 
         public static Texture2D[] mapLegendTextures;
 
         public static string[] mapLegendText =
         {
-        "Unknown",
-        "Seen",
-        "Visited",
-        "Obstacle"
-    };
+            "Unknown",
+            "Seen",
+            "Visited",
+            "Obstacle"
+        };
 
         private Texture2D blankLegendTex;
 
@@ -62,13 +62,13 @@ namespace PathOS
 
         private string[] gizmoLegendText =
         {
-        "Target",
-        "Visited",
-        "Visible",
-        "In Memory",
-        "Unreachable",
-        "Invisible" // GABO
-    };
+            "Target",
+            "Visited",
+            "Visible",
+            "In Memory",
+            "Unreachable",
+            "Invisible" // GABO
+        };
 
         [Header("Map Drawing")]
         //Should we show the navmesh map contained in the agent's memory?
@@ -141,7 +141,7 @@ namespace PathOS
 
             //We want to draw the memory "map" in the lower-left corner of the screen.
             //Grab a persistent reference to the texture.
-            navmeshMemoryMap = agent.memory.memoryMap.GetVisualGrid();
+            navmeshMemoryMap = agent.GetMemory().memoryMap.GetVisualGrid(0);
 
             //Map legend.
             mapLegendIcons = new List<Rect>();
@@ -209,7 +209,7 @@ namespace PathOS
         {
             //Little bit of simple math to constrain the map's size and ensure
             //it is drawn in the correct location.
-            float navmeshMapAsp = agent.memory.memoryMap.GetAspect();
+            float navmeshMapAsp = agent.GetMemory().memoryMap.GetAspect();
             float navmeshMapX = 0.0f, navmeshMapY = 0.0f;
 
             if (navmeshMapAsp > 1.0f)
@@ -272,6 +272,15 @@ namespace PathOS
             {
                 showLegend = !showLegend;
             }
+
+            // Set memory texture visualization according to floor height
+            int currentFloor = (int)(transform.position.y / agent.GetMemory().gridSampleSize.y);
+            if (currentFloor != agent.GetMemory().memoryMap.ActiveFloor)
+            {
+                Debug.Log($"Changing memory texture to {currentFloor} index");
+                agent.GetMemory().memoryMap.ActiveFloor = currentFloor;
+                navmeshMemoryMap = agent.GetMemory().memoryMap.GetVisualGrid(currentFloor);
+            }
         }
 
         private void OnApplicationQuit()
@@ -302,8 +311,10 @@ namespace PathOS
                 UpdateRenderViewCoords();
 
             if (showMemoryMap)
+            {
                 GUI.DrawTexture(navmeshMapScreenCoords,
                     navmeshMemoryMap, ScaleMode.ScaleToFit, false);
+            }
 
             if (showPlayerView)
                 GUI.DrawTexture(playerViewTextureCoords,
@@ -379,7 +390,7 @@ namespace PathOS
 
             Vector3 targetPos = agent.GetTargetPosition();
 
-            List<PathOS.EntityMemory> memory = agent.memory.entities;
+            List<PathOS.EntityMemory> memory = agent.GetMemory().entities;
             PathOS.PerceivedEntity agentTargetEntity = agent.GetDestinationEntity();
 
             //Memorized objects.

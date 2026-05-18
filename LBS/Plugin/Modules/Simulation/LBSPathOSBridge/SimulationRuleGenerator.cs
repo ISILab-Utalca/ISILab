@@ -1,51 +1,40 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Extensions;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
+using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
 using LBS.Components;
 using PathOS;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.AI.Navigation;
 using UnityEditor;
+using UnityEditor.PackageManager.UI;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
     public class SimulationRuleGenerator : LBSGeneratorRule
     {
         #region FIELDS
-        SimulationModule module;
-        List<SimulationTile> tiles;
-        GameObject parent;
-        GameObject levelMarkupContainer; // Contiene objetos marcados de PathOS
-        GameObject wallsContainer; // Contiene los objetos muro
-        Vector2 scale;
-        // Referencias a muros colocados en ultima generacion
-        List<(SimulationTile, GameObject)> lastGenerationWalls;
-        // Referencia al PathOSManager instanciado
-        PathOSManager manager;
-        // Ventana de PathOS+
-        PathOSWindow window;
         // PathOS+ Prefabs originales
         [System.NonSerialized]
-        GameObject agentPrefab;
+        private GameObject agentPrefab;
         [System.NonSerialized]
-        GameObject managerPrefab;
+        private GameObject managerPrefab;
         [System.NonSerialized]
-        GameObject worldCameraPrefab;
+        private GameObject worldCameraPrefab;
         [System.NonSerialized]
-        GameObject screenshotCameraPrefab;
-        // Instancias de los prefabs
-        GameObject agentGameObject;
-        GameObject managerGameObject;
-        GameObject worldCameraGameObject;
-        GameObject screenshotCameraGameObject;
+        private GameObject screenshotCameraPrefab;
+
         // Otros prefabs
-        GameObject elementPrefab;
-        GameObject wallPrefab;
+        private GameObject elementPrefab;
+        private GameObject wallPrefab;
         #endregion
 
         public SimulationRuleGenerator() : base() { }
@@ -69,173 +58,183 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
         {
 #if UNITY_EDITOR
             PathOSStorage storage = PathOSStorage.Instance;
-            // Prefabs
+
+            // Get Prefabs
             agentPrefab = storage.agentPrefab.gameObject;
             managerPrefab = storage.managerPrefab.gameObject;
             worldCameraPrefab = storage.worldCameraPrefab.gameObject;
             screenshotCameraPrefab = storage.screenshotCameraPrefab.gameObject;
             elementPrefab = Resources.Load<GameObject>("Prefabs/ElementPrefab");
             wallPrefab = Resources.Load<GameObject>("Prefabs/WallPrefab");
-            // Variables
-            module = layer.GetModule<SimulationModule>();
-            tiles = module.GetTiles();
-            scale = settings.scale;
-            // Se reinicia lista de muros antigua
-            lastGenerationWalls = new();
-            // Obtiene (o crea) instancia de PathOSWindow
-            window = EditorWindow.GetWindow(typeof(PathOSWindow), false, "PathOS+", false) as PathOSWindow;
-            // Objeto contenedor padre
-            parent = new GameObject("PathOS+");
-            // Objeto hijo, contenedor de los objetos etiquetados
-            levelMarkupContainer = new GameObject("Level Markup");
-            levelMarkupContainer.transform.SetParent(parent.transform);
-            // 2do Objeto hijo, contenedor de los muros
-            wallsContainer = new GameObject("Walls");
-            wallsContainer.transform.SetParent(parent.transform);
-            // Referencia temporal a entidades creadas con su tile correspondiente
-            // (ej.: Para agregarles sus obstaculos dinamicos post-instanciacion)
-            List<(SimulationTile, LevelEntity)> entitiesTemporaryReference = new();
-            // Lista de GameObjects a retornar
-            List<GameObject> boxes = new List<GameObject>();
+
+            // Get PathOS window reference
+            PathOSWindow window = 
+                EditorWindow.GetWindow(typeof(PathOSWindow), false, "PathOS+", false) as PathOSWindow;
+
+            // Setup
+            GameObject parent = new GameObject("PathOS+");
 
             List<LBSGeneratedSimulation> allGeneratedComponents = new();
-
-            // Instanciacion de Prefabs + colocacion de referencias en PathOSWindow
-            GenerateManager();
-            GenerateWorldCamera();
-            GenerateScreenshotCamera();
-
+            List<(SimulationTile, LevelEntity)> generatedEntities = new();
+            List<(SimulationTile, GameObject)> walls = new();
             Dictionary<string, int> objectNames = new();
+            GameObject agentGO = null;
 
-            // Instanciacion de tags
-            manager = managerGameObject.GetComponent<PathOSManager>();
-            foreach (SimulationTile tile in tiles)
+            // PathOS escentials
+            PathOSManager manager = GenerateManager(parent.transform, window).GetComponent<PathOSManager>();
+
+            GenerateScreenshotCamera(parent.transform, window);
+            GenerateWorldCamera(parent.transform);
+
+            // LBSFloor
+            int notEmptyFloorCount = 0; // Only counts floor with items
+            for (int i = 0; i < layer.FloorCount; i++)
             {
-                // Si el tile es de agente, instanciar prefab.
-                GameObject currInstance;
-                if (tile.Tag != null && tile.Tag.Label == "Player")//"PathOSAgent")
+                // Floor variables
+                SimulationModule simMod = layer.GetModule<SimulationModule>("", i);
+                SimulationBehaviour simBehaviour = layer.GetBehaviour<SimulationBehaviour>();
+
+                List<SimulationTile> tiles = simMod.GetTiles();
+                if (tiles.Count < 1) continue;
+                notEmptyFloorCount++;
+
+                GameObject floorParent = new GameObject("Floor " + i);
+                floorParent.transform.SetParent(parent.transform);
+                floorParent.transform.localPosition = Vector3.up * i * settings.scale.y;
+
+                // Objeto hijo, contenedor de los objetos etiquetados
+                GameObject levelMarkupContainer = new GameObject("Level Markup");
+                levelMarkupContainer.transform.SetParent(floorParent.transform);
+
+                // 2do Objeto hijo, contenedor de los muros
+                GameObject wallsContainer = new GameObject("Walls");
+                wallsContainer.transform.SetParent(floorParent.transform);
+
+                // 3er Objeto hijo, contenedor de escaleras
+                GameObject stairContainer = new GameObject("Stairs");
+                stairContainer.transform.SetParent(floorParent.transform);
+
+                foreach (SimulationTile tile in tiles)
                 {
-                    // Instanciar agente
-                    agentGameObject = PrefabUtility.InstantiatePrefab(agentPrefab, parent.transform) as GameObject;
-                    currInstance = agentGameObject;
-                    // Setear posicion
-                    currInstance.transform.position = settings.position +
-                                                      new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
-                                                      - new Vector3(scale.x, 0, scale.y) / 2f;
-
-                    PathOSAgent agentComp = agentGameObject.GetComponent<PathOSAgent>();
-                    // Se asigna a su campo respectivo de PathOSWindow
-                    window.SetAgentReference(agentGameObject.GetComponent<PathOSAgent>());
-
-                    var player = GameObject.FindFirstObjectByType<CharacterController>();
-                    if (player is not null)
+                    var instance = GenerateSimulationTile(parent.transform, settings, tile, i);
+                    
+                    // Player settings
+                    if(tile.Tag != null && tile.Tag.label == "Player" && agentGO is null)
                     {
-                        PathOSAgentEyes eyesComp = agentGameObject.GetComponent<PathOSAgentEyes>();
-                        eyesComp.cam.gameObject.SetActive(false);
-                        GameObject camObj = player.GetComponentInChildren<Camera>().gameObject;
-                        GameObject camClone = GameObject.Instantiate(camObj, eyesComp.transform);
-                        eyesComp.cam = camClone.GetComponent<Camera>();
+                        agentGO = instance.gameObject;
+                        window.SetAgentReference(agentGO.GetComponent<PathOSAgent>());
+                        continue;
+                    }
+                    // Wall settings
+                    else if(tile.Tag != null && tile.Tag.label == "Wall")
+                    {
+                        instance.transform.SetParent(wallsContainer.transform);
+                        walls.Add((tile, instance.gameObject));
+                    }
+                    // Stair settings
+                    else if(tile.Tag != null && tile.Tag == simBehaviour.upStairTag)
+                    {
+                        instance.transform.SetParent(stairContainer.transform);
+                        instance.gameObject.name += " (Up)";
+                        instance.transform.localPosition += (tile.Tag == simBehaviour.downStairTag) ? Vector3.up * settings.scale.y : Vector3.zero;
+                        LevelEntity levelEntity = manager.AddLevelEntity(instance.gameObject, tile.EntityType);
+                        instance.levelEntity = levelEntity;
+
+                        var otherStairPosition = tile.StairRef.Positions[tile.StairRef.Positions.Count - 1];
+                        var otherStairTile = new SimulationTile(simBehaviour, otherStairPosition.x, otherStairPosition.y, EntityType.ET_STAIR_DOWN, simBehaviour.downStairTag)
+                        {
+                            StairRef = tile.StairRef
+                        };
+                        var otherStair = GenerateSimulationTile(parent.transform, settings, otherStairTile, i+1);
+                        otherStair.gameObject.name += " (Down)";
+                        otherStair.transform.SetParent(stairContainer.transform);
+                        LevelEntity otherLevelEntity = manager.AddLevelEntity(otherStair.gameObject, otherStairTile.EntityType);
+                        otherStair.levelEntity = otherLevelEntity;
+                        SetGeneratedName(otherStairTile, otherStair);
+
+                        instance.levelEntity.OtherStairRef = otherLevelEntity;
+                        otherStair.levelEntity.OtherStairRef = levelEntity;
+                        instance.levelEntity.DirectionSign = 1;
+                        otherStair.levelEntity.DirectionSign = -1;
+                    }
+                    // Entities settings
+                    else
+                    {
+                        instance.transform.SetParent(levelMarkupContainer.transform);
+                        //TODO: Cambiar instance por el elemento de Population que representa, cuando corresponda
+                        LevelEntity levelEntity = manager.AddLevelEntity(instance.gameObject, tile.EntityType);
+                        generatedEntities.Add((tile, levelEntity));
+                        instance.levelEntity = levelEntity;
                     }
 
+                    SetGeneratedName(tile, instance);
 
-                    // Terminar este ciclo para evitar errores
-                    LBSGeneratedSimulation genComp = currInstance.AddComponent<LBSGeneratedSimulation>();
-                    allGeneratedComponents.Add(genComp);
-                    continue;
+                    allGeneratedComponents.Add(instance);
                 }
-                // Si el tile es Wall, instanciar muro.
-                else if (tile.Tag != null && tile.Tag.Label == "Wall")
+
+                void SetGeneratedName(SimulationTile tile, LBSGeneratedSimulation instance)
                 {
-                    currInstance = PrefabUtility.InstantiatePrefab(wallPrefab, wallsContainer.transform) as GameObject;
-                    // Se modifican dimensiones segun la escala actual (la altura del muro es equivalente a la primera dimension X,
-                    // de manera de calcular correctamente el NavMesh)
-                    currInstance.transform.localScale = new Vector3(scale.x, scale.x, scale.y);
-                    // Agrega y setea modificador de NavMesh
-                    NavMeshModifier modifier = currInstance.AddComponent<NavMeshModifier>();
-                    modifier.ignoreFromBuild = false;
-                    modifier.overrideArea = true;
-                    modifier.area = NavMesh.GetAreaFromName("Not Walkable");
-                    // Guarda referencias para su uso durante el Baking
-                    lastGenerationWalls.Add((tile, currInstance)); 
+                    string key = PathOS.UI.entityLabels[tile.EntityType];
+                    instance.gameObject.name = key;
+                    if (objectNames.ContainsKey(key))
+                    {
+                        objectNames[key]++;
+                        instance.gameObject.name += " (" + objectNames[key] + ")";
+                    }
+                    else objectNames.Add(key, 0);
                 }
-                else
-                {
-                    // Instanciar prefab
-                    currInstance = PrefabUtility.InstantiatePrefab(elementPrefab, levelMarkupContainer.transform) as GameObject;
-                }
-
-                string key = PathOS.UI.entityLabels[tile.EntityType];
-                currInstance.name = key;
-                if (objectNames.ContainsKey(key))
-                {
-                    objectNames[key]++;
-                    currInstance.name += " (" + objectNames[key] + ")";
-                }
-                else objectNames.Add(key, 0);
-
-
-
-                // Agregar icono del Tag asociado a este tile como textura al cubo
-                MeshRenderer currRenderer = currInstance.GetComponentInChildren<MeshRenderer>();
-                Material originalMaterial = currRenderer.sharedMaterial;
-                Material currMaterial = new Material(originalMaterial);
-                //currMaterial.SetTexture("_MainTex", tile.Tag.Icon);
-                currRenderer.material = currMaterial;
-
-                currRenderer.enabled = false;
-
-                // Setear posicion
-                currInstance.transform.position = settings.position +
-                                                  new Vector3(tile.X * scale.x, 0, tile.Y * scale.y)
-                                                  - new Vector3(scale.x, 0, scale.y) / 2f;
-
-                LBSGeneratedSimulation generatedComponent = currInstance.AddComponent<LBSGeneratedSimulation>();
-
-                // Crear entidades de marcado de PathOS y guardarlas temporalmente para su posterior manipulacion
-                if (tile.Tag == null || tile.Tag.Label != "Wall")
-                {
-                    //TODO: Cambiar currInstance por el elemento de Population que representa, cuando corresponda
-                    LevelEntity levelEntity = manager.AddLevelEntity(currInstance, tile.EntityType);
-                    entitiesTemporaryReference.Add((tile, levelEntity));
-                    generatedComponent.levelEntity = levelEntity;
-                }
-
-                if(tile.LockedDoorPOI)
-                    generatedComponent.hideAtStart = true;
-
-                allGeneratedComponents.Add(generatedComponent);
             }
 
-            foreach(LBSGeneratedSimulation generated in allGeneratedComponents)
-                generated.agent = agentGameObject.GetComponent<PathOSAgent>();
-
-            // OBSTACULOS DINAMICOS: Crear y agregar obstaculos dinamicos para cada entidad recien creada (si le corresponde)
-            foreach (var entityPair in entitiesTemporaryReference)
+            // Error case: agentGameObject wasn't generated
+            if(agentGO is null)
             {
-                if (entityPair.Item1.IsDynamicObstacleTrigger)
+                return new GeneratedGO(parent, 
+                    new LBSLog("[SimulatorRuleGenerator]: The simulation layer needs a Player entity on the level to generate.",
+                    LogType.Error, 3));
+            }
+
+            manager.floorCount = notEmptyFloorCount;
+            manager.gameObject.GetComponent<OGLogManager>().floorCount = notEmptyFloorCount;
+            var heatmapVisualizer = manager.gameObject.GetComponentInChildren<OGLogHeatmap>().gameObject;
+            for(int i = 1; i < notEmptyFloorCount; i++)
+            {
+                GameObject.Instantiate(heatmapVisualizer, manager.gameObject.transform);
+            }
+
+            // Apply agent reference to all generated components
+            PathOSAgent agentComp = agentGO.GetComponent<PathOSAgent>();
+            agentComp.GetMemory().gridSampleSize = settings.scale;
+            foreach (LBSGeneratedSimulation generated in allGeneratedComponents)
+            {
+                generated.agent = agentComp;
+            }
+
+            // Dynamic obstacles configuration
+            // (currently doing nothing)
+            foreach (var entityPair in generatedEntities)
+            {
+                if (!entityPair.Item1.IsDynamicObstacleTrigger) continue;
+
+                foreach (var obstaclePair in entityPair.Item1.GetObstacles())
                 {
-                    foreach (var obstaclePair in entityPair.Item1.GetObstacles())
+                    if (obstaclePair.Item1.Tag.Label != "Wall")
                     {
-                        if (obstaclePair.Item1.Tag.Label != "Wall")
-                        {
-                            var otherEntityPair = entitiesTemporaryReference.Find(otherPair => otherPair.Item1 == obstaclePair.Item1);
-                            //entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(otherEntityPair.Item2.objectRef, obstaclePair.Item2));
-                        }
-                        else
-                        {
-                            var wallPair = lastGenerationWalls.Find(wallPair => wallPair.Item1 == obstaclePair.Item1);
-                            //entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(wallPair.Item2, obstaclePair.Item2));
-                        }
+                        var otherEntityPair = generatedEntities.Find(otherPair => otherPair.Item1 == obstaclePair.Item1);
+                        //entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(otherEntityPair.Item2.objectRef, obstaclePair.Item2));
+                    }
+                    else
+                    {
+                        var wallPair = walls.Find(wallPair => wallPair.Item1 == obstaclePair.Item1);
+                        //entityPair.Item2.dynamicObstacles.Add(new EntityObstaclePair(wallPair.Item2, obstaclePair.Item2));
                     }
                 }
             }
 
             // BAKING AUTOMATICO (asume que ya se encuentran instanciados los objetos de los otros modulos,
             // y que estos tienen colliders)
-            GenerateNavMesh();
+            GenerateNavMesh(walls).SetParent(parent);
 
-            // Ya unidos los objetos hijos con padre, trasladar segun Settings
-            // GABO TODO: No es esto un error? Basado en PopulationRuleGenerator (todos los modulos base lo hacen)
+            // Global position
             parent.transform.position += settings.position;
 
             return new GeneratedGO(parent, new LBSLog(0));
@@ -244,26 +243,94 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 #endif
         }
 
-        private void GenerateManager()
+        private GameObject GenerateManager(Transform parent, PathOSWindow window)
         {
-            managerGameObject = PrefabUtility.InstantiatePrefab(managerPrefab, parent.transform) as GameObject;
-            // Se asigna a su campo respectivo de PathOSWindow
-            window.SetManagerReference(managerGameObject.GetComponent<PathOSManager>());
+            GameObject mgo = PrefabUtility.InstantiatePrefab(managerPrefab, parent) as GameObject;
+            window.SetManagerReference(mgo.GetComponent<PathOSManager>());
+            return mgo;
         }
 
-        private void GenerateWorldCamera()
+        private GameObject GenerateWorldCamera(Transform parent)
         {
-            worldCameraGameObject = PrefabUtility.InstantiatePrefab(worldCameraPrefab, parent.transform) as GameObject;
+            return PrefabUtility.InstantiatePrefab(worldCameraPrefab, parent) as GameObject;
         }
 
-        private void GenerateScreenshotCamera()
+        private GameObject GenerateScreenshotCamera(Transform parent, PathOSWindow window)
         {
-            screenshotCameraGameObject = PrefabUtility.InstantiatePrefab(screenshotCameraPrefab, parent.transform) as GameObject;
-            // Se asigna a su campo respectivo de PathOSWindow
-            window.SetScreenshotCameraReference(screenshotCameraGameObject.GetComponent<ScreenshotManager>());
+            GameObject sgo = PrefabUtility.InstantiatePrefab(screenshotCameraPrefab, parent) as GameObject;
+            window.SetScreenshotCameraReference(sgo.GetComponent<ScreenshotManager>());
+            return sgo;
         }
 
-        private void GenerateNavMesh()
+        private LBSGeneratedSimulation GenerateSimulationTile
+            (Transform parent, LBSGenerator3DSettings settings, SimulationTile tile, int floor)
+        {
+            GameObject currInstance;
+            Vector3 scale = settings.scale;
+
+            // Player / Agent
+            if (tile.Tag != null && tile.Tag.Label == "Player")//"PathOSAgent")
+            {
+                // Instancing
+                currInstance = PrefabUtility.InstantiatePrefab(agentPrefab, parent) as GameObject;
+
+                // Set position
+                currInstance.transform.position = new Vector3((tile.X - 0.5f) * scale.x, floor * scale.y, (tile.Y - 0.5f) * scale.z);
+
+                // Copy player camera component
+                var player = GameObject.FindFirstObjectByType<CharacterController>();
+                if (player is not null)
+                {
+                    PathOSAgentEyes eyesComp = currInstance.GetComponent<PathOSAgentEyes>();
+                    eyesComp.cam.gameObject.SetActive(false);
+                    GameObject camObj = player.GetComponentInChildren<Camera>().gameObject;
+                    GameObject camClone = GameObject.Instantiate(camObj, eyesComp.transform);
+                    eyesComp.cam = camClone.GetComponent<Camera>();
+                }
+
+                // Add simulation component
+                LBSGeneratedSimulation pGenComp = currInstance.AddComponent<LBSGeneratedSimulation>();
+                return pGenComp;
+            }
+            // Wall
+            else if (tile.Tag != null && tile.Tag.Label == "Wall")
+            {
+                // Instancing
+                currInstance = PrefabUtility.InstantiatePrefab(wallPrefab, parent) as GameObject;
+
+                // Set scale
+                currInstance.transform.localScale = new Vector3(scale.x, scale.y, scale.z);
+
+                // Config NavMeshModifier
+                NavMeshModifier modifier = currInstance.AddComponent<NavMeshModifier>();
+                modifier.ignoreFromBuild = false;
+                modifier.overrideArea = true;
+                modifier.area = NavMesh.GetAreaFromName("Not Walkable");
+            }
+            else
+            {
+                // Instancing
+                currInstance = PrefabUtility.InstantiatePrefab(elementPrefab, parent) as GameObject;
+            }
+
+            // Renderer config
+            MeshRenderer currRenderer = currInstance.GetComponentInChildren<MeshRenderer>();
+            Material originalMaterial = currRenderer.sharedMaterial;
+            Material currMaterial = new Material(originalMaterial);
+            currRenderer.material = currMaterial;
+            currRenderer.enabled = false;
+
+            // Set Position
+            currInstance.transform.position = new Vector3((tile.X - 0.5f) * scale.x, floor * scale.y, (tile.Y - 0.5f) * scale.z);
+
+            // Add simulation component
+            LBSGeneratedSimulation genComp = currInstance.AddComponent<LBSGeneratedSimulation>();
+            if (tile.LockedDoorPOI)
+                genComp.hideAtStart = true;
+            return genComp;
+        }
+
+        private GameObject GenerateNavMesh(List<(SimulationTile, GameObject)> walls)
         {
             // Si existe un NavMesh, evita generar otro.
             //NavMeshTriangulation triangulation = NavMesh.CalculateTriangulation();
@@ -291,7 +358,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             if (interiorLayerGameObjects.Count == 0 && exteriorLayerGameObjects.Count == 0)
             {
                 Debug.LogWarning("Ninguna instancia de Exterior o Interior Layer encontrada. No se generara un NavMesh.");
-                return;
+                return null;
             }
 
             // Crea padre temporal para usarlos en un solo mesh
@@ -308,7 +375,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
             // Arreglos donde guardar padres viejos para la posterior reinsertacion
             GameObject[] interiorOldParents = new GameObject[interiorLayerGameObjects.Count];
             GameObject[] exteriorOldParents = new GameObject[exteriorLayerGameObjects.Count];
-            GameObject[] wallsOldParents = new GameObject[lastGenerationWalls.Count];
+            GameObject[] wallsOldParents = new GameObject[walls.Count];
 
             // Interior Layers: Nuevo padre temporal
             for (int i = 0; i < interiorLayerGameObjects.Count; i++)
@@ -325,11 +392,11 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 exteriorLayerGameObjects[i].transform.parent = tempParent.transform;
             }
             // Muros: Nuevo padre temporal
-            for (int i = 0; i < lastGenerationWalls.Count; i++)
+            for (int i = 0; i < walls.Count; i++)
             {
-                wallsOldParents[i] = lastGenerationWalls[i].Item2.transform.parent?.gameObject;
+                wallsOldParents[i] = walls[i].Item2.transform.parent?.gameObject;
                 // Agrega objetos al padre temporal
-                lastGenerationWalls[i].Item2.transform.parent = tempParent.transform;
+                walls[i].Item2.transform.parent = tempParent.transform;
             }
 
             // Si un objeto recolectado no tiene un Collider, pero renderiza (MeshRenderer), se
@@ -376,26 +443,30 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 exteriorLayerGameObjects[i].transform.parent = exteriorOldParents[i]?.transform;
             }
             // Muros: Reasigna padre original
-            for (int i = 0; i < lastGenerationWalls.Count; i++)
+            for (int i = 0; i < walls.Count; i++)
             {
-                lastGenerationWalls[i].Item2.transform.parent = wallsOldParents[i]?.transform;
+                walls[i].Item2.transform.parent = wallsOldParents[i]?.transform;
             }
 
             // Padre temporal cambia de nombre (pasa a contener unicamente el navmesh)
             tempParent.name = "NavMeshSurface";
 
-            tempParent.SetParent(parent);
+            return tempParent;
         }
 
         // [GABO DEBUG] Generador de prueba hecho originalmente para probar colocacion de elementos
         private GameObject SimpleBoxGenerate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
             // Variables
-            module = layer.GetModule<SimulationModule>();
-            tiles = module.GetTiles();
-            scale = settings.scale;
+            SimulationModule module = layer.GetModule<SimulationModule>();
+            var tiles = module.GetTiles();
+            var scale = settings.scale;
+
+            // Obtiene (o crea) instancia de PathOSWindow
+            PathOSWindow window = EditorWindow.GetWindow(typeof(PathOSWindow), false, "PathOS+", false) as PathOSWindow;
+
             // Objeto contenedor padre
-            parent = new GameObject("PathOS+ Tags");
+            GameObject parent = new GameObject("PathOS+ Tags");
             // Prefab
             elementPrefab = Resources.Load<GameObject>("Prefabs/BoxWithTexture");
             // GameObject List

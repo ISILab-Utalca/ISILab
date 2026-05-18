@@ -1,6 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using GeneticSharp.Domain.Mutations;
+using ISILab.AI.Grammar;
+using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
@@ -8,14 +8,17 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
+using ISILab.LBS.VisualElements;
 using LBS.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.EventSystems.EventTrigger;
 using Object = UnityEngine.Object;
-
-using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
-using ISILab.LBS.VisualElements;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -26,7 +29,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private float _currentFrameDelay = frameDelay;
         
         // the probe radius detects objects at a given position in the scene, based on the existing graph
-        private const float ProbeRadius = 2f;
+        private const float ProbeRadius = 10f;
         
         private Action<string> _onLayerRequired;
         public event Action<string> OnLayerRequired
@@ -59,7 +62,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// <returns></returns>
         public override GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
         {
-            var pivot = new GameObject(layer.ID);
+            var pivot = new GameObject("Quest Tracker");
             var observer = pivot.AddComponent<QuestTracker>();
 
             CloneRefs.Start();
@@ -165,10 +168,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             foreach (var node in quest.GetQuestNodes())
             {
-                Type triggerType = QuestTagRegistry.GetTriggerTypeForTag(node.QuestAction);
+                Type triggerType = node.Data.Terminal.Script.GetClass();
                 if (triggerType == null)
                 {
-                    Debug.LogError($"No trigger type found for tag '{node.QuestAction}' in QuestTagRegistry");
+                    Debug.LogError($"The terminal {node.Data.Terminal} has no script field attached!");
                     continue;
                 }
 
@@ -186,20 +189,17 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var trigger = (QuestTrigger)go.AddComponent(triggerType);
 
             // Set visual size
-            var size = node.Data.Area;
+            var size = node.Data.Area.value;
             trigger.SetSize(new Vector3(size.width * settings.scale.x,
                                         size.height * settings.scale.y,
                                         size.height * settings.scale.y));
 
             // Set position
-            var x = (node.Data.Area.x + node.Data.Area.width / 2 - 1) * settings.scale.x;
-            var z = (node.Data.Area.y - node.Data.Area.height / 2) * settings.scale.y;
+            var x = (node.Data.Area.value.x + node.Data.Area.value.width / 2 - 1) * settings.scale.x;
+            var z = (node.Data.Area.value.y - node.Data.Area.value.height / 2) * settings.scale.y;
             var y = pivot.transform.position.y;
             go.transform.position = settings.position + new Vector3(x, y, z);
-
-            // Assign data
-            FindPopulationObjects(trigger, settings, node, settings.position, y, new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
-
+           
             if (!node.Data.IsValid())
             {
                 Debug.LogError($"Node Data '{node.ID}' doesn't have a valid data");
@@ -209,12 +209,82 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             trigger.SetNode(node);
 
+            // Assign data
+            AssignGameObjects(trigger, settings, settings.position, y, new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
 
             // all are active in the scene, on play they are activated in order
             go.SetActive(true);
             return go;
         }
-        
+
+        private static void AssignGameObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, Vector3 position, float y, Vector3 vector3)
+        {
+
+            List<Vector3> scenePositions = new();
+            var grammarBundleGraphs = trigger.Node.Data.GetFields<GrammarBundleGraph>();
+            foreach (var gbg in grammarBundleGraphs)
+            {
+                // Calculate the world position of the BundleGraph's position
+                scenePositions.Add(
+                    GetScenePosition(
+                        gbg.value.TileBundleGroup.AreaRect, 
+                        settings, 
+                        position, 
+                        y, 
+                        vector3));
+            }
+
+            List<LBSGenerated> lbsgens = new();
+            // Instead of OverlapSphere
+            var allGenerated = Object.FindObjectsByType<LBSGenerated>(FindObjectsSortMode.None);
+            foreach (var lbsgen in allGenerated)
+            {
+                foreach(var scenePosition in scenePositions)
+                {
+                    if (Vector3.Distance(lbsgen.transform.position, scenePosition) <= ProbeRadius)
+                    {
+                        lbsgens.Add(lbsgen);
+                    }
+                }
+            }
+
+            foreach (var field in trigger.Node.Data.Fields)
+            {
+                var bundleStored = field as GrammarBundleGraph;
+                if (bundleStored == null) continue;
+                var bundle = bundleStored.GetBundle();
+
+                if (field.IsList)
+                    foreach(var entry in field.ItemsSource)                 
+                        AssignGameObjectBundle(trigger, bundle, lbsgens);
+
+                else
+                    AssignGameObjectBundle(trigger, bundle, lbsgens);
+            }
+
+        }
+
+        private static void AssignGameObjectBundle(
+            QuestTrigger trigger,
+            Bundle bundle,
+            List<LBSGenerated> lbsgens)
+        {
+            if (bundle == null)
+                return;
+
+            // add a different lbsgen each time
+            lbsgens.Shuffle();
+
+            foreach (var lbsgen in lbsgens)
+            {
+                if (lbsgen.BundleRef == bundle)
+                {
+                    trigger.AddGo(lbsgen.gameObject);
+                    return;
+                }
+            }
+        }
+
         private static void CreateBranchNodeComponents(QuestGraph quest, QuestTracker tracker, Dictionary<QuestNode, GameObject> questNodeGameObjects)
         {
             // Group edges by destination branch node
@@ -283,141 +353,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
 
-        /// <summary>
-        /// Tries to find objects in the scene, assuming they were generated previously
-        /// </summary>
-        /// <param name="trigger">Trigger type to be instance into the Quest Observer GameObject</param>
-        /// <param name="settings">Settings to get the positions the population objects should have on the scene</param>
-        /// <param name="node">Node to recognize failure to find object</param>
-        /// <param name="basePos">the base position corresponds to the grid location</param>
-        /// <param name="y">Pivot.y</param>
-        /// <param name="delta">Rescale from graph size </param>
-        private static void FindPopulationObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, QuestNode node, Vector3 basePos, float y, Vector3 delta)
-        {
-            switch (node.Data)
-            {
-                case DataTake dataTake when trigger is QuestTriggerTake takeTrigger:
-                    if (dataTake.bundleToTake.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataTake.bundleToTake,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => takeTrigger.objectToTake = foundObject
-                        );
-                    }
-                    break;
-                
-                case DataStealth dataStealth when trigger is QuestTriggerStealth stealthTrigger:
-                    var scenePosition = 
-                        GetScenePosition(new Rect(dataStealth.objective.x,dataStealth.objective.y,1,1), 
-                            settings, basePos, y, delta);  
-                    stealthTrigger.objectivePosition = scenePosition;
-                    break;
-
-                case DataRead dataRead when trigger is QuestTriggerRead readTrigger:
-                    if (dataRead.bundleToRead.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataRead.bundleToRead,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => readTrigger.objectToRead = foundObject
-                        );
-                    }
-                    break;
-
-                case DataGive dataGive when trigger is QuestTriggerGive giveTrigger:
-                    if (dataGive.bundleGiveTo.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataGive.bundleGiveTo,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => giveTrigger.objectToGiveTo = foundObject
-                        );
-                    }
-                    break;
-
-                case DataReport dataReport when trigger is QuestTriggerReport reportTrigger:
-                    if (dataReport.bundleReportTo.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataReport.bundleReportTo,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => reportTrigger.objectToReport = foundObject
-                        );
-                    }
-                    break;
-
-                case DataSpy dataSpy when trigger is QuestTriggerSpy spyTrigger:
-                    if (dataSpy.bundleToSpy.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataSpy.bundleToSpy,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => spyTrigger.objectToSpy = foundObject
-                        );
-                    }
-                    break;
-
-                case DataListen dataListen when trigger is QuestTriggerListen listenTrigger:
-                    if (dataListen.bundleListenTo.Valid())
-                    {
-                        AssignObjectByBundleGraph(
-                            node,
-                            dataListen.bundleListenTo,
-                            settings,
-                            basePos,
-                            y,
-                            delta,
-                            foundObject => listenTrigger.objectToListen = foundObject
-                        );
-                    }
-                    break;
-
-                case DataKill dataKill when trigger is QuestTriggerKill killTrigger:
-                    if (dataKill.bundlesToKill != null && dataKill.bundlesToKill.Any(bg => bg.Valid()))
-                    {
-                        killTrigger.objectsToKill = new List<GameObject>();
-                        foreach (var bundleGraph in dataKill.bundlesToKill.Where(bg => bg.Valid()))
-                        {
-                            AssignObjectByBundleGraph(
-                                node,
-                                bundleGraph,
-                                settings,
-                                basePos,
-                                y,
-                                delta,
-                                foundObject => killTrigger.objectsToKill.Add(foundObject)
-                            );
-                        }
-                    }
-                    break;
-                
-            }
-        }
 
       private static void AssignObjectByBundleGraph(
             QuestNode node,
-            BundleGraph bundleGraph,
+            BundleTargetGraph bundleGraph,
             LBSGenerator3DSettings settings,
             Vector3 basePos,
             float y,
@@ -442,16 +381,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 var lbsGenerated = collider.GetComponent<LBSGenerated>();
                 if (lbsGenerated == null || lbsGenerated.BundleRef == null) continue;
-                if (lbsGenerated.LayerName != bundleGraph.GetLayerName()) continue; 
+                if (lbsGenerated.LayerName != bundleGraph.Layer?.Name) continue; 
 
-                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GetGuid());
+                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GUID);
                 if (lbsGenerated.BundleRef != bundleRef) continue;
 
                 assignAction?.Invoke(collider.gameObject);
                 return;
             }
 
-            Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GetGuid()}' found at position {scenePosition} for node {node.ID}");
+            Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GUID}' found at position {scenePosition} for node {node.ID}");
         }
 
         private static Vector3 GetScenePosition(Rect graphArea, LBSGenerator3DSettings settings, Vector3 basePos, float y,

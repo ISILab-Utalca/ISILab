@@ -4,6 +4,7 @@ using PathOS;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 /*
@@ -22,7 +23,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         public string logDirectory = "--";
         public List<string> directoriesLoaded;
 
-        public OGLogHeatmap heatmapVisualizer;
+        public OGLogHeatmap[] heatmapVisualizer;
 
         //Heatmap settings.
         public bool showHeatmap;
@@ -55,9 +56,10 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         public TimeRange fullTimeRange = new TimeRange();
 
         //Used in creating the heatmap.
-        private Extents dataExtents = new Extents();
+        // 1 for each floor
+        private Extents[] dataExtents;
 
-        public float tileSize = 2.0f;
+        public Vector2 tileSize = new Vector2(2.0f, 2.0f);
 
         //Default categorical palettes for paths/events.
         private Color[] defaultPathColors;
@@ -99,8 +101,13 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         //Simply initialize non-serializable properties, etc.
         private void OnEnable()
         {
-            if (null == heatmapVisualizer)
-                heatmapVisualizer = GetComponentInChildren<OGLogHeatmap>();
+            heatmapVisualizer = GetComponentsInChildren<OGLogHeatmap>();
+            dataExtents = new Extents[heatmapVisualizer.Length];
+            for(int i = 0; i < dataExtents.Length; i++)
+            {
+                dataExtents[i] = Extents.InverseLimit;
+            }
+            var breakpoint = 0;
 
             if (null == heatmapVisualizer)
             {
@@ -168,10 +175,13 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                 pLogs[i].SliceDisplayPath(currentTimeRange);
             }
 
-            if (heatmapVisualizer != null && heatmapUseTimeSlice)
-                heatmapVisualizer.UpdateData(pLogs,
-                    heatmapAggregateActiveOnly,
-                    heatmapUseTimeSlice);
+            foreach(var heatmap in heatmapVisualizer)
+            {
+                if (heatmap != null && heatmapUseTimeSlice)
+                    heatmap.UpdateData(pLogs,
+                        heatmapAggregateActiveOnly,
+                        heatmapUseTimeSlice);
+            }
         }
 
         //Called when the user requests to load log files from a given directory.
@@ -236,21 +246,27 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             if (!dataInit)
                 return;
 
-            if (heatmapVisualizer != null)
-                heatmapVisualizer.Initialize(
-                    dataExtents, heatmapGradient, heatmapAlpha, displayHeight, tileSize);
+            for (int i = 0; i < heatmapVisualizer.Length; i++)
+            {
+                if (heatmapVisualizer[i] != null)
+                    heatmapVisualizer[i].Initialize(
+                        dataExtents[i], heatmapGradient, heatmapAlpha, displayHeight + i * tileSize.y, tileSize.x);
+            }
 
             ApplyDisplayHeight();
             ApplyDisplayRange();
             ReclusterEvents();
 
-            if (heatmapVisualizer != null)
+            foreach(var heatmap in heatmapVisualizer)
             {
-                heatmapVisualizer.UpdateData(pLogs,
-                    heatmapAggregateActiveOnly,
-                    heatmapUseTimeSlice);
+                if (heatmap != null)
+                {
+                    heatmap.UpdateData(pLogs,
+                        heatmapAggregateActiveOnly,
+                        heatmapUseTimeSlice);
 
-                heatmapVisualizer.SetVisible(showHeatmap);
+                    heatmap.SetVisible(showHeatmap);
+                }
             }
         }
 
@@ -265,13 +281,14 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             OGLogManager.LogItemType itemType;
 
             float timestamp = 0.0f;
+            int floorIndex = 0;
 
             Vector3 p = Vector3.zero;
             Quaternion q = Quaternion.identity;
             float h = 0.0f;
 
-            try
-            {
+            //try
+            //{
                 while (!logReader.EndOfStream)
                 {
                     //Split the line into attributes.
@@ -302,15 +319,23 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                                 float.Parse(lineContents[3]),
                                 float.Parse(lineContents[4]));
 
+                            floorIndex = int.Parse(lineContents[9]);
+
                             //Store the "extents" of our data - used in heatmap generation.
-                            if (p.x > dataExtents.max.x)
-                                dataExtents.max.x = p.x;
-                            if (p.x < dataExtents.min.x)
-                                dataExtents.min.x = p.x;
-                            if (p.z > dataExtents.max.z)
-                                dataExtents.max.z = p.z;
-                            if (p.z < dataExtents.min.z)
-                                dataExtents.min.z = p.z;
+                            if (p.x > dataExtents[floorIndex].max.x)
+                                dataExtents[floorIndex].max.x = p.x;
+                            if (p.x < dataExtents[floorIndex].min.x)
+                                dataExtents[floorIndex].min.x = p.x;
+
+                            if (p.y > dataExtents[floorIndex].max.y)
+                                dataExtents[floorIndex].max.y = p.y;
+                            if (p.y < dataExtents[floorIndex].min.y)
+                                dataExtents[floorIndex].min.y = p.y;
+                            
+                            if (p.z > dataExtents[floorIndex].max.z)
+                                dataExtents[floorIndex].max.z = p.z;
+                            if (p.z < dataExtents[floorIndex].min.z)
+                                dataExtents[floorIndex].min.z = p.z;
 
                             pLog.AddPosition(timestamp, p);
 
@@ -362,12 +387,12 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                     if (timestamp > fullTimeRange.max)
                         fullTimeRange.max = timestamp;
                 }
-            }
+            /*}
             catch (System.Exception e)
             {
                 Debug.LogError(string.Format("Exception raised reading file {0}: ", filepath) + e.Message);
                 return false;
-            }
+            }//*/
 
             //Resample path data according to path sample rate.
             pLog.UpdateDisplayPath(displayHeight);
@@ -422,14 +447,19 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             displayTimeRange.min = displayTimeRange.max = 0.0f;
             fullTimeRange.min = fullTimeRange.max = 0.0f;
 
-            dataExtents.min = new Vector3(float.MaxValue, 0.0f, float.MaxValue);
-            dataExtents.max = new Vector3(float.MinValue, 0.0f, float.MinValue);
+            for(int i = 0; i < dataExtents.Length; i++)
+            {
+                dataExtents[i] = Extents.InverseLimit;
+            }
 
             //Reset path/event colour defaults.
             cIndex = 0;
 
-            if (heatmapVisualizer != null)
-                heatmapVisualizer.Clear();
+            foreach (var heatmap in heatmapVisualizer)
+            {
+                if (heatmap != null)
+                    heatmap.Clear();
+            }
 
             dataInit = false;
         }
@@ -437,17 +467,23 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
         //Heatmap operations.
         public void UpdateHeatmapVisibility()
         {
-            if (heatmapVisualizer != null)
-                heatmapVisualizer.SetVisible(showHeatmap);
+            foreach (var heatmap in heatmapVisualizer)
+            {
+                if (heatmap != null)
+                    heatmap.SetVisible(showHeatmap);
+            }
         }
 
         public void ApplyHeatmapSettings()
         {
-            if (dataInit && heatmapVisualizer != null)
+            for (int i = 0; i < heatmapVisualizer.Length; i++)
             {
-                heatmapVisualizer.SetGradient(heatmapGradient);
-                heatmapVisualizer.SetAlpha(heatmapAlpha);
-                heatmapVisualizer.UpdateExtents(dataExtents, tileSize);
+                if (dataInit && heatmapVisualizer[i] != null)
+                {
+                    heatmapVisualizer[i].SetGradient(heatmapGradient);
+                    heatmapVisualizer[i].SetAlpha(heatmapAlpha);
+                    heatmapVisualizer[i].UpdateExtents(dataExtents[i], tileSize.x);
+                }
             }
 
             UpdateHeatmap();
@@ -455,11 +491,14 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
 
         public void UpdateHeatmap()
         {
-            if (dataInit && heatmapVisualizer != null)
+            foreach (var heatmap in heatmapVisualizer)
             {
-                heatmapVisualizer.UpdateData(pLogs,
-                    heatmapAggregateActiveOnly,
-                    heatmapUseTimeSlice);
+                if (dataInit && heatmap != null)
+                {
+                    heatmap.UpdateData(pLogs,
+                        heatmapAggregateActiveOnly,
+                        heatmapUseTimeSlice);
+                }
             }
         }
 
@@ -471,8 +510,11 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                 pLogs[i].UpdateDisplayPath(displayHeight);
             }
 
-            if (heatmapVisualizer != null)
-                heatmapVisualizer.SetDisplayHeight(displayHeight);
+            for(int i = 0; i < heatmapVisualizer.Length; i++)
+            {
+                if (heatmapVisualizer[i] != null)
+                    heatmapVisualizer[i].SetDisplayHeight(displayHeight + (tileSize.y * i));
+            }
         }
 
         //Re-do event aggregation.

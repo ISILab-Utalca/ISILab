@@ -155,7 +155,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 // Create part
                 GameObject f1 = CreateObject(prefab, pivot.transform);
-                GameObject f2 = CreateObject(prefab, pivot.transform);
+                GameObject f2 = CreateObject(prefab, f1.transform);
                 f2.transform.localRotation = Quaternion.Euler(0,0,180);
                 f2.transform.localPosition += Vector3.down * 0.101f;
 
@@ -357,13 +357,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 GenerateCenters(pivot, bundles, null, Vector2Int.zero);
                 GameObject middleUp = pivot.transform.GetChild(i + 1).gameObject;
-                GameObject middleDown = pivot.transform.GetChild(i + 2).gameObject;
 
                 var pos = stair.Positions[i];
                 Vector3 offset = new Vector3((pos.x - origin.x) * settings.scale.x, settings.scale.y * 0.5f, (pos.y - origin.y) * settings.scale.z);
 
                 middleUp.transform.localPosition += offset;
-                middleDown.transform.localPosition += offset;
             }
 
             // S2 Rotation
@@ -396,7 +394,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             List<GameObject> subPivots = new();
             this.settings = settings;
 
-            // LBSTile
+            // LBSFloor
             for (int i = 0; i < layer.FloorCount; i++)
             {
                 // Init values
@@ -407,6 +405,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 // stairsMod is cloned to track what stairs have been instantiated from LBSTiles,
                 // if a stair isn't in a zone, it could be instantiated separately 
 
+                // LBSTile
                 List<GameObject> tiles = new List<GameObject>();
                 foreach (LBSTile tile in tilesMod.Tiles)
                 {

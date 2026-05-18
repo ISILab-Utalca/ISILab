@@ -106,7 +106,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
                           transform.rotation.eulerAngles.x + "," +
                           transform.rotation.eulerAngles.y + "," +
                           transform.rotation.eulerAngles.z + "," +
-                          agent.GetHealth();
+                          agent.GetHealth() + "," +
+                          agent.GetMemory().memoryMap.ActiveFloor;
 
             WriteLogLine(line);
         }

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar xml:lang="es-CL" root="Quest" version="1.0" xmlns="http://www.w3.org/2001/06/grammar">
+
+  <rule id="Quest">
+    <one-of>
+      <item> <ruleref uri="#Subquest" /> </item>
+      <item> <ruleref uri="#Goto" /> </item>
+      <item> <ruleref uri="#Learn" /> </item>
+      <item> <ruleref uri="#Get" /> </item>
+      <item> <ruleref uri="#Steal" /> </item>
+      <item> <ruleref uri="#Kill" /> </item>
+      <item> <ruleref uri="#Capture" /> </item>
+      <item> <ruleref uri="#Spy" /> </item>
+    </one-of>
+  </rule>
+
+  <rule id="Subquest">
+    <one-of>
+      <item> <ruleref uri="#Goto" /> </item>
+      <item> <ruleref uri="#Goto" /> <ruleref uri="#Quest" /> go_to
+	  </item>
+    </one-of>
+  </rule>
+
+  <rule id="Goto">
+    <one-of>
+      <item> explore </item>
+      <item> <ruleref uri="#Learn" /> go_to
+	  </item>
+      <item> go_to </item>
+    </one-of>
+  </rule>
+
+  <rule id="Learn">
+    <one-of>
+      <item> <ruleref uri="#Goto" /> <ruleref uri="#Subquest" /> listen </item>
+      <item> <ruleref uri="#Goto" /> <ruleref uri="#Get" /> read </item>
+      <item> <ruleref uri="#Get" /> <ruleref uri="#Subquest" />  give listen </item>
+    </one-of>
+  </rule>
+
+  <rule id="Get">
+    <one-of>
+      <item> <ruleref uri="#Steal" /> </item>
+      <item> <ruleref uri="#Goto" /> gather </item>
+      <item> <ruleref uri="#Goto" /> <ruleref uri="#Get" /> <ruleref uri="#Goto" /> <ruleref uri="#Subquest" /> exchange </item>
+    </one-of>
+  </rule>
+
+  <rule id="Steal">
+    <one-of>
+      <item> <ruleref uri="#Goto" /> stealth take </item>
+      <item> <ruleref uri="#Goto" /> <ruleref uri="#Kill" /> take </item>
+    </one-of>
+  </rule>
+
+  <rule id="Kill">
+    <one-of>
+      <item> <ruleref uri="#Goto" /> kill </item>
+    </one-of>
+  </rule>
+
+  <rule id="Capture">
+    <one-of>
+      <item> <ruleref uri="#Get" /> <ruleref uri="#Goto" /> capture </item>
+    </one-of>
+  </rule>
+
+  <rule id="Spy">
+    <one-of>
+      <item> <ruleref uri="#Goto" /> spy <ruleref uri="#Goto" /> report </item>
+    </one-of>
+  </rule>
+
+
+	<terminal id="explore">
+		<field type="List.area" name="Subareas to enter"/>
+	</terminal>
+	
+	<terminal id="listen">
+		<field type="tile" name="Object to listen"/>
+	</terminal>
+	
+	<terminal id="read">
+		<field type="tile" name="Object to read"/>
+	</terminal>
+	
+	<terminal id="give">
+		<field type="tile" name="Object to give" />
+		<field type="type" name="Object to receive"/>
+	</terminal>
+
+	<terminal id="exchange">
+		<field type="type" name="Type to give" />
+		<field type="int" name="Amount to give" />
+		<field type="type" name="Type to receive"/>
+		<field type="int" name="Amount to receive" />
+	</terminal>
+
+	<terminal id="gather">
+		<field type="type" name="Item Type" />
+		<field type="int" name="Required amount" />
+	</terminal>
+	
+	<terminal id="stealth">
+		<field type="area" name="Area to reach" />
+		<field type="area" name="Detectable area" />
+		<field type="color" name="Area color"/>
+	</terminal>
+
+	<terminal id="kill">
+		<field type="type" name="Type to kill" />
+		<field type="int" name="Required kills" />
+	</terminal>
+	
+	<terminal id="capture">
+		<field type="float" name="Time to capture" />
+		<field type="bool" name="Reset on exit during capture" />
+	</terminal>
+
+	<terminal id="take">
+		<field type="tile" name="Object to take"/>
+	</terminal>
+
+	<terminal id="spy">
+		<field type="int" name="Min distance"/>
+		<field type="tile" name="POI to spy"/>
+	</terminal>
+
+	<terminal id="report">
+		<field type="tile" name="POI to report to"/>
+	</terminal>
+	
+</grammar>

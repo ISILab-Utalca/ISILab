@@ -89,10 +89,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var triggers = GetChildTriggers();
 
             if (IsAnd())
-                return triggers.All(trigger => trigger.IsCompleted);
+                return triggers.All(trigger => trigger.State == QuestState.Completed);
 
             if (IsOr())
-                return triggers.Any(trigger => trigger.IsCompleted);
+                return triggers.Any(trigger => trigger.State == QuestState.Completed);
 
             return false;
         }
@@ -109,9 +109,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 var trigger =  child.GetComponent<QuestTrigger>();
                 if(trigger is null) continue;
-                
-                trigger.IsCompleted = true;
-                trigger.Node.QuestState = QuestState.Completed;
+
+                trigger.State = QuestState.Completed;
                 child.SetActive(false);
             }
         }

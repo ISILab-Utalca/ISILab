@@ -39,7 +39,7 @@ namespace PathOS
 
             //Actual look time can fluctuate based on the agent's caution and the 
             //danger in the current area.
-            float lookTimeScale = agent.memory.ScoreHazards(agent.GetPosition()) *
+            float lookTimeScale = agent.GetMemory().ScoreHazards(agent.GetPosition()) *
                 agent.heuristics.heuristicScaleLookup[Heuristic.CAUTION];
 
             float a = baseLookTime;
@@ -130,8 +130,8 @@ namespace PathOS
 
         internal void RouteDestination(PathOSAgent agent)
         {
-            agent.navAgent.SetDestination(currentDest.pos);
             pathResolved = false;
+            agent.navAgent.SetDestination(currentDest.pos);
         }
 
     }

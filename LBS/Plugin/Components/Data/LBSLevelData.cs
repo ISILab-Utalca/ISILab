@@ -1,14 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using ISILab.LBS.AI.Categorization;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace ISILab.LBS
 {
@@ -157,6 +151,7 @@ namespace ISILab.LBS
         /// <returns></returns>
         public LBSLayer RemoveAt(int index)
         {
+            if (index > layers.Count) return null;
             var layer = layers[index];
             layers.RemoveAt(index);
             RemoveLayerFromContext(layer);

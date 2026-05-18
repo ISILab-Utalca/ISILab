@@ -22,13 +22,18 @@ namespace ISILab.LBS.Behaviours
     public class SimulationBehaviour : LBSBehaviour
     {
         #region FIELDS
-        [SerializeField, SerializeReference, JsonRequired] // GABO TODO: Deberia ir o no JsonIgnore?????? De todas maneras hay error de serialziacion (queda nulo)
+        [JsonRequired]
         private SimulationModule module;
         #endregion
 
         #region META-FIELDS
         [JsonIgnore]
         public Bundle selectedToSet;
+
+        [JsonIgnore]
+        public LBSTag upStairTag;
+        [JsonIgnore]
+        public LBSTag downStairTag;
 
         public List<Bundle> pathOSBundles;
         #endregion
@@ -76,9 +81,14 @@ namespace ISILab.LBS.Behaviours
         #endregion
 
         #region METHODS
-        public void AddTile(LBSTag tag, int x, int y, EntityType type, bool lockedDoorPOI = false)
+        public void AddTile(LBSTag tag, int x, int y, EntityType type, bool lockedDoorPOI = false, LBSStair stairRef = null)
         {
             SimulationTile tile = new SimulationTile(this, x, y, type, tag, lockedDoorPOI);
+
+            if (type == EntityType.ET_STAIR_UP || type == EntityType.ET_STAIR_DOWN)
+            {
+                tile.StairRef = stairRef;
+            }
 
             bool isElement = true;
             bool isEvent = false;
@@ -150,14 +160,15 @@ namespace ISILab.LBS.Behaviours
             return module.GetTile(x, y);
         }
 
-        public void MapToPopulation(List<TileBundleGroup> groups, List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles)
+        public void MapToPopulation(List<TileBundleGroup> groups, 
+            List<LBSTile> doorTiles, List<LBSTile> lockedDoorTiles, 
+            List<LBSStair> upStairs)
         {
             //string s = string.Empty;
             //foreach(KeyValuePair<EntityType, PathOSStorage.SimulationEntityData> pair in PathOSStorage.Instance.entityDataPool)
             //{
             //    s += "Entity Type: " + pair.Key + " | Texture: " + (pair.Value.image ? pair.Value.image.name : null) + "\n";
             //}
-            //Debug.Log(s);
 
             Debug.Log("Simulation Mapping performed.");
 
@@ -220,6 +231,8 @@ namespace ISILab.LBS.Behaviours
                 AddTile(null, door.x, door.y, EntityType.ET_POI);
             foreach (LBSTile door in lockedDoorTiles)
                 AddTile(null, door.x, door.y, EntityType.ET_POI, true);
+            foreach (LBSStair stair in upStairs)
+                AddTile(upStairTag, stair.Positions[0].x, stair.Positions[0].y, EntityType.ET_STAIR_UP, false, stair);
         }
 
         public void ClearMapping()
@@ -230,6 +243,32 @@ namespace ISILab.LBS.Behaviours
             }
         }
 
+        #region INHERITED METHODS
+
+        public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+        {
+            List<SimulationTile> oldTiles = new List<SimulationTile>();
+            List<SimulationTile> newTiles = new List<SimulationTile>();
+
+            var prevModuleList = OwnerLayer.Modules(prevLevelIndex);
+            var nextModuleList = OwnerLayer.Modules(nextLevelIndex);
+
+            var prevSectorizedMod = prevModuleList.Find(
+                m => m.GetType() == typeof(SimulationModule)) as SimulationModule;
+            var nextSectorizedMod = nextModuleList.Find(
+                m => m.GetType() == typeof(SimulationModule)) as SimulationModule;
+
+            foreach (var pTile in prevSectorizedMod.GetTiles())
+            {
+                oldTiles.Add(pTile);
+            }
+            foreach (var pTile in nextSectorizedMod.GetTiles())
+            {
+                newTiles.Add(pTile);
+            }
+
+            RequestFullRepaint(oldTiles, newTiles);
+        }
         public override object Clone()
         {
             return new SimulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
@@ -273,7 +312,7 @@ namespace ISILab.LBS.Behaviours
         {
             return base.GetHashCode();
         }
-
+        #endregion
 
         #endregion
     }

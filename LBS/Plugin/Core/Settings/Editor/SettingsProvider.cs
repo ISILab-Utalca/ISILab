@@ -194,6 +194,14 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
                         GUILayout.Height(EditorGUIUtility.singleLineHeight));
                     EditorGUILayout.EndHorizontal();
 
+                    // Evaluators Visual Elements folder
+                    EditorGUILayout.BeginHorizontal();
+                    settings.paths.evaluatorsVEPath = EditorGUILayout.TextField("Ev. Visual Elements Folder",
+                        settings.paths.evaluatorsVEPath,
+                        EditorStyles.textField,
+                        GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                    EditorGUILayout.EndHorizontal();
+
                     // Mesh folder
                     EditorGUILayout.BeginHorizontal();
                     settings.paths.meshFolderPath = EditorGUILayout.TextField("Generated Mesh Folder",

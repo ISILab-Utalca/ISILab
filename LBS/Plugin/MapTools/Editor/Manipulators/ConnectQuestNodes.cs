@@ -13,6 +13,7 @@ using System.Linq;
 using ISILab.LBS.Behaviours;
 using UnityEngine.EventSystems;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.UI.Editor;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -44,12 +45,13 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseDown(VisualElement element, Vector2Int startPosition, MouseDownEvent e)
         {
-            _first = _quest.GetNodeAtPosition<GraphNode>(startPosition);
+            _first = GetNodeViewAtPosition(e.mousePosition)?.Node;
         }
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            var second = _quest.GetNodeAtPosition<GraphNode>(endPosition);
+            var secondView = GetNodeViewAtPosition(e.mousePosition);
+            var second = secondView?.Node;
 
             if (_first == null || second == null)
             {
@@ -97,6 +99,28 @@ namespace ISILab.LBS.Manipulators
             {
                 EditorUtility.SetDirty(level);
             }
+        }
+
+   
+
+        private QuestGraphNodeView GetNodeViewAtPosition(Vector2 screenMousePos)
+        {
+
+            var view = MainView.Instance;
+            Vector2 panelPos = screenMousePos - view.panel.visualTree.worldBound.position;
+            VisualElement picked = view.panel.Pick(panelPos);
+            while (picked != null)
+            {
+                if (picked is QuestGraphNodeView nodeView)
+                {
+                    //Debug.Log("found: " + nodeView.Node.ID);
+                    return nodeView; 
+                }
+
+                picked = picked.parent;
+            }
+           // Debug.Log("NOT FOUND");
+            return null;
         }
     }
 }

@@ -127,9 +127,16 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             transform.position = origin;
 
             //Grid size should be symmetrical about the origin of the heatmap.
-            gridSize.x = 2 * Mathf.Ceil((0.5f * (extents.max.x - extents.min.x)) / tileWidth);
-            gridSize.y = 0;
-            gridSize.z = 2 * Mathf.Ceil((0.5f * (extents.max.z - extents.min.z)) / tileWidth);
+            if(extents.min != Extents.InverseLimit.min && extents.min != Extents.InverseLimit.max)
+            {
+                gridSize.x = 2 * Mathf.Ceil((0.5f * (extents.max.x - extents.min.x)) / tileWidth);
+                gridSize.z = 2 * Mathf.Ceil((0.5f * (extents.max.z - extents.min.z)) / tileWidth);
+            }
+            else
+            {
+                gridSize.x = 0;
+                gridSize.z = 0;
+            }
 
             tileCounts = new int[(int)gridSize.x, (int)gridSize.z];
 
@@ -145,9 +152,12 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             mesh.uv = uv;
             mesh.triangles = triangles;
 
-            tex.Reinitialize((int)gridSize.x, (int)gridSize.z);
             ClearTex();
-            tex.Apply();
+            if (gridSize.x != 0 && gridSize.z != 0)
+            {
+                tex.Reinitialize((int)gridSize.x, (int)gridSize.z);
+                tex.Apply();
+            }
         }
 
         public void UpdateData(List<PlayerLog> logs, bool enabledOnly, bool timeRangeOnly)
@@ -219,22 +229,25 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
             float binSize = (float)Mathf.Max(1, maxCount) / levels;
             float binSizeFac = 1.0f / binSize;
 
-            Color32[] heatmapArray = tex.GetPixels32();
-
-            int rowSize = (int)gridSize.x;
-
-            //Determine grid colours based on sample counts.
-            for (int x = 0; x < maxGridX; ++x)
+            if (gridSize.x != 0 && gridSize.z != 0)
             {
-                for(int z = 0; z < maxGridZ; ++z)
-                {
-                    heatmapArray[(int)(z * rowSize + x)] =
-                        colors[Mathf.RoundToInt(tileCounts[x, z] * binSizeFac)];
-                }
-            }
+                Color32[] heatmapArray = tex.GetPixels32();
 
-            tex.SetPixels32(heatmapArray);
-            tex.Apply();
+                int rowSize = (int)gridSize.x;
+
+                //Determine grid colours based on sample counts.
+                for (int x = 0; x < maxGridX; ++x)
+                {
+                    for (int z = 0; z < maxGridZ; ++z)
+                    {
+                        heatmapArray[(int)(z * rowSize + x)] =
+                            colors[Mathf.RoundToInt(tileCounts[x, z] * binSizeFac)];
+                    }
+                }
+
+                tex.SetPixels32(heatmapArray);
+                tex.Apply();
+            }
         }
 
         public void SetAlpha(float alpha)

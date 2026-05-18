@@ -29,7 +29,9 @@ namespace PathOS
         ET_HAZARD_ENEMY_BOSS = 230,
         ET_HAZARD_ENVIRONMENT = 250,
         ET_POI = 300,
-        ET_POI_NPC = 350
+        ET_POI_NPC = 350,
+        ET_STAIR_UP = 400,
+        ET_STAIR_DOWN = 410
     };
 
     /* AGENT HEURISTICS */
@@ -204,8 +206,45 @@ namespace PathOS
         [EntityDisplay]
         public EntityType entityType;
 
+        // Stuff only used for stairs, to link the up and down stair entities together.
+        [SerializeField]
+        private LevelEntity otherStairRef;
+        private int directionSign = 0; // 1 for up, -1 for down, 0 for none
+
+        public LevelEntity OtherStairRef
+        {
+            get => otherStairRef;
+            set
+            {
+                if (entityType != EntityType.ET_STAIR_UP && entityType != EntityType.ET_STAIR_DOWN)
+                {
+                    Debug.LogWarning("Only entities of type ET_STAIR_UP or ET_STAIR_DOWN can have a stair reference.");
+                    return;
+                }
+                otherStairRef = value;
+            }
+        }
+        public int DirectionSign
+        {
+            get => directionSign;
+            set
+            {
+                if (entityType != EntityType.ET_STAIR_UP && entityType != EntityType.ET_STAIR_DOWN)
+                {
+                    Debug.LogWarning("Only entities of type ET_STAIR_UP or ET_STAIR_DOWN can have a direction sign.");
+                    return;
+                }
+                if (value != 1 && value != -1)
+                {
+                    Debug.LogWarning("Direction sign must be either 1 (for up) or -1 (for down).");
+                    return;
+                }
+                directionSign = value;
+            }
+        }
+
         //Simulates compass/map availability.
-        public bool alwaysKnown;
+        public bool alwaysKnown; 
 
         //Individual per-object visitation radius.
         [Tooltip("Should this object have a custom threshold " +
@@ -508,6 +547,8 @@ namespace PathOS
 
         public override string ToString()
         {
+            if (entity is null || entity.entityRef is null) 
+                return "null";
             return entity.entityRef.name;
         }
     }

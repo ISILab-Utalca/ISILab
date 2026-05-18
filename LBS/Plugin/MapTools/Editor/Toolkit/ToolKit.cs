@@ -16,6 +16,7 @@ using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.MapTools.Editor.Manipulators;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -174,12 +175,16 @@ namespace LBS.VisualElements
                 nextFloorButton.style.display = DisplayStyle.Flex;
                 nextFloorButton.RegisterValueChangedCallback(evt =>
                 {
+                    // Not able
                     if (!nextFloorButton.value) return;
                     nextFloorButton.value = false;
                     if (layer is null) return;
 
+                    // Set Label
                     int newFloor = layer.ActiveFloor + 1;
                     floorIndexField.value = (uint)newFloor;
+
+                    // Update Layers
                     foreach (var l in LBSMainWindow.Instance.GetLayers())
                     {
                         l.ChangeFloor(newFloor);
@@ -190,12 +195,16 @@ namespace LBS.VisualElements
                 prevFloorButton.style.display = DisplayStyle.Flex;
                 prevFloorButton.RegisterValueChangedCallback(evt =>
                 {
+                    // Not able
                     if (!prevFloorButton.value) return;
                     prevFloorButton.value = false;
                     if (layer.ActiveFloor - 1 < 0 || layer is null) return;
 
+                    // Set Label
                     int newFloor = layer.ActiveFloor - 1;
                     floorIndexField.value = (uint)newFloor;
+
+                    // Update Layers
                     foreach (var l in LBSMainWindow.Instance.GetLayers())
                     {
                         l.ChangeFloor(newFloor);

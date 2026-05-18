@@ -43,10 +43,10 @@ namespace ISILab.LBS.VisualElements
             if(graphNode is OrNode) _or.style.display = DisplayStyle.Flex;
             if(graphNode is AndNode) _and.style.display = DisplayStyle.Flex;
 
-            SetPosition(new Rect(Node.NodeViewPosition.position, Vector2.one));
+            SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
 
             RegisterCallbacks();
-            Update();
+            Refresh();
         }
 
         #region Callbacks
@@ -58,26 +58,24 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseUpEvent>(OnMouseUp);
             
-            RegisterCallback<GeometryChangedEvent>(_ => Update());
-
-            OnMoving += rect => Node.NodeViewPosition = rect;
+            RegisterCallback<GeometryChangedEvent>(_ => Refresh());
         }
         #endregion
 
         #region Update
-        private void Update()
+        public override void Refresh()
         {
-            DisplayGrammarState(Node);
+            UpdateGrammarState();               
             SetPosition(new Rect(GetPosition().position, new Vector2(_root.resolvedStyle.width, _root.resolvedStyle.height)));
             OnMoving?.Invoke(GetPosition());
         }
 
-        public override void DisplayGrammarState(GraphNode node)
+        protected override void UpdateGrammarState()
         {
-            base.DisplayGrammarState(node);
-            _root.SetBorder(!node.ValidConnections ? InvalidGrammarColor : ValidGrammarColor, 1f);
-            _or.SetBorder(!node.ValidConnections ? InvalidGrammarColor : ValidGrammarColor, 1f);
-            _and.SetBorder(!node.ValidConnections ? InvalidGrammarColor : ValidGrammarColor, 1f);
+            base.UpdateGrammarState();
+            _root.SetBorder(!Node.ValidConnections ? InvalidGrammarColor : ValidGrammarColor, 1f);
+            _or.SetBorder(!Node.ValidConnections ? InvalidGrammarColor : ValidGrammarColor, 1f);
+            _and.SetBorder(!Node.ValidConnections ? InvalidGrammarColor : ValidGrammarColor, 1f);
         }
         
         protected override void OnMouseDown(MouseDownEvent evt)
