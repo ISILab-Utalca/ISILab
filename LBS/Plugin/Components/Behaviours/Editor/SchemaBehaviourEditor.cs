@@ -2,13 +2,13 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Utilities;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements;
 using LBS;
-using LBS.Components;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using ISILab.DevTools.Macros;
@@ -18,8 +18,6 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.EventSystems;
-using ISILab.LBS.Modules;
 
 namespace ISILab.LBS.Behaviours.Editor
 {

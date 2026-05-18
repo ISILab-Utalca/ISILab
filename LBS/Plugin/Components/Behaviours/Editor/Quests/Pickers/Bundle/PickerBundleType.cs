@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor.Utilities;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
@@ -12,7 +13,6 @@ using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 [UxmlElement]
 public partial class PickerBundleType : PickerBase, IBundleFilter

@@ -3,13 +3,11 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Editor.Utilities;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
-using ISILab.LBS.Plugin.UI.Editor.CustomComponents;
 using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
@@ -18,10 +16,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.VisualElements
 {
