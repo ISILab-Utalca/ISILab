@@ -203,7 +203,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
             // Apply agent reference to all generated components
             PathOSAgent agentComp = agentGO.GetComponent<PathOSAgent>();
-            agentComp.GetMemory().gridSampleSize = settings.scale;
+            agentComp.AgentMemory.gridSampleSize = settings.scale;
             foreach (LBSGeneratedSimulation generated in allGeneratedComponents)
             {
                 generated.agent = agentComp;

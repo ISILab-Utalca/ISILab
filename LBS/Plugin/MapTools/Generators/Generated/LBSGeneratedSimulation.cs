@@ -38,8 +38,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 return;
             perceivedEt.perceivedPos = transform.position;
             // These two lines probably have the same effect as agent.memory.entities.Add(new EntityMemory(perceivedEt)), but just in case.
-            agent.GetMemory().Memorize(perceivedEt);
-            agent.GetMemory().TryCommitLTM(perceivedEt);
+            agent.AgentMemory.Memorize(perceivedEt);
+            agent.AgentMemory.TryCommitLTM(perceivedEt);
 
             // Possible improvement: Add to memory only if location is registered in the heatmap
         }

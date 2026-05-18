@@ -20,11 +20,18 @@ namespace PathOS
         public bool lookingAround;
 
         public TargetDest currentDest;
-        public List<TargetDest> destList = new();
+        public List<TargetDest> potentialDests = new();
         public bool pathResolved = true;
 
         public int changeTargetCount;
 
+        /// <summary>
+        /// A destination is accurate when the agent has a clear line of sight to it,
+        /// and is not relying on memory or other information to navigate to it.
+        /// If a destination is inaccurate, the agent may need to look around or take
+        /// other actions to confirm its location before proceeding.
+        /// </summary>
+        /// <returns></returns>
         public bool DestinationIsInaccurate()
             => currentDest.entity != null &&
             !currentDest.accurate &&
@@ -39,7 +46,7 @@ namespace PathOS
 
             //Actual look time can fluctuate based on the agent's caution and the 
             //danger in the current area.
-            float lookTimeScale = agent.GetMemory().ScoreHazards(agent.GetPosition()) *
+            float lookTimeScale = agent.AgentMemory.ScoreHazards(agent.GetPosition()) *
                 agent.heuristics.heuristicScaleLookup[Heuristic.CAUTION];
 
             float a = baseLookTime;
@@ -52,11 +59,11 @@ namespace PathOS
             lookTime = Mathf.Min(a, b);
         }
 
-        internal bool NavmeshPathIncomplete(PathOSAgent agent) => 
-                    !agent.navAgent.pathPending &&
-                    !agent.navAgent.hasPath &&
-                    agent.navAgent.pathStatus == NavMeshPathStatus.PathPartial &&
-                    !agent.navAgent.isPathStale &&
+        internal bool NavmeshPathIncomplete(NavMeshAgent navAgent) => 
+                    !navAgent.pathPending &&
+                    !navAgent.hasPath &&
+                    navAgent.pathStatus == NavMeshPathStatus.PathPartial &&
+                    !navAgent.isPathStale &&
                     !pathResolved;
 
         internal void ResetDestinationSelf(PathOSAgent agent)
@@ -69,7 +76,6 @@ namespace PathOS
         internal IEnumerator LookAround(PathOSAgent agent)
         {
             var navAgent = agent.navAgent;
-
             navAgent.isStopped = true;
             navAgent.updateRotation = false;
 
@@ -124,14 +130,15 @@ namespace PathOS
 
             lookingTimer = 0.0f;
             lookingAround = false;
+
             navAgent.updateRotation = true;
             navAgent.isStopped = false;
         }
 
-        internal void RouteDestination(PathOSAgent agent)
+        internal void RouteDestination(NavMeshAgent navAgent)
         {
             pathResolved = false;
-            agent.navAgent.SetDestination(currentDest.pos);
+            navAgent.SetDestination(currentDest.pos);
         }
 
     }

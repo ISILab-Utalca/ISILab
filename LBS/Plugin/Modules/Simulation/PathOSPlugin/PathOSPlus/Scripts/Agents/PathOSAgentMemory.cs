@@ -56,8 +56,10 @@ namespace PathOS
                 manager = PathOSManager.instance;
 
             //Initialize the (blank) model of the agent's internal "map".
-            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(gridSampleSize, manager.floorCount);
-            memoryMap.memory = this;
+            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(gridSampleSize, manager.floorCount)
+            {
+                memory = this
+            };
 
             //Commit any "always-known" entities to memory.
             foreach (PerceivedEntity entity in agent.eyes.perceptionInfo)

@@ -57,7 +57,7 @@ namespace PathOS
         public List<PerceivedEntity> visible { get; set; }
         public List<PerceivedEntity> perceptionInfo { get; set; }
 
-        //Timer to handle visual processing checks. Roll for perception.
+        //Timer to handle visual processing checks. Roll for persuasion ❤️.
         private float perceptionTimer = 0.0f;
 
         //Vertex set for visibility checks on object bounds.
@@ -70,6 +70,24 @@ namespace PathOS
         public List<LevelEntity> invisibleEntities { get; private set; }
         // GABO: List of invisible walls (to this agent)
         public List<GameObject> invisibleWalls { get; private set; }
+
+        public Vector3 EyesForward
+        {
+            get
+            {
+                switch (camType)
+                {
+                    case CamType.FreeMode:
+                        return cam.transform.forward;
+                    case CamType.FirstPerson:
+                        Vector3 fwd = cam.transform.forward;
+                        fwd.y = 0.0f;
+                        return fwd;
+                    default:
+                        throw new System.Exception("Invalid camera type");
+                }
+            }
+        }
 
         Quaternion fixedRotation;
 
@@ -100,14 +118,12 @@ namespace PathOS
             //}
 
 
-
+            // Fill PerceptionInfo with all entities in the level,
+            // so we can check them for visibility each update.
             for (int i = 0; i < manager.levelEntities.Count; ++i)
             {
                 LevelEntity entity = manager.levelEntities[i];
                 Vector3 entityPos = entity.objectRef.transform.position;
-
-                Vector3 entityVecXZ = entityPos - cam.transform.position;
-                entityVecXZ.y = 0.0f;
 
                 perceptionInfo.Add(new PerceivedEntity(entity));
             }
@@ -146,30 +162,14 @@ namespace PathOS
 
             visible.Clear();
 
-            Vector3 camForwardXZ = cam.transform.forward;
-            if(camType.Equals(CamType.FirstPerson)) camForwardXZ.y = 0.0f;
-
+            var camForward = cam.transform.forward;
             for (int i = 0; i < perceptionInfo.Count; ++i)
             {
                 PerceivedEntity entity = perceptionInfo[i];
-
                 Vector3 entityPos = entity.entityRef.objectRef.transform.position;
-
-                Vector3 entityVecXZ = entityPos - cam.transform.position;
-                if (camType.Equals(CamType.FirstPerson)) entityVecXZ.y = 0.0f;
-
                 bool wasVisible = entity.visible;
 
-                //Visibility check - this can change between checks as the agent
-                //moves around.
-                entity.entityRef.UpdateBounds();
-
-                entity.visible =
-                    !invisibleEntities.Contains(entity.entityRef) // GABO: Ignore invisible entities (to be used for OPEN entities)
-                    && Vector3.Dot(camForwardXZ, entityVecXZ) > 0
-                    && GeometryUtility.TestPlanesAABB(frustum, entity.entityRef.bounds)
-                    && entity.entityRef.SizeVisibilityCheck(cam, visSizeThreshold)
-                    && RaycastVisibilityCheck(entity.entityRef.bounds, entityPos); // GABO: Modified to ignore invisible walls.
+                entity.visible = UpdateEntityVisibility(entity);
 
                 /// SEBA NOTES
                 /// 1. is not invisible
@@ -202,15 +202,17 @@ namespace PathOS
                         }
 
                         entity.perceivedPos = entityPos;
-                        agent.GetMemory().Memorize(entity);
+                        agent.AgentMemory.Memorize(entity);
 
-                        //Mandatory/completion/boss goals are committed to LTM automatically.
+                        //Mandatory/completion/boss goals and stairs are committed to LTM automatically.
                         if (entity.entityType == EntityType.ET_GOAL_MANDATORY
                             || entity.entityType == EntityType.ET_GOAL_COMPLETION
-                             || entity.entityType == EntityType.ET_HAZARD_ENEMY_BOSS)
-                            agent.GetMemory().CommitUnforgettable(entity);
+                             || entity.entityType == EntityType.ET_HAZARD_ENEMY_BOSS
+                              || entity.entityType == EntityType.ET_STAIR_DOWN 
+                               || entity.entityType == EntityType.ET_STAIR_UP)
+                            agent.AgentMemory.CommitUnforgettable(entity);
 
-                        agent.GetMemory().TryCommitLTM(entity);
+                        agent.AgentMemory.TryCommitLTM(entity);
                     }
                 }
             }
@@ -218,49 +220,41 @@ namespace PathOS
             perceptionTimer = 0.0f;
 
             //Debug.LogWarning(visible.Count);
+
+            bool UpdateEntityVisibility(PerceivedEntity entity)
+            {
+                Vector3 entityPos = entity.entityRef.objectRef.transform.position;
+                Vector3 entityVecXZ = entityPos - cam.transform.position;
+
+                if (camType.Equals(CamType.FirstPerson)) entityVecXZ.y = 0.0f;
+
+                entity.entityRef.UpdateBounds();
+
+                bool invisible = invisibleEntities.Contains(entity.entityRef); // GABO: Check if entity is invisible (to be used for OPEN entities)
+                bool dotCheck = camType == CamType.FirstPerson ? Vector3.Dot(camForward, entityVecXZ) > 0 : true;
+                bool fustrumCheck = GeometryUtility.TestPlanesAABB(frustum, entity.entityRef.bounds);
+                bool sizeOnCameraCheck = entity.entityRef.SizeVisibilityCheck(cam, visSizeThreshold);
+                bool raycastCheck = RaycastVisibilityCheck(entity.entityRef.bounds, entityPos); // GABO: Modified to ignore invisible walls.
+
+                return
+                    !invisible && dotCheck && fustrumCheck && sizeOnCameraCheck && raycastCheck;
+            }
         }
 
         //Uses an AABB and given position as nine points for checking
         //visibility via raycast.
-        bool RaycastVisibilityCheck(Bounds bounds, Vector3 pos)
+        bool RaycastVisibilityCheck(Bounds bounds, Vector3 entityPos)
         {
-            Vector3 ray = cam.transform.position - pos;
+            Vector3 ray = cam.transform.position - entityPos;
 
             // GABO: We add the invisible walls (and children) to the "Ignore Raycast" layer
             // temporarily and mask the raycasts with it so they're ignored.
             Dictionary<GameObject, int> oldLayers = new();
-            foreach (GameObject wall in invisibleWalls)
+            ChangeWallLayer(LayerMask.NameToLayer("Ignore Raycast"));
+
+            if (!Physics.Raycast(entityPos, ray.normalized, ray.magnitude, ~LayerMask.GetMask("Ignore Raycast")))
             {
-                // Parent
-                oldLayers[wall] = wall.layer;
-                wall.layer = LayerMask.NameToLayer("Ignore Raycast");
-                // Children
-                Transform[] children = wall.GetComponentsInChildren<Transform>();
-                foreach (Transform child in children)
-                {
-                    // Ignore self to avoid bugs
-                    if (child.transform == wall.transform) { continue; }
-
-                    oldLayers[child.gameObject] = child.gameObject.layer;
-                    child.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-                }
-            }
-
-            if (!Physics.Raycast(pos, ray.normalized, ray.magnitude, ~LayerMask.GetMask("Ignore Raycast")))
-            {
-                // GABO: We return invisible walls (and children) to their original layer
-                foreach (GameObject wall in invisibleWalls)
-                {
-                    wall.layer = oldLayers[wall];
-                    Transform[] children = wall.GetComponentsInChildren<Transform>();
-                    foreach (Transform child in children)
-                    {
-                        // Ignore self to avoid bugs
-                        if (child.transform == wall.transform) { continue; }
-
-                        child.gameObject.layer = oldLayers[child.gameObject];
-                    }
-                }
+                RestoreWallLayers();
                 return true;
             }
 
@@ -279,38 +273,52 @@ namespace PathOS
 
                 if (!Physics.Raycast(boundsCheck[i], ray.normalized, ray.magnitude, ~LayerMask.GetMask("Ignore Raycast")))
                 {
-                    // GABO: We return invisible walls (and children) to their original layer
-                    foreach (GameObject wall in invisibleWalls)
-                    {
-                        wall.layer = oldLayers[wall];
-                        Transform[] children = wall.GetComponentsInChildren<Transform>();
-                        foreach (Transform child in children)
-                        {
-                            // Ignore self to avoid bugs
-                            if (child.transform == wall.transform) { continue; }
-
-                            child.gameObject.layer = oldLayers[child.gameObject];
-                        }
-                    }
+                    RestoreWallLayers();
                     return true;
                 }
             }
 
-            // GABO: We return invisible walls (and children) to their original layer
-            foreach (GameObject wall in invisibleWalls)
-            {
-                wall.layer = oldLayers[wall];
-                Transform[] children = wall.GetComponentsInChildren<Transform>();
-                foreach (Transform child in children)
-                {
-                    // Ignore self to avoid bugs
-                    if (child.transform == wall.transform) { continue; }
+            RestoreWallLayers();
+            return false;
 
-                    child.gameObject.layer = oldLayers[child.gameObject];
+            void ChangeWallLayer(int newLayer)
+            {
+                foreach (GameObject wall in invisibleWalls)
+                {
+                    // Parent
+                    oldLayers[wall] = wall.layer;
+                    wall.layer = newLayer;
+
+                    // Children
+                    Transform[] children = wall.GetComponentsInChildren<Transform>();
+                    foreach (Transform child in children)
+                    {
+                        // Ignore self to avoid bugs
+                        if (child.transform == wall.transform) { continue; }
+
+                        oldLayers[child.gameObject] = child.gameObject.layer;
+                        child.gameObject.layer = newLayer;
+                    }
                 }
             }
+            void RestoreWallLayers()
+            {
+                foreach (GameObject wall in invisibleWalls)
+                {
+                    // Parent
+                    wall.layer = oldLayers[wall];
 
-            return false;
+                    // Children
+                    Transform[] children = wall.GetComponentsInChildren<Transform>();
+                    foreach (Transform child in children)
+                    {
+                        // Ignore self to avoid bugs
+                        if (child.transform == wall.transform) { continue; }
+
+                        child.gameObject.layer = oldLayers[child.gameObject];
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -338,14 +346,14 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE :
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN;
 
-            agent.GetMemory().memoryMap.Fill(hit.position, fillCode);
+            agent.AgentMemory.memoryMap.Fill(hit.position, fillCode);
 
             // Maps the intermediate tiles using NavmeshMemoryMapper's custom Raycast
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.GetMemory().memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
+            agent.AgentMemory.memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
                 out memHit, true);
 
             return hit;
@@ -402,7 +410,7 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_SEEN :
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
 
-            agent.GetMemory().memoryMap.Fill(position, fillCode);
+            agent.AgentMemory.memoryMap.Fill(position, fillCode);
 
             // Maps the intermediate tiles using NavmeshMemoryMapper's custom Raycast
             // Note: Since origin is the camera's position, this maps the tiles along
@@ -412,7 +420,7 @@ namespace PathOS
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.GetMemory().memoryMap.RaycastMemoryMap(origin, dir, distance, out memHit, true, true); // No mapea 1 a 1, sino a lo largo, en lineas.
+            agent.AgentMemory.memoryMap.RaycastMemoryMap(origin, dir, distance, out memHit, true, true); // No mapea 1 a 1, sino a lo largo, en lineas.
 
             return hit;
         }

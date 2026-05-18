@@ -18,18 +18,18 @@ namespace PathOS
         public float forgetTime { get; set; }
         public int stmSize { get; set; }
 
-        public void GoNextWaypoint(PathOSAgent agent, NavigationState navigationState)
+        public void GoNextWaypoint(NavMeshAgent navAgent, NavigationState navigationState)
         {
             memPathWaypoints.RemoveAt(0);
 
             if (memPathWaypoints.Count == 0)
             {
                 onMemPath = false;
-                navigationState.RouteDestination(agent);
+                navigationState.RouteDestination(navAgent);
             }
             else
             {
-                agent.navAgent.SetDestination(memPathWaypoints[0]);
+                navAgent.SetDestination(memPathWaypoints[0]);
                 navigationState.pathResolved = false;
             }
         }
