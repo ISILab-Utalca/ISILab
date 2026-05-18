@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>PlayerPrefs Editor for Unity 3D | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="PlayerPrefs Editor for Unity 3D | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="playerprefs-editor-for-unity-3d">PlayerPrefs Editor for Unity 3D</h1>
+
+<p><a href="https://unity3d.com/de/get-unity/download/archive"><img src="https://img.shields.io/badge/UnityEditor-2019.4%20or%20later-blue.svg" alt="Minimal unity editor version"></a>
+<a href="https://github.com/Dysman/bgTools-playerPrefsEditor/actions"><img src="https://github.com/Dysman/bgTools-playerPrefsEditor/workflows/CI/badge.svg" alt="CI"></a>  
+<a href="https://github.com/Dysman/bgTools-playerPrefsEditor/releases"><img src="https://img.shields.io/github/v/release/Dysman/bgTools-playerPrefsEditor?include_prereleases&amp;label=Release" alt="Release"></a>
+<a href="https://github.com/Dysman/bgTools-playerPrefsEditor/tree/upm"><img src="https://img.shields.io/github/package-json/v/dysman/bgTools-playerPrefsEditor/upm?label=GitURL-UPM" alt="GitHub package.json version (branch)"></a>
+<a href="https://openupm.com/packages/com.bgtools.playerprefseditor"><img src="https://img.shields.io/npm/v/com.bgtools.playerprefseditor?label=OpenUPM&amp;registry_uri=https://package.openupm.com" alt="openupm"></a>
+<a href="http://u3d.as/1RLa"><img src="https://img.shields.io/badge/dynamic/xml?url=http://u3d.as/1RLa&amp;label=UnityAssetStore&amp;query=//*%5Bcontains(@class,%20%27product-version%27)%5D/div%5B2%5D&amp;prefix=v" alt="AssetStore"></a></p>
+<p><a href="https://flattr.com/@dysman"><img src="https://img.shields.io/badge/_-Flattr-green?logo=flattr&amp;style=flat" alt="Flattr this git repo"></a> 
+<a href="https://www.buymeacoffee.com/dysman"><img src="https://img.shields.io/badge/-Buy%20Me%20A%20Coffee-yellow?logo=BuyMeACoffee&amp;style=flat&amp;logoColor=white" alt="Buy me a coffee"></a>
+<a href="https://discord.gg/8rcPZrD"><img align="right" src="https://img.shields.io/discord/431522155814191116?logo=Discord&logoColor=white&style=flat&label=Discord&labelColor=5865F2"></a></p>
+<p>Tool extension for the Unity Editor that enables easy access to the player preferences over a simple UI. Allows to view, add, remove and modify entries on the development machine.</p>
+<p><img src="https://www.bgranzow.de/downloads/PlayerPrefsEditorV1_2_0.png" alt="Preference editor window"></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Add, remove and edit PlayerPrefs</li>
+<li>Intuitive visual editor</li>
+<li>Works with standard Unity PlayerPrefs</li>
+<li>Monitors changes from code</li>
+<li>Supports all editors (Windows, Linux, MacOS)</li>
+<li>Lightweight dockable for full integration in your workflow</li>
+<li>Supports both skins (Personal, Professional)</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<p>Unity Version: 2019.4 (LTS) or higher</p>
+<p>Editor Version: Windows, MacOS, Linux</p>
+<h2 id="installation">Installation</h2>
+<p>The plugin provides <em>manual</em> and <em>UPM</em> installation.</p>
+<p>Additionally it's available on the <a href="http://u3d.as/1RLa">Unity Asset Store</a>.</p>
+<h3 id="manual">Manual</h3>
+<p>Place the PlayerPrefsEditor folder somewhere in your project. It's not relevant where it's located, the plugin will find all of its files by itself.</p>
+<h3 id="unity-package-manager-upm">Unity Package Manager (UPM)</h3>
+<p><strong>Via Git URL</strong></p>
+<p>Through the Unity Plugin Manager it's possible to install the plugin direct from this git repository.
+The UPM need a specific structure what will be provided into the <em>upm</em> branch.</p>
+<p>Use following direct URL for the configuration:</p>
+<pre><code>https://github.com/Dysman/bgTools-playerPrefsEditor.git#upm
+</code></pre>
+<p>See official Unity documentation for more informations: <a href="https://docs.unity3d.com/Manual/upm-ui-giturl.html">UI</a> or <a href="https://docs.unity3d.com/Manual/upm-git.html">manifest.json</a></p>
+<p><strong>Via OpenUPM</strong></p>
+<p>The package is available on the <a href="https://openupm.com">openupm registry</a>. It's recommended to install it via <a href="https://github.com/openupm/openupm-cli">openupm-cli</a>.</p>
+<pre><code>openupm add com.bgtools.playerprefseditor
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>The entry to open the <em>PlayerPrefs Editor</em> is located in the top menu at Tools/BG Tools/PlayerPrefs Editor. It's a standard dockable window, so place it wherever it helps to be productive.
+A more detailed manual can be fund in following locations:</p>
+<ul>
+<li>GitHub (Manual)- <a href="Packages/PlayerPrefsEditor/Documentation%7E/PlayerPrefsEditor.md">Manual page</a></li>
+<li>GitHub (UPM) - Press the <em>Documentation</em> link on the UPM description.</li>
+<li>Unity Asset Store Package - <a href="Documentation/MANUAL.html">MANUAL.html</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

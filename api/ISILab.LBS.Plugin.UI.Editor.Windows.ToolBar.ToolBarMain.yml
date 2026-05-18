@@ -1,0 +1,906 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  id: ToolBarMain
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  children:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.#ctor
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess(System.Boolean,System.String)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel(UnityEngine.UIElements.DropdownMenuAction)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.MainWindow
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel(UnityEngine.UIElements.DropdownMenuAction)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLevelChange
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLoadLevel
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnNewLevel
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnProgressCancelled
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnSaveLevel
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnThemeChanged
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration(UnityEngine.UIElements.ClickEvent)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel(UnityEngine.UIElements.DropdownMenuAction)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel(UnityEngine.UIElements.DropdownMenuAction)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent(System.Single)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.defaultLabel
+  langs:
+  - csharp
+  - vb
+  name: ToolBarMain
+  nameWithType: ToolBarMain
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: 'public class ToolBarMain : VisualElement'
+    content.vb: Public Class ToolBarMain Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.MainWindow
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.MainWindow
+  id: MainWindow
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: MainWindow
+  nameWithType: ToolBarMain.MainWindow
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.MainWindow
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public LBSMainWindow MainWindow
+    return:
+      type: ISILab.LBS.Editor.Windows.LBSMainWindow
+    content.vb: Public MainWindow As LBSMainWindow
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.defaultLabel
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.defaultLabel
+  id: defaultLabel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: defaultLabel
+  nameWithType: ToolBarMain.defaultLabel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.defaultLabel
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public string defaultLabel
+    return:
+      type: System.String
+    content.vb: Public defaultLabel As String
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.#ctor
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: ToolBarMain()
+  nameWithType: ToolBarMain.ToolBarMain()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.ToolBarMain()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public ToolBarMain()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.#ctor*
+  nameWithType.vb: ToolBarMain.New()
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess(System.Boolean,System.String)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess(System.Boolean,System.String)
+  id: EnableProcess(System.Boolean,System.String)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: EnableProcess(bool, string)
+  nameWithType: ToolBarMain.EnableProcess(bool, string)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess(bool, string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void EnableProcess(bool enable, string assistantName = "Assistant")
+    parameters:
+    - id: enable
+      type: System.Boolean
+    - id: assistantName
+      type: System.String
+    content.vb: Public Sub EnableProcess(enable As Boolean, assistantName As String = "Assistant")
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess*
+  nameWithType.vb: ToolBarMain.EnableProcess(Boolean, String)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess(Boolean, String)
+  name.vb: EnableProcess(Boolean, String)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent(System.Single)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent(System.Single)
+  id: SetProgressPercent(System.Single)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: SetProgressPercent(float)
+  nameWithType: ToolBarMain.SetProgressPercent(float)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent(float)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void SetProgressPercent(float percent)
+    parameters:
+    - id: percent
+      type: System.Single
+    content.vb: Public Sub SetProgressPercent(percent As Single)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent*
+  nameWithType.vb: ToolBarMain.SetProgressPercent(Single)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent(Single)
+  name.vb: SetProgressPercent(Single)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  id: Bind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: Bind(LBSMainWindow)
+  nameWithType: ToolBarMain.Bind(LBSMainWindow)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void Bind(LBSMainWindow _mainWindow)
+    parameters:
+    - id: _mainWindow
+      type: ISILab.LBS.Editor.Windows.LBSMainWindow
+    content.vb: Public Sub Bind(_mainWindow As LBSMainWindow)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  id: UnBind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: UnBind(LBSMainWindow)
+  nameWithType: ToolBarMain.UnBind(LBSMainWindow)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind(ISILab.LBS.Editor.Windows.LBSMainWindow)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void UnBind(LBSMainWindow _mainWindow)
+    parameters:
+    - id: _mainWindow
+      type: ISILab.LBS.Editor.Windows.LBSMainWindow
+    content.vb: Public Sub UnBind(_mainWindow As LBSMainWindow)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel(UnityEngine.UIElements.DropdownMenuAction)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel(UnityEngine.UIElements.DropdownMenuAction)
+  id: NewLevel(UnityEngine.UIElements.DropdownMenuAction)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: NewLevel(DropdownMenuAction)
+  nameWithType: ToolBarMain.NewLevel(DropdownMenuAction)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel(UnityEngine.UIElements.DropdownMenuAction)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void NewLevel(DropdownMenuAction dma)
+    parameters:
+    - id: dma
+      type: UnityEngine.UIElements.DropdownMenuAction
+    content.vb: Public Sub NewLevel(dma As DropdownMenuAction)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel
+  id: NewLevel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: NewLevel()
+  nameWithType: ToolBarMain.NewLevel()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void NewLevel()
+    content.vb: Public Sub NewLevel()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel(UnityEngine.UIElements.DropdownMenuAction)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel(UnityEngine.UIElements.DropdownMenuAction)
+  id: LoadLevel(UnityEngine.UIElements.DropdownMenuAction)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: LoadLevel(DropdownMenuAction)
+  nameWithType: ToolBarMain.LoadLevel(DropdownMenuAction)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel(UnityEngine.UIElements.DropdownMenuAction)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void LoadLevel(DropdownMenuAction dma)
+    parameters:
+    - id: dma
+      type: UnityEngine.UIElements.DropdownMenuAction
+    content.vb: Public Sub LoadLevel(dma As DropdownMenuAction)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel
+  id: LoadLevel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: LoadLevel()
+  nameWithType: ToolBarMain.LoadLevel()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void LoadLevel()
+    content.vb: Public Sub LoadLevel()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange
+  id: LevelChange
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: LevelChange()
+  nameWithType: ToolBarMain.LevelChange()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void LevelChange()
+    content.vb: Public Sub LevelChange()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel(UnityEngine.UIElements.DropdownMenuAction)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel(UnityEngine.UIElements.DropdownMenuAction)
+  id: SaveLevel(UnityEngine.UIElements.DropdownMenuAction)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: SaveLevel(DropdownMenuAction)
+  nameWithType: ToolBarMain.SaveLevel(DropdownMenuAction)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel(UnityEngine.UIElements.DropdownMenuAction)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void SaveLevel(DropdownMenuAction dma)
+    parameters:
+    - id: dma
+      type: UnityEngine.UIElements.DropdownMenuAction
+    content.vb: Public Sub SaveLevel(dma As DropdownMenuAction)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel
+  id: SaveLevel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: SaveLevel()
+  nameWithType: ToolBarMain.SaveLevel()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void SaveLevel()
+    content.vb: Public Sub SaveLevel()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel(UnityEngine.UIElements.DropdownMenuAction)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel(UnityEngine.UIElements.DropdownMenuAction)
+  id: SaveAsLevel(UnityEngine.UIElements.DropdownMenuAction)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: SaveAsLevel(DropdownMenuAction)
+  nameWithType: ToolBarMain.SaveAsLevel(DropdownMenuAction)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel(UnityEngine.UIElements.DropdownMenuAction)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void SaveAsLevel(DropdownMenuAction dma)
+    parameters:
+    - id: dma
+      type: UnityEngine.UIElements.DropdownMenuAction
+    content.vb: Public Sub SaveAsLevel(dma As DropdownMenuAction)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration(UnityEngine.UIElements.ClickEvent)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration(UnityEngine.UIElements.ClickEvent)
+  id: OpenConfiguration(UnityEngine.UIElements.ClickEvent)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: OpenConfiguration(ClickEvent)
+  nameWithType: ToolBarMain.OpenConfiguration(ClickEvent)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration(UnityEngine.UIElements.ClickEvent)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public static void OpenConfiguration(ClickEvent evt)
+    parameters:
+    - id: evt
+      type: UnityEngine.UIElements.ClickEvent
+    content.vb: Public Shared Sub OpenConfiguration(evt As ClickEvent)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress
+  id: CancelProgress
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: CancelProgress()
+  nameWithType: ToolBarMain.CancelProgress()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public void CancelProgress()
+    content.vb: Public Sub CancelProgress()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLoadLevel
+  commentId: E:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLoadLevel
+  id: OnLoadLevel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: OnLoadLevel
+  nameWithType: ToolBarMain.OnLoadLevel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLoadLevel
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public event Action<LoadedLevel> OnLoadLevel
+    return:
+      type: System.Action{ISILab.LBS.LoadedLevel}
+    content.vb: Public Event OnLoadLevel As Action(Of LoadedLevel)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnNewLevel
+  commentId: E:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnNewLevel
+  id: OnNewLevel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: OnNewLevel
+  nameWithType: ToolBarMain.OnNewLevel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnNewLevel
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public event Action<LoadedLevel> OnNewLevel
+    return:
+      type: System.Action{ISILab.LBS.LoadedLevel}
+    content.vb: Public Event OnNewLevel As Action(Of LoadedLevel)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnSaveLevel
+  commentId: E:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnSaveLevel
+  id: OnSaveLevel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: OnSaveLevel
+  nameWithType: ToolBarMain.OnSaveLevel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnSaveLevel
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public event Action<LoadedLevel> OnSaveLevel
+    return:
+      type: System.Action{ISILab.LBS.LoadedLevel}
+    content.vb: Public Event OnSaveLevel As Action(Of LoadedLevel)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLevelChange
+  commentId: E:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLevelChange
+  id: OnLevelChange
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: OnLevelChange
+  nameWithType: ToolBarMain.OnLevelChange
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnLevelChange
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public event Action<LoadedLevel> OnLevelChange
+    return:
+      type: System.Action{ISILab.LBS.LoadedLevel}
+    content.vb: Public Event OnLevelChange As Action(Of LoadedLevel)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnThemeChanged
+  commentId: E:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnThemeChanged
+  id: OnThemeChanged
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: OnThemeChanged
+  nameWithType: ToolBarMain.OnThemeChanged
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnThemeChanged
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public event Action<LBSSettings.Interface.InterfaceTheme> OnThemeChanged
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme}
+    content.vb: Public Event OnThemeChanged As Action(Of LBSSettings.Interface.InterfaceTheme)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnProgressCancelled
+  commentId: E:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnProgressCancelled
+  id: OnProgressCancelled
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+  langs:
+  - csharp
+  - vb
+  name: OnProgressCancelled
+  nameWithType: ToolBarMain.OnProgressCancelled
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OnProgressCancelled
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  syntax:
+    content: public event Action OnProgressCancelled
+    return:
+      type: System.Action
+    content.vb: Public Event OnProgressCancelled As Action
+references:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+    name: ToolBar
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
+    name: ToolBar
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Editor.Windows.LBSMainWindow
+  commentId: T:ISILab.LBS.Editor.Windows.LBSMainWindow
+  parent: ISILab.LBS.Editor.Windows
+  isExternal: true
+  href: ISILab.LBS.Editor.Windows.LBSMainWindow.html
+  name: LBSMainWindow
+  nameWithType: LBSMainWindow
+  fullName: ISILab.LBS.Editor.Windows.LBSMainWindow
+- uid: ISILab.LBS.Editor.Windows
+  commentId: N:ISILab.LBS.Editor.Windows
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor.Windows
+  nameWithType: ISILab.LBS.Editor.Windows
+  fullName: ISILab.LBS.Editor.Windows
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Editor.Windows.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Editor.Windows.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain__ctor
+  name: ToolBarMain
+  nameWithType: ToolBarMain.ToolBarMain
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.ToolBarMain
+  nameWithType.vb: ToolBarMain.New
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_EnableProcess_System_Boolean_System_String_
+  name: EnableProcess
+  nameWithType: ToolBarMain.EnableProcess
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.EnableProcess
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_SetProgressPercent_System_Single_
+  name: SetProgressPercent
+  nameWithType: ToolBarMain.SetProgressPercent
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SetProgressPercent
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_Bind_ISILab_LBS_Editor_Windows_LBSMainWindow_
+  name: Bind
+  nameWithType: ToolBarMain.Bind
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.Bind
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_UnBind_ISILab_LBS_Editor_Windows_LBSMainWindow_
+  name: UnBind
+  nameWithType: ToolBarMain.UnBind
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.UnBind
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_NewLevel_UnityEngine_UIElements_DropdownMenuAction_
+  name: NewLevel
+  nameWithType: ToolBarMain.NewLevel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.NewLevel
+- uid: UnityEngine.UIElements.DropdownMenuAction
+  isExternal: true
+  name: DropdownMenuAction
+  nameWithType: DropdownMenuAction
+  fullName: UnityEngine.UIElements.DropdownMenuAction
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_LoadLevel_UnityEngine_UIElements_DropdownMenuAction_
+  name: LoadLevel
+  nameWithType: ToolBarMain.LoadLevel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LoadLevel
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_LevelChange
+  name: LevelChange
+  nameWithType: ToolBarMain.LevelChange
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.LevelChange
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_SaveLevel_UnityEngine_UIElements_DropdownMenuAction_
+  name: SaveLevel
+  nameWithType: ToolBarMain.SaveLevel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveLevel
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_SaveAsLevel_UnityEngine_UIElements_DropdownMenuAction_
+  name: SaveAsLevel
+  nameWithType: ToolBarMain.SaveAsLevel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.SaveAsLevel
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_OpenConfiguration_UnityEngine_UIElements_ClickEvent_
+  name: OpenConfiguration
+  nameWithType: ToolBarMain.OpenConfiguration
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.OpenConfiguration
+- uid: UnityEngine.UIElements.ClickEvent
+  isExternal: true
+  name: ClickEvent
+  nameWithType: ClickEvent
+  fullName: UnityEngine.UIElements.ClickEvent
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html#ISILab_LBS_Plugin_UI_Editor_Windows_ToolBar_ToolBarMain_CancelProgress
+  name: CancelProgress
+  nameWithType: ToolBarMain.CancelProgress
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.CancelProgress
+- uid: System.Action{ISILab.LBS.LoadedLevel}
+  commentId: T:System.Action{ISILab.LBS.LoadedLevel}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<LoadedLevel>
+  nameWithType: Action<LoadedLevel>
+  fullName: System.Action<ISILab.LBS.LoadedLevel>
+  nameWithType.vb: Action(Of LoadedLevel)
+  fullName.vb: System.Action(Of ISILab.LBS.LoadedLevel)
+  name.vb: Action(Of LoadedLevel)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.LoadedLevel
+    name: LoadedLevel
+    isExternal: true
+    href: ISILab.LBS.LoadedLevel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.LoadedLevel
+    name: LoadedLevel
+    isExternal: true
+    href: ISILab.LBS.LoadedLevel.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action{ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme}
+  commentId: T:System.Action{ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<LBSSettings.Interface.InterfaceTheme>
+  nameWithType: Action<LBSSettings.Interface.InterfaceTheme>
+  fullName: System.Action<ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme>
+  nameWithType.vb: Action(Of LBSSettings.Interface.InterfaceTheme)
+  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme)
+  name.vb: Action(Of LBSSettings.Interface.InterfaceTheme)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+    name: Interface
+    isExternal: true
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme
+    name: InterfaceTheme
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+    name: Interface
+    isExternal: true
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme
+    name: InterfaceTheme
+    isExternal: true
+  - name: )
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action

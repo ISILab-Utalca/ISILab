@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct UnsafeStream | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct UnsafeStream | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream">
+
+
+
+  <h1 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream" class="text-break">
+Struct UnsafeStream  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Collections.html">Collections</a>.<a class="xref" href="Unity.Collections.LowLevel.html">LowLevel</a>.<a class="xref" href="Unity.Collections.LowLevel.Unsafe.html">Unsafe</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Collections.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility]
+public struct UnsafeStream : INativeDisposable, IDisposable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Unity.Collections.INativeDisposable.html">INativeDisposable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream__ctor_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.#ctor*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream__ctor_System_Int32_Unity_Collections_AllocatorManager_AllocatorHandle_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.#ctor(System.Int32,Unity.Collections.AllocatorManager.AllocatorHandle)">
+  UnsafeStream(int, AllocatorHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnsafeStream(int bufferCount, AllocatorManager.AllocatorHandle allocator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bufferCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>allocator</code> <a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ForEachCount_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ForEachCount*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ForEachCount" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ForEachCount">
+  ForEachCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int ForEachCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_IsCreated_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.IsCreated*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_IsCreated" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.IsCreated">
+  IsCreated
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsCreated { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_AsReader_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.AsReader*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_AsReader" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.AsReader">
+  AsReader()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnsafeStream.Reader AsReader()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeStream.html">UnsafeStream</a>.<a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Reader.html">Reader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_AsWriter_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.AsWriter*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_AsWriter" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.AsWriter">
+  AsWriter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnsafeStream.Writer AsWriter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeStream.html">UnsafeStream</a>.<a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Writer.html">Writer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_Count_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Count*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_Count" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Count">
+  Count()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_Dispose_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Dispose*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_Dispose" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_Dispose_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Dispose*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_Dispose_Unity_Jobs_JobHandle_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.Dispose(Unity.Jobs.JobHandle)">
+  Dispose(JobHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JobHandle Dispose(JobHandle inputDeps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputDeps</code> <span class="xref">JobHandle</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">JobHandle</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_IsEmpty_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.IsEmpty*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_IsEmpty" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.IsEmpty">
+  IsEmpty()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsEmpty()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ScheduleConstruct_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ScheduleConstruct*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ScheduleConstruct_Unity_Collections_LowLevel_Unsafe_UnsafeStream__Unity_Collections_NativeArray_System_Int32__Unity_Jobs_JobHandle_Unity_Collections_AllocatorManager_AllocatorHandle_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ScheduleConstruct(Unity.Collections.LowLevel.Unsafe.UnsafeStream@,Unity.Collections.NativeArray{System.Int32},Unity.Jobs.JobHandle,Unity.Collections.AllocatorManager.AllocatorHandle)">
+  ScheduleConstruct(out UnsafeStream, NativeArray&lt;int&gt;, JobHandle, AllocatorHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JobHandle ScheduleConstruct(out UnsafeStream stream, NativeArray&lt;int&gt; bufferCount, JobHandle dependency, AllocatorManager.AllocatorHandle allocator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeStream.html">UnsafeStream</a></dt>
+    <dd></dd>
+    <dt><code>bufferCount</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>dependency</code> <span class="xref">JobHandle</span></dt>
+    <dd></dd>
+    <dt><code>allocator</code> <a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">JobHandle</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ScheduleConstruct_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ScheduleConstruct*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ScheduleConstruct__1_Unity_Collections_LowLevel_Unsafe_UnsafeStream__Unity_Collections_NativeList___0__Unity_Jobs_JobHandle_Unity_Collections_AllocatorManager_AllocatorHandle_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ScheduleConstruct``1(Unity.Collections.LowLevel.Unsafe.UnsafeStream@,Unity.Collections.NativeList{``0},Unity.Jobs.JobHandle,Unity.Collections.AllocatorManager.AllocatorHandle)">
+  ScheduleConstruct&lt;T&gt;(out UnsafeStream, NativeList&lt;T&gt;, JobHandle, AllocatorHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public static JobHandle ScheduleConstruct&lt;T&gt;(out UnsafeStream stream, NativeList&lt;T&gt; bufferCount, JobHandle dependency, AllocatorManager.AllocatorHandle allocator) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeStream.html">UnsafeStream</a></dt>
+    <dd></dd>
+    <dt><code>bufferCount</code> <a class="xref" href="Unity.Collections.NativeList-1.html">NativeList</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>dependency</code> <span class="xref">JobHandle</span></dt>
+    <dd></dd>
+    <dt><code>allocator</code> <a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">JobHandle</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ToNativeArray_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ToNativeArray*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeStream_ToNativeArray__1_Unity_Collections_AllocatorManager_AllocatorHandle_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeStream.ToNativeArray``1(Unity.Collections.AllocatorManager.AllocatorHandle)">
+  ToNativeArray&lt;T&gt;(AllocatorHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public NativeArray&lt;T&gt; ToNativeArray&lt;T&gt;(AllocatorManager.AllocatorHandle allocator) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>allocator</code> <a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

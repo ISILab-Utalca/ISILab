@@ -1,0 +1,620 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  commentId: T:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  id: TestingAssistantEditor
+  parent: ISILab.LBS.AI.Assistants.Editor
+  children:
+  - ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.#ctor(System.Object)
+  - ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement
+  - ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow
+  - ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo(System.Object)
+  - ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools(LBS.VisualElements.ToolKit)
+  langs:
+  - csharp
+  - vb
+  name: TestingAssistantEditor
+  nameWithType: TestingAssistantEditor
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.AI.Assistants.Editor
+  syntax:
+    content: >-
+      [LBSCustomEditor("Testing Assistant", typeof(SimulationAssistant))]
+
+      public class TestingAssistantEditor : LBSCustomEditor, IToolProvider
+    content.vb: >-
+      <LBSCustomEditor("Testing Assistant", GetType(SimulationAssistant))>
+
+      Public Class TestingAssistantEditor Inherits LBSCustomEditor Implements IToolProvider
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Editor.LBSCustomEditor
+  implements:
+  - ISILab.LBS.Manipulators.IToolProvider
+  inheritedMembers:
+  - ISILab.LBS.Editor.LBSCustomEditor.target
+  - ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  - ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  - ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  - ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  - ISILab.LBS.Editor.LBSCustomEditor.Target
+  attributes:
+  - type: ISILab.LBS.LBSCustomEditorAttribute
+    ctor: ISILab.LBS.LBSCustomEditorAttribute.#ctor(System.String,System.Type)
+    arguments:
+    - type: System.String
+      value: Testing Assistant
+    - type: System.Type
+      value: ISILab.LBS.Plugin.Core.AI.Assistant.SimulationAssistant
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.#ctor(System.Object)
+  commentId: M:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  langs:
+  - csharp
+  - vb
+  name: TestingAssistantEditor(object)
+  nameWithType: TestingAssistantEditor.TestingAssistantEditor(object)
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.TestingAssistantEditor(object)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.AI.Assistants.Editor
+  syntax:
+    content: public TestingAssistantEditor(object target)
+    parameters:
+    - id: target
+      type: System.Object
+    content.vb: Public Sub New(target As Object)
+  overload: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.#ctor*
+  nameWithType.vb: TestingAssistantEditor.New(Object)
+  fullName.vb: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.New(Object)
+  name.vb: New(Object)
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo(System.Object)
+  id: SetInfo(System.Object)
+  parent: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(object)
+  nameWithType: TestingAssistantEditor.SetInfo(object)
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.AI.Assistants.Editor
+  example: []
+  syntax:
+    content: public override void SetInfo(object paramTarget)
+    parameters:
+    - id: paramTarget
+      type: System.Object
+    content.vb: Public Overrides Sub SetInfo(paramTarget As Object)
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  overload: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo*
+  nameWithType.vb: TestingAssistantEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement
+  id: CreateVisualElement
+  parent: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  langs:
+  - csharp
+  - vb
+  name: CreateVisualElement()
+  nameWithType: TestingAssistantEditor.CreateVisualElement()
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.AI.Assistants.Editor
+  example: []
+  syntax:
+    content: protected override VisualElement CreateVisualElement()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected Overrides Function CreateVisualElement() As VisualElement
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  overload: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement*
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools(LBS.VisualElements.ToolKit)
+  commentId: M:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools(LBS.VisualElements.ToolKit)
+  id: SetTools(LBS.VisualElements.ToolKit)
+  parent: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  langs:
+  - csharp
+  - vb
+  name: SetTools(ToolKit)
+  nameWithType: TestingAssistantEditor.SetTools(ToolKit)
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools(LBS.VisualElements.ToolKit)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.AI.Assistants.Editor
+  example: []
+  syntax:
+    content: public void SetTools(ToolKit toolkit)
+    parameters:
+    - id: toolkit
+      type: LBS.VisualElements.ToolKit
+    content.vb: Public Sub SetTools(toolkit As ToolKit)
+  overload: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools*
+  implements:
+  - ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow
+  commentId: P:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow
+  id: PathOSOriginalWindow
+  parent: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  langs:
+  - csharp
+  - vb
+  name: PathOSOriginalWindow
+  nameWithType: TestingAssistantEditor.PathOSOriginalWindow
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.AI.Assistants.Editor
+  syntax:
+    content: public PathOSWindow PathOSOriginalWindow { get; set; }
+    parameters: []
+    return:
+      type: PathOS.PathOSWindow
+    content.vb: Public Property PathOSOriginalWindow As PathOSWindow
+  overload: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow*
+references:
+- uid: ISILab.LBS.AI.Assistants.Editor
+  commentId: N:ISILab.LBS.AI.Assistants.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.AI.Assistants.Editor
+  nameWithType: ISILab.LBS.AI.Assistants.Editor
+  fullName: ISILab.LBS.AI.Assistants.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Assistants
+    name: Assistants
+    isExternal: true
+    href: ISILab.LBS.AI.Assistants.html
+  - name: .
+  - uid: ISILab.LBS.AI.Assistants.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.AI.Assistants.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Assistants
+    name: Assistants
+    isExternal: true
+    href: ISILab.LBS.AI.Assistants.html
+  - name: .
+  - uid: ISILab.LBS.AI.Assistants.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.AI.Assistants.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Editor.LBSCustomEditor
+  commentId: T:ISILab.LBS.Editor.LBSCustomEditor
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html
+  name: LBSCustomEditor
+  nameWithType: LBSCustomEditor
+  fullName: ISILab.LBS.Editor.LBSCustomEditor
+- uid: ISILab.LBS.Manipulators.IToolProvider
+  commentId: T:ISILab.LBS.Manipulators.IToolProvider
+  parent: ISILab.LBS.Manipulators
+  isExternal: true
+  href: ISILab.LBS.Manipulators.IToolProvider.html
+  name: IToolProvider
+  nameWithType: IToolProvider
+  fullName: ISILab.LBS.Manipulators.IToolProvider
+- uid: ISILab.LBS.Editor.LBSCustomEditor.target
+  commentId: F:ISILab.LBS.Editor.LBSCustomEditor.target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_target
+  name: target
+  nameWithType: LBSCustomEditor.target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.target
+- uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  name: ContextMenu(ContextualMenuPopulateEvent)
+  nameWithType: LBSCustomEditor.ContextMenu(ContextualMenuPopulateEvent)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  name: Repaint()
+  nameWithType: LBSCustomEditor.Repaint()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Repaint()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  name: OnFocus()
+  nameWithType: LBSCustomEditor.OnFocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnFocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  name: OnUnfocus()
+  nameWithType: LBSCustomEditor.OnUnfocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Target
+  commentId: P:ISILab.LBS.Editor.LBSCustomEditor.Target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Target
+  name: Target
+  nameWithType: LBSCustomEditor.Target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: ISILab.LBS.Manipulators
+  commentId: N:ISILab.LBS.Manipulators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Manipulators
+  nameWithType: ISILab.LBS.Manipulators
+  fullName: ISILab.LBS.Manipulators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.#ctor*
+  commentId: Overload:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.#ctor
+  isExternal: true
+  href: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.html#ISILab_LBS_AI_Assistants_Editor_TestingAssistantEditor__ctor_System_Object_
+  name: TestingAssistantEditor
+  nameWithType: TestingAssistantEditor.TestingAssistantEditor
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.TestingAssistantEditor
+  nameWithType.vb: TestingAssistantEditor.New
+  fullName.vb: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.New
+  name.vb: New
+- uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  name: SetInfo(object)
+  nameWithType: LBSCustomEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(object)
+  nameWithType.vb: LBSCustomEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo*
+  commentId: Overload:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo
+  isExternal: true
+  href: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.html#ISILab_LBS_AI_Assistants_Editor_TestingAssistantEditor_SetInfo_System_Object_
+  name: SetInfo
+  nameWithType: TestingAssistantEditor.SetInfo
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetInfo
+- uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  name: CreateVisualElement()
+  nameWithType: LBSCustomEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement*
+  commentId: Overload:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement
+  isExternal: true
+  href: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.html#ISILab_LBS_AI_Assistants_Editor_TestingAssistantEditor_CreateVisualElement
+  name: CreateVisualElement
+  nameWithType: TestingAssistantEditor.CreateVisualElement
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.CreateVisualElement
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools*
+  commentId: Overload:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools
+  isExternal: true
+  href: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.html#ISILab_LBS_AI_Assistants_Editor_TestingAssistantEditor_SetTools_LBS_VisualElements_ToolKit_
+  name: SetTools
+  nameWithType: TestingAssistantEditor.SetTools
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.SetTools
+- uid: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  commentId: M:ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  parent: ISILab.LBS.Manipulators.IToolProvider
+  isExternal: true
+  href: ISILab.LBS.Manipulators.IToolProvider.html#ISILab_LBS_Manipulators_IToolProvider_SetTools_LBS_VisualElements_ToolKit_
+  name: SetTools(ToolKit)
+  nameWithType: IToolProvider.SetTools(ToolKit)
+  fullName: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  spec.csharp:
+  - uid: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+    name: SetTools
+    isExternal: true
+    href: ISILab.LBS.Manipulators.IToolProvider.html#ISILab_LBS_Manipulators_IToolProvider_SetTools_LBS_VisualElements_ToolKit_
+  - name: (
+  - uid: LBS.VisualElements.ToolKit
+    name: ToolKit
+    isExternal: true
+    href: LBS.VisualElements.ToolKit.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+    name: SetTools
+    isExternal: true
+    href: ISILab.LBS.Manipulators.IToolProvider.html#ISILab_LBS_Manipulators_IToolProvider_SetTools_LBS_VisualElements_ToolKit_
+  - name: (
+  - uid: LBS.VisualElements.ToolKit
+    name: ToolKit
+    isExternal: true
+    href: LBS.VisualElements.ToolKit.html
+  - name: )
+- uid: LBS.VisualElements.ToolKit
+  commentId: T:LBS.VisualElements.ToolKit
+  parent: LBS.VisualElements
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html
+  name: ToolKit
+  nameWithType: ToolKit
+  fullName: LBS.VisualElements.ToolKit
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+- uid: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow*
+  commentId: Overload:ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow
+  isExternal: true
+  href: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.html#ISILab_LBS_AI_Assistants_Editor_TestingAssistantEditor_PathOSOriginalWindow
+  name: PathOSOriginalWindow
+  nameWithType: TestingAssistantEditor.PathOSOriginalWindow
+  fullName: ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor.PathOSOriginalWindow
+- uid: PathOS.PathOSWindow
+  commentId: T:PathOS.PathOSWindow
+  parent: PathOS
+  isExternal: true
+  name: PathOSWindow
+  nameWithType: PathOSWindow
+  fullName: PathOS.PathOSWindow
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS

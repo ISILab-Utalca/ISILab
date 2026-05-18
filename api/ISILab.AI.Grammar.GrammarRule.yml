@@ -1,0 +1,349 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Grammar.GrammarRule
+  commentId: T:ISILab.AI.Grammar.GrammarRule
+  id: GrammarRule
+  parent: ISILab.AI.Grammar
+  children:
+  - ISILab.AI.Grammar.GrammarRule.#ctor
+  - ISILab.AI.Grammar.GrammarRule.Expansions
+  - ISILab.AI.Grammar.GrammarRule.OnEnable
+  langs:
+  - csharp
+  - vb
+  name: GrammarRule
+  nameWithType: GrammarRule
+  fullName: ISILab.AI.Grammar.GrammarRule
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: 'public class GrammarRule : GrammarElement'
+    content.vb: Public Class GrammarRule Inherits GrammarElement
+  inheritance:
+  - System.Object
+  - ISILab.AI.Grammar.GrammarElement
+  inheritedMembers:
+  - ISILab.AI.Grammar.GrammarElement.id
+  - ISILab.AI.Grammar.GrammarElement.iconGuid
+  - ISILab.AI.Grammar.GrammarElement.color
+  - ISILab.AI.Grammar.GrammarElement.OnValidate
+  - ISILab.AI.Grammar.GrammarElement.Icon
+- uid: ISILab.AI.Grammar.GrammarRule.Expansions
+  commentId: F:ISILab.AI.Grammar.GrammarRule.Expansions
+  id: Expansions
+  parent: ISILab.AI.Grammar.GrammarRule
+  langs:
+  - csharp
+  - vb
+  name: Expansions
+  nameWithType: GrammarRule.Expansions
+  fullName: ISILab.AI.Grammar.GrammarRule.Expansions
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<GrammarExpansion> Expansions
+    return:
+      type: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarExpansion}
+    content.vb: Public Expansions As List(Of GrammarExpansion)
+- uid: ISILab.AI.Grammar.GrammarRule.OnEnable
+  commentId: M:ISILab.AI.Grammar.GrammarRule.OnEnable
+  id: OnEnable
+  parent: ISILab.AI.Grammar.GrammarRule
+  langs:
+  - csharp
+  - vb
+  name: OnEnable()
+  nameWithType: GrammarRule.OnEnable()
+  fullName: ISILab.AI.Grammar.GrammarRule.OnEnable()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override void OnEnable()
+    content.vb: Public Overrides Sub OnEnable()
+  overridden: ISILab.AI.Grammar.GrammarElement.OnEnable
+  overload: ISILab.AI.Grammar.GrammarRule.OnEnable*
+- uid: ISILab.AI.Grammar.GrammarRule.#ctor
+  commentId: M:ISILab.AI.Grammar.GrammarRule.#ctor
+  id: '#ctor'
+  parent: ISILab.AI.Grammar.GrammarRule
+  langs:
+  - csharp
+  - vb
+  name: GrammarRule()
+  nameWithType: GrammarRule.GrammarRule()
+  fullName: ISILab.AI.Grammar.GrammarRule.GrammarRule()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public GrammarRule()
+    content.vb: Public Sub New()
+  overload: ISILab.AI.Grammar.GrammarRule.#ctor*
+  nameWithType.vb: GrammarRule.New()
+  fullName.vb: ISILab.AI.Grammar.GrammarRule.New()
+  name.vb: New()
+references:
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.AI.Grammar.GrammarElement
+  commentId: T:ISILab.AI.Grammar.GrammarElement
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html
+  name: GrammarElement
+  nameWithType: GrammarElement
+  fullName: ISILab.AI.Grammar.GrammarElement
+- uid: ISILab.AI.Grammar.GrammarElement.id
+  commentId: F:ISILab.AI.Grammar.GrammarElement.id
+  parent: ISILab.AI.Grammar.GrammarElement
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_id
+  name: id
+  nameWithType: GrammarElement.id
+  fullName: ISILab.AI.Grammar.GrammarElement.id
+- uid: ISILab.AI.Grammar.GrammarElement.iconGuid
+  commentId: F:ISILab.AI.Grammar.GrammarElement.iconGuid
+  parent: ISILab.AI.Grammar.GrammarElement
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_iconGuid
+  name: iconGuid
+  nameWithType: GrammarElement.iconGuid
+  fullName: ISILab.AI.Grammar.GrammarElement.iconGuid
+- uid: ISILab.AI.Grammar.GrammarElement.color
+  commentId: F:ISILab.AI.Grammar.GrammarElement.color
+  parent: ISILab.AI.Grammar.GrammarElement
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_color
+  name: color
+  nameWithType: GrammarElement.color
+  fullName: ISILab.AI.Grammar.GrammarElement.color
+- uid: ISILab.AI.Grammar.GrammarElement.OnValidate
+  commentId: M:ISILab.AI.Grammar.GrammarElement.OnValidate
+  parent: ISILab.AI.Grammar.GrammarElement
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnValidate
+  name: OnValidate()
+  nameWithType: GrammarElement.OnValidate()
+  fullName: ISILab.AI.Grammar.GrammarElement.OnValidate()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarElement.OnValidate
+    name: OnValidate
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnValidate
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarElement.OnValidate
+    name: OnValidate
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnValidate
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarElement.Icon
+  commentId: P:ISILab.AI.Grammar.GrammarElement.Icon
+  parent: ISILab.AI.Grammar.GrammarElement
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_Icon
+  name: Icon
+  nameWithType: GrammarElement.Icon
+  fullName: ISILab.AI.Grammar.GrammarElement.Icon
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarExpansion}
+  commentId: T:System.Collections.Generic.List{ISILab.AI.Grammar.GrammarExpansion}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GrammarExpansion>
+  nameWithType: List<GrammarExpansion>
+  fullName: System.Collections.Generic.List<ISILab.AI.Grammar.GrammarExpansion>
+  nameWithType.vb: List(Of GrammarExpansion)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.AI.Grammar.GrammarExpansion)
+  name.vb: List(Of GrammarExpansion)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.AI.Grammar.GrammarExpansion
+    name: GrammarExpansion
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarExpansion.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Grammar.GrammarExpansion
+    name: GrammarExpansion
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarExpansion.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.AI.Grammar.GrammarElement.OnEnable
+  commentId: M:ISILab.AI.Grammar.GrammarElement.OnEnable
+  parent: ISILab.AI.Grammar.GrammarElement
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnEnable
+  name: OnEnable()
+  nameWithType: GrammarElement.OnEnable()
+  fullName: ISILab.AI.Grammar.GrammarElement.OnEnable()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarElement.OnEnable
+    name: OnEnable
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnEnable
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarElement.OnEnable
+    name: OnEnable
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnEnable
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarRule.OnEnable*
+  commentId: Overload:ISILab.AI.Grammar.GrammarRule.OnEnable
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarRule.html#ISILab_AI_Grammar_GrammarRule_OnEnable
+  name: OnEnable
+  nameWithType: GrammarRule.OnEnable
+  fullName: ISILab.AI.Grammar.GrammarRule.OnEnable
+- uid: ISILab.AI.Grammar.GrammarRule.#ctor*
+  commentId: Overload:ISILab.AI.Grammar.GrammarRule.#ctor
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarRule.html#ISILab_AI_Grammar_GrammarRule__ctor
+  name: GrammarRule
+  nameWithType: GrammarRule.GrammarRule
+  fullName: ISILab.AI.Grammar.GrammarRule.GrammarRule
+  nameWithType.vb: GrammarRule.New
+  fullName.vb: ISILab.AI.Grammar.GrammarRule.New
+  name.vb: New

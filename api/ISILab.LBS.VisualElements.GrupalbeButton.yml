@@ -1,0 +1,505 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.GrupalbeButton
+  commentId: T:ISILab.LBS.VisualElements.GrupalbeButton
+  id: GrupalbeButton
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.GrupalbeButton.#ctor
+  - ISILab.LBS.VisualElements.GrupalbeButton.#ctor(System.String)
+  - ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent(System.Action)
+  - ISILab.LBS.VisualElements.GrupalbeButton.GetLabel
+  - ISILab.LBS.VisualElements.GrupalbeButton.OnBlur
+  - ISILab.LBS.VisualElements.GrupalbeButton.OnFocus
+  - ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  - ISILab.LBS.VisualElements.GrupalbeButton.label
+  langs:
+  - csharp
+  - vb
+  name: GrupalbeButton
+  nameWithType: GrupalbeButton
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class GrupalbeButton : Button, IGrupable'
+    content.vb: Public Class GrupalbeButton Inherits Button Implements IGrupable
+  inheritance:
+  - System.Object
+  implements:
+  - ISILab.LBS.IGrupable
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.label
+  commentId: F:ISILab.LBS.VisualElements.GrupalbeButton.label
+  id: label
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: label
+  nameWithType: GrupalbeButton.label
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.label
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public string label
+    return:
+      type: System.String
+    content.vb: Public label As String
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.#ctor
+  commentId: M:ISILab.LBS.VisualElements.GrupalbeButton.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: GrupalbeButton()
+  nameWithType: GrupalbeButton.GrupalbeButton()
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.GrupalbeButton()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public GrupalbeButton()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.GrupalbeButton.#ctor*
+  nameWithType.vb: GrupalbeButton.New()
+  fullName.vb: ISILab.LBS.VisualElements.GrupalbeButton.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.#ctor(System.String)
+  commentId: M:ISILab.LBS.VisualElements.GrupalbeButton.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: GrupalbeButton(string)
+  nameWithType: GrupalbeButton.GrupalbeButton(string)
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.GrupalbeButton(string)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public GrupalbeButton(string text)
+    parameters:
+    - id: text
+      type: System.String
+    content.vb: Public Sub New(text As String)
+  overload: ISILab.LBS.VisualElements.GrupalbeButton.#ctor*
+  nameWithType.vb: GrupalbeButton.New(String)
+  fullName.vb: ISILab.LBS.VisualElements.GrupalbeButton.New(String)
+  name.vb: New(String)
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent(System.Action)
+  commentId: M:ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent(System.Action)
+  id: AddGroupEvent(System.Action)
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: AddGroupEvent(Action)
+  nameWithType: GrupalbeButton.AddGroupEvent(Action)
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent(System.Action)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public void AddGroupEvent(Action action)
+    parameters:
+    - id: action
+      type: System.Action
+    content.vb: Public Sub AddGroupEvent(action As Action)
+  overload: ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent*
+  implements:
+  - ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.OnBlur
+  commentId: M:ISILab.LBS.VisualElements.GrupalbeButton.OnBlur
+  id: OnBlur
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: OnBlur()
+  nameWithType: GrupalbeButton.OnBlur()
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.OnBlur()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public void OnBlur()
+    content.vb: Public Sub OnBlur()
+  overload: ISILab.LBS.VisualElements.GrupalbeButton.OnBlur*
+  implements:
+  - ISILab.LBS.IGrupable.OnBlur
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.OnFocus
+  commentId: M:ISILab.LBS.VisualElements.GrupalbeButton.OnFocus
+  id: OnFocus
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: OnFocus()
+  nameWithType: GrupalbeButton.OnFocus()
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.OnFocus()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public void OnFocus()
+    content.vb: Public Sub OnFocus()
+  overload: ISILab.LBS.VisualElements.GrupalbeButton.OnFocus*
+  implements:
+  - ISILab.LBS.IGrupable.OnFocus
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  commentId: M:ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  id: SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: SetColorGroup(Color, Color)
+  nameWithType: GrupalbeButton.SetColorGroup(Color, Color)
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup(UnityEngine.Color, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public void SetColorGroup(Color color, Color selected)
+    parameters:
+    - id: color
+      type: UnityEngine.Color
+    - id: selected
+      type: UnityEngine.Color
+    content.vb: Public Sub SetColorGroup(color As Color, selected As Color)
+  overload: ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup*
+  implements:
+  - ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.GetLabel
+  commentId: M:ISILab.LBS.VisualElements.GrupalbeButton.GetLabel
+  id: GetLabel
+  parent: ISILab.LBS.VisualElements.GrupalbeButton
+  langs:
+  - csharp
+  - vb
+  name: GetLabel()
+  nameWithType: GrupalbeButton.GetLabel()
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.GetLabel()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public string GetLabel()
+    return:
+      type: System.String
+    content.vb: Public Function GetLabel() As String
+  overload: ISILab.LBS.VisualElements.GrupalbeButton.GetLabel*
+  implements:
+  - ISILab.LBS.IGrupable.GetLabel
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.IGrupable
+  commentId: T:ISILab.LBS.IGrupable
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html
+  name: IGrupable
+  nameWithType: IGrupable
+  fullName: ISILab.LBS.IGrupable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.GrupalbeButton.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrupalbeButton.html#ISILab_LBS_VisualElements_GrupalbeButton__ctor
+  name: GrupalbeButton
+  nameWithType: GrupalbeButton.GrupalbeButton
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.GrupalbeButton
+  nameWithType.vb: GrupalbeButton.New
+  fullName.vb: ISILab.LBS.VisualElements.GrupalbeButton.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent*
+  commentId: Overload:ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrupalbeButton.html#ISILab_LBS_VisualElements_GrupalbeButton_AddGroupEvent_System_Action_
+  name: AddGroupEvent
+  nameWithType: GrupalbeButton.AddGroupEvent
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.AddGroupEvent
+- uid: ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+  commentId: M:ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+  parent: ISILab.LBS.IGrupable
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_AddGroupEvent_System_Action_
+  name: AddGroupEvent(Action)
+  nameWithType: IGrupable.AddGroupEvent(Action)
+  fullName: ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+  spec.csharp:
+  - uid: ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+    name: AddGroupEvent
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_AddGroupEvent_System_Action_
+  - name: (
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+    name: AddGroupEvent
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_AddGroupEvent_System_Action_
+  - name: (
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.OnBlur*
+  commentId: Overload:ISILab.LBS.VisualElements.GrupalbeButton.OnBlur
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrupalbeButton.html#ISILab_LBS_VisualElements_GrupalbeButton_OnBlur
+  name: OnBlur
+  nameWithType: GrupalbeButton.OnBlur
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.OnBlur
+- uid: ISILab.LBS.IGrupable.OnBlur
+  commentId: M:ISILab.LBS.IGrupable.OnBlur
+  parent: ISILab.LBS.IGrupable
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnBlur
+  name: OnBlur()
+  nameWithType: IGrupable.OnBlur()
+  fullName: ISILab.LBS.IGrupable.OnBlur()
+  spec.csharp:
+  - uid: ISILab.LBS.IGrupable.OnBlur
+    name: OnBlur
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnBlur
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.IGrupable.OnBlur
+    name: OnBlur
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnBlur
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.OnFocus*
+  commentId: Overload:ISILab.LBS.VisualElements.GrupalbeButton.OnFocus
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrupalbeButton.html#ISILab_LBS_VisualElements_GrupalbeButton_OnFocus
+  name: OnFocus
+  nameWithType: GrupalbeButton.OnFocus
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.OnFocus
+- uid: ISILab.LBS.IGrupable.OnFocus
+  commentId: M:ISILab.LBS.IGrupable.OnFocus
+  parent: ISILab.LBS.IGrupable
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnFocus
+  name: OnFocus()
+  nameWithType: IGrupable.OnFocus()
+  fullName: ISILab.LBS.IGrupable.OnFocus()
+  spec.csharp:
+  - uid: ISILab.LBS.IGrupable.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnFocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.IGrupable.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnFocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup*
+  commentId: Overload:ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrupalbeButton.html#ISILab_LBS_VisualElements_GrupalbeButton_SetColorGroup_UnityEngine_Color_UnityEngine_Color_
+  name: SetColorGroup
+  nameWithType: GrupalbeButton.SetColorGroup
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.SetColorGroup
+- uid: ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  commentId: M:ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  parent: ISILab.LBS.IGrupable
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_SetColorGroup_UnityEngine_Color_UnityEngine_Color_
+  name: SetColorGroup(Color, Color)
+  nameWithType: IGrupable.SetColorGroup(Color, Color)
+  fullName: ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color, UnityEngine.Color)
+  spec.csharp:
+  - uid: ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+    name: SetColorGroup
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_SetColorGroup_UnityEngine_Color_UnityEngine_Color_
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+    name: SetColorGroup
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_SetColorGroup_UnityEngine_Color_UnityEngine_Color_
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.VisualElements.GrupalbeButton.GetLabel*
+  commentId: Overload:ISILab.LBS.VisualElements.GrupalbeButton.GetLabel
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrupalbeButton.html#ISILab_LBS_VisualElements_GrupalbeButton_GetLabel
+  name: GetLabel
+  nameWithType: GrupalbeButton.GetLabel
+  fullName: ISILab.LBS.VisualElements.GrupalbeButton.GetLabel
+- uid: ISILab.LBS.IGrupable.GetLabel
+  commentId: M:ISILab.LBS.IGrupable.GetLabel
+  parent: ISILab.LBS.IGrupable
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_GetLabel
+  name: GetLabel()
+  nameWithType: IGrupable.GetLabel()
+  fullName: ISILab.LBS.IGrupable.GetLabel()
+  spec.csharp:
+  - uid: ISILab.LBS.IGrupable.GetLabel
+    name: GetLabel
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_GetLabel
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.IGrupable.GetLabel
+    name: GetLabel
+    isExternal: true
+    href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_GetLabel
+  - name: (
+  - name: )

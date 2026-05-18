@@ -1,0 +1,497 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomTreeView
+  id: LBSCustomTreeView
+  parent: ISILab.LBS.CustomComponents
+  children:
+  - ISILab.LBS.CustomComponents.LBSCustomTreeView.#ctor
+  - ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData``1(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{``0}})
+  - ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{System.String}})
+  - ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify(System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData})
+  - ISILab.LBS.CustomComponents.LBSCustomTreeView.value
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomTreeView
+  nameWithType: LBSCustomTreeView
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: 'public class LBSCustomTreeView : TreeView, INotifyValueChanged<List<LBSTreeData>>'
+    content.vb: Public Class LBSCustomTreeView Inherits TreeView Implements INotifyValueChanged(Of List(Of LBSTreeData))
+  inheritance:
+  - System.Object
+  implements:
+  - UnityEngine.UIElements.INotifyValueChanged{System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}}
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.#ctor
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomTreeView.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.CustomComponents.LBSCustomTreeView
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomTreeView()
+  nameWithType: LBSCustomTreeView.LBSCustomTreeView()
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.LBSCustomTreeView()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public LBSCustomTreeView()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.CustomComponents.LBSCustomTreeView.#ctor*
+  nameWithType.vb: LBSCustomTreeView.New()
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomTreeView.New()
+  name.vb: New()
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{System.String}})
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{System.String}})
+  id: BuildTreeFromStringData(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{System.String}})
+  parent: ISILab.LBS.CustomComponents.LBSCustomTreeView
+  langs:
+  - csharp
+  - vb
+  name: BuildTreeFromStringData(List<TreeViewItemData<string>>)
+  nameWithType: LBSCustomTreeView.BuildTreeFromStringData(List<TreeViewItemData<string>>)
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData(System.Collections.Generic.List<UnityEngine.UIElements.TreeViewItemData<string>>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public void BuildTreeFromStringData(List<TreeViewItemData<string>> items)
+    parameters:
+    - id: items
+      type: System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{System.String}}
+    content.vb: Public Sub BuildTreeFromStringData(items As List(Of TreeViewItemData(Of String)))
+  overload: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData*
+  nameWithType.vb: LBSCustomTreeView.BuildTreeFromStringData(List(Of TreeViewItemData(Of String)))
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData(System.Collections.Generic.List(Of UnityEngine.UIElements.TreeViewItemData(Of String)))
+  name.vb: BuildTreeFromStringData(List(Of TreeViewItemData(Of String)))
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData``1(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{``0}})
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData``1(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{``0}})
+  id: BuildTreeFromGenericData``1(System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{``0}})
+  parent: ISILab.LBS.CustomComponents.LBSCustomTreeView
+  langs:
+  - csharp
+  - vb
+  name: BuildTreeFromGenericData<T>(List<TreeViewItemData<T>>)
+  nameWithType: LBSCustomTreeView.BuildTreeFromGenericData<T>(List<TreeViewItemData<T>>)
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData<T>(System.Collections.Generic.List<UnityEngine.UIElements.TreeViewItemData<T>>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public void BuildTreeFromGenericData<T>(List<TreeViewItemData<T>> items)
+    parameters:
+    - id: items
+      type: System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{{T}}}
+    typeParameters:
+    - id: T
+    content.vb: Public Sub BuildTreeFromGenericData(Of T)(items As List(Of TreeViewItemData(Of T)))
+  overload: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData*
+  nameWithType.vb: LBSCustomTreeView.BuildTreeFromGenericData(Of T)(List(Of TreeViewItemData(Of T)))
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData(Of T)(System.Collections.Generic.List(Of UnityEngine.UIElements.TreeViewItemData(Of T)))
+  name.vb: BuildTreeFromGenericData(Of T)(List(Of TreeViewItemData(Of T)))
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify(System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData})
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify(System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData})
+  id: SetValueWithoutNotify(System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData})
+  parent: ISILab.LBS.CustomComponents.LBSCustomTreeView
+  langs:
+  - csharp
+  - vb
+  name: SetValueWithoutNotify(List<LBSTreeData>)
+  nameWithType: LBSCustomTreeView.SetValueWithoutNotify(List<LBSTreeData>)
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify(System.Collections.Generic.List<ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public void SetValueWithoutNotify(List<LBSTreeData> newValue)
+    parameters:
+    - id: newValue
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
+    content.vb: Public Sub SetValueWithoutNotify(newValue As List(Of LBSTreeData))
+  overload: ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify*
+  nameWithType.vb: LBSCustomTreeView.SetValueWithoutNotify(List(Of LBSTreeData))
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify(System.Collections.Generic.List(Of ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData))
+  name.vb: SetValueWithoutNotify(List(Of LBSTreeData))
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.value
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomTreeView.value
+  id: value
+  parent: ISILab.LBS.CustomComponents.LBSCustomTreeView
+  langs:
+  - csharp
+  - vb
+  name: value
+  nameWithType: LBSCustomTreeView.value
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.value
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public List<LBSTreeData> value { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
+    content.vb: Public Property value As List(Of LBSTreeData)
+  overload: ISILab.LBS.CustomComponents.LBSCustomTreeView.value*
+references:
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEngine.UIElements.INotifyValueChanged{System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}}
+  commentId: '!:UnityEngine.UIElements.INotifyValueChanged{System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}}'
+  definition: UnityEngine.UIElements.INotifyValueChanged`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: INotifyValueChanged<List<LBSTreeData>>
+  nameWithType: INotifyValueChanged<List<LBSTreeData>>
+  fullName: UnityEngine.UIElements.INotifyValueChanged<System.Collections.Generic.List<ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData>>
+  nameWithType.vb: INotifyValueChanged(Of List(Of LBSTreeData))
+  fullName.vb: UnityEngine.UIElements.INotifyValueChanged(Of System.Collections.Generic.List(Of ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData))
+  name.vb: INotifyValueChanged(Of List(Of LBSTreeData))
+  spec.csharp:
+  - uid: UnityEngine.UIElements.INotifyValueChanged`1
+    name: INotifyValueChanged
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
+    name: LBSTreeData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: UnityEngine.UIElements.INotifyValueChanged`1
+    name: INotifyValueChanged
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
+    name: LBSTreeData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.UIElements.INotifyValueChanged`1
+  commentId: '!:UnityEngine.UIElements.INotifyValueChanged`1'
+  isExternal: true
+  name: INotifyValueChanged<>
+  nameWithType: INotifyValueChanged<>
+  fullName: UnityEngine.UIElements.INotifyValueChanged<>
+  nameWithType.vb: INotifyValueChanged(Of )
+  fullName.vb: UnityEngine.UIElements.INotifyValueChanged(Of )
+  name.vb: INotifyValueChanged(Of )
+  spec.csharp:
+  - uid: UnityEngine.UIElements.INotifyValueChanged`1
+    name: INotifyValueChanged
+    isExternal: true
+  - name: <
+  - name: '>'
+  spec.vb:
+  - uid: UnityEngine.UIElements.INotifyValueChanged`1
+    name: INotifyValueChanged
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.#ctor*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomTreeView.#ctor
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomTreeView.html#ISILab_LBS_CustomComponents_LBSCustomTreeView__ctor
+  name: LBSCustomTreeView
+  nameWithType: LBSCustomTreeView.LBSCustomTreeView
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.LBSCustomTreeView
+  nameWithType.vb: LBSCustomTreeView.New
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomTreeView.New
+  name.vb: New
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomTreeView.html#ISILab_LBS_CustomComponents_LBSCustomTreeView_BuildTreeFromStringData_System_Collections_Generic_List_UnityEngine_UIElements_TreeViewItemData_System_String___
+  name: BuildTreeFromStringData
+  nameWithType: LBSCustomTreeView.BuildTreeFromStringData
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromStringData
+- uid: System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{System.String}}
+  commentId: T:System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TreeViewItemData<string>>
+  nameWithType: List<TreeViewItemData<string>>
+  fullName: System.Collections.Generic.List<UnityEngine.UIElements.TreeViewItemData<string>>
+  nameWithType.vb: List(Of TreeViewItemData(Of String))
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.UIElements.TreeViewItemData(Of String))
+  name.vb: List(Of TreeViewItemData(Of String))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.UIElements.TreeViewItemData`1
+    name: TreeViewItemData
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.UIElements.TreeViewItemData`1
+    name: TreeViewItemData
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomTreeView.html#ISILab_LBS_CustomComponents_LBSCustomTreeView_BuildTreeFromGenericData__1_System_Collections_Generic_List_UnityEngine_UIElements_TreeViewItemData___0___
+  name: BuildTreeFromGenericData
+  nameWithType: LBSCustomTreeView.BuildTreeFromGenericData
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.BuildTreeFromGenericData
+- uid: System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{{T}}}
+  commentId: T:System.Collections.Generic.List{UnityEngine.UIElements.TreeViewItemData{``0}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TreeViewItemData<T>>
+  nameWithType: List<TreeViewItemData<T>>
+  fullName: System.Collections.Generic.List<UnityEngine.UIElements.TreeViewItemData<T>>
+  nameWithType.vb: List(Of TreeViewItemData(Of T))
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.UIElements.TreeViewItemData(Of T))
+  name.vb: List(Of TreeViewItemData(Of T))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.UIElements.TreeViewItemData`1
+    name: TreeViewItemData
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.UIElements.TreeViewItemData`1
+    name: TreeViewItemData
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomTreeView.html#ISILab_LBS_CustomComponents_LBSCustomTreeView_SetValueWithoutNotify_System_Collections_Generic_List_ISILab_LBS_Plugin_UI_Editor_CustomComponents_Interfaces_LBSTreeData__
+  name: SetValueWithoutNotify
+  nameWithType: LBSCustomTreeView.SetValueWithoutNotify
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.SetValueWithoutNotify
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSTreeData>
+  nameWithType: List<LBSTreeData>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData>
+  nameWithType.vb: List(Of LBSTreeData)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData)
+  name.vb: List(Of LBSTreeData)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
+    name: LBSTreeData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
+    name: LBSTreeData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
+  - name: )
+- uid: ISILab.LBS.CustomComponents.LBSCustomTreeView.value*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomTreeView.value
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomTreeView.html#ISILab_LBS_CustomComponents_LBSCustomTreeView_value
+  name: value
+  nameWithType: LBSCustomTreeView.value
+  fullName: ISILab.LBS.CustomComponents.LBSCustomTreeView.value

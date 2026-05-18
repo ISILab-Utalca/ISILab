@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExteriorBehaviour | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExteriorBehaviour | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour">
+
+
+
+  <h1 id="ISILab_LBS_Behaviours_ExteriorBehaviour" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour" class="text-break">
+Class ExteriorBehaviour  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Behaviours.html">Behaviours</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RequieredModule(new Type[] { typeof(TileMapModule), typeof(ConnectedTileMapModule) })]
+public class ExteriorBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html">LBSBehaviour</a></div>
+      <div><span class="xref">ExteriorBehaviour</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html">IBlueprintable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_visible">LBSBehaviour.visible</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules">LBSBehaviour.GetRequiredModules()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_">LBSBehaviour.RequestTilePaint(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_">LBSBehaviour.RequestTileRemove(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles">LBSBehaviour.RetrieveNewTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles">LBSBehaviour.RetrieveExpiredTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__">LBSBehaviour.UpdateKeys(List&lt;object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_">LBSBehaviour.OnOnBehaviourUpdated(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__">LBSBehaviour.RequestFullRepaint&lt;T&gt;(List&lt;T&gt;, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint">LBSBehaviour.ColorTint</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer">LBSBehaviour.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon">LBSBehaviour.Icon</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid">LBSBehaviour.IconGuid</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name">LBSBehaviour.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys">LBSBehaviour.Keys</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback">LBSBehaviour.LevelChangedCallback</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated">LBSBehaviour.OnBehaviourUpdated</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour__ctor_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour__ctor_System_String_System_String_UnityEngine_Color_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.#ctor(System.String,System.String,UnityEngine.Color)">
+  ExteriorBehaviour(string, string, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExteriorBehaviour(string iconGUID, string name, Color colorTint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iconGUID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>colorTint</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_identifierToSet" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.identifierToSet">
+  identifierToSet
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSTag identifierToSet</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Components.LBSTag.html">LBSTag</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_Bundle_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Bundle*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_Bundle" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Bundle">
+  Bundle
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bundle Bundle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_Directions_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Directions*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_Directions" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Directions">
+  Directions
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Vector2Int&gt; Directions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector2Int</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_GridType_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GridType*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_GridType" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GridType">
+  GridType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectedTileMapModule.ConnectedTileType GridType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.ConnectedTileMapModule.html">ConnectedTileMapModule</a>.<a class="xref" href="ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType.html">ConnectedTileType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_NavigableTags_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.NavigableTags*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_NavigableTags" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.NavigableTags">
+  NavigableTags
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; NavigableTags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_Tiles_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Tiles*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_Tiles" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Tiles">
+  Tiles
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;LBSTile&gt; Tiles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_AddTile_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.AddTile*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_AddTile_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.AddTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  AddTile(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTile(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_CaptureAreaData_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.CaptureAreaData*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+  CaptureAreaData(Vector2Int, Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>StartPosition</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+    <dt><code>EndPosition</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_ChangeLevelRender_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.ChangeLevelRender*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_ChangeLevelRender_System_Int32_System_Int32_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.ChangeLevelRender(System.Int32,System.Int32)">
+  ChangeLevelRender(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prevLevelIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>nextLevelIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_CheckKeys_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.CheckKeys*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_CheckKeys" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.CheckKeys">
+  CheckKeys()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void CheckKeys()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_Clone_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Clone*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_Clone" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_Equals_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Equals*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_Equals_System_Object_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetAnchor_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetAnchor*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetAnchor" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetAnchor">
+  GetAnchor()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int GetAnchor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetConnections_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetConnections*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetConnections_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  GetConnections(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; GetConnections(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetHashCode_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetHashCode*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetHashCode" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetTile_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetTile*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_GetTile_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.GetTile(UnityEngine.Vector2Int)">
+  GetTile(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSTile GetTile(Vector2Int pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_MergeLayerData_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.MergeLayerData*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_MergeLayerData_System_Object_System_Boolean_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.MergeLayerData(System.Object,System.Boolean)">
+  MergeLayerData(object, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MergeLayerData(object incoming, bool overwrite)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>incoming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>overwrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_OnAttachLayer_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.OnAttachLayer*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_OnAttachLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.OnAttachLayer(LBS.Components.LBSLayer)">
+  OnAttachLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnAttachLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_OnDetachLayer_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.OnDetachLayer*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_OnDetachLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.OnDetachLayer(LBS.Components.LBSLayer)">
+  OnDetachLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDetachLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_OnGUI_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.OnGUI*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_OnGUI" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.OnGUI">
+  OnGUI()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed void OnGUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_RemoveTile_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.RemoveTile*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_RemoveTile_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.RemoveTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  RemoveTile(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTile(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_RequestTilesRepaint_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.RequestTilesRepaint*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_RequestTilesRepaint_System_Collections_Generic_IEnumerable_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.RequestTilesRepaint(System.Collections.Generic.IEnumerable{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})">
+  RequestTilesRepaint(IEnumerable&lt;LBSTile&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RequestTilesRepaint(IEnumerable&lt;LBSTile&gt; tiles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tiles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_SetConnection_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.SetConnection*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_SetConnection_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_System_Int32_System_String_System_Boolean_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)">
+  SetConnection(LBSTile, int, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetConnection(LBSTile tile, int direction, string connection, bool canEditedByAI)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>connection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>canEditedByAI</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_SetPosition_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.SetPosition*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+  SetPosition(Vector2Int, Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentAnchor</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+    <dt><code>delta</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_ExteriorBehaviour_UpdateKeys_" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.UpdateKeys*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_ExteriorBehaviour_UpdateKeys" data-uid="ISILab.LBS.Behaviours.ExteriorBehaviour.UpdateKeys">
+  UpdateKeys()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateKeys()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

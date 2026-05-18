@@ -1,0 +1,207 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor
+  commentId: T:ISILab.LBS.Bundles.Editor.BundleEditor
+  id: BundleEditor
+  parent: ISILab.LBS.Bundles.Editor
+  children:
+  - ISILab.LBS.Bundles.Editor.BundleEditor.#ctor
+  - ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI
+  - ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI
+  - ISILab.LBS.Bundles.Editor.BundleEditor.Save
+  langs:
+  - csharp
+  - vb
+  name: BundleEditor
+  nameWithType: BundleEditor
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Bundles.Editor
+  syntax:
+    content: 'public class BundleEditor : Editor'
+    content.vb: Public Class BundleEditor Inherits Editor
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI
+  commentId: M:ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI
+  id: OnInspectorGUI
+  parent: ISILab.LBS.Bundles.Editor.BundleEditor
+  langs:
+  - csharp
+  - vb
+  name: OnInspectorGUI()
+  nameWithType: BundleEditor.OnInspectorGUI()
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Bundles.Editor
+  example: []
+  syntax:
+    content: public override void OnInspectorGUI()
+    content.vb: Public Overrides Sub OnInspectorGUI()
+  overload: ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI*
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI
+  commentId: M:ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI
+  id: CreateInspectorGUI
+  parent: ISILab.LBS.Bundles.Editor.BundleEditor
+  langs:
+  - csharp
+  - vb
+  name: CreateInspectorGUI()
+  nameWithType: BundleEditor.CreateInspectorGUI()
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Bundles.Editor
+  example: []
+  syntax:
+    content: public override VisualElement CreateInspectorGUI()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Overrides Function CreateInspectorGUI() As VisualElement
+  overload: ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI*
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.Save
+  commentId: M:ISILab.LBS.Bundles.Editor.BundleEditor.Save
+  id: Save
+  parent: ISILab.LBS.Bundles.Editor.BundleEditor
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: BundleEditor.Save()
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.Save()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Bundles.Editor
+  syntax:
+    content: public void Save()
+    content.vb: Public Sub Save()
+  overload: ISILab.LBS.Bundles.Editor.BundleEditor.Save*
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.#ctor
+  commentId: M:ISILab.LBS.Bundles.Editor.BundleEditor.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Bundles.Editor.BundleEditor
+  langs:
+  - csharp
+  - vb
+  name: BundleEditor()
+  nameWithType: BundleEditor.BundleEditor()
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.BundleEditor()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Bundles.Editor
+  syntax:
+    content: public BundleEditor()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Bundles.Editor.BundleEditor.#ctor*
+  nameWithType.vb: BundleEditor.New()
+  fullName.vb: ISILab.LBS.Bundles.Editor.BundleEditor.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.Bundles.Editor
+  commentId: N:ISILab.LBS.Bundles.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Bundles.Editor
+  nameWithType: ISILab.LBS.Bundles.Editor
+  fullName: ISILab.LBS.Bundles.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Bundles.html
+  - name: .
+  - uid: ISILab.LBS.Bundles.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Bundles.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Bundles.html
+  - name: .
+  - uid: ISILab.LBS.Bundles.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Bundles.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI*
+  commentId: Overload:ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI
+  isExternal: true
+  href: ISILab.LBS.Bundles.Editor.BundleEditor.html#ISILab_LBS_Bundles_Editor_BundleEditor_OnInspectorGUI
+  name: OnInspectorGUI
+  nameWithType: BundleEditor.OnInspectorGUI
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.OnInspectorGUI
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI*
+  commentId: Overload:ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI
+  isExternal: true
+  href: ISILab.LBS.Bundles.Editor.BundleEditor.html#ISILab_LBS_Bundles_Editor_BundleEditor_CreateInspectorGUI
+  name: CreateInspectorGUI
+  nameWithType: BundleEditor.CreateInspectorGUI
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.CreateInspectorGUI
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.Save*
+  commentId: Overload:ISILab.LBS.Bundles.Editor.BundleEditor.Save
+  isExternal: true
+  href: ISILab.LBS.Bundles.Editor.BundleEditor.html#ISILab_LBS_Bundles_Editor_BundleEditor_Save
+  name: Save
+  nameWithType: BundleEditor.Save
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.Save
+- uid: ISILab.LBS.Bundles.Editor.BundleEditor.#ctor*
+  commentId: Overload:ISILab.LBS.Bundles.Editor.BundleEditor.#ctor
+  isExternal: true
+  href: ISILab.LBS.Bundles.Editor.BundleEditor.html#ISILab_LBS_Bundles_Editor_BundleEditor__ctor
+  name: BundleEditor
+  nameWithType: BundleEditor.BundleEditor
+  fullName: ISILab.LBS.Bundles.Editor.BundleEditor.BundleEditor
+  nameWithType.vb: BundleEditor.New
+  fullName.vb: ISILab.LBS.Bundles.Editor.BundleEditor.New
+  name.vb: New

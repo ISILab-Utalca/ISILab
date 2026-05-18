@@ -1,0 +1,1456 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule
+  commentId: T:ISILab.LBS.Modules.ConstrainsZonesModule
+  id: ConstrainsZonesModule
+  parent: ISILab.LBS.Modules
+  children:
+  - ISILab.LBS.Modules.ConstrainsZonesModule.#ctor
+  - ISILab.LBS.Modules.ConstrainsZonesModule.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair})
+  - ISILab.LBS.Modules.ConstrainsZonesModule.AddPair(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2,UnityEngine.Vector2)
+  - ISILab.LBS.Modules.ConstrainsZonesModule.Clear
+  - ISILab.LBS.Modules.ConstrainsZonesModule.Clone
+  - ISILab.LBS.Modules.ConstrainsZonesModule.Constraints
+  - ISILab.LBS.Modules.ConstrainsZonesModule.Equals(System.Object)
+  - ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds
+  - ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode
+  - ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits(ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected(UnityEngine.Vector2Int)
+  - ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty
+  - ISILab.LBS.Modules.ConstrainsZonesModule.OnAddPair
+  - ISILab.LBS.Modules.ConstrainsZonesModule.OnRemovePair
+  - ISILab.LBS.Modules.ConstrainsZonesModule.Print
+  - ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone})
+  - ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair(ISILab.LBS.Plugin.Components.Data.Zone)
+  langs:
+  - csharp
+  - vb
+  name: ConstrainsZonesModule
+  nameWithType: ConstrainsZonesModule
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: 'public class ConstrainsZonesModule : LBSModule, ICloneable, ISelectable'
+    content.vb: Public Class ConstrainsZonesModule Inherits LBSModule Implements ICloneable, ISelectable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Modules.LBSModule
+  implements:
+  - System.ICloneable
+  - ISILab.LBS.Modules.ISelectable
+  inheritedMembers:
+  - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OnChanged
+  - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.#ctor
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: ConstrainsZonesModule()
+  nameWithType: ConstrainsZonesModule.ConstrainsZonesModule()
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.ConstrainsZonesModule()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ConstrainsZonesModule()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.#ctor*
+  nameWithType.vb: ConstrainsZonesModule.New()
+  fullName.vb: ISILab.LBS.Modules.ConstrainsZonesModule.New()
+  name.vb: New()
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair})
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair})
+  id: '#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair})'
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: ConstrainsZonesModule(List<ConstraintPair>)
+  nameWithType: ConstrainsZonesModule.ConstrainsZonesModule(List<ConstraintPair>)
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.ConstrainsZonesModule(System.Collections.Generic.List<ISILab.LBS.Modules.ConstraintPair>)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ConstrainsZonesModule(List<ConstraintPair> pairs)
+    parameters:
+    - id: pairs
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair}
+    content.vb: Public Sub New(pairs As List(Of ConstraintPair))
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.#ctor*
+  nameWithType.vb: ConstrainsZonesModule.New(List(Of ConstraintPair))
+  fullName.vb: ISILab.LBS.Modules.ConstrainsZonesModule.New(System.Collections.Generic.List(Of ISILab.LBS.Modules.ConstraintPair))
+  name.vb: New(List(Of ConstraintPair))
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits(ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits(ISILab.LBS.Plugin.Components.Data.Zone)
+  id: GetLimits(ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetLimits(Zone)
+  nameWithType: ConstrainsZonesModule.GetLimits(Zone)
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits(ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public Constraint GetLimits(Zone zone)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    return:
+      type: ISILab.LBS.Modules.Constraint
+    content.vb: Public Function GetLimits(zone As Zone) As Constraint
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.AddPair(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.AddPair(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2,UnityEngine.Vector2)
+  id: AddPair(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2,UnityEngine.Vector2)
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: AddPair(Zone, Vector2, Vector2)
+  nameWithType: ConstrainsZonesModule.AddPair(Zone, Vector2, Vector2)
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.AddPair(ISILab.LBS.Plugin.Components.Data.Zone, UnityEngine.Vector2, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void AddPair(Zone zone, Vector2 minArea, Vector2 maxArea)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: minArea
+      type: UnityEngine.Vector2
+    - id: maxArea
+      type: UnityEngine.Vector2
+    content.vb: Public Sub AddPair(zone As Zone, minArea As Vector2, maxArea As Vector2)
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.AddPair*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair(ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair(ISILab.LBS.Plugin.Components.Data.Zone)
+  id: RemovePair(ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: RemovePair(Zone)
+  nameWithType: ConstrainsZonesModule.RemovePair(Zone)
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair(ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RemovePair(Zone zone)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: Public Sub RemovePair(zone As Zone)
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone})
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone})
+  id: RecalculateConstraint(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone})
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: RecalculateConstraint(List<Zone>)
+  nameWithType: ConstrainsZonesModule.RecalculateConstraint(List<Zone>)
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Zone>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RecalculateConstraint(List<Zone> zones)
+    parameters:
+    - id: zones
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: Public Sub RecalculateConstraint(zones As List(Of Zone))
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint*
+  nameWithType.vb: ConstrainsZonesModule.RecalculateConstraint(List(Of Zone))
+  fullName.vb: ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint(System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Zone))
+  name.vb: RecalculateConstraint(List(Of Zone))
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Print
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.Print
+  id: Print
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Print()
+  nameWithType: ConstrainsZonesModule.Print()
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Print()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Print()
+    content.vb: Public Overrides Sub Print()
+  overridden: ISILab.LBS.Modules.LBSModule.Print
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.Print*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Clear
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.Clear
+  id: Clear
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ConstrainsZonesModule.Clear()
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Clear()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Clear()
+    content.vb: Public Overrides Sub Clear()
+  overridden: ISILab.LBS.Modules.LBSModule.Clear
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.Clear*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty
+  id: IsEmpty
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty()
+  nameWithType: ConstrainsZonesModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool IsEmpty()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsEmpty() As Boolean
+  overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds
+  id: GetBounds
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: ConstrainsZonesModule.GetBounds()
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override Rect GetBounds()
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Overrides Function GetBounds() As Rect
+  overridden: ISILab.LBS.Modules.LBSModule.GetBounds
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Clone
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.Clone
+  id: Clone
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ConstrainsZonesModule.Clone()
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Modules.LBSModule.Clone
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.Clone*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Equals(System.Object)
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ConstrainsZonesModule.Equals(object)
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.Equals*
+  nameWithType.vb: ConstrainsZonesModule.Equals(Object)
+  fullName.vb: ISILab.LBS.Modules.ConstrainsZonesModule.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ConstrainsZonesModule.GetHashCode()
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected(UnityEngine.Vector2Int)
+  id: GetSelected(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetSelected(Vector2Int)
+  nameWithType: ConstrainsZonesModule.GetSelected(Vector2Int)
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public List<object> GetSelected(Vector2Int position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{System.Object}
+    content.vb: Public Function GetSelected(position As Vector2Int) As List(Of Object)
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected*
+  implements:
+  - ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Constraints
+  commentId: P:ISILab.LBS.Modules.ConstrainsZonesModule.Constraints
+  id: Constraints
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Constraints
+  nameWithType: ConstrainsZonesModule.Constraints
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Constraints
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<ConstraintPair> Constraints { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair}
+    content.vb: Public ReadOnly Property Constraints As List(Of ConstraintPair)
+  overload: ISILab.LBS.Modules.ConstrainsZonesModule.Constraints*
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.OnAddPair
+  commentId: E:ISILab.LBS.Modules.ConstrainsZonesModule.OnAddPair
+  id: OnAddPair
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: OnAddPair
+  nameWithType: ConstrainsZonesModule.OnAddPair
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.OnAddPair
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public event Action<ConstrainsZonesModule, ConstraintPair> OnAddPair
+    return:
+      type: System.Action{ISILab.LBS.Modules.ConstrainsZonesModule,ISILab.LBS.Modules.ConstraintPair}
+    content.vb: Public Event OnAddPair As Action(Of ConstrainsZonesModule, ConstraintPair)
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.OnRemovePair
+  commentId: E:ISILab.LBS.Modules.ConstrainsZonesModule.OnRemovePair
+  id: OnRemovePair
+  parent: ISILab.LBS.Modules.ConstrainsZonesModule
+  langs:
+  - csharp
+  - vb
+  name: OnRemovePair
+  nameWithType: ConstrainsZonesModule.OnRemovePair
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.OnRemovePair
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public event Action<ConstrainsZonesModule, ConstraintPair> OnRemovePair
+    return:
+      type: System.Action{ISILab.LBS.Modules.ConstrainsZonesModule,ISILab.LBS.Modules.ConstraintPair}
+    content.vb: Public Event OnRemovePair As Action(Of ConstrainsZonesModule, ConstraintPair)
+references:
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Modules.LBSModule
+  commentId: T:ISILab.LBS.Modules.LBSModule
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html
+  name: LBSModule
+  nameWithType: LBSModule
+  fullName: ISILab.LBS.Modules.LBSModule
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Modules.ISelectable
+  commentId: T:ISILab.LBS.Modules.ISelectable
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.ISelectable.html
+  name: ISelectable
+  nameWithType: ISelectable
+  fullName: ISILab.LBS.Modules.ISelectable
+- uid: ISILab.LBS.Modules.LBSModule.id
+  commentId: F:ISILab.LBS.Modules.LBSModule.id
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
+  name: id
+  nameWithType: LBSModule.id
+  fullName: ISILab.LBS.Modules.LBSModule.id
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite(LBSModule)
+  nameWithType: LBSModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
+  commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSModule.OwnerLayer
+  fullName: ISILab.LBS.Modules.LBSModule.OwnerLayer
+- uid: ISILab.LBS.Modules.LBSModule.ID
+  commentId: P:ISILab.LBS.Modules.LBSModule.ID
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
+  name: ID
+  nameWithType: LBSModule.ID
+  fullName: ISILab.LBS.Modules.LBSModule.ID
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.#ctor*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.#ctor
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule__ctor
+  name: ConstrainsZonesModule
+  nameWithType: ConstrainsZonesModule.ConstrainsZonesModule
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.ConstrainsZonesModule
+  nameWithType.vb: ConstrainsZonesModule.New
+  fullName.vb: ISILab.LBS.Modules.ConstrainsZonesModule.New
+  name.vb: New
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.ConstraintPair}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ConstraintPair>
+  nameWithType: List<ConstraintPair>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.ConstraintPair>
+  nameWithType.vb: List(Of ConstraintPair)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.ConstraintPair)
+  name.vb: List(Of ConstraintPair)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.ConstraintPair
+    name: ConstraintPair
+    isExternal: true
+    href: ISILab.LBS.Modules.ConstraintPair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.ConstraintPair
+    name: ConstraintPair
+    isExternal: true
+    href: ISILab.LBS.Modules.ConstraintPair.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_GetLimits_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: GetLimits
+  nameWithType: ConstrainsZonesModule.GetLimits
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetLimits
+- uid: ISILab.LBS.Plugin.Components.Data.Zone
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Zone
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  name: Zone
+  nameWithType: Zone
+  fullName: ISILab.LBS.Plugin.Components.Data.Zone
+- uid: ISILab.LBS.Modules.Constraint
+  commentId: T:ISILab.LBS.Modules.Constraint
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.Constraint.html
+  name: Constraint
+  nameWithType: Constraint
+  fullName: ISILab.LBS.Modules.Constraint
+- uid: ISILab.LBS.Plugin.Components.Data
+  commentId: N:ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data
+  nameWithType: ISILab.LBS.Plugin.Components.Data
+  fullName: ISILab.LBS.Plugin.Components.Data
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.AddPair*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.AddPair
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_AddPair_ISILab_LBS_Plugin_Components_Data_Zone_UnityEngine_Vector2_UnityEngine_Vector2_
+  name: AddPair
+  nameWithType: ConstrainsZonesModule.AddPair
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.AddPair
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_RemovePair_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: RemovePair
+  nameWithType: ConstrainsZonesModule.RemovePair
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.RemovePair
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_RecalculateConstraint_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Zone__
+  name: RecalculateConstraint
+  nameWithType: ConstrainsZonesModule.RecalculateConstraint
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.RecalculateConstraint
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Zone>
+  nameWithType: List<Zone>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Zone>
+  nameWithType.vb: List(Of Zone)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Zone)
+  name.vb: List(Of Zone)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Print
+  commentId: M:ISILab.LBS.Modules.LBSModule.Print
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  name: Print()
+  nameWithType: LBSModule.Print()
+  fullName: ISILab.LBS.Modules.LBSModule.Print()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Print*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.Print
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_Print
+  name: Print
+  nameWithType: ConstrainsZonesModule.Print
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Print
+- uid: ISILab.LBS.Modules.LBSModule.Clear
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clear
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  name: Clear()
+  nameWithType: LBSModule.Clear()
+  fullName: ISILab.LBS.Modules.LBSModule.Clear()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Clear*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.Clear
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_Clear
+  name: Clear
+  nameWithType: ConstrainsZonesModule.Clear
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Clear
+- uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  name: IsEmpty()
+  nameWithType: LBSModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.LBSModule.IsEmpty()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_IsEmpty
+  name: IsEmpty
+  nameWithType: ConstrainsZonesModule.IsEmpty
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.IsEmpty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Modules.LBSModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  name: GetBounds()
+  nameWithType: LBSModule.GetBounds()
+  fullName: ISILab.LBS.Modules.LBSModule.GetBounds()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_GetBounds
+  name: GetBounds
+  nameWithType: ConstrainsZonesModule.GetBounds
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetBounds
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: ISILab.LBS.Modules.LBSModule.Clone
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clone
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  name: Clone()
+  nameWithType: LBSModule.Clone()
+  fullName: ISILab.LBS.Modules.LBSModule.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Clone*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.Clone
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_Clone
+  name: Clone
+  nameWithType: ConstrainsZonesModule.Clone
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Clone
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Equals*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.Equals
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_Equals_System_Object_
+  name: Equals
+  nameWithType: ConstrainsZonesModule.Equals
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_GetHashCode
+  name: GetHashCode
+  nameWithType: ConstrainsZonesModule.GetHashCode
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_GetSelected_UnityEngine_Vector2Int_
+  name: GetSelected
+  nameWithType: ConstrainsZonesModule.GetSelected
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.GetSelected
+- uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.ISelectable
+  isExternal: true
+  href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  name: GetSelected(Vector2Int)
+  nameWithType: ISelectable.GetSelected(Vector2Int)
+  fullName: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+    name: GetSelected
+    isExternal: true
+    href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+    name: GetSelected
+    isExternal: true
+    href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: System.Collections.Generic.List{System.Object}
+  commentId: T:System.Collections.Generic.List{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<object>
+  nameWithType: List<object>
+  fullName: System.Collections.Generic.List<object>
+  nameWithType.vb: List(Of Object)
+  fullName.vb: System.Collections.Generic.List(Of Object)
+  name.vb: List(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Modules.ConstrainsZonesModule.Constraints*
+  commentId: Overload:ISILab.LBS.Modules.ConstrainsZonesModule.Constraints
+  isExternal: true
+  href: ISILab.LBS.Modules.ConstrainsZonesModule.html#ISILab_LBS_Modules_ConstrainsZonesModule_Constraints
+  name: Constraints
+  nameWithType: ConstrainsZonesModule.Constraints
+  fullName: ISILab.LBS.Modules.ConstrainsZonesModule.Constraints
+- uid: System.Action{ISILab.LBS.Modules.ConstrainsZonesModule,ISILab.LBS.Modules.ConstraintPair}
+  commentId: T:System.Action{ISILab.LBS.Modules.ConstrainsZonesModule,ISILab.LBS.Modules.ConstraintPair}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<ConstrainsZonesModule, ConstraintPair>
+  nameWithType: Action<ConstrainsZonesModule, ConstraintPair>
+  fullName: System.Action<ISILab.LBS.Modules.ConstrainsZonesModule, ISILab.LBS.Modules.ConstraintPair>
+  nameWithType.vb: Action(Of ConstrainsZonesModule, ConstraintPair)
+  fullName.vb: System.Action(Of ISILab.LBS.Modules.ConstrainsZonesModule, ISILab.LBS.Modules.ConstraintPair)
+  name.vb: Action(Of ConstrainsZonesModule, ConstraintPair)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.Modules.ConstrainsZonesModule
+    name: ConstrainsZonesModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConstrainsZonesModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Modules.ConstraintPair
+    name: ConstraintPair
+    isExternal: true
+    href: ISILab.LBS.Modules.ConstraintPair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.ConstrainsZonesModule
+    name: ConstrainsZonesModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConstrainsZonesModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Modules.ConstraintPair
+    name: ConstraintPair
+    isExternal: true
+    href: ISILab.LBS.Modules.ConstraintPair.html
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )

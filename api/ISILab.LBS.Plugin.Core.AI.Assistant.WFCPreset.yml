@@ -1,0 +1,411 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  id: WFCPreset
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant
+  children:
+  - ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.#ctor
+  - ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID
+  - ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights
+  - ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name
+  - ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID(System.String)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights(System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct})
+  langs:
+  - csharp
+  - vb
+  name: WFCPreset
+  nameWithType: WFCPreset
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: 'public class WFCPreset : ScriptableObject'
+    content.vb: Public Class WFCPreset Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights
+  id: GetWeights
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  langs:
+  - csharp
+  - vb
+  name: GetWeights()
+  nameWithType: WFCPreset.GetWeights()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public List<LBSDirectionedGroup.WeightStruct> GetWeights()
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct}
+    content.vb: Public Function GetWeights() As List(Of LBSDirectionedGroup.WeightStruct)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights(System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct})
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights(System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct})
+  id: SetWeights(System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct})
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  langs:
+  - csharp
+  - vb
+  name: SetWeights(List<WeightStruct>)
+  nameWithType: WFCPreset.SetWeights(List<LBSDirectionedGroup.WeightStruct>)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights(System.Collections.Generic.List<ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void SetWeights(List<LBSDirectionedGroup.WeightStruct> newWeights)
+    parameters:
+    - id: newWeights
+      type: System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct}
+    content.vb: Public Sub SetWeights(newWeights As List(Of LBSDirectionedGroup.WeightStruct))
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights*
+  nameWithType.vb: WFCPreset.SetWeights(List(Of LBSDirectionedGroup.WeightStruct))
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights(System.Collections.Generic.List(Of ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct))
+  name.vb: SetWeights(List(Of WeightStruct))
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID(System.String)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID(System.String)
+  id: SetAssetGUID(System.String)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  langs:
+  - csharp
+  - vb
+  name: SetAssetGUID(string)
+  nameWithType: WFCPreset.SetAssetGUID(string)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void SetAssetGUID(string guid)
+    parameters:
+    - id: guid
+      type: System.String
+    content.vb: Public Sub SetAssetGUID(guid As String)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID*
+  nameWithType.vb: WFCPreset.SetAssetGUID(String)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID(String)
+  name.vb: SetAssetGUID(String)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.#ctor
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  langs:
+  - csharp
+  - vb
+  name: WFCPreset()
+  nameWithType: WFCPreset.WFCPreset()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.WFCPreset()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public WFCPreset()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.#ctor*
+  nameWithType.vb: WFCPreset.New()
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name
+  id: Name
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: WFCPreset.Name
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID
+  id: AssetGUID
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset
+  langs:
+  - csharp
+  - vb
+  name: AssetGUID
+  nameWithType: WFCPreset.AssetGUID
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public string AssetGUID { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AssetGUID As String
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID*
+references:
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Assistant
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.html#ISILab_LBS_Plugin_Core_AI_Assistant_WFCPreset_GetWeights
+  name: GetWeights
+  nameWithType: WFCPreset.GetWeights
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.GetWeights
+- uid: System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSDirectionedGroup.WeightStruct>
+  nameWithType: List<LBSDirectionedGroup.WeightStruct>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct>
+  nameWithType.vb: List(Of LBSDirectionedGroup.WeightStruct)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct)
+  name.vb: List(Of LBSDirectionedGroup.WeightStruct)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup
+    name: LBSDirectionedGroup
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct
+    name: WeightStruct
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup
+    name: LBSDirectionedGroup
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct
+    name: WeightStruct
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.html#ISILab_LBS_Plugin_Core_AI_Assistant_WFCPreset_SetWeights_System_Collections_Generic_List_ISILab_LBS_Characteristics_LBSDirectionedGroup_WeightStruct__
+  name: SetWeights
+  nameWithType: WFCPreset.SetWeights
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetWeights
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.html#ISILab_LBS_Plugin_Core_AI_Assistant_WFCPreset_SetAssetGUID_System_String_
+  name: SetAssetGUID
+  nameWithType: WFCPreset.SetAssetGUID
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.SetAssetGUID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.html#ISILab_LBS_Plugin_Core_AI_Assistant_WFCPreset__ctor
+  name: WFCPreset
+  nameWithType: WFCPreset.WFCPreset
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.WFCPreset
+  nameWithType.vb: WFCPreset.New
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.html#ISILab_LBS_Plugin_Core_AI_Assistant_WFCPreset_Name
+  name: Name
+  nameWithType: WFCPreset.Name
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.Name
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.html#ISILab_LBS_Plugin_Core_AI_Assistant_WFCPreset_AssetGUID
+  name: AssetGUID
+  nameWithType: WFCPreset.AssetGUID
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.WFCPreset.AssetGUID

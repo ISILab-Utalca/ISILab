@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RenderGraph | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RenderGraph | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph">
+
+
+
+  <h1 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph" class="text-break">
+Class RenderGraph  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.RenderGraphModule.html">RenderGraphModule</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RenderGraph</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RenderGraph</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtils.html#UnityEngine_Rendering_RenderGraphModule_Util_RenderGraphUtils_AddBlitPass_UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Vector2_UnityEngine_Vector2_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_UnityEngine_Rendering_RenderGraphModule_Util_RenderGraphUtils_BlitFilterMode_System_String_System_String_System_Int32_">RenderGraphUtils.AddBlitPass(RenderGraph, TextureHandle, TextureHandle, Vector2, Vector2, int, int, int, int, int, int, RenderGraphUtils.BlitFilterMode, string, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtils.html#UnityEngine_Rendering_RenderGraphModule_Util_RenderGraphUtils_AddBlitPass_UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnityEngine_Rendering_RenderGraphModule_Util_RenderGraphUtils_BlitMaterialParameters_System_String_System_String_System_Int32_">RenderGraphUtils.AddBlitPass(RenderGraph, RenderGraphUtils.BlitMaterialParameters, string, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtils.html#UnityEngine_Rendering_RenderGraphModule_Util_RenderGraphUtils_AddCopyPass_UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle_System_Int32_System_Int32_System_Int32_System_Int32_System_String_System_String_System_Int32_">RenderGraphUtils.AddCopyPass(RenderGraph, TextureHandle, TextureHandle, int, int, int, int, string, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtils.html#UnityEngine_Rendering_RenderGraphModule_Util_RenderGraphUtils_AddCopyPass_UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle_System_String_System_String_System_Int32_">RenderGraphUtils.AddCopyPass(RenderGraph, TextureHandle, TextureHandle, string, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtils.html#UnityEngine_Rendering_RenderGraphModule_Util_RenderGraphUtils_IsFramebufferFetchSupportedOnCurrentPlatform_UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnityEngine_Rendering_RenderGraphModule_TextureHandle__">RenderGraphUtils.IsFramebufferFetchSupportedOnCurrentPlatform(RenderGraph, in TextureHandle)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph__ctor_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph__ctor_System_String_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.#ctor(System.String)">
+  RenderGraph(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderGraph(string name = &quot;RenderGraph&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_kMaxMRTCount" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.kMaxMRTCount">
+  kMaxMRTCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int kMaxMRTCount</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_defaultResources_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.defaultResources*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_defaultResources" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.defaultResources">
+  defaultResources
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderGraphDefaultResources defaultResources { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderGraphDefaultResources.html">RenderGraphDefaultResources</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_isRenderGraphViewerActive_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.isRenderGraphViewerActive*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_isRenderGraphViewerActive" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.isRenderGraphViewerActive">
+  isRenderGraphViewerActive
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isRenderGraphViewerActive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_name_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.name*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_name" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.name">
+  name
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_nativeRenderPassesEnabled_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.nativeRenderPassesEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_nativeRenderPassesEnabled" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.nativeRenderPassesEnabled">
+  nativeRenderPassesEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool nativeRenderPassesEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddComputePass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddComputePass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddComputePass__1_System_String___0__System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddComputePass``1(System.String,``0@,System.String,System.Int32)">
+  AddComputePass&lt;PassData&gt;(string, out PassData, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IComputeRenderGraphBuilder AddComputePass&lt;PassData&gt;(string passName, out PassData passData, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IComputeRenderGraphBuilder.html">IComputeRenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddComputePass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddComputePass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddComputePass__1_System_String___0__UnityEngine_Rendering_ProfilingSampler_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddComputePass``1(System.String,``0@,UnityEngine.Rendering.ProfilingSampler,System.String,System.Int32)">
+  AddComputePass&lt;PassData&gt;(string, out PassData, ProfilingSampler, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IComputeRenderGraphBuilder AddComputePass&lt;PassData&gt;(string passName, out PassData passData, ProfilingSampler sampler, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>sampler</code> <a class="xref" href="UnityEngine.Rendering.ProfilingSampler.html">ProfilingSampler</a></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IComputeRenderGraphBuilder.html">IComputeRenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRasterRenderPass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRasterRenderPass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRasterRenderPass__1_System_String___0__System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRasterRenderPass``1(System.String,``0@,System.String,System.Int32)">
+  AddRasterRenderPass&lt;PassData&gt;(string, out PassData, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRasterRenderGraphBuilder AddRasterRenderPass&lt;PassData&gt;(string passName, out PassData passData, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IRasterRenderGraphBuilder.html">IRasterRenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRasterRenderPass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRasterRenderPass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRasterRenderPass__1_System_String___0__UnityEngine_Rendering_ProfilingSampler_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRasterRenderPass``1(System.String,``0@,UnityEngine.Rendering.ProfilingSampler,System.String,System.Int32)">
+  AddRasterRenderPass&lt;PassData&gt;(string, out PassData, ProfilingSampler, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRasterRenderGraphBuilder AddRasterRenderPass&lt;PassData&gt;(string passName, out PassData passData, ProfilingSampler sampler, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>sampler</code> <a class="xref" href="UnityEngine.Rendering.ProfilingSampler.html">ProfilingSampler</a></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IRasterRenderGraphBuilder.html">IRasterRenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRenderPass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRenderPass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRenderPass__1_System_String___0__System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRenderPass``1(System.String,``0@,System.String,System.Int32)">
+  AddRenderPass&lt;PassData&gt;(string, out PassData, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderGraphBuilder AddRenderPass&lt;PassData&gt;(string passName, out PassData passData, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderGraphBuilder.html">RenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRenderPass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRenderPass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddRenderPass__1_System_String___0__UnityEngine_Rendering_ProfilingSampler_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddRenderPass``1(System.String,``0@,UnityEngine.Rendering.ProfilingSampler,System.String,System.Int32)">
+  AddRenderPass&lt;PassData&gt;(string, out PassData, ProfilingSampler, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderGraphBuilder AddRenderPass&lt;PassData&gt;(string passName, out PassData passData, ProfilingSampler sampler, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>sampler</code> <a class="xref" href="UnityEngine.Rendering.ProfilingSampler.html">ProfilingSampler</a></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderGraphBuilder.html">RenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddUnsafePass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddUnsafePass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddUnsafePass__1_System_String___0__System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddUnsafePass``1(System.String,``0@,System.String,System.Int32)">
+  AddUnsafePass&lt;PassData&gt;(string, out PassData, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IUnsafeRenderGraphBuilder AddUnsafePass&lt;PassData&gt;(string passName, out PassData passData, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IUnsafeRenderGraphBuilder.html">IUnsafeRenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddUnsafePass_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddUnsafePass*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_AddUnsafePass__1_System_String___0__UnityEngine_Rendering_ProfilingSampler_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.AddUnsafePass``1(System.String,``0@,UnityEngine.Rendering.ProfilingSampler,System.String,System.Int32)">
+  AddUnsafePass&lt;PassData&gt;(string, out PassData, ProfilingSampler, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IUnsafeRenderGraphBuilder AddUnsafePass&lt;PassData&gt;(string passName, out PassData passData, ProfilingSampler sampler, string file = &quot;&quot;, int line = 0) where PassData : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>passName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>passData</code> <span class="xref">PassData</span></dt>
+    <dd></dd>
+    <dt><code>sampler</code> <a class="xref" href="UnityEngine.Rendering.ProfilingSampler.html">ProfilingSampler</a></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IUnsafeRenderGraphBuilder.html">IUnsafeRenderGraphBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>PassData</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_BeginProfilingSampler_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.BeginProfilingSampler*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_BeginProfilingSampler_UnityEngine_Rendering_ProfilingSampler_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.BeginProfilingSampler(UnityEngine.Rendering.ProfilingSampler,System.String,System.Int32)">
+  BeginProfilingSampler(ProfilingSampler, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginProfilingSampler(ProfilingSampler sampler, string file = &quot;&quot;, int line = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampler</code> <a class="xref" href="UnityEngine.Rendering.ProfilingSampler.html">ProfilingSampler</a></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_BeginRecording_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.BeginRecording*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_BeginRecording_UnityEngine_Rendering_RenderGraphModule_RenderGraphParameters__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.BeginRecording(UnityEngine.Rendering.RenderGraphModule.RenderGraphParameters@)">
+  BeginRecording(in RenderGraphParameters)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginRecording(in RenderGraphParameters parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameters</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderGraphParameters.html">RenderGraphParameters</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_Cleanup_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.Cleanup*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_Cleanup" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.Cleanup">
+  Cleanup()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Cleanup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateBuffer_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateBuffer_UnityEngine_Rendering_RenderGraphModule_BufferDesc__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateBuffer(UnityEngine.Rendering.RenderGraphModule.BufferDesc@)">
+  CreateBuffer(in BufferDesc)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferHandle CreateBuffer(in BufferDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.BufferHandle.html">BufferHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateBuffer_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateBuffer_UnityEngine_Rendering_RenderGraphModule_BufferHandle__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateBuffer(UnityEngine.Rendering.RenderGraphModule.BufferHandle@)">
+  CreateBuffer(in BufferHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferHandle CreateBuffer(in BufferHandle graphicsBuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsBuffer</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.BufferHandle.html">BufferHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.BufferHandle.html">BufferHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateGizmoRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateGizmoRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateGizmoRendererList_UnityEngine_Camera__UnityEngine_Rendering_GizmoSubset__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateGizmoRendererList(UnityEngine.Camera@,UnityEngine.Rendering.GizmoSubset@)">
+  CreateGizmoRendererList(in Camera, in GizmoSubset)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateGizmoRendererList(in Camera camera, in GizmoSubset gizmoSubset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>gizmoSubset</code> <span class="xref">GizmoSubset</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateRendererList_UnityEngine_Rendering_RendererListParams__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateRendererList(UnityEngine.Rendering.RendererListParams@)">
+  CreateRendererList(in RendererListParams)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateRendererList(in RendererListParams desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <span class="xref">RendererListParams</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateRendererList_UnityEngine_Rendering_RendererUtils_RendererListDesc__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateRendererList(UnityEngine.Rendering.RendererUtils.RendererListDesc@)">
+  CreateRendererList(in RendererListDesc)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateRendererList(in RendererListDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <span class="xref">RendererListDesc</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateShadowRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateShadowRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateShadowRendererList_UnityEngine_Rendering_ShadowDrawingSettings__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateShadowRendererList(UnityEngine.Rendering.ShadowDrawingSettings@)">
+  CreateShadowRendererList(ref ShadowDrawingSettings)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateShadowRendererList(ref ShadowDrawingSettings shadowDrawingSettings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowDrawingSettings</code> <span class="xref">ShadowDrawingSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSharedTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSharedTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSharedTexture_UnityEngine_Rendering_RenderGraphModule_TextureDesc__System_Boolean_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSharedTexture(UnityEngine.Rendering.RenderGraphModule.TextureDesc@,System.Boolean)">
+  CreateSharedTexture(in TextureDesc, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle CreateSharedTexture(in TextureDesc desc, bool explicitRelease = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+    <dt><code>explicitRelease</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSkyboxRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSkyboxRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSkyboxRendererList_UnityEngine_Camera__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSkyboxRendererList(UnityEngine.Camera@)">
+  CreateSkyboxRendererList(in Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateSkyboxRendererList(in Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSkyboxRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSkyboxRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSkyboxRendererList_UnityEngine_Camera__UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSkyboxRendererList(UnityEngine.Camera@,UnityEngine.Matrix4x4,UnityEngine.Matrix4x4)">
+  CreateSkyboxRendererList(in Camera, Matrix4x4, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateSkyboxRendererList(in Camera camera, Matrix4x4 projectionMatrix, Matrix4x4 viewMatrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>projectionMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSkyboxRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSkyboxRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateSkyboxRendererList_UnityEngine_Camera__UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateSkyboxRendererList(UnityEngine.Camera@,UnityEngine.Matrix4x4,UnityEngine.Matrix4x4,UnityEngine.Matrix4x4,UnityEngine.Matrix4x4)">
+  CreateSkyboxRendererList(in Camera, Matrix4x4, Matrix4x4, Matrix4x4, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateSkyboxRendererList(in Camera camera, Matrix4x4 projectionMatrixL, Matrix4x4 viewMatrixL, Matrix4x4 projectionMatrixR, Matrix4x4 viewMatrixR)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>projectionMatrixL</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrixL</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projectionMatrixR</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrixR</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTexture_UnityEngine_Rendering_RenderGraphModule_TextureDesc__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTexture(UnityEngine.Rendering.RenderGraphModule.TextureDesc@)">
+  CreateTexture(in TextureDesc)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle CreateTexture(in TextureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTexture_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTexture(UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  CreateTexture(TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle CreateTexture(TextureHandle texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTexture_UnityEngine_Rendering_RenderGraphModule_TextureHandle_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTexture(UnityEngine.Rendering.RenderGraphModule.TextureHandle,System.String,System.Boolean)">
+  CreateTexture(TextureHandle, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle CreateTexture(TextureHandle texture, string name, bool clear = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTextureIfInvalid_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTextureIfInvalid*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateTextureIfInvalid_UnityEngine_Rendering_RenderGraphModule_TextureDesc__UnityEngine_Rendering_RenderGraphModule_TextureHandle__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateTextureIfInvalid(UnityEngine.Rendering.RenderGraphModule.TextureDesc@,UnityEngine.Rendering.RenderGraphModule.TextureHandle@)">
+  CreateTextureIfInvalid(in TextureDesc, ref TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateTextureIfInvalid(in TextureDesc desc, ref TextureHandle texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+    <dt><code>texture</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateUIOverlayRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateUIOverlayRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateUIOverlayRendererList_UnityEngine_Camera__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateUIOverlayRendererList(UnityEngine.Camera@)">
+  CreateUIOverlayRendererList(in Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateUIOverlayRendererList(in Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateUIOverlayRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateUIOverlayRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateUIOverlayRendererList_UnityEngine_Camera__UnityEngine_Rendering_UISubset__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateUIOverlayRendererList(UnityEngine.Camera@,UnityEngine.Rendering.UISubset@)">
+  CreateUIOverlayRendererList(in Camera, in UISubset)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateUIOverlayRendererList(in Camera camera, in UISubset uiSubset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>uiSubset</code> <span class="xref">UISubset</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateWireOverlayRendererList_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateWireOverlayRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_CreateWireOverlayRendererList_UnityEngine_Camera__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.CreateWireOverlayRendererList(UnityEngine.Camera@)">
+  CreateWireOverlayRendererList(in Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendererListHandle CreateWireOverlayRendererList(in Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RendererListHandle.html">RendererListHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_EndFrame_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.EndFrame*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_EndFrame" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.EndFrame">
+  EndFrame()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndFrame()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_EndProfilingSampler_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.EndProfilingSampler*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_EndProfilingSampler_UnityEngine_Rendering_ProfilingSampler_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.EndProfilingSampler(UnityEngine.Rendering.ProfilingSampler,System.String,System.Int32)">
+  EndProfilingSampler(ProfilingSampler, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndProfilingSampler(ProfilingSampler sampler, string file = &quot;&quot;, int line = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampler</code> <a class="xref" href="UnityEngine.Rendering.ProfilingSampler.html">ProfilingSampler</a></dt>
+    <dd></dd>
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_EndRecordingAndExecute_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.EndRecordingAndExecute*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_EndRecordingAndExecute" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.EndRecordingAndExecute">
+  EndRecordingAndExecute()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndRecordingAndExecute()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetBufferDesc_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetBufferDesc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetBufferDesc_UnityEngine_Rendering_RenderGraphModule_BufferHandle__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetBufferDesc(UnityEngine.Rendering.RenderGraphModule.BufferHandle@)">
+  GetBufferDesc(in BufferHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferDesc GetBufferDesc(in BufferHandle graphicsBuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsBuffer</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.BufferHandle.html">BufferHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetRegisteredRenderGraphs_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetRegisteredRenderGraphs*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetRegisteredRenderGraphs" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetRegisteredRenderGraphs">
+  GetRegisteredRenderGraphs()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;RenderGraph&gt; GetRegisteredRenderGraphs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderGraph.html">RenderGraph</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetRenderTargetInfo_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetRenderTargetInfo*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetRenderTargetInfo_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetRenderTargetInfo(UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  GetRenderTargetInfo(TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderTargetInfo GetRenderTargetInfo(TextureHandle texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderTargetInfo.html">RenderTargetInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetTextureDesc_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetTextureDesc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_GetTextureDesc_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.GetTextureDesc(UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  GetTextureDesc(TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureDesc GetTextureDesc(TextureHandle texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportBackbuffer_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportBackbuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportBackbuffer_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportBackbuffer(UnityEngine.Rendering.RenderTargetIdentifier)">
+  ImportBackbuffer(RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle ImportBackbuffer(RenderTargetIdentifier rt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportBackbuffer_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportBackbuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportBackbuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderGraphModule_RenderTargetInfo_UnityEngine_Rendering_RenderGraphModule_ImportResourceParams_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportBackbuffer(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderGraphModule.RenderTargetInfo,UnityEngine.Rendering.RenderGraphModule.ImportResourceParams)">
+  ImportBackbuffer(RenderTargetIdentifier, RenderTargetInfo, ImportResourceParams)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle ImportBackbuffer(RenderTargetIdentifier rt, RenderTargetInfo info, ImportResourceParams importParams = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderTargetInfo.html">RenderTargetInfo</a></dt>
+    <dd></dd>
+    <dt><code>importParams</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.ImportResourceParams.html">ImportResourceParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportBuffer_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportBuffer_UnityEngine_GraphicsBuffer_System_Boolean_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportBuffer(UnityEngine.GraphicsBuffer,System.Boolean)">
+  ImportBuffer(GraphicsBuffer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferHandle ImportBuffer(GraphicsBuffer graphicsBuffer, bool forceRelease = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>forceRelease</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.BufferHandle.html">BufferHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportRayTracingAccelerationStructure_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportRayTracingAccelerationStructure*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportRayTracingAccelerationStructure_UnityEngine_Rendering_RayTracingAccelerationStructure__System_String_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportRayTracingAccelerationStructure(UnityEngine.Rendering.RayTracingAccelerationStructure@,System.String)">
+  ImportRayTracingAccelerationStructure(in RayTracingAccelerationStructure, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RayTracingAccelerationStructureHandle ImportRayTracingAccelerationStructure(in RayTracingAccelerationStructure accelStruct, string name = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>accelStruct</code> <span class="xref">RayTracingAccelerationStructure</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RayTracingAccelerationStructureHandle.html">RayTracingAccelerationStructureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportTexture_UnityEngine_Rendering_RTHandle_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportTexture(UnityEngine.Rendering.RTHandle)">
+  ImportTexture(RTHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle ImportTexture(RTHandle rt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportTexture_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RenderGraphModule_ImportResourceParams_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportTexture(UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RenderGraphModule.ImportResourceParams)">
+  ImportTexture(RTHandle, ImportResourceParams)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle ImportTexture(RTHandle rt, ImportResourceParams importParams)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>importParams</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.ImportResourceParams.html">ImportResourceParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ImportTexture_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RenderGraphModule_RenderTargetInfo_UnityEngine_Rendering_RenderGraphModule_ImportResourceParams_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportTexture(UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RenderGraphModule.RenderTargetInfo,UnityEngine.Rendering.RenderGraphModule.ImportResourceParams)">
+  ImportTexture(RTHandle, RenderTargetInfo, ImportResourceParams)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle ImportTexture(RTHandle rt, RenderTargetInfo info, ImportResourceParams importParams = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderTargetInfo.html">RenderTargetInfo</a></dt>
+    <dd></dd>
+    <dt><code>importParams</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.ImportResourceParams.html">ImportResourceParams</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_RefreshSharedTextureDesc_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.RefreshSharedTextureDesc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_RefreshSharedTextureDesc_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureDesc__" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.RefreshSharedTextureDesc(UnityEngine.Rendering.RenderGraphModule.TextureHandle,UnityEngine.Rendering.RenderGraphModule.TextureDesc@)">
+  RefreshSharedTextureDesc(TextureHandle, in TextureDesc)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RefreshSharedTextureDesc(TextureHandle handle, in TextureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+    <dt><code>desc</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_RegisterDebug_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.RegisterDebug*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_RegisterDebug_UnityEngine_Rendering_DebugUI_Panel_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.RegisterDebug(UnityEngine.Rendering.DebugUI.Panel)">
+  RegisterDebug(Panel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterDebug(DebugUI.Panel panel = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>panel</code> <a class="xref" href="UnityEngine.Rendering.DebugUI.html">DebugUI</a>.<a class="xref" href="UnityEngine.Rendering.DebugUI.Panel.html">Panel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ReleaseSharedTexture_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ReleaseSharedTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_ReleaseSharedTexture_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.ReleaseSharedTexture(UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  ReleaseSharedTexture(TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReleaseSharedTexture(TextureHandle texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnRegisterDebug_" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.UnRegisterDebug*"></a>
+
+  <h3 id="UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnRegisterDebug" data-uid="UnityEngine.Rendering.RenderGraphModule.RenderGraph.UnRegisterDebug">
+  UnRegisterDebug()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnRegisterDebug()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

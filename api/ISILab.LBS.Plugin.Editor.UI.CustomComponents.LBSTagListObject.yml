@@ -1,0 +1,654 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  id: LBSTagListObject
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  children:
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup,UnityEngine.ScriptableObject,System.Boolean,System.Boolean)
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnLayerTagRemoved
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnOwnerChanged
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type
+  langs:
+  - csharp
+  - vb
+  name: LBSTagListObject
+  nameWithType: LBSTagListObject
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: 'public class LBSTagListObject : LBSCustomListItem'
+    content.vb: Public Class LBSTagListObject Inherits LBSCustomListItem
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSCustomListItem
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnOwnerChanged
+  commentId: F:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnOwnerChanged
+  id: OnOwnerChanged
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: OnOwnerChanged
+  nameWithType: LBSTagListObject.OnOwnerChanged
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnOwnerChanged
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public Action OnOwnerChanged
+    return:
+      type: System.Action
+    content.vb: Public OnOwnerChanged As Action
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnLayerTagRemoved
+  commentId: F:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnLayerTagRemoved
+  id: OnLayerTagRemoved
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: OnLayerTagRemoved
+  nameWithType: LBSTagListObject.OnLayerTagRemoved
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.OnLayerTagRemoved
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public Action OnLayerTagRemoved
+    return:
+      type: System.Action
+    content.vb: Public OnLayerTagRemoved As Action
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: LBSTagListObject()
+  nameWithType: LBSTagListObject.LBSTagListObject()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.LBSTagListObject()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListObject()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor*
+  nameWithType.vb: LBSTagListObject.New()
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup,UnityEngine.ScriptableObject,System.Boolean,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup,UnityEngine.ScriptableObject,System.Boolean,System.Boolean)
+  id: '#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup,UnityEngine.ScriptableObject,System.Boolean,System.Boolean)'
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: LBSTagListObject(LBSTagListGroup, ScriptableObject, bool, bool)
+  nameWithType: LBSTagListObject.LBSTagListObject(LBSTagListGroup, ScriptableObject, bool, bool)
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.LBSTagListObject(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup, UnityEngine.ScriptableObject, bool, bool)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListObject(LBSTagListGroup group, ScriptableObject associatedTag, bool removable, bool layerTypeRemovable = false)
+    parameters:
+    - id: group
+      type: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup
+    - id: associatedTag
+      type: UnityEngine.ScriptableObject
+    - id: removable
+      type: System.Boolean
+    - id: layerTypeRemovable
+      type: System.Boolean
+    content.vb: Public Sub New(group As LBSTagListGroup, associatedTag As ScriptableObject, removable As Boolean, layerTypeRemovable As Boolean = False)
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor*
+  nameWithType.vb: LBSTagListObject.New(LBSTagListGroup, ScriptableObject, Boolean, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.New(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup, UnityEngine.ScriptableObject, Boolean, Boolean)
+  name.vb: New(LBSTagListGroup, ScriptableObject, Boolean, Boolean)
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init
+  id: Init
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: Init()
+  nameWithType: LBSTagListObject.Init()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public void Init()
+    content.vb: Public Sub Init()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag
+  id: AddLayerTag
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: AddLayerTag()
+  nameWithType: LBSTagListObject.AddLayerTag()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public void AddLayerTag()
+    content.vb: Public Sub AddLayerTag()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup
+  id: RemoveFromGroup
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: RemoveFromGroup()
+  nameWithType: LBSTagListObject.RemoveFromGroup()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public void RemoveFromGroup()
+    content.vb: Public Sub RemoveFromGroup()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag
+  id: DeleteTag
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: DeleteTag()
+  nameWithType: LBSTagListObject.DeleteTag()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public void DeleteTag()
+    content.vb: Public Sub DeleteTag()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name
+  id: Name
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LBSTagListObject.Name
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type
+  id: Type
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: LBSTagListObject.Type
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListObject.objectType Type { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType
+    content.vb: Public Property Type As LBSTagListObject.objectType
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType
+  id: TagType
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: TagType
+  nameWithType: LBSTagListObject.TagType
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public Bundle.TagType TagType { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+    content.vb: Public Property TagType As Bundle.TagType
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag
+  id: AssociatedTag
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: AssociatedTag
+  nameWithType: LBSTagListObject.AssociatedTag
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public ScriptableObject AssociatedTag { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.ScriptableObject
+    content.vb: Public Property AssociatedTag As ScriptableObject
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner
+  id: Owner
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: LBSTagListObject.Owner
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListGroup Owner { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup
+    content.vb: Public Property Owner As LBSTagListGroup
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable
+  id: IsRemovable
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  langs:
+  - csharp
+  - vb
+  name: IsRemovable
+  nameWithType: LBSTagListObject.IsRemovable
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public bool IsRemovable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRemovable As Boolean
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable*
+references:
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  commentId: N:ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  nameWithType: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSCustomListItem
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSCustomListItem
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSCustomListItem.html
+  name: LBSCustomListItem
+  nameWithType: LBSCustomListItem
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSCustomListItem
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject__ctor
+  name: LBSTagListObject
+  nameWithType: LBSTagListObject.LBSTagListObject
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.LBSTagListObject
+  nameWithType.vb: LBSTagListObject.New
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup.html
+  name: LBSTagListGroup
+  nameWithType: LBSTagListGroup
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup
+- uid: UnityEngine.ScriptableObject
+  isExternal: true
+  name: ScriptableObject
+  nameWithType: ScriptableObject
+  fullName: UnityEngine.ScriptableObject
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_Init
+  name: Init
+  nameWithType: LBSTagListObject.Init
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Init
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_AddLayerTag
+  name: AddLayerTag
+  nameWithType: LBSTagListObject.AddLayerTag
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AddLayerTag
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_RemoveFromGroup
+  name: RemoveFromGroup
+  nameWithType: LBSTagListObject.RemoveFromGroup
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.RemoveFromGroup
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_DeleteTag
+  name: DeleteTag
+  nameWithType: LBSTagListObject.DeleteTag
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.DeleteTag
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_Name
+  name: Name
+  nameWithType: LBSTagListObject.Name
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_Type
+  name: Type
+  nameWithType: LBSTagListObject.Type
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Type
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html
+  name: LBSTagListObject.objectType
+  nameWithType: LBSTagListObject.objectType
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+    name: LBSTagListObject
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType
+    name: objectType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+    name: LBSTagListObject
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType
+    name: objectType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.objectType.html
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_TagType
+  name: TagType
+  nameWithType: LBSTagListObject.TagType
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.TagType
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle.TagType
+  nameWithType: Bundle.TagType
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+    name: TagType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+    name: TagType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.html
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_AssociatedTag
+  name: AssociatedTag
+  nameWithType: LBSTagListObject.AssociatedTag
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.AssociatedTag
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_Owner
+  name: Owner
+  nameWithType: LBSTagListObject.Owner
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.Owner
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_IsRemovable
+  name: IsRemovable
+  nameWithType: LBSTagListObject.IsRemovable
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.IsRemovable

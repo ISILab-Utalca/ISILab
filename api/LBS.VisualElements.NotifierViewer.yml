@@ -1,0 +1,254 @@
+### YamlMime:ManagedReference
+items:
+- uid: LBS.VisualElements.NotifierViewer
+  commentId: T:LBS.VisualElements.NotifierViewer
+  id: NotifierViewer
+  parent: LBS.VisualElements
+  children:
+  - LBS.VisualElements.NotifierViewer.#ctor
+  - LBS.VisualElements.NotifierViewer.ClearNotifications
+  - LBS.VisualElements.NotifierViewer.NotificationFlipFlop(UnityEngine.UIElements.VisualElement)
+  - LBS.VisualElements.NotifierViewer.SendNotification(System.String,UnityEngine.LogType,System.Int32)
+  - LBS.VisualElements.NotifierViewer.SetButtons(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.VisualElement)
+  langs:
+  - csharp
+  - vb
+  name: NotifierViewer
+  nameWithType: NotifierViewer
+  fullName: LBS.VisualElements.NotifierViewer
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: 'public class NotifierViewer : VisualElement'
+    content.vb: Public Class NotifierViewer Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: LBS.VisualElements.NotifierViewer.#ctor
+  commentId: M:LBS.VisualElements.NotifierViewer.#ctor
+  id: '#ctor'
+  parent: LBS.VisualElements.NotifierViewer
+  langs:
+  - csharp
+  - vb
+  name: NotifierViewer()
+  nameWithType: NotifierViewer.NotifierViewer()
+  fullName: LBS.VisualElements.NotifierViewer.NotifierViewer()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public NotifierViewer()
+    content.vb: Public Sub New()
+  overload: LBS.VisualElements.NotifierViewer.#ctor*
+  nameWithType.vb: NotifierViewer.New()
+  fullName.vb: LBS.VisualElements.NotifierViewer.New()
+  name.vb: New()
+- uid: LBS.VisualElements.NotifierViewer.SendNotification(System.String,UnityEngine.LogType,System.Int32)
+  commentId: M:LBS.VisualElements.NotifierViewer.SendNotification(System.String,UnityEngine.LogType,System.Int32)
+  id: SendNotification(System.String,UnityEngine.LogType,System.Int32)
+  parent: LBS.VisualElements.NotifierViewer
+  langs:
+  - csharp
+  - vb
+  name: SendNotification(string, LogType, int)
+  nameWithType: NotifierViewer.SendNotification(string, LogType, int)
+  fullName: LBS.VisualElements.NotifierViewer.SendNotification(string, UnityEngine.LogType, int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SendNotification(string message, LogType logType, int duration)
+    parameters:
+    - id: message
+      type: System.String
+    - id: logType
+      type: UnityEngine.LogType
+    - id: duration
+      type: System.Int32
+    content.vb: Public Sub SendNotification(message As String, logType As LogType, duration As Integer)
+  overload: LBS.VisualElements.NotifierViewer.SendNotification*
+  nameWithType.vb: NotifierViewer.SendNotification(String, LogType, Integer)
+  fullName.vb: LBS.VisualElements.NotifierViewer.SendNotification(String, UnityEngine.LogType, Integer)
+  name.vb: SendNotification(String, LogType, Integer)
+- uid: LBS.VisualElements.NotifierViewer.ClearNotifications
+  commentId: M:LBS.VisualElements.NotifierViewer.ClearNotifications
+  id: ClearNotifications
+  parent: LBS.VisualElements.NotifierViewer
+  langs:
+  - csharp
+  - vb
+  name: ClearNotifications()
+  nameWithType: NotifierViewer.ClearNotifications()
+  fullName: LBS.VisualElements.NotifierViewer.ClearNotifications()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void ClearNotifications()
+    content.vb: Public Sub ClearNotifications()
+  overload: LBS.VisualElements.NotifierViewer.ClearNotifications*
+- uid: LBS.VisualElements.NotifierViewer.NotificationFlipFlop(UnityEngine.UIElements.VisualElement)
+  commentId: M:LBS.VisualElements.NotifierViewer.NotificationFlipFlop(UnityEngine.UIElements.VisualElement)
+  id: NotificationFlipFlop(UnityEngine.UIElements.VisualElement)
+  parent: LBS.VisualElements.NotifierViewer
+  langs:
+  - csharp
+  - vb
+  name: NotificationFlipFlop(VisualElement)
+  nameWithType: NotifierViewer.NotificationFlipFlop(VisualElement)
+  fullName: LBS.VisualElements.NotifierViewer.NotificationFlipFlop(UnityEngine.UIElements.VisualElement)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void NotificationFlipFlop(VisualElement button)
+    parameters:
+    - id: button
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Sub NotificationFlipFlop(button As VisualElement)
+  overload: LBS.VisualElements.NotifierViewer.NotificationFlipFlop*
+- uid: LBS.VisualElements.NotifierViewer.SetButtons(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.VisualElement)
+  commentId: M:LBS.VisualElements.NotifierViewer.SetButtons(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.VisualElement)
+  id: SetButtons(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.VisualElement)
+  parent: LBS.VisualElements.NotifierViewer
+  langs:
+  - csharp
+  - vb
+  name: SetButtons(VisualElement, VisualElement)
+  nameWithType: NotifierViewer.SetButtons(VisualElement, VisualElement)
+  fullName: LBS.VisualElements.NotifierViewer.SetButtons(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.VisualElement)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetButtons(VisualElement cleanButton, VisualElement disableNotificationButton)
+    parameters:
+    - id: cleanButton
+      type: UnityEngine.UIElements.VisualElement
+    - id: disableNotificationButton
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Sub SetButtons(cleanButton As VisualElement, disableNotificationButton As VisualElement)
+  overload: LBS.VisualElements.NotifierViewer.SetButtons*
+references:
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LBS.VisualElements.NotifierViewer.#ctor*
+  commentId: Overload:LBS.VisualElements.NotifierViewer.#ctor
+  isExternal: true
+  href: LBS.VisualElements.NotifierViewer.html#LBS_VisualElements_NotifierViewer__ctor
+  name: NotifierViewer
+  nameWithType: NotifierViewer.NotifierViewer
+  fullName: LBS.VisualElements.NotifierViewer.NotifierViewer
+  nameWithType.vb: NotifierViewer.New
+  fullName.vb: LBS.VisualElements.NotifierViewer.New
+  name.vb: New
+- uid: LBS.VisualElements.NotifierViewer.SendNotification*
+  commentId: Overload:LBS.VisualElements.NotifierViewer.SendNotification
+  isExternal: true
+  href: LBS.VisualElements.NotifierViewer.html#LBS_VisualElements_NotifierViewer_SendNotification_System_String_UnityEngine_LogType_System_Int32_
+  name: SendNotification
+  nameWithType: NotifierViewer.SendNotification
+  fullName: LBS.VisualElements.NotifierViewer.SendNotification
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.LogType
+  isExternal: true
+  name: LogType
+  nameWithType: LogType
+  fullName: UnityEngine.LogType
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LBS.VisualElements.NotifierViewer.ClearNotifications*
+  commentId: Overload:LBS.VisualElements.NotifierViewer.ClearNotifications
+  isExternal: true
+  href: LBS.VisualElements.NotifierViewer.html#LBS_VisualElements_NotifierViewer_ClearNotifications
+  name: ClearNotifications
+  nameWithType: NotifierViewer.ClearNotifications
+  fullName: LBS.VisualElements.NotifierViewer.ClearNotifications
+- uid: LBS.VisualElements.NotifierViewer.NotificationFlipFlop*
+  commentId: Overload:LBS.VisualElements.NotifierViewer.NotificationFlipFlop
+  isExternal: true
+  href: LBS.VisualElements.NotifierViewer.html#LBS_VisualElements_NotifierViewer_NotificationFlipFlop_UnityEngine_UIElements_VisualElement_
+  name: NotificationFlipFlop
+  nameWithType: NotifierViewer.NotificationFlipFlop
+  fullName: LBS.VisualElements.NotifierViewer.NotificationFlipFlop
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: LBS.VisualElements.NotifierViewer.SetButtons*
+  commentId: Overload:LBS.VisualElements.NotifierViewer.SetButtons
+  isExternal: true
+  href: LBS.VisualElements.NotifierViewer.html#LBS_VisualElements_NotifierViewer_SetButtons_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_VisualElement_
+  name: SetButtons
+  nameWithType: NotifierViewer.SetButtons
+  fullName: LBS.VisualElements.NotifierViewer.SetButtons

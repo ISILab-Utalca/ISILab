@@ -1,0 +1,2958 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TMP_BaseEditorPanel | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TMP_BaseEditorPanel | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel">
+
+
+
+  <h1 id="TMPro_EditorUtilities_TMP_BaseEditorPanel" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel" class="text-break">
+Class TMP_BaseEditorPanel  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="TMPro.html">TMPro</a>.<a class="xref" href="TMPro.EditorUtilities.html">EditorUtilities</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.TextMeshPro.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class TMP_BaseEditorPanel : Editor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TMP_BaseEditorPanel</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="TMPro.EditorUtilities.TMP_EditorPanel.html">TMP_EditorPanel</a></div>
+      <div><a class="xref" href="TMPro.EditorUtilities.TMP_EditorPanelUI.html">TMP_EditorPanelUI</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel__ctor_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.#ctor*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel__ctor" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.#ctor">
+  TMP_BaseEditorPanel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_BaseEditorPanel()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_k_ExtraSettingsLabel" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.k_ExtraSettingsLabel">
+  k_ExtraSettingsLabel
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static readonly GUIContent k_ExtraSettingsLabel</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GUIContent</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_k_UiStateLabel" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.k_UiStateLabel">
+  k_UiStateLabel
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static string[] k_UiStateLabel</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_AutoSizingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_AutoSizingProp">
+  m_AutoSizingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_AutoSizingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_CharWidthMaxAdjProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_CharWidthMaxAdjProp">
+  m_CharWidthMaxAdjProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_CharWidthMaxAdjProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_CharacterSpacingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_CharacterSpacingProp">
+  m_CharacterSpacingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_CharacterSpacingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_CheckPaddingRequiredProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_CheckPaddingRequiredProp">
+  m_CheckPaddingRequiredProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_CheckPaddingRequiredProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_ColorModeProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_ColorModeProp">
+  m_ColorModeProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_ColorModeProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EmojiFallbackSupportProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_EmojiFallbackSupportProp">
+  m_EmojiFallbackSupportProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_EmojiFallbackSupportProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EnableEscapeCharacterParsingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_EnableEscapeCharacterParsingProp">
+  m_EnableEscapeCharacterParsingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_EnableEscapeCharacterParsingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EnableExtraPaddingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_EnableExtraPaddingProp">
+  m_EnableExtraPaddingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_EnableExtraPaddingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EnableVertexGradientProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_EnableVertexGradientProp">
+  m_EnableVertexGradientProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_EnableVertexGradientProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontAssetProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontAssetProp">
+  m_FontAssetProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontAssetProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontColorGradientPresetProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontColorGradientPresetProp">
+  m_FontColorGradientPresetProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontColorGradientPresetProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontColorGradientProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontColorGradientProp">
+  m_FontColorGradientProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontColorGradientProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontColorProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontColorProp">
+  m_FontColorProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontColorProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontFeaturesActiveProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontFeaturesActiveProp">
+  m_FontFeaturesActiveProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontFeaturesActiveProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSharedMaterialProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontSharedMaterialProp">
+  m_FontSharedMaterialProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontSharedMaterialProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeBaseProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontSizeBaseProp">
+  m_FontSizeBaseProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontSizeBaseProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeMaxProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontSizeMaxProp">
+  m_FontSizeMaxProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontSizeMaxProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeMinProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontSizeMinProp">
+  m_FontSizeMinProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontSizeMinProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontSizeProp">
+  m_FontSizeProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontSizeProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontStyleProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_FontStyleProp">
+  m_FontStyleProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_FontStyleProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_GeometrySortingOrderProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_GeometrySortingOrderProp">
+  m_GeometrySortingOrderProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_GeometrySortingOrderProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HandlePoints" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_HandlePoints">
+  m_HandlePoints
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector3[] m_HandlePoints</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HasFontAssetChangedProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_HasFontAssetChangedProp">
+  m_HasFontAssetChangedProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_HasFontAssetChangedProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HavePropertiesChanged" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_HavePropertiesChanged">
+  m_HavePropertiesChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool m_HavePropertiesChanged</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HorizontalAlignmentProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_HorizontalAlignmentProp">
+  m_HorizontalAlignmentProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_HorizontalAlignmentProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HorizontalMappingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_HorizontalMappingProp">
+  m_HorizontalMappingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_HorizontalMappingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsPresetListDirty" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_IsPresetListDirty">
+  m_IsPresetListDirty
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool m_IsPresetListDirty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsRichTextProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_IsRichTextProp">
+  m_IsRichTextProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_IsRichTextProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsRightToLeftProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_IsRightToLeftProp">
+  m_IsRightToLeftProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_IsRightToLeftProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsTextObjectScaleStaticProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_IsTextObjectScaleStaticProp">
+  m_IsTextObjectScaleStaticProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_IsTextObjectScaleStaticProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_LineSpacingMaxProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_LineSpacingMaxProp">
+  m_LineSpacingMaxProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_LineSpacingMaxProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_LineSpacingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_LineSpacingProp">
+  m_LineSpacingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_LineSpacingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_LinkedTextComponentProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_LinkedTextComponentProp">
+  m_LinkedTextComponentProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_LinkedTextComponentProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MarginProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_MarginProp">
+  m_MarginProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_MarginProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresetIndexLookup" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_MaterialPresetIndexLookup">
+  m_MaterialPresetIndexLookup
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;int, int&gt; m_MaterialPresetIndexLookup</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresetNames" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_MaterialPresetNames">
+  m_MaterialPresetNames
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GUIContent[] m_MaterialPresetNames</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GUIContent</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresetSelectionIndex" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_MaterialPresetSelectionIndex">
+  m_MaterialPresetSelectionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int m_MaterialPresetSelectionIndex</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresets" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_MaterialPresets">
+  m_MaterialPresets
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Material[] m_MaterialPresets</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_OverrideHtmlColorProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_OverrideHtmlColorProp">
+  m_OverrideHtmlColorProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_OverrideHtmlColorProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_PageToDisplayProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_PageToDisplayProp">
+  m_PageToDisplayProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_PageToDisplayProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_ParagraphSpacingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_ParagraphSpacingProp">
+  m_ParagraphSpacingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_ParagraphSpacingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_ParentLinkedTextComponentProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_ParentLinkedTextComponentProp">
+  m_ParentLinkedTextComponentProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_ParentLinkedTextComponentProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_PreviousLinkedTextComponent" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_PreviousLinkedTextComponent">
+  m_PreviousLinkedTextComponent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_Text m_PreviousLinkedTextComponent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_Text.html">TMP_Text</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_RectCorners" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_RectCorners">
+  m_RectCorners
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector3[] m_RectCorners</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_RectTransform" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_RectTransform">
+  m_RectTransform
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RectTransform m_RectTransform</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RectTransform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_RtlText" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_RtlText">
+  m_RtlText
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string m_RtlText</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_SpriteAssetProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_SpriteAssetProp">
+  m_SpriteAssetProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_SpriteAssetProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_StyleNames" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_StyleNames">
+  m_StyleNames
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GUIContent[] m_StyleNames</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GUIContent</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_StyleSelectionIndex" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_StyleSelectionIndex">
+  m_StyleSelectionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int m_StyleSelectionIndex</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_StyleSheetAssetProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_StyleSheetAssetProp">
+  m_StyleSheetAssetProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_StyleSheetAssetProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_Styles" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_Styles">
+  m_Styles
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;TMP_Style&gt; m_Styles</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="TMPro.TMP_Style.html">TMP_Style</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TargetMaterial" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TargetMaterial">
+  m_TargetMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Material m_TargetMaterial</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextAlignmentProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TextAlignmentProp">
+  m_TextAlignmentProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_TextAlignmentProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextComponent" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TextComponent">
+  m_TextComponent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_Text m_TextComponent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_Text.html">TMP_Text</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextOverflowModeProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TextOverflowModeProp">
+  m_TextOverflowModeProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_TextOverflowModeProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TextProp">
+  m_TextProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_TextProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextStyleHashCodeProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TextStyleHashCodeProp">
+  m_TextStyleHashCodeProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_TextStyleHashCodeProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextStyleIndexLookup" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TextStyleIndexLookup">
+  m_TextStyleIndexLookup
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;int, int&gt; m_TextStyleIndexLookup</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextWrappingModeProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_TextWrappingModeProp">
+  m_TextWrappingModeProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_TextWrappingModeProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_UseMaxVisibleDescenderProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_UseMaxVisibleDescenderProp">
+  m_UseMaxVisibleDescenderProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_UseMaxVisibleDescenderProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_UvLineOffsetProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_UvLineOffsetProp">
+  m_UvLineOffsetProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_UvLineOffsetProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_VerticalAlignmentProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_VerticalAlignmentProp">
+  m_VerticalAlignmentProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_VerticalAlignmentProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_VerticalMappingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_VerticalMappingProp">
+  m_VerticalMappingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_VerticalMappingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_WordSpacingProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_WordSpacingProp">
+  m_WordSpacingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_WordSpacingProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_m_WordWrappingRatiosProp" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.m_WordWrappingRatiosProp">
+  m_WordWrappingRatiosProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SerializedProperty m_WordWrappingRatiosProp</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_s_EventId" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.s_EventId">
+  s_EventId
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static int s_EventId</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_selAlignGridA" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.selAlignGridA">
+  selAlignGridA
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int selAlignGridA</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_selAlignGridB" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.selAlignGridB">
+  selAlignGridB
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int selAlignGridB</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawEmojiFallbackSupport_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawEmojiFallbackSupport*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawEmojiFallbackSupport" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawEmojiFallbackSupport">
+  DrawEmojiFallbackSupport()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawEmojiFallbackSupport()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawExtraSettings_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawExtraSettings*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawExtraSettings" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawExtraSettings">
+  DrawExtraSettings()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DrawExtraSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawFontFeatures_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawFontFeatures*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawFontFeatures" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawFontFeatures">
+  DrawFontFeatures()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawFontFeatures()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawGeometrySorting_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawGeometrySorting*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawGeometrySorting" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawGeometrySorting">
+  DrawGeometrySorting()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawGeometrySorting()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawIsTextObjectScaleStatic_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawIsTextObjectScaleStatic*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawIsTextObjectScaleStatic" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawIsTextObjectScaleStatic">
+  DrawIsTextObjectScaleStatic()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawIsTextObjectScaleStatic()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMainSettings_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawMainSettings*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMainSettings" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawMainSettings">
+  DrawMainSettings()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawMainSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMarginProperty_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawMarginProperty*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMarginProperty_UnityEditor_SerializedProperty_UnityEngine_GUIContent_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawMarginProperty(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+  DrawMarginProperty(SerializedProperty, GUIContent)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawMarginProperty(SerializedProperty property, GUIContent label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMargins_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawMargins*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMargins" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawMargins">
+  DrawMargins()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawMargins()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawPadding_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawPadding*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawPadding" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawPadding">
+  DrawPadding()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawPadding()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawParsing_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawParsing*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawParsing" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawParsing">
+  DrawParsing()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawParsing()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawPropertySlider_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawPropertySlider*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawPropertySlider_UnityEngine_GUIContent_UnityEditor_SerializedProperty_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawPropertySlider(UnityEngine.GUIContent,UnityEditor.SerializedProperty)">
+  DrawPropertySlider(GUIContent, SerializedProperty)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawPropertySlider(GUIContent label, SerializedProperty property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>property</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawRichText_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawRichText*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawRichText" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawRichText">
+  DrawRichText()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawRichText()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawSpriteAsset_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawSpriteAsset*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawSpriteAsset" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawSpriteAsset">
+  DrawSpriteAsset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawSpriteAsset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawStyleSheet_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawStyleSheet*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawStyleSheet" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawStyleSheet">
+  DrawStyleSheet()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawStyleSheet()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawTextInput_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawTextInput*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawTextInput" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawTextInput">
+  DrawTextInput()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawTextInput()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawTextureMapping_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawTextureMapping*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawTextureMapping" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.DrawTextureMapping">
+  DrawTextureMapping()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawTextureMapping()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_GetMaterialPresets_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.GetMaterialPresets*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_GetMaterialPresets" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.GetMaterialPresets">
+  GetMaterialPresets()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GUIContent[] GetMaterialPresets()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GUIContent</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_GetStyleNames_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.GetStyleNames*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_GetStyleNames" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.GetStyleNames">
+  GetStyleNames()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GUIContent[] GetStyleNames()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GUIContent</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_IsMixSelectionTypes_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.IsMixSelectionTypes*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_IsMixSelectionTypes" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.IsMixSelectionTypes">
+  IsMixSelectionTypes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract bool IsMixSelectionTypes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnDisable_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnDisable*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnDisable" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnDisable">
+  OnDisable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDisable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnEnable_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnEnable*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnEnable" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnEnable">
+  OnEnable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnInspectorGUI_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnInspectorGUI*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnInspectorGUI" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnInspectorGUI">
+  OnInspectorGUI()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnInspectorGUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnSceneGUI_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnSceneGUI*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnSceneGUI" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnSceneGUI">
+  OnSceneGUI()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnSceneGUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnUndoRedo_" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnUndoRedo*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_BaseEditorPanel_OnUndoRedo" data-uid="TMPro.EditorUtilities.TMP_BaseEditorPanel.OnUndoRedo">
+  OnUndoRedo()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void OnUndoRedo()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

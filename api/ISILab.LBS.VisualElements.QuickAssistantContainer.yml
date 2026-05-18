@@ -1,0 +1,346 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer
+  commentId: T:ISILab.LBS.VisualElements.QuickAssistantContainer
+  id: QuickAssistantContainer
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.QuickAssistantContainer.#ctor
+  - ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess(LBS.Components.LBSLayer)
+  - ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup
+  - ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements
+  - ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword
+  - ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword
+  langs:
+  - csharp
+  - vb
+  name: QuickAssistantContainer
+  nameWithType: QuickAssistantContainer
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public abstract class QuickAssistantContainer : VisualElement'
+    content.vb: Public MustInherit Class QuickAssistantContainer Inherits VisualElement
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.VisualElements.ExteriorContainer
+  - ISILab.LBS.VisualElements.InteriorContainer
+  - ISILab.LBS.VisualElements.PopulationContainer
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements
+  commentId: M:ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements
+  id: LoadVisualElements
+  parent: ISILab.LBS.VisualElements.QuickAssistantContainer
+  langs:
+  - csharp
+  - vb
+  name: LoadVisualElements()
+  nameWithType: QuickAssistantContainer.LoadVisualElements()
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract void LoadVisualElements()
+    content.vb: Public MustOverride Sub LoadVisualElements()
+  overload: ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements*
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup
+  commentId: M:ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup
+  id: InitialSetup
+  parent: ISILab.LBS.VisualElements.QuickAssistantContainer
+  langs:
+  - csharp
+  - vb
+  name: InitialSetup()
+  nameWithType: QuickAssistantContainer.InitialSetup()
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract void InitialSetup()
+    content.vb: Public MustOverride Sub InitialSetup()
+  overload: ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup*
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess(LBS.Components.LBSLayer)
+  id: GenerateLayerProcess(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.VisualElements.QuickAssistantContainer
+  langs:
+  - csharp
+  - vb
+  name: GenerateLayerProcess(LBSLayer)
+  nameWithType: QuickAssistantContainer.GenerateLayerProcess(LBSLayer)
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract Task GenerateLayerProcess(LBSLayer newLayer)
+    parameters:
+    - id: newLayer
+      type: LBS.Components.LBSLayer
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public MustOverride Function GenerateLayerProcess(newLayer As LBSLayer) As Task
+  overload: ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess*
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.#ctor
+  commentId: M:ISILab.LBS.VisualElements.QuickAssistantContainer.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.QuickAssistantContainer
+  langs:
+  - csharp
+  - vb
+  name: QuickAssistantContainer()
+  nameWithType: QuickAssistantContainer.QuickAssistantContainer()
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.QuickAssistantContainer()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected QuickAssistantContainer()
+    content.vb: Protected Sub New()
+  overload: ISILab.LBS.VisualElements.QuickAssistantContainer.#ctor*
+  nameWithType.vb: QuickAssistantContainer.New()
+  fullName.vb: ISILab.LBS.VisualElements.QuickAssistantContainer.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword
+  commentId: P:ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword
+  id: PrimaryKeyword
+  parent: ISILab.LBS.VisualElements.QuickAssistantContainer
+  langs:
+  - csharp
+  - vb
+  name: PrimaryKeyword
+  nameWithType: QuickAssistantContainer.PrimaryKeyword
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract string PrimaryKeyword { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public MustOverride ReadOnly Property PrimaryKeyword As String
+  overload: ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword*
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword
+  commentId: P:ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword
+  id: SecondaryKeyword
+  parent: ISILab.LBS.VisualElements.QuickAssistantContainer
+  langs:
+  - csharp
+  - vb
+  name: SecondaryKeyword
+  nameWithType: QuickAssistantContainer.SecondaryKeyword
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract string SecondaryKeyword { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public MustOverride ReadOnly Property SecondaryKeyword As String
+  overload: ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements*
+  commentId: Overload:ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuickAssistantContainer.html#ISILab_LBS_VisualElements_QuickAssistantContainer_LoadVisualElements
+  name: LoadVisualElements
+  nameWithType: QuickAssistantContainer.LoadVisualElements
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.LoadVisualElements
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup*
+  commentId: Overload:ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuickAssistantContainer.html#ISILab_LBS_VisualElements_QuickAssistantContainer_InitialSetup
+  name: InitialSetup
+  nameWithType: QuickAssistantContainer.InitialSetup
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.InitialSetup
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess*
+  commentId: Overload:ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuickAssistantContainer.html#ISILab_LBS_VisualElements_QuickAssistantContainer_GenerateLayerProcess_LBS_Components_LBSLayer_
+  name: GenerateLayerProcess
+  nameWithType: QuickAssistantContainer.GenerateLayerProcess
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.GenerateLayerProcess
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.QuickAssistantContainer.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuickAssistantContainer.html#ISILab_LBS_VisualElements_QuickAssistantContainer__ctor
+  name: QuickAssistantContainer
+  nameWithType: QuickAssistantContainer.QuickAssistantContainer
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.QuickAssistantContainer
+  nameWithType.vb: QuickAssistantContainer.New
+  fullName.vb: ISILab.LBS.VisualElements.QuickAssistantContainer.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword*
+  commentId: Overload:ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuickAssistantContainer.html#ISILab_LBS_VisualElements_QuickAssistantContainer_PrimaryKeyword
+  name: PrimaryKeyword
+  nameWithType: QuickAssistantContainer.PrimaryKeyword
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.PrimaryKeyword
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword*
+  commentId: Overload:ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuickAssistantContainer.html#ISILab_LBS_VisualElements_QuickAssistantContainer_SecondaryKeyword
+  name: SecondaryKeyword
+  nameWithType: QuickAssistantContainer.SecondaryKeyword
+  fullName: ISILab.LBS.VisualElements.QuickAssistantContainer.SecondaryKeyword

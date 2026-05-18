@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IUnsafeCommandBuffer | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IUnsafeCommandBuffer | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer">
+
+
+
+  <h1 id="UnityEngine_Rendering_IUnsafeCommandBuffer" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer" class="text-break">
+Interface IUnsafeCommandBuffer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IUnsafeCommandBuffer : IRasterCommandBuffer, IComputeCommandBuffer, IBaseCommandBuffer</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_ClearRenderTarget_System_Boolean_System_Boolean_UnityEngine_Color_">IRasterCommandBuffer.ClearRenderTarget(bool, bool, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_ClearRenderTarget_System_Boolean_System_Boolean_UnityEngine_Color_System_Single_">IRasterCommandBuffer.ClearRenderTarget(bool, bool, Color, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_ClearRenderTarget_System_Boolean_System_Boolean_UnityEngine_Color_System_Single_System_UInt32_">IRasterCommandBuffer.ClearRenderTarget(bool, bool, Color, float, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_ClearRenderTarget_UnityEngine_Rendering_RTClearFlags_UnityEngine_Color_System_Single_System_UInt32_">IRasterCommandBuffer.ClearRenderTarget(RTClearFlags, Color, float, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_ClearRenderTarget_UnityEngine_Rendering_RTClearFlags_UnityEngine_Color___System_Single_System_UInt32_">IRasterCommandBuffer.ClearRenderTarget(RTClearFlags, Color[], float, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_SetInstanceMultiplier_System_UInt32_">IRasterCommandBuffer.SetInstanceMultiplier(uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_SetFoveatedRenderingMode_UnityEngine_Rendering_FoveatedRenderingMode_">IRasterCommandBuffer.SetFoveatedRenderingMode(FoveatedRenderingMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_SetWireframe_System_Boolean_">IRasterCommandBuffer.SetWireframe(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_ConfigureFoveatedRendering_System_IntPtr_">IRasterCommandBuffer.ConfigureFoveatedRendering(nint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawMesh(Mesh, Matrix4x4, Material, int, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_System_Int32_">IRasterCommandBuffer.DrawMesh(Mesh, Matrix4x4, Material, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_">IRasterCommandBuffer.DrawMesh(Mesh, Matrix4x4, Material, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_">IRasterCommandBuffer.DrawMesh(Mesh, Matrix4x4, Material)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMultipleMeshes_UnityEngine_Matrix4x4___UnityEngine_Mesh___System_Int32___System_Int32_UnityEngine_Material_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawMultipleMeshes(Matrix4x4[], Mesh[], int[], int, Material, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawRenderer_UnityEngine_Renderer_UnityEngine_Material_System_Int32_System_Int32_">IRasterCommandBuffer.DrawRenderer(Renderer, Material, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawRenderer_UnityEngine_Renderer_UnityEngine_Material_System_Int32_">IRasterCommandBuffer.DrawRenderer(Renderer, Material, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawRenderer_UnityEngine_Renderer_UnityEngine_Material_">IRasterCommandBuffer.DrawRenderer(Renderer, Material)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawRendererList_UnityEngine_Rendering_RendererList_">IRasterCommandBuffer.DrawRendererList(RendererList)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProcedural_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawProcedural(Matrix4x4, Material, int, MeshTopology, int, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProcedural_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_">IRasterCommandBuffer.DrawProcedural(Matrix4x4, Material, int, MeshTopology, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProcedural_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_">IRasterCommandBuffer.DrawProcedural(Matrix4x4, Material, int, MeshTopology, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProcedural_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawProcedural(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, int, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProcedural_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_">IRasterCommandBuffer.DrawProcedural(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProcedural_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_">IRasterCommandBuffer.DrawProcedural(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_">IRasterCommandBuffer.DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_">IRasterCommandBuffer.DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_">IRasterCommandBuffer.DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_">IRasterCommandBuffer.DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_">IRasterCommandBuffer.DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_">IRasterCommandBuffer.DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_">IRasterCommandBuffer.DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_">IRasterCommandBuffer.DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstanced_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_Matrix4x4___System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawMeshInstanced(Mesh, int, Material, int, Matrix4x4[], int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstanced_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_Matrix4x4___System_Int32_">IRasterCommandBuffer.DrawMeshInstanced(Mesh, int, Material, int, Matrix4x4[], int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstanced_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_Matrix4x4___">IRasterCommandBuffer.DrawMeshInstanced(Mesh, int, Material, int, Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstancedProcedural_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawMeshInstancedProcedural(Mesh, int, Material, int, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_ComputeBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawMeshInstancedIndirect(Mesh, int, Material, int, ComputeBuffer, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_ComputeBuffer_System_Int32_">IRasterCommandBuffer.DrawMeshInstancedIndirect(Mesh, int, Material, int, ComputeBuffer, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_ComputeBuffer_">IRasterCommandBuffer.DrawMeshInstancedIndirect(Mesh, int, Material, int, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_GraphicsBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_">IRasterCommandBuffer.DrawMeshInstancedIndirect(Mesh, int, Material, int, GraphicsBuffer, int, MaterialPropertyBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_GraphicsBuffer_System_Int32_">IRasterCommandBuffer.DrawMeshInstancedIndirect(Mesh, int, Material, int, GraphicsBuffer, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_GraphicsBuffer_">IRasterCommandBuffer.DrawMeshInstancedIndirect(Mesh, int, Material, int, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html#UnityEngine_Rendering_IRasterCommandBuffer_DrawOcclusionMesh_UnityEngine_RectInt_">IRasterCommandBuffer.DrawOcclusionMesh(RectInt)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeFloatParam_UnityEngine_ComputeShader_System_Int32_System_Single_">IComputeCommandBuffer.SetComputeFloatParam(ComputeShader, int, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeIntParam_UnityEngine_ComputeShader_System_Int32_System_Int32_">IComputeCommandBuffer.SetComputeIntParam(ComputeShader, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeVectorParam_UnityEngine_ComputeShader_System_Int32_UnityEngine_Vector4_">IComputeCommandBuffer.SetComputeVectorParam(ComputeShader, int, Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeVectorArrayParam_UnityEngine_ComputeShader_System_Int32_UnityEngine_Vector4___">IComputeCommandBuffer.SetComputeVectorArrayParam(ComputeShader, int, Vector4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeMatrixParam_UnityEngine_ComputeShader_System_Int32_UnityEngine_Matrix4x4_">IComputeCommandBuffer.SetComputeMatrixParam(ComputeShader, int, Matrix4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeMatrixArrayParam_UnityEngine_ComputeShader_System_Int32_UnityEngine_Matrix4x4___">IComputeCommandBuffer.SetComputeMatrixArrayParam(ComputeShader, int, Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData_UnityEngine_ComputeBuffer_System_Array_">IComputeCommandBuffer.SetBufferData(ComputeBuffer, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_ComputeBuffer_System_Collections_Generic_List___0__">IComputeCommandBuffer.SetBufferData&lt;T&gt;(ComputeBuffer, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_ComputeBuffer_Unity_Collections_NativeArray___0__">IComputeCommandBuffer.SetBufferData&lt;T&gt;(ComputeBuffer, NativeArray&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData_UnityEngine_ComputeBuffer_System_Array_System_Int32_System_Int32_System_Int32_">IComputeCommandBuffer.SetBufferData(ComputeBuffer, Array, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_ComputeBuffer_System_Collections_Generic_List___0__System_Int32_System_Int32_System_Int32_">IComputeCommandBuffer.SetBufferData&lt;T&gt;(ComputeBuffer, List&lt;T&gt;, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_ComputeBuffer_Unity_Collections_NativeArray___0__System_Int32_System_Int32_System_Int32_">IComputeCommandBuffer.SetBufferData&lt;T&gt;(ComputeBuffer, NativeArray&lt;T&gt;, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferCounterValue_UnityEngine_ComputeBuffer_System_UInt32_">IComputeCommandBuffer.SetBufferCounterValue(ComputeBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData_UnityEngine_GraphicsBuffer_System_Array_">IComputeCommandBuffer.SetBufferData(GraphicsBuffer, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_GraphicsBuffer_System_Collections_Generic_List___0__">IComputeCommandBuffer.SetBufferData&lt;T&gt;(GraphicsBuffer, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_GraphicsBuffer_Unity_Collections_NativeArray___0__">IComputeCommandBuffer.SetBufferData&lt;T&gt;(GraphicsBuffer, NativeArray&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData_UnityEngine_GraphicsBuffer_System_Array_System_Int32_System_Int32_System_Int32_">IComputeCommandBuffer.SetBufferData(GraphicsBuffer, Array, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_GraphicsBuffer_System_Collections_Generic_List___0__System_Int32_System_Int32_System_Int32_">IComputeCommandBuffer.SetBufferData&lt;T&gt;(GraphicsBuffer, List&lt;T&gt;, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferData__1_UnityEngine_GraphicsBuffer_Unity_Collections_NativeArray___0__System_Int32_System_Int32_System_Int32_">IComputeCommandBuffer.SetBufferData&lt;T&gt;(GraphicsBuffer, NativeArray&lt;T&gt;, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetBufferCounterValue_UnityEngine_GraphicsBuffer_System_UInt32_">IComputeCommandBuffer.SetBufferCounterValue(GraphicsBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeFloatParam_UnityEngine_ComputeShader_System_String_System_Single_">IComputeCommandBuffer.SetComputeFloatParam(ComputeShader, string, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeIntParam_UnityEngine_ComputeShader_System_String_System_Int32_">IComputeCommandBuffer.SetComputeIntParam(ComputeShader, string, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeVectorParam_UnityEngine_ComputeShader_System_String_UnityEngine_Vector4_">IComputeCommandBuffer.SetComputeVectorParam(ComputeShader, string, Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeVectorArrayParam_UnityEngine_ComputeShader_System_String_UnityEngine_Vector4___">IComputeCommandBuffer.SetComputeVectorArrayParam(ComputeShader, string, Vector4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeMatrixParam_UnityEngine_ComputeShader_System_String_UnityEngine_Matrix4x4_">IComputeCommandBuffer.SetComputeMatrixParam(ComputeShader, string, Matrix4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeMatrixArrayParam_UnityEngine_ComputeShader_System_String_UnityEngine_Matrix4x4___">IComputeCommandBuffer.SetComputeMatrixArrayParam(ComputeShader, string, Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeFloatParams_UnityEngine_ComputeShader_System_String_System_Single___">IComputeCommandBuffer.SetComputeFloatParams(ComputeShader, string, params float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeFloatParams_UnityEngine_ComputeShader_System_Int32_System_Single___">IComputeCommandBuffer.SetComputeFloatParams(ComputeShader, int, params float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeIntParams_UnityEngine_ComputeShader_System_String_System_Int32___">IComputeCommandBuffer.SetComputeIntParams(ComputeShader, string, params int[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeIntParams_UnityEngine_ComputeShader_System_Int32_System_Int32___">IComputeCommandBuffer.SetComputeIntParams(ComputeShader, int, params int[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeTextureParam_UnityEngine_ComputeShader_System_Int32_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">IComputeCommandBuffer.SetComputeTextureParam(ComputeShader, int, string, TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeTextureParam_UnityEngine_ComputeShader_System_Int32_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">IComputeCommandBuffer.SetComputeTextureParam(ComputeShader, int, int, TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeTextureParam_UnityEngine_ComputeShader_System_Int32_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_System_Int32_">IComputeCommandBuffer.SetComputeTextureParam(ComputeShader, int, string, TextureHandle, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeTextureParam_UnityEngine_ComputeShader_System_Int32_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_System_Int32_">IComputeCommandBuffer.SetComputeTextureParam(ComputeShader, int, int, TextureHandle, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeTextureParam_UnityEngine_ComputeShader_System_Int32_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_System_Int32_UnityEngine_Rendering_RenderTextureSubElement_">IComputeCommandBuffer.SetComputeTextureParam(ComputeShader, int, string, TextureHandle, int, RenderTextureSubElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeTextureParam_UnityEngine_ComputeShader_System_Int32_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_System_Int32_UnityEngine_Rendering_RenderTextureSubElement_">IComputeCommandBuffer.SetComputeTextureParam(ComputeShader, int, int, TextureHandle, int, RenderTextureSubElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeBufferParam_UnityEngine_ComputeShader_System_Int32_System_Int32_UnityEngine_ComputeBuffer_">IComputeCommandBuffer.SetComputeBufferParam(ComputeShader, int, int, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeBufferParam_UnityEngine_ComputeShader_System_Int32_System_String_UnityEngine_ComputeBuffer_">IComputeCommandBuffer.SetComputeBufferParam(ComputeShader, int, string, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeBufferParam_UnityEngine_ComputeShader_System_Int32_System_Int32_UnityEngine_GraphicsBufferHandle_">IComputeCommandBuffer.SetComputeBufferParam(ComputeShader, int, int, GraphicsBufferHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeBufferParam_UnityEngine_ComputeShader_System_Int32_System_String_UnityEngine_GraphicsBufferHandle_">IComputeCommandBuffer.SetComputeBufferParam(ComputeShader, int, string, GraphicsBufferHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeBufferParam_UnityEngine_ComputeShader_System_Int32_System_Int32_UnityEngine_GraphicsBuffer_">IComputeCommandBuffer.SetComputeBufferParam(ComputeShader, int, int, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeBufferParam_UnityEngine_ComputeShader_System_Int32_System_String_UnityEngine_GraphicsBuffer_">IComputeCommandBuffer.SetComputeBufferParam(ComputeShader, int, string, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeConstantBufferParam_UnityEngine_ComputeShader_System_Int32_UnityEngine_ComputeBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetComputeConstantBufferParam(ComputeShader, int, ComputeBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeConstantBufferParam_UnityEngine_ComputeShader_System_String_UnityEngine_ComputeBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetComputeConstantBufferParam(ComputeShader, string, ComputeBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeConstantBufferParam_UnityEngine_ComputeShader_System_Int32_UnityEngine_GraphicsBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetComputeConstantBufferParam(ComputeShader, int, GraphicsBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetComputeConstantBufferParam_UnityEngine_ComputeShader_System_String_UnityEngine_GraphicsBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetComputeConstantBufferParam(ComputeShader, string, GraphicsBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_DispatchCompute_UnityEngine_ComputeShader_System_Int32_System_Int32_System_Int32_System_Int32_">IComputeCommandBuffer.DispatchCompute(ComputeShader, int, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_DispatchCompute_UnityEngine_ComputeShader_System_Int32_UnityEngine_ComputeBuffer_System_UInt32_">IComputeCommandBuffer.DispatchCompute(ComputeShader, int, ComputeBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_DispatchCompute_UnityEngine_ComputeShader_System_Int32_UnityEngine_GraphicsBuffer_System_UInt32_">IComputeCommandBuffer.DispatchCompute(ComputeShader, int, GraphicsBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_BuildRayTracingAccelerationStructure_UnityEngine_Rendering_RayTracingAccelerationStructure_">IComputeCommandBuffer.BuildRayTracingAccelerationStructure(RayTracingAccelerationStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_BuildRayTracingAccelerationStructure_UnityEngine_Rendering_RayTracingAccelerationStructure_UnityEngine_Vector3_">IComputeCommandBuffer.BuildRayTracingAccelerationStructure(RayTracingAccelerationStructure, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingAccelerationStructure_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_Rendering_RayTracingAccelerationStructure_">IComputeCommandBuffer.SetRayTracingAccelerationStructure(RayTracingShader, string, RayTracingAccelerationStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingAccelerationStructure_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_Rendering_RayTracingAccelerationStructure_">IComputeCommandBuffer.SetRayTracingAccelerationStructure(RayTracingShader, int, RayTracingAccelerationStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingAccelerationStructure_UnityEngine_ComputeShader_System_Int32_System_String_UnityEngine_Rendering_RayTracingAccelerationStructure_">IComputeCommandBuffer.SetRayTracingAccelerationStructure(ComputeShader, int, string, RayTracingAccelerationStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingAccelerationStructure_UnityEngine_ComputeShader_System_Int32_System_Int32_UnityEngine_Rendering_RayTracingAccelerationStructure_">IComputeCommandBuffer.SetRayTracingAccelerationStructure(ComputeShader, int, int, RayTracingAccelerationStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingBufferParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_ComputeBuffer_">IComputeCommandBuffer.SetRayTracingBufferParam(RayTracingShader, string, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingBufferParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_ComputeBuffer_">IComputeCommandBuffer.SetRayTracingBufferParam(RayTracingShader, int, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingBufferParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_GraphicsBuffer_">IComputeCommandBuffer.SetRayTracingBufferParam(RayTracingShader, string, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingBufferParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_GraphicsBuffer_">IComputeCommandBuffer.SetRayTracingBufferParam(RayTracingShader, int, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingBufferParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_GraphicsBufferHandle_">IComputeCommandBuffer.SetRayTracingBufferParam(RayTracingShader, string, GraphicsBufferHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingBufferParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_GraphicsBufferHandle_">IComputeCommandBuffer.SetRayTracingBufferParam(RayTracingShader, int, GraphicsBufferHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingConstantBufferParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_ComputeBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetRayTracingConstantBufferParam(RayTracingShader, int, ComputeBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingConstantBufferParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_ComputeBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetRayTracingConstantBufferParam(RayTracingShader, string, ComputeBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingConstantBufferParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_GraphicsBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetRayTracingConstantBufferParam(RayTracingShader, int, GraphicsBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingConstantBufferParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_GraphicsBuffer_System_Int32_System_Int32_">IComputeCommandBuffer.SetRayTracingConstantBufferParam(RayTracingShader, string, GraphicsBuffer, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingTextureParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">IComputeCommandBuffer.SetRayTracingTextureParam(RayTracingShader, string, TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingTextureParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">IComputeCommandBuffer.SetRayTracingTextureParam(RayTracingShader, int, TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingFloatParam_UnityEngine_Rendering_RayTracingShader_System_String_System_Single_">IComputeCommandBuffer.SetRayTracingFloatParam(RayTracingShader, string, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingFloatParam_UnityEngine_Rendering_RayTracingShader_System_Int32_System_Single_">IComputeCommandBuffer.SetRayTracingFloatParam(RayTracingShader, int, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingFloatParams_UnityEngine_Rendering_RayTracingShader_System_String_System_Single___">IComputeCommandBuffer.SetRayTracingFloatParams(RayTracingShader, string, params float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingFloatParams_UnityEngine_Rendering_RayTracingShader_System_Int32_System_Single___">IComputeCommandBuffer.SetRayTracingFloatParams(RayTracingShader, int, params float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingIntParam_UnityEngine_Rendering_RayTracingShader_System_String_System_Int32_">IComputeCommandBuffer.SetRayTracingIntParam(RayTracingShader, string, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingIntParam_UnityEngine_Rendering_RayTracingShader_System_Int32_System_Int32_">IComputeCommandBuffer.SetRayTracingIntParam(RayTracingShader, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingIntParams_UnityEngine_Rendering_RayTracingShader_System_String_System_Int32___">IComputeCommandBuffer.SetRayTracingIntParams(RayTracingShader, string, params int[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingIntParams_UnityEngine_Rendering_RayTracingShader_System_Int32_System_Int32___">IComputeCommandBuffer.SetRayTracingIntParams(RayTracingShader, int, params int[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingVectorParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_Vector4_">IComputeCommandBuffer.SetRayTracingVectorParam(RayTracingShader, string, Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingVectorParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_Vector4_">IComputeCommandBuffer.SetRayTracingVectorParam(RayTracingShader, int, Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingVectorArrayParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_Vector4___">IComputeCommandBuffer.SetRayTracingVectorArrayParam(RayTracingShader, string, params Vector4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingVectorArrayParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_Vector4___">IComputeCommandBuffer.SetRayTracingVectorArrayParam(RayTracingShader, int, params Vector4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingMatrixParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_Matrix4x4_">IComputeCommandBuffer.SetRayTracingMatrixParam(RayTracingShader, string, Matrix4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingMatrixParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_Matrix4x4_">IComputeCommandBuffer.SetRayTracingMatrixParam(RayTracingShader, int, Matrix4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingMatrixArrayParam_UnityEngine_Rendering_RayTracingShader_System_String_UnityEngine_Matrix4x4___">IComputeCommandBuffer.SetRayTracingMatrixArrayParam(RayTracingShader, string, params Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_SetRayTracingMatrixArrayParam_UnityEngine_Rendering_RayTracingShader_System_Int32_UnityEngine_Matrix4x4___">IComputeCommandBuffer.SetRayTracingMatrixArrayParam(RayTracingShader, int, params Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_DispatchRays_UnityEngine_Rendering_RayTracingShader_System_String_System_UInt32_System_UInt32_System_UInt32_UnityEngine_Camera_">IComputeCommandBuffer.DispatchRays(RayTracingShader, string, uint, uint, uint, Camera)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_CopyCounterValue_UnityEngine_ComputeBuffer_UnityEngine_ComputeBuffer_System_UInt32_">IComputeCommandBuffer.CopyCounterValue(ComputeBuffer, ComputeBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_CopyCounterValue_UnityEngine_GraphicsBuffer_UnityEngine_ComputeBuffer_System_UInt32_">IComputeCommandBuffer.CopyCounterValue(GraphicsBuffer, ComputeBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_CopyCounterValue_UnityEngine_ComputeBuffer_UnityEngine_GraphicsBuffer_System_UInt32_">IComputeCommandBuffer.CopyCounterValue(ComputeBuffer, GraphicsBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IComputeCommandBuffer.html#UnityEngine_Rendering_IComputeCommandBuffer_CopyCounterValue_UnityEngine_GraphicsBuffer_UnityEngine_GraphicsBuffer_System_UInt32_">IComputeCommandBuffer.CopyCounterValue(GraphicsBuffer, GraphicsBuffer, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetInvertCulling_System_Boolean_">IBaseCommandBuffer.SetInvertCulling(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetViewport_UnityEngine_Rect_">IBaseCommandBuffer.SetViewport(Rect)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EnableScissorRect_UnityEngine_Rect_">IBaseCommandBuffer.EnableScissorRect(Rect)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_DisableScissorRect">IBaseCommandBuffer.DisableScissorRect()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloat_System_Int32_System_Single_">IBaseCommandBuffer.SetGlobalFloat(int, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInt_System_Int32_System_Int32_">IBaseCommandBuffer.SetGlobalInt(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInteger_System_Int32_System_Int32_">IBaseCommandBuffer.SetGlobalInteger(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVector_System_Int32_UnityEngine_Vector4_">IBaseCommandBuffer.SetGlobalVector(int, Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalColor_System_Int32_UnityEngine_Color_">IBaseCommandBuffer.SetGlobalColor(int, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrix_System_Int32_UnityEngine_Matrix4x4_">IBaseCommandBuffer.SetGlobalMatrix(int, Matrix4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EnableShaderKeyword_System_String_">IBaseCommandBuffer.EnableShaderKeyword(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_UnityEngine_Rendering_GlobalKeyword__">IBaseCommandBuffer.EnableKeyword(in GlobalKeyword)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__">IBaseCommandBuffer.EnableKeyword(Material, in LocalKeyword)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__">IBaseCommandBuffer.EnableKeyword(ComputeShader, in LocalKeyword)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_DisableShaderKeyword_System_String_">IBaseCommandBuffer.DisableShaderKeyword(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_UnityEngine_Rendering_GlobalKeyword__">IBaseCommandBuffer.DisableKeyword(in GlobalKeyword)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__">IBaseCommandBuffer.DisableKeyword(Material, in LocalKeyword)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__">IBaseCommandBuffer.DisableKeyword(ComputeShader, in LocalKeyword)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_UnityEngine_Rendering_GlobalKeyword__System_Boolean_">IBaseCommandBuffer.SetKeyword(in GlobalKeyword, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__System_Boolean_">IBaseCommandBuffer.SetKeyword(Material, in LocalKeyword, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__System_Boolean_">IBaseCommandBuffer.SetKeyword(ComputeShader, in LocalKeyword, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetViewProjectionMatrices_UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_">IBaseCommandBuffer.SetViewProjectionMatrices(Matrix4x4, Matrix4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalDepthBias_System_Single_System_Single_">IBaseCommandBuffer.SetGlobalDepthBias(float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_Int32_System_Single___">IBaseCommandBuffer.SetGlobalFloatArray(int, float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_Int32_UnityEngine_Vector4___">IBaseCommandBuffer.SetGlobalVectorArray(int, Vector4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_Int32_UnityEngine_Matrix4x4___">IBaseCommandBuffer.SetGlobalMatrixArray(int, Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetLateLatchProjectionMatrices_UnityEngine_Matrix4x4___">IBaseCommandBuffer.SetLateLatchProjectionMatrices(Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_MarkLateLatchMatrixShaderPropertyID_UnityEngine_Rendering_CameraLateLatchMatrixType_System_Int32_">IBaseCommandBuffer.MarkLateLatchMatrixShaderPropertyID(CameraLateLatchMatrixType, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_UnmarkLateLatchMatrix_UnityEngine_Rendering_CameraLateLatchMatrixType_">IBaseCommandBuffer.UnmarkLateLatchMatrix(CameraLateLatchMatrixType)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_System_String_">IBaseCommandBuffer.BeginSample(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EndSample_System_String_">IBaseCommandBuffer.EndSample(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_UnityEngine_Profiling_CustomSampler_">IBaseCommandBuffer.BeginSample(CustomSampler)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EndSample_UnityEngine_Profiling_CustomSampler_">IBaseCommandBuffer.EndSample(CustomSampler)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_Unity_Profiling_ProfilerMarker_">IBaseCommandBuffer.BeginSample(ProfilerMarker)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_EndSample_Unity_Profiling_ProfilerMarker_">IBaseCommandBuffer.EndSample(ProfilerMarker)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_IncrementUpdateCount_UnityEngine_Rendering_RenderTargetIdentifier_">IBaseCommandBuffer.IncrementUpdateCount(RenderTargetIdentifier)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetupCameraProperties_UnityEngine_Camera_">IBaseCommandBuffer.SetupCameraProperties(Camera)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_InvokeOnRenderObjectCallbacks">IBaseCommandBuffer.InvokeOnRenderObjectCallbacks()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloat_System_String_System_Single_">IBaseCommandBuffer.SetGlobalFloat(string, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInt_System_String_System_Int32_">IBaseCommandBuffer.SetGlobalInt(string, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInteger_System_String_System_Int32_">IBaseCommandBuffer.SetGlobalInteger(string, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVector_System_String_UnityEngine_Vector4_">IBaseCommandBuffer.SetGlobalVector(string, Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalColor_System_String_UnityEngine_Color_">IBaseCommandBuffer.SetGlobalColor(string, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrix_System_String_UnityEngine_Matrix4x4_">IBaseCommandBuffer.SetGlobalMatrix(string, Matrix4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_String_System_Collections_Generic_List_System_Single__">IBaseCommandBuffer.SetGlobalFloatArray(string, List&lt;float&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_Int32_System_Collections_Generic_List_System_Single__">IBaseCommandBuffer.SetGlobalFloatArray(int, List&lt;float&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_String_System_Single___">IBaseCommandBuffer.SetGlobalFloatArray(string, float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_String_System_Collections_Generic_List_UnityEngine_Vector4__">IBaseCommandBuffer.SetGlobalVectorArray(string, List&lt;Vector4&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_Int32_System_Collections_Generic_List_UnityEngine_Vector4__">IBaseCommandBuffer.SetGlobalVectorArray(int, List&lt;Vector4&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_String_UnityEngine_Vector4___">IBaseCommandBuffer.SetGlobalVectorArray(string, Vector4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_String_System_Collections_Generic_List_UnityEngine_Matrix4x4__">IBaseCommandBuffer.SetGlobalMatrixArray(string, List&lt;Matrix4x4&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_Int32_System_Collections_Generic_List_UnityEngine_Matrix4x4__">IBaseCommandBuffer.SetGlobalMatrixArray(int, List&lt;Matrix4x4&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_String_UnityEngine_Matrix4x4___">IBaseCommandBuffer.SetGlobalMatrixArray(string, Matrix4x4[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">IBaseCommandBuffer.SetGlobalTexture(string, TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">IBaseCommandBuffer.SetGlobalTexture(int, TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderTextureSubElement_">IBaseCommandBuffer.SetGlobalTexture(string, TextureHandle, RenderTextureSubElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderTextureSubElement_">IBaseCommandBuffer.SetGlobalTexture(int, TextureHandle, RenderTextureSubElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_String_UnityEngine_ComputeBuffer_">IBaseCommandBuffer.SetGlobalBuffer(string, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_Int32_UnityEngine_ComputeBuffer_">IBaseCommandBuffer.SetGlobalBuffer(int, ComputeBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_String_UnityEngine_GraphicsBuffer_">IBaseCommandBuffer.SetGlobalBuffer(string, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_Int32_UnityEngine_GraphicsBuffer_">IBaseCommandBuffer.SetGlobalBuffer(int, GraphicsBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_ComputeBuffer_System_Int32_System_Int32_System_Int32_">IBaseCommandBuffer.SetGlobalConstantBuffer(ComputeBuffer, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_ComputeBuffer_System_String_System_Int32_System_Int32_">IBaseCommandBuffer.SetGlobalConstantBuffer(ComputeBuffer, string, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_GraphicsBuffer_System_Int32_System_Int32_System_Int32_">IBaseCommandBuffer.SetGlobalConstantBuffer(GraphicsBuffer, int, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_GraphicsBuffer_System_String_System_Int32_System_Int32_">IBaseCommandBuffer.SetGlobalConstantBuffer(GraphicsBuffer, string, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetShadowSamplingMode_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ShadowSamplingMode_">IBaseCommandBuffer.SetShadowSamplingMode(RenderTargetIdentifier, ShadowSamplingMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_SetSinglePassStereo_UnityEngine_Rendering_SinglePassStereoMode_">IBaseCommandBuffer.SetSinglePassStereo(SinglePassStereoMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginEvent_System_IntPtr_System_Int32_">IBaseCommandBuffer.IssuePluginEvent(nint, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginEventAndData_System_IntPtr_System_Int32_System_IntPtr_">IBaseCommandBuffer.IssuePluginEventAndData(nint, int, nint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginCustomBlit_System_IntPtr_System_UInt32_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_UInt32_System_UInt32_">IBaseCommandBuffer.IssuePluginCustomBlit(nint, uint, RenderTargetIdentifier, RenderTargetIdentifier, uint, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html#UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginCustomTextureUpdateV2_System_IntPtr_UnityEngine_Texture_System_UInt32_">IBaseCommandBuffer.IssuePluginCustomTextureUpdateV2(nint, Texture, uint)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_Clear_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.Clear*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_Clear" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.Clear">
+  Clear()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetBinding_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetBinding)">
+  SetRenderTarget(RenderTargetBinding)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetBinding binding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>binding</code> <span class="xref">RenderTargetBinding</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetBinding_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetBinding,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(RenderTargetBinding, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetBinding binding, int mipLevel, CubemapFace cubemapFace, int depthSlice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>binding</code> <span class="xref">RenderTargetBinding</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier)">
+  SetRenderTarget(RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier rt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,System.Int32)">
+  SetRenderTarget(RenderTargetIdentifier, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier rt, int mipLevel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_UnityEngine_CubemapFace_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace)">
+  SetRenderTarget(RenderTargetIdentifier, int, CubemapFace)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier rt, int mipLevel, CubemapFace cubemapFace)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(RenderTargetIdentifier, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier rt, int mipLevel, CubemapFace cubemapFace, int depthSlice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction)">
+  SetRenderTarget(RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier rt, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction)">
+  SetRenderTarget(RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderBufferLoadAction, RenderBufferStoreAction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier rt, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction)">
+  SetRenderTarget(RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier color, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderTargetIdentifier depth, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier)">
+  SetRenderTarget(RenderTargetIdentifier, RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier color, RenderTargetIdentifier depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.Int32)">
+  SetRenderTarget(RenderTargetIdentifier, RenderTargetIdentifier, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier color, RenderTargetIdentifier depth, int mipLevel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_UnityEngine_CubemapFace_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace)">
+  SetRenderTarget(RenderTargetIdentifier, RenderTargetIdentifier, int, CubemapFace)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier color, RenderTargetIdentifier depth, int mipLevel, CubemapFace cubemapFace)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(RenderTargetIdentifier, RenderTargetIdentifier, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier color, RenderTargetIdentifier depth, int mipLevel, CubemapFace cubemapFace, int depthSlice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier)">
+  SetRenderTarget(RenderTargetIdentifier[], RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier[] colors, RenderTargetIdentifier depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colors</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_IUnsafeCommandBuffer_SetRenderTarget_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.IUnsafeCommandBuffer.SetRenderTarget(UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(RenderTargetIdentifier[], RenderTargetIdentifier, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetRenderTarget(RenderTargetIdentifier[] colors, RenderTargetIdentifier depth, int mipLevel, CubemapFace cubemapFace, int depthSlice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colors</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

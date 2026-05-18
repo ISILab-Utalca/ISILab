@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Grammar Terminal Field Reference | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Grammar Terminal Field Reference | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="grammar-terminal-field-reference">Grammar Terminal Field Reference</h1>
+
+<p>This document explains every supported <code>&lt;field type=&quot;...&quot;/&gt;</code> value used inside terminal definitions in your grammar XML.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li>Overview</li>
+<li>Field Attributes</li>
+<li>Primitive Types</li>
+<li>Special Types</li>
+<li>List Types</li>
+<li>Full Terminal Example</li>
+<li>Adding New Field Types</li>
+<li>Best Practices</li>
+</ol>
+<hr>
+<h2 id="1-overview">1. Overview</h2>
+<p>A terminal represents a final definition in a grammar file. for example:</p>
+<pre><code>  &lt;rule id=&quot;Goto&quot;&gt;
+    &lt;one-of&gt;
+      &lt;item&gt; explore &lt;/item&gt;
+      &lt;item&gt; &lt;ruleref uri=&quot;#Learn&quot; /&gt; go to &lt;/item&gt;
+      &lt;item&gt; go to &lt;/item&gt;
+      &lt;item&gt; take &lt;/item&gt;
+    &lt;/one-of&gt;
+  &lt;/rule&gt;
+</code></pre>
+<p>in here the rule <i>Goto</i> can be interpreted as <i>explore</i>, <i>go to</i>, <i>take</i> or a combination of terminals
+that represent <i>Learn</i> followed by a <i>go to</i>.</p>
+<p>Terminals/Nodes are then added to an <b>LBS Quest Layer</b>, where a sequence of nodes will represent a quest.</p>
+<p>These nodes would be more practical if they could store data from the level or a designer's input, in order
+to achieve this, GrammarFields are used. They are defined as <code>&lt;field type=&quot;...&quot;/&gt;</code> inside a terminal definition.</p>
+<pre><code class="lang-xml">&lt;terminal id=&quot;take&quot;&gt;
+    &lt;field type=&quot;int&quot; name=&quot;Amount&quot; /&gt;
+&lt;/terminal&gt;
+</code></pre>
+<p>Then when loading a grammar into the LBS tool, when a node is placed their terminal definition's fields,
+can be accesssed and edited in the inspector, allowing designers to input values or reference level data.</p>
+<hr>
+<h2 id="2-field-attributes">2. Field Attributes</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type=&quot;&quot;</code></td>
+<td>Determines the data type</td>
+</tr>
+<tr>
+<td><code>name=&quot;&quot;</code></td>
+<td>Label shown in editor</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="lang-xml">&lt;field type=&quot;string&quot; name=&quot;NPC Name&quot; /&gt;
+</code></pre>
+<hr>
+<h2 id="3-primitive-types">3. Primitive Types</h2>
+<h3 id="31-int">3.1 <code>int</code></h3>
+<p>Stores whole numbers.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;int&quot; name=&quot;Amount&quot; /&gt;
+</code></pre>
+<h3 id="32-float">3.2 <code>float</code></h3>
+<p>Stores decimal numbers.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;float&quot; name=&quot;Speed&quot; /&gt;
+</code></pre>
+<h3 id="33-string">3.3 <code>string</code></h3>
+<p>Stores text values.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;string&quot; name=&quot;NPC Name&quot; /&gt;
+</code></pre>
+<h3 id="34-bool">3.4 <code>Bool</code></h3>
+<p>Stores a boolean.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;bool&quot; name=&quot;Loop patrol&quot; /&gt;
+</code></pre>
+<hr>
+<h2 id="4-special-types">4. Special Types</h2>
+<h3 id="41-bundle-type">4.1 <code>Bundle Type</code></h3>
+<p>Stores a Bundle/Object type reference.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;type&quot; name=&quot;Enemy Type&quot; /&gt;
+</code></pre>
+<h3 id="42-bundle-target">4.2 Bundle Target`</h3>
+<p>Stores a graph target in the level. Such as a tile, including its layer, position and Bundle.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;tile&quot; name=&quot;Target Location&quot; /&gt;
+</code></pre>
+<h3 id="43-color">4.3 <code>Color</code></h3>
+<p>Stores a color.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;color&quot; name=&quot;Area Tint&quot; /&gt;
+</code></pre>
+<h3 id="44-eventhook">4.4 <code>eventHook</code></h3>
+<p>Stores n methods from a GameObject(monobehavior) in the level.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;eventHook&quot; name=&quot;On Complete&quot; /&gt;
+</code></pre>
+<h3 id="45-area">4.5 <code>area</code></h3>
+<p>Stores a rectangle <code>(x, y, width, height)</code>.</p>
+<pre><code class="lang-xml">&lt;field type=&quot;area&quot; name=&quot;Spawn Area&quot; /&gt;
+</code></pre>
+<hr>
+<h2 id="5-list-types">5. List Types</h2>
+<p>Lists allow multiple values of the same type.
+as long as the type is supported, you can create a list of it by prefixing it with <code>List.</code></p>
+<p>Syntax:</p>
+<pre><code class="lang-xml">List.&lt;type&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-xml">&lt;field type=&quot;List.referenceType&quot; name=&quot;Rewards&quot; /&gt;
+</code></pre>
+<hr>
+<h2 id="6-full-terminal-example">6. Full Terminal Example</h2>
+<pre><code class="lang-xml">&lt;terminal id=&quot;take&quot;&gt;
+    &lt;field type=&quot;referenceType&quot; name=&quot;Item Type&quot; /&gt;
+    &lt;field type=&quot;int&quot; name=&quot;Item Amount&quot; /&gt;
+    &lt;field type=&quot;List.int&quot; name=&quot;Item Prices&quot; /&gt;
+    &lt;field type=&quot;string&quot; name=&quot;Item Name&quot; /&gt;
+&lt;/terminal&gt;
+</code></pre>
+<hr>
+<h2 id="7-adding-new-field-types">7. Adding New Field Types</h2>
+<ol>
+<li>Create a new <code>GrammarField&lt;T&gt;</code> class.</li>
+<li>Create its Visual Element inspector. UXML and C#.</li>
+<li>Register it in <code>NodeDataBehaviourEditor</code>, dictionary <code>fieldTypeToFieldEditor</code>.</li>
+<li>Register it in <code>CreateField(...)</code> method in <code>GrammarField</code> abstract class.</li>
+</ol>
+<p>Example:</p>
+<pre><code class="lang-csharp">public class GrammarVector3 : GrammarField&lt;Vector3&gt; { }
+</code></pre>
+<hr>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class VolumeParameter&lt;T&gt; | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VolumeParameter&lt;T&gt; | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.VolumeParameter`1">
+
+
+
+  <h1 id="UnityEngine_Rendering_VolumeParameter_1" data-uid="UnityEngine.Rendering.VolumeParameter`1" class="text-break">
+Class VolumeParameter&lt;T&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class VolumeParameter&lt;T&gt; : VolumeParameter, ICloneable, IEquatable&lt;VolumeParameter&lt;T&gt;&gt;</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.VolumeParameter.html">VolumeParameter</a></div>
+      <div><span class="xref">VolumeParameter&lt;T&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="UnityEngine.Rendering.VolumeParameter-1.html">VolumeParameter</a>&lt;T&gt;&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="UnityEngine.Rendering.APVLeakReductionModeParameter.html">APVLeakReductionModeParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.AnimationCurveParameter.html">AnimationCurveParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.BoolParameter.html">BoolParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.ColorParameter.html">ColorParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.CubemapParameter.html">CubemapParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.EnumParameter-1.html">EnumParameter&lt;T&gt;</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.FloatParameter.html">FloatParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.FloatRangeParameter.html">FloatRangeParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.IntParameter.html">IntParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.LayerMaskParameter.html">LayerMaskParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.MaterialParameter.html">MaterialParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpClampedFloatParameter.html">NoInterpClampedFloatParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpClampedIntParameter.html">NoInterpClampedIntParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpColorParameter.html">NoInterpColorParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpCubemapParameter.html">NoInterpCubemapParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpFloatParameter.html">NoInterpFloatParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpFloatRangeParameter.html">NoInterpFloatRangeParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpIntParameter.html">NoInterpIntParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpMaxFloatParameter.html">NoInterpMaxFloatParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpMaxIntParameter.html">NoInterpMaxIntParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpMinFloatParameter.html">NoInterpMinFloatParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpMinIntParameter.html">NoInterpMinIntParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpRenderTextureParameter.html">NoInterpRenderTextureParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpTextureParameter.html">NoInterpTextureParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpVector2Parameter.html">NoInterpVector2Parameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpVector3Parameter.html">NoInterpVector3Parameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.NoInterpVector4Parameter.html">NoInterpVector4Parameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.ObjectParameter-1.html">ObjectParameter&lt;T&gt;</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.RenderTextureParameter.html">RenderTextureParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.RenderingLayerMaskParameter.html">RenderingLayerMaskParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Texture2DParameter.html">Texture2DParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Texture3DParameter.html">Texture3DParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.TextureCurveParameter.html">TextureCurveParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.TextureGradientParameter.html">TextureGradientParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.TextureParameter.html">TextureParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.DepthOfFieldModeParameter.html">DepthOfFieldModeParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.DownscaleParameter.html">DownscaleParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.FilmGrainLookupParameter.html">FilmGrainLookupParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.HDRACESPresetParameter.html">HDRACESPresetParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.MotionBlurModeParameter.html">MotionBlurModeParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.MotionBlurQualityParameter.html">MotionBlurQualityParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.NeutralRangeReductionModeParameter.html">NeutralRangeReductionModeParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.ScreenSpaceLensFlareResolutionParameter.html">ScreenSpaceLensFlareResolutionParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.TonemappingModeParameter.html">TonemappingModeParameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Vector2Parameter.html">Vector2Parameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Vector3Parameter.html">Vector3Parameter</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Vector4Parameter.html">Vector4Parameter</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_k_DebuggerDisplay">VolumeParameter.k_DebuggerDisplay</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_m_OverrideState">VolumeParameter.m_OverrideState</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_GetValue__1">VolumeParameter.GetValue&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_OnEnable">VolumeParameter.OnEnable()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_OnDisable">VolumeParameter.OnDisable()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_IsObjectParameter_System_Type_">VolumeParameter.IsObjectParameter(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_Release">VolumeParameter.Release()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html#UnityEngine_Rendering_VolumeParameter_overrideState">VolumeParameter.overrideState</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1__ctor_" data-uid="UnityEngine.Rendering.VolumeParameter`1.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1__ctor" data-uid="UnityEngine.Rendering.VolumeParameter`1.#ctor">
+  VolumeParameter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VolumeParameter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1__ctor_" data-uid="UnityEngine.Rendering.VolumeParameter`1.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1__ctor__0_System_Boolean_" data-uid="UnityEngine.Rendering.VolumeParameter`1.#ctor(`0,System.Boolean)">
+  VolumeParameter(T, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected VolumeParameter(T value, bool overrideState = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>overrideState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_m_Value" data-uid="UnityEngine.Rendering.VolumeParameter`1.m_Value">
+  m_Value
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected T m_Value</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_value_" data-uid="UnityEngine.Rendering.VolumeParameter`1.value*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_value" data-uid="UnityEngine.Rendering.VolumeParameter`1.value">
+  value
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual T value { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_Clone_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Clone*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_Clone" data-uid="UnityEngine.Rendering.VolumeParameter`1.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_Equals_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Equals*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_Equals_System_Object_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_Equals_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Equals*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_Equals_UnityEngine_Rendering_VolumeParameter__0__" data-uid="UnityEngine.Rendering.VolumeParameter`1.Equals(UnityEngine.Rendering.VolumeParameter{`0})">
+  Equals(VolumeParameter&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(VolumeParameter&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="UnityEngine.Rendering.VolumeParameter-1.html">VolumeParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_GetHashCode_" data-uid="UnityEngine.Rendering.VolumeParameter`1.GetHashCode*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_GetHashCode" data-uid="UnityEngine.Rendering.VolumeParameter`1.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_Interp_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Interp*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_Interp__0__0_System_Single_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Interp(`0,`0,System.Single)">
+  Interp(T, T, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Interp(T from, T to, float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>to</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_Override_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Override*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_Override__0_" data-uid="UnityEngine.Rendering.VolumeParameter`1.Override(`0)">
+  Override(T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Override(T x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_SetValue_" data-uid="UnityEngine.Rendering.VolumeParameter`1.SetValue*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_SetValue_UnityEngine_Rendering_VolumeParameter_" data-uid="UnityEngine.Rendering.VolumeParameter`1.SetValue(UnityEngine.Rendering.VolumeParameter)">
+  SetValue(VolumeParameter)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetValue(VolumeParameter parameter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="UnityEngine.Rendering.VolumeParameter.html">VolumeParameter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_ToString_" data-uid="UnityEngine.Rendering.VolumeParameter`1.ToString*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_ToString" data-uid="UnityEngine.Rendering.VolumeParameter`1.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_op_Equality_" data-uid="UnityEngine.Rendering.VolumeParameter`1.op_Equality*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_op_Equality_UnityEngine_Rendering_VolumeParameter__0___0_" data-uid="UnityEngine.Rendering.VolumeParameter`1.op_Equality(UnityEngine.Rendering.VolumeParameter{`0},`0)">
+  operator ==(VolumeParameter&lt;T&gt;, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(VolumeParameter&lt;T&gt; lhs, T rhs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lhs</code> <a class="xref" href="UnityEngine.Rendering.VolumeParameter-1.html">VolumeParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>rhs</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_op_Explicit_" data-uid="UnityEngine.Rendering.VolumeParameter`1.op_Explicit*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_op_Explicit_UnityEngine_Rendering_VolumeParameter__0____0" data-uid="UnityEngine.Rendering.VolumeParameter`1.op_Explicit(UnityEngine.Rendering.VolumeParameter{`0})~`0">
+  explicit operator T(VolumeParameter&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator T(VolumeParameter&lt;T&gt; prop)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prop</code> <a class="xref" href="UnityEngine.Rendering.VolumeParameter-1.html">VolumeParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_VolumeParameter_1_op_Inequality_" data-uid="UnityEngine.Rendering.VolumeParameter`1.op_Inequality*"></a>
+
+  <h3 id="UnityEngine_Rendering_VolumeParameter_1_op_Inequality_UnityEngine_Rendering_VolumeParameter__0___0_" data-uid="UnityEngine.Rendering.VolumeParameter`1.op_Inequality(UnityEngine.Rendering.VolumeParameter{`0},`0)">
+  operator !=(VolumeParameter&lt;T&gt;, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(VolumeParameter&lt;T&gt; lhs, T rhs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lhs</code> <a class="xref" href="UnityEngine.Rendering.VolumeParameter-1.html">VolumeParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>rhs</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Drawer | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Drawer | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Drawers.Drawer">
+
+
+
+  <h1 id="ISILab_LBS_Drawers_Drawer" data-uid="ISILab.LBS.Drawers.Drawer" class="text-break">
+Class Drawer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Drawers.html">Drawers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Drawer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Drawer</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.html">NodeDataBehaviourDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.Editor.QuestAssistantDrawer.html">QuestAssistantDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.Editor.QuestBehaviorDrawer.html">QuestBehaviorDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.ExteriorDrawer.html">ExteriorDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.HillClimbingDrawer.html">HillClimbingDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.MapElitesDrawer.html">MapElitesDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.NoteDrawer.html">NoteDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.PopulationDrawer.html">PopulationDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.PopulationTileDrawer.html">PopulationTileDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.SchemaDrawer.html">SchemaDrawer</a></div>
+      <div><a class="xref" href="ISILab.LBS.Drawers.SimulationDrawer.html">SimulationDrawer</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Drawers_Drawer__ctor_" data-uid="ISILab.LBS.Drawers.Drawer.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer__ctor" data-uid="ISILab.LBS.Drawers.Drawer.#ctor">
+  Drawer()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Drawer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_Loaded" data-uid="ISILab.LBS.Drawers.Drawer.Loaded">
+  Loaded
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool Loaded</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_DefaultSize_" data-uid="ISILab.LBS.Drawers.Drawer.DefaultSize*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_DefaultSize" data-uid="ISILab.LBS.Drawers.Drawer.DefaultSize">
+  DefaultSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 DefaultSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_FullRedrawRequested_" data-uid="ISILab.LBS.Drawers.Drawer.FullRedrawRequested*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_FullRedrawRequested" data-uid="ISILab.LBS.Drawers.Drawer.FullRedrawRequested">
+  FullRedrawRequested
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FullRedrawRequested { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_Draw_" data-uid="ISILab.LBS.Drawers.Drawer.Draw*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_" data-uid="ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)">
+  Draw(object, MainView, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Draw(object target, MainView view, Vector2 tesselationSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>view</code> <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.MainView.html">MainView</a></dt>
+    <dd></dd>
+    <dt><code>tesselationSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_GetTexture_" data-uid="ISILab.LBS.Drawers.Drawer.GetTexture*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_GetTexture_System_Object_UnityEngine_Rect_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)">
+  GetTexture(object, Rect, Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>sourceRect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>tesselationSize</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_HideVisuals_" data-uid="ISILab.LBS.Drawers.Drawer.HideVisuals*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_" data-uid="ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)">
+  HideVisuals(object, MainView)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void HideVisuals(object target, MainView view)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>view</code> <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.MainView.html">MainView</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_LoadAllTiles_" data-uid="ISILab.LBS.Drawers.Drawer.LoadAllTiles*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_LoadAllTiles" data-uid="ISILab.LBS.Drawers.Drawer.LoadAllTiles">
+  LoadAllTiles()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void LoadAllTiles()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_PaintNewTiles_" data-uid="ISILab.LBS.Drawers.Drawer.PaintNewTiles*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_PaintNewTiles" data-uid="ISILab.LBS.Drawers.Drawer.PaintNewTiles">
+  PaintNewTiles()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void PaintNewTiles()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_ReDraw_" data-uid="ISILab.LBS.Drawers.Drawer.ReDraw*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_ReDraw_LBS_Components_LBSLayer_System_Object___System_Object___ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_" data-uid="ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)">
+  ReDraw(LBSLayer, object[], object[], MainView, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ReDraw(LBSLayer layer, object[] olds, object[] news, MainView view, Vector2 tesselationSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+    <dt><code>olds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd></dd>
+    <dt><code>news</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd></dd>
+    <dt><code>view</code> <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.MainView.html">MainView</a></dt>
+    <dd></dd>
+    <dt><code>tesselationSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_ShowVisuals_" data-uid="ISILab.LBS.Drawers.Drawer.ShowVisuals*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_" data-uid="ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)">
+  ShowVisuals(object, MainView)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void ShowVisuals(object target, MainView view)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>view</code> <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.MainView.html">MainView</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles_" data-uid="ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles" data-uid="ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles">
+  UpdateLoadedTiles()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void UpdateLoadedTiles()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Drawers_Drawer_UpdateTiles_" data-uid="ISILab.LBS.Drawers.Drawer.UpdateTiles*"></a>
+
+  <h3 id="ISILab_LBS_Drawers_Drawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_" data-uid="ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)">
+  UpdateTiles(object, MainView, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void UpdateTiles(object target, MainView view, Vector2 teselationSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>view</code> <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.MainView.html">MainView</a></dt>
+    <dd></dd>
+    <dt><code>teselationSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

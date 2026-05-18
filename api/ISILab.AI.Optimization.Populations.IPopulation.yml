@@ -1,0 +1,684 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Optimization.Populations.IPopulation
+  commentId: T:ISILab.AI.Optimization.Populations.IPopulation
+  id: IPopulation
+  parent: ISILab.AI.Optimization.Populations
+  children:
+  - ISILab.AI.Optimization.Populations.IPopulation.Adam
+  - ISILab.AI.Optimization.Populations.IPopulation.BestCandidate
+  - ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration(System.Int32)
+  - ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  - ISILab.AI.Optimization.Populations.IPopulation.CreationDate
+  - ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration
+  - ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration
+  - ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy
+  - ISILab.AI.Optimization.Populations.IPopulation.Generations
+  - ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber
+  - ISILab.AI.Optimization.Populations.IPopulation.MaxSize
+  - ISILab.AI.Optimization.Populations.IPopulation.MinSize
+  - ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged
+  langs:
+  - csharp
+  - vb
+  name: IPopulation
+  nameWithType: IPopulation
+  fullName: ISILab.AI.Optimization.Populations.IPopulation
+  type: Interface
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: public interface IPopulation
+    content.vb: Public Interface IPopulation
+  derivedClasses:
+  - ISILab.AI.Optimization.Populations.Population
+  - ISILab.AI.Optimization.Populations.TplPopulation
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration(System.Int32)
+  commentId: M:ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration(System.Int32)
+  id: CreateInitialGeneration(System.Int32)
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: CreateInitialGeneration(int)
+  nameWithType: IPopulation.CreateInitialGeneration(int)
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: void CreateInitialGeneration(int GenSize = 0)
+    parameters:
+    - id: GenSize
+      type: System.Int32
+    content.vb: Sub CreateInitialGeneration(GenSize As Integer = 0)
+  overload: ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration*
+  nameWithType.vb: IPopulation.CreateInitialGeneration(Integer)
+  fullName.vb: ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration(Integer)
+  name.vb: CreateInitialGeneration(Integer)
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  commentId: M:ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  id: CreateNewGeneration(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: CreateNewGeneration(IList<IOptimizable>)
+  nameWithType: IPopulation.CreateNewGeneration(IList<IOptimizable>)
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration(System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: void CreateNewGeneration(IList<IOptimizable> chromosomes)
+    parameters:
+    - id: chromosomes
+      type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+    content.vb: Sub CreateNewGeneration(chromosomes As IList(Of IOptimizable))
+  overload: ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration*
+  nameWithType.vb: IPopulation.CreateNewGeneration(IList(Of IOptimizable))
+  fullName.vb: ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration(System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable))
+  name.vb: CreateNewGeneration(IList(Of IOptimizable))
+- uid: ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration
+  commentId: M:ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration
+  id: EndCurrentGeneration
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: EndCurrentGeneration()
+  nameWithType: IPopulation.EndCurrentGeneration()
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: void EndCurrentGeneration()
+    content.vb: Sub EndCurrentGeneration()
+  overload: ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged
+  id: OnBestcandidateChanged
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: OnBestcandidateChanged
+  nameWithType: IPopulation.OnBestcandidateChanged
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: Action OnBestcandidateChanged { get; set; }
+    parameters: []
+    return:
+      type: System.Action
+    content.vb: Property OnBestcandidateChanged As Action
+  overload: ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CreationDate
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.CreationDate
+  id: CreationDate
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: CreationDate
+  nameWithType: IPopulation.CreationDate
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CreationDate
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: DateTime CreationDate { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: ReadOnly Property CreationDate As Date
+  overload: ISILab.AI.Optimization.Populations.IPopulation.CreationDate*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.Generations
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.Generations
+  id: Generations
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: Generations
+  nameWithType: IPopulation.Generations
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.Generations
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: IList<Generation> Generations { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{ISILab.AI.Optimization.Populations.Generation}
+    content.vb: ReadOnly Property Generations As IList(Of Generation)
+  overload: ISILab.AI.Optimization.Populations.IPopulation.Generations*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration
+  id: CurrentGeneration
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: CurrentGeneration
+  nameWithType: IPopulation.CurrentGeneration
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: Generation CurrentGeneration { get; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.Populations.Generation
+    content.vb: ReadOnly Property CurrentGeneration As Generation
+  overload: ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber
+  id: GenerationsNumber
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: GenerationsNumber
+  nameWithType: IPopulation.GenerationsNumber
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: int GenerationsNumber { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property GenerationsNumber As Integer
+  overload: ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.MinSize
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.MinSize
+  id: MinSize
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: MinSize
+  nameWithType: IPopulation.MinSize
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.MinSize
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: int MinSize { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property MinSize As Integer
+  overload: ISILab.AI.Optimization.Populations.IPopulation.MinSize*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.MaxSize
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.MaxSize
+  id: MaxSize
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: MaxSize
+  nameWithType: IPopulation.MaxSize
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.MaxSize
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: int MaxSize { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property MaxSize As Integer
+  overload: ISILab.AI.Optimization.Populations.IPopulation.MaxSize*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.BestCandidate
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.BestCandidate
+  id: BestCandidate
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: BestCandidate
+  nameWithType: IPopulation.BestCandidate
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.BestCandidate
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: IOptimizable BestCandidate { get; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.IOptimizable
+    content.vb: ReadOnly Property BestCandidate As IOptimizable
+  overload: ISILab.AI.Optimization.Populations.IPopulation.BestCandidate*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy
+  id: GenerationStrategy
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: GenerationStrategy
+  nameWithType: IPopulation.GenerationStrategy
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: IGenerationStrategy GenerationStrategy { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.Populations.IGenerationStrategy
+    content.vb: Property GenerationStrategy As IGenerationStrategy
+  overload: ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy*
+- uid: ISILab.AI.Optimization.Populations.IPopulation.Adam
+  commentId: P:ISILab.AI.Optimization.Populations.IPopulation.Adam
+  id: Adam
+  parent: ISILab.AI.Optimization.Populations.IPopulation
+  langs:
+  - csharp
+  - vb
+  name: Adam
+  nameWithType: IPopulation.Adam
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.Adam
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: IOptimizable Adam { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.IOptimizable
+    content.vb: Property Adam As IOptimizable
+  overload: ISILab.AI.Optimization.Populations.IPopulation.Adam*
+references:
+- uid: ISILab.AI.Optimization.Populations
+  commentId: N:ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Populations
+  nameWithType: ISILab.AI.Optimization.Populations
+  fullName: ISILab.AI.Optimization.Populations
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_CreateInitialGeneration_System_Int32_
+  name: CreateInitialGeneration
+  nameWithType: IPopulation.CreateInitialGeneration
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CreateInitialGeneration
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_CreateNewGeneration_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__
+  name: CreateNewGeneration
+  nameWithType: IPopulation.CreateNewGeneration
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CreateNewGeneration
+- uid: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  commentId: T:System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<IOptimizable>
+  nameWithType: IList<IOptimizable>
+  fullName: System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>
+  nameWithType.vb: IList(Of IOptimizable)
+  fullName.vb: System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable)
+  name.vb: IList(Of IOptimizable)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_EndCurrentGeneration
+  name: EndCurrentGeneration
+  nameWithType: IPopulation.EndCurrentGeneration
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.EndCurrentGeneration
+- uid: ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_OnBestcandidateChanged
+  name: OnBestcandidateChanged
+  nameWithType: IPopulation.OnBestcandidateChanged
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.OnBestcandidateChanged
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CreationDate*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.CreationDate
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_CreationDate
+  name: CreationDate
+  nameWithType: IPopulation.CreationDate
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CreationDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: ISILab.AI.Optimization.Populations.IPopulation.Generations*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.Generations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_Generations
+  name: Generations
+  nameWithType: IPopulation.Generations
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.Generations
+- uid: System.Collections.Generic.IList{ISILab.AI.Optimization.Populations.Generation}
+  commentId: T:System.Collections.Generic.IList{ISILab.AI.Optimization.Populations.Generation}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<Generation>
+  nameWithType: IList<Generation>
+  fullName: System.Collections.Generic.IList<ISILab.AI.Optimization.Populations.Generation>
+  nameWithType.vb: IList(Of Generation)
+  fullName.vb: System.Collections.Generic.IList(Of ISILab.AI.Optimization.Populations.Generation)
+  name.vb: IList(Of Generation)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: ISILab.AI.Optimization.Populations.Generation
+    name: Generation
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.Generation.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.Populations.Generation
+    name: Generation
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.Generation.html
+  - name: )
+- uid: ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_CurrentGeneration
+  name: CurrentGeneration
+  nameWithType: IPopulation.CurrentGeneration
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.CurrentGeneration
+- uid: ISILab.AI.Optimization.Populations.Generation
+  commentId: T:ISILab.AI.Optimization.Populations.Generation
+  parent: ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.Generation.html
+  name: Generation
+  nameWithType: Generation
+  fullName: ISILab.AI.Optimization.Populations.Generation
+- uid: ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_GenerationsNumber
+  name: GenerationsNumber
+  nameWithType: IPopulation.GenerationsNumber
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.GenerationsNumber
+- uid: ISILab.AI.Optimization.Populations.IPopulation.MinSize*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.MinSize
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_MinSize
+  name: MinSize
+  nameWithType: IPopulation.MinSize
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.MinSize
+- uid: ISILab.AI.Optimization.Populations.IPopulation.MaxSize*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.MaxSize
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_MaxSize
+  name: MaxSize
+  nameWithType: IPopulation.MaxSize
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.MaxSize
+- uid: ISILab.AI.Optimization.Populations.IPopulation.BestCandidate*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.BestCandidate
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_BestCandidate
+  name: BestCandidate
+  nameWithType: IPopulation.BestCandidate
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.BestCandidate
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_GenerationStrategy
+  name: GenerationStrategy
+  nameWithType: IPopulation.GenerationStrategy
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.GenerationStrategy
+- uid: ISILab.AI.Optimization.Populations.IGenerationStrategy
+  commentId: T:ISILab.AI.Optimization.Populations.IGenerationStrategy
+  parent: ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IGenerationStrategy.html
+  name: IGenerationStrategy
+  nameWithType: IGenerationStrategy
+  fullName: ISILab.AI.Optimization.Populations.IGenerationStrategy
+- uid: ISILab.AI.Optimization.Populations.IPopulation.Adam*
+  commentId: Overload:ISILab.AI.Optimization.Populations.IPopulation.Adam
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html#ISILab_AI_Optimization_Populations_IPopulation_Adam
+  name: Adam
+  nameWithType: IPopulation.Adam
+  fullName: ISILab.AI.Optimization.Populations.IPopulation.Adam

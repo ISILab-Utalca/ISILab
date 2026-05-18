@@ -1,0 +1,2152 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  id: AssistantMapElite
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant
+  children:
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.#ctor(System.String,System.String,UnityEngine.Color)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion(System.Object)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea(System.Collections.Generic.List{System.String}@)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals(System.Object)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture(UnityEngine.Rect)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Boolean)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset(ISILab.LBS.AI.Categorization.MAPElitesPreset)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam(UnityEngine.Rect,System.Collections.Generic.List{LBS.Components.LBSLayer})
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.toUpdate
+  langs:
+  - csharp
+  - vb
+  name: AssistantMapElite
+  nameWithType: AssistantMapElite
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: >-
+      [RequieredModule(new Type[] { typeof(BundleTileMap) })]
+
+      public class AssistantMapElite : LBSAssistant, ICloneable
+    content.vb: >-
+      <RequieredModule(New Type() { GetType(BundleTileMap) })>
+
+      Public Class AssistantMapElite Inherits LBSAssistant Implements ICloneable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.toUpdate
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.toUpdate
+  id: toUpdate
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: toUpdate
+  nameWithType: AssistantMapElite.toUpdate
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.toUpdate
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public List<Vector2> toUpdate
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector2}
+    content.vb: Public toUpdate As List(Of Vector2)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.#ctor(System.String,System.String,UnityEngine.Color)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.#ctor(System.String,System.String,UnityEngine.Color)
+  id: '#ctor(System.String,System.String,UnityEngine.Color)'
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: AssistantMapElite(string, string, Color)
+  nameWithType: AssistantMapElite.AssistantMapElite(string, string, Color)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AssistantMapElite(string, string, UnityEngine.Color)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public AssistantMapElite(string IconGuid, string name, Color colorTint)
+    parameters:
+    - id: IconGuid
+      type: System.String
+    - id: name
+      type: System.String
+    - id: colorTint
+      type: UnityEngine.Color
+    content.vb: Public Sub New(IconGuid As String, name As String, colorTint As Color)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.#ctor*
+  nameWithType.vb: AssistantMapElite.New(String, String, Color)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.New(String, String, UnityEngine.Color)
+  name.vb: New(String, String, Color)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI
+  id: OnGUI
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: OnGUI()
+  nameWithType: AssistantMapElite.OnGUI()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  example: []
+  syntax:
+    content: public override void OnGUI()
+    content.vb: Public Overrides Sub OnGUI()
+  overridden: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  id: Execute(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Execute(bool, Action<float>, CancellationToken)
+  nameWithType: AssistantMapElite.Execute(bool, Action<float>, CancellationToken)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute(bool, System.Action<float>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void Execute(bool synchronous = false, Action<float> onProgress = null, CancellationToken token = default)
+    parameters:
+    - id: synchronous
+      type: System.Boolean
+    - id: onProgress
+      type: System.Action{System.Single}
+    - id: token
+      type: System.Threading.CancellationToken
+    content.vb: Public Sub Execute(synchronous As Boolean = False, onProgress As Action(Of Single) = Nothing, token As CancellationToken = Nothing)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute*
+  nameWithType.vb: AssistantMapElite.Execute(Boolean, Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute(Boolean, System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: Execute(Boolean, Action(Of Single), CancellationToken)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop
+  id: RequestOptimizerStop
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: RequestOptimizerStop()
+  nameWithType: AssistantMapElite.RequestOptimizerStop()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void RequestOptimizerStop()
+    content.vb: Public Sub RequestOptimizerStop()
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue
+  id: Continue
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Continue()
+  nameWithType: AssistantMapElite.Continue()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void Continue()
+    content.vb: Public Sub [Continue]()
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Boolean)
+  id: InitializeEvaluator(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Boolean)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: InitializeEvaluator(IEvaluator, bool)
+  nameWithType: AssistantMapElite.InitializeEvaluator(IEvaluator, bool)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator, bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void InitializeEvaluator(IEvaluator evaluator, bool defaultInitialization = false)
+    parameters:
+    - id: evaluator
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+    - id: defaultInitialization
+      type: System.Boolean
+    content.vb: Public Sub InitializeEvaluator(evaluator As IEvaluator, defaultInitialization As Boolean = False)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator*
+  nameWithType.vb: AssistantMapElite.InitializeEvaluator(IEvaluator, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator, Boolean)
+  name.vb: InitializeEvaluator(IEvaluator, Boolean)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea(System.Collections.Generic.List{System.String}@)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea(System.Collections.Generic.List{System.String}@)
+  id: AutoSelectArea(System.Collections.Generic.List{System.String}@)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: AutoSelectArea(out List<string>)
+  nameWithType: AssistantMapElite.AutoSelectArea(out List<string>)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea(out System.Collections.Generic.List<string>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void AutoSelectArea(out List<string> logs)
+    parameters:
+    - id: logs
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Sub AutoSelectArea(logs As List(Of String))
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea*
+  nameWithType.vb: AssistantMapElite.AutoSelectArea(List(Of String))
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea(System.Collections.Generic.List(Of String))
+  name.vb: AutoSelectArea(List(Of String))
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion(System.Object)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion(System.Object)
+  id: ApplySuggestion(System.Object)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: ApplySuggestion(object)
+  nameWithType: AssistantMapElite.ApplySuggestion(object)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void ApplySuggestion(object data)
+    parameters:
+    - id: data
+      type: System.Object
+    content.vb: Public Sub ApplySuggestion(data As Object)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion*
+  nameWithType.vb: AssistantMapElite.ApplySuggestion(Object)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion(Object)
+  name.vb: ApplySuggestion(Object)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset(ISILab.LBS.AI.Categorization.MAPElitesPreset)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset(ISILab.LBS.AI.Categorization.MAPElitesPreset)
+  id: LoadPresset(ISILab.LBS.AI.Categorization.MAPElitesPreset)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: LoadPresset(MAPElitesPreset)
+  nameWithType: AssistantMapElite.LoadPresset(MAPElitesPreset)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset(ISILab.LBS.AI.Categorization.MAPElitesPreset)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void LoadPresset(MAPElitesPreset presset)
+    parameters:
+    - id: presset
+      type: ISILab.LBS.AI.Categorization.MAPElitesPreset
+    content.vb: Public Sub LoadPresset(presset As MAPElitesPreset)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam(UnityEngine.Rect,System.Collections.Generic.List{LBS.Components.LBSLayer})
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam(UnityEngine.Rect,System.Collections.Generic.List{LBS.Components.LBSLayer})
+  id: SetAdam(UnityEngine.Rect,System.Collections.Generic.List{LBS.Components.LBSLayer})
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: SetAdam(Rect, List<LBSLayer>)
+  nameWithType: AssistantMapElite.SetAdam(Rect, List<LBSLayer>)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam(UnityEngine.Rect, System.Collections.Generic.List<LBS.Components.LBSLayer>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public void SetAdam(Rect rect, List<LBSLayer> contextLayers = null)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    - id: contextLayers
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    content.vb: Public Sub SetAdam(rect As Rect, contextLayers As List(Of LBSLayer) = Nothing)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam*
+  nameWithType.vb: AssistantMapElite.SetAdam(Rect, List(Of LBSLayer))
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam(UnityEngine.Rect, System.Collections.Generic.List(Of LBS.Components.LBSLayer))
+  name.vb: SetAdam(Rect, List(Of LBSLayer))
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture(UnityEngine.Rect)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture(UnityEngine.Rect)
+  id: GetBackgroundTexture(UnityEngine.Rect)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: GetBackgroundTexture(Rect)
+  nameWithType: AssistantMapElite.GetBackgroundTexture(Rect)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture(UnityEngine.Rect)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public Texture2D GetBackgroundTexture(Rect rect)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Function GetBackgroundTexture(rect As Rect) As Texture2D
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone
+  id: Clone
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: AssistantMapElite.Clone()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals(System.Object)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: AssistantMapElite.Equals(object)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals*
+  nameWithType.vb: AssistantMapElite.Equals(Object)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: AssistantMapElite.GetHashCode()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap
+  id: EvaluateOriginalMap
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: EvaluateOriginalMap()
+  nameWithType: AssistantMapElite.EvaluateOriginalMap()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public Vector3 EvaluateOriginalMap()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function EvaluateOriginalMap() As Vector3
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation
+  id: LayerPopulation
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: LayerPopulation
+  nameWithType: AssistantMapElite.LayerPopulation
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public PopulationBehaviour LayerPopulation { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Behaviours.PopulationBehaviour
+    content.vb: Public ReadOnly Property LayerPopulation As PopulationBehaviour
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data
+  id: Data
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: AssistantMapElite.Data
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public LBSLevelData Data { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.LBSLevelData
+    content.vb: Public ReadOnly Property Data As LBSLevelData
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing
+  id: Testing
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Testing
+  nameWithType: AssistantMapElite.Testing
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public bool Testing { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Testing As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect
+  id: RawToolRect
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: RawToolRect
+  nameWithType: AssistantMapElite.RawToolRect
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public Rect RawToolRect { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Property RawToolRect As Rect
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect
+  id: Rect
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Rect
+  nameWithType: AssistantMapElite.Rect
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public Rect Rect { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public ReadOnly Property Rect As Rect
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished
+  id: Finished
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Finished
+  nameWithType: AssistantMapElite.Finished
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public bool Finished { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Finished As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running
+  id: Running
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Running
+  nameWithType: AssistantMapElite.Running
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public bool Running { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Running As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth
+  id: SampleWidth
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: SampleWidth
+  nameWithType: AssistantMapElite.SampleWidth
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public int SampleWidth { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SampleWidth As Integer
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight
+  id: SampleHeight
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: SampleHeight
+  nameWithType: AssistantMapElite.SampleHeight
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public int SampleHeight { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SampleHeight As Integer
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples
+  id: Samples
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: Samples
+  nameWithType: AssistantMapElite.Samples
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public IOptimizable[,] Samples { get; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.IOptimizable[,]
+    content.vb: Public ReadOnly Property Samples As IOptimizable(,)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator
+  id: XEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: XEvaluator
+  nameWithType: AssistantMapElite.XEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public IEvaluator XEvaluator { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+    content.vb: Public ReadOnly Property XEvaluator As IEvaluator
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator
+  id: YEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  langs:
+  - csharp
+  - vb
+  name: YEvaluator
+  nameWithType: AssistantMapElite.YEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public IEvaluator YEvaluator { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+    content.vb: Public ReadOnly Property YEvaluator As IEvaluator
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator*
+references:
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Assistant
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  commentId: T:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  parent: ISILab.LBS.Plugin.Components.Behaviours
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html
+  name: LBSAssistant
+  nameWithType: LBSAssistant
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_visible
+  name: visible
+  nameWithType: LBSAssistant.visible
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnStart
+  name: OnStart
+  nameWithType: LBSAssistant.OnStart
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnTermination
+  name: OnTermination
+  nameWithType: LBSAssistant.OnTermination
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnCancellation
+  name: OnCancellation
+  nameWithType: LBSAssistant.OnCancellation
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
+  name: OnAttachLayer(LBSLayer)
+  nameWithType: LBSAssistant.OnAttachLayer(LBSLayer)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+    name: OnAttachLayer
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+    name: OnAttachLayer
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
+  name: OnDetachLayer(LBSLayer)
+  nameWithType: LBSAssistant.OnDetachLayer(LBSLayer)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+    name: OnDetachLayer
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+    name: OnDetachLayer
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
+  name: GetRequiredModules()
+  nameWithType: LBSAssistant.GetRequiredModules()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
+    name: GetRequiredModules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
+    name: GetRequiredModules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
+  name: RequestTilePaint(object)
+  nameWithType: LBSAssistant.RequestTilePaint(object)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(object)
+  nameWithType.vb: LBSAssistant.RequestTilePaint(Object)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(Object)
+  name.vb: RequestTilePaint(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
+    name: RequestTilePaint
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
+    name: RequestTilePaint
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
+  name: RequestTileRemove(object)
+  nameWithType: LBSAssistant.RequestTileRemove(object)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(object)
+  nameWithType.vb: LBSAssistant.RequestTileRemove(Object)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(Object)
+  name.vb: RequestTileRemove(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
+    name: RequestTileRemove
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
+    name: RequestTileRemove
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
+  name: RetrieveNewTiles()
+  nameWithType: LBSAssistant.RetrieveNewTiles()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
+    name: RetrieveNewTiles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
+    name: RetrieveNewTiles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
+  name: RetrieveExpiredTiles()
+  nameWithType: LBSAssistant.RetrieveExpiredTiles()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+    name: RetrieveExpiredTiles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+    name: RetrieveExpiredTiles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_ColorTint
+  name: ColorTint
+  nameWithType: LBSAssistant.ColorTint
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSAssistant.OwnerLayer
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Icon
+  name: Icon
+  nameWithType: LBSAssistant.Icon
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_IconGuid
+  name: IconGuid
+  nameWithType: LBSAssistant.IconGuid
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Name
+  name: Name
+  nameWithType: LBSAssistant.Name
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Components.Behaviours
+  commentId: N:ISILab.LBS.Plugin.Components.Behaviours
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Behaviours
+  nameWithType: ISILab.LBS.Plugin.Components.Behaviours
+  fullName: ISILab.LBS.Plugin.Components.Behaviours
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+- uid: System.Collections.Generic.List{UnityEngine.Vector2}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector2}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector2>
+  nameWithType: List<Vector2>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector2>
+  nameWithType.vb: List(Of Vector2)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector2)
+  name.vb: List(Of Vector2)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite__ctor_System_String_System_String_UnityEngine_Color_
+  name: AssistantMapElite
+  nameWithType: AssistantMapElite.AssistantMapElite
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AssistantMapElite
+  nameWithType.vb: AssistantMapElite.New
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
+  name: OnGUI()
+  nameWithType: LBSAssistant.OnGUI()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+    name: OnGUI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+    name: OnGUI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_OnGUI
+  name: OnGUI
+  nameWithType: AssistantMapElite.OnGUI
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.OnGUI
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Execute_System_Boolean_System_Action_System_Single__System_Threading_CancellationToken_
+  name: Execute
+  nameWithType: AssistantMapElite.Execute
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Execute
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Action{System.Single}
+  commentId: T:System.Action{System.Single}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<float>
+  nameWithType: Action<float>
+  fullName: System.Action<float>
+  nameWithType.vb: Action(Of Single)
+  fullName.vb: System.Action(Of Single)
+  name.vb: Action(Of Single)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_RequestOptimizerStop
+  name: RequestOptimizerStop
+  nameWithType: AssistantMapElite.RequestOptimizerStop
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RequestOptimizerStop
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Continue
+  name: Continue
+  nameWithType: AssistantMapElite.Continue
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Continue
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_InitializeEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_System_Boolean_
+  name: InitializeEvaluator
+  nameWithType: AssistantMapElite.InitializeEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.InitializeEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html
+  name: IEvaluator
+  nameWithType: IEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_AutoSelectArea_System_Collections_Generic_List_System_String___
+  name: AutoSelectArea
+  nameWithType: AssistantMapElite.AutoSelectArea
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.AutoSelectArea
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_ApplySuggestion_System_Object_
+  name: ApplySuggestion
+  nameWithType: AssistantMapElite.ApplySuggestion
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.ApplySuggestion
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_LoadPresset_ISILab_LBS_AI_Categorization_MAPElitesPreset_
+  name: LoadPresset
+  nameWithType: AssistantMapElite.LoadPresset
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LoadPresset
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  commentId: T:ISILab.LBS.AI.Categorization.MAPElitesPreset
+  parent: ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html
+  name: MAPElitesPreset
+  nameWithType: MAPElitesPreset
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_SetAdam_UnityEngine_Rect_System_Collections_Generic_List_LBS_Components_LBSLayer__
+  name: SetAdam
+  nameWithType: AssistantMapElite.SetAdam
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SetAdam
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: System.Collections.Generic.List{LBS.Components.LBSLayer}
+  commentId: T:System.Collections.Generic.List{LBS.Components.LBSLayer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSLayer>
+  nameWithType: List<LBSLayer>
+  fullName: System.Collections.Generic.List<LBS.Components.LBSLayer>
+  nameWithType.vb: List(Of LBSLayer)
+  fullName.vb: System.Collections.Generic.List(Of LBS.Components.LBSLayer)
+  name.vb: List(Of LBSLayer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_GetBackgroundTexture_UnityEngine_Rect_
+  name: GetBackgroundTexture
+  nameWithType: AssistantMapElite.GetBackgroundTexture
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetBackgroundTexture
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
+  name: Clone()
+  nameWithType: LBSAssistant.Clone()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Clone
+  name: Clone
+  nameWithType: AssistantMapElite.Clone
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Clone
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Equals_System_Object_
+  name: Equals
+  nameWithType: AssistantMapElite.Equals
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_GetHashCode
+  name: GetHashCode
+  nameWithType: AssistantMapElite.GetHashCode
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_EvaluateOriginalMap
+  name: EvaluateOriginalMap
+  nameWithType: AssistantMapElite.EvaluateOriginalMap
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.EvaluateOriginalMap
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_LayerPopulation
+  name: LayerPopulation
+  nameWithType: AssistantMapElite.LayerPopulation
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.LayerPopulation
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour
+  commentId: T:ISILab.LBS.Behaviours.PopulationBehaviour
+  parent: ISILab.LBS.Behaviours
+  isExternal: true
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html
+  name: PopulationBehaviour
+  nameWithType: PopulationBehaviour
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour
+- uid: ISILab.LBS.Behaviours
+  commentId: N:ISILab.LBS.Behaviours
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Behaviours
+  nameWithType: ISILab.LBS.Behaviours
+  fullName: ISILab.LBS.Behaviours
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Behaviours.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Behaviours.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Data
+  name: Data
+  nameWithType: AssistantMapElite.Data
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Data
+- uid: ISILab.LBS.LBSLevelData
+  commentId: T:ISILab.LBS.LBSLevelData
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.LBSLevelData.html
+  name: LBSLevelData
+  nameWithType: LBSLevelData
+  fullName: ISILab.LBS.LBSLevelData
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Testing
+  name: Testing
+  nameWithType: AssistantMapElite.Testing
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Testing
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_RawToolRect
+  name: RawToolRect
+  nameWithType: AssistantMapElite.RawToolRect
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.RawToolRect
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Rect
+  name: Rect
+  nameWithType: AssistantMapElite.Rect
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Rect
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Finished
+  name: Finished
+  nameWithType: AssistantMapElite.Finished
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Finished
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Running
+  name: Running
+  nameWithType: AssistantMapElite.Running
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Running
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_SampleWidth
+  name: SampleWidth
+  nameWithType: AssistantMapElite.SampleWidth
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleWidth
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_SampleHeight
+  name: SampleHeight
+  nameWithType: AssistantMapElite.SampleHeight
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.SampleHeight
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_Samples
+  name: Samples
+  nameWithType: AssistantMapElite.Samples
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.Samples
+- uid: ISILab.AI.Optimization.IOptimizable[,]
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable[,]
+  nameWithType: IOptimizable[,]
+  fullName: ISILab.AI.Optimization.IOptimizable[,]
+  nameWithType.vb: IOptimizable(,)
+  fullName.vb: ISILab.AI.Optimization.IOptimizable(,)
+  name.vb: IOptimizable(,)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: (
+  - name: ','
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_XEvaluator
+  name: XEvaluator
+  nameWithType: AssistantMapElite.XEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.XEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html#ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_YEvaluator
+  name: YEvaluator
+  nameWithType: AssistantMapElite.YEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.YEvaluator

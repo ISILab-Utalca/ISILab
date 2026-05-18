@@ -1,0 +1,1195 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Grammar.GrammarBundleGraph
+  commentId: T:ISILab.AI.Grammar.GrammarBundleGraph
+  id: GrammarBundleGraph
+  parent: ISILab.AI.Grammar
+  children:
+  - ISILab.AI.Grammar.GrammarBundleGraph.#ctor
+  - ISILab.AI.Grammar.GrammarBundleGraph.GetBundle
+  - ISILab.AI.Grammar.GrammarBundleGraph.GetValue
+  - ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType
+  - ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle(System.Object[])
+  - ISILab.AI.Grammar.GrammarBundleGraph.SetValue(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: GrammarBundleGraph
+  nameWithType: GrammarBundleGraph
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: >-
+      [GrammarField("tile")]
+
+      public class GrammarBundleGraph : GrammarBundleField<BundleTargetGraph>, ICloneable, IBundleStored
+    content.vb: >-
+      <GrammarField("tile")>
+
+      Public Class GrammarBundleGraph Inherits GrammarBundleField(Of BundleTargetGraph) Implements ICloneable, IBundleStored
+  inheritance:
+  - System.Object
+  - ISILab.AI.Grammar.GrammarField
+  - ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}
+  - ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}
+  implements:
+  - System.ICloneable
+  - ISILab.AI.Grammar.IBundleStored
+  inheritedMembers:
+  - ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.allowedElements
+  - ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.AllowedElements
+  - ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.value
+  - ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.Clone
+  - ISILab.AI.Grammar.GrammarField.data
+  - ISILab.AI.Grammar.GrammarField.name
+  - ISILab.AI.Grammar.GrammarField.Refresh
+  - ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
+  - ISILab.AI.Grammar.GrammarField.GetHashCode
+  - ISILab.AI.Grammar.GrammarField.ToString
+  - ISILab.AI.Grammar.GrammarField.IsList
+  - ISILab.AI.Grammar.GrammarField.ItemsSource
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: ISILab.AI.Grammar.GrammarFieldAttribute
+    ctor: ISILab.AI.Grammar.GrammarFieldAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: tile
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.SetValue(System.Object)
+  commentId: M:ISILab.AI.Grammar.GrammarBundleGraph.SetValue(System.Object)
+  id: SetValue(System.Object)
+  parent: ISILab.AI.Grammar.GrammarBundleGraph
+  langs:
+  - csharp
+  - vb
+  name: SetValue(object)
+  nameWithType: GrammarBundleGraph.SetValue(object)
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.SetValue(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override void SetValue(object newValue)
+    parameters:
+    - id: newValue
+      type: System.Object
+    content.vb: Public Overrides Sub SetValue(newValue As Object)
+  overridden: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.SetValue(System.Object)
+  overload: ISILab.AI.Grammar.GrammarBundleGraph.SetValue*
+  nameWithType.vb: GrammarBundleGraph.SetValue(Object)
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleGraph.SetValue(Object)
+  name.vb: SetValue(Object)
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle(System.Object[])
+  commentId: M:ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle(System.Object[])
+  id: SetObjectBundle(System.Object[])
+  parent: ISILab.AI.Grammar.GrammarBundleGraph
+  langs:
+  - csharp
+  - vb
+  name: SetObjectBundle(object[])
+  nameWithType: GrammarBundleGraph.SetObjectBundle(object[])
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle(object[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override void SetObjectBundle(object[] objs)
+    parameters:
+    - id: objs
+      type: System.Object[]
+    content.vb: Public Overrides Sub SetObjectBundle(objs As Object())
+  overridden: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.SetObjectBundle(System.Object[])
+  overload: ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle*
+  nameWithType.vb: GrammarBundleGraph.SetObjectBundle(Object())
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle(Object())
+  name.vb: SetObjectBundle(Object())
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.GetValue
+  commentId: M:ISILab.AI.Grammar.GrammarBundleGraph.GetValue
+  id: GetValue
+  parent: ISILab.AI.Grammar.GrammarBundleGraph
+  langs:
+  - csharp
+  - vb
+  name: GetValue()
+  nameWithType: GrammarBundleGraph.GetValue()
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.GetValue()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override object GetValue()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function GetValue() As Object
+  overridden: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.GetValue
+  overload: ISILab.AI.Grammar.GrammarBundleGraph.GetValue*
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.GetBundle
+  commentId: M:ISILab.AI.Grammar.GrammarBundleGraph.GetBundle
+  id: GetBundle
+  parent: ISILab.AI.Grammar.GrammarBundleGraph
+  langs:
+  - csharp
+  - vb
+  name: GetBundle()
+  nameWithType: GrammarBundleGraph.GetBundle()
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.GetBundle()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override Bundle GetBundle()
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    content.vb: Public Overrides Function GetBundle() As Bundle
+  overridden: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.GetBundle
+  overload: ISILab.AI.Grammar.GrammarBundleGraph.GetBundle*
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.#ctor
+  commentId: M:ISILab.AI.Grammar.GrammarBundleGraph.#ctor
+  id: '#ctor'
+  parent: ISILab.AI.Grammar.GrammarBundleGraph
+  langs:
+  - csharp
+  - vb
+  name: GrammarBundleGraph()
+  nameWithType: GrammarBundleGraph.GrammarBundleGraph()
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.GrammarBundleGraph()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public GrammarBundleGraph()
+    content.vb: Public Sub New()
+  overload: ISILab.AI.Grammar.GrammarBundleGraph.#ctor*
+  nameWithType.vb: GrammarBundleGraph.New()
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleGraph.New()
+  name.vb: New()
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType
+  commentId: P:ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType
+  id: PrimitiveType
+  parent: ISILab.AI.Grammar.GrammarBundleGraph
+  langs:
+  - csharp
+  - vb
+  name: PrimitiveType
+  nameWithType: GrammarBundleGraph.PrimitiveType
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override Type PrimitiveType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public Overrides ReadOnly Property PrimitiveType As Type
+  overridden: ISILab.AI.Grammar.GrammarField.PrimitiveType
+  overload: ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType*
+references:
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.AI.Grammar.GrammarField
+  commentId: T:ISILab.AI.Grammar.GrammarField
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html
+  name: GrammarField
+  nameWithType: GrammarField
+  fullName: ISILab.AI.Grammar.GrammarField
+- uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}
+  commentId: T:ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}
+  parent: ISILab.AI.Grammar
+  definition: ISILab.AI.Grammar.GrammarField`1
+  href: ISILab.AI.Grammar.GrammarField-1.html
+  name: GrammarField<BundleTargetGraph>
+  nameWithType: GrammarField<BundleTargetGraph>
+  fullName: ISILab.AI.Grammar.GrammarField<ISILab.LBS.Components.BundleTargetGraph>
+  nameWithType.vb: GrammarField(Of BundleTargetGraph)
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of ISILab.LBS.Components.BundleTargetGraph)
+  name.vb: GrammarField(Of BundleTargetGraph)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField`1
+    name: GrammarField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html
+  - name: <
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: '>'
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField`1
+    name: GrammarField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}
+  commentId: T:ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}
+  parent: ISILab.AI.Grammar
+  definition: ISILab.AI.Grammar.GrammarBundleField`1
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html
+  name: GrammarBundleField<BundleTargetGraph>
+  nameWithType: GrammarBundleField<BundleTargetGraph>
+  fullName: ISILab.AI.Grammar.GrammarBundleField<ISILab.LBS.Components.BundleTargetGraph>
+  nameWithType.vb: GrammarBundleField(Of BundleTargetGraph)
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of ISILab.LBS.Components.BundleTargetGraph)
+  name.vb: GrammarBundleField(Of BundleTargetGraph)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1
+    name: GrammarBundleField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html
+  - name: <
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: '>'
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1
+    name: GrammarBundleField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: )
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.AI.Grammar.IBundleStored
+  commentId: T:ISILab.AI.Grammar.IBundleStored
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html
+  name: IBundleStored
+  nameWithType: IBundleStored
+  fullName: ISILab.AI.Grammar.IBundleStored
+- uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.allowedElements
+  commentId: F:ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.allowedElements
+  parent: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarBundleField`1.allowedElements
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_allowedElements
+  name: allowedElements
+  nameWithType: GrammarBundleField<BundleTargetGraph>.allowedElements
+  fullName: ISILab.AI.Grammar.GrammarBundleField<ISILab.LBS.Components.BundleTargetGraph>.allowedElements
+  nameWithType.vb: GrammarBundleField(Of BundleTargetGraph).allowedElements
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of ISILab.LBS.Components.BundleTargetGraph).allowedElements
+- uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.AllowedElements
+  commentId: P:ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.AllowedElements
+  parent: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarBundleField`1.AllowedElements
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_AllowedElements
+  name: AllowedElements
+  nameWithType: GrammarBundleField<BundleTargetGraph>.AllowedElements
+  fullName: ISILab.AI.Grammar.GrammarBundleField<ISILab.LBS.Components.BundleTargetGraph>.AllowedElements
+  nameWithType.vb: GrammarBundleField(Of BundleTargetGraph).AllowedElements
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of ISILab.LBS.Components.BundleTargetGraph).AllowedElements
+- uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.value
+  commentId: F:ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.value
+  parent: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarField`1.value
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_value
+  name: value
+  nameWithType: GrammarField<BundleTargetGraph>.value
+  fullName: ISILab.AI.Grammar.GrammarField<ISILab.LBS.Components.BundleTargetGraph>.value
+  nameWithType.vb: GrammarField(Of BundleTargetGraph).value
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of ISILab.LBS.Components.BundleTargetGraph).value
+- uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.Clone
+  commentId: M:ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.Clone
+  parent: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarField`1.Clone
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_Clone
+  name: Clone()
+  nameWithType: GrammarField<BundleTargetGraph>.Clone()
+  fullName: ISILab.AI.Grammar.GrammarField<ISILab.LBS.Components.BundleTargetGraph>.Clone()
+  nameWithType.vb: GrammarField(Of BundleTargetGraph).Clone()
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of ISILab.LBS.Components.BundleTargetGraph).Clone()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_Clone
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField.data
+  commentId: F:ISILab.AI.Grammar.GrammarField.data
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_data
+  name: data
+  nameWithType: GrammarField.data
+  fullName: ISILab.AI.Grammar.GrammarField.data
+- uid: ISILab.AI.Grammar.GrammarField.name
+  commentId: F:ISILab.AI.Grammar.GrammarField.name
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_name
+  name: name
+  nameWithType: GrammarField.name
+  fullName: ISILab.AI.Grammar.GrammarField.name
+- uid: ISILab.AI.Grammar.GrammarField.Refresh
+  commentId: F:ISILab.AI.Grammar.GrammarField.Refresh
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Refresh
+  name: Refresh
+  nameWithType: GrammarField.Refresh
+  fullName: ISILab.AI.Grammar.GrammarField.Refresh
+- uid: ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
+  commentId: M:ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_CreateField_System_String_System_String_
+  name: CreateField(string, string)
+  nameWithType: GrammarField.CreateField(string, string)
+  fullName: ISILab.AI.Grammar.GrammarField.CreateField(string, string)
+  nameWithType.vb: GrammarField.CreateField(String, String)
+  fullName.vb: ISILab.AI.Grammar.GrammarField.CreateField(String, String)
+  name.vb: CreateField(String, String)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
+    name: CreateField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_CreateField_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
+    name: CreateField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_CreateField_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField.GetHashCode
+  commentId: M:ISILab.AI.Grammar.GrammarField.GetHashCode
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetHashCode
+  name: GetHashCode()
+  nameWithType: GrammarField.GetHashCode()
+  fullName: ISILab.AI.Grammar.GrammarField.GetHashCode()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetHashCode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetHashCode
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField.ToString
+  commentId: M:ISILab.AI.Grammar.GrammarField.ToString
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
+  name: ToString()
+  nameWithType: GrammarField.ToString()
+  fullName: ISILab.AI.Grammar.GrammarField.ToString()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.ToString
+    name: ToString
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.ToString
+    name: ToString
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField.IsList
+  commentId: P:ISILab.AI.Grammar.GrammarField.IsList
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsList
+  name: IsList
+  nameWithType: GrammarField.IsList
+  fullName: ISILab.AI.Grammar.GrammarField.IsList
+- uid: ISILab.AI.Grammar.GrammarField.ItemsSource
+  commentId: P:ISILab.AI.Grammar.GrammarField.ItemsSource
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ItemsSource
+  name: ItemsSource
+  nameWithType: GrammarField.ItemsSource
+  fullName: ISILab.AI.Grammar.GrammarField.ItemsSource
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.AI.Grammar.GrammarField`1
+  commentId: T:ISILab.AI.Grammar.GrammarField`1
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField-1.html
+  name: GrammarField<T>
+  nameWithType: GrammarField<T>
+  fullName: ISILab.AI.Grammar.GrammarField<T>
+  nameWithType.vb: GrammarField(Of T)
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of T)
+  name.vb: GrammarField(Of T)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField`1
+    name: GrammarField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField`1
+    name: GrammarField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleField`1
+  commentId: T:ISILab.AI.Grammar.GrammarBundleField`1
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html
+  name: GrammarBundleField<T>
+  nameWithType: GrammarBundleField<T>
+  fullName: ISILab.AI.Grammar.GrammarBundleField<T>
+  nameWithType.vb: GrammarBundleField(Of T)
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of T)
+  name.vb: GrammarBundleField(Of T)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1
+    name: GrammarBundleField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1
+    name: GrammarBundleField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleField`1.allowedElements
+  commentId: F:ISILab.AI.Grammar.GrammarBundleField`1.allowedElements
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_allowedElements
+  name: allowedElements
+  nameWithType: GrammarBundleField<T>.allowedElements
+  fullName: ISILab.AI.Grammar.GrammarBundleField<T>.allowedElements
+  nameWithType.vb: GrammarBundleField(Of T).allowedElements
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of T).allowedElements
+- uid: ISILab.AI.Grammar.GrammarBundleField`1.AllowedElements
+  commentId: P:ISILab.AI.Grammar.GrammarBundleField`1.AllowedElements
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_AllowedElements
+  name: AllowedElements
+  nameWithType: GrammarBundleField<T>.AllowedElements
+  fullName: ISILab.AI.Grammar.GrammarBundleField<T>.AllowedElements
+  nameWithType.vb: GrammarBundleField(Of T).AllowedElements
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of T).AllowedElements
+- uid: ISILab.AI.Grammar.GrammarField`1.value
+  commentId: F:ISILab.AI.Grammar.GrammarField`1.value
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_value
+  name: value
+  nameWithType: GrammarField<T>.value
+  fullName: ISILab.AI.Grammar.GrammarField<T>.value
+  nameWithType.vb: GrammarField(Of T).value
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of T).value
+- uid: ISILab.AI.Grammar.GrammarField`1.Clone
+  commentId: M:ISILab.AI.Grammar.GrammarField`1.Clone
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_Clone
+  name: Clone()
+  nameWithType: GrammarField<T>.Clone()
+  fullName: ISILab.AI.Grammar.GrammarField<T>.Clone()
+  nameWithType.vb: GrammarField(Of T).Clone()
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of T).Clone()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField`1.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField`1.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_Clone
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.SetValue(System.Object)
+  commentId: M:ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.SetValue(System.Object)
+  parent: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarField`1.SetValue(System.Object)
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_SetValue_System_Object_
+  name: SetValue(object)
+  nameWithType: GrammarField<BundleTargetGraph>.SetValue(object)
+  fullName: ISILab.AI.Grammar.GrammarField<ISILab.LBS.Components.BundleTargetGraph>.SetValue(object)
+  nameWithType.vb: GrammarField(Of BundleTargetGraph).SetValue(Object)
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of ISILab.LBS.Components.BundleTargetGraph).SetValue(Object)
+  name.vb: SetValue(Object)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.SetValue(System.Object)
+    name: SetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_SetValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.SetValue(System.Object)
+    name: SetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_SetValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.SetValue*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleGraph.SetValue
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleGraph.html#ISILab_AI_Grammar_GrammarBundleGraph_SetValue_System_Object_
+  name: SetValue
+  nameWithType: GrammarBundleGraph.SetValue
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.SetValue
+- uid: ISILab.AI.Grammar.GrammarField`1.SetValue(System.Object)
+  commentId: M:ISILab.AI.Grammar.GrammarField`1.SetValue(System.Object)
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_SetValue_System_Object_
+  name: SetValue(object)
+  nameWithType: GrammarField<T>.SetValue(object)
+  fullName: ISILab.AI.Grammar.GrammarField<T>.SetValue(object)
+  nameWithType.vb: GrammarField(Of T).SetValue(Object)
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of T).SetValue(Object)
+  name.vb: SetValue(Object)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField`1.SetValue(System.Object)
+    name: SetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_SetValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField`1.SetValue(System.Object)
+    name: SetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_SetValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.SetObjectBundle(System.Object[])
+  commentId: M:ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.SetObjectBundle(System.Object[])
+  parent: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarBundleField`1.SetObjectBundle(System.Object[])
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_SetObjectBundle_System_Object___
+  name: SetObjectBundle(object[])
+  nameWithType: GrammarBundleField<BundleTargetGraph>.SetObjectBundle(object[])
+  fullName: ISILab.AI.Grammar.GrammarBundleField<ISILab.LBS.Components.BundleTargetGraph>.SetObjectBundle(object[])
+  nameWithType.vb: GrammarBundleField(Of BundleTargetGraph).SetObjectBundle(Object())
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of ISILab.LBS.Components.BundleTargetGraph).SetObjectBundle(Object())
+  name.vb: SetObjectBundle(Object())
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.SetObjectBundle(System.Object[])
+    name: SetObjectBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_SetObjectBundle_System_Object___
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.SetObjectBundle(System.Object[])
+    name: SetObjectBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_SetObjectBundle_System_Object___
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleGraph.html#ISILab_AI_Grammar_GrammarBundleGraph_SetObjectBundle_System_Object___
+  name: SetObjectBundle
+  nameWithType: GrammarBundleGraph.SetObjectBundle
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.SetObjectBundle
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleField`1.SetObjectBundle(System.Object[])
+  commentId: M:ISILab.AI.Grammar.GrammarBundleField`1.SetObjectBundle(System.Object[])
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_SetObjectBundle_System_Object___
+  name: SetObjectBundle(object[])
+  nameWithType: GrammarBundleField<T>.SetObjectBundle(object[])
+  fullName: ISILab.AI.Grammar.GrammarBundleField<T>.SetObjectBundle(object[])
+  nameWithType.vb: GrammarBundleField(Of T).SetObjectBundle(Object())
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of T).SetObjectBundle(Object())
+  name.vb: SetObjectBundle(Object())
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1.SetObjectBundle(System.Object[])
+    name: SetObjectBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_SetObjectBundle_System_Object___
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1.SetObjectBundle(System.Object[])
+    name: SetObjectBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_SetObjectBundle_System_Object___
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.GetValue
+  commentId: M:ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.GetValue
+  parent: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarField`1.GetValue
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
+  name: GetValue()
+  nameWithType: GrammarField<BundleTargetGraph>.GetValue()
+  fullName: ISILab.AI.Grammar.GrammarField<ISILab.LBS.Components.BundleTargetGraph>.GetValue()
+  nameWithType.vb: GrammarField(Of BundleTargetGraph).GetValue()
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of ISILab.LBS.Components.BundleTargetGraph).GetValue()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField{ISILab.LBS.Components.BundleTargetGraph}.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.GetValue*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleGraph.GetValue
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleGraph.html#ISILab_AI_Grammar_GrammarBundleGraph_GetValue
+  name: GetValue
+  nameWithType: GrammarBundleGraph.GetValue
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.GetValue
+- uid: ISILab.AI.Grammar.GrammarField`1.GetValue
+  commentId: M:ISILab.AI.Grammar.GrammarField`1.GetValue
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
+  name: GetValue()
+  nameWithType: GrammarField<T>.GetValue()
+  fullName: ISILab.AI.Grammar.GrammarField<T>.GetValue()
+  nameWithType.vb: GrammarField(Of T).GetValue()
+  fullName.vb: ISILab.AI.Grammar.GrammarField(Of T).GetValue()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField`1.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField`1.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.GetBundle
+  commentId: M:ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.GetBundle
+  parent: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}
+  definition: ISILab.AI.Grammar.GrammarBundleField`1.GetBundle
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_GetBundle
+  name: GetBundle()
+  nameWithType: GrammarBundleField<BundleTargetGraph>.GetBundle()
+  fullName: ISILab.AI.Grammar.GrammarBundleField<ISILab.LBS.Components.BundleTargetGraph>.GetBundle()
+  nameWithType.vb: GrammarBundleField(Of BundleTargetGraph).GetBundle()
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of ISILab.LBS.Components.BundleTargetGraph).GetBundle()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.GetBundle
+    name: GetBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_GetBundle
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarBundleField{ISILab.LBS.Components.BundleTargetGraph}.GetBundle
+    name: GetBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_GetBundle
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.GetBundle*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleGraph.GetBundle
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleGraph.html#ISILab_AI_Grammar_GrammarBundleGraph_GetBundle
+  name: GetBundle
+  nameWithType: GrammarBundleGraph.GetBundle
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.GetBundle
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle
+  nameWithType: Bundle
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
+- uid: ISILab.AI.Grammar.GrammarBundleField`1.GetBundle
+  commentId: M:ISILab.AI.Grammar.GrammarBundleField`1.GetBundle
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_GetBundle
+  name: GetBundle()
+  nameWithType: GrammarBundleField<T>.GetBundle()
+  fullName: ISILab.AI.Grammar.GrammarBundleField<T>.GetBundle()
+  nameWithType.vb: GrammarBundleField(Of T).GetBundle()
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleField(Of T).GetBundle()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1.GetBundle
+    name: GetBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_GetBundle
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarBundleField`1.GetBundle
+    name: GetBundle
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarBundleField-1.html#ISILab_AI_Grammar_GrammarBundleField_1_GetBundle
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.#ctor*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleGraph.#ctor
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleGraph.html#ISILab_AI_Grammar_GrammarBundleGraph__ctor
+  name: GrammarBundleGraph
+  nameWithType: GrammarBundleGraph.GrammarBundleGraph
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.GrammarBundleGraph
+  nameWithType.vb: GrammarBundleGraph.New
+  fullName.vb: ISILab.AI.Grammar.GrammarBundleGraph.New
+  name.vb: New
+- uid: ISILab.AI.Grammar.GrammarField.PrimitiveType
+  commentId: P:ISILab.AI.Grammar.GrammarField.PrimitiveType
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_PrimitiveType
+  name: PrimitiveType
+  nameWithType: GrammarField.PrimitiveType
+  fullName: ISILab.AI.Grammar.GrammarField.PrimitiveType
+- uid: ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarBundleGraph.html#ISILab_AI_Grammar_GrammarBundleGraph_PrimitiveType
+  name: PrimitiveType
+  nameWithType: GrammarBundleGraph.PrimitiveType
+  fullName: ISILab.AI.Grammar.GrammarBundleGraph.PrimitiveType
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type

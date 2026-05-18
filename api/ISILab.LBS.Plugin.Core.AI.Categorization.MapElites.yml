@@ -1,0 +1,1618 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  id: MapElites
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization
+  children:
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.AI.Optimization.BaseOptimizer)
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples(ISILab.AI.Optimization.IOptimizable[])
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnEnd
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnOptimizerChanged
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnSampleUpdated
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample(System.Int32,System.Int32,ISILab.AI.Optimization.IOptimizable)
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.changedSample
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.devest
+  langs:
+  - csharp
+  - vb
+  name: MapElites
+  nameWithType: MapElites
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: 'public class MapElites : ICloneable'
+    content.vb: Public Class MapElites Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.devest
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.devest
+  id: devest
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: devest
+  nameWithType: MapElites.devest
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.devest
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public double devest
+    return:
+      type: System.Double
+    content.vb: Public devest As Double
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.changedSample
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.changedSample
+  id: changedSample
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: changedSample
+  nameWithType: MapElites.changedSample
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.changedSample
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public List<int> changedSample
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public changedSample As List(Of Integer)
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnEnd
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnEnd
+  id: OnEnd
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: OnEnd
+  nameWithType: MapElites.OnEnd
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnEnd
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public Action OnEnd
+    return:
+      type: System.Action
+    content.vb: Public OnEnd As Action
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnOptimizerChanged
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnOptimizerChanged
+  id: OnOptimizerChanged
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: OnOptimizerChanged
+  nameWithType: MapElites.OnOptimizerChanged
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnOptimizerChanged
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public Action OnOptimizerChanged
+    return:
+      type: System.Action
+    content.vb: Public OnOptimizerChanged As Action
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnSampleUpdated
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnSampleUpdated
+  id: OnSampleUpdated
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: OnSampleUpdated
+  nameWithType: MapElites.OnSampleUpdated
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OnSampleUpdated
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public Action<Vector2Int> OnSampleUpdated
+    return:
+      type: System.Action{UnityEngine.Vector2Int}
+    content.vb: Public OnSampleUpdated As Action(Of Vector2Int)
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: MapElites()
+  nameWithType: MapElites.MapElites()
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapElites()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public MapElites()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor*
+  nameWithType.vb: MapElites.New()
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.AI.Optimization.BaseOptimizer)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.AI.Optimization.BaseOptimizer)
+  id: '#ctor(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.AI.Optimization.BaseOptimizer)'
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: MapElites(IRangedEvaluator, IRangedEvaluator, BaseOptimizer)
+  nameWithType: MapElites.MapElites(IRangedEvaluator, IRangedEvaluator, BaseOptimizer)
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapElites(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.AI.Optimization.BaseOptimizer)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public MapElites(IRangedEvaluator xEvaluator, IRangedEvaluator yEvaluator, BaseOptimizer optimizer)
+    parameters:
+    - id: xEvaluator
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    - id: yEvaluator
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    - id: optimizer
+      type: ISILab.AI.Optimization.BaseOptimizer
+    content.vb: Public Sub New(xEvaluator As IRangedEvaluator, yEvaluator As IRangedEvaluator, optimizer As BaseOptimizer)
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor*
+  nameWithType.vb: MapElites.New(IRangedEvaluator, IRangedEvaluator, BaseOptimizer)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.New(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.AI.Optimization.BaseOptimizer)
+  name.vb: New(IRangedEvaluator, IRangedEvaluator, BaseOptimizer)
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  id: Run(System.Boolean,System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Run(bool, Action<float>, CancellationToken)
+  nameWithType: MapElites.Run(bool, Action<float>, CancellationToken)
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run(bool, System.Action<float>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public void Run(bool synchronous = false, Action<float> onProgress = null, CancellationToken token = default)
+    parameters:
+    - id: synchronous
+      type: System.Boolean
+    - id: onProgress
+      type: System.Action{System.Single}
+    - id: token
+      type: System.Threading.CancellationToken
+    content.vb: Public Sub Run(synchronous As Boolean = False, onProgress As Action(Of Single) = Nothing, token As CancellationToken = Nothing)
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run*
+  nameWithType.vb: MapElites.Run(Boolean, Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run(Boolean, System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: Run(Boolean, Action(Of Single), CancellationToken)
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+  id: Restart(System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Restart(Action<float>, CancellationToken)
+  nameWithType: MapElites.Restart(Action<float>, CancellationToken)
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart(System.Action<float>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public void Restart(Action<float> onProgress = null, CancellationToken token = default)
+    parameters:
+    - id: onProgress
+      type: System.Action{System.Single}
+    - id: token
+      type: System.Threading.CancellationToken
+    content.vb: Public Sub Restart(onProgress As Action(Of Single) = Nothing, token As CancellationToken = Nothing)
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart*
+  nameWithType.vb: MapElites.Restart(Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart(System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: Restart(Action(Of Single), CancellationToken)
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop
+  id: Stop
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: MapElites.Stop()
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  id: UpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: UpdateSamples(IOptimizable[])
+  nameWithType: MapElites.UpdateSamples(IOptimizable[])
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public void UpdateSamples(IOptimizable[] samples)
+    parameters:
+    - id: samples
+      type: ISILab.AI.Optimization.IOptimizable[]
+    content.vb: Public Sub UpdateSamples(samples As IOptimizable())
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples*
+  nameWithType.vb: MapElites.UpdateSamples(IOptimizable())
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples(ISILab.AI.Optimization.IOptimizable())
+  name.vb: UpdateSamples(IOptimizable())
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  id: OLDUpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: OLDUpdateSamples(IOptimizable[])
+  nameWithType: MapElites.OLDUpdateSamples(IOptimizable[])
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples(ISILab.AI.Optimization.IOptimizable[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public void OLDUpdateSamples(IOptimizable[] samples)
+    parameters:
+    - id: samples
+      type: ISILab.AI.Optimization.IOptimizable[]
+    content.vb: Public Sub OLDUpdateSamples(samples As IOptimizable())
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples*
+  nameWithType.vb: MapElites.OLDUpdateSamples(IOptimizable())
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples(ISILab.AI.Optimization.IOptimizable())
+  name.vb: OLDUpdateSamples(IOptimizable())
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample(System.Int32,System.Int32,ISILab.AI.Optimization.IOptimizable)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample(System.Int32,System.Int32,ISILab.AI.Optimization.IOptimizable)
+  id: UpdateSample(System.Int32,System.Int32,ISILab.AI.Optimization.IOptimizable)
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: UpdateSample(int, int, IOptimizable)
+  nameWithType: MapElites.UpdateSample(int, int, IOptimizable)
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample(int, int, ISILab.AI.Optimization.IOptimizable)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public bool UpdateSample(int x, int y, IOptimizable evaluable)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    - id: evaluable
+      type: ISILab.AI.Optimization.IOptimizable
+    return:
+      type: System.Boolean
+    content.vb: Public Function UpdateSample(x As Integer, y As Integer, evaluable As IOptimizable) As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample*
+  nameWithType.vb: MapElites.UpdateSample(Integer, Integer, IOptimizable)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample(Integer, Integer, ISILab.AI.Optimization.IOptimizable)
+  name.vb: UpdateSample(Integer, Integer, IOptimizable)
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples(ISILab.AI.Optimization.IOptimizable[])
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples(ISILab.AI.Optimization.IOptimizable[])
+  id: MapSamples(ISILab.AI.Optimization.IOptimizable[])
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: MapSamples(IOptimizable[])
+  nameWithType: MapElites.MapSamples(IOptimizable[])
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples(ISILab.AI.Optimization.IOptimizable[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public List<MappedIEvaluable> MapSamples(IOptimizable[] samples)
+    parameters:
+    - id: samples
+      type: ISILab.AI.Optimization.IOptimizable[]
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable}
+    content.vb: Public Function MapSamples(samples As IOptimizable()) As List(Of MappedIEvaluable)
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples*
+  nameWithType.vb: MapElites.MapSamples(IOptimizable())
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples(ISILab.AI.Optimization.IOptimizable())
+  name.vb: MapSamples(IOptimizable())
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone
+  id: Clone
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: MapElites.Clone()
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Function Clone() As Object
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount
+  id: XSampleCount
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: XSampleCount
+  nameWithType: MapElites.XSampleCount
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public int XSampleCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property XSampleCount As Integer
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount
+  id: YSampleCount
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: YSampleCount
+  nameWithType: MapElites.YSampleCount
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public int YSampleCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property YSampleCount As Integer
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam
+  id: Adam
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Adam
+  nameWithType: MapElites.Adam
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public IOptimizable Adam { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.IOptimizable
+    content.vb: Public Property Adam As IOptimizable
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator
+  id: XEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: XEvaluator
+  nameWithType: MapElites.XEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public IRangedEvaluator XEvaluator { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    content.vb: Public Property XEvaluator As IRangedEvaluator
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold
+  id: XThreshold
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: XThreshold
+  nameWithType: MapElites.XThreshold
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public Vector2 XThreshold { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Property XThreshold As Vector2
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator
+  id: YEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: YEvaluator
+  nameWithType: MapElites.YEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public IRangedEvaluator YEvaluator { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    content.vb: Public Property YEvaluator As IRangedEvaluator
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold
+  id: YThreshold
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: YThreshold
+  nameWithType: MapElites.YThreshold
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public Vector2 YThreshold { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Property YThreshold As Vector2
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples
+  id: BestSamples
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: BestSamples
+  nameWithType: MapElites.BestSamples
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public IOptimizable[,] BestSamples { get; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.IOptimizable[,]
+    content.vb: Public ReadOnly Property BestSamples As IOptimizable(,)
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer
+  id: Optimizer
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Optimizer
+  nameWithType: MapElites.Optimizer
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public BaseOptimizer Optimizer { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.BaseOptimizer
+    content.vb: Public Property Optimizer As BaseOptimizer
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running
+  id: Running
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Running
+  nameWithType: MapElites.Running
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public bool Running { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Running As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running*
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished
+  id: Finished
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  langs:
+  - csharp
+  - vb
+  name: Finished
+  nameWithType: MapElites.Finished
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public bool Finished { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Finished As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished*
+references:
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Categorization
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Categorization
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<int>
+  nameWithType: List<int>
+  fullName: System.Collections.Generic.List<int>
+  nameWithType.vb: List(Of Integer)
+  fullName.vb: System.Collections.Generic.List(Of Integer)
+  name.vb: List(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Action{UnityEngine.Vector2Int}
+  commentId: T:System.Action{UnityEngine.Vector2Int}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<Vector2Int>
+  nameWithType: Action<Vector2Int>
+  fullName: System.Action<UnityEngine.Vector2Int>
+  nameWithType.vb: Action(Of Vector2Int)
+  fullName.vb: System.Action(Of UnityEngine.Vector2Int)
+  name.vb: Action(Of Vector2Int)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites__ctor
+  name: MapElites
+  nameWithType: MapElites.MapElites
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapElites
+  nameWithType.vb: MapElites.New
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html
+  name: IRangedEvaluator
+  nameWithType: IRangedEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+- uid: ISILab.AI.Optimization.BaseOptimizer
+  commentId: T:ISILab.AI.Optimization.BaseOptimizer
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html
+  name: BaseOptimizer
+  nameWithType: BaseOptimizer
+  fullName: ISILab.AI.Optimization.BaseOptimizer
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Run_System_Boolean_System_Action_System_Single__System_Threading_CancellationToken_
+  name: Run
+  nameWithType: MapElites.Run
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Run
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Action{System.Single}
+  commentId: T:System.Action{System.Single}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<float>
+  nameWithType: Action<float>
+  fullName: System.Action<float>
+  nameWithType.vb: Action(Of Single)
+  fullName.vb: System.Action(Of Single)
+  name.vb: Action(Of Single)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Restart_System_Action_System_Single__System_Threading_CancellationToken_
+  name: Restart
+  nameWithType: MapElites.Restart
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Restart
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Stop
+  name: Stop
+  nameWithType: MapElites.Stop
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Stop
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_UpdateSamples_ISILab_AI_Optimization_IOptimizable___
+  name: UpdateSamples
+  nameWithType: MapElites.UpdateSamples
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSamples
+- uid: ISILab.AI.Optimization.IOptimizable[]
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable[]
+  nameWithType: IOptimizable[]
+  fullName: ISILab.AI.Optimization.IOptimizable[]
+  nameWithType.vb: IOptimizable()
+  fullName.vb: ISILab.AI.Optimization.IOptimizable()
+  name.vb: IOptimizable()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_OLDUpdateSamples_ISILab_AI_Optimization_IOptimizable___
+  name: OLDUpdateSamples
+  nameWithType: MapElites.OLDUpdateSamples
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.OLDUpdateSamples
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_UpdateSample_System_Int32_System_Int32_ISILab_AI_Optimization_IOptimizable_
+  name: UpdateSample
+  nameWithType: MapElites.UpdateSample
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.UpdateSample
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_MapSamples_ISILab_AI_Optimization_IOptimizable___
+  name: MapSamples
+  nameWithType: MapElites.MapSamples
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.MapSamples
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<MappedIEvaluable>
+  nameWithType: List<MappedIEvaluable>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable>
+  nameWithType.vb: List(Of MappedIEvaluable)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable)
+  name.vb: List(Of MappedIEvaluable)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+    name: MappedIEvaluable
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+    name: MappedIEvaluable
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Clone
+  name: Clone
+  nameWithType: MapElites.Clone
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_XSampleCount
+  name: XSampleCount
+  nameWithType: MapElites.XSampleCount
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XSampleCount
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_YSampleCount
+  name: YSampleCount
+  nameWithType: MapElites.YSampleCount
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YSampleCount
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Adam
+  name: Adam
+  nameWithType: MapElites.Adam
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Adam
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_XEvaluator
+  name: XEvaluator
+  nameWithType: MapElites.XEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_XThreshold
+  name: XThreshold
+  nameWithType: MapElites.XThreshold
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.XThreshold
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_YEvaluator
+  name: YEvaluator
+  nameWithType: MapElites.YEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_YThreshold
+  name: YThreshold
+  nameWithType: MapElites.YThreshold
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.YThreshold
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_BestSamples
+  name: BestSamples
+  nameWithType: MapElites.BestSamples
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.BestSamples
+- uid: ISILab.AI.Optimization.IOptimizable[,]
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable[,]
+  nameWithType: IOptimizable[,]
+  fullName: ISILab.AI.Optimization.IOptimizable[,]
+  nameWithType.vb: IOptimizable(,)
+  fullName.vb: ISILab.AI.Optimization.IOptimizable(,)
+  name.vb: IOptimizable(,)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: (
+  - name: ','
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Optimizer
+  name: Optimizer
+  nameWithType: MapElites.Optimizer
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Optimizer
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Running
+  name: Running
+  nameWithType: MapElites.Running
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Running
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html#ISILab_LBS_Plugin_Core_AI_Categorization_MapElites_Finished
+  name: Finished
+  nameWithType: MapElites.Finished
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.Finished

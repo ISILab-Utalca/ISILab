@@ -1,0 +1,267 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.LoadedLevel
+  commentId: T:ISILab.LBS.LoadedLevel
+  id: LoadedLevel
+  parent: ISILab.LBS
+  children:
+  - ISILab.LBS.LoadedLevel.#ctor
+  - ISILab.LBS.LoadedLevel.CreateInstance(ISILab.LBS.LBSLevelData,System.String)
+  - ISILab.LBS.LoadedLevel.FileInfo
+  - ISILab.LBS.LoadedLevel.data
+  - ISILab.LBS.LoadedLevel.fullName
+  langs:
+  - csharp
+  - vb
+  name: LoadedLevel
+  nameWithType: LoadedLevel
+  fullName: ISILab.LBS.LoadedLevel
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: 'public class LoadedLevel : ScriptableObject'
+    content.vb: Public Class LoadedLevel Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.LoadedLevel.fullName
+  commentId: F:ISILab.LBS.LoadedLevel.fullName
+  id: fullName
+  parent: ISILab.LBS.LoadedLevel
+  langs:
+  - csharp
+  - vb
+  name: fullName
+  nameWithType: LoadedLevel.fullName
+  fullName: ISILab.LBS.LoadedLevel.fullName
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public string fullName
+    return:
+      type: System.String
+    content.vb: Public fullName As String
+- uid: ISILab.LBS.LoadedLevel.data
+  commentId: F:ISILab.LBS.LoadedLevel.data
+  id: data
+  parent: ISILab.LBS.LoadedLevel
+  langs:
+  - csharp
+  - vb
+  name: data
+  nameWithType: LoadedLevel.data
+  fullName: ISILab.LBS.LoadedLevel.data
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSLevelData data
+    return:
+      type: ISILab.LBS.LBSLevelData
+    content.vb: Public data As LBSLevelData
+- uid: ISILab.LBS.LoadedLevel.CreateInstance(ISILab.LBS.LBSLevelData,System.String)
+  commentId: M:ISILab.LBS.LoadedLevel.CreateInstance(ISILab.LBS.LBSLevelData,System.String)
+  id: CreateInstance(ISILab.LBS.LBSLevelData,System.String)
+  parent: ISILab.LBS.LoadedLevel
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance(LBSLevelData, string)
+  nameWithType: LoadedLevel.CreateInstance(LBSLevelData, string)
+  fullName: ISILab.LBS.LoadedLevel.CreateInstance(ISILab.LBS.LBSLevelData, string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static LoadedLevel CreateInstance(LBSLevelData data, string fullName)
+    parameters:
+    - id: data
+      type: ISILab.LBS.LBSLevelData
+    - id: fullName
+      type: System.String
+    return:
+      type: ISILab.LBS.LoadedLevel
+    content.vb: Public Shared Function CreateInstance(data As LBSLevelData, fullName As String) As LoadedLevel
+  overload: ISILab.LBS.LoadedLevel.CreateInstance*
+  nameWithType.vb: LoadedLevel.CreateInstance(LBSLevelData, String)
+  fullName.vb: ISILab.LBS.LoadedLevel.CreateInstance(ISILab.LBS.LBSLevelData, String)
+  name.vb: CreateInstance(LBSLevelData, String)
+- uid: ISILab.LBS.LoadedLevel.#ctor
+  commentId: M:ISILab.LBS.LoadedLevel.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.LoadedLevel
+  langs:
+  - csharp
+  - vb
+  name: LoadedLevel()
+  nameWithType: LoadedLevel.LoadedLevel()
+  fullName: ISILab.LBS.LoadedLevel.LoadedLevel()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public LoadedLevel()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.LoadedLevel.#ctor*
+  nameWithType.vb: LoadedLevel.New()
+  fullName.vb: ISILab.LBS.LoadedLevel.New()
+  name.vb: New()
+- uid: ISILab.LBS.LoadedLevel.FileInfo
+  commentId: P:ISILab.LBS.LoadedLevel.FileInfo
+  id: FileInfo
+  parent: ISILab.LBS.LoadedLevel
+  langs:
+  - csharp
+  - vb
+  name: FileInfo
+  nameWithType: LoadedLevel.FileInfo
+  fullName: ISILab.LBS.LoadedLevel.FileInfo
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public FileInfo FileInfo { get; }
+    parameters: []
+    return:
+      type: System.IO.FileInfo
+    content.vb: Public ReadOnly Property FileInfo As FileInfo
+  overload: ISILab.LBS.LoadedLevel.FileInfo*
+references:
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.LBSLevelData
+  commentId: T:ISILab.LBS.LBSLevelData
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.LBSLevelData.html
+  name: LBSLevelData
+  nameWithType: LBSLevelData
+  fullName: ISILab.LBS.LBSLevelData
+- uid: ISILab.LBS.LoadedLevel.CreateInstance*
+  commentId: Overload:ISILab.LBS.LoadedLevel.CreateInstance
+  isExternal: true
+  href: ISILab.LBS.LoadedLevel.html#ISILab_LBS_LoadedLevel_CreateInstance_ISILab_LBS_LBSLevelData_System_String_
+  name: CreateInstance
+  nameWithType: LoadedLevel.CreateInstance
+  fullName: ISILab.LBS.LoadedLevel.CreateInstance
+- uid: ISILab.LBS.LoadedLevel
+  commentId: T:ISILab.LBS.LoadedLevel
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.LoadedLevel.html
+  name: LoadedLevel
+  nameWithType: LoadedLevel
+  fullName: ISILab.LBS.LoadedLevel
+- uid: ISILab.LBS.LoadedLevel.#ctor*
+  commentId: Overload:ISILab.LBS.LoadedLevel.#ctor
+  isExternal: true
+  href: ISILab.LBS.LoadedLevel.html#ISILab_LBS_LoadedLevel__ctor
+  name: LoadedLevel
+  nameWithType: LoadedLevel.LoadedLevel
+  fullName: ISILab.LBS.LoadedLevel.LoadedLevel
+  nameWithType.vb: LoadedLevel.New
+  fullName.vb: ISILab.LBS.LoadedLevel.New
+  name.vb: New
+- uid: ISILab.LBS.LoadedLevel.FileInfo*
+  commentId: Overload:ISILab.LBS.LoadedLevel.FileInfo
+  isExternal: true
+  href: ISILab.LBS.LoadedLevel.html#ISILab_LBS_LoadedLevel_FileInfo
+  name: FileInfo
+  nameWithType: LoadedLevel.FileInfo
+  fullName: ISILab.LBS.LoadedLevel.FileInfo
+- uid: System.IO.FileInfo
+  commentId: T:System.IO.FileInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileinfo
+  name: FileInfo
+  nameWithType: FileInfo
+  fullName: System.IO.FileInfo
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io

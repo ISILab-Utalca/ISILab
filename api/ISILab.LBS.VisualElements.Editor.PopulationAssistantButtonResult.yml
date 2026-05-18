@@ -1,0 +1,555 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  commentId: T:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  id: PopulationAssistantButtonResult
+  parent: ISILab.LBS.VisualElements.Editor
+  children:
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.#ctor
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnApplySuggestion
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonDeselected
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonSelected
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnExecute
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnImageChange
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnSaveSuggestion
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor(UnityEngine.Color)
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture(UnityEngine.Texture2D)
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.backgroundTexture
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.inactiveBorder
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectBorder
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectButton
+  - ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.toolBar
+  langs:
+  - csharp
+  - vb
+  name: PopulationAssistantButtonResult
+  nameWithType: PopulationAssistantButtonResult
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: 'public class PopulationAssistantButtonResult : VisualElement'
+    content.vb: Public Class PopulationAssistantButtonResult Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.backgroundTexture
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.backgroundTexture
+  id: backgroundTexture
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: backgroundTexture
+  nameWithType: PopulationAssistantButtonResult.backgroundTexture
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.backgroundTexture
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Texture2D backgroundTexture
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public backgroundTexture As Texture2D
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectBorder
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectBorder
+  id: selectBorder
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: selectBorder
+  nameWithType: PopulationAssistantButtonResult.selectBorder
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectBorder
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public VisualElement selectBorder
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public selectBorder As VisualElement
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.inactiveBorder
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.inactiveBorder
+  id: inactiveBorder
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: inactiveBorder
+  nameWithType: PopulationAssistantButtonResult.inactiveBorder
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.inactiveBorder
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public VisualElement inactiveBorder
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public inactiveBorder As VisualElement
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectButton
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectButton
+  id: selectButton
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: selectButton
+  nameWithType: PopulationAssistantButtonResult.selectButton
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.selectButton
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Button selectButton
+    return:
+      type: UnityEngine.UIElements.Button
+    content.vb: Public selectButton As Button
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.toolBar
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.toolBar
+  id: toolBar
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: toolBar
+  nameWithType: PopulationAssistantButtonResult.toolBar
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.toolBar
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public ToolbarMenu toolBar
+    return:
+      type: UnityEditor.UIElements.ToolbarMenu
+    content.vb: Public toolBar As ToolbarMenu
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnExecute
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnExecute
+  id: OnExecute
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: OnExecute
+  nameWithType: PopulationAssistantButtonResult.OnExecute
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnExecute
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnExecute
+    return:
+      type: System.Action
+    content.vb: Public OnExecute As Action
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnImageChange
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnImageChange
+  id: OnImageChange
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: OnImageChange
+  nameWithType: PopulationAssistantButtonResult.OnImageChange
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnImageChange
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnImageChange
+    return:
+      type: System.Action
+    content.vb: Public OnImageChange As Action
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonDeselected
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonDeselected
+  id: OnButtonDeselected
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: OnButtonDeselected
+  nameWithType: PopulationAssistantButtonResult.OnButtonDeselected
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonDeselected
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnButtonDeselected
+    return:
+      type: System.Action
+    content.vb: Public OnButtonDeselected As Action
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonSelected
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonSelected
+  id: OnButtonSelected
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: OnButtonSelected
+  nameWithType: PopulationAssistantButtonResult.OnButtonSelected
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnButtonSelected
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnButtonSelected
+    return:
+      type: System.Action
+    content.vb: Public OnButtonSelected As Action
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnApplySuggestion
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnApplySuggestion
+  id: OnApplySuggestion
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: OnApplySuggestion
+  nameWithType: PopulationAssistantButtonResult.OnApplySuggestion
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnApplySuggestion
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnApplySuggestion
+    return:
+      type: System.Action
+    content.vb: Public OnApplySuggestion As Action
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnSaveSuggestion
+  commentId: F:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnSaveSuggestion
+  id: OnSaveSuggestion
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: OnSaveSuggestion
+  nameWithType: PopulationAssistantButtonResult.OnSaveSuggestion
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.OnSaveSuggestion
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnSaveSuggestion
+    return:
+      type: System.Action
+    content.vb: Public OnSaveSuggestion As Action
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.#ctor
+  commentId: M:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: PopulationAssistantButtonResult()
+  nameWithType: PopulationAssistantButtonResult.PopulationAssistantButtonResult()
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.PopulationAssistantButtonResult()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public PopulationAssistantButtonResult()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.#ctor*
+  nameWithType.vb: PopulationAssistantButtonResult.New()
+  fullName.vb: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture
+  commentId: M:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture
+  id: GetTexture
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: GetTexture()
+  nameWithType: PopulationAssistantButtonResult.GetTexture()
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Texture2D GetTexture()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Function GetTexture() As Texture2D
+  overload: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture*
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture(UnityEngine.Texture2D)
+  commentId: M:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture(UnityEngine.Texture2D)
+  id: SetTexture(UnityEngine.Texture2D)
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: SetTexture(Texture2D)
+  nameWithType: PopulationAssistantButtonResult.SetTexture(Texture2D)
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture(UnityEngine.Texture2D)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void SetTexture(Texture2D texture)
+    parameters:
+    - id: texture
+      type: UnityEngine.Texture2D
+    content.vb: Public Sub SetTexture(texture As Texture2D)
+  overload: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture*
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor(UnityEngine.Color)
+  commentId: M:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor(UnityEngine.Color)
+  id: SetColor(UnityEngine.Color)
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: SetColor(Color)
+  nameWithType: PopulationAssistantButtonResult.SetColor(Color)
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor(UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void SetColor(Color color)
+    parameters:
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Public Sub SetColor(color As Color)
+  overload: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor*
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel
+  commentId: M:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel
+  id: UpdateLabel
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: UpdateLabel()
+  nameWithType: PopulationAssistantButtonResult.UpdateLabel()
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void UpdateLabel()
+    content.vb: Public Sub UpdateLabel()
+  overload: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel*
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data
+  commentId: P:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data
+  id: Data
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: PopulationAssistantButtonResult.Data
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public object Data { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Data As Object
+  overload: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data*
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score
+  commentId: P:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score
+  id: Score
+  parent: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult
+  langs:
+  - csharp
+  - vb
+  name: Score
+  nameWithType: PopulationAssistantButtonResult.Score
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public string Score { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Score As String
+  overload: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score*
+references:
+- uid: ISILab.LBS.VisualElements.Editor
+  commentId: N:ISILab.LBS.VisualElements.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements.Editor
+  nameWithType: ISILab.LBS.VisualElements.Editor
+  fullName: ISILab.LBS.VisualElements.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: UnityEngine.UIElements.Button
+  isExternal: true
+  name: Button
+  nameWithType: Button
+  fullName: UnityEngine.UIElements.Button
+- uid: UnityEditor.UIElements.ToolbarMenu
+  commentId: '!:UnityEditor.UIElements.ToolbarMenu'
+  isExternal: true
+  name: ToolbarMenu
+  nameWithType: ToolbarMenu
+  fullName: UnityEditor.UIElements.ToolbarMenu
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.html#ISILab_LBS_VisualElements_Editor_PopulationAssistantButtonResult__ctor
+  name: PopulationAssistantButtonResult
+  nameWithType: PopulationAssistantButtonResult.PopulationAssistantButtonResult
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.PopulationAssistantButtonResult
+  nameWithType.vb: PopulationAssistantButtonResult.New
+  fullName.vb: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.html#ISILab_LBS_VisualElements_Editor_PopulationAssistantButtonResult_GetTexture
+  name: GetTexture
+  nameWithType: PopulationAssistantButtonResult.GetTexture
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.GetTexture
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.html#ISILab_LBS_VisualElements_Editor_PopulationAssistantButtonResult_SetTexture_UnityEngine_Texture2D_
+  name: SetTexture
+  nameWithType: PopulationAssistantButtonResult.SetTexture
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetTexture
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.html#ISILab_LBS_VisualElements_Editor_PopulationAssistantButtonResult_SetColor_UnityEngine_Color_
+  name: SetColor
+  nameWithType: PopulationAssistantButtonResult.SetColor
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.SetColor
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.html#ISILab_LBS_VisualElements_Editor_PopulationAssistantButtonResult_UpdateLabel
+  name: UpdateLabel
+  nameWithType: PopulationAssistantButtonResult.UpdateLabel
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.UpdateLabel
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.html#ISILab_LBS_VisualElements_Editor_PopulationAssistantButtonResult_Data
+  name: Data
+  nameWithType: PopulationAssistantButtonResult.Data
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Data
+- uid: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.html#ISILab_LBS_VisualElements_Editor_PopulationAssistantButtonResult_Score
+  name: Score
+  nameWithType: PopulationAssistantButtonResult.Score
+  fullName: ISILab.LBS.VisualElements.Editor.PopulationAssistantButtonResult.Score
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

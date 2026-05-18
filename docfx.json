@@ -4,9 +4,11 @@
     {
       "src": [
         {
-          "src": "../src",
+          "src": "../../Library/ScriptAssemblies/",
           "files": [
-            "**/*.csproj"
+            "LBS.Editor.dll",
+            "LBS.dll",
+            "DevTools.dll"
           ]
         }
       ],
@@ -17,7 +19,7 @@
     "content": [
       {
         "files": [
-          "**/*.{md,yml}"
+          "**/*.{md,yml,xml}"
         ],
         "exclude": [
           "_site/**"
@@ -37,10 +39,10 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "lbs-docs",
-      "_appTitle": "lbs-docs",
+      "_appName": "lbs-api-docs",
+      "_appTitle": "lbs-api_docs",
       "_enableSearch": true,
-      "pdf": true
+      "pdf": false
     }
   }
 }

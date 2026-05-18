@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SVGImporter | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SVGImporter | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.VectorGraphics.Editor.SVGImporter">
+
+
+
+  <h1 id="Unity_VectorGraphics_Editor_SVGImporter" data-uid="Unity.VectorGraphics.Editor.SVGImporter" class="text-break">
+Class SVGImporter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.VectorGraphics.html">VectorGraphics</a>.<a class="xref" href="Unity.VectorGraphics.Editor.html">Editor</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.VectorGraphics.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SVGImporter : ScriptedImporter, ISpriteEditorDataProvider</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SVGImporter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="UnityEditor.U2D.Sprites.ISpriteEditorDataProvider.html">ISpriteEditorDataProvider</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter__ctor_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.#ctor*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter__ctor" data-uid="Unity.VectorGraphics.Editor.SVGImporter.#ctor">
+  SVGImporter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SVGImporter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_AdvancedMode_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.AdvancedMode*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_AdvancedMode" data-uid="Unity.VectorGraphics.Editor.SVGImporter.AdvancedMode">
+  AdvancedMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AdvancedMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_Alignment_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.Alignment*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_Alignment" data-uid="Unity.VectorGraphics.Editor.SVGImporter.Alignment">
+  Alignment
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VectorUtils.Alignment Alignment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Alignment.html">Alignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_CustomPivot_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.CustomPivot*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_CustomPivot" data-uid="Unity.VectorGraphics.Editor.SVGImporter.CustomPivot">
+  CustomPivot
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 CustomPivot { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_FilterMode_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.FilterMode*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_FilterMode" data-uid="Unity.VectorGraphics.Editor.SVGImporter.FilterMode">
+  FilterMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FilterMode FilterMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">FilterMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_GeneratePhysicsShape_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.GeneratePhysicsShape*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_GeneratePhysicsShape" data-uid="Unity.VectorGraphics.Editor.SVGImporter.GeneratePhysicsShape">
+  GeneratePhysicsShape
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GeneratePhysicsShape { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_GradientResolution_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.GradientResolution*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_GradientResolution" data-uid="Unity.VectorGraphics.Editor.SVGImporter.GradientResolution">
+  GradientResolution
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort GradientResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_KeepTextureAspectRatio_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.KeepTextureAspectRatio*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_KeepTextureAspectRatio" data-uid="Unity.VectorGraphics.Editor.SVGImporter.KeepTextureAspectRatio">
+  KeepTextureAspectRatio
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool KeepTextureAspectRatio { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_MaxCordDeviation_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxCordDeviation*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_MaxCordDeviation" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxCordDeviation">
+  MaxCordDeviation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MaxCordDeviation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_MaxCordDeviationEnabled_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxCordDeviationEnabled*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_MaxCordDeviationEnabled" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxCordDeviationEnabled">
+  MaxCordDeviationEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MaxCordDeviationEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_MaxTangentAngle_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxTangentAngle*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_MaxTangentAngle" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxTangentAngle">
+  MaxTangentAngle
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MaxTangentAngle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_MaxTangentAngleEnabled_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxTangentAngleEnabled*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_MaxTangentAngleEnabled" data-uid="Unity.VectorGraphics.Editor.SVGImporter.MaxTangentAngleEnabled">
+  MaxTangentAngleEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MaxTangentAngleEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_PredefinedResolutionIndex_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.PredefinedResolutionIndex*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_PredefinedResolutionIndex" data-uid="Unity.VectorGraphics.Editor.SVGImporter.PredefinedResolutionIndex">
+  PredefinedResolutionIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PredefinedResolutionIndex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_PreserveSVGImageAspect_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.PreserveSVGImageAspect*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_PreserveSVGImageAspect" data-uid="Unity.VectorGraphics.Editor.SVGImporter.PreserveSVGImageAspect">
+  PreserveSVGImageAspect
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PreserveSVGImageAspect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_PreserveViewport_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.PreserveViewport*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_PreserveViewport" data-uid="Unity.VectorGraphics.Editor.SVGImporter.PreserveViewport">
+  PreserveViewport
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use the ViewportOptions property instead&quot;)]
+public bool PreserveViewport { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_ResolutionMultiplier_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.ResolutionMultiplier*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_ResolutionMultiplier" data-uid="Unity.VectorGraphics.Editor.SVGImporter.ResolutionMultiplier">
+  ResolutionMultiplier
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ResolutionMultiplier { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_SampleCount_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SampleCount*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_SampleCount" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SampleCount">
+  SampleCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SampleCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_SamplingStepDistance_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SamplingStepDistance*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_SamplingStepDistance" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SamplingStepDistance">
+  SamplingStepDistance
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SamplingStepDistance { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_StepDistance_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.StepDistance*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_StepDistance" data-uid="Unity.VectorGraphics.Editor.SVGImporter.StepDistance">
+  StepDistance
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float StepDistance { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_SvgPixelsPerUnit_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SvgPixelsPerUnit*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_SvgPixelsPerUnit" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SvgPixelsPerUnit">
+  SvgPixelsPerUnit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SvgPixelsPerUnit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_SvgType_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SvgType*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_SvgType" data-uid="Unity.VectorGraphics.Editor.SVGImporter.SvgType">
+  SvgType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SVGType SvgType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.Editor.SVGType.html">SVGType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_TargetResolution_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TargetResolution*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_TargetResolution" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TargetResolution">
+  TargetResolution
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TargetResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_TextureHeight_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TextureHeight*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_TextureHeight" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TextureHeight">
+  TextureHeight
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TextureHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_TextureSize_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TextureSize*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_TextureSize" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TextureSize">
+  TextureSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TextureSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_TextureWidth_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TextureWidth*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_TextureWidth" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TextureWidth">
+  TextureWidth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TextureWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_TexturedSpriteMeshType_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TexturedSpriteMeshType*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_TexturedSpriteMeshType" data-uid="Unity.VectorGraphics.Editor.SVGImporter.TexturedSpriteMeshType">
+  TexturedSpriteMeshType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteMeshType TexturedSpriteMeshType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SpriteMeshType</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_UseSVGPixelsPerUnit_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.UseSVGPixelsPerUnit*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_UseSVGPixelsPerUnit" data-uid="Unity.VectorGraphics.Editor.SVGImporter.UseSVGPixelsPerUnit">
+  UseSVGPixelsPerUnit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseSVGPixelsPerUnit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_ViewportOptions_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.ViewportOptions*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_ViewportOptions" data-uid="Unity.VectorGraphics.Editor.SVGImporter.ViewportOptions">
+  ViewportOptions
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewportOptions ViewportOptions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.ViewportOptions.html">ViewportOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_WrapMode_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.WrapMode*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_WrapMode" data-uid="Unity.VectorGraphics.Editor.SVGImporter.WrapMode">
+  WrapMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureWrapMode WrapMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_pixelsPerUnit_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.pixelsPerUnit*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_pixelsPerUnit" data-uid="Unity.VectorGraphics.Editor.SVGImporter.pixelsPerUnit">
+  pixelsPerUnit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float pixelsPerUnit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_spriteImportMode_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.spriteImportMode*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_spriteImportMode" data-uid="Unity.VectorGraphics.Editor.SVGImporter.spriteImportMode">
+  spriteImportMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteImportMode spriteImportMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SpriteImportMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_targetObject_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.targetObject*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_targetObject" data-uid="Unity.VectorGraphics.Editor.SVGImporter.targetObject">
+  targetObject
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Object targetObject { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_VectorGraphics_Editor_SVGImporter_OnImportAsset_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.OnImportAsset*"></a>
+
+  <h3 id="Unity_VectorGraphics_Editor_SVGImporter_OnImportAsset_UnityEditor_AssetImporters_AssetImportContext_" data-uid="Unity.VectorGraphics.Editor.SVGImporter.OnImportAsset(UnityEditor.AssetImporters.AssetImportContext)">
+  OnImportAsset(AssetImportContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnImportAsset(AssetImportContext ctx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ctx</code> <span class="xref">AssetImportContext</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

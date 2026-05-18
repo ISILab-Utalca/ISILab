@@ -1,0 +1,4647 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TMP_InputField | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TMP_InputField | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="TMPro.TMP_InputField">
+
+
+
+  <h1 id="TMPro_TMP_InputField" data-uid="TMPro.TMP_InputField" class="text-break">
+Class TMP_InputField  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="TMPro.html">TMPro</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.TextMeshPro.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TMP_InputField : Selectable, IMoveHandler, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler, IUpdateSelectedHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, ISubmitHandler, ICancelHandler, ICanvasElement, ILayoutElement, IScrollHandler, IEventSystemHandler</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html">UIBehaviour</a></div>
+      <div><a class="xref" href="UnityEngine.UI.Selectable.html">Selectable</a></div>
+      <div><span class="xref">TMP_InputField</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="UnityEngine.EventSystems.IMoveHandler.html">IMoveHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IPointerDownHandler.html">IPointerDownHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IPointerUpHandler.html">IPointerUpHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IPointerEnterHandler.html">IPointerEnterHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IPointerExitHandler.html">IPointerExitHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.ISelectHandler.html">ISelectHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IDeselectHandler.html">IDeselectHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IUpdateSelectedHandler.html">IUpdateSelectedHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IBeginDragHandler.html">IBeginDragHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IDragHandler.html">IDragHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IEndDragHandler.html">IEndDragHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IPointerClickHandler.html">IPointerClickHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.ISubmitHandler.html">ISubmitHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.ICancelHandler.html">ICancelHandler</a></div>
+      <div><a class="xref" href="UnityEngine.UI.ICanvasElement.html">ICanvasElement</a></div>
+      <div><a class="xref" href="UnityEngine.UI.ILayoutElement.html">ILayoutElement</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IScrollHandler.html">IScrollHandler</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.IEventSystemHandler.html">IEventSystemHandler</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_s_Selectables">Selectable.s_Selectables</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_s_SelectableCount">Selectable.s_SelectableCount</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_m_CurrentIndex">Selectable.m_CurrentIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_AllSelectablesNoAlloc_UnityEngine_UI_Selectable___">Selectable.AllSelectablesNoAlloc(Selectable[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_Awake">Selectable.Awake()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_OnCanvasGroupChanged">Selectable.OnCanvasGroupChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_IsInteractable">Selectable.IsInteractable()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_OnDidApplyAnimationProperties">Selectable.OnDidApplyAnimationProperties()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_OnTransformParentChanged">Selectable.OnTransformParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_Reset">Selectable.Reset()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_InstantClearState">Selectable.InstantClearState()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_FindSelectable_UnityEngine_Vector3_">Selectable.FindSelectable(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_FindSelectableOnLeft">Selectable.FindSelectableOnLeft()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_FindSelectableOnRight">Selectable.FindSelectableOnRight()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_FindSelectableOnUp">Selectable.FindSelectableOnUp()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_FindSelectableOnDown">Selectable.FindSelectableOnDown()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_IsHighlighted">Selectable.IsHighlighted()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_IsPressed">Selectable.IsPressed()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_OnPointerUp_UnityEngine_EventSystems_PointerEventData_">Selectable.OnPointerUp(PointerEventData)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_OnPointerEnter_UnityEngine_EventSystems_PointerEventData_">Selectable.OnPointerEnter(PointerEventData)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_OnPointerExit_UnityEngine_EventSystems_PointerEventData_">Selectable.OnPointerExit(PointerEventData)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_Select">Selectable.Select()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_allSelectablesArray">Selectable.allSelectablesArray</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_allSelectableCount">Selectable.allSelectableCount</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_allSelectables">Selectable.allSelectables</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_navigation">Selectable.navigation</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_transition">Selectable.transition</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_colors">Selectable.colors</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_spriteState">Selectable.spriteState</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_animationTriggers">Selectable.animationTriggers</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_targetGraphic">Selectable.targetGraphic</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_interactable">Selectable.interactable</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_image">Selectable.image</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_animator">Selectable.animator</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Selectable.html#UnityEngine_UI_Selectable_currentSelectionState">Selectable.currentSelectionState</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_Start">UIBehaviour.Start()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_OnDestroy">UIBehaviour.OnDestroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_IsActive">UIBehaviour.IsActive()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_OnRectTransformDimensionsChange">UIBehaviour.OnRectTransformDimensionsChange()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_OnBeforeTransformParentChanged">UIBehaviour.OnBeforeTransformParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_OnCanvasHierarchyChanged">UIBehaviour.OnCanvasHierarchyChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_IsDestroyed">UIBehaviour.IsDestroyed()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="TMPro_TMP_InputField__ctor_" data-uid="TMPro.TMP_InputField.#ctor*"></a>
+
+  <h3 id="TMPro_TMP_InputField__ctor" data-uid="TMPro.TMP_InputField.#ctor">
+  TMP_InputField()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_InputField()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="TMPro_TMP_InputField_isAlert" data-uid="TMPro.TMP_InputField.isAlert">
+  isAlert
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isAlert</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_CaretPosition" data-uid="TMPro.TMP_InputField.m_CaretPosition">
+  m_CaretPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int m_CaretPosition</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_CaretSelectPosition" data-uid="TMPro.TMP_InputField.m_CaretSelectPosition">
+  m_CaretSelectPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int m_CaretSelectPosition</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_CaretVisible" data-uid="TMPro.TMP_InputField.m_CaretVisible">
+  m_CaretVisible
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool m_CaretVisible</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_CursorVerts" data-uid="TMPro.TMP_InputField.m_CursorVerts">
+  m_CursorVerts
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UIVertex[] m_CursorVerts</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UIVertex</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_GlobalFontAsset" data-uid="TMPro.TMP_InputField.m_GlobalFontAsset">
+  m_GlobalFontAsset
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_FontAsset m_GlobalFontAsset</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_FontAsset.html">TMP_FontAsset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_InputValidator" data-uid="TMPro.TMP_InputField.m_InputValidator">
+  m_InputValidator
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_InputValidator m_InputValidator</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputValidator.html">TMP_InputValidator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_LineLimit" data-uid="TMPro.TMP_InputField.m_LineLimit">
+  m_LineLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int m_LineLimit</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_Mesh" data-uid="TMPro.TMP_InputField.m_Mesh">
+  m_Mesh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Mesh m_Mesh</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_OnFocusSelectAll" data-uid="TMPro.TMP_InputField.m_OnFocusSelectAll">
+  m_OnFocusSelectAll
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool m_OnFocusSelectAll</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_Placeholder" data-uid="TMPro.TMP_InputField.m_Placeholder">
+  m_Placeholder
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Graphic m_Placeholder</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.UI.Graphic.html">Graphic</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_RectTransform" data-uid="TMPro.TMP_InputField.m_RectTransform">
+  m_RectTransform
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RectTransform m_RectTransform</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RectTransform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_ResetOnDeActivation" data-uid="TMPro.TMP_InputField.m_ResetOnDeActivation">
+  m_ResetOnDeActivation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool m_ResetOnDeActivation</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_ScrollSensitivity" data-uid="TMPro.TMP_InputField.m_ScrollSensitivity">
+  m_ScrollSensitivity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected float m_ScrollSensitivity</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_SoftKeyboard" data-uid="TMPro.TMP_InputField.m_SoftKeyboard">
+  m_SoftKeyboard
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TouchScreenKeyboard m_SoftKeyboard</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TouchScreenKeyboard</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_StringPosition" data-uid="TMPro.TMP_InputField.m_StringPosition">
+  m_StringPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int m_StringPosition</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_StringSelectPosition" data-uid="TMPro.TMP_InputField.m_StringSelectPosition">
+  m_StringSelectPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int m_StringSelectPosition</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_Text" data-uid="TMPro.TMP_InputField.m_Text">
+  m_Text
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string m_Text</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_TextComponent" data-uid="TMPro.TMP_InputField.m_TextComponent">
+  m_TextComponent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_Text m_TextComponent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_Text.html">TMP_Text</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_TextComponentRectMask" data-uid="TMPro.TMP_InputField.m_TextComponentRectMask">
+  m_TextComponentRectMask
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RectMask2D m_TextComponentRectMask</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.UI.RectMask2D.html">RectMask2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_TextComponentRectTransform" data-uid="TMPro.TMP_InputField.m_TextComponentRectTransform">
+  m_TextComponentRectTransform
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RectTransform m_TextComponentRectTransform</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RectTransform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_TextViewport" data-uid="TMPro.TMP_InputField.m_TextViewport">
+  m_TextViewport
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RectTransform m_TextViewport</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RectTransform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_TextViewportRectMask" data-uid="TMPro.TMP_InputField.m_TextViewportRectMask">
+  m_TextViewportRectMask
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RectMask2D m_TextViewportRectMask</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.UI.RectMask2D.html">RectMask2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_VerticalScrollbar" data-uid="TMPro.TMP_InputField.m_VerticalScrollbar">
+  m_VerticalScrollbar
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Scrollbar m_VerticalScrollbar</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.UI.Scrollbar.html">Scrollbar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_VerticalScrollbarEventHandler" data-uid="TMPro.TMP_InputField.m_VerticalScrollbarEventHandler">
+  m_VerticalScrollbarEventHandler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_ScrollbarEventHandler m_VerticalScrollbarEventHandler</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_ScrollbarEventHandler.html">TMP_ScrollbarEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_isRichTextEditingAllowed" data-uid="TMPro.TMP_InputField.m_isRichTextEditingAllowed">
+  m_isRichTextEditingAllowed
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool m_isRichTextEditingAllowed</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="TMPro_TMP_InputField_m_isSelectAll" data-uid="TMPro.TMP_InputField.m_isSelectAll">
+  m_isSelectAll
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool m_isSelectAll</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="TMPro_TMP_InputField_asteriskChar_" data-uid="TMPro.TMP_InputField.asteriskChar*"></a>
+
+  <h3 id="TMPro_TMP_InputField_asteriskChar" data-uid="TMPro.TMP_InputField.asteriskChar">
+  asteriskChar
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public char asteriskChar { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_caretBlinkRate_" data-uid="TMPro.TMP_InputField.caretBlinkRate*"></a>
+
+  <h3 id="TMPro_TMP_InputField_caretBlinkRate" data-uid="TMPro.TMP_InputField.caretBlinkRate">
+  caretBlinkRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float caretBlinkRate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_caretColor_" data-uid="TMPro.TMP_InputField.caretColor*"></a>
+
+  <h3 id="TMPro_TMP_InputField_caretColor" data-uid="TMPro.TMP_InputField.caretColor">
+  caretColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color caretColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_caretPosition_" data-uid="TMPro.TMP_InputField.caretPosition*"></a>
+
+  <h3 id="TMPro_TMP_InputField_caretPosition" data-uid="TMPro.TMP_InputField.caretPosition">
+  caretPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int caretPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_caretPositionInternal_" data-uid="TMPro.TMP_InputField.caretPositionInternal*"></a>
+
+  <h3 id="TMPro_TMP_InputField_caretPositionInternal" data-uid="TMPro.TMP_InputField.caretPositionInternal">
+  caretPositionInternal
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int caretPositionInternal { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_caretSelectPositionInternal_" data-uid="TMPro.TMP_InputField.caretSelectPositionInternal*"></a>
+
+  <h3 id="TMPro_TMP_InputField_caretSelectPositionInternal" data-uid="TMPro.TMP_InputField.caretSelectPositionInternal">
+  caretSelectPositionInternal
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int caretSelectPositionInternal { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_caretWidth_" data-uid="TMPro.TMP_InputField.caretWidth*"></a>
+
+  <h3 id="TMPro_TMP_InputField_caretWidth" data-uid="TMPro.TMP_InputField.caretWidth">
+  caretWidth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int caretWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_characterLimit_" data-uid="TMPro.TMP_InputField.characterLimit*"></a>
+
+  <h3 id="TMPro_TMP_InputField_characterLimit" data-uid="TMPro.TMP_InputField.characterLimit">
+  characterLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int characterLimit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_characterValidation_" data-uid="TMPro.TMP_InputField.characterValidation*"></a>
+
+  <h3 id="TMPro_TMP_InputField_characterValidation" data-uid="TMPro.TMP_InputField.characterValidation">
+  characterValidation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.CharacterValidation characterValidation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.CharacterValidation.html">CharacterValidation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_contentType_" data-uid="TMPro.TMP_InputField.contentType*"></a>
+
+  <h3 id="TMPro_TMP_InputField_contentType" data-uid="TMPro.TMP_InputField.contentType">
+  contentType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.ContentType contentType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.ContentType.html">ContentType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_customCaretColor_" data-uid="TMPro.TMP_InputField.customCaretColor*"></a>
+
+  <h3 id="TMPro_TMP_InputField_customCaretColor" data-uid="TMPro.TMP_InputField.customCaretColor">
+  customCaretColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool customCaretColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_flexibleHeight_" data-uid="TMPro.TMP_InputField.flexibleHeight*"></a>
+
+  <h3 id="TMPro_TMP_InputField_flexibleHeight" data-uid="TMPro.TMP_InputField.flexibleHeight">
+  flexibleHeight
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual float flexibleHeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_flexibleWidth_" data-uid="TMPro.TMP_InputField.flexibleWidth*"></a>
+
+  <h3 id="TMPro_TMP_InputField_flexibleWidth" data-uid="TMPro.TMP_InputField.flexibleWidth">
+  flexibleWidth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual float flexibleWidth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_fontAsset_" data-uid="TMPro.TMP_InputField.fontAsset*"></a>
+
+  <h3 id="TMPro_TMP_InputField_fontAsset" data-uid="TMPro.TMP_InputField.fontAsset">
+  fontAsset
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_FontAsset fontAsset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_FontAsset.html">TMP_FontAsset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_inputType_" data-uid="TMPro.TMP_InputField.inputType*"></a>
+
+  <h3 id="TMPro_TMP_InputField_inputType" data-uid="TMPro.TMP_InputField.inputType">
+  inputType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.InputType inputType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.InputType.html">InputType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_inputValidator_" data-uid="TMPro.TMP_InputField.inputValidator*"></a>
+
+  <h3 id="TMPro_TMP_InputField_inputValidator" data-uid="TMPro.TMP_InputField.inputValidator">
+  inputValidator
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputValidator inputValidator { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputValidator.html">TMP_InputValidator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_isFocused_" data-uid="TMPro.TMP_InputField.isFocused*"></a>
+
+  <h3 id="TMPro_TMP_InputField_isFocused" data-uid="TMPro.TMP_InputField.isFocused">
+  isFocused
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isFocused { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_isRichTextEditingAllowed_" data-uid="TMPro.TMP_InputField.isRichTextEditingAllowed*"></a>
+
+  <h3 id="TMPro_TMP_InputField_isRichTextEditingAllowed" data-uid="TMPro.TMP_InputField.isRichTextEditingAllowed">
+  isRichTextEditingAllowed
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isRichTextEditingAllowed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_keepTextSelectionVisible_" data-uid="TMPro.TMP_InputField.keepTextSelectionVisible*"></a>
+
+  <h3 id="TMPro_TMP_InputField_keepTextSelectionVisible" data-uid="TMPro.TMP_InputField.keepTextSelectionVisible">
+  keepTextSelectionVisible
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool keepTextSelectionVisible { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_keyboardType_" data-uid="TMPro.TMP_InputField.keyboardType*"></a>
+
+  <h3 id="TMPro_TMP_InputField_keyboardType" data-uid="TMPro.TMP_InputField.keyboardType">
+  keyboardType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TouchScreenKeyboardType keyboardType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TouchScreenKeyboardType</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_layoutPriority_" data-uid="TMPro.TMP_InputField.layoutPriority*"></a>
+
+  <h3 id="TMPro_TMP_InputField_layoutPriority" data-uid="TMPro.TMP_InputField.layoutPriority">
+  layoutPriority
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int layoutPriority { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_lineLimit_" data-uid="TMPro.TMP_InputField.lineLimit*"></a>
+
+  <h3 id="TMPro_TMP_InputField_lineLimit" data-uid="TMPro.TMP_InputField.lineLimit">
+  lineLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int lineLimit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_lineType_" data-uid="TMPro.TMP_InputField.lineType*"></a>
+
+  <h3 id="TMPro_TMP_InputField_lineType" data-uid="TMPro.TMP_InputField.lineType">
+  lineType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.LineType lineType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.LineType.html">LineType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_mesh_" data-uid="TMPro.TMP_InputField.mesh*"></a>
+
+  <h3 id="TMPro_TMP_InputField_mesh" data-uid="TMPro.TMP_InputField.mesh">
+  mesh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Mesh mesh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_minHeight_" data-uid="TMPro.TMP_InputField.minHeight*"></a>
+
+  <h3 id="TMPro_TMP_InputField_minHeight" data-uid="TMPro.TMP_InputField.minHeight">
+  minHeight
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual float minHeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_minWidth_" data-uid="TMPro.TMP_InputField.minWidth*"></a>
+
+  <h3 id="TMPro_TMP_InputField_minWidth" data-uid="TMPro.TMP_InputField.minWidth">
+  minWidth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual float minWidth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_multiLine_" data-uid="TMPro.TMP_InputField.multiLine*"></a>
+
+  <h3 id="TMPro_TMP_InputField_multiLine" data-uid="TMPro.TMP_InputField.multiLine">
+  multiLine
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool multiLine { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onDeselect_" data-uid="TMPro.TMP_InputField.onDeselect*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onDeselect" data-uid="TMPro.TMP_InputField.onDeselect">
+  onDeselect
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.SelectionEvent onDeselect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.SelectionEvent.html">SelectionEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onEndEdit_" data-uid="TMPro.TMP_InputField.onEndEdit*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onEndEdit" data-uid="TMPro.TMP_InputField.onEndEdit">
+  onEndEdit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.SubmitEvent onEndEdit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.SubmitEvent.html">SubmitEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onEndTextSelection_" data-uid="TMPro.TMP_InputField.onEndTextSelection*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onEndTextSelection" data-uid="TMPro.TMP_InputField.onEndTextSelection">
+  onEndTextSelection
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.TextSelectionEvent onEndTextSelection { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.TextSelectionEvent.html">TextSelectionEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onFocusSelectAll_" data-uid="TMPro.TMP_InputField.onFocusSelectAll*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onFocusSelectAll" data-uid="TMPro.TMP_InputField.onFocusSelectAll">
+  onFocusSelectAll
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool onFocusSelectAll { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onSelect_" data-uid="TMPro.TMP_InputField.onSelect*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onSelect" data-uid="TMPro.TMP_InputField.onSelect">
+  onSelect
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.SelectionEvent onSelect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.SelectionEvent.html">SelectionEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onSubmit_" data-uid="TMPro.TMP_InputField.onSubmit*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onSubmit" data-uid="TMPro.TMP_InputField.onSubmit">
+  onSubmit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.SubmitEvent onSubmit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.SubmitEvent.html">SubmitEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onTextSelection_" data-uid="TMPro.TMP_InputField.onTextSelection*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onTextSelection" data-uid="TMPro.TMP_InputField.onTextSelection">
+  onTextSelection
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.TextSelectionEvent onTextSelection { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.TextSelectionEvent.html">TextSelectionEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onTouchScreenKeyboardStatusChanged_" data-uid="TMPro.TMP_InputField.onTouchScreenKeyboardStatusChanged*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onTouchScreenKeyboardStatusChanged" data-uid="TMPro.TMP_InputField.onTouchScreenKeyboardStatusChanged">
+  onTouchScreenKeyboardStatusChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.TouchScreenKeyboardEvent onTouchScreenKeyboardStatusChanged { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.TouchScreenKeyboardEvent.html">TouchScreenKeyboardEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onValidateInput_" data-uid="TMPro.TMP_InputField.onValidateInput*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onValidateInput" data-uid="TMPro.TMP_InputField.onValidateInput">
+  onValidateInput
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.OnValidateInput onValidateInput { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.OnValidateInput.html">OnValidateInput</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_onValueChanged_" data-uid="TMPro.TMP_InputField.onValueChanged*"></a>
+
+  <h3 id="TMPro_TMP_InputField_onValueChanged" data-uid="TMPro.TMP_InputField.onValueChanged">
+  onValueChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_InputField.OnChangeEvent onValueChanged { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.OnChangeEvent.html">OnChangeEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_placeholder_" data-uid="TMPro.TMP_InputField.placeholder*"></a>
+
+  <h3 id="TMPro_TMP_InputField_placeholder" data-uid="TMPro.TMP_InputField.placeholder">
+  placeholder
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Graphic placeholder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.UI.Graphic.html">Graphic</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_pointSize_" data-uid="TMPro.TMP_InputField.pointSize*"></a>
+
+  <h3 id="TMPro_TMP_InputField_pointSize" data-uid="TMPro.TMP_InputField.pointSize">
+  pointSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float pointSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_preferredHeight_" data-uid="TMPro.TMP_InputField.preferredHeight*"></a>
+
+  <h3 id="TMPro_TMP_InputField_preferredHeight" data-uid="TMPro.TMP_InputField.preferredHeight">
+  preferredHeight
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual float preferredHeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_preferredWidth_" data-uid="TMPro.TMP_InputField.preferredWidth*"></a>
+
+  <h3 id="TMPro_TMP_InputField_preferredWidth" data-uid="TMPro.TMP_InputField.preferredWidth">
+  preferredWidth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual float preferredWidth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_readOnly_" data-uid="TMPro.TMP_InputField.readOnly*"></a>
+
+  <h3 id="TMPro_TMP_InputField_readOnly" data-uid="TMPro.TMP_InputField.readOnly">
+  readOnly
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool readOnly { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_resetOnDeActivation_" data-uid="TMPro.TMP_InputField.resetOnDeActivation*"></a>
+
+  <h3 id="TMPro_TMP_InputField_resetOnDeActivation" data-uid="TMPro.TMP_InputField.resetOnDeActivation">
+  resetOnDeActivation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool resetOnDeActivation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_restoreOriginalTextOnEscape_" data-uid="TMPro.TMP_InputField.restoreOriginalTextOnEscape*"></a>
+
+  <h3 id="TMPro_TMP_InputField_restoreOriginalTextOnEscape" data-uid="TMPro.TMP_InputField.restoreOriginalTextOnEscape">
+  restoreOriginalTextOnEscape
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool restoreOriginalTextOnEscape { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_richText_" data-uid="TMPro.TMP_InputField.richText*"></a>
+
+  <h3 id="TMPro_TMP_InputField_richText" data-uid="TMPro.TMP_InputField.richText">
+  richText
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool richText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_scrollSensitivity_" data-uid="TMPro.TMP_InputField.scrollSensitivity*"></a>
+
+  <h3 id="TMPro_TMP_InputField_scrollSensitivity" data-uid="TMPro.TMP_InputField.scrollSensitivity">
+  scrollSensitivity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float scrollSensitivity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_selectionAnchorPosition_" data-uid="TMPro.TMP_InputField.selectionAnchorPosition*"></a>
+
+  <h3 id="TMPro_TMP_InputField_selectionAnchorPosition" data-uid="TMPro.TMP_InputField.selectionAnchorPosition">
+  selectionAnchorPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int selectionAnchorPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_selectionColor_" data-uid="TMPro.TMP_InputField.selectionColor*"></a>
+
+  <h3 id="TMPro_TMP_InputField_selectionColor" data-uid="TMPro.TMP_InputField.selectionColor">
+  selectionColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color selectionColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_selectionFocusPosition_" data-uid="TMPro.TMP_InputField.selectionFocusPosition*"></a>
+
+  <h3 id="TMPro_TMP_InputField_selectionFocusPosition" data-uid="TMPro.TMP_InputField.selectionFocusPosition">
+  selectionFocusPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int selectionFocusPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_selectionStringAnchorPosition_" data-uid="TMPro.TMP_InputField.selectionStringAnchorPosition*"></a>
+
+  <h3 id="TMPro_TMP_InputField_selectionStringAnchorPosition" data-uid="TMPro.TMP_InputField.selectionStringAnchorPosition">
+  selectionStringAnchorPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int selectionStringAnchorPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_selectionStringFocusPosition_" data-uid="TMPro.TMP_InputField.selectionStringFocusPosition*"></a>
+
+  <h3 id="TMPro_TMP_InputField_selectionStringFocusPosition" data-uid="TMPro.TMP_InputField.selectionStringFocusPosition">
+  selectionStringFocusPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int selectionStringFocusPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_shouldActivateOnSelect_" data-uid="TMPro.TMP_InputField.shouldActivateOnSelect*"></a>
+
+  <h3 id="TMPro_TMP_InputField_shouldActivateOnSelect" data-uid="TMPro.TMP_InputField.shouldActivateOnSelect">
+  shouldActivateOnSelect
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool shouldActivateOnSelect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_shouldHideMobileInput_" data-uid="TMPro.TMP_InputField.shouldHideMobileInput*"></a>
+
+  <h3 id="TMPro_TMP_InputField_shouldHideMobileInput" data-uid="TMPro.TMP_InputField.shouldHideMobileInput">
+  shouldHideMobileInput
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool shouldHideMobileInput { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_shouldHideSoftKeyboard_" data-uid="TMPro.TMP_InputField.shouldHideSoftKeyboard*"></a>
+
+  <h3 id="TMPro_TMP_InputField_shouldHideSoftKeyboard" data-uid="TMPro.TMP_InputField.shouldHideSoftKeyboard">
+  shouldHideSoftKeyboard
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool shouldHideSoftKeyboard { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_stringPosition_" data-uid="TMPro.TMP_InputField.stringPosition*"></a>
+
+  <h3 id="TMPro_TMP_InputField_stringPosition" data-uid="TMPro.TMP_InputField.stringPosition">
+  stringPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int stringPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_stringPositionInternal_" data-uid="TMPro.TMP_InputField.stringPositionInternal*"></a>
+
+  <h3 id="TMPro_TMP_InputField_stringPositionInternal" data-uid="TMPro.TMP_InputField.stringPositionInternal">
+  stringPositionInternal
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int stringPositionInternal { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_stringSelectPositionInternal_" data-uid="TMPro.TMP_InputField.stringSelectPositionInternal*"></a>
+
+  <h3 id="TMPro_TMP_InputField_stringSelectPositionInternal" data-uid="TMPro.TMP_InputField.stringSelectPositionInternal">
+  stringSelectPositionInternal
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int stringSelectPositionInternal { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_text_" data-uid="TMPro.TMP_InputField.text*"></a>
+
+  <h3 id="TMPro_TMP_InputField_text" data-uid="TMPro.TMP_InputField.text">
+  text
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string text { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_textComponent_" data-uid="TMPro.TMP_InputField.textComponent*"></a>
+
+  <h3 id="TMPro_TMP_InputField_textComponent" data-uid="TMPro.TMP_InputField.textComponent">
+  textComponent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_Text textComponent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_Text.html">TMP_Text</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_textViewport_" data-uid="TMPro.TMP_InputField.textViewport*"></a>
+
+  <h3 id="TMPro_TMP_InputField_textViewport" data-uid="TMPro.TMP_InputField.textViewport">
+  textViewport
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RectTransform textViewport { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RectTransform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_touchScreenKeyboard_" data-uid="TMPro.TMP_InputField.touchScreenKeyboard*"></a>
+
+  <h3 id="TMPro_TMP_InputField_touchScreenKeyboard" data-uid="TMPro.TMP_InputField.touchScreenKeyboard">
+  touchScreenKeyboard
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TouchScreenKeyboard touchScreenKeyboard { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TouchScreenKeyboard</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_verticalScrollbar_" data-uid="TMPro.TMP_InputField.verticalScrollbar*"></a>
+
+  <h3 id="TMPro_TMP_InputField_verticalScrollbar" data-uid="TMPro.TMP_InputField.verticalScrollbar">
+  verticalScrollbar
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scrollbar verticalScrollbar { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.UI.Scrollbar.html">Scrollbar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_wasCanceled_" data-uid="TMPro.TMP_InputField.wasCanceled*"></a>
+
+  <h3 id="TMPro_TMP_InputField_wasCanceled" data-uid="TMPro.TMP_InputField.wasCanceled">
+  wasCanceled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool wasCanceled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="TMPro_TMP_InputField_ActivateInputField_" data-uid="TMPro.TMP_InputField.ActivateInputField*"></a>
+
+  <h3 id="TMPro_TMP_InputField_ActivateInputField" data-uid="TMPro.TMP_InputField.ActivateInputField">
+  ActivateInputField()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ActivateInputField()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_Append_" data-uid="TMPro.TMP_InputField.Append*"></a>
+
+  <h3 id="TMPro_TMP_InputField_Append_System_Char_" data-uid="TMPro.TMP_InputField.Append(System.Char)">
+  Append(char)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Append(char input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_Append_" data-uid="TMPro.TMP_InputField.Append*"></a>
+
+  <h3 id="TMPro_TMP_InputField_Append_System_String_" data-uid="TMPro.TMP_InputField.Append(System.String)">
+  Append(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Append(string input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_CalculateLayoutInputHorizontal_" data-uid="TMPro.TMP_InputField.CalculateLayoutInputHorizontal*"></a>
+
+  <h3 id="TMPro_TMP_InputField_CalculateLayoutInputHorizontal" data-uid="TMPro.TMP_InputField.CalculateLayoutInputHorizontal">
+  CalculateLayoutInputHorizontal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void CalculateLayoutInputHorizontal()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_CalculateLayoutInputVertical_" data-uid="TMPro.TMP_InputField.CalculateLayoutInputVertical*"></a>
+
+  <h3 id="TMPro_TMP_InputField_CalculateLayoutInputVertical" data-uid="TMPro.TMP_InputField.CalculateLayoutInputVertical">
+  CalculateLayoutInputVertical()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void CalculateLayoutInputVertical()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_ClampCaretPos_" data-uid="TMPro.TMP_InputField.ClampCaretPos*"></a>
+
+  <h3 id="TMPro_TMP_InputField_ClampCaretPos_System_Int32__" data-uid="TMPro.TMP_InputField.ClampCaretPos(System.Int32@)">
+  ClampCaretPos(ref int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ClampCaretPos(ref int pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_ClampStringPos_" data-uid="TMPro.TMP_InputField.ClampStringPos*"></a>
+
+  <h3 id="TMPro_TMP_InputField_ClampStringPos_System_Int32__" data-uid="TMPro.TMP_InputField.ClampStringPos(System.Int32@)">
+  ClampStringPos(ref int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ClampStringPos(ref int pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_DeactivateInputField_" data-uid="TMPro.TMP_InputField.DeactivateInputField*"></a>
+
+  <h3 id="TMPro_TMP_InputField_DeactivateInputField_System_Boolean_" data-uid="TMPro.TMP_InputField.DeactivateInputField(System.Boolean)">
+  DeactivateInputField(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeactivateInputField(bool clearSelection = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clearSelection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_DoStateTransition_" data-uid="TMPro.TMP_InputField.DoStateTransition*"></a>
+
+  <h3 id="TMPro_TMP_InputField_DoStateTransition_UnityEngine_UI_Selectable_SelectionState_System_Boolean_" data-uid="TMPro.TMP_InputField.DoStateTransition(UnityEngine.UI.Selectable.SelectionState,System.Boolean)">
+  DoStateTransition(SelectionState, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DoStateTransition(Selectable.SelectionState state, bool instant)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="UnityEngine.UI.Selectable.html">Selectable</a>.<a class="xref" href="UnityEngine.UI.Selectable.SelectionState.html">SelectionState</a></dt>
+    <dd></dd>
+    <dt><code>instant</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_ForceLabelUpdate_" data-uid="TMPro.TMP_InputField.ForceLabelUpdate*"></a>
+
+  <h3 id="TMPro_TMP_InputField_ForceLabelUpdate" data-uid="TMPro.TMP_InputField.ForceLabelUpdate">
+  ForceLabelUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ForceLabelUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_GraphicUpdateComplete_" data-uid="TMPro.TMP_InputField.GraphicUpdateComplete*"></a>
+
+  <h3 id="TMPro_TMP_InputField_GraphicUpdateComplete" data-uid="TMPro.TMP_InputField.GraphicUpdateComplete">
+  GraphicUpdateComplete()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void GraphicUpdateComplete()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_IsValidChar_" data-uid="TMPro.TMP_InputField.IsValidChar*"></a>
+
+  <h3 id="TMPro_TMP_InputField_IsValidChar_System_Char_" data-uid="TMPro.TMP_InputField.IsValidChar(System.Char)">
+  IsValidChar(char)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool IsValidChar(char c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_KeyPressed_" data-uid="TMPro.TMP_InputField.KeyPressed*"></a>
+
+  <h3 id="TMPro_TMP_InputField_KeyPressed_UnityEngine_Event_" data-uid="TMPro.TMP_InputField.KeyPressed(UnityEngine.Event)">
+  KeyPressed(Event)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TMP_InputField.EditState KeyPressed(Event evt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evt</code> <span class="xref">Event</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_InputField.html">TMP_InputField</a>.<a class="xref" href="TMPro.TMP_InputField.EditState.html">EditState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_LateUpdate_" data-uid="TMPro.TMP_InputField.LateUpdate*"></a>
+
+  <h3 id="TMPro_TMP_InputField_LateUpdate" data-uid="TMPro.TMP_InputField.LateUpdate">
+  LateUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void LateUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_LayoutComplete_" data-uid="TMPro.TMP_InputField.LayoutComplete*"></a>
+
+  <h3 id="TMPro_TMP_InputField_LayoutComplete" data-uid="TMPro.TMP_InputField.LayoutComplete">
+  LayoutComplete()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void LayoutComplete()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_MoveTextEnd_" data-uid="TMPro.TMP_InputField.MoveTextEnd*"></a>
+
+  <h3 id="TMPro_TMP_InputField_MoveTextEnd_System_Boolean_" data-uid="TMPro.TMP_InputField.MoveTextEnd(System.Boolean)">
+  MoveTextEnd(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveTextEnd(bool shift)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_MoveTextStart_" data-uid="TMPro.TMP_InputField.MoveTextStart*"></a>
+
+  <h3 id="TMPro_TMP_InputField_MoveTextStart_System_Boolean_" data-uid="TMPro.TMP_InputField.MoveTextStart(System.Boolean)">
+  MoveTextStart(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveTextStart(bool shift)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_MoveToEndOfLine_" data-uid="TMPro.TMP_InputField.MoveToEndOfLine*"></a>
+
+  <h3 id="TMPro_TMP_InputField_MoveToEndOfLine_System_Boolean_System_Boolean_" data-uid="TMPro.TMP_InputField.MoveToEndOfLine(System.Boolean,System.Boolean)">
+  MoveToEndOfLine(bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveToEndOfLine(bool shift, bool ctrl)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>ctrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_MoveToStartOfLine_" data-uid="TMPro.TMP_InputField.MoveToStartOfLine*"></a>
+
+  <h3 id="TMPro_TMP_InputField_MoveToStartOfLine_System_Boolean_System_Boolean_" data-uid="TMPro.TMP_InputField.MoveToStartOfLine(System.Boolean,System.Boolean)">
+  MoveToStartOfLine(bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveToStartOfLine(bool shift, bool ctrl)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>ctrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnBeginDrag_" data-uid="TMPro.TMP_InputField.OnBeginDrag*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnBeginDrag_UnityEngine_EventSystems_PointerEventData_" data-uid="TMPro.TMP_InputField.OnBeginDrag(UnityEngine.EventSystems.PointerEventData)">
+  OnBeginDrag(PointerEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnBeginDrag(PointerEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.PointerEventData.html">PointerEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnCancel_" data-uid="TMPro.TMP_InputField.OnCancel*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnCancel_UnityEngine_EventSystems_BaseEventData_" data-uid="TMPro.TMP_InputField.OnCancel(UnityEngine.EventSystems.BaseEventData)">
+  OnCancel(BaseEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnCancel(BaseEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.BaseEventData.html">BaseEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnControlClick_" data-uid="TMPro.TMP_InputField.OnControlClick*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnControlClick" data-uid="TMPro.TMP_InputField.OnControlClick">
+  OnControlClick()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnControlClick()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnDeselect_" data-uid="TMPro.TMP_InputField.OnDeselect*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnDeselect_UnityEngine_EventSystems_BaseEventData_" data-uid="TMPro.TMP_InputField.OnDeselect(UnityEngine.EventSystems.BaseEventData)">
+  OnDeselect(BaseEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDeselect(BaseEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.BaseEventData.html">BaseEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnDisable_" data-uid="TMPro.TMP_InputField.OnDisable*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnDisable" data-uid="TMPro.TMP_InputField.OnDisable">
+  OnDisable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDisable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnDrag_" data-uid="TMPro.TMP_InputField.OnDrag*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnDrag_UnityEngine_EventSystems_PointerEventData_" data-uid="TMPro.TMP_InputField.OnDrag(UnityEngine.EventSystems.PointerEventData)">
+  OnDrag(PointerEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnDrag(PointerEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.PointerEventData.html">PointerEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnEnable_" data-uid="TMPro.TMP_InputField.OnEnable*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnEnable" data-uid="TMPro.TMP_InputField.OnEnable">
+  OnEnable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnEndDrag_" data-uid="TMPro.TMP_InputField.OnEndDrag*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnEndDrag_UnityEngine_EventSystems_PointerEventData_" data-uid="TMPro.TMP_InputField.OnEndDrag(UnityEngine.EventSystems.PointerEventData)">
+  OnEndDrag(PointerEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnEndDrag(PointerEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.PointerEventData.html">PointerEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnFocus_" data-uid="TMPro.TMP_InputField.OnFocus*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnFocus" data-uid="TMPro.TMP_InputField.OnFocus">
+  OnFocus()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void OnFocus()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnMove_" data-uid="TMPro.TMP_InputField.OnMove*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnMove_UnityEngine_EventSystems_AxisEventData_" data-uid="TMPro.TMP_InputField.OnMove(UnityEngine.EventSystems.AxisEventData)">
+  OnMove(AxisEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnMove(AxisEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.AxisEventData.html">AxisEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnPointerClick_" data-uid="TMPro.TMP_InputField.OnPointerClick*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnPointerClick_UnityEngine_EventSystems_PointerEventData_" data-uid="TMPro.TMP_InputField.OnPointerClick(UnityEngine.EventSystems.PointerEventData)">
+  OnPointerClick(PointerEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnPointerClick(PointerEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.PointerEventData.html">PointerEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnPointerDown_" data-uid="TMPro.TMP_InputField.OnPointerDown*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnPointerDown_UnityEngine_EventSystems_PointerEventData_" data-uid="TMPro.TMP_InputField.OnPointerDown(UnityEngine.EventSystems.PointerEventData)">
+  OnPointerDown(PointerEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnPointerDown(PointerEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.PointerEventData.html">PointerEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnScroll_" data-uid="TMPro.TMP_InputField.OnScroll*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnScroll_UnityEngine_EventSystems_PointerEventData_" data-uid="TMPro.TMP_InputField.OnScroll(UnityEngine.EventSystems.PointerEventData)">
+  OnScroll(PointerEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnScroll(PointerEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.PointerEventData.html">PointerEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnSelect_" data-uid="TMPro.TMP_InputField.OnSelect*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnSelect_UnityEngine_EventSystems_BaseEventData_" data-uid="TMPro.TMP_InputField.OnSelect(UnityEngine.EventSystems.BaseEventData)">
+  OnSelect(BaseEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnSelect(BaseEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.BaseEventData.html">BaseEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnSubmit_" data-uid="TMPro.TMP_InputField.OnSubmit*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnSubmit_UnityEngine_EventSystems_BaseEventData_" data-uid="TMPro.TMP_InputField.OnSubmit(UnityEngine.EventSystems.BaseEventData)">
+  OnSubmit(BaseEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnSubmit(BaseEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.BaseEventData.html">BaseEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnUpdateSelected_" data-uid="TMPro.TMP_InputField.OnUpdateSelected*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnUpdateSelected_UnityEngine_EventSystems_BaseEventData_" data-uid="TMPro.TMP_InputField.OnUpdateSelected(UnityEngine.EventSystems.BaseEventData)">
+  OnUpdateSelected(BaseEventData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnUpdateSelected(BaseEventData eventData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="UnityEngine.EventSystems.BaseEventData.html">BaseEventData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_OnValidate_" data-uid="TMPro.TMP_InputField.OnValidate*"></a>
+
+  <h3 id="TMPro_TMP_InputField_OnValidate" data-uid="TMPro.TMP_InputField.OnValidate">
+  OnValidate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnValidate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_ProcessEvent_" data-uid="TMPro.TMP_InputField.ProcessEvent*"></a>
+
+  <h3 id="TMPro_TMP_InputField_ProcessEvent_UnityEngine_Event_" data-uid="TMPro.TMP_InputField.ProcessEvent(UnityEngine.Event)">
+  ProcessEvent(Event)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ProcessEvent(Event e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <span class="xref">Event</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_Rebuild_" data-uid="TMPro.TMP_InputField.Rebuild*"></a>
+
+  <h3 id="TMPro_TMP_InputField_Rebuild_UnityEngine_UI_CanvasUpdate_" data-uid="TMPro.TMP_InputField.Rebuild(UnityEngine.UI.CanvasUpdate)">
+  Rebuild(CanvasUpdate)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Rebuild(CanvasUpdate update)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>update</code> <a class="xref" href="UnityEngine.UI.CanvasUpdate.html">CanvasUpdate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_ReleaseSelection_" data-uid="TMPro.TMP_InputField.ReleaseSelection*"></a>
+
+  <h3 id="TMPro_TMP_InputField_ReleaseSelection" data-uid="TMPro.TMP_InputField.ReleaseSelection">
+  ReleaseSelection()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReleaseSelection()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SelectAll_" data-uid="TMPro.TMP_InputField.SelectAll*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SelectAll" data-uid="TMPro.TMP_InputField.SelectAll">
+  SelectAll()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SelectAll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SendOnEndEdit_" data-uid="TMPro.TMP_InputField.SendOnEndEdit*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SendOnEndEdit" data-uid="TMPro.TMP_InputField.SendOnEndEdit">
+  SendOnEndEdit()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendOnEndEdit()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SendOnEndTextSelection_" data-uid="TMPro.TMP_InputField.SendOnEndTextSelection*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SendOnEndTextSelection" data-uid="TMPro.TMP_InputField.SendOnEndTextSelection">
+  SendOnEndTextSelection()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendOnEndTextSelection()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SendOnFocus_" data-uid="TMPro.TMP_InputField.SendOnFocus*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SendOnFocus" data-uid="TMPro.TMP_InputField.SendOnFocus">
+  SendOnFocus()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendOnFocus()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SendOnFocusLost_" data-uid="TMPro.TMP_InputField.SendOnFocusLost*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SendOnFocusLost" data-uid="TMPro.TMP_InputField.SendOnFocusLost">
+  SendOnFocusLost()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendOnFocusLost()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SendOnSubmit_" data-uid="TMPro.TMP_InputField.SendOnSubmit*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SendOnSubmit" data-uid="TMPro.TMP_InputField.SendOnSubmit">
+  SendOnSubmit()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendOnSubmit()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SendOnTextSelection_" data-uid="TMPro.TMP_InputField.SendOnTextSelection*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SendOnTextSelection" data-uid="TMPro.TMP_InputField.SendOnTextSelection">
+  SendOnTextSelection()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendOnTextSelection()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SendTouchScreenKeyboardStatusChanged_" data-uid="TMPro.TMP_InputField.SendTouchScreenKeyboardStatusChanged*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SendTouchScreenKeyboardStatusChanged" data-uid="TMPro.TMP_InputField.SendTouchScreenKeyboardStatusChanged">
+  SendTouchScreenKeyboardStatusChanged()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendTouchScreenKeyboardStatusChanged()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SetGlobalFontAsset_" data-uid="TMPro.TMP_InputField.SetGlobalFontAsset*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SetGlobalFontAsset_TMPro_TMP_FontAsset_" data-uid="TMPro.TMP_InputField.SetGlobalFontAsset(TMPro.TMP_FontAsset)">
+  SetGlobalFontAsset(TMP_FontAsset)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalFontAsset(TMP_FontAsset fontAsset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fontAsset</code> <a class="xref" href="TMPro.TMP_FontAsset.html">TMP_FontAsset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SetGlobalPointSize_" data-uid="TMPro.TMP_InputField.SetGlobalPointSize*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SetGlobalPointSize_System_Single_" data-uid="TMPro.TMP_InputField.SetGlobalPointSize(System.Single)">
+  SetGlobalPointSize(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalPointSize(float pointSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pointSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_SetTextWithoutNotify_" data-uid="TMPro.TMP_InputField.SetTextWithoutNotify*"></a>
+
+  <h3 id="TMPro_TMP_InputField_SetTextWithoutNotify_System_String_" data-uid="TMPro.TMP_InputField.SetTextWithoutNotify(System.String)">
+  SetTextWithoutNotify(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTextWithoutNotify(string input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_UpdateLabel_" data-uid="TMPro.TMP_InputField.UpdateLabel*"></a>
+
+  <h3 id="TMPro_TMP_InputField_UpdateLabel" data-uid="TMPro.TMP_InputField.UpdateLabel">
+  UpdateLabel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void UpdateLabel()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TMP_InputField_Validate_" data-uid="TMPro.TMP_InputField.Validate*"></a>
+
+  <h3 id="TMPro_TMP_InputField_Validate_System_String_System_Int32_System_Char_" data-uid="TMPro.TMP_InputField.Validate(System.String,System.Int32,System.Char)">
+  Validate(string, int, char)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected char Validate(string text, int pos, char ch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pos</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>ch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

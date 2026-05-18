@@ -1,0 +1,3541 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  commentId: T:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  id: SchemaBehaviour
+  parent: ISILab.LBS.Plugin.Components.Behaviours
+  children:
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile(UnityEngine.Vector2Int,ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Door
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Empty
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals(System.Object)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound(ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile(UnityEngine.Vector2Int)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(UnityEngine.Vector2)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.LockedDoor
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData(System.Object,System.Boolean)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2Int)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnSelectedChanged
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair(ISILab.LBS.Modules.LBSStair,System.Int32)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor(System.Int32,System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile(UnityEngine.Vector2Int)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone(ISILab.LBS.Plugin.Components.Data.Zone,System.Int32)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Wall
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Window
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.conectionToSet
+  langs:
+  - csharp
+  - vb
+  name: SchemaBehaviour
+  nameWithType: SchemaBehaviour
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: >-
+      [RequieredModule(new Type[] { typeof(TileMapModule), typeof(ConnectedTileMapModule), typeof(SectorizedTileMapModule), typeof(ConnectedZonesModule), typeof(StairsModule), typeof(NoteModule) })]
+
+      public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable
+    content.vb: >-
+      <RequieredModule(New Type() { GetType(TileMapModule), GetType(ConnectedTileMapModule), GetType(SectorizedTileMapModule), GetType(ConnectedZonesModule), GetType(StairsModule), GetType(NoteModule) })>
+
+      Public Class SchemaBehaviour Inherits LBSBehaviour Implements ICloneable, IBlueprintable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Behaviours.LBSBehaviour
+  implements:
+  - System.ICloneable
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+  inheritedMembers:
+  - ISILab.LBS.Behaviours.LBSBehaviour.visible
+  - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
+  - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{{T}},System.Collections.Generic.List{{T}})
+  - ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  - ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  - ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  - ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  - ISILab.LBS.Behaviours.LBSBehaviour.Name
+  - ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Empty
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Empty
+  id: Empty
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: SchemaBehaviour.Empty
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Empty
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public const string Empty = "Empty"
+    return:
+      type: System.String
+    content.vb: Public Const Empty As String = "Empty"
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Wall
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Wall
+  id: Wall
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Wall
+  nameWithType: SchemaBehaviour.Wall
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Wall
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public const string Wall = "Wall"
+    return:
+      type: System.String
+    content.vb: Public Const Wall As String = "Wall"
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Door
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Door
+  id: Door
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Door
+  nameWithType: SchemaBehaviour.Door
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Door
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public const string Door = "Door"
+    return:
+      type: System.String
+    content.vb: Public Const Door As String = "Door"
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Window
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Window
+  id: Window
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Window
+  nameWithType: SchemaBehaviour.Window
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Window
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public const string Window = "Window"
+    return:
+      type: System.String
+    content.vb: Public Const Window As String = "Window"
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.LockedDoor
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.LockedDoor
+  id: LockedDoor
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: LockedDoor
+  nameWithType: SchemaBehaviour.LockedDoor
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.LockedDoor
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public const string LockedDoor = "LockedDoor"
+    return:
+      type: System.String
+    content.vb: Public Const LockedDoor As String = "LockedDoor"
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
+  id: DownStair
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: DownStair
+  nameWithType: SchemaBehaviour.DownStair
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public const string DownStair = "DownStair"
+    return:
+      type: System.String
+    content.vb: Public Const DownStair As String = "DownStair"
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
+  id: UpStair
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: UpStair
+  nameWithType: SchemaBehaviour.UpStair
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public const string UpStair = "UpStair"
+    return:
+      type: System.String
+    content.vb: Public Const UpStair As String = "UpStair"
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.conectionToSet
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.conectionToSet
+  id: conectionToSet
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: conectionToSet
+  nameWithType: SchemaBehaviour.conectionToSet
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.conectionToSet
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public string conectionToSet
+    return:
+      type: System.String
+    content.vb: Public conectionToSet As String
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnSelectedChanged
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnSelectedChanged
+  id: OnSelectedChanged
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnSelectedChanged
+  nameWithType: SchemaBehaviour.OnSelectedChanged
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnSelectedChanged
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Action<LBSStair> OnSelectedChanged
+    return:
+      type: System.Action{ISILab.LBS.Modules.LBSStair}
+    content.vb: Public OnSelectedChanged As Action(Of LBSStair)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
+  id: '#ctor(System.String,System.String,UnityEngine.Color)'
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: SchemaBehaviour(string, string, Color)
+  nameWithType: SchemaBehaviour.SchemaBehaviour(string, string, Color)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SchemaBehaviour(string, string, UnityEngine.Color)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public SchemaBehaviour(string IconGuid, string name, Color colorTint)
+    parameters:
+    - id: IconGuid
+      type: System.String
+    - id: name
+      type: System.String
+    - id: colorTint
+      type: UnityEngine.Color
+    content.vb: Public Sub New(IconGuid As String, name As String, colorTint As Color)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.#ctor*
+  nameWithType.vb: SchemaBehaviour.New(String, String, Color)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.New(String, String, UnityEngine.Color)
+  name.vb: New(String, String, Color)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI
+  id: OnGUI
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnGUI()
+  nameWithType: SchemaBehaviour.OnGUI()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override void OnGUI()
+    content.vb: Public Overrides Sub OnGUI()
+  overridden: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  id: OnAttachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnAttachLayer(LBSLayer)
+  nameWithType: SchemaBehaviour.OnAttachLayer(LBSLayer)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override void OnAttachLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Overrides Sub OnAttachLayer(layer As LBSLayer)
+  overridden: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  id: OnDetachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnDetachLayer(LBSLayer)
+  nameWithType: SchemaBehaviour.OnDetachLayer(LBSLayer)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override void OnDetachLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Overrides Sub OnDetachLayer(layer As LBSLayer)
+  overridden: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys
+  id: CheckKeys
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: CheckKeys()
+  nameWithType: SchemaBehaviour.CheckKeys()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override void CheckKeys()
+    content.vb: Public Overrides Sub CheckKeys()
+  overridden: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys
+  id: UpdateKeys
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: UpdateKeys()
+  nameWithType: SchemaBehaviour.UpdateKeys()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void UpdateKeys()
+    content.vb: Public Sub UpdateKeys()
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile(UnityEngine.Vector2Int,ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile(UnityEngine.Vector2Int,ISILab.LBS.Plugin.Components.Data.Zone)
+  id: AddTile(UnityEngine.Vector2Int,ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: AddTile(Vector2Int, Zone)
+  nameWithType: SchemaBehaviour.AddTile(Vector2Int, Zone)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile(UnityEngine.Vector2Int, ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public LBSTile AddTile(Vector2Int position, Zone zone)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    content.vb: Public Function AddTile(position As Vector2Int, zone As Zone) As LBSTile
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
+  id: AddZone
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: AddZone()
+  nameWithType: SchemaBehaviour.AddZone()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Zone AddZone()
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: Public Function AddZone() As Zone
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
+  id: RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RemoveZone(Zone)
+  nameWithType: SchemaBehaviour.RemoveZone(Zone)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void RemoveZone(Zone zone)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: Public Sub RemoveZone(zone As Zone)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile(UnityEngine.Vector2Int)
+  id: RemoveTile(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(Vector2Int)
+  nameWithType: SchemaBehaviour.RemoveTile(Vector2Int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void RemoveTile(Vector2Int position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    content.vb: Public Sub RemoveTile(position As Vector2Int)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  id: SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: SetConnection(LBSTile, int, string, bool)
+  nameWithType: SchemaBehaviour.SetConnection(LBSTile, int, string, bool)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, int, string, bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void SetConnection(LBSTile tile, int direction, string connection, bool editedByIA)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    - id: direction
+      type: System.Int32
+    - id: connection
+      type: System.String
+    - id: editedByIA
+      type: System.Boolean
+    content.vb: Public Sub SetConnection(tile As LBSTile, direction As Integer, connection As String, editedByIA As Boolean)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection*
+  nameWithType.vb: SchemaBehaviour.SetConnection(LBSTile, Integer, String, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, Integer, String, Boolean)
+  name.vb: SetConnection(LBSTile, Integer, String, Boolean)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  id: AddConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: AddConnections(LBSTile, List<string>, List<bool>)
+  nameWithType: SchemaBehaviour.AddConnections(LBSTile, List<string>, List<bool>)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List<string>, System.Collections.Generic.List<bool>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void AddConnections(LBSTile tile, List<string> connections, List<bool> editedByIA)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    - id: connections
+      type: System.Collections.Generic.List{System.String}
+    - id: editedByIA
+      type: System.Collections.Generic.List{System.Boolean}
+    content.vb: Public Sub AddConnections(tile As LBSTile, connections As List(Of String), editedByIA As List(Of Boolean))
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections*
+  nameWithType.vb: SchemaBehaviour.AddConnections(LBSTile, List(Of String), List(Of Boolean))
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List(Of String), System.Collections.Generic.List(Of Boolean))
+  name.vb: AddConnections(LBSTile, List(Of String), List(Of Boolean))
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair(ISILab.LBS.Modules.LBSStair,System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair(ISILab.LBS.Modules.LBSStair,System.Int32)
+  id: PlaceStair(ISILab.LBS.Modules.LBSStair,System.Int32)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: PlaceStair(LBSStair, int)
+  nameWithType: SchemaBehaviour.PlaceStair(LBSStair, int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair(ISILab.LBS.Modules.LBSStair, int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void PlaceStair(LBSStair stair, int floor)
+    parameters:
+    - id: stair
+      type: ISILab.LBS.Modules.LBSStair
+    - id: floor
+      type: System.Int32
+    content.vb: Public Sub PlaceStair(stair As LBSStair, floor As Integer)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair*
+  nameWithType.vb: SchemaBehaviour.PlaceStair(LBSStair, Integer)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair(ISILab.LBS.Modules.LBSStair, Integer)
+  name.vb: PlaceStair(LBSStair, Integer)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  id: RemoveStair(ISILab.LBS.Modules.LBSStair)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RemoveStair(LBSStair)
+  nameWithType: SchemaBehaviour.RemoveStair(LBSStair)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void RemoveStair(LBSStair stair)
+    parameters:
+    - id: stair
+      type: ISILab.LBS.Modules.LBSStair
+    content.vb: Public Sub RemoveStair(stair As LBSStair)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile(UnityEngine.Vector2Int)
+  id: GetTile(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetTile(Vector2Int)
+  nameWithType: SchemaBehaviour.GetTile(Vector2Int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public LBSTile GetTile(Vector2Int position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    content.vb: Public Function GetTile(position As Vector2Int) As LBSTile
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)
+  id: GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetTiles(Zone)
+  nameWithType: SchemaBehaviour.GetTiles(Zone)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<LBSTile> GetTiles(Zone zone)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    content.vb: Public Function GetTiles(zone As Zone) As List(Of LBSTile)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound(ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound(ISILab.LBS.Plugin.Components.Data.Zone)
+  id: GetBound(ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetBound(Zone)
+  nameWithType: SchemaBehaviour.GetBound(Zone)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound(ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Rect GetBound(Zone zone)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Function GetBound(zone As Zone) As Rect
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetConnections(LBSTile)
+  nameWithType: SchemaBehaviour.GetConnections(LBSTile)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<string> GetConnections(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetConnections(tile As LBSTile) As List(Of String)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetZone(LBSTile)
+  nameWithType: SchemaBehaviour.GetZone(LBSTile)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Zone GetZone(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: Public Function GetZone(tile As LBSTile) As Zone
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(UnityEngine.Vector2)
+  id: GetZone(UnityEngine.Vector2)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetZone(Vector2)
+  nameWithType: SchemaBehaviour.GetZone(Vector2)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone(UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Zone GetZone(Vector2 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: Public Function GetZone(position As Vector2) As Zone
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  id: GetTileNeighbors(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetTileNeighbors(LBSTile, List<Vector2Int>)
+  nameWithType: SchemaBehaviour.GetTileNeighbors(LBSTile, List<Vector2Int>)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List<UnityEngine.Vector2Int>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<LBSTile> GetTileNeighbors(LBSTile tile, List<Vector2Int> dirs)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    - id: dirs
+      type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    content.vb: Public Function GetTileNeighbors(tile As LBSTile, dirs As List(Of Vector2Int)) As List(Of LBSTile)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors*
+  nameWithType.vb: SchemaBehaviour.GetTileNeighbors(LBSTile, List(Of Vector2Int))
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List(Of UnityEngine.Vector2Int))
+  name.vb: GetTileNeighbors(LBSTile, List(Of Vector2Int))
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  id: RecalculateWalls(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RecalculateWalls(List<LBSTile>)
+  nameWithType: SchemaBehaviour.RecalculateWalls(List<LBSTile>)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void RecalculateWalls(List<LBSTile> tiles = null)
+    parameters:
+    - id: tiles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    content.vb: Public Sub RecalculateWalls(tiles As List(Of LBSTile) = Nothing)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls*
+  nameWithType.vb: SchemaBehaviour.RecalculateWalls(List(Of LBSTile))
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls(System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile))
+  name.vb: RecalculateWalls(List(Of LBSTile))
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor(System.Int32,System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor(System.Int32,System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  id: RecalculateWallsAtFloor(System.Int32,System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RecalculateWallsAtFloor(int, List<LBSTile>)
+  nameWithType: SchemaBehaviour.RecalculateWallsAtFloor(int, List<LBSTile>)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor(int, System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public void RecalculateWallsAtFloor(int floor, List<LBSTile> tiles = null)
+    parameters:
+    - id: floor
+      type: System.Int32
+    - id: tiles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    content.vb: Public Sub RecalculateWallsAtFloor(floor As Integer, tiles As List(Of LBSTile) = Nothing)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor*
+  nameWithType.vb: SchemaBehaviour.RecalculateWallsAtFloor(Integer, List(Of LBSTile))
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor(Integer, System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile))
+  name.vb: RecalculateWallsAtFloor(Integer, List(Of LBSTile))
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone
+  id: Clone
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SchemaBehaviour.Clone()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Behaviours.LBSBehaviour.Clone
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals(System.Object)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SchemaBehaviour.Equals(object)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals*
+  nameWithType.vb: SchemaBehaviour.Equals(Object)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SchemaBehaviour.GetHashCode()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2Int)
+  id: MoveZone(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: MoveZone(Zone, Vector2Int)
+  nameWithType: SchemaBehaviour.MoveZone(Zone, Vector2Int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone(ISILab.LBS.Plugin.Components.Data.Zone, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public bool MoveZone(Zone zone, Vector2Int offset)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: offset
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Boolean
+    content.vb: Public Function MoveZone(zone As Zone, offset As Vector2Int) As Boolean
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone(ISILab.LBS.Plugin.Components.Data.Zone,System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone(ISILab.LBS.Plugin.Components.Data.Zone,System.Int32)
+  id: RotateZone(ISILab.LBS.Plugin.Components.Data.Zone,System.Int32)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RotateZone(Zone, int)
+  nameWithType: SchemaBehaviour.RotateZone(Zone, int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone(ISILab.LBS.Plugin.Components.Data.Zone, int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public bool RotateZone(Zone zone, int direction)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: direction
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function RotateZone(zone As Zone, direction As Integer) As Boolean
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone*
+  nameWithType.vb: SchemaBehaviour.RotateZone(Zone, Integer)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone(ISILab.LBS.Plugin.Components.Data.Zone, Integer)
+  name.vb: RotateZone(Zone, Integer)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: CaptureAreaData(Vector2Int, Vector2Int)
+  nameWithType: SchemaBehaviour.CaptureAreaData(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
+    parameters:
+    - id: StartPosition
+      type: UnityEngine.Vector2Int
+    - id: EndPosition
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Boolean
+    content.vb: Public Function CaptureAreaData(StartPosition As Vector2Int, EndPosition As Vector2Int) As Boolean
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData*
+  implements:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: SetPosition(Vector2Int, Vector2Int)
+  nameWithType: SchemaBehaviour.SetPosition(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
+    parameters:
+    - id: parentAnchor
+      type: UnityEngine.Vector2Int
+    - id: delta
+      type: UnityEngine.Vector2Int
+    content.vb: Public Sub SetPosition(parentAnchor As Vector2Int, delta As Vector2Int)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition*
+  implements:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor
+  id: GetAnchor
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetAnchor()
+  nameWithType: SchemaBehaviour.GetAnchor()
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public Vector2Int GetAnchor()
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Function GetAnchor() As Vector2Int
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor*
+  implements:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+  id: ChangeLevelRender(System.Int32,System.Int32)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ChangeLevelRender(int, int)
+  nameWithType: SchemaBehaviour.ChangeLevelRender(int, int)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender(int, int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)
+    parameters:
+    - id: prevLevelIndex
+      type: System.Int32
+    - id: nextLevelIndex
+      type: System.Int32
+    content.vb: Public Overrides Sub ChangeLevelRender(prevLevelIndex As Integer, nextLevelIndex As Integer)
+  overridden: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender*
+  nameWithType.vb: SchemaBehaviour.ChangeLevelRender(Integer, Integer)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender(Integer, Integer)
+  name.vb: ChangeLevelRender(Integer, Integer)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData(System.Object,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData(System.Object,System.Boolean)
+  id: MergeLayerData(System.Object,System.Boolean)
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: MergeLayerData(object, bool)
+  nameWithType: SchemaBehaviour.MergeLayerData(object, bool)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData(object, bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  example: []
+  syntax:
+    content: public bool MergeLayerData(object incoming, bool overwrite)
+    parameters:
+    - id: incoming
+      type: System.Object
+    - id: overwrite
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function MergeLayerData(incoming As Object, overwrite As Boolean) As Boolean
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData*
+  implements:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(System.Object,System.Boolean)
+  nameWithType.vb: SchemaBehaviour.MergeLayerData(Object, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData(Object, Boolean)
+  name.vb: MergeLayerData(Object, Boolean)
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
+  id: RoomToSet
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RoomToSet
+  nameWithType: SchemaBehaviour.RoomToSet
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Zone RoomToSet { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: Public Property RoomToSet As Zone
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle
+  id: PressetInsideStyle
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: PressetInsideStyle
+  nameWithType: SchemaBehaviour.PressetInsideStyle
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Bundle PressetInsideStyle { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    content.vb: Public Property PressetInsideStyle As Bundle
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
+  id: PressetOutsideStyle
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: PressetOutsideStyle
+  nameWithType: SchemaBehaviour.PressetOutsideStyle
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public Bundle PressetOutsideStyle { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    content.vb: Public Property PressetOutsideStyle As Bundle
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
+  id: MultiLayerConnections
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: MultiLayerConnections
+  nameWithType: SchemaBehaviour.MultiLayerConnections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public bool MultiLayerConnections { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property MultiLayerConnections As Boolean
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
+  id: ValidArea
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ValidArea
+  nameWithType: SchemaBehaviour.ValidArea
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public bool ValidArea { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ValidArea As Boolean
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones
+  id: Zones
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Zones
+  nameWithType: SchemaBehaviour.Zones
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<Zone> Zones { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: Public ReadOnly Property Zones As List(Of Zone)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles
+  id: ZonesWithTiles
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ZonesWithTiles
+  nameWithType: SchemaBehaviour.ZonesWithTiles
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<Zone> ZonesWithTiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: Public ReadOnly Property ZonesWithTiles As List(Of Zone)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles
+  id: Tiles
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Tiles
+  nameWithType: SchemaBehaviour.Tiles
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<LBSTile> Tiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    content.vb: Public ReadOnly Property Tiles As List(Of LBSTile)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs
+  id: Stairs
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Stairs
+  nameWithType: SchemaBehaviour.Stairs
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<LBSStair> Stairs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
+    content.vb: Public ReadOnly Property Stairs As List(Of LBSStair)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap
+  id: TileMap
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: TileMap
+  nameWithType: SchemaBehaviour.TileMap
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public TileMapModule TileMap { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.TileMapModule
+    content.vb: Public ReadOnly Property TileMap As TileMapModule
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections
+  id: TileConnections
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: TileConnections
+  nameWithType: SchemaBehaviour.TileConnections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public ConnectedTileMapModule TileConnections { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.ConnectedTileMapModule
+    content.vb: Public ReadOnly Property TileConnections As ConnectedTileMapModule
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
+  id: Connections
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Connections
+  nameWithType: SchemaBehaviour.Connections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public static List<string> Connections { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Shared ReadOnly Property Connections As List(Of String)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections*
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions
+  id: Directions
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Directions
+  nameWithType: SchemaBehaviour.Directions
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public List<Vector2Int> Directions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+    content.vb: Public ReadOnly Property Directions As List(Of Vector2Int)
+  overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions*
+references:
+- uid: ISILab.LBS.Plugin.Components.Behaviours
+  commentId: N:ISILab.LBS.Plugin.Components.Behaviours
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Behaviours
+  nameWithType: ISILab.LBS.Plugin.Components.Behaviours
+  fullName: ISILab.LBS.Plugin.Components.Behaviours
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Behaviours.LBSBehaviour
+  commentId: T:ISILab.LBS.Behaviours.LBSBehaviour
+  parent: ISILab.LBS.Behaviours
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html
+  name: LBSBehaviour
+  nameWithType: LBSBehaviour
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html
+  name: IBlueprintable
+  nameWithType: IBlueprintable
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.visible
+  commentId: F:ISILab.LBS.Behaviours.LBSBehaviour.visible
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_visible
+  name: visible
+  nameWithType: LBSBehaviour.visible
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.visible
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
+  name: GetRequiredModules()
+  nameWithType: LBSBehaviour.GetRequiredModules()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+    name: GetRequiredModules
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+    name: GetRequiredModules
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
+  name: RequestTilePaint(object)
+  nameWithType: LBSBehaviour.RequestTilePaint(object)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(object)
+  nameWithType.vb: LBSBehaviour.RequestTilePaint(Object)
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(Object)
+  name.vb: RequestTilePaint(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
+    name: RequestTilePaint
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
+    name: RequestTilePaint
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
+  name: RequestTileRemove(object)
+  nameWithType: LBSBehaviour.RequestTileRemove(object)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(object)
+  nameWithType.vb: LBSBehaviour.RequestTileRemove(Object)
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(Object)
+  name.vb: RequestTileRemove(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+    name: RequestTileRemove
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+    name: RequestTileRemove
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
+  name: RetrieveNewTiles()
+  nameWithType: LBSBehaviour.RetrieveNewTiles()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+    name: RetrieveNewTiles
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+    name: RetrieveNewTiles
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
+  name: RetrieveExpiredTiles()
+  nameWithType: LBSBehaviour.RetrieveExpiredTiles()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+    name: RetrieveExpiredTiles
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+    name: RetrieveExpiredTiles
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
+  name: UpdateKeys(List<object>)
+  nameWithType: LBSBehaviour.UpdateKeys(List<object>)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List<object>)
+  nameWithType.vb: LBSBehaviour.UpdateKeys(List(Of Object))
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List(Of Object))
+  name.vb: UpdateKeys(List(Of Object))
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
+    name: UpdateKeys
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
+    name: UpdateKeys
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
+  name: OnOnBehaviourUpdated(object)
+  nameWithType: LBSBehaviour.OnOnBehaviourUpdated(object)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(object)
+  nameWithType.vb: LBSBehaviour.OnOnBehaviourUpdated(Object)
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(Object)
+  name.vb: OnOnBehaviourUpdated(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
+    name: OnOnBehaviourUpdated
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
+    name: OnOnBehaviourUpdated
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{{T}},System.Collections.Generic.List{{T}})
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  definition: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
+  name: RequestFullRepaint<T>(List<T>, List<T>)
+  nameWithType: LBSBehaviour.RequestFullRepaint<T>(List<T>, List<T>)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint<T>(System.Collections.Generic.List<T>, System.Collections.Generic.List<T>)
+  nameWithType.vb: LBSBehaviour.RequestFullRepaint(Of T)(List(Of T), List(Of T))
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint(Of T)(System.Collections.Generic.List(Of T), System.Collections.Generic.List(Of T))
+  name.vb: RequestFullRepaint(Of T)(List(Of T), List(Of T))
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+    name: RequestFullRepaint
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+    name: RequestFullRepaint
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint
+  name: ColorTint
+  nameWithType: LBSBehaviour.ColorTint
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSBehaviour.OwnerLayer
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon
+  name: Icon
+  nameWithType: LBSBehaviour.Icon
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid
+  name: IconGuid
+  nameWithType: LBSBehaviour.IconGuid
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Name
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Name
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name
+  name: Name
+  nameWithType: LBSBehaviour.Name
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys
+  name: Keys
+  nameWithType: LBSBehaviour.Keys
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
+  name: LevelChangedCallback
+  nameWithType: LBSBehaviour.LevelChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated
+  name: OnBehaviourUpdated
+  nameWithType: LBSBehaviour.OnBehaviourUpdated
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Behaviours
+  commentId: N:ISILab.LBS.Behaviours
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Behaviours
+  nameWithType: ISILab.LBS.Behaviours
+  fullName: ISILab.LBS.Behaviours
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Behaviours.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Behaviours
+    name: Behaviours
+    isExternal: true
+    href: ISILab.LBS.Behaviours.html
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+    name: Blueprint
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+    name: Blueprint
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
+  name: RequestFullRepaint<T>(List<T>, List<T>)
+  nameWithType: LBSBehaviour.RequestFullRepaint<T>(List<T>, List<T>)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint<T>(System.Collections.Generic.List<T>, System.Collections.Generic.List<T>)
+  nameWithType.vb: LBSBehaviour.RequestFullRepaint(Of T)(List(Of T), List(Of T))
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint(Of T)(System.Collections.Generic.List(Of T), System.Collections.Generic.List(Of T))
+  name.vb: RequestFullRepaint(Of T)(List(Of T), List(Of T))
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+    name: RequestFullRepaint
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
+    name: RequestFullRepaint
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Action{ISILab.LBS.Modules.LBSStair}
+  commentId: T:System.Action{ISILab.LBS.Modules.LBSStair}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<LBSStair>
+  nameWithType: Action<LBSStair>
+  fullName: System.Action<ISILab.LBS.Modules.LBSStair>
+  nameWithType.vb: Action(Of LBSStair)
+  fullName.vb: System.Action(Of ISILab.LBS.Modules.LBSStair)
+  name.vb: Action(Of LBSStair)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.Modules.LBSStair
+    name: LBSStair
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSStair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.LBSStair
+    name: LBSStair
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSStair.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour__ctor_System_String_System_String_UnityEngine_Color_
+  name: SchemaBehaviour
+  nameWithType: SchemaBehaviour.SchemaBehaviour
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SchemaBehaviour
+  nameWithType.vb: SchemaBehaviour.New
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.New
+  name.vb: New
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
+  name: OnGUI()
+  nameWithType: LBSBehaviour.OnGUI()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+    name: OnGUI
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+    name: OnGUI
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_OnGUI
+  name: OnGUI
+  nameWithType: SchemaBehaviour.OnGUI
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnGUI
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
+  name: OnAttachLayer(LBSLayer)
+  nameWithType: LBSBehaviour.OnAttachLayer(LBSLayer)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+    name: OnAttachLayer
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
+    name: OnAttachLayer
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
+  name: OnAttachLayer
+  nameWithType: SchemaBehaviour.OnAttachLayer
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnAttachLayer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
+  name: OnDetachLayer(LBSLayer)
+  nameWithType: LBSBehaviour.OnDetachLayer(LBSLayer)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+    name: OnDetachLayer
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
+    name: OnDetachLayer
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
+  name: OnDetachLayer
+  nameWithType: SchemaBehaviour.OnDetachLayer
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.OnDetachLayer
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
+  name: CheckKeys()
+  nameWithType: LBSBehaviour.CheckKeys()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
+    name: CheckKeys
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
+    name: CheckKeys
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_CheckKeys
+  name: CheckKeys
+  nameWithType: SchemaBehaviour.CheckKeys
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_UpdateKeys
+  name: UpdateKeys
+  nameWithType: SchemaBehaviour.UpdateKeys
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_AddTile_UnityEngine_Vector2Int_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: AddTile
+  nameWithType: SchemaBehaviour.AddTile
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: ISILab.LBS.Plugin.Components.Data.Zone
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Zone
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  name: Zone
+  nameWithType: Zone
+  fullName: ISILab.LBS.Plugin.Components.Data.Zone
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  name: LBSTile
+  nameWithType: LBSTile
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+- uid: ISILab.LBS.Plugin.Components.Data
+  commentId: N:ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data
+  nameWithType: ISILab.LBS.Plugin.Components.Data
+  fullName: ISILab.LBS.Plugin.Components.Data
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_AddZone
+  name: AddZone
+  nameWithType: SchemaBehaviour.AddZone
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_RemoveZone_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: RemoveZone
+  nameWithType: SchemaBehaviour.RemoveZone
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_RemoveTile_UnityEngine_Vector2Int_
+  name: RemoveTile
+  nameWithType: SchemaBehaviour.RemoveTile
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveTile
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_SetConnection_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_System_Int32_System_String_System_Boolean_
+  name: SetConnection
+  nameWithType: SchemaBehaviour.SetConnection
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetConnection
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_AddConnections_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_Boolean__
+  name: AddConnections
+  nameWithType: SchemaBehaviour.AddConnections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List{System.Boolean}
+  commentId: T:System.Collections.Generic.List{System.Boolean}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<bool>
+  nameWithType: List<bool>
+  fullName: System.Collections.Generic.List<bool>
+  nameWithType.vb: List(Of Boolean)
+  fullName.vb: System.Collections.Generic.List(Of Boolean)
+  name.vb: List(Of Boolean)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_PlaceStair_ISILab_LBS_Modules_LBSStair_System_Int32_
+  name: PlaceStair
+  nameWithType: SchemaBehaviour.PlaceStair
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PlaceStair
+- uid: ISILab.LBS.Modules.LBSStair
+  commentId: T:ISILab.LBS.Modules.LBSStair
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSStair.html
+  name: LBSStair
+  nameWithType: LBSStair
+  fullName: ISILab.LBS.Modules.LBSStair
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_RemoveStair_ISILab_LBS_Modules_LBSStair_
+  name: RemoveStair
+  nameWithType: SchemaBehaviour.RemoveStair
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveStair
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetTile_UnityEngine_Vector2Int_
+  name: GetTile
+  nameWithType: SchemaBehaviour.GetTile
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTile
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetTiles_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: GetTiles
+  nameWithType: SchemaBehaviour.GetTiles
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTiles
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSTile>
+  nameWithType: List<LBSTile>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>
+  nameWithType.vb: List(Of LBSTile)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  name.vb: List(Of LBSTile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetBound_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: GetBound
+  nameWithType: SchemaBehaviour.GetBound
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetBound
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetConnections_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
+  name: GetConnections
+  nameWithType: SchemaBehaviour.GetConnections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetConnections
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetZone_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
+  name: GetZone
+  nameWithType: SchemaBehaviour.GetZone
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetZone
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetTileNeighbors_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_System_Collections_Generic_List_UnityEngine_Vector2Int__
+  name: GetTileNeighbors
+  nameWithType: SchemaBehaviour.GetTileNeighbors
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetTileNeighbors
+- uid: System.Collections.Generic.List{UnityEngine.Vector2Int}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector2Int}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector2Int>
+  nameWithType: List<Vector2Int>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector2Int>
+  nameWithType.vb: List(Of Vector2Int)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector2Int)
+  name.vb: List(Of Vector2Int)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_RecalculateWalls_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__
+  name: RecalculateWalls
+  nameWithType: SchemaBehaviour.RecalculateWalls
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWalls
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_RecalculateWallsAtFloor_System_Int32_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__
+  name: RecalculateWallsAtFloor
+  nameWithType: SchemaBehaviour.RecalculateWallsAtFloor
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RecalculateWallsAtFloor
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.Clone
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
+  name: Clone()
+  nameWithType: LBSBehaviour.Clone()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Clone
+  name: Clone
+  nameWithType: SchemaBehaviour.Clone
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Equals_System_Object_
+  name: Equals
+  nameWithType: SchemaBehaviour.Equals
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetHashCode
+  name: GetHashCode
+  nameWithType: SchemaBehaviour.GetHashCode
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetHashCode
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_MoveZone_ISILab_LBS_Plugin_Components_Data_Zone_UnityEngine_Vector2Int_
+  name: MoveZone
+  nameWithType: SchemaBehaviour.MoveZone
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MoveZone
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_RotateZone_ISILab_LBS_Plugin_Components_Data_Zone_System_Int32_
+  name: RotateZone
+  nameWithType: SchemaBehaviour.RotateZone
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RotateZone
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: CaptureAreaData
+  nameWithType: SchemaBehaviour.CaptureAreaData
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: CaptureAreaData(Vector2Int, Vector2Int)
+  nameWithType: IBlueprintable.CaptureAreaData(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: CaptureAreaData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: CaptureAreaData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: SetPosition
+  nameWithType: SchemaBehaviour.SetPosition
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.SetPosition
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: SetPosition(Vector2Int, Vector2Int)
+  nameWithType: IBlueprintable.SetPosition(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: SetPosition
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: SetPosition
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_GetAnchor
+  name: GetAnchor
+  nameWithType: SchemaBehaviour.GetAnchor
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_GetAnchor
+  name: GetAnchor()
+  nameWithType: IBlueprintable.GetAnchor()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
+    name: GetAnchor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_GetAnchor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
+    name: GetAnchor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_GetAnchor
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  isExternal: true
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
+  name: ChangeLevelRender(int, int)
+  nameWithType: LBSBehaviour.ChangeLevelRender(int, int)
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(int, int)
+  nameWithType.vb: LBSBehaviour.ChangeLevelRender(Integer, Integer)
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(Integer, Integer)
+  name.vb: ChangeLevelRender(Integer, Integer)
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+    name: ChangeLevelRender
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
+    name: ChangeLevelRender
+    isExternal: true
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_ChangeLevelRender_System_Int32_System_Int32_
+  name: ChangeLevelRender
+  nameWithType: SchemaBehaviour.ChangeLevelRender
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_MergeLayerData_System_Object_System_Boolean_
+  name: MergeLayerData
+  nameWithType: SchemaBehaviour.MergeLayerData
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MergeLayerData
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(System.Object,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(System.Object,System.Boolean)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_MergeLayerData_System_Object_System_Boolean_
+  name: MergeLayerData(object, bool)
+  nameWithType: IBlueprintable.MergeLayerData(object, bool)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(object, bool)
+  nameWithType.vb: IBlueprintable.MergeLayerData(Object, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(Object, Boolean)
+  name.vb: MergeLayerData(Object, Boolean)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(System.Object,System.Boolean)
+    name: MergeLayerData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_MergeLayerData_System_Object_System_Boolean_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(System.Object,System.Boolean)
+    name: MergeLayerData
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_MergeLayerData_System_Object_System_Boolean_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_RoomToSet
+  name: RoomToSet
+  nameWithType: SchemaBehaviour.RoomToSet
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_PressetInsideStyle
+  name: PressetInsideStyle
+  nameWithType: SchemaBehaviour.PressetInsideStyle
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle
+  nameWithType: Bundle
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_PressetOutsideStyle
+  name: PressetOutsideStyle
+  nameWithType: SchemaBehaviour.PressetOutsideStyle
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_MultiLayerConnections
+  name: MultiLayerConnections
+  nameWithType: SchemaBehaviour.MultiLayerConnections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_ValidArea
+  name: ValidArea
+  nameWithType: SchemaBehaviour.ValidArea
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Zones
+  name: Zones
+  nameWithType: SchemaBehaviour.Zones
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Zones
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Zone>
+  nameWithType: List<Zone>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Zone>
+  nameWithType.vb: List(Of Zone)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Zone)
+  name.vb: List(Of Zone)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_ZonesWithTiles
+  name: ZonesWithTiles
+  nameWithType: SchemaBehaviour.ZonesWithTiles
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Tiles
+  name: Tiles
+  nameWithType: SchemaBehaviour.Tiles
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Stairs
+  name: Stairs
+  nameWithType: SchemaBehaviour.Stairs
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Stairs
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSStair>
+  nameWithType: List<LBSStair>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.LBSStair>
+  nameWithType.vb: List(Of LBSStair)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.LBSStair)
+  name.vb: List(Of LBSStair)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.LBSStair
+    name: LBSStair
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSStair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.LBSStair
+    name: LBSStair
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSStair.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_TileMap
+  name: TileMap
+  nameWithType: SchemaBehaviour.TileMap
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap
+- uid: ISILab.LBS.Modules.TileMapModule
+  commentId: T:ISILab.LBS.Modules.TileMapModule
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.TileMapModule.html
+  name: TileMapModule
+  nameWithType: TileMapModule
+  fullName: ISILab.LBS.Modules.TileMapModule
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_TileConnections
+  name: TileConnections
+  nameWithType: SchemaBehaviour.TileConnections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule
+  commentId: T:ISILab.LBS.Modules.ConnectedTileMapModule
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html
+  name: ConnectedTileMapModule
+  nameWithType: ConnectedTileMapModule
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Connections
+  name: Connections
+  nameWithType: SchemaBehaviour.Connections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Directions
+  name: Directions
+  nameWithType: SchemaBehaviour.Directions
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions

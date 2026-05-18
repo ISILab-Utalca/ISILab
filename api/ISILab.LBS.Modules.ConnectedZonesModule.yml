@@ -1,0 +1,1500 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Modules.ConnectedZonesModule
+  commentId: T:ISILab.LBS.Modules.ConnectedZonesModule
+  id: ConnectedZonesModule
+  parent: ISILab.LBS.Modules
+  children:
+  - ISILab.LBS.Modules.ConnectedZonesModule.#ctor
+  - ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Components.ZoneEdge)
+  - ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Modules.ConnectedZonesModule.Clear
+  - ISILab.LBS.Modules.ConnectedZonesModule.Clone
+  - ISILab.LBS.Modules.ConnectedZonesModule.Edges
+  - ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Modules.ConnectedZonesModule.Equals(System.Object)
+  - ISILab.LBS.Modules.ConnectedZonesModule.GetBounds
+  - ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone,System.Boolean)
+  - ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(UnityEngine.Vector2,System.Single)
+  - ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode
+  - ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty
+  - ISILab.LBS.Modules.ConnectedZonesModule.OnAddEdge
+  - ISILab.LBS.Modules.ConnectedZonesModule.OnRemoveEdge
+  - ISILab.LBS.Modules.ConnectedZonesModule.Print
+  - ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Components.ZoneEdge)
+  - ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges(ISILab.LBS.Plugin.Components.Data.Zone)
+  - ISILab.LBS.Modules.ConnectedZonesModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  langs:
+  - csharp
+  - vb
+  name: ConnectedZonesModule
+  nameWithType: ConnectedZonesModule
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: 'public class ConnectedZonesModule : LBSModule, ICloneable'
+    content.vb: Public Class ConnectedZonesModule Inherits LBSModule Implements ICloneable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Modules.LBSModule
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OnChanged
+  - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.#ctor
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: ConnectedZonesModule()
+  nameWithType: ConnectedZonesModule.ConnectedZonesModule()
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.ConnectedZonesModule()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ConnectedZonesModule()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.#ctor*
+  nameWithType.vb: ConnectedZonesModule.New()
+  fullName.vb: ISILab.LBS.Modules.ConnectedZonesModule.New()
+  name.vb: New()
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Components.ZoneEdge)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Components.ZoneEdge)
+  id: AddEdge(ISILab.LBS.Components.ZoneEdge)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: AddEdge(ZoneEdge)
+  nameWithType: ConnectedZonesModule.AddEdge(ZoneEdge)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Components.ZoneEdge)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void AddEdge(ZoneEdge edge)
+    parameters:
+    - id: edge
+      type: ISILab.LBS.Components.ZoneEdge
+    content.vb: Public Sub AddEdge(edge As ZoneEdge)
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  id: AddEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: AddEdge(Zone, Zone)
+  nameWithType: ConnectedZonesModule.AddEdge(Zone, Zone)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge(ISILab.LBS.Plugin.Components.Data.Zone, ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ZoneEdge AddEdge(Zone first, Zone second)
+    parameters:
+    - id: first
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: second
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    return:
+      type: ISILab.LBS.Components.ZoneEdge
+    content.vb: Public Function AddEdge(first As Zone, second As Zone) As ZoneEdge
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  id: EdgesConnected(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: EdgesConnected(Zone, Zone)
+  nameWithType: ConnectedZonesModule.EdgesConnected(Zone, Zone)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected(ISILab.LBS.Plugin.Components.Data.Zone, ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public bool EdgesConnected(Zone first, Zone second)
+    parameters:
+    - id: first
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: second
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    return:
+      type: System.Boolean
+    content.vb: Public Function EdgesConnected(first As Zone, second As Zone) As Boolean
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone,System.Boolean)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone,System.Boolean)
+  id: GetEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone,System.Boolean)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetEdge(Zone, Zone, bool)
+  nameWithType: ConnectedZonesModule.GetEdge(Zone, Zone, bool)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(ISILab.LBS.Plugin.Components.Data.Zone, ISILab.LBS.Plugin.Components.Data.Zone, bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ZoneEdge GetEdge(Zone first, Zone second, bool bothDir = true)
+    parameters:
+    - id: first
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: second
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: bothDir
+      type: System.Boolean
+    return:
+      type: ISILab.LBS.Components.ZoneEdge
+    content.vb: Public Function GetEdge(first As Zone, second As Zone, bothDir As Boolean = True) As ZoneEdge
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge*
+  nameWithType.vb: ConnectedZonesModule.GetEdge(Zone, Zone, Boolean)
+  fullName.vb: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(ISILab.LBS.Plugin.Components.Data.Zone, ISILab.LBS.Plugin.Components.Data.Zone, Boolean)
+  name.vb: GetEdge(Zone, Zone, Boolean)
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(UnityEngine.Vector2,System.Single)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(UnityEngine.Vector2,System.Single)
+  id: GetEdge(UnityEngine.Vector2,System.Single)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetEdge(Vector2, float)
+  nameWithType: ConnectedZonesModule.GetEdge(Vector2, float)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(UnityEngine.Vector2, float)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ZoneEdge GetEdge(Vector2 position, float delta)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2
+    - id: delta
+      type: System.Single
+    return:
+      type: ISILab.LBS.Components.ZoneEdge
+    content.vb: Public Function GetEdge(position As Vector2, delta As Single) As ZoneEdge
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge*
+  nameWithType.vb: ConnectedZonesModule.GetEdge(Vector2, Single)
+  fullName.vb: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge(UnityEngine.Vector2, Single)
+  name.vb: GetEdge(Vector2, Single)
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  id: RemoveEdge(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveEdge(Zone, Zone)
+  nameWithType: ConnectedZonesModule.RemoveEdge(Zone, Zone)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Plugin.Components.Data.Zone, ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RemoveEdge(Zone first, Zone second)
+    parameters:
+    - id: first
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    - id: second
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: Public Sub RemoveEdge(first As Zone, second As Zone)
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Components.ZoneEdge)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Components.ZoneEdge)
+  id: RemoveEdge(ISILab.LBS.Components.ZoneEdge)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveEdge(ZoneEdge)
+  nameWithType: ConnectedZonesModule.RemoveEdge(ZoneEdge)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge(ISILab.LBS.Components.ZoneEdge)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RemoveEdge(ZoneEdge edge)
+    parameters:
+    - id: edge
+      type: ISILab.LBS.Components.ZoneEdge
+    content.vb: Public Sub RemoveEdge(edge As ZoneEdge)
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges(ISILab.LBS.Plugin.Components.Data.Zone)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges(ISILab.LBS.Plugin.Components.Data.Zone)
+  id: RemoveEdges(ISILab.LBS.Plugin.Components.Data.Zone)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveEdges(Zone)
+  nameWithType: ConnectedZonesModule.RemoveEdges(Zone)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges(ISILab.LBS.Plugin.Components.Data.Zone)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ZoneEdge[] RemoveEdges(Zone zone)
+    parameters:
+    - id: zone
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    return:
+      type: ISILab.LBS.Components.ZoneEdge[]
+    content.vb: Public Function RemoveEdges(zone As Zone) As ZoneEdge()
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Clear
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.Clear
+  id: Clear
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ConnectedZonesModule.Clear()
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Clear()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Clear()
+    content.vb: Public Overrides Sub Clear()
+  overridden: ISILab.LBS.Modules.LBSModule.Clear
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.Clear*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Clone
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.Clone
+  id: Clone
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ConnectedZonesModule.Clone()
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Modules.LBSModule.Clone
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.Clone*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.GetBounds
+  id: GetBounds
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: ConnectedZonesModule.GetBounds()
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.GetBounds()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override Rect GetBounds()
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Overrides Function GetBounds() As Rect
+  overridden: ISILab.LBS.Modules.LBSModule.GetBounds
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.GetBounds*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty
+  id: IsEmpty
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty()
+  nameWithType: ConnectedZonesModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool IsEmpty()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsEmpty() As Boolean
+  overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Print
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.Print
+  id: Print
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Print()
+  nameWithType: ConnectedZonesModule.Print()
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Print()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Print()
+    content.vb: Public Overrides Sub Print()
+  overridden: ISILab.LBS.Modules.LBSModule.Print
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.Print*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  id: Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Rewrite(LBSModule)
+  nameWithType: ConnectedZonesModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Rewrite(LBSModule module)
+    parameters:
+    - id: module
+      type: ISILab.LBS.Modules.LBSModule
+    content.vb: Public Overrides Sub Rewrite([module] As LBSModule)
+  overridden: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.Rewrite*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Equals(System.Object)
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ConnectedZonesModule.Equals(object)
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.Equals*
+  nameWithType.vb: ConnectedZonesModule.Equals(Object)
+  fullName.vb: ISILab.LBS.Modules.ConnectedZonesModule.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode
+  commentId: M:ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ConnectedZonesModule.GetHashCode()
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Edges
+  commentId: P:ISILab.LBS.Modules.ConnectedZonesModule.Edges
+  id: Edges
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: Edges
+  nameWithType: ConnectedZonesModule.Edges
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Edges
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<ZoneEdge> Edges { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.ZoneEdge}
+    content.vb: Public ReadOnly Property Edges As List(Of ZoneEdge)
+  overload: ISILab.LBS.Modules.ConnectedZonesModule.Edges*
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.OnAddEdge
+  commentId: E:ISILab.LBS.Modules.ConnectedZonesModule.OnAddEdge
+  id: OnAddEdge
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: OnAddEdge
+  nameWithType: ConnectedZonesModule.OnAddEdge
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.OnAddEdge
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public event Action<ConnectedZonesModule, ZoneEdge> OnAddEdge
+    return:
+      type: System.Action{ISILab.LBS.Modules.ConnectedZonesModule,ISILab.LBS.Components.ZoneEdge}
+    content.vb: Public Event OnAddEdge As Action(Of ConnectedZonesModule, ZoneEdge)
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.OnRemoveEdge
+  commentId: E:ISILab.LBS.Modules.ConnectedZonesModule.OnRemoveEdge
+  id: OnRemoveEdge
+  parent: ISILab.LBS.Modules.ConnectedZonesModule
+  langs:
+  - csharp
+  - vb
+  name: OnRemoveEdge
+  nameWithType: ConnectedZonesModule.OnRemoveEdge
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.OnRemoveEdge
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public event Action<ConnectedZonesModule, ZoneEdge> OnRemoveEdge
+    return:
+      type: System.Action{ISILab.LBS.Modules.ConnectedZonesModule,ISILab.LBS.Components.ZoneEdge}
+    content.vb: Public Event OnRemoveEdge As Action(Of ConnectedZonesModule, ZoneEdge)
+references:
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Modules.LBSModule
+  commentId: T:ISILab.LBS.Modules.LBSModule
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html
+  name: LBSModule
+  nameWithType: LBSModule
+  fullName: ISILab.LBS.Modules.LBSModule
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Modules.LBSModule.id
+  commentId: F:ISILab.LBS.Modules.LBSModule.id
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
+  name: id
+  nameWithType: LBSModule.id
+  fullName: ISILab.LBS.Modules.LBSModule.id
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
+  commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSModule.OwnerLayer
+  fullName: ISILab.LBS.Modules.LBSModule.OwnerLayer
+- uid: ISILab.LBS.Modules.LBSModule.ID
+  commentId: P:ISILab.LBS.Modules.LBSModule.ID
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
+  name: ID
+  nameWithType: LBSModule.ID
+  fullName: ISILab.LBS.Modules.LBSModule.ID
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.#ctor*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.#ctor
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule__ctor
+  name: ConnectedZonesModule
+  nameWithType: ConnectedZonesModule.ConnectedZonesModule
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.ConnectedZonesModule
+  nameWithType.vb: ConnectedZonesModule.New
+  fullName.vb: ISILab.LBS.Modules.ConnectedZonesModule.New
+  name.vb: New
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.AddEdge
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_AddEdge_ISILab_LBS_Components_ZoneEdge_
+  name: AddEdge
+  nameWithType: ConnectedZonesModule.AddEdge
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.AddEdge
+- uid: ISILab.LBS.Components.ZoneEdge
+  commentId: T:ISILab.LBS.Components.ZoneEdge
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.ZoneEdge.html
+  name: ZoneEdge
+  nameWithType: ZoneEdge
+  fullName: ISILab.LBS.Components.ZoneEdge
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Plugin.Components.Data.Zone
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Zone
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  name: Zone
+  nameWithType: Zone
+  fullName: ISILab.LBS.Plugin.Components.Data.Zone
+- uid: ISILab.LBS.Plugin.Components.Data
+  commentId: N:ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data
+  nameWithType: ISILab.LBS.Plugin.Components.Data
+  fullName: ISILab.LBS.Plugin.Components.Data
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_EdgesConnected_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: EdgesConnected
+  nameWithType: ConnectedZonesModule.EdgesConnected
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.EdgesConnected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.GetEdge
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_GetEdge_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_System_Boolean_
+  name: GetEdge
+  nameWithType: ConnectedZonesModule.GetEdge
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.GetEdge
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_RemoveEdge_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: RemoveEdge
+  nameWithType: ConnectedZonesModule.RemoveEdge
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdge
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_RemoveEdges_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: RemoveEdges
+  nameWithType: ConnectedZonesModule.RemoveEdges
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.RemoveEdges
+- uid: ISILab.LBS.Components.ZoneEdge[]
+  isExternal: true
+  href: ISILab.LBS.Components.ZoneEdge.html
+  name: ZoneEdge[]
+  nameWithType: ZoneEdge[]
+  fullName: ISILab.LBS.Components.ZoneEdge[]
+  nameWithType.vb: ZoneEdge()
+  fullName.vb: ISILab.LBS.Components.ZoneEdge()
+  name.vb: ZoneEdge()
+  spec.csharp:
+  - uid: ISILab.LBS.Components.ZoneEdge
+    name: ZoneEdge
+    isExternal: true
+    href: ISILab.LBS.Components.ZoneEdge.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.LBS.Components.ZoneEdge
+    name: ZoneEdge
+    isExternal: true
+    href: ISILab.LBS.Components.ZoneEdge.html
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Clear
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clear
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  name: Clear()
+  nameWithType: LBSModule.Clear()
+  fullName: ISILab.LBS.Modules.LBSModule.Clear()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Clear*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.Clear
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_Clear
+  name: Clear
+  nameWithType: ConnectedZonesModule.Clear
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Clear
+- uid: ISILab.LBS.Modules.LBSModule.Clone
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clone
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  name: Clone()
+  nameWithType: LBSModule.Clone()
+  fullName: ISILab.LBS.Modules.LBSModule.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Clone*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.Clone
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_Clone
+  name: Clone
+  nameWithType: ConnectedZonesModule.Clone
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Clone
+- uid: ISILab.LBS.Modules.LBSModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  name: GetBounds()
+  nameWithType: LBSModule.GetBounds()
+  fullName: ISILab.LBS.Modules.LBSModule.GetBounds()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.GetBounds*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.GetBounds
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_GetBounds
+  name: GetBounds
+  nameWithType: ConnectedZonesModule.GetBounds
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.GetBounds
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  name: IsEmpty()
+  nameWithType: LBSModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.LBSModule.IsEmpty()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_IsEmpty
+  name: IsEmpty
+  nameWithType: ConnectedZonesModule.IsEmpty
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.IsEmpty
+- uid: ISILab.LBS.Modules.LBSModule.Print
+  commentId: M:ISILab.LBS.Modules.LBSModule.Print
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  name: Print()
+  nameWithType: LBSModule.Print()
+  fullName: ISILab.LBS.Modules.LBSModule.Print()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Print*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.Print
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_Print
+  name: Print
+  nameWithType: ConnectedZonesModule.Print
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Print
+- uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite(LBSModule)
+  nameWithType: LBSModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Rewrite*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.Rewrite
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite
+  nameWithType: ConnectedZonesModule.Rewrite
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Rewrite
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Equals*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.Equals
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_Equals_System_Object_
+  name: Equals
+  nameWithType: ConnectedZonesModule.Equals
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_GetHashCode
+  name: GetHashCode
+  nameWithType: ConnectedZonesModule.GetHashCode
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Modules.ConnectedZonesModule.Edges*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedZonesModule.Edges
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedZonesModule.html#ISILab_LBS_Modules_ConnectedZonesModule_Edges
+  name: Edges
+  nameWithType: ConnectedZonesModule.Edges
+  fullName: ISILab.LBS.Modules.ConnectedZonesModule.Edges
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.ZoneEdge}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.ZoneEdge}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ZoneEdge>
+  nameWithType: List<ZoneEdge>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.ZoneEdge>
+  nameWithType.vb: List(Of ZoneEdge)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.ZoneEdge)
+  name.vb: List(Of ZoneEdge)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.ZoneEdge
+    name: ZoneEdge
+    isExternal: true
+    href: ISILab.LBS.Components.ZoneEdge.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.ZoneEdge
+    name: ZoneEdge
+    isExternal: true
+    href: ISILab.LBS.Components.ZoneEdge.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Action{ISILab.LBS.Modules.ConnectedZonesModule,ISILab.LBS.Components.ZoneEdge}
+  commentId: T:System.Action{ISILab.LBS.Modules.ConnectedZonesModule,ISILab.LBS.Components.ZoneEdge}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<ConnectedZonesModule, ZoneEdge>
+  nameWithType: Action<ConnectedZonesModule, ZoneEdge>
+  fullName: System.Action<ISILab.LBS.Modules.ConnectedZonesModule, ISILab.LBS.Components.ZoneEdge>
+  nameWithType.vb: Action(Of ConnectedZonesModule, ZoneEdge)
+  fullName.vb: System.Action(Of ISILab.LBS.Modules.ConnectedZonesModule, ISILab.LBS.Components.ZoneEdge)
+  name.vb: Action(Of ConnectedZonesModule, ZoneEdge)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.Modules.ConnectedZonesModule
+    name: ConnectedZonesModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedZonesModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Components.ZoneEdge
+    name: ZoneEdge
+    isExternal: true
+    href: ISILab.LBS.Components.ZoneEdge.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.ConnectedZonesModule
+    name: ConnectedZonesModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedZonesModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Components.ZoneEdge
+    name: ZoneEdge
+    isExternal: true
+    href: ISILab.LBS.Components.ZoneEdge.html
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )

@@ -1,0 +1,423 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.LBSTagGroup
+  commentId: T:ISILab.LBS.LBSTagGroup
+  id: LBSTagGroup
+  parent: ISILab.LBS
+  children:
+  - ISILab.LBS.LBSTagGroup.#ctor
+  - ISILab.LBS.LBSTagGroup.Add(ISILab.LBS.Components.LBSTag)
+  - ISILab.LBS.LBSTagGroup.Remove(ISILab.LBS.Components.LBSTag)
+  - ISILab.LBS.LBSTagGroup.RemoveAt(System.Int32)
+  - ISILab.LBS.LBSTagGroup.Tags
+  - ISILab.LBS.LBSTagGroup.type
+  langs:
+  - csharp
+  - vb
+  name: LBSTagGroup
+  nameWithType: LBSTagGroup
+  fullName: ISILab.LBS.LBSTagGroup
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: 'public class LBSTagGroup : ScriptableObject'
+    content.vb: Public Class LBSTagGroup Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.LBSTagGroup.type
+  commentId: F:ISILab.LBS.LBSTagGroup.type
+  id: type
+  parent: ISILab.LBS.LBSTagGroup
+  langs:
+  - csharp
+  - vb
+  name: type
+  nameWithType: LBSTagGroup.type
+  fullName: ISILab.LBS.LBSTagGroup.type
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSTagGroup.TagType type
+    return:
+      type: ISILab.LBS.LBSTagGroup.TagType
+    content.vb: Public type As LBSTagGroup.TagType
+- uid: ISILab.LBS.LBSTagGroup.RemoveAt(System.Int32)
+  commentId: M:ISILab.LBS.LBSTagGroup.RemoveAt(System.Int32)
+  id: RemoveAt(System.Int32)
+  parent: ISILab.LBS.LBSTagGroup
+  langs:
+  - csharp
+  - vb
+  name: RemoveAt(int)
+  nameWithType: LBSTagGroup.RemoveAt(int)
+  fullName: ISILab.LBS.LBSTagGroup.RemoveAt(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public void RemoveAt(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub RemoveAt(index As Integer)
+  overload: ISILab.LBS.LBSTagGroup.RemoveAt*
+  nameWithType.vb: LBSTagGroup.RemoveAt(Integer)
+  fullName.vb: ISILab.LBS.LBSTagGroup.RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+- uid: ISILab.LBS.LBSTagGroup.Remove(ISILab.LBS.Components.LBSTag)
+  commentId: M:ISILab.LBS.LBSTagGroup.Remove(ISILab.LBS.Components.LBSTag)
+  id: Remove(ISILab.LBS.Components.LBSTag)
+  parent: ISILab.LBS.LBSTagGroup
+  langs:
+  - csharp
+  - vb
+  name: Remove(LBSTag)
+  nameWithType: LBSTagGroup.Remove(LBSTag)
+  fullName: ISILab.LBS.LBSTagGroup.Remove(ISILab.LBS.Components.LBSTag)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public void Remove(LBSTag tag)
+    parameters:
+    - id: tag
+      type: ISILab.LBS.Components.LBSTag
+    content.vb: Public Sub Remove(tag As LBSTag)
+  overload: ISILab.LBS.LBSTagGroup.Remove*
+- uid: ISILab.LBS.LBSTagGroup.Add(ISILab.LBS.Components.LBSTag)
+  commentId: M:ISILab.LBS.LBSTagGroup.Add(ISILab.LBS.Components.LBSTag)
+  id: Add(ISILab.LBS.Components.LBSTag)
+  parent: ISILab.LBS.LBSTagGroup
+  langs:
+  - csharp
+  - vb
+  name: Add(LBSTag)
+  nameWithType: LBSTagGroup.Add(LBSTag)
+  fullName: ISILab.LBS.LBSTagGroup.Add(ISILab.LBS.Components.LBSTag)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public void Add(LBSTag tag)
+    parameters:
+    - id: tag
+      type: ISILab.LBS.Components.LBSTag
+    content.vb: Public Sub Add(tag As LBSTag)
+  overload: ISILab.LBS.LBSTagGroup.Add*
+- uid: ISILab.LBS.LBSTagGroup.#ctor
+  commentId: M:ISILab.LBS.LBSTagGroup.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.LBSTagGroup
+  langs:
+  - csharp
+  - vb
+  name: LBSTagGroup()
+  nameWithType: LBSTagGroup.LBSTagGroup()
+  fullName: ISILab.LBS.LBSTagGroup.LBSTagGroup()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSTagGroup()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.LBSTagGroup.#ctor*
+  nameWithType.vb: LBSTagGroup.New()
+  fullName.vb: ISILab.LBS.LBSTagGroup.New()
+  name.vb: New()
+- uid: ISILab.LBS.LBSTagGroup.Tags
+  commentId: P:ISILab.LBS.LBSTagGroup.Tags
+  id: Tags
+  parent: ISILab.LBS.LBSTagGroup
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: LBSTagGroup.Tags
+  fullName: ISILab.LBS.LBSTagGroup.Tags
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public List<LBSTag> Tags { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+    content.vb: Public ReadOnly Property Tags As List(Of LBSTag)
+  overload: ISILab.LBS.LBSTagGroup.Tags*
+references:
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.LBSTagGroup.TagType
+  commentId: T:ISILab.LBS.LBSTagGroup.TagType
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.LBSTagGroup.html
+  name: LBSTagGroup.TagType
+  nameWithType: LBSTagGroup.TagType
+  fullName: ISILab.LBS.LBSTagGroup.TagType
+  spec.csharp:
+  - uid: ISILab.LBS.LBSTagGroup
+    name: LBSTagGroup
+    isExternal: true
+    href: ISILab.LBS.LBSTagGroup.html
+  - name: .
+  - uid: ISILab.LBS.LBSTagGroup.TagType
+    name: TagType
+    isExternal: true
+    href: ISILab.LBS.LBSTagGroup.TagType.html
+  spec.vb:
+  - uid: ISILab.LBS.LBSTagGroup
+    name: LBSTagGroup
+    isExternal: true
+    href: ISILab.LBS.LBSTagGroup.html
+  - name: .
+  - uid: ISILab.LBS.LBSTagGroup.TagType
+    name: TagType
+    isExternal: true
+    href: ISILab.LBS.LBSTagGroup.TagType.html
+- uid: ISILab.LBS.LBSTagGroup.RemoveAt*
+  commentId: Overload:ISILab.LBS.LBSTagGroup.RemoveAt
+  isExternal: true
+  href: ISILab.LBS.LBSTagGroup.html#ISILab_LBS_LBSTagGroup_RemoveAt_System_Int32_
+  name: RemoveAt
+  nameWithType: LBSTagGroup.RemoveAt
+  fullName: ISILab.LBS.LBSTagGroup.RemoveAt
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.LBSTagGroup.Remove*
+  commentId: Overload:ISILab.LBS.LBSTagGroup.Remove
+  isExternal: true
+  href: ISILab.LBS.LBSTagGroup.html#ISILab_LBS_LBSTagGroup_Remove_ISILab_LBS_Components_LBSTag_
+  name: Remove
+  nameWithType: LBSTagGroup.Remove
+  fullName: ISILab.LBS.LBSTagGroup.Remove
+- uid: ISILab.LBS.Components.LBSTag
+  commentId: T:ISILab.LBS.Components.LBSTag
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html
+  name: LBSTag
+  nameWithType: LBSTag
+  fullName: ISILab.LBS.Components.LBSTag
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.LBSTagGroup.Add*
+  commentId: Overload:ISILab.LBS.LBSTagGroup.Add
+  isExternal: true
+  href: ISILab.LBS.LBSTagGroup.html#ISILab_LBS_LBSTagGroup_Add_ISILab_LBS_Components_LBSTag_
+  name: Add
+  nameWithType: LBSTagGroup.Add
+  fullName: ISILab.LBS.LBSTagGroup.Add
+- uid: ISILab.LBS.LBSTagGroup.#ctor*
+  commentId: Overload:ISILab.LBS.LBSTagGroup.#ctor
+  isExternal: true
+  href: ISILab.LBS.LBSTagGroup.html#ISILab_LBS_LBSTagGroup__ctor
+  name: LBSTagGroup
+  nameWithType: LBSTagGroup.LBSTagGroup
+  fullName: ISILab.LBS.LBSTagGroup.LBSTagGroup
+  nameWithType.vb: LBSTagGroup.New
+  fullName.vb: ISILab.LBS.LBSTagGroup.New
+  name.vb: New
+- uid: ISILab.LBS.LBSTagGroup.Tags*
+  commentId: Overload:ISILab.LBS.LBSTagGroup.Tags
+  isExternal: true
+  href: ISILab.LBS.LBSTagGroup.html#ISILab_LBS_LBSTagGroup_Tags
+  name: Tags
+  nameWithType: LBSTagGroup.Tags
+  fullName: ISILab.LBS.LBSTagGroup.Tags
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSTag>
+  nameWithType: List<LBSTag>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.LBSTag>
+  nameWithType.vb: List(Of LBSTag)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.LBSTag)
+  name.vb: List(Of LBSTag)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

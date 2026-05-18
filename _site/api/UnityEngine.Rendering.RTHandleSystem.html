@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RTHandleSystem | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RTHandleSystem | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.RTHandleSystem">
+
+
+
+  <h1 id="UnityEngine_Rendering_RTHandleSystem" data-uid="UnityEngine.Rendering.RTHandleSystem" class="text-break">
+Class RTHandleSystem  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RTHandleSystem : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RTHandleSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem__ctor_" data-uid="UnityEngine.Rendering.RTHandleSystem.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem__ctor" data-uid="UnityEngine.Rendering.RTHandleSystem.#ctor">
+  RTHandleSystem()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandleSystem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_rtHandleProperties_" data-uid="UnityEngine.Rendering.RTHandleSystem.rtHandleProperties*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_rtHandleProperties" data-uid="UnityEngine.Rendering.RTHandleSystem.rtHandleProperties">
+  rtHandleProperties
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandleProperties rtHandleProperties { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandleProperties.html">RTHandleProperties</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_System_Int32_System_Int32_System_Int32_UnityEngine_Rendering_DepthBits_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_FilterMode_UnityEngine_TextureWrapMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(System.Int32,System.Int32,System.Int32,UnityEngine.Rendering.DepthBits,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(int, int, int, DepthBits, GraphicsFormat, FilterMode, TextureWrapMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(int width, int height, int slices = 1, DepthBits depthBufferBits = DepthBits.None, GraphicsFormat colorFormat = 4, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depthBufferBits</code> <a class="xref" href="UnityEngine.Rendering.DepthBits.html">DepthBits</a></dt>
+    <dd></dd>
+    <dt><code>colorFormat</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_System_Int32_System_Int32_UnityEngine_Experimental_Rendering_GraphicsFormat_System_Int32_UnityEngine_FilterMode_UnityEngine_TextureWrapMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,System.Int32,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(int, int, GraphicsFormat, int, FilterMode, TextureWrapMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(int width, int height, GraphicsFormat format, int slices = 1, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_System_Int32_System_Int32_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_TextureWrapMode_UnityEngine_TextureWrapMode_UnityEngine_TextureWrapMode_System_Int32_UnityEngine_FilterMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.TextureWrapMode,UnityEngine.TextureWrapMode,UnityEngine.TextureWrapMode,System.Int32,UnityEngine.FilterMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(int, int, GraphicsFormat, TextureWrapMode, TextureWrapMode, TextureWrapMode, int, FilterMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(int width, int height, GraphicsFormat format, TextureWrapMode wrapModeU, TextureWrapMode wrapModeV, TextureWrapMode wrapModeW = 0, int slices = 1, FilterMode filterMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>wrapModeU</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapModeV</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapModeW</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_System_Int32_System_Int32_UnityEngine_Rendering_RTHandleAllocInfo_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(System.Int32,System.Int32,UnityEngine.Rendering.RTHandleAllocInfo)">
+  Alloc(int, int, RTHandleAllocInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(int width, int height, RTHandleAllocInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="UnityEngine.Rendering.RTHandleAllocInfo.html">RTHandleAllocInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_System_Int32_System_Int32_UnityEngine_TextureWrapMode_UnityEngine_TextureWrapMode_UnityEngine_TextureWrapMode_System_Int32_UnityEngine_Rendering_DepthBits_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_FilterMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(System.Int32,System.Int32,UnityEngine.TextureWrapMode,UnityEngine.TextureWrapMode,UnityEngine.TextureWrapMode,System.Int32,UnityEngine.Rendering.DepthBits,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.FilterMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(int, int, TextureWrapMode, TextureWrapMode, TextureWrapMode, int, DepthBits, GraphicsFormat, FilterMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(int width, int height, TextureWrapMode wrapModeU, TextureWrapMode wrapModeV, TextureWrapMode wrapModeW = 0, int slices = 1, DepthBits depthBufferBits = DepthBits.None, GraphicsFormat colorFormat = 4, FilterMode filterMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>wrapModeU</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapModeV</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapModeW</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depthBufferBits</code> <a class="xref" href="UnityEngine.Rendering.DepthBits.html">DepthBits</a></dt>
+    <dd></dd>
+    <dt><code>colorFormat</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_RenderTexture_System_Boolean_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.RenderTexture,System.Boolean)">
+  Alloc(RenderTexture, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(RenderTexture texture, bool transferOwnership = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">RenderTexture</span></dt>
+    <dd></dd>
+    <dt><code>transferOwnership</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Rendering.RenderTargetIdentifier)">
+  Alloc(RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(RenderTargetIdentifier texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Rendering_RenderTargetIdentifier_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Rendering.RenderTargetIdentifier,System.String)">
+  Alloc(RenderTargetIdentifier, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(RenderTargetIdentifier texture, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Rendering_ScaleFunc_System_Int32_UnityEngine_Rendering_DepthBits_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_FilterMode_UnityEngine_TextureWrapMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Rendering.ScaleFunc,System.Int32,UnityEngine.Rendering.DepthBits,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(ScaleFunc, int, DepthBits, GraphicsFormat, FilterMode, TextureWrapMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(ScaleFunc scaleFunc, int slices = 1, DepthBits depthBufferBits = DepthBits.None, GraphicsFormat colorFormat = 4, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFunc</code> <a class="xref" href="UnityEngine.Rendering.ScaleFunc.html">ScaleFunc</a></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depthBufferBits</code> <a class="xref" href="UnityEngine.Rendering.DepthBits.html">DepthBits</a></dt>
+    <dd></dd>
+    <dt><code>colorFormat</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Rendering_ScaleFunc_UnityEngine_Experimental_Rendering_GraphicsFormat_System_Int32_UnityEngine_FilterMode_UnityEngine_TextureWrapMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Rendering.ScaleFunc,UnityEngine.Experimental.Rendering.GraphicsFormat,System.Int32,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(ScaleFunc, GraphicsFormat, int, FilterMode, TextureWrapMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(ScaleFunc scaleFunc, GraphicsFormat format, int slices = 1, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFunc</code> <a class="xref" href="UnityEngine.Rendering.ScaleFunc.html">ScaleFunc</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Rendering_ScaleFunc_UnityEngine_Rendering_RTHandleAllocInfo_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Rendering.ScaleFunc,UnityEngine.Rendering.RTHandleAllocInfo)">
+  Alloc(ScaleFunc, RTHandleAllocInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(ScaleFunc scaleFunc, RTHandleAllocInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFunc</code> <a class="xref" href="UnityEngine.Rendering.ScaleFunc.html">ScaleFunc</a></dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="UnityEngine.Rendering.RTHandleAllocInfo.html">RTHandleAllocInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Texture_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Texture)">
+  Alloc(Texture)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Vector2_System_Int32_UnityEngine_Rendering_DepthBits_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_FilterMode_UnityEngine_TextureWrapMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Vector2,System.Int32,UnityEngine.Rendering.DepthBits,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(Vector2, int, DepthBits, GraphicsFormat, FilterMode, TextureWrapMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(Vector2 scaleFactor, int slices = 1, DepthBits depthBufferBits = DepthBits.None, GraphicsFormat colorFormat = 4, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFactor</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depthBufferBits</code> <a class="xref" href="UnityEngine.Rendering.DepthBits.html">DepthBits</a></dt>
+    <dd></dd>
+    <dt><code>colorFormat</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Vector2_UnityEngine_Experimental_Rendering_GraphicsFormat_System_Int32_UnityEngine_FilterMode_UnityEngine_TextureWrapMode_UnityEngine_Rendering_TextureDimension_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_System_Single_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_System_Boolean_UnityEngine_RenderTextureMemoryless_UnityEngine_VRTextureUsage_System_String_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Vector2,UnityEngine.Experimental.Rendering.GraphicsFormat,System.Int32,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,UnityEngine.Rendering.TextureDimension,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Single,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean,System.Boolean,UnityEngine.RenderTextureMemoryless,UnityEngine.VRTextureUsage,System.String)">
+  Alloc(Vector2, GraphicsFormat, int, FilterMode, TextureWrapMode, TextureDimension, bool, bool, bool, bool, int, float, MSAASamples, bool, bool, bool, RenderTextureMemoryless, VRTextureUsage, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(Vector2 scaleFactor, GraphicsFormat format, int slices = 1, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, TextureDimension dimension = 2, bool enableRandomWrite = false, bool useMipMap = false, bool autoGenerateMips = true, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, MSAASamples msaaSamples = MSAASamples.None, bool bindTextureMS = false, bool useDynamicScale = false, bool useDynamicScaleExplicit = false, RenderTextureMemoryless memoryless = 0, VRTextureUsage vrUsage = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFactor</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>slices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>enableRandomWrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>autoGenerateMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>bindTextureMS</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useDynamicScaleExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>memoryless</code> <span class="xref">RenderTextureMemoryless</span></dt>
+    <dd></dd>
+    <dt><code>vrUsage</code> <span class="xref">VRTextureUsage</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Alloc_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Alloc_UnityEngine_Vector2_UnityEngine_Rendering_RTHandleAllocInfo_" data-uid="UnityEngine.Rendering.RTHandleSystem.Alloc(UnityEngine.Vector2,UnityEngine.Rendering.RTHandleAllocInfo)">
+  Alloc(Vector2, RTHandleAllocInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTHandle Alloc(Vector2 scaleFactor, RTHandleAllocInfo info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFactor</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>info</code> <a class="xref" href="UnityEngine.Rendering.RTHandleAllocInfo.html">RTHandleAllocInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_CalculateDimensions_" data-uid="UnityEngine.Rendering.RTHandleSystem.CalculateDimensions*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_CalculateDimensions_UnityEngine_Rendering_ScaleFunc_" data-uid="UnityEngine.Rendering.RTHandleSystem.CalculateDimensions(UnityEngine.Rendering.ScaleFunc)">
+  CalculateDimensions(ScaleFunc)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int CalculateDimensions(ScaleFunc scaleFunc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFunc</code> <a class="xref" href="UnityEngine.Rendering.ScaleFunc.html">ScaleFunc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_CalculateDimensions_" data-uid="UnityEngine.Rendering.RTHandleSystem.CalculateDimensions*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_CalculateDimensions_UnityEngine_Vector2_" data-uid="UnityEngine.Rendering.RTHandleSystem.CalculateDimensions(UnityEngine.Vector2)">
+  CalculateDimensions(Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int CalculateDimensions(Vector2 scaleFactor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scaleFactor</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Dispose_" data-uid="UnityEngine.Rendering.RTHandleSystem.Dispose*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Dispose" data-uid="UnityEngine.Rendering.RTHandleSystem.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_GetMaxHeight_" data-uid="UnityEngine.Rendering.RTHandleSystem.GetMaxHeight*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_GetMaxHeight" data-uid="UnityEngine.Rendering.RTHandleSystem.GetMaxHeight">
+  GetMaxHeight()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetMaxHeight()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_GetMaxWidth_" data-uid="UnityEngine.Rendering.RTHandleSystem.GetMaxWidth*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_GetMaxWidth" data-uid="UnityEngine.Rendering.RTHandleSystem.GetMaxWidth">
+  GetMaxWidth()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetMaxWidth()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Initialize_" data-uid="UnityEngine.Rendering.RTHandleSystem.Initialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Initialize_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RTHandleSystem.Initialize(System.Int32,System.Int32)">
+  Initialize(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Initialize_" data-uid="UnityEngine.Rendering.RTHandleSystem.Initialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Initialize_System_Int32_System_Int32_System_Boolean_" data-uid="UnityEngine.Rendering.RTHandleSystem.Initialize(System.Int32,System.Int32,System.Boolean)">
+  Initialize(int, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;useLegacyDynamicResControl is deprecated. Please use SetHardwareDynamicResolutionState() instead.&quot;)]
+public void Initialize(int width, int height, bool useLegacyDynamicResControl = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>useLegacyDynamicResControl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_Release_" data-uid="UnityEngine.Rendering.RTHandleSystem.Release*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_Release_UnityEngine_Rendering_RTHandle_" data-uid="UnityEngine.Rendering.RTHandleSystem.Release(UnityEngine.Rendering.RTHandle)">
+  Release(RTHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Release(RTHandle rth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rth</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_ResetReferenceSize_" data-uid="UnityEngine.Rendering.RTHandleSystem.ResetReferenceSize*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_ResetReferenceSize_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RTHandleSystem.ResetReferenceSize(System.Int32,System.Int32)">
+  ResetReferenceSize(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetReferenceSize(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_SetHardwareDynamicResolutionState_" data-uid="UnityEngine.Rendering.RTHandleSystem.SetHardwareDynamicResolutionState*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_SetHardwareDynamicResolutionState_System_Boolean_" data-uid="UnityEngine.Rendering.RTHandleSystem.SetHardwareDynamicResolutionState(System.Boolean)">
+  SetHardwareDynamicResolutionState(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetHardwareDynamicResolutionState(bool enableHWDynamicRes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enableHWDynamicRes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_SetReferenceSize_" data-uid="UnityEngine.Rendering.RTHandleSystem.SetReferenceSize*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_SetReferenceSize_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RTHandleSystem.SetReferenceSize(System.Int32,System.Int32)">
+  SetReferenceSize(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetReferenceSize(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RTHandleSystem_SetReferenceSize_" data-uid="UnityEngine.Rendering.RTHandleSystem.SetReferenceSize*"></a>
+
+  <h3 id="UnityEngine_Rendering_RTHandleSystem_SetReferenceSize_System_Int32_System_Int32_System_Boolean_" data-uid="UnityEngine.Rendering.RTHandleSystem.SetReferenceSize(System.Int32,System.Int32,System.Boolean)">
+  SetReferenceSize(int, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetReferenceSize(int width, int height, bool reset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>reset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

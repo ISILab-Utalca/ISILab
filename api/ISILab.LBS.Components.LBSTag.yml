@@ -1,0 +1,520 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.LBSTag
+  commentId: T:ISILab.LBS.Components.LBSTag
+  id: LBSTag
+  parent: ISILab.LBS.Components
+  children:
+  - ISILab.LBS.Components.LBSTag.#ctor
+  - ISILab.LBS.Components.LBSTag.Color
+  - ISILab.LBS.Components.LBSTag.Equals(System.Object)
+  - ISILab.LBS.Components.LBSTag.GetHashCode
+  - ISILab.LBS.Components.LBSTag.Icon
+  - ISILab.LBS.Components.LBSTag.Init(System.String,UnityEngine.Color,UnityEngine.UIElements.VectorImage)
+  - ISILab.LBS.Components.LBSTag.Label
+  - ISILab.LBS.Components.LBSTag.OnChangeColor
+  - ISILab.LBS.Components.LBSTag.OnChangeEntityType
+  - ISILab.LBS.Components.LBSTag.OnChangeIcon
+  - ISILab.LBS.Components.LBSTag.OnChangeText
+  - ISILab.LBS.Components.LBSTag.color
+  - ISILab.LBS.Components.LBSTag.icon
+  - ISILab.LBS.Components.LBSTag.label
+  langs:
+  - csharp
+  - vb
+  name: LBSTag
+  nameWithType: LBSTag
+  fullName: ISILab.LBS.Components.LBSTag
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: 'public class LBSTag : ScriptableObject'
+    content.vb: Public Class LBSTag Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Components.LBSTag.label
+  commentId: F:ISILab.LBS.Components.LBSTag.label
+  id: label
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: label
+  nameWithType: LBSTag.label
+  fullName: ISILab.LBS.Components.LBSTag.label
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: >-
+      [ReadOnly(true)]
+
+      public string label
+    return:
+      type: System.String
+    content.vb: >-
+      <ReadOnly(True)>
+
+      Public label As String
+  attributes:
+  - type: ISILab.Commons.Attributes.ReadOnlyAttribute
+    ctor: ISILab.Commons.Attributes.ReadOnlyAttribute.#ctor(System.Boolean)
+    arguments:
+    - type: System.Boolean
+      value: true
+- uid: ISILab.LBS.Components.LBSTag.icon
+  commentId: F:ISILab.LBS.Components.LBSTag.icon
+  id: icon
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: icon
+  nameWithType: LBSTag.icon
+  fullName: ISILab.LBS.Components.LBSTag.icon
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected VectorImage icon
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Protected icon As VectorImage
+- uid: ISILab.LBS.Components.LBSTag.color
+  commentId: F:ISILab.LBS.Components.LBSTag.color
+  id: color
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: color
+  nameWithType: LBSTag.color
+  fullName: ISILab.LBS.Components.LBSTag.color
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected Color color
+    return:
+      type: UnityEngine.Color
+    content.vb: Protected color As Color
+- uid: ISILab.LBS.Components.LBSTag.OnChangeText
+  commentId: F:ISILab.LBS.Components.LBSTag.OnChangeText
+  id: OnChangeText
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeText
+  nameWithType: LBSTag.OnChangeText
+  fullName: ISILab.LBS.Components.LBSTag.OnChangeText
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSTag.TagEvent OnChangeText
+    return:
+      type: ISILab.LBS.Components.LBSTag.TagEvent
+    content.vb: Public OnChangeText As LBSTag.TagEvent
+- uid: ISILab.LBS.Components.LBSTag.OnChangeColor
+  commentId: F:ISILab.LBS.Components.LBSTag.OnChangeColor
+  id: OnChangeColor
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeColor
+  nameWithType: LBSTag.OnChangeColor
+  fullName: ISILab.LBS.Components.LBSTag.OnChangeColor
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSTag.TagEvent OnChangeColor
+    return:
+      type: ISILab.LBS.Components.LBSTag.TagEvent
+    content.vb: Public OnChangeColor As LBSTag.TagEvent
+- uid: ISILab.LBS.Components.LBSTag.OnChangeIcon
+  commentId: F:ISILab.LBS.Components.LBSTag.OnChangeIcon
+  id: OnChangeIcon
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeIcon
+  nameWithType: LBSTag.OnChangeIcon
+  fullName: ISILab.LBS.Components.LBSTag.OnChangeIcon
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSTag.TagEvent OnChangeIcon
+    return:
+      type: ISILab.LBS.Components.LBSTag.TagEvent
+    content.vb: Public OnChangeIcon As LBSTag.TagEvent
+- uid: ISILab.LBS.Components.LBSTag.OnChangeEntityType
+  commentId: F:ISILab.LBS.Components.LBSTag.OnChangeEntityType
+  id: OnChangeEntityType
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeEntityType
+  nameWithType: LBSTag.OnChangeEntityType
+  fullName: ISILab.LBS.Components.LBSTag.OnChangeEntityType
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSTag.TagEvent OnChangeEntityType
+    return:
+      type: ISILab.LBS.Components.LBSTag.TagEvent
+    content.vb: Public OnChangeEntityType As LBSTag.TagEvent
+- uid: ISILab.LBS.Components.LBSTag.Init(System.String,UnityEngine.Color,UnityEngine.UIElements.VectorImage)
+  commentId: M:ISILab.LBS.Components.LBSTag.Init(System.String,UnityEngine.Color,UnityEngine.UIElements.VectorImage)
+  id: Init(System.String,UnityEngine.Color,UnityEngine.UIElements.VectorImage)
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: Init(string, Color, VectorImage)
+  nameWithType: LBSTag.Init(string, Color, VectorImage)
+  fullName: ISILab.LBS.Components.LBSTag.Init(string, UnityEngine.Color, UnityEngine.UIElements.VectorImage)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public void Init(string text, Color color, VectorImage icon)
+    parameters:
+    - id: text
+      type: System.String
+    - id: color
+      type: UnityEngine.Color
+    - id: icon
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public Sub Init(text As String, color As Color, icon As VectorImage)
+  overload: ISILab.LBS.Components.LBSTag.Init*
+  nameWithType.vb: LBSTag.Init(String, Color, VectorImage)
+  fullName.vb: ISILab.LBS.Components.LBSTag.Init(String, UnityEngine.Color, UnityEngine.UIElements.VectorImage)
+  name.vb: Init(String, Color, VectorImage)
+- uid: ISILab.LBS.Components.LBSTag.Equals(System.Object)
+  commentId: M:ISILab.LBS.Components.LBSTag.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: LBSTag.Equals(object)
+  fullName: ISILab.LBS.Components.LBSTag.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overload: ISILab.LBS.Components.LBSTag.Equals*
+  nameWithType.vb: LBSTag.Equals(Object)
+  fullName.vb: ISILab.LBS.Components.LBSTag.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Components.LBSTag.GetHashCode
+  commentId: M:ISILab.LBS.Components.LBSTag.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LBSTag.GetHashCode()
+  fullName: ISILab.LBS.Components.LBSTag.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overload: ISILab.LBS.Components.LBSTag.GetHashCode*
+- uid: ISILab.LBS.Components.LBSTag.#ctor
+  commentId: M:ISILab.LBS.Components.LBSTag.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: LBSTag()
+  nameWithType: LBSTag.LBSTag()
+  fullName: ISILab.LBS.Components.LBSTag.LBSTag()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSTag()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Components.LBSTag.#ctor*
+  nameWithType.vb: LBSTag.New()
+  fullName.vb: ISILab.LBS.Components.LBSTag.New()
+  name.vb: New()
+- uid: ISILab.LBS.Components.LBSTag.Label
+  commentId: P:ISILab.LBS.Components.LBSTag.Label
+  id: Label
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: LBSTag.Label
+  fullName: ISILab.LBS.Components.LBSTag.Label
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: ISILab.LBS.Components.LBSTag.Label*
+- uid: ISILab.LBS.Components.LBSTag.Icon
+  commentId: P:ISILab.LBS.Components.LBSTag.Icon
+  id: Icon
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: LBSTag.Icon
+  fullName: ISILab.LBS.Components.LBSTag.Icon
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public VectorImage Icon { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public Property Icon As VectorImage
+  overload: ISILab.LBS.Components.LBSTag.Icon*
+- uid: ISILab.LBS.Components.LBSTag.Color
+  commentId: P:ISILab.LBS.Components.LBSTag.Color
+  id: Color
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: LBSTag.Color
+  fullName: ISILab.LBS.Components.LBSTag.Color
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Color Color { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property Color As Color
+  overload: ISILab.LBS.Components.LBSTag.Color*
+references:
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.UIElements.VectorImage
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.Components.LBSTag.TagEvent
+  commentId: T:ISILab.LBS.Components.LBSTag.TagEvent
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html
+  name: LBSTag.TagEvent
+  nameWithType: LBSTag.TagEvent
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent
+  spec.csharp:
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: .
+  - uid: ISILab.LBS.Components.LBSTag.TagEvent
+    name: TagEvent
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.TagEvent.html
+  spec.vb:
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: .
+  - uid: ISILab.LBS.Components.LBSTag.TagEvent
+    name: TagEvent
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.TagEvent.html
+- uid: ISILab.LBS.Components.LBSTag.Init*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.Init
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag_Init_System_String_UnityEngine_Color_UnityEngine_UIElements_VectorImage_
+  name: Init
+  nameWithType: LBSTag.Init
+  fullName: ISILab.LBS.Components.LBSTag.Init
+- uid: ISILab.LBS.Components.LBSTag.Equals*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.Equals
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag_Equals_System_Object_
+  name: Equals
+  nameWithType: LBSTag.Equals
+  fullName: ISILab.LBS.Components.LBSTag.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Components.LBSTag.GetHashCode*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag_GetHashCode
+  name: GetHashCode
+  nameWithType: LBSTag.GetHashCode
+  fullName: ISILab.LBS.Components.LBSTag.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Components.LBSTag.#ctor*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.#ctor
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag__ctor
+  name: LBSTag
+  nameWithType: LBSTag.LBSTag
+  fullName: ISILab.LBS.Components.LBSTag.LBSTag
+  nameWithType.vb: LBSTag.New
+  fullName.vb: ISILab.LBS.Components.LBSTag.New
+  name.vb: New
+- uid: ISILab.LBS.Components.LBSTag.Label*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.Label
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag_Label
+  name: Label
+  nameWithType: LBSTag.Label
+  fullName: ISILab.LBS.Components.LBSTag.Label
+- uid: ISILab.LBS.Components.LBSTag.Icon*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.Icon
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag_Icon
+  name: Icon
+  nameWithType: LBSTag.Icon
+  fullName: ISILab.LBS.Components.LBSTag.Icon
+- uid: ISILab.LBS.Components.LBSTag.Color*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.Color
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag_Color
+  name: Color
+  nameWithType: LBSTag.Color
+  fullName: ISILab.LBS.Components.LBSTag.Color

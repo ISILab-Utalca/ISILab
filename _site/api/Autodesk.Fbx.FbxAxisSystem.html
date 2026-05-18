@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FbxAxisSystem | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FbxAxisSystem | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Autodesk.Fbx.FbxAxisSystem">
+
+
+
+  <h1 id="Autodesk_Fbx_FbxAxisSystem" data-uid="Autodesk.Fbx.FbxAxisSystem" class="text-break">
+Class FbxAxisSystem  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Autodesk.html">Autodesk</a>.<a class="xref" href="Autodesk.Fbx.html">Fbx</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Autodesk.Fbx.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FbxAxisSystem : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FbxAxisSystem</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem__ctor_" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem__ctor" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor">
+  FbxAxisSystem()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAxisSystem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem__ctor_" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem__ctor_Autodesk_Fbx_FbxAxisSystem_" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor(Autodesk.Fbx.FbxAxisSystem)">
+  FbxAxisSystem(FbxAxisSystem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAxisSystem(FbxAxisSystem pAxisSystem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAxisSystem</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem__ctor_" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem__ctor_Autodesk_Fbx_FbxAxisSystem_EPreDefinedAxisSystem_" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor(Autodesk.Fbx.FbxAxisSystem.EPreDefinedAxisSystem)">
+  FbxAxisSystem(EPreDefinedAxisSystem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAxisSystem(FbxAxisSystem.EPreDefinedAxisSystem pAxisSystem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAxisSystem</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a>.<a class="xref" href="Autodesk.Fbx.FbxAxisSystem.EPreDefinedAxisSystem.html">EPreDefinedAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem__ctor_" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem__ctor_Autodesk_Fbx_FbxAxisSystem_EUpVector_Autodesk_Fbx_FbxAxisSystem_EFrontVector_Autodesk_Fbx_FbxAxisSystem_ECoordSystem_" data-uid="Autodesk.Fbx.FbxAxisSystem.#ctor(Autodesk.Fbx.FbxAxisSystem.EUpVector,Autodesk.Fbx.FbxAxisSystem.EFrontVector,Autodesk.Fbx.FbxAxisSystem.ECoordSystem)">
+  FbxAxisSystem(EUpVector, EFrontVector, ECoordSystem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAxisSystem(FbxAxisSystem.EUpVector pUpVector, FbxAxisSystem.EFrontVector pFrontVector, FbxAxisSystem.ECoordSystem pCoorSystem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pUpVector</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a>.<a class="xref" href="Autodesk.Fbx.FbxAxisSystem.EUpVector.html">EUpVector</a></dt>
+    <dd></dd>
+    <dt><code>pFrontVector</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a>.<a class="xref" href="Autodesk.Fbx.FbxAxisSystem.EFrontVector.html">EFrontVector</a></dt>
+    <dd></dd>
+    <dt><code>pCoorSystem</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a>.<a class="xref" href="Autodesk.Fbx.FbxAxisSystem.ECoordSystem.html">ECoordSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_swigCMemOwn" data-uid="Autodesk.Fbx.FbxAxisSystem.swigCMemOwn">
+  swigCMemOwn
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool swigCMemOwn</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_DirectX_" data-uid="Autodesk.Fbx.FbxAxisSystem.DirectX*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_DirectX" data-uid="Autodesk.Fbx.FbxAxisSystem.DirectX">
+  DirectX
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxAxisSystem DirectX { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_Lightwave_" data-uid="Autodesk.Fbx.FbxAxisSystem.Lightwave*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_Lightwave" data-uid="Autodesk.Fbx.FbxAxisSystem.Lightwave">
+  Lightwave
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxAxisSystem Lightwave { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_Max_" data-uid="Autodesk.Fbx.FbxAxisSystem.Max*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_Max" data-uid="Autodesk.Fbx.FbxAxisSystem.Max">
+  Max
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxAxisSystem Max { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_MayaYUp_" data-uid="Autodesk.Fbx.FbxAxisSystem.MayaYUp*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_MayaYUp" data-uid="Autodesk.Fbx.FbxAxisSystem.MayaYUp">
+  MayaYUp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxAxisSystem MayaYUp { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_MayaZUp_" data-uid="Autodesk.Fbx.FbxAxisSystem.MayaZUp*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_MayaZUp" data-uid="Autodesk.Fbx.FbxAxisSystem.MayaZUp">
+  MayaZUp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxAxisSystem MayaZUp { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_Motionbuilder_" data-uid="Autodesk.Fbx.FbxAxisSystem.Motionbuilder*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_Motionbuilder" data-uid="Autodesk.Fbx.FbxAxisSystem.Motionbuilder">
+  Motionbuilder
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxAxisSystem Motionbuilder { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_OpenGL_" data-uid="Autodesk.Fbx.FbxAxisSystem.OpenGL*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_OpenGL" data-uid="Autodesk.Fbx.FbxAxisSystem.OpenGL">
+  OpenGL
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxAxisSystem OpenGL { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_ConvertScene_" data-uid="Autodesk.Fbx.FbxAxisSystem.ConvertScene*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_ConvertScene_Autodesk_Fbx_FbxScene_" data-uid="Autodesk.Fbx.FbxAxisSystem.ConvertScene(Autodesk.Fbx.FbxScene)">
+  ConvertScene(FbxScene)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConvertScene(FbxScene pScene)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pScene</code> <a class="xref" href="Autodesk.Fbx.FbxScene.html">FbxScene</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_DeepConvertScene_" data-uid="Autodesk.Fbx.FbxAxisSystem.DeepConvertScene*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_DeepConvertScene_Autodesk_Fbx_FbxScene_" data-uid="Autodesk.Fbx.FbxAxisSystem.DeepConvertScene(Autodesk.Fbx.FbxScene)">
+  DeepConvertScene(FbxScene)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeepConvertScene(FbxScene pScene)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pScene</code> <a class="xref" href="Autodesk.Fbx.FbxScene.html">FbxScene</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_Dispose_" data-uid="Autodesk.Fbx.FbxAxisSystem.Dispose*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_Dispose" data-uid="Autodesk.Fbx.FbxAxisSystem.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_Equals_" data-uid="Autodesk.Fbx.FbxAxisSystem.Equals*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_Equals_Autodesk_Fbx_FbxAxisSystem_" data-uid="Autodesk.Fbx.FbxAxisSystem.Equals(Autodesk.Fbx.FbxAxisSystem)">
+  Equals(FbxAxisSystem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FbxAxisSystem other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_Equals_" data-uid="Autodesk.Fbx.FbxAxisSystem.Equals*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_Equals_System_Object_" data-uid="Autodesk.Fbx.FbxAxisSystem.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_Finalize_" data-uid="Autodesk.Fbx.FbxAxisSystem.Finalize*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_Finalize" data-uid="Autodesk.Fbx.FbxAxisSystem.Finalize">
+  ~FbxAxisSystem()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~FbxAxisSystem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_GetCoorSystem_" data-uid="Autodesk.Fbx.FbxAxisSystem.GetCoorSystem*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_GetCoorSystem" data-uid="Autodesk.Fbx.FbxAxisSystem.GetCoorSystem">
+  GetCoorSystem()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAxisSystem.ECoordSystem GetCoorSystem()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a>.<a class="xref" href="Autodesk.Fbx.FbxAxisSystem.ECoordSystem.html">ECoordSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_GetFrontVector_" data-uid="Autodesk.Fbx.FbxAxisSystem.GetFrontVector*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_GetFrontVector" data-uid="Autodesk.Fbx.FbxAxisSystem.GetFrontVector">
+  GetFrontVector()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAxisSystem.EFrontVector GetFrontVector()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a>.<a class="xref" href="Autodesk.Fbx.FbxAxisSystem.EFrontVector.html">EFrontVector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_GetHashCode_" data-uid="Autodesk.Fbx.FbxAxisSystem.GetHashCode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_GetHashCode" data-uid="Autodesk.Fbx.FbxAxisSystem.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_GetUpVector_" data-uid="Autodesk.Fbx.FbxAxisSystem.GetUpVector*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_GetUpVector" data-uid="Autodesk.Fbx.FbxAxisSystem.GetUpVector">
+  GetUpVector()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAxisSystem.EUpVector GetUpVector()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a>.<a class="xref" href="Autodesk.Fbx.FbxAxisSystem.EUpVector.html">EUpVector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_op_Equality_" data-uid="Autodesk.Fbx.FbxAxisSystem.op_Equality*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_op_Equality_Autodesk_Fbx_FbxAxisSystem_Autodesk_Fbx_FbxAxisSystem_" data-uid="Autodesk.Fbx.FbxAxisSystem.op_Equality(Autodesk.Fbx.FbxAxisSystem,Autodesk.Fbx.FbxAxisSystem)">
+  operator ==(FbxAxisSystem, FbxAxisSystem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(FbxAxisSystem a, FbxAxisSystem b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAxisSystem_op_Inequality_" data-uid="Autodesk.Fbx.FbxAxisSystem.op_Inequality*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAxisSystem_op_Inequality_Autodesk_Fbx_FbxAxisSystem_Autodesk_Fbx_FbxAxisSystem_" data-uid="Autodesk.Fbx.FbxAxisSystem.op_Inequality(Autodesk.Fbx.FbxAxisSystem,Autodesk.Fbx.FbxAxisSystem)">
+  operator !=(FbxAxisSystem, FbxAxisSystem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(FbxAxisSystem a, FbxAxisSystem b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxAxisSystem.html">FbxAxisSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

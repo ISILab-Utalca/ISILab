@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BaseShaderGUI | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BaseShaderGUI | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEditor.BaseShaderGUI">
+
+
+
+  <h1 id="UnityEditor_BaseShaderGUI" data-uid="UnityEditor.BaseShaderGUI" class="text-break">
+Class BaseShaderGUI  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEditor.html">UnityEditor</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BaseShaderGUI : ShaderGUI</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BaseShaderGUI</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEditor_BaseShaderGUI__ctor_" data-uid="UnityEditor.BaseShaderGUI.#ctor*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI__ctor" data-uid="UnityEditor.BaseShaderGUI.#ctor">
+  BaseShaderGUI()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BaseShaderGUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEditor_BaseShaderGUI_m_FirstTimeApply" data-uid="UnityEditor.BaseShaderGUI.m_FirstTimeApply">
+  m_FirstTimeApply
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool m_FirstTimeApply</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEditor_BaseShaderGUI_addPrecomputedVelocityProp_" data-uid="UnityEditor.BaseShaderGUI.addPrecomputedVelocityProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_addPrecomputedVelocityProp" data-uid="UnityEditor.BaseShaderGUI.addPrecomputedVelocityProp">
+  addPrecomputedVelocityProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty addPrecomputedVelocityProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_alphaClipProp_" data-uid="UnityEditor.BaseShaderGUI.alphaClipProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_alphaClipProp" data-uid="UnityEditor.BaseShaderGUI.alphaClipProp">
+  alphaClipProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty alphaClipProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_alphaCutoffProp_" data-uid="UnityEditor.BaseShaderGUI.alphaCutoffProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_alphaCutoffProp" data-uid="UnityEditor.BaseShaderGUI.alphaCutoffProp">
+  alphaCutoffProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty alphaCutoffProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_baseColorProp_" data-uid="UnityEditor.BaseShaderGUI.baseColorProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_baseColorProp" data-uid="UnityEditor.BaseShaderGUI.baseColorProp">
+  baseColorProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty baseColorProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_baseMapProp_" data-uid="UnityEditor.BaseShaderGUI.baseMapProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_baseMapProp" data-uid="UnityEditor.BaseShaderGUI.baseMapProp">
+  baseMapProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty baseMapProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_blendModeProp_" data-uid="UnityEditor.BaseShaderGUI.blendModeProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_blendModeProp" data-uid="UnityEditor.BaseShaderGUI.blendModeProp">
+  blendModeProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty blendModeProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_castShadowsProp_" data-uid="UnityEditor.BaseShaderGUI.castShadowsProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_castShadowsProp" data-uid="UnityEditor.BaseShaderGUI.castShadowsProp">
+  castShadowsProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty castShadowsProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_cullingProp_" data-uid="UnityEditor.BaseShaderGUI.cullingProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_cullingProp" data-uid="UnityEditor.BaseShaderGUI.cullingProp">
+  cullingProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty cullingProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_emissionColorProp_" data-uid="UnityEditor.BaseShaderGUI.emissionColorProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_emissionColorProp" data-uid="UnityEditor.BaseShaderGUI.emissionColorProp">
+  emissionColorProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty emissionColorProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_emissionMapProp_" data-uid="UnityEditor.BaseShaderGUI.emissionMapProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_emissionMapProp" data-uid="UnityEditor.BaseShaderGUI.emissionMapProp">
+  emissionMapProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty emissionMapProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_materialEditor_" data-uid="UnityEditor.BaseShaderGUI.materialEditor*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_materialEditor" data-uid="UnityEditor.BaseShaderGUI.materialEditor">
+  materialEditor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialEditor materialEditor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialEditor</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_materialFilter_" data-uid="UnityEditor.BaseShaderGUI.materialFilter*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_materialFilter" data-uid="UnityEditor.BaseShaderGUI.materialFilter">
+  materialFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual uint materialFilter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_preserveSpecProp_" data-uid="UnityEditor.BaseShaderGUI.preserveSpecProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_preserveSpecProp" data-uid="UnityEditor.BaseShaderGUI.preserveSpecProp">
+  preserveSpecProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty preserveSpecProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_queueControlProp_" data-uid="UnityEditor.BaseShaderGUI.queueControlProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_queueControlProp" data-uid="UnityEditor.BaseShaderGUI.queueControlProp">
+  queueControlProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty queueControlProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_queueOffsetProp_" data-uid="UnityEditor.BaseShaderGUI.queueOffsetProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_queueOffsetProp" data-uid="UnityEditor.BaseShaderGUI.queueOffsetProp">
+  queueOffsetProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty queueOffsetProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_receiveShadowsProp_" data-uid="UnityEditor.BaseShaderGUI.receiveShadowsProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_receiveShadowsProp" data-uid="UnityEditor.BaseShaderGUI.receiveShadowsProp">
+  receiveShadowsProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty receiveShadowsProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_surfaceTypeProp_" data-uid="UnityEditor.BaseShaderGUI.surfaceTypeProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_surfaceTypeProp" data-uid="UnityEditor.BaseShaderGUI.surfaceTypeProp">
+  surfaceTypeProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty surfaceTypeProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_ztestProp_" data-uid="UnityEditor.BaseShaderGUI.ztestProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_ztestProp" data-uid="UnityEditor.BaseShaderGUI.ztestProp">
+  ztestProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty ztestProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_zwriteProp_" data-uid="UnityEditor.BaseShaderGUI.zwriteProp*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_zwriteProp" data-uid="UnityEditor.BaseShaderGUI.zwriteProp">
+  zwriteProp
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MaterialProperty zwriteProp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEditor_BaseShaderGUI_AssignNewShaderToMaterial_" data-uid="UnityEditor.BaseShaderGUI.AssignNewShaderToMaterial*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_AssignNewShaderToMaterial_UnityEngine_Material_UnityEngine_Shader_UnityEngine_Shader_" data-uid="UnityEditor.BaseShaderGUI.AssignNewShaderToMaterial(UnityEngine.Material,UnityEngine.Shader,UnityEngine.Shader)">
+  AssignNewShaderToMaterial(Material, Shader, Shader)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void AssignNewShaderToMaterial(Material material, Shader oldShader, Shader newShader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>oldShader</code> <span class="xref">Shader</span></dt>
+    <dd></dd>
+    <dt><code>newShader</code> <span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DoPopup_" data-uid="UnityEditor.BaseShaderGUI.DoPopup*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DoPopup_UnityEngine_GUIContent_UnityEditor_MaterialProperty_System_String___" data-uid="UnityEditor.BaseShaderGUI.DoPopup(UnityEngine.GUIContent,UnityEditor.MaterialProperty,System.String[])">
+  DoPopup(GUIContent, MaterialProperty, string[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DoPopup(GUIContent label, MaterialProperty property, string[] options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>property</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawAdvancedOptions_" data-uid="UnityEditor.BaseShaderGUI.DrawAdvancedOptions*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawAdvancedOptions_UnityEngine_Material_" data-uid="UnityEditor.BaseShaderGUI.DrawAdvancedOptions(UnityEngine.Material)">
+  DrawAdvancedOptions(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DrawAdvancedOptions(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawBaseProperties_" data-uid="UnityEditor.BaseShaderGUI.DrawBaseProperties*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawBaseProperties_UnityEngine_Material_" data-uid="UnityEditor.BaseShaderGUI.DrawBaseProperties(UnityEngine.Material)">
+  DrawBaseProperties(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DrawBaseProperties(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawEmissionProperties_" data-uid="UnityEditor.BaseShaderGUI.DrawEmissionProperties*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawEmissionProperties_UnityEngine_Material_System_Boolean_" data-uid="UnityEditor.BaseShaderGUI.DrawEmissionProperties(UnityEngine.Material,System.Boolean)">
+  DrawEmissionProperties(Material, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void DrawEmissionProperties(Material material, bool keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawNormalArea_" data-uid="UnityEditor.BaseShaderGUI.DrawNormalArea*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawNormalArea_UnityEditor_MaterialEditor_UnityEditor_MaterialProperty_UnityEditor_MaterialProperty_" data-uid="UnityEditor.BaseShaderGUI.DrawNormalArea(UnityEditor.MaterialEditor,UnityEditor.MaterialProperty,UnityEditor.MaterialProperty)">
+  DrawNormalArea(MaterialEditor, MaterialProperty, MaterialProperty)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawNormalArea(MaterialEditor materialEditor, MaterialProperty bumpMap, MaterialProperty bumpMapScale = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materialEditor</code> <span class="xref">MaterialEditor</span></dt>
+    <dd></dd>
+    <dt><code>bumpMap</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+    <dt><code>bumpMapScale</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawQueueOffsetField_" data-uid="UnityEditor.BaseShaderGUI.DrawQueueOffsetField*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawQueueOffsetField" data-uid="UnityEditor.BaseShaderGUI.DrawQueueOffsetField">
+  DrawQueueOffsetField()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawQueueOffsetField()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawSurfaceInputs_" data-uid="UnityEditor.BaseShaderGUI.DrawSurfaceInputs*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawSurfaceInputs_UnityEngine_Material_" data-uid="UnityEditor.BaseShaderGUI.DrawSurfaceInputs(UnityEngine.Material)">
+  DrawSurfaceInputs(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DrawSurfaceInputs(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawSurfaceOptions_" data-uid="UnityEditor.BaseShaderGUI.DrawSurfaceOptions*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawSurfaceOptions_UnityEngine_Material_" data-uid="UnityEditor.BaseShaderGUI.DrawSurfaceOptions(UnityEngine.Material)">
+  DrawSurfaceOptions(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DrawSurfaceOptions(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_DrawTileOffset_" data-uid="UnityEditor.BaseShaderGUI.DrawTileOffset*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_DrawTileOffset_UnityEditor_MaterialEditor_UnityEditor_MaterialProperty_" data-uid="UnityEditor.BaseShaderGUI.DrawTileOffset(UnityEditor.MaterialEditor,UnityEditor.MaterialProperty)">
+  DrawTileOffset(MaterialEditor, MaterialProperty)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void DrawTileOffset(MaterialEditor materialEditor, MaterialProperty textureProp)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materialEditor</code> <span class="xref">MaterialEditor</span></dt>
+    <dd></dd>
+    <dt><code>textureProp</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_FillAdditionalFoldouts_" data-uid="UnityEditor.BaseShaderGUI.FillAdditionalFoldouts*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_FillAdditionalFoldouts_UnityEditor_Rendering_MaterialHeaderScopeList_" data-uid="UnityEditor.BaseShaderGUI.FillAdditionalFoldouts(UnityEditor.Rendering.MaterialHeaderScopeList)">
+  FillAdditionalFoldouts(MaterialHeaderScopeList)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void FillAdditionalFoldouts(MaterialHeaderScopeList materialScopesList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materialScopesList</code> <a class="xref" href="UnityEditor.Rendering.MaterialHeaderScopeList.html">MaterialHeaderScopeList</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_FindProperties_" data-uid="UnityEditor.BaseShaderGUI.FindProperties*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_FindProperties_UnityEditor_MaterialProperty___" data-uid="UnityEditor.BaseShaderGUI.FindProperties(UnityEditor.MaterialProperty[])">
+  FindProperties(MaterialProperty[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void FindProperties(MaterialProperty[] properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>properties</code> <span class="xref">MaterialProperty</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_FindProperty_" data-uid="UnityEditor.BaseShaderGUI.FindProperty*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_FindProperty_System_String_UnityEditor_MaterialProperty___" data-uid="UnityEditor.BaseShaderGUI.FindProperty(System.String,UnityEditor.MaterialProperty[])">
+  FindProperty(string, MaterialProperty[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MaterialProperty FindProperty(string propertyName, MaterialProperty[] properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialProperty</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_FindProperty_" data-uid="UnityEditor.BaseShaderGUI.FindProperty*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_FindProperty_System_String_UnityEditor_MaterialProperty___System_Boolean_" data-uid="UnityEditor.BaseShaderGUI.FindProperty(System.String,UnityEditor.MaterialProperty[],System.Boolean)">
+  FindProperty(string, MaterialProperty[], bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MaterialProperty FindProperty(string propertyName, MaterialProperty[] properties, bool propertyIsMandatory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialProperty</span>[]</dt>
+    <dd></dd>
+    <dt><code>propertyIsMandatory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_MaterialChanged_" data-uid="UnityEditor.BaseShaderGUI.MaterialChanged*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_MaterialChanged_UnityEngine_Material_" data-uid="UnityEditor.BaseShaderGUI.MaterialChanged(UnityEngine.Material)">
+  MaterialChanged(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;MaterialChanged has been renamed ValidateMaterial&quot;, true)]
+public virtual void MaterialChanged(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_OnGUI_" data-uid="UnityEditor.BaseShaderGUI.OnGUI*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_OnGUI_UnityEditor_MaterialEditor_UnityEditor_MaterialProperty___" data-uid="UnityEditor.BaseShaderGUI.OnGUI(UnityEditor.MaterialEditor,UnityEditor.MaterialProperty[])">
+  OnGUI(MaterialEditor, MaterialProperty[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnGUI(MaterialEditor materialEditorIn, MaterialProperty[] properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materialEditorIn</code> <span class="xref">MaterialEditor</span></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialProperty</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_OnOpenGUI_" data-uid="UnityEditor.BaseShaderGUI.OnOpenGUI*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_OnOpenGUI_UnityEngine_Material_UnityEditor_MaterialEditor_" data-uid="UnityEditor.BaseShaderGUI.OnOpenGUI(UnityEngine.Material,UnityEditor.MaterialEditor)">
+  OnOpenGUI(Material, MaterialEditor)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnOpenGUI(Material material, MaterialEditor materialEditor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>materialEditor</code> <span class="xref">MaterialEditor</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_SetMaterialKeywords_" data-uid="UnityEditor.BaseShaderGUI.SetMaterialKeywords*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_SetMaterialKeywords_UnityEngine_Material_System_Action_UnityEngine_Material__System_Action_UnityEngine_Material__" data-uid="UnityEditor.BaseShaderGUI.SetMaterialKeywords(UnityEngine.Material,System.Action{UnityEngine.Material},System.Action{UnityEngine.Material})">
+  SetMaterialKeywords(Material, Action&lt;Material&gt;, Action&lt;Material&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetMaterialKeywords(Material material, Action&lt;Material&gt; shadingModelFunc = null, Action&lt;Material&gt; shaderFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shadingModelFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Material</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>shaderFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Material</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_SetupMaterialBlendMode_" data-uid="UnityEditor.BaseShaderGUI.SetupMaterialBlendMode*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_SetupMaterialBlendMode_UnityEngine_Material_" data-uid="UnityEditor.BaseShaderGUI.SetupMaterialBlendMode(UnityEngine.Material)">
+  SetupMaterialBlendMode(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetupMaterialBlendMode(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_ShaderPropertiesGUI_" data-uid="UnityEditor.BaseShaderGUI.ShaderPropertiesGUI*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_ShaderPropertiesGUI_UnityEngine_Material_" data-uid="UnityEditor.BaseShaderGUI.ShaderPropertiesGUI(UnityEngine.Material)">
+  ShaderPropertiesGUI(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ShaderPropertiesGUI(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_TextureColorProps_" data-uid="UnityEditor.BaseShaderGUI.TextureColorProps*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_TextureColorProps_UnityEditor_MaterialEditor_UnityEngine_GUIContent_UnityEditor_MaterialProperty_UnityEditor_MaterialProperty_System_Boolean_" data-uid="UnityEditor.BaseShaderGUI.TextureColorProps(UnityEditor.MaterialEditor,UnityEngine.GUIContent,UnityEditor.MaterialProperty,UnityEditor.MaterialProperty,System.Boolean)">
+  TextureColorProps(MaterialEditor, GUIContent, MaterialProperty, MaterialProperty, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rect TextureColorProps(MaterialEditor materialEditor, GUIContent label, MaterialProperty textureProp, MaterialProperty colorProp, bool hdr = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materialEditor</code> <span class="xref">MaterialEditor</span></dt>
+    <dd></dd>
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>textureProp</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+    <dt><code>colorProp</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+    <dt><code>hdr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_BaseShaderGUI_TwoFloatSingleLine_" data-uid="UnityEditor.BaseShaderGUI.TwoFloatSingleLine*"></a>
+
+  <h3 id="UnityEditor_BaseShaderGUI_TwoFloatSingleLine_UnityEngine_GUIContent_UnityEditor_MaterialProperty_UnityEngine_GUIContent_UnityEditor_MaterialProperty_UnityEngine_GUIContent_UnityEditor_MaterialEditor_System_Single_" data-uid="UnityEditor.BaseShaderGUI.TwoFloatSingleLine(UnityEngine.GUIContent,UnityEditor.MaterialProperty,UnityEngine.GUIContent,UnityEditor.MaterialProperty,UnityEngine.GUIContent,UnityEditor.MaterialEditor,System.Single)">
+  TwoFloatSingleLine(GUIContent, MaterialProperty, GUIContent, MaterialProperty, GUIContent, MaterialEditor, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TwoFloatSingleLine(GUIContent title, MaterialProperty prop1, GUIContent prop1Label, MaterialProperty prop2, GUIContent prop2Label, MaterialEditor materialEditor, float labelWidth = 30)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>prop1</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+    <dt><code>prop1Label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>prop2</code> <span class="xref">MaterialProperty</span></dt>
+    <dd></dd>
+    <dt><code>prop2Label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>materialEditor</code> <span class="xref">MaterialEditor</span></dt>
+    <dd></dd>
+    <dt><code>labelWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

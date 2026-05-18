@@ -1,0 +1,3787 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UniversalRenderPipelineAsset | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UniversalRenderPipelineAsset | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset" class="text-break">
+Class UniversalRenderPipelineAsset  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UniversalRenderPipelineAsset : RenderPipelineAsset&lt;UniversalRenderPipeline&gt;, ISerializationCallbackReceiver, IProbeVolumeEnabledRenderPipeline, IGPUResidentRenderPipeline, IRenderGraphEnabledRenderPipeline, ISTPEnabledRenderPipeline</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UniversalRenderPipelineAsset</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ISerializationCallbackReceiver</span></div>
+      <div><a class="xref" href="UnityEngine.Rendering.IProbeVolumeEnabledRenderPipeline.html">IProbeVolumeEnabledRenderPipeline</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.IGPUResidentRenderPipeline.html">IGPUResidentRenderPipeline</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IRenderGraphEnabledRenderPipeline.html">IRenderGraphEnabledRenderPipeline</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.ISTPEnabledRenderPipeline.html">ISTPEnabledRenderPipeline</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset__ctor_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset__ctor" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.#ctor">
+  UniversalRenderPipelineAsset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniversalRenderPipelineAsset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_AdditionalLightsDefaultShadowResolutionTierHigh" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.AdditionalLightsDefaultShadowResolutionTierHigh">
+  AdditionalLightsDefaultShadowResolutionTierHigh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int AdditionalLightsDefaultShadowResolutionTierHigh</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_AdditionalLightsDefaultShadowResolutionTierLow" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.AdditionalLightsDefaultShadowResolutionTierLow">
+  AdditionalLightsDefaultShadowResolutionTierLow
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int AdditionalLightsDefaultShadowResolutionTierLow</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_AdditionalLightsDefaultShadowResolutionTierMedium" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.AdditionalLightsDefaultShadowResolutionTierMedium">
+  AdditionalLightsDefaultShadowResolutionTierMedium
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int AdditionalLightsDefaultShadowResolutionTierMedium</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_editorResourcesGUID" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.editorResourcesGUID">
+  editorResourcesGUID
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Editor resources are stored directly into GraphicsSettings. #from(23.3)&quot;, false)]
+public static readonly string editorResourcesGUID</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_k_MaxLutSize" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.k_MaxLutSize">
+  k_MaxLutSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int k_MaxLutSize = 65</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_k_MinLutSize" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.k_MinLutSize">
+  k_MinLutSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int k_MinLutSize = 16</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_packagePath" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.packagePath">
+  packagePath
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string packagePath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsRenderingMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsRenderingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsRenderingMode" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsRenderingMode">
+  additionalLightsRenderingMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LightRenderingMode additionalLightsRenderingMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.LightRenderingMode.html">LightRenderingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowResolutionTierHigh_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowResolutionTierHigh*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowResolutionTierHigh" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowResolutionTierHigh">
+  additionalLightsShadowResolutionTierHigh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int additionalLightsShadowResolutionTierHigh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowResolutionTierLow_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowResolutionTierLow*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowResolutionTierLow" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowResolutionTierLow">
+  additionalLightsShadowResolutionTierLow
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int additionalLightsShadowResolutionTierLow { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowResolutionTierMedium_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowResolutionTierMedium*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowResolutionTierMedium" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowResolutionTierMedium">
+  additionalLightsShadowResolutionTierMedium
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int additionalLightsShadowResolutionTierMedium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowmapResolution_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowmapResolution*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_additionalLightsShadowmapResolution" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.additionalLightsShadowmapResolution">
+  additionalLightsShadowmapResolution
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int additionalLightsShadowmapResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_allowPostProcessAlphaOutput_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.allowPostProcessAlphaOutput*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_allowPostProcessAlphaOutput" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.allowPostProcessAlphaOutput">
+  allowPostProcessAlphaOutput
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool allowPostProcessAlphaOutput { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_autodeskInteractiveMaskedShader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.autodeskInteractiveMaskedShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_autodeskInteractiveMaskedShader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.autodeskInteractiveMaskedShader">
+  autodeskInteractiveMaskedShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader autodeskInteractiveMaskedShader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_autodeskInteractiveShader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.autodeskInteractiveShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_autodeskInteractiveShader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.autodeskInteractiveShader">
+  autodeskInteractiveShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader autodeskInteractiveShader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_autodeskInteractiveTransparentShader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.autodeskInteractiveTransparentShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_autodeskInteractiveTransparentShader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.autodeskInteractiveTransparentShader">
+  autodeskInteractiveTransparentShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader autodeskInteractiveTransparentShader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascade2Split_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascade2Split*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascade2Split" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascade2Split">
+  cascade2Split
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float cascade2Split { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascade3Split_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascade3Split*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascade3Split" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascade3Split">
+  cascade3Split
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 cascade3Split { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascade4Split_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascade4Split*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascade4Split" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascade4Split">
+  cascade4Split
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 cascade4Split { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascadeBorder_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascadeBorder*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_cascadeBorder" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.cascadeBorder">
+  cascadeBorder
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float cascadeBorder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_colorGradingLutSize_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.colorGradingLutSize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_colorGradingLutSize" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.colorGradingLutSize">
+  colorGradingLutSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int colorGradingLutSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_colorGradingMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.colorGradingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_colorGradingMode" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.colorGradingMode">
+  colorGradingMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorGradingMode colorGradingMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ColorGradingMode.html">ColorGradingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_conservativeEnclosingSphere_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.conservativeEnclosingSphere*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_conservativeEnclosingSphere" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.conservativeEnclosingSphere">
+  conservativeEnclosingSphere
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool conservativeEnclosingSphere { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_debugLevel_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.debugLevel*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_debugLevel" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.debugLevel">
+  debugLevel
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;PipelineDebugLevel is deprecated and replaced to use the profiler. Calling debugLevel is not necessary.&quot;, true)]
+public PipelineDebugLevel debugLevel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.PipelineDebugLevel.html">PipelineDebugLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_decalMaterial_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.decalMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_decalMaterial" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.decalMaterial">
+  decalMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Material decalMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_default2DMaskMaterial_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.default2DMaskMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_default2DMaskMaterial" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.default2DMaskMaterial">
+  default2DMaskMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Material default2DMaskMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_default2DMaterial_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.default2DMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_default2DMaterial" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.default2DMaterial">
+  default2DMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Material default2DMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultLineMaterial_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultLineMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultLineMaterial" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultLineMaterial">
+  defaultLineMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Material defaultLineMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultMaterial_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultMaterial" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultMaterial">
+  defaultMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Material defaultMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultParticleMaterial_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultParticleMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultParticleMaterial" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultParticleMaterial">
+  defaultParticleMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Material defaultParticleMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultShader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultShader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultShader">
+  defaultShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader defaultShader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultSpeedTree7Shader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultSpeedTree7Shader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultSpeedTree7Shader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultSpeedTree7Shader">
+  defaultSpeedTree7Shader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader defaultSpeedTree7Shader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultSpeedTree8Shader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultSpeedTree8Shader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultSpeedTree8Shader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultSpeedTree8Shader">
+  defaultSpeedTree8Shader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader defaultSpeedTree8Shader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultSpeedTree9Shader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultSpeedTree9Shader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultSpeedTree9Shader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultSpeedTree9Shader">
+  defaultSpeedTree9Shader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader defaultSpeedTree9Shader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultTerrainMaterial_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultTerrainMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_defaultTerrainMaterial" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.defaultTerrainMaterial">
+  defaultTerrainMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Material defaultTerrainMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_enableLODCrossFade_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.enableLODCrossFade*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_enableLODCrossFade" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.enableLODCrossFade">
+  enableLODCrossFade
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool enableLODCrossFade { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_enableRenderGraph_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.enableRenderGraph*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_enableRenderGraph" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.enableRenderGraph">
+  enableRenderGraph
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This has been deprecated, please use GraphicsSettings.GetRenderPipelineSettings&lt;RenderGraphSettings&gt;().enableRenderCompatibilityMode instead.&quot;)]
+public bool enableRenderGraph { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_fsrOverrideSharpness_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.fsrOverrideSharpness*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_fsrOverrideSharpness" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.fsrOverrideSharpness">
+  fsrOverrideSharpness
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool fsrOverrideSharpness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_fsrSharpness_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.fsrSharpness*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_fsrSharpness" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.fsrSharpness">
+  fsrSharpness
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float fsrSharpness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_gpuResidentDrawerEnableOcclusionCullingInCameras_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.gpuResidentDrawerEnableOcclusionCullingInCameras*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_gpuResidentDrawerEnableOcclusionCullingInCameras" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.gpuResidentDrawerEnableOcclusionCullingInCameras">
+  gpuResidentDrawerEnableOcclusionCullingInCameras
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool gpuResidentDrawerEnableOcclusionCullingInCameras { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_gpuResidentDrawerMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.gpuResidentDrawerMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_gpuResidentDrawerMode" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.gpuResidentDrawerMode">
+  gpuResidentDrawerMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GPUResidentDrawerMode gpuResidentDrawerMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.GPUResidentDrawerMode.html">GPUResidentDrawerMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_hdrColorBufferPrecision_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.hdrColorBufferPrecision*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_hdrColorBufferPrecision" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.hdrColorBufferPrecision">
+  hdrColorBufferPrecision
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HDRColorBufferPrecision hdrColorBufferPrecision { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.HDRColorBufferPrecision.html">HDRColorBufferPrecision</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_isImmediateModeSupported_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.isImmediateModeSupported*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_isImmediateModeSupported" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.isImmediateModeSupported">
+  isImmediateModeSupported
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isImmediateModeSupported { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_isStpUsed_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.isStpUsed*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_isStpUsed" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.isStpUsed">
+  isStpUsed
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isStpUsed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_lightLayerMaskNames_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.lightLayerMaskNames*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_lightLayerMaskNames" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.lightLayerMaskNames">
+  lightLayerMaskNames
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This is obsolete, please use renderingLayerMaskNames instead.&quot;, true)]
+public string[] lightLayerMaskNames { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_lightProbeSystem_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.lightProbeSystem*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_lightProbeSystem" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.lightProbeSystem">
+  lightProbeSystem
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LightProbeSystem lightProbeSystem { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.LightProbeSystem.html">LightProbeSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_lodCrossFadeDitheringType_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.lodCrossFadeDitheringType*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_lodCrossFadeDitheringType" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.lodCrossFadeDitheringType">
+  lodCrossFadeDitheringType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LODCrossFadeDitheringType lodCrossFadeDitheringType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.LODCrossFadeDitheringType.html">LODCrossFadeDitheringType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_mainLightRenderingMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.mainLightRenderingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_mainLightRenderingMode" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.mainLightRenderingMode">
+  mainLightRenderingMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LightRenderingMode mainLightRenderingMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.LightRenderingMode.html">LightRenderingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_mainLightShadowmapResolution_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.mainLightShadowmapResolution*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_mainLightShadowmapResolution" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.mainLightShadowmapResolution">
+  mainLightShadowmapResolution
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int mainLightShadowmapResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_maxAdditionalLightsCount_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.maxAdditionalLightsCount*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_maxAdditionalLightsCount" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.maxAdditionalLightsCount">
+  maxAdditionalLightsCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int maxAdditionalLightsCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_maxSHBands_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.maxSHBands*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_maxSHBands" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.maxSHBands">
+  maxSHBands
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProbeVolumeSHBands maxSHBands { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.ProbeVolumeSHBands.html">ProbeVolumeSHBands</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_msaaSampleCount_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.msaaSampleCount*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_msaaSampleCount" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.msaaSampleCount">
+  msaaSampleCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int msaaSampleCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_numIterationsEnclosingSphere_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.numIterationsEnclosingSphere*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_numIterationsEnclosingSphere" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.numIterationsEnclosingSphere">
+  numIterationsEnclosingSphere
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int numIterationsEnclosingSphere { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_opaqueDownsampling_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.opaqueDownsampling*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_opaqueDownsampling" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.opaqueDownsampling">
+  opaqueDownsampling
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Downsampling opaqueDownsampling { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.Downsampling.html">Downsampling</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_prefixedRenderingLayerMaskNames_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.prefixedRenderingLayerMaskNames*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_prefixedRenderingLayerMaskNames" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.prefixedRenderingLayerMaskNames">
+  prefixedRenderingLayerMaskNames
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete. Use RenderingLayerMask API and Tags &amp; Layers project settings instead. #from(23.3)&quot;, false)]
+public override string[] prefixedRenderingLayerMaskNames { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeBlendingMemoryBudget_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeBlendingMemoryBudget*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeBlendingMemoryBudget" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeBlendingMemoryBudget">
+  probeVolumeBlendingMemoryBudget
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProbeVolumeBlendingTextureMemoryBudget probeVolumeBlendingMemoryBudget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.ProbeVolumeBlendingTextureMemoryBudget.html">ProbeVolumeBlendingTextureMemoryBudget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeMemoryBudget_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeMemoryBudget*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeMemoryBudget" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeMemoryBudget">
+  probeVolumeMemoryBudget
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProbeVolumeTextureMemoryBudget probeVolumeMemoryBudget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.ProbeVolumeTextureMemoryBudget.html">ProbeVolumeTextureMemoryBudget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeSHBands_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeSHBands*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeSHBands" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeSHBands">
+  probeVolumeSHBands
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProbeVolumeSHBands probeVolumeSHBands { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.ProbeVolumeSHBands.html">ProbeVolumeSHBands</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeSceneData_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeSceneData*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_probeVolumeSceneData" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.probeVolumeSceneData">
+  probeVolumeSceneData
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is no longer necessary.&quot;)]
+public ProbeVolumeSceneData probeVolumeSceneData { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.ProbeVolumeSceneData.html">ProbeVolumeSceneData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_reflectionProbeBlending_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.reflectionProbeBlending*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_reflectionProbeBlending" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.reflectionProbeBlending">
+  reflectionProbeBlending
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool reflectionProbeBlending { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_reflectionProbeBoxProjection_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.reflectionProbeBoxProjection*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_reflectionProbeBoxProjection" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.reflectionProbeBoxProjection">
+  reflectionProbeBoxProjection
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool reflectionProbeBoxProjection { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderPipelineShaderTag_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderPipelineShaderTag*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderPipelineShaderTag" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderPipelineShaderTag">
+  renderPipelineShaderTag
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string renderPipelineShaderTag { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderScale_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderScale*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderScale" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderScale">
+  renderScale
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float renderScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_rendererDataList_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.rendererDataList*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_rendererDataList" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.rendererDataList">
+  rendererDataList
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;ScriptableRendererData&gt; rendererDataList { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html">ScriptableRendererData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderers_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderers*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderers" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderers">
+  renderers
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;ScriptableRenderer&gt; renderers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderer.html">ScriptableRenderer</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderingLayerMaskNames_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderingLayerMaskNames*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_renderingLayerMaskNames" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.renderingLayerMaskNames">
+  renderingLayerMaskNames
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete. Use RenderingLayerMask API and Tags &amp; Layers project settings instead. #from(23.3)&quot;, false)]
+public override string[] renderingLayerMaskNames { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_scriptableRenderer_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.scriptableRenderer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_scriptableRenderer" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.scriptableRenderer">
+  scriptableRenderer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScriptableRenderer scriptableRenderer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderer.html">ScriptableRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shEvalMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shEvalMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shEvalMode" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shEvalMode">
+  shEvalMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShEvalMode shEvalMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ShEvalMode.html">ShEvalMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shaderVariantLogLevel_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shaderVariantLogLevel*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shaderVariantLogLevel" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shaderVariantLogLevel">
+  shaderVariantLogLevel
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use GraphicsSettings.GetRenderPipelineSettings&lt;ShaderStrippingSetting&gt;().shaderVariantLogLevel instead.&quot;, true)]
+public ShaderVariantLogLevel shaderVariantLogLevel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ShaderVariantLogLevel.html">ShaderVariantLogLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowCascadeCount_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowCascadeCount*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowCascadeCount" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowCascadeCount">
+  shadowCascadeCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int shadowCascadeCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowCascadeOption_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowCascadeOption*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowCascadeOption" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowCascadeOption">
+  shadowCascadeOption
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This is obsolete, please use shadowCascadeCount instead.&quot;, true)]
+public ShadowCascadesOption shadowCascadeOption { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ShadowCascadesOption.html">ShadowCascadesOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowDepthBias_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowDepthBias*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowDepthBias" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowDepthBias">
+  shadowDepthBias
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float shadowDepthBias { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowDistance_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowDistance*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowDistance" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowDistance">
+  shadowDistance
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float shadowDistance { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowNormalBias_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowNormalBias*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_shadowNormalBias" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.shadowNormalBias">
+  shadowNormalBias
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float shadowNormalBias { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_smallMeshScreenPercentage_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.smallMeshScreenPercentage*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_smallMeshScreenPercentage" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.smallMeshScreenPercentage">
+  smallMeshScreenPercentage
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float smallMeshScreenPercentage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_storeActionsOptimization_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.storeActionsOptimization*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_storeActionsOptimization" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.storeActionsOptimization">
+  storeActionsOptimization
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StoreActionsOptimization storeActionsOptimization { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.StoreActionsOptimization.html">StoreActionsOptimization</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportDataDrivenLensFlare_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportDataDrivenLensFlare*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportDataDrivenLensFlare" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportDataDrivenLensFlare">
+  supportDataDrivenLensFlare
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportDataDrivenLensFlare { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolume_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolume*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolume" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolume">
+  supportProbeVolume
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportProbeVolume { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeDiskStreaming_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeDiskStreaming*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeDiskStreaming" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeDiskStreaming">
+  supportProbeVolumeDiskStreaming
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportProbeVolumeDiskStreaming { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeGPUStreaming_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeGPUStreaming*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeGPUStreaming" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeGPUStreaming">
+  supportProbeVolumeGPUStreaming
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportProbeVolumeGPUStreaming { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeScenarioBlending_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeScenarioBlending*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeScenarioBlending" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeScenarioBlending">
+  supportProbeVolumeScenarioBlending
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportProbeVolumeScenarioBlending { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeScenarios_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeScenarios*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeScenarios" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeScenarios">
+  supportProbeVolumeScenarios
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportProbeVolumeScenarios { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeStreaming_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeStreaming*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportProbeVolumeStreaming" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportProbeVolumeStreaming">
+  supportProbeVolumeStreaming
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This is obsolete, use supportProbeVolumeGPUStreaming instead.&quot;)]
+public bool supportProbeVolumeStreaming { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportScreenSpaceLensFlare_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportScreenSpaceLensFlare*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportScreenSpaceLensFlare" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportScreenSpaceLensFlare">
+  supportScreenSpaceLensFlare
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportScreenSpaceLensFlare { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsAdditionalLightShadows_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsAdditionalLightShadows*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsAdditionalLightShadows" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsAdditionalLightShadows">
+  supportsAdditionalLightShadows
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsAdditionalLightShadows { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsCameraDepthTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsCameraDepthTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsCameraDepthTexture" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsCameraDepthTexture">
+  supportsCameraDepthTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsCameraDepthTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsCameraOpaqueTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsCameraOpaqueTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsCameraOpaqueTexture" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsCameraOpaqueTexture">
+  supportsCameraOpaqueTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsCameraOpaqueTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsDynamicBatching_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsDynamicBatching*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsDynamicBatching" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsDynamicBatching">
+  supportsDynamicBatching
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsDynamicBatching { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsHDR_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsHDR*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsHDR" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsHDR">
+  supportsHDR
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsHDR { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsLightCookies_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsLightCookies*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsLightCookies" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsLightCookies">
+  supportsLightCookies
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsLightCookies { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsLightLayers_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsLightLayers*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsLightLayers" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsLightLayers">
+  supportsLightLayers
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This is obsolete, use useRenderingLayers instead.&quot;, true)]
+public bool supportsLightLayers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsMainLightShadows_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsMainLightShadows*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsMainLightShadows" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsMainLightShadows">
+  supportsMainLightShadows
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsMainLightShadows { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsMixedLighting_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsMixedLighting*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsMixedLighting" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsMixedLighting">
+  supportsMixedLighting
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsMixedLighting { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsSoftShadows_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsSoftShadows*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsSoftShadows" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsSoftShadows">
+  supportsSoftShadows
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsSoftShadows { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsTerrainHoles_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsTerrainHoles*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_supportsTerrainHoles" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.supportsTerrainHoles">
+  supportsTerrainHoles
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsTerrainHoles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_terrainDetailGrassBillboardShader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.terrainDetailGrassBillboardShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_terrainDetailGrassBillboardShader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.terrainDetailGrassBillboardShader">
+  terrainDetailGrassBillboardShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader terrainDetailGrassBillboardShader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_terrainDetailGrassShader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.terrainDetailGrassShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_terrainDetailGrassShader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.terrainDetailGrassShader">
+  terrainDetailGrassShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader terrainDetailGrassShader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_terrainDetailLitShader_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.terrainDetailLitShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_terrainDetailLitShader" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.terrainDetailLitShader">
+  terrainDetailLitShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Shader terrainDetailLitShader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_textures_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.textures*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_textures" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.textures">
+  textures
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Moved to UniversalRenderPipelineRuntimeTextures on GraphicsSettings. #from(2023.3)&quot;, false)]
+public UniversalRenderPipelineAsset.TextureResources textures { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.html">UniversalRenderPipelineAsset</a>.<a class="xref" href="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.TextureResources.html">TextureResources</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_upscalingFilter_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.upscalingFilter*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_upscalingFilter" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.upscalingFilter">
+  upscalingFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UpscalingFilterSelection upscalingFilter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.UpscalingFilterSelection.html">UpscalingFilterSelection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useAdaptivePerformance_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useAdaptivePerformance*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useAdaptivePerformance" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useAdaptivePerformance">
+  useAdaptivePerformance
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool useAdaptivePerformance { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useFastSRGBLinearConversion_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useFastSRGBLinearConversion*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useFastSRGBLinearConversion" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useFastSRGBLinearConversion">
+  useFastSRGBLinearConversion
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool useFastSRGBLinearConversion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useRenderingLayers_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useRenderingLayers*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useRenderingLayers" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useRenderingLayers">
+  useRenderingLayers
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool useRenderingLayers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useSRPBatcher_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useSRPBatcher*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_useSRPBatcher" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.useSRPBatcher">
+  useSRPBatcher
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool useSRPBatcher { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_volumeFrameworkUpdateMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.volumeFrameworkUpdateMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_volumeFrameworkUpdateMode" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.volumeFrameworkUpdateMode">
+  volumeFrameworkUpdateMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VolumeFrameworkUpdateMode volumeFrameworkUpdateMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.VolumeFrameworkUpdateMode.html">VolumeFrameworkUpdateMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_volumeProfile_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.volumeProfile*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_volumeProfile" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.volumeProfile">
+  volumeProfile
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VolumeProfile volumeProfile { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.VolumeProfile.html">VolumeProfile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_Create_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.Create*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_Create_UnityEngine_Rendering_Universal_ScriptableRendererData_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.Create(UnityEngine.Rendering.Universal.ScriptableRendererData)">
+  Create(ScriptableRendererData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniversalRenderPipelineAsset Create(ScriptableRendererData rendererData = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rendererData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html">ScriptableRendererData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.html">UniversalRenderPipelineAsset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_CreatePipeline_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.CreatePipeline*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_CreatePipeline" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.CreatePipeline">
+  CreatePipeline()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override RenderPipeline CreatePipeline()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderPipeline</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_EnsureGlobalSettings_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.EnsureGlobalSettings*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_EnsureGlobalSettings" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.EnsureGlobalSettings">
+  EnsureGlobalSettings()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void EnsureGlobalSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_GetRenderer_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.GetRenderer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_GetRenderer_System_Int32_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.GetRenderer(System.Int32)">
+  GetRenderer(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScriptableRenderer GetRenderer(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderer.html">ScriptableRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_IsGPUResidentDrawerSupportedBySRP_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.IsGPUResidentDrawerSupportedBySRP*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_IsGPUResidentDrawerSupportedBySRP_System_String__UnityEngine_LogType__" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.IsGPUResidentDrawerSupportedBySRP(System.String@,UnityEngine.LogType@)">
+  IsGPUResidentDrawerSupportedBySRP(out string, out LogType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsGPUResidentDrawerSupportedBySRP(out string message, out LogType severty)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>severty</code> <span class="xref">LogType</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_LoadBuiltinRendererData_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.LoadBuiltinRendererData*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_LoadBuiltinRendererData_UnityEngine_Rendering_Universal_RendererType_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.LoadBuiltinRendererData(UnityEngine.Rendering.Universal.RendererType)">
+  LoadBuiltinRendererData(RendererType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScriptableRendererData LoadBuiltinRendererData(RendererType type = RendererType.UniversalRenderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="UnityEngine.Rendering.Universal.RendererType.html">RendererType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html">ScriptableRendererData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_OnAfterDeserialize_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.OnAfterDeserialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_OnAfterDeserialize" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.OnAfterDeserialize">
+  OnAfterDeserialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnAfterDeserialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_OnBeforeSerialize_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.OnBeforeSerialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_OnBeforeSerialize" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.OnBeforeSerialize">
+  OnBeforeSerialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnBeforeSerialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_OnDisable_" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.OnDisable*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRenderPipelineAsset_OnDisable" data-uid="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.OnDisable">
+  OnDisable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDisable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

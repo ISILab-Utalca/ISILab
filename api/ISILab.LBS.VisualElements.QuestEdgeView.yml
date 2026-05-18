@@ -1,0 +1,195 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.QuestEdgeView
+  commentId: T:ISILab.LBS.VisualElements.QuestEdgeView
+  id: QuestEdgeView
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.QuestEdgeView.#ctor(ISILab.LBS.Modules.QuestGraph,ISILab.LBS.Modules.QuestEdge,ISILab.LBS.VisualElements.QuestGraphNodeView,ISILab.LBS.VisualElements.QuestGraphNodeView,System.Single,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: QuestEdgeView
+  nameWithType: QuestEdgeView
+  fullName: ISILab.LBS.VisualElements.QuestEdgeView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class QuestEdgeView : GraphElement'
+    content.vb: Public Class QuestEdgeView Inherits GraphElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.QuestEdgeView.#ctor(ISILab.LBS.Modules.QuestGraph,ISILab.LBS.Modules.QuestEdge,ISILab.LBS.VisualElements.QuestGraphNodeView,ISILab.LBS.VisualElements.QuestGraphNodeView,System.Single,System.Single)
+  commentId: M:ISILab.LBS.VisualElements.QuestEdgeView.#ctor(ISILab.LBS.Modules.QuestGraph,ISILab.LBS.Modules.QuestEdge,ISILab.LBS.VisualElements.QuestGraphNodeView,ISILab.LBS.VisualElements.QuestGraphNodeView,System.Single,System.Single)
+  id: '#ctor(ISILab.LBS.Modules.QuestGraph,ISILab.LBS.Modules.QuestEdge,ISILab.LBS.VisualElements.QuestGraphNodeView,ISILab.LBS.VisualElements.QuestGraphNodeView,System.Single,System.Single)'
+  parent: ISILab.LBS.VisualElements.QuestEdgeView
+  langs:
+  - csharp
+  - vb
+  name: QuestEdgeView(QuestGraph, QuestEdge, QuestGraphNodeView, QuestGraphNodeView, float, float)
+  nameWithType: QuestEdgeView.QuestEdgeView(QuestGraph, QuestEdge, QuestGraphNodeView, QuestGraphNodeView, float, float)
+  fullName: ISILab.LBS.VisualElements.QuestEdgeView.QuestEdgeView(ISILab.LBS.Modules.QuestGraph, ISILab.LBS.Modules.QuestEdge, ISILab.LBS.VisualElements.QuestGraphNodeView, ISILab.LBS.VisualElements.QuestGraphNodeView, float, float)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public QuestEdgeView(QuestGraph questGraph, QuestEdge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5, float stroke = 3)
+    parameters:
+    - id: questGraph
+      type: ISILab.LBS.Modules.QuestGraph
+    - id: edge
+      type: ISILab.LBS.Modules.QuestEdge
+    - id: node1
+      type: ISILab.LBS.VisualElements.QuestGraphNodeView
+    - id: node2
+      type: ISILab.LBS.VisualElements.QuestGraphNodeView
+    - id: lineWidth
+      type: System.Single
+    - id: stroke
+      type: System.Single
+    content.vb: Public Sub New(questGraph As QuestGraph, edge As QuestEdge, node1 As QuestGraphNodeView, node2 As QuestGraphNodeView, lineWidth As Single = 5, stroke As Single = 3)
+  overload: ISILab.LBS.VisualElements.QuestEdgeView.#ctor*
+  nameWithType.vb: QuestEdgeView.New(QuestGraph, QuestEdge, QuestGraphNodeView, QuestGraphNodeView, Single, Single)
+  fullName.vb: ISILab.LBS.VisualElements.QuestEdgeView.New(ISILab.LBS.Modules.QuestGraph, ISILab.LBS.Modules.QuestEdge, ISILab.LBS.VisualElements.QuestGraphNodeView, ISILab.LBS.VisualElements.QuestGraphNodeView, Single, Single)
+  name.vb: New(QuestGraph, QuestEdge, QuestGraphNodeView, QuestGraphNodeView, Single, Single)
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.VisualElements.QuestEdgeView.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestEdgeView.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestEdgeView.html#ISILab_LBS_VisualElements_QuestEdgeView__ctor_ISILab_LBS_Modules_QuestGraph_ISILab_LBS_Modules_QuestEdge_ISILab_LBS_VisualElements_QuestGraphNodeView_ISILab_LBS_VisualElements_QuestGraphNodeView_System_Single_System_Single_
+  name: QuestEdgeView
+  nameWithType: QuestEdgeView.QuestEdgeView
+  fullName: ISILab.LBS.VisualElements.QuestEdgeView.QuestEdgeView
+  nameWithType.vb: QuestEdgeView.New
+  fullName.vb: ISILab.LBS.VisualElements.QuestEdgeView.New
+  name.vb: New
+- uid: ISILab.LBS.Modules.QuestGraph
+  commentId: T:ISILab.LBS.Modules.QuestGraph
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestGraph.html
+  name: QuestGraph
+  nameWithType: QuestGraph
+  fullName: ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules.QuestEdge
+  commentId: T:ISILab.LBS.Modules.QuestEdge
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestEdge.html
+  name: QuestEdge
+  nameWithType: QuestEdge
+  fullName: ISILab.LBS.Modules.QuestEdge
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView
+  commentId: T:ISILab.LBS.VisualElements.QuestGraphNodeView
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html
+  name: QuestGraphNodeView
+  nameWithType: QuestGraphNodeView
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html

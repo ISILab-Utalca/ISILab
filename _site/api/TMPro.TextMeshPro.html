@@ -1,0 +1,3117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TextMeshPro | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TextMeshPro | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="TMPro.TextMeshPro">
+
+
+
+  <h1 id="TMPro_TextMeshPro" data-uid="TMPro.TextMeshPro" class="text-break">
+Class TextMeshPro  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="TMPro.html">TMPro</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.TextMeshPro.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TextMeshPro : TMP_Text, ICanvasElement, IClippable, IMaskable, IMaterialModifier, ILayoutElement</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html">UIBehaviour</a></div>
+      <div><a class="xref" href="UnityEngine.UI.Graphic.html">Graphic</a></div>
+      <div><a class="xref" href="UnityEngine.UI.MaskableGraphic.html">MaskableGraphic</a></div>
+      <div><a class="xref" href="TMPro.TMP_Text.html">TMP_Text</a></div>
+      <div><span class="xref">TextMeshPro</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="UnityEngine.UI.ICanvasElement.html">ICanvasElement</a></div>
+      <div><a class="xref" href="UnityEngine.UI.IClippable.html">IClippable</a></div>
+      <div><a class="xref" href="UnityEngine.UI.IMaskable.html">IMaskable</a></div>
+      <div><a class="xref" href="UnityEngine.UI.IMaterialModifier.html">IMaterialModifier</a></div>
+      <div><a class="xref" href="UnityEngine.UI.ILayoutElement.html">ILayoutElement</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_text">TMP_Text.m_text</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_TextPreprocessor">TMP_Text.m_TextPreprocessor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isRightToLeft">TMP_Text.m_isRightToLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontAsset">TMP_Text.m_fontAsset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_currentFontAsset">TMP_Text.m_currentFontAsset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isSDFShader">TMP_Text.m_isSDFShader</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_sharedMaterial">TMP_Text.m_sharedMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_currentMaterial">TMP_Text.m_currentMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_materialReferences">TMP_Text.m_materialReferences</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_materialReferenceIndexLookup">TMP_Text.m_materialReferenceIndexLookup</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_materialReferenceStack">TMP_Text.m_materialReferenceStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_currentMaterialIndex">TMP_Text.m_currentMaterialIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontSharedMaterials">TMP_Text.m_fontSharedMaterials</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontMaterial">TMP_Text.m_fontMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontMaterials">TMP_Text.m_fontMaterials</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isMaterialDirty">TMP_Text.m_isMaterialDirty</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontColor32">TMP_Text.m_fontColor32</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontColor">TMP_Text.m_fontColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_s_colorWhite">TMP_Text.s_colorWhite</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_underlineColor">TMP_Text.m_underlineColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_strikethroughColor">TMP_Text.m_strikethroughColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_enableVertexGradient">TMP_Text.m_enableVertexGradient</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_colorMode">TMP_Text.m_colorMode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontColorGradient">TMP_Text.m_fontColorGradient</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontColorGradientPreset">TMP_Text.m_fontColorGradientPreset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_spriteAsset">TMP_Text.m_spriteAsset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_tintAllSprites">TMP_Text.m_tintAllSprites</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_tintSprite">TMP_Text.m_tintSprite</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_spriteColor">TMP_Text.m_spriteColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_StyleSheet">TMP_Text.m_StyleSheet</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_TextStyleHashCode">TMP_Text.m_TextStyleHashCode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_overrideHtmlColors">TMP_Text.m_overrideHtmlColors</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_faceColor">TMP_Text.m_faceColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_outlineColor">TMP_Text.m_outlineColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_outlineWidth">TMP_Text.m_outlineWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_currentEnvMapRotation">TMP_Text.m_currentEnvMapRotation</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_hasEnvMapProperty">TMP_Text.m_hasEnvMapProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontSize">TMP_Text.m_fontSize</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_currentFontSize">TMP_Text.m_currentFontSize</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontSizeBase">TMP_Text.m_fontSizeBase</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_sizeStack">TMP_Text.m_sizeStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontWeight">TMP_Text.m_fontWeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_FontWeightInternal">TMP_Text.m_FontWeightInternal</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_FontWeightStack">TMP_Text.m_FontWeightStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_enableAutoSizing">TMP_Text.m_enableAutoSizing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxFontSize">TMP_Text.m_maxFontSize</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_minFontSize">TMP_Text.m_minFontSize</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_AutoSizeIterationCount">TMP_Text.m_AutoSizeIterationCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_AutoSizeMaxIterationCount">TMP_Text.m_AutoSizeMaxIterationCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_IsAutoSizePointSizeSet">TMP_Text.m_IsAutoSizePointSizeSet</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontSizeMin">TMP_Text.m_fontSizeMin</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontSizeMax">TMP_Text.m_fontSizeMax</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontStyle">TMP_Text.m_fontStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_FontStyleInternal">TMP_Text.m_FontStyleInternal</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontStyleStack">TMP_Text.m_fontStyleStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isUsingBold">TMP_Text.m_isUsingBold</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_HorizontalAlignment">TMP_Text.m_HorizontalAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_VerticalAlignment">TMP_Text.m_VerticalAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_textAlignment">TMP_Text.m_textAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineJustification">TMP_Text.m_lineJustification</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineJustificationStack">TMP_Text.m_lineJustificationStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_textContainerLocalCorners">TMP_Text.m_textContainerLocalCorners</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_characterSpacing">TMP_Text.m_characterSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_cSpacing">TMP_Text.m_cSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_monoSpacing">TMP_Text.m_monoSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_duoSpace">TMP_Text.m_duoSpace</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_wordSpacing">TMP_Text.m_wordSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineSpacing">TMP_Text.m_lineSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineSpacingDelta">TMP_Text.m_lineSpacingDelta</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineHeight">TMP_Text.m_lineHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_IsDrivenLineSpacing">TMP_Text.m_IsDrivenLineSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineSpacingMax">TMP_Text.m_lineSpacingMax</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_paragraphSpacing">TMP_Text.m_paragraphSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_charWidthMaxAdj">TMP_Text.m_charWidthMaxAdj</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_charWidthAdjDelta">TMP_Text.m_charWidthAdjDelta</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_TextWrappingMode">TMP_Text.m_TextWrappingMode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isCharacterWrappingEnabled">TMP_Text.m_isCharacterWrappingEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isNonBreakingSpace">TMP_Text.m_isNonBreakingSpace</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isIgnoringAlignment">TMP_Text.m_isIgnoringAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_wordWrappingRatios">TMP_Text.m_wordWrappingRatios</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_overflowMode">TMP_Text.m_overflowMode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_firstOverflowCharacterIndex">TMP_Text.m_firstOverflowCharacterIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_linkedTextComponent">TMP_Text.m_linkedTextComponent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isTextTruncated">TMP_Text.m_isTextTruncated</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_enableKerning">TMP_Text.m_enableKerning</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_LastBaseGlyphIndex">TMP_Text.m_LastBaseGlyphIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_ActiveFontFeatures">TMP_Text.m_ActiveFontFeatures</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_enableExtraPadding">TMP_Text.m_enableExtraPadding</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_checkPaddingRequired">TMP_Text.checkPaddingRequired</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isRichText">TMP_Text.m_isRichText</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_parseCtrlCharacters">TMP_Text.m_parseCtrlCharacters</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isOverlay">TMP_Text.m_isOverlay</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isOrthographic">TMP_Text.m_isOrthographic</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isCullingEnabled">TMP_Text.m_isCullingEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isMaskingEnabled">TMP_Text.m_isMaskingEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isMaskUpdateRequired">TMP_Text.isMaskUpdateRequired</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_ignoreCulling">TMP_Text.m_ignoreCulling</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_horizontalMapping">TMP_Text.m_horizontalMapping</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_verticalMapping">TMP_Text.m_verticalMapping</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_uvLineOffset">TMP_Text.m_uvLineOffset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_renderMode">TMP_Text.m_renderMode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_geometrySortingOrder">TMP_Text.m_geometrySortingOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_IsTextObjectScaleStatic">TMP_Text.m_IsTextObjectScaleStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_VertexBufferAutoSizeReduction">TMP_Text.m_VertexBufferAutoSizeReduction</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_firstVisibleCharacter">TMP_Text.m_firstVisibleCharacter</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxVisibleCharacters">TMP_Text.m_maxVisibleCharacters</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxVisibleWords">TMP_Text.m_maxVisibleWords</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxVisibleLines">TMP_Text.m_maxVisibleLines</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_useMaxVisibleDescender">TMP_Text.m_useMaxVisibleDescender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_pageToDisplay">TMP_Text.m_pageToDisplay</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isNewPage">TMP_Text.m_isNewPage</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_margin">TMP_Text.m_margin</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_marginLeft">TMP_Text.m_marginLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_marginRight">TMP_Text.m_marginRight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_marginWidth">TMP_Text.m_marginWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_marginHeight">TMP_Text.m_marginHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_width">TMP_Text.m_width</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_textInfo">TMP_Text.m_textInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_havePropertiesChanged">TMP_Text.m_havePropertiesChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isUsingLegacyAnimationComponent">TMP_Text.m_isUsingLegacyAnimationComponent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_transform">TMP_Text.m_transform</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_rectTransform">TMP_Text.m_rectTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_PreviousRectTransformSize">TMP_Text.m_PreviousRectTransformSize</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_PreviousPivotPosition">TMP_Text.m_PreviousPivotPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_autoSizeTextContainer">TMP_Text.m_autoSizeTextContainer</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_mesh">TMP_Text.m_mesh</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isVolumetricText">TMP_Text.m_isVolumetricText</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_spriteAnimator">TMP_Text.m_spriteAnimator</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_flexibleHeight">TMP_Text.m_flexibleHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_flexibleWidth">TMP_Text.m_flexibleWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_minWidth">TMP_Text.m_minWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_minHeight">TMP_Text.m_minHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxWidth">TMP_Text.m_maxWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxHeight">TMP_Text.m_maxHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_LayoutElement">TMP_Text.m_LayoutElement</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_preferredWidth">TMP_Text.m_preferredWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_RenderedWidth">TMP_Text.m_RenderedWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isPreferredWidthDirty">TMP_Text.m_isPreferredWidthDirty</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_preferredHeight">TMP_Text.m_preferredHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_RenderedHeight">TMP_Text.m_RenderedHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isPreferredHeightDirty">TMP_Text.m_isPreferredHeightDirty</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isCalculatingPreferredValues">TMP_Text.m_isCalculatingPreferredValues</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_layoutPriority">TMP_Text.m_layoutPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isLayoutDirty">TMP_Text.m_isLayoutDirty</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isAwake">TMP_Text.m_isAwake</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_fontScaleMultiplier">TMP_Text.m_fontScaleMultiplier</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_tag_LineIndent">TMP_Text.tag_LineIndent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_tag_Indent">TMP_Text.tag_Indent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_indentStack">TMP_Text.m_indentStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_tag_NoParsing">TMP_Text.tag_NoParsing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_isTextLayoutPhase">TMP_Text.m_isTextLayoutPhase</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_FXRotation">TMP_Text.m_FXRotation</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_FXScale">TMP_Text.m_FXScale</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_totalCharacterCount">TMP_Text.m_totalCharacterCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_characterCount">TMP_Text.m_characterCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_firstCharacterOfLine">TMP_Text.m_firstCharacterOfLine</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_firstVisibleCharacterOfLine">TMP_Text.m_firstVisibleCharacterOfLine</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lastCharacterOfLine">TMP_Text.m_lastCharacterOfLine</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lastVisibleCharacterOfLine">TMP_Text.m_lastVisibleCharacterOfLine</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineNumber">TMP_Text.m_lineNumber</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineVisibleCharacterCount">TMP_Text.m_lineVisibleCharacterCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineVisibleSpaceCount">TMP_Text.m_lineVisibleSpaceCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_pageNumber">TMP_Text.m_pageNumber</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_PageAscender">TMP_Text.m_PageAscender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxTextAscender">TMP_Text.m_maxTextAscender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxCapHeight">TMP_Text.m_maxCapHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_ElementAscender">TMP_Text.m_ElementAscender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_ElementDescender">TMP_Text.m_ElementDescender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxLineAscender">TMP_Text.m_maxLineAscender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_maxLineDescender">TMP_Text.m_maxLineDescender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_startOfLineAscender">TMP_Text.m_startOfLineAscender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_startOfLineDescender">TMP_Text.m_startOfLineDescender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_lineOffset">TMP_Text.m_lineOffset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_meshExtents">TMP_Text.m_meshExtents</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_htmlColor">TMP_Text.m_htmlColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_colorStack">TMP_Text.m_colorStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_underlineColorStack">TMP_Text.m_underlineColorStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_strikethroughColorStack">TMP_Text.m_strikethroughColorStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_HighlightStateStack">TMP_Text.m_HighlightStateStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_colorGradientPreset">TMP_Text.m_colorGradientPreset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_colorGradientStack">TMP_Text.m_colorGradientStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_colorGradientPresetIsTinted">TMP_Text.m_colorGradientPresetIsTinted</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_tabSpacing">TMP_Text.m_tabSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_spacing">TMP_Text.m_spacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_TextStyleStacks">TMP_Text.m_TextStyleStacks</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_TextStyleStackDepth">TMP_Text.m_TextStyleStackDepth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_ItalicAngleStack">TMP_Text.m_ItalicAngleStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_ItalicAngle">TMP_Text.m_ItalicAngle</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_actionStack">TMP_Text.m_actionStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_padding">TMP_Text.m_padding</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_baselineOffset">TMP_Text.m_baselineOffset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_baselineOffsetStack">TMP_Text.m_baselineOffsetStack</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_xAdvance">TMP_Text.m_xAdvance</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_textElementType">TMP_Text.m_textElementType</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_cached_TextElement">TMP_Text.m_cached_TextElement</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_Ellipsis">TMP_Text.m_Ellipsis</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_Underline">TMP_Text.m_Underline</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_defaultSpriteAsset">TMP_Text.m_defaultSpriteAsset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_currentSpriteAsset">TMP_Text.m_currentSpriteAsset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_spriteCount">TMP_Text.m_spriteCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_spriteIndex">TMP_Text.m_spriteIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_spriteAnimationID">TMP_Text.m_spriteAnimationID</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_m_ignoreActiveState">TMP_Text.m_ignoreActiveState</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_k_LargePositiveVector2">TMP_Text.k_LargePositiveVector2</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_k_LargeNegativeVector2">TMP_Text.k_LargeNegativeVector2</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_k_LargePositiveFloat">TMP_Text.k_LargePositiveFloat</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_k_LargeNegativeFloat">TMP_Text.k_LargeNegativeFloat</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_k_LargePositiveInt">TMP_Text.k_LargePositiveInt</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_k_LargeNegativeInt">TMP_Text.k_LargeNegativeInt</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetFontBaseMaterial_UnityEngine_Material_">TMP_Text.SetFontBaseMaterial(Material)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_CreateMaterialInstance_UnityEngine_Material_">TMP_Text.CreateMaterialInstance(Material)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetVertexColorGradient_TMPro_TMP_ColorGradient_">TMP_Text.SetVertexColorGradient(TMP_ColorGradient)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetTextSortingOrder_TMPro_VertexSortingOrder_">TMP_Text.SetTextSortingOrder(VertexSortingOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetTextSortingOrder_System_Int32___">TMP_Text.SetTextSortingOrder(int[])</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPaddingForMaterial">TMP_Text.GetPaddingForMaterial()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPaddingForMaterial_UnityEngine_Material_">TMP_Text.GetPaddingForMaterial(Material)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetVertices_UnityEngine_Vector3___">TMP_Text.SetVertices(Vector3[])</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_CrossFadeColor_UnityEngine_Color_System_Single_System_Boolean_System_Boolean_">TMP_Text.CrossFadeColor(Color, float, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_CrossFadeAlpha_System_Single_System_Single_System_Boolean_">TMP_Text.CrossFadeAlpha(float, float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_InternalCrossFadeColor_UnityEngine_Color_System_Single_System_Boolean_System_Boolean_">TMP_Text.InternalCrossFadeColor(Color, float, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_InternalCrossFadeAlpha_System_Single_System_Single_System_Boolean_">TMP_Text.InternalCrossFadeAlpha(float, float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_ParseInputText">TMP_Text.ParseInputText()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_">TMP_Text.SetText(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Boolean_">TMP_Text.SetText(string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_">TMP_Text.SetText(string, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_System_Single_">TMP_Text.SetText(string, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_System_Single_System_Single_">TMP_Text.SetText(string, float, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_System_Single_System_Single_System_Single_">TMP_Text.SetText(string, float, float, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_System_Single_System_Single_System_Single_System_Single_">TMP_Text.SetText(string, float, float, float, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_">TMP_Text.SetText(string, float, float, float, float, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_">TMP_Text.SetText(string, float, float, float, float, float, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_String_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_">TMP_Text.SetText(string, float, float, float, float, float, float, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_Text_StringBuilder_">TMP_Text.SetText(StringBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_Char___">TMP_Text.SetText(char[])</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetText_System_Char___System_Int32_System_Int32_">TMP_Text.SetText(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetCharArray_System_Char___">TMP_Text.SetCharArray(char[])</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SetCharArray_System_Char___System_Int32_System_Int32_">TMP_Text.SetCharArray(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPreferredValues">TMP_Text.GetPreferredValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPreferredValues_System_Single_System_Single_">TMP_Text.GetPreferredValues(float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPreferredValues_System_String_">TMP_Text.GetPreferredValues(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPreferredValues_System_String_System_Single_System_Single_">TMP_Text.GetPreferredValues(string, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPreferredWidth">TMP_Text.GetPreferredWidth()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetPreferredHeight">TMP_Text.GetPreferredHeight()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetRenderedValues">TMP_Text.GetRenderedValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetRenderedValues_System_Boolean_">TMP_Text.GetRenderedValues(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetRenderedWidth_System_Boolean_">TMP_Text.GetRenderedWidth(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetRenderedHeight_System_Boolean_">TMP_Text.GetRenderedHeight(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_CalculatePreferredValues_System_Single__UnityEngine_Vector2_System_Boolean_TMPro_TextWrappingModes_">TMP_Text.CalculatePreferredValues(ref float, Vector2, bool, TextWrappingModes)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetTextBounds">TMP_Text.GetTextBounds()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetTextBounds_System_Boolean_">TMP_Text.GetTextBounds(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_AdjustLineOffset_System_Int32_System_Int32_System_Single_">TMP_Text.AdjustLineOffset(int, int, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_ResizeLineExtents_System_Int32_">TMP_Text.ResizeLineExtents(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SaveGlyphVertexInfo_System_Single_System_Single_UnityEngine_Color32_">TMP_Text.SaveGlyphVertexInfo(float, float, Color32)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_SaveSpriteVertexInfo_UnityEngine_Color32_">TMP_Text.SaveSpriteVertexInfo(Color32)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_FillCharacterVertexBuffers_System_Int32_">TMP_Text.FillCharacterVertexBuffers(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_FillCharacterVertexBuffers_System_Int32_System_Boolean_">TMP_Text.FillCharacterVertexBuffers(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_FillSpriteVertexBuffers_System_Int32_">TMP_Text.FillSpriteVertexBuffers(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_DrawUnderlineMesh_UnityEngine_Vector3_UnityEngine_Vector3_System_Int32__System_Single_System_Single_System_Single_System_Single_UnityEngine_Color32_">TMP_Text.DrawUnderlineMesh(Vector3, Vector3, ref int, float, float, float, float, Color32)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_DrawTextHighlight_UnityEngine_Vector3_UnityEngine_Vector3_System_Int32__UnityEngine_Color32_">TMP_Text.DrawTextHighlight(Vector3, Vector3, ref int, Color32)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_LoadDefaultSettings">TMP_Text.LoadDefaultSettings()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetSpecialCharacters_TMPro_TMP_FontAsset_">TMP_Text.GetSpecialCharacters(TMP_FontAsset)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetEllipsisSpecialCharacter_TMPro_TMP_FontAsset_">TMP_Text.GetEllipsisSpecialCharacter(TMP_FontAsset)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetUnderlineSpecialCharacter_TMPro_TMP_FontAsset_">TMP_Text.GetUnderlineSpecialCharacter(TMP_FontAsset)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_ReplaceTagWithCharacter_System_Int32___System_Int32_System_Int32_System_Char_">TMP_Text.ReplaceTagWithCharacter(int[], int, int, char)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetFontAssetForWeight_System_Int32_">TMP_Text.GetFontAssetForWeight(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_ClearMesh">TMP_Text.ClearMesh()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_GetParsedText">TMP_Text.GetParsedText()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_DoMissingGlyphCallback_System_Int32_System_Int32_TMPro_TMP_FontAsset_">TMP_Text.DoMissingGlyphCallback(int, int, TMP_FontAsset)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_PackUV_System_Single_System_Single_System_Single_">TMP_Text.PackUV(float, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_PackUV_System_Single_System_Single_">TMP_Text.PackUV(float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_HexToInt_System_Char_">TMP_Text.HexToInt(char)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_HexCharsToColor_System_Char___System_Int32_">TMP_Text.HexCharsToColor(char[], int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_HexCharsToColor_System_Char___System_Int32_System_Int32_">TMP_Text.HexCharsToColor(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_ConvertToFloat_System_Char___System_Int32_System_Int32_">TMP_Text.ConvertToFloat(char[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_ConvertToFloat_System_Char___System_Int32_System_Int32_System_Int32__">TMP_Text.ConvertToFloat(char[], int, int, out int)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_text">TMP_Text.text</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_textPreprocessor">TMP_Text.textPreprocessor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isRightToLeftText">TMP_Text.isRightToLeftText</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_font">TMP_Text.font</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontSharedMaterial">TMP_Text.fontSharedMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontSharedMaterials">TMP_Text.fontSharedMaterials</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontMaterial">TMP_Text.fontMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontMaterials">TMP_Text.fontMaterials</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_color">TMP_Text.color</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_alpha">TMP_Text.alpha</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_enableVertexGradient">TMP_Text.enableVertexGradient</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_colorGradient">TMP_Text.colorGradient</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_colorGradientPreset">TMP_Text.colorGradientPreset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_spriteAsset">TMP_Text.spriteAsset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_tintAllSprites">TMP_Text.tintAllSprites</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_styleSheet">TMP_Text.styleSheet</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_textStyle">TMP_Text.textStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_overrideColorTags">TMP_Text.overrideColorTags</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_faceColor">TMP_Text.faceColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_outlineColor">TMP_Text.outlineColor</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_outlineWidth">TMP_Text.outlineWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontSize">TMP_Text.fontSize</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontWeight">TMP_Text.fontWeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_pixelsPerUnit">TMP_Text.pixelsPerUnit</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_enableAutoSizing">TMP_Text.enableAutoSizing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontSizeMin">TMP_Text.fontSizeMin</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontSizeMax">TMP_Text.fontSizeMax</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontStyle">TMP_Text.fontStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isUsingBold">TMP_Text.isUsingBold</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_horizontalAlignment">TMP_Text.horizontalAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_verticalAlignment">TMP_Text.verticalAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_alignment">TMP_Text.alignment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_characterSpacing">TMP_Text.characterSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_wordSpacing">TMP_Text.wordSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_lineSpacing">TMP_Text.lineSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_lineSpacingAdjustment">TMP_Text.lineSpacingAdjustment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_paragraphSpacing">TMP_Text.paragraphSpacing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_characterWidthAdjustment">TMP_Text.characterWidthAdjustment</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_textWrappingMode">TMP_Text.textWrappingMode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_enableWordWrapping">TMP_Text.enableWordWrapping</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_wordWrappingRatios">TMP_Text.wordWrappingRatios</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_overflowMode">TMP_Text.overflowMode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isTextOverflowing">TMP_Text.isTextOverflowing</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_firstOverflowCharacterIndex">TMP_Text.firstOverflowCharacterIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_linkedTextComponent">TMP_Text.linkedTextComponent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isTextTruncated">TMP_Text.isTextTruncated</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_enableKerning">TMP_Text.enableKerning</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_fontFeatures">TMP_Text.fontFeatures</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_extraPadding">TMP_Text.extraPadding</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_richText">TMP_Text.richText</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_emojiFallbackSupport">TMP_Text.emojiFallbackSupport</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_parseCtrlCharacters">TMP_Text.parseCtrlCharacters</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isOverlay">TMP_Text.isOverlay</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isOrthographic">TMP_Text.isOrthographic</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_enableCulling">TMP_Text.enableCulling</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_ignoreVisibility">TMP_Text.ignoreVisibility</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_horizontalMapping">TMP_Text.horizontalMapping</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_verticalMapping">TMP_Text.verticalMapping</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_mappingUvLineOffset">TMP_Text.mappingUvLineOffset</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_renderMode">TMP_Text.renderMode</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_geometrySortingOrder">TMP_Text.geometrySortingOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isTextObjectScaleStatic">TMP_Text.isTextObjectScaleStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_vertexBufferAutoSizeReduction">TMP_Text.vertexBufferAutoSizeReduction</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_firstVisibleCharacter">TMP_Text.firstVisibleCharacter</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_maxVisibleCharacters">TMP_Text.maxVisibleCharacters</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_maxVisibleWords">TMP_Text.maxVisibleWords</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_maxVisibleLines">TMP_Text.maxVisibleLines</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_useMaxVisibleDescender">TMP_Text.useMaxVisibleDescender</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_pageToDisplay">TMP_Text.pageToDisplay</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_margin">TMP_Text.margin</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_textInfo">TMP_Text.textInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_havePropertiesChanged">TMP_Text.havePropertiesChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isUsingLegacyAnimationComponent">TMP_Text.isUsingLegacyAnimationComponent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_rectTransform">TMP_Text.rectTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_isVolumetricText">TMP_Text.isVolumetricText</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_bounds">TMP_Text.bounds</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_textBounds">TMP_Text.textBounds</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_spriteAnimator">TMP_Text.spriteAnimator</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_flexibleHeight">TMP_Text.flexibleHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_flexibleWidth">TMP_Text.flexibleWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_minWidth">TMP_Text.minWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_minHeight">TMP_Text.minHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_maxWidth">TMP_Text.maxWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_maxHeight">TMP_Text.maxHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_layoutElement">TMP_Text.layoutElement</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_preferredWidth">TMP_Text.preferredWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_preferredHeight">TMP_Text.preferredHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_renderedWidth">TMP_Text.renderedWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_renderedHeight">TMP_Text.renderedHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_layoutPriority">TMP_Text.layoutPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_OnFontAssetRequest">TMP_Text.OnFontAssetRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_OnSpriteAssetRequest">TMP_Text.OnSpriteAssetRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.TMP_Text.html#TMPro_TMP_Text_OnMissingCharacter">TMP_Text.OnMissingCharacter</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_m_ShouldRecalculateStencil">MaskableGraphic.m_ShouldRecalculateStencil</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_m_MaskMaterial">MaskableGraphic.m_MaskMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_m_StencilValue">MaskableGraphic.m_StencilValue</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_GetModifiedMaterial_UnityEngine_Material_">MaskableGraphic.GetModifiedMaterial(Material)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_Cull_UnityEngine_Rect_System_Boolean_">MaskableGraphic.Cull(Rect, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_SetClipRect_UnityEngine_Rect_System_Boolean_">MaskableGraphic.SetClipRect(Rect, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_SetClipSoftness_UnityEngine_Vector2_">MaskableGraphic.SetClipSoftness(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_OnCanvasHierarchyChanged">MaskableGraphic.OnCanvasHierarchyChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_RecalculateClipping">MaskableGraphic.RecalculateClipping()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_RecalculateMasking">MaskableGraphic.RecalculateMasking()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_Raycast_UnityEngine_Vector2_UnityEngine_Camera_">MaskableGraphic.Raycast(Vector2, Camera)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_onCullStateChanged">MaskableGraphic.onCullStateChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_maskable">MaskableGraphic.maskable</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.MaskableGraphic.html#UnityEngine_UI_MaskableGraphic_isMaskingGraphic">MaskableGraphic.isMaskingGraphic</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_s_DefaultUI">Graphic.s_DefaultUI</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_s_WhiteTexture">Graphic.s_WhiteTexture</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_Material">Graphic.m_Material</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_SkipLayoutUpdate">Graphic.m_SkipLayoutUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_SkipMaterialUpdate">Graphic.m_SkipMaterialUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_OnDirtyLayoutCallback">Graphic.m_OnDirtyLayoutCallback</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_OnDirtyVertsCallback">Graphic.m_OnDirtyVertsCallback</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_OnDirtyMaterialCallback">Graphic.m_OnDirtyMaterialCallback</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_s_Mesh">Graphic.s_Mesh</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_CachedMesh">Graphic.m_CachedMesh</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_m_CachedUvs">Graphic.m_CachedUvs</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_SetRaycastDirty">Graphic.SetRaycastDirty()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_OnBeforeTransformParentChanged">Graphic.OnBeforeTransformParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_OnCullingChanged">Graphic.OnCullingChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_LayoutComplete">Graphic.LayoutComplete()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_GraphicUpdateComplete">Graphic.GraphicUpdateComplete()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_UpdateGeometry">Graphic.UpdateGeometry()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_OnPopulateMesh_UnityEngine_Mesh_">Graphic.OnPopulateMesh(Mesh)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_OnPopulateMesh_UnityEngine_UI_VertexHelper_">Graphic.OnPopulateMesh(VertexHelper)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_OnRebuildRequested">Graphic.OnRebuildRequested()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_SetNativeSize">Graphic.SetNativeSize()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_Raycast_UnityEngine_Vector2_UnityEngine_Camera_System_Boolean_">Graphic.Raycast(Vector2, Camera, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_PixelAdjustPoint_UnityEngine_Vector2_">Graphic.PixelAdjustPoint(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_GetPixelAdjustedRect">Graphic.GetPixelAdjustedRect()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_CrossFadeColor_UnityEngine_Color_System_Single_System_Boolean_System_Boolean_System_Boolean_">Graphic.CrossFadeColor(Color, float, bool, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_RegisterDirtyLayoutCallback_UnityEngine_Events_UnityAction_">Graphic.RegisterDirtyLayoutCallback(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_UnregisterDirtyLayoutCallback_UnityEngine_Events_UnityAction_">Graphic.UnregisterDirtyLayoutCallback(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_RegisterDirtyVerticesCallback_UnityEngine_Events_UnityAction_">Graphic.RegisterDirtyVerticesCallback(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_UnregisterDirtyVerticesCallback_UnityEngine_Events_UnityAction_">Graphic.UnregisterDirtyVerticesCallback(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_RegisterDirtyMaterialCallback_UnityEngine_Events_UnityAction_">Graphic.RegisterDirtyMaterialCallback(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_UnregisterDirtyMaterialCallback_UnityEngine_Events_UnityAction_">Graphic.UnregisterDirtyMaterialCallback(UnityAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_defaultGraphicMaterial">Graphic.defaultGraphicMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_raycastTarget">Graphic.raycastTarget</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_raycastPadding">Graphic.raycastPadding</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_useLegacyMeshGeneration">Graphic.useLegacyMeshGeneration</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_depth">Graphic.depth</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_canvas">Graphic.canvas</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_canvasRenderer">Graphic.canvasRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_defaultMaterial">Graphic.defaultMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_material">Graphic.material</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_materialForRendering">Graphic.materialForRendering</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_mainTexture">Graphic.mainTexture</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.UI.Graphic.html#UnityEngine_UI_Graphic_workerMesh">Graphic.workerMesh</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_Start">UIBehaviour.Start()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_IsActive">UIBehaviour.IsActive()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_OnCanvasGroupChanged">UIBehaviour.OnCanvasGroupChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.EventSystems.UIBehaviour.html#UnityEngine_EventSystems_UIBehaviour_IsDestroyed">UIBehaviour.IsDestroyed()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="TMPro_TextMeshPro__ctor_" data-uid="TMPro.TextMeshPro.#ctor*"></a>
+
+  <h3 id="TMPro_TextMeshPro__ctor" data-uid="TMPro.TextMeshPro.#ctor">
+  TextMeshPro()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextMeshPro()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="TMPro_TextMeshPro_autoSizeTextContainer_" data-uid="TMPro.TextMeshPro.autoSizeTextContainer*"></a>
+
+  <h3 id="TMPro_TextMeshPro_autoSizeTextContainer" data-uid="TMPro.TextMeshPro.autoSizeTextContainer">
+  autoSizeTextContainer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool autoSizeTextContainer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_maskType_" data-uid="TMPro.TextMeshPro.maskType*"></a>
+
+  <h3 id="TMPro_TextMeshPro_maskType" data-uid="TMPro.TextMeshPro.maskType">
+  maskType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MaskingTypes maskType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.MaskingTypes.html">MaskingTypes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_mesh_" data-uid="TMPro.TextMeshPro.mesh*"></a>
+
+  <h3 id="TMPro_TextMeshPro_mesh" data-uid="TMPro.TextMeshPro.mesh">
+  mesh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Mesh mesh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_meshFilter_" data-uid="TMPro.TextMeshPro.meshFilter*"></a>
+
+  <h3 id="TMPro_TextMeshPro_meshFilter" data-uid="TMPro.TextMeshPro.meshFilter">
+  meshFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MeshFilter meshFilter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MeshFilter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_renderer_" data-uid="TMPro.TextMeshPro.renderer*"></a>
+
+  <h3 id="TMPro_TextMeshPro_renderer" data-uid="TMPro.TextMeshPro.renderer">
+  renderer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Renderer renderer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Renderer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_sortingLayerID_" data-uid="TMPro.TextMeshPro.sortingLayerID*"></a>
+
+  <h3 id="TMPro_TextMeshPro_sortingLayerID" data-uid="TMPro.TextMeshPro.sortingLayerID">
+  sortingLayerID
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int sortingLayerID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_sortingOrder_" data-uid="TMPro.TextMeshPro.sortingOrder*"></a>
+
+  <h3 id="TMPro_TextMeshPro_sortingOrder" data-uid="TMPro.TextMeshPro.sortingOrder">
+  sortingOrder
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int sortingOrder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_textContainer_" data-uid="TMPro.TextMeshPro.textContainer*"></a>
+
+  <h3 id="TMPro_TextMeshPro_textContainer" data-uid="TMPro.TextMeshPro.textContainer">
+  textContainer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;The TextContainer is now obsolete. Use the RectTransform instead.&quot;)]
+public TextContainer textContainer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TextContainer.html">TextContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_transform_" data-uid="TMPro.TextMeshPro.transform*"></a>
+
+  <h3 id="TMPro_TextMeshPro_transform" data-uid="TMPro.TextMeshPro.transform">
+  transform
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transform transform { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Transform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="TMPro_TextMeshPro_Awake_" data-uid="TMPro.TextMeshPro.Awake*"></a>
+
+  <h3 id="TMPro_TextMeshPro_Awake" data-uid="TMPro.TextMeshPro.Awake">
+  Awake()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Awake()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_CalculateLayoutInputHorizontal_" data-uid="TMPro.TextMeshPro.CalculateLayoutInputHorizontal*"></a>
+
+  <h3 id="TMPro_TextMeshPro_CalculateLayoutInputHorizontal" data-uid="TMPro.TextMeshPro.CalculateLayoutInputHorizontal">
+  CalculateLayoutInputHorizontal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CalculateLayoutInputHorizontal()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_CalculateLayoutInputVertical_" data-uid="TMPro.TextMeshPro.CalculateLayoutInputVertical*"></a>
+
+  <h3 id="TMPro_TextMeshPro_CalculateLayoutInputVertical" data-uid="TMPro.TextMeshPro.CalculateLayoutInputVertical">
+  CalculateLayoutInputVertical()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CalculateLayoutInputVertical()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_ClearMesh_" data-uid="TMPro.TextMeshPro.ClearMesh*"></a>
+
+  <h3 id="TMPro_TextMeshPro_ClearMesh_System_Boolean_" data-uid="TMPro.TextMeshPro.ClearMesh(System.Boolean)">
+  ClearMesh(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ClearMesh(bool updateMesh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>updateMesh</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_ComputeMarginSize_" data-uid="TMPro.TextMeshPro.ComputeMarginSize*"></a>
+
+  <h3 id="TMPro_TextMeshPro_ComputeMarginSize" data-uid="TMPro.TextMeshPro.ComputeMarginSize">
+  ComputeMarginSize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ComputeMarginSize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_DestroySubMeshObjects_" data-uid="TMPro.TextMeshPro.DestroySubMeshObjects*"></a>
+
+  <h3 id="TMPro_TextMeshPro_DestroySubMeshObjects" data-uid="TMPro.TextMeshPro.DestroySubMeshObjects">
+  DestroySubMeshObjects()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DestroySubMeshObjects()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_ForceMeshUpdate_" data-uid="TMPro.TextMeshPro.ForceMeshUpdate*"></a>
+
+  <h3 id="TMPro_TextMeshPro_ForceMeshUpdate_System_Boolean_System_Boolean_" data-uid="TMPro.TextMeshPro.ForceMeshUpdate(System.Boolean,System.Boolean)">
+  ForceMeshUpdate(bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ForceMeshUpdate(bool ignoreActiveState = false, bool forceTextReparsing = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ignoreActiveState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>forceTextReparsing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_GenerateTextMesh_" data-uid="TMPro.TextMeshPro.GenerateTextMesh*"></a>
+
+  <h3 id="TMPro_TextMeshPro_GenerateTextMesh" data-uid="TMPro.TextMeshPro.GenerateTextMesh">
+  GenerateTextMesh()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateTextMesh()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_GetCompoundBounds_" data-uid="TMPro.TextMeshPro.GetCompoundBounds*"></a>
+
+  <h3 id="TMPro_TextMeshPro_GetCompoundBounds" data-uid="TMPro.TextMeshPro.GetCompoundBounds">
+  GetCompoundBounds()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Bounds GetCompoundBounds()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Bounds</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_GetMaterial_" data-uid="TMPro.TextMeshPro.GetMaterial*"></a>
+
+  <h3 id="TMPro_TextMeshPro_GetMaterial_UnityEngine_Material_" data-uid="TMPro.TextMeshPro.GetMaterial(UnityEngine.Material)">
+  GetMaterial(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Material GetMaterial(Material mat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mat</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_GetMaterials_" data-uid="TMPro.TextMeshPro.GetMaterials*"></a>
+
+  <h3 id="TMPro_TextMeshPro_GetMaterials_UnityEngine_Material___" data-uid="TMPro.TextMeshPro.GetMaterials(UnityEngine.Material[])">
+  GetMaterials(Material[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Material[] GetMaterials(Material[] mats)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mats</code> <span class="xref">Material</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_GetSharedMaterials_" data-uid="TMPro.TextMeshPro.GetSharedMaterials*"></a>
+
+  <h3 id="TMPro_TextMeshPro_GetSharedMaterials" data-uid="TMPro.TextMeshPro.GetSharedMaterials">
+  GetSharedMaterials()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Material[] GetSharedMaterials()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_GetTextContainerLocalCorners_" data-uid="TMPro.TextMeshPro.GetTextContainerLocalCorners*"></a>
+
+  <h3 id="TMPro_TextMeshPro_GetTextContainerLocalCorners" data-uid="TMPro.TextMeshPro.GetTextContainerLocalCorners">
+  GetTextContainerLocalCorners()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Vector3[] GetTextContainerLocalCorners()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_GetTextInfo_" data-uid="TMPro.TextMeshPro.GetTextInfo*"></a>
+
+  <h3 id="TMPro_TextMeshPro_GetTextInfo_System_String_" data-uid="TMPro.TextMeshPro.GetTextInfo(System.String)">
+  GetTextInfo(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TMP_TextInfo GetTextInfo(string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="TMPro.TMP_TextInfo.html">TMP_TextInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_LoadFontAsset_" data-uid="TMPro.TextMeshPro.LoadFontAsset*"></a>
+
+  <h3 id="TMPro_TextMeshPro_LoadFontAsset" data-uid="TMPro.TextMeshPro.LoadFontAsset">
+  LoadFontAsset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void LoadFontAsset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_OnDestroy_" data-uid="TMPro.TextMeshPro.OnDestroy*"></a>
+
+  <h3 id="TMPro_TextMeshPro_OnDestroy" data-uid="TMPro.TextMeshPro.OnDestroy">
+  OnDestroy()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDestroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_OnDidApplyAnimationProperties_" data-uid="TMPro.TextMeshPro.OnDidApplyAnimationProperties*"></a>
+
+  <h3 id="TMPro_TextMeshPro_OnDidApplyAnimationProperties" data-uid="TMPro.TextMeshPro.OnDidApplyAnimationProperties">
+  OnDidApplyAnimationProperties()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDidApplyAnimationProperties()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_OnDisable_" data-uid="TMPro.TextMeshPro.OnDisable*"></a>
+
+  <h3 id="TMPro_TextMeshPro_OnDisable" data-uid="TMPro.TextMeshPro.OnDisable">
+  OnDisable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDisable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_OnEnable_" data-uid="TMPro.TextMeshPro.OnEnable*"></a>
+
+  <h3 id="TMPro_TextMeshPro_OnEnable" data-uid="TMPro.TextMeshPro.OnEnable">
+  OnEnable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_OnRectTransformDimensionsChange_" data-uid="TMPro.TextMeshPro.OnRectTransformDimensionsChange*"></a>
+
+  <h3 id="TMPro_TextMeshPro_OnRectTransformDimensionsChange" data-uid="TMPro.TextMeshPro.OnRectTransformDimensionsChange">
+  OnRectTransformDimensionsChange()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnRectTransformDimensionsChange()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_OnTransformParentChanged_" data-uid="TMPro.TextMeshPro.OnTransformParentChanged*"></a>
+
+  <h3 id="TMPro_TextMeshPro_OnTransformParentChanged" data-uid="TMPro.TextMeshPro.OnTransformParentChanged">
+  OnTransformParentChanged()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnTransformParentChanged()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_OnValidate_" data-uid="TMPro.TextMeshPro.OnValidate*"></a>
+
+  <h3 id="TMPro_TextMeshPro_OnValidate" data-uid="TMPro.TextMeshPro.OnValidate">
+  OnValidate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnValidate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_Rebuild_" data-uid="TMPro.TextMeshPro.Rebuild*"></a>
+
+  <h3 id="TMPro_TextMeshPro_Rebuild_UnityEngine_UI_CanvasUpdate_" data-uid="TMPro.TextMeshPro.Rebuild(UnityEngine.UI.CanvasUpdate)">
+  Rebuild(CanvasUpdate)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Rebuild(CanvasUpdate update)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>update</code> <a class="xref" href="UnityEngine.UI.CanvasUpdate.html">CanvasUpdate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_Reset_" data-uid="TMPro.TextMeshPro.Reset*"></a>
+
+  <h3 id="TMPro_TextMeshPro_Reset" data-uid="TMPro.TextMeshPro.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetActiveSubMeshes_" data-uid="TMPro.TextMeshPro.SetActiveSubMeshes*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetActiveSubMeshes_System_Boolean_" data-uid="TMPro.TextMeshPro.SetActiveSubMeshes(System.Boolean)">
+  SetActiveSubMeshes(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetActiveSubMeshes(bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetActiveSubTextObjectRenderers_" data-uid="TMPro.TextMeshPro.SetActiveSubTextObjectRenderers*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetActiveSubTextObjectRenderers_System_Boolean_" data-uid="TMPro.TextMeshPro.SetActiveSubTextObjectRenderers(System.Boolean)">
+  SetActiveSubTextObjectRenderers(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetActiveSubTextObjectRenderers(bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetAllDirty_" data-uid="TMPro.TextMeshPro.SetAllDirty*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetAllDirty" data-uid="TMPro.TextMeshPro.SetAllDirty">
+  SetAllDirty()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetAllDirty()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetCulling_" data-uid="TMPro.TextMeshPro.SetCulling*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetCulling" data-uid="TMPro.TextMeshPro.SetCulling">
+  SetCulling()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetCulling()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetFaceColor_" data-uid="TMPro.TextMeshPro.SetFaceColor*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetFaceColor_UnityEngine_Color32_" data-uid="TMPro.TextMeshPro.SetFaceColor(UnityEngine.Color32)">
+  SetFaceColor(Color32)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetFaceColor(Color32 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">Color32</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetLayoutDirty_" data-uid="TMPro.TextMeshPro.SetLayoutDirty*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetLayoutDirty" data-uid="TMPro.TextMeshPro.SetLayoutDirty">
+  SetLayoutDirty()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetLayoutDirty()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetMask_" data-uid="TMPro.TextMeshPro.SetMask*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetMask_TMPro_MaskingTypes_UnityEngine_Vector4_" data-uid="TMPro.TextMeshPro.SetMask(TMPro.MaskingTypes,UnityEngine.Vector4)">
+  SetMask(MaskingTypes, Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMask(MaskingTypes type, Vector4 maskCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="TMPro.MaskingTypes.html">MaskingTypes</a></dt>
+    <dd></dd>
+    <dt><code>maskCoords</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetMask_" data-uid="TMPro.TextMeshPro.SetMask*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetMask_TMPro_MaskingTypes_UnityEngine_Vector4_System_Single_System_Single_" data-uid="TMPro.TextMeshPro.SetMask(TMPro.MaskingTypes,UnityEngine.Vector4,System.Single,System.Single)">
+  SetMask(MaskingTypes, Vector4, float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMask(MaskingTypes type, Vector4 maskCoords, float softnessX, float softnessY)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="TMPro.MaskingTypes.html">MaskingTypes</a></dt>
+    <dd></dd>
+    <dt><code>maskCoords</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>softnessX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>softnessY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetMaterialDirty_" data-uid="TMPro.TextMeshPro.SetMaterialDirty*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetMaterialDirty" data-uid="TMPro.TextMeshPro.SetMaterialDirty">
+  SetMaterialDirty()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetMaterialDirty()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetOutlineColor_" data-uid="TMPro.TextMeshPro.SetOutlineColor*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetOutlineColor_UnityEngine_Color32_" data-uid="TMPro.TextMeshPro.SetOutlineColor(UnityEngine.Color32)">
+  SetOutlineColor(Color32)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetOutlineColor(Color32 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">Color32</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetOutlineThickness_" data-uid="TMPro.TextMeshPro.SetOutlineThickness*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetOutlineThickness_System_Single_" data-uid="TMPro.TextMeshPro.SetOutlineThickness(System.Single)">
+  SetOutlineThickness(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetOutlineThickness(float thickness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>thickness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetShaderDepth_" data-uid="TMPro.TextMeshPro.SetShaderDepth*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetShaderDepth" data-uid="TMPro.TextMeshPro.SetShaderDepth">
+  SetShaderDepth()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetShaderDepth()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetSharedMaterial_" data-uid="TMPro.TextMeshPro.SetSharedMaterial*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetSharedMaterial_UnityEngine_Material_" data-uid="TMPro.TextMeshPro.SetSharedMaterial(UnityEngine.Material)">
+  SetSharedMaterial(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetSharedMaterial(Material mat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mat</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetSharedMaterials_" data-uid="TMPro.TextMeshPro.SetSharedMaterials*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetSharedMaterials_UnityEngine_Material___" data-uid="TMPro.TextMeshPro.SetSharedMaterials(UnityEngine.Material[])">
+  SetSharedMaterials(Material[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetSharedMaterials(Material[] materials)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materials</code> <span class="xref">Material</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_SetVerticesDirty_" data-uid="TMPro.TextMeshPro.SetVerticesDirty*"></a>
+
+  <h3 id="TMPro_TextMeshPro_SetVerticesDirty" data-uid="TMPro.TextMeshPro.SetVerticesDirty">
+  SetVerticesDirty()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetVerticesDirty()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_UpdateFontAsset_" data-uid="TMPro.TextMeshPro.UpdateFontAsset*"></a>
+
+  <h3 id="TMPro_TextMeshPro_UpdateFontAsset" data-uid="TMPro.TextMeshPro.UpdateFontAsset">
+  UpdateFontAsset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateFontAsset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_UpdateGeometry_" data-uid="TMPro.TextMeshPro.UpdateGeometry*"></a>
+
+  <h3 id="TMPro_TextMeshPro_UpdateGeometry_UnityEngine_Mesh_System_Int32_" data-uid="TMPro.TextMeshPro.UpdateGeometry(UnityEngine.Mesh,System.Int32)">
+  UpdateGeometry(Mesh, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void UpdateGeometry(Mesh mesh, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_UpdateMaterial_" data-uid="TMPro.TextMeshPro.UpdateMaterial*"></a>
+
+  <h3 id="TMPro_TextMeshPro_UpdateMaterial" data-uid="TMPro.TextMeshPro.UpdateMaterial">
+  UpdateMaterial()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void UpdateMaterial()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_UpdateMeshPadding_" data-uid="TMPro.TextMeshPro.UpdateMeshPadding*"></a>
+
+  <h3 id="TMPro_TextMeshPro_UpdateMeshPadding" data-uid="TMPro.TextMeshPro.UpdateMeshPadding">
+  UpdateMeshPadding()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void UpdateMeshPadding()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_UpdateVertexData_" data-uid="TMPro.TextMeshPro.UpdateVertexData*"></a>
+
+  <h3 id="TMPro_TextMeshPro_UpdateVertexData" data-uid="TMPro.TextMeshPro.UpdateVertexData">
+  UpdateVertexData()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void UpdateVertexData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_TextMeshPro_UpdateVertexData_" data-uid="TMPro.TextMeshPro.UpdateVertexData*"></a>
+
+  <h3 id="TMPro_TextMeshPro_UpdateVertexData_TMPro_TMP_VertexDataUpdateFlags_" data-uid="TMPro.TextMeshPro.UpdateVertexData(TMPro.TMP_VertexDataUpdateFlags)">
+  UpdateVertexData(TMP_VertexDataUpdateFlags)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void UpdateVertexData(TMP_VertexDataUpdateFlags flags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flags</code> <a class="xref" href="TMPro.TMP_VertexDataUpdateFlags.html">TMP_VertexDataUpdateFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="TMPro_TextMeshPro_OnPreRenderText" data-uid="TMPro.TextMeshPro.OnPreRenderText">
+  OnPreRenderText
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;TMP_TextInfo&gt; OnPreRenderText</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="TMPro.TMP_TextInfo.html">TMP_TextInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,532 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine
+  commentId: T:ISILab.LBS.VisualElements.ConnectedCornerLine
+  id: ConnectedCornerLine
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.ConnectedCornerLine.#ctor
+  - ISILab.LBS.VisualElements.ConnectedCornerLine.LeftSide
+  - ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  - ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.VisualElements.ConnectedCornerLine.cornerPoint
+  - ISILab.LBS.VisualElements.ConnectedCornerLine.useVertices
+  langs:
+  - csharp
+  - vb
+  name: ConnectedCornerLine
+  nameWithType: ConnectedCornerLine
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class ConnectedCornerLine : Feedback'
+    content.vb: Public Class ConnectedCornerLine Inherits Feedback
+  inheritance:
+  - System.Object
+  - ISILab.LBS.VisualElements.Feedback
+  inheritedMembers:
+  - ISILab.LBS.VisualElements.Feedback.currentColor
+  - ISILab.LBS.VisualElements.Feedback.startPosition
+  - ISILab.LBS.VisualElements.Feedback.endPosition
+  - ISILab.LBS.VisualElements.Feedback.fixToTeselation
+  - ISILab.LBS.VisualElements.Feedback.delete
+  - ISILab.LBS.VisualElements.Feedback.preview
+  - ISILab.LBS.VisualElements.Feedback.fixAspect
+  - ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  - ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+  - ISILab.LBS.VisualElements.Feedback.TeselationSize
+  - ISILab.LBS.VisualElements.Feedback.StartOffset
+  - ISILab.LBS.VisualElements.Feedback.EndOffset
+  - ISILab.LBS.VisualElements.Feedback.CurrentState
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.LeftSide
+  commentId: F:ISILab.LBS.VisualElements.ConnectedCornerLine.LeftSide
+  id: LeftSide
+  parent: ISILab.LBS.VisualElements.ConnectedCornerLine
+  langs:
+  - csharp
+  - vb
+  name: LeftSide
+  nameWithType: ConnectedCornerLine.LeftSide
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.LeftSide
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool LeftSide
+    return:
+      type: System.Boolean
+    content.vb: Public LeftSide As Boolean
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.cornerPoint
+  commentId: F:ISILab.LBS.VisualElements.ConnectedCornerLine.cornerPoint
+  id: cornerPoint
+  parent: ISILab.LBS.VisualElements.ConnectedCornerLine
+  langs:
+  - csharp
+  - vb
+  name: cornerPoint
+  nameWithType: ConnectedCornerLine.cornerPoint
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.cornerPoint
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Vector2Int cornerPoint
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public cornerPoint As Vector2Int
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.useVertices
+  commentId: F:ISILab.LBS.VisualElements.ConnectedCornerLine.useVertices
+  id: useVertices
+  parent: ISILab.LBS.VisualElements.ConnectedCornerLine
+  langs:
+  - csharp
+  - vb
+  name: useVertices
+  nameWithType: ConnectedCornerLine.useVertices
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.useVertices
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool useVertices
+    return:
+      type: System.Boolean
+    content.vb: Public useVertices As Boolean
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.ConnectedCornerLine
+  langs:
+  - csharp
+  - vb
+  name: UpdatePositions(Vector2Int, Vector2Int)
+  nameWithType: ConnectedCornerLine.UpdatePositions(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override void UpdatePositions(Vector2Int p1, Vector2Int p2)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector2Int
+    - id: p2
+      type: UnityEngine.Vector2Int
+    content.vb: Public Overrides Sub UpdatePositions(p1 As Vector2Int, p2 As Vector2Int)
+  overridden: ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  overload: ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions*
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  commentId: M:ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  id: OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  parent: ISILab.LBS.VisualElements.ConnectedCornerLine
+  langs:
+  - csharp
+  - vb
+  name: OnGenerateVisualContent(MeshGenerationContext)
+  nameWithType: ConnectedCornerLine.OnGenerateVisualContent(MeshGenerationContext)
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override void OnGenerateVisualContent(MeshGenerationContext mgc)
+    parameters:
+    - id: mgc
+      type: UnityEngine.UIElements.MeshGenerationContext
+    content.vb: Protected Overrides Sub OnGenerateVisualContent(mgc As MeshGenerationContext)
+  overridden: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  overload: ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent*
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.#ctor
+  commentId: M:ISILab.LBS.VisualElements.ConnectedCornerLine.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.ConnectedCornerLine
+  langs:
+  - csharp
+  - vb
+  name: ConnectedCornerLine()
+  nameWithType: ConnectedCornerLine.ConnectedCornerLine()
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.ConnectedCornerLine()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ConnectedCornerLine()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.ConnectedCornerLine.#ctor*
+  nameWithType.vb: ConnectedCornerLine.New()
+  fullName.vb: ISILab.LBS.VisualElements.ConnectedCornerLine.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.VisualElements.Feedback
+  commentId: T:ISILab.LBS.VisualElements.Feedback
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html
+  name: Feedback
+  nameWithType: Feedback
+  fullName: ISILab.LBS.VisualElements.Feedback
+- uid: ISILab.LBS.VisualElements.Feedback.currentColor
+  commentId: F:ISILab.LBS.VisualElements.Feedback.currentColor
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_currentColor
+  name: currentColor
+  nameWithType: Feedback.currentColor
+  fullName: ISILab.LBS.VisualElements.Feedback.currentColor
+- uid: ISILab.LBS.VisualElements.Feedback.startPosition
+  commentId: F:ISILab.LBS.VisualElements.Feedback.startPosition
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_startPosition
+  name: startPosition
+  nameWithType: Feedback.startPosition
+  fullName: ISILab.LBS.VisualElements.Feedback.startPosition
+- uid: ISILab.LBS.VisualElements.Feedback.endPosition
+  commentId: F:ISILab.LBS.VisualElements.Feedback.endPosition
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_endPosition
+  name: endPosition
+  nameWithType: Feedback.endPosition
+  fullName: ISILab.LBS.VisualElements.Feedback.endPosition
+- uid: ISILab.LBS.VisualElements.Feedback.fixToTeselation
+  commentId: F:ISILab.LBS.VisualElements.Feedback.fixToTeselation
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_fixToTeselation
+  name: fixToTeselation
+  nameWithType: Feedback.fixToTeselation
+  fullName: ISILab.LBS.VisualElements.Feedback.fixToTeselation
+- uid: ISILab.LBS.VisualElements.Feedback.delete
+  commentId: F:ISILab.LBS.VisualElements.Feedback.delete
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_delete
+  name: delete
+  nameWithType: Feedback.delete
+  fullName: ISILab.LBS.VisualElements.Feedback.delete
+- uid: ISILab.LBS.VisualElements.Feedback.preview
+  commentId: F:ISILab.LBS.VisualElements.Feedback.preview
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_preview
+  name: preview
+  nameWithType: Feedback.preview
+  fullName: ISILab.LBS.VisualElements.Feedback.preview
+- uid: ISILab.LBS.VisualElements.Feedback.fixAspect
+  commentId: F:ISILab.LBS.VisualElements.Feedback.fixAspect
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_fixAspect
+  name: fixAspect
+  nameWithType: Feedback.fixAspect
+  fullName: ISILab.LBS.VisualElements.Feedback.fixAspect
+- uid: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_CalcFixTeselation_UnityEngine_Vector2Int_
+  name: CalcFixTeselation(Vector2Int)
+  nameWithType: Feedback.CalcFixTeselation(Vector2Int)
+  fullName: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+    name: CalcFixTeselation
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_CalcFixTeselation_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+    name: CalcFixTeselation
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_CalcFixTeselation_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_GetFixedEndPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: GetFixedEndPosition(Vector2Int, Vector2Int)
+  nameWithType: Feedback.GetFixedEndPosition(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: GetFixedEndPosition
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_GetFixedEndPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: GetFixedEndPosition
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_GetFixedEndPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_ValidForInput_System_Boolean_
+  name: ValidForInput(bool)
+  nameWithType: Feedback.ValidForInput(bool)
+  fullName: ISILab.LBS.VisualElements.Feedback.ValidForInput(bool)
+  nameWithType.vb: Feedback.ValidForInput(Boolean)
+  fullName.vb: ISILab.LBS.VisualElements.Feedback.ValidForInput(Boolean)
+  name.vb: ValidForInput(Boolean)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+    name: ValidForInput
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_ValidForInput_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+    name: ValidForInput
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_ValidForInput_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ISILab.LBS.VisualElements.Feedback.TeselationSize
+  commentId: P:ISILab.LBS.VisualElements.Feedback.TeselationSize
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_TeselationSize
+  name: TeselationSize
+  nameWithType: Feedback.TeselationSize
+  fullName: ISILab.LBS.VisualElements.Feedback.TeselationSize
+- uid: ISILab.LBS.VisualElements.Feedback.StartOffset
+  commentId: P:ISILab.LBS.VisualElements.Feedback.StartOffset
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_StartOffset
+  name: StartOffset
+  nameWithType: Feedback.StartOffset
+  fullName: ISILab.LBS.VisualElements.Feedback.StartOffset
+- uid: ISILab.LBS.VisualElements.Feedback.EndOffset
+  commentId: P:ISILab.LBS.VisualElements.Feedback.EndOffset
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_EndOffset
+  name: EndOffset
+  nameWithType: Feedback.EndOffset
+  fullName: ISILab.LBS.VisualElements.Feedback.EndOffset
+- uid: ISILab.LBS.VisualElements.Feedback.CurrentState
+  commentId: P:ISILab.LBS.VisualElements.Feedback.CurrentState
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_CurrentState
+  name: CurrentState
+  nameWithType: Feedback.CurrentState
+  fullName: ISILab.LBS.VisualElements.Feedback.CurrentState
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_UpdatePositions_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: UpdatePositions(Vector2Int, Vector2Int)
+  nameWithType: Feedback.UpdatePositions(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: UpdatePositions
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_UpdatePositions_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+    name: UpdatePositions
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_UpdatePositions_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions*
+  commentId: Overload:ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ConnectedCornerLine.html#ISILab_LBS_VisualElements_ConnectedCornerLine_UpdatePositions_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: UpdatePositions
+  nameWithType: ConnectedCornerLine.UpdatePositions
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.UpdatePositions
+- uid: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  parent: ISILab.LBS.VisualElements.Feedback
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_OnGenerateVisualContent_UnityEngine_UIElements_MeshGenerationContext_
+  name: OnGenerateVisualContent(MeshGenerationContext)
+  nameWithType: Feedback.OnGenerateVisualContent(MeshGenerationContext)
+  fullName: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+    name: OnGenerateVisualContent
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_OnGenerateVisualContent_UnityEngine_UIElements_MeshGenerationContext_
+  - name: (
+  - uid: UnityEngine.UIElements.MeshGenerationContext
+    name: MeshGenerationContext
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+    name: OnGenerateVisualContent
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_OnGenerateVisualContent_UnityEngine_UIElements_MeshGenerationContext_
+  - name: (
+  - uid: UnityEngine.UIElements.MeshGenerationContext
+    name: MeshGenerationContext
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent*
+  commentId: Overload:ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ConnectedCornerLine.html#ISILab_LBS_VisualElements_ConnectedCornerLine_OnGenerateVisualContent_UnityEngine_UIElements_MeshGenerationContext_
+  name: OnGenerateVisualContent
+  nameWithType: ConnectedCornerLine.OnGenerateVisualContent
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.OnGenerateVisualContent
+- uid: UnityEngine.UIElements.MeshGenerationContext
+  isExternal: true
+  name: MeshGenerationContext
+  nameWithType: MeshGenerationContext
+  fullName: UnityEngine.UIElements.MeshGenerationContext
+- uid: ISILab.LBS.VisualElements.ConnectedCornerLine.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.ConnectedCornerLine.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ConnectedCornerLine.html#ISILab_LBS_VisualElements_ConnectedCornerLine__ctor
+  name: ConnectedCornerLine
+  nameWithType: ConnectedCornerLine.ConnectedCornerLine
+  fullName: ISILab.LBS.VisualElements.ConnectedCornerLine.ConnectedCornerLine
+  nameWithType.vb: ConnectedCornerLine.New
+  fullName.vb: ISILab.LBS.VisualElements.ConnectedCornerLine.New
+  name.vb: New

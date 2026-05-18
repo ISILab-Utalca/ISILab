@@ -1,0 +1,764 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Wrappers.OptimizableModules
+  commentId: T:ISILab.AI.Wrappers.OptimizableModules
+  id: OptimizableModules
+  parent: ISILab.AI.Wrappers
+  children:
+  - ISILab.AI.Wrappers.OptimizableModules.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule},System.Double)
+  - ISILab.AI.Wrappers.OptimizableModules.Clone
+  - ISILab.AI.Wrappers.OptimizableModules.CreateNew
+  - ISILab.AI.Wrappers.OptimizableModules.Fitness
+  - ISILab.AI.Wrappers.OptimizableModules.Modules
+  - ISILab.AI.Wrappers.OptimizableModules.xFitness
+  - ISILab.AI.Wrappers.OptimizableModules.yFitness
+  langs:
+  - csharp
+  - vb
+  name: OptimizableModules
+  nameWithType: OptimizableModules
+  fullName: ISILab.AI.Wrappers.OptimizableModules
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  syntax:
+    content: 'public class OptimizableModules : IOptimizable, ICloneable'
+    content.vb: Public Class OptimizableModules Implements IOptimizable, ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - ISILab.AI.Optimization.IOptimizable
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.AI.Wrappers.OptimizableModules.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule},System.Double)
+  commentId: M:ISILab.AI.Wrappers.OptimizableModules.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule},System.Double)
+  id: '#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule},System.Double)'
+  parent: ISILab.AI.Wrappers.OptimizableModules
+  langs:
+  - csharp
+  - vb
+  name: OptimizableModules(List<LBSModule>, double)
+  nameWithType: OptimizableModules.OptimizableModules(List<LBSModule>, double)
+  fullName: ISILab.AI.Wrappers.OptimizableModules.OptimizableModules(System.Collections.Generic.List<ISILab.LBS.Modules.LBSModule>, double)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  syntax:
+    content: public OptimizableModules(List<LBSModule> layer, double fitness = -1)
+    parameters:
+    - id: layer
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
+    - id: fitness
+      type: System.Double
+    content.vb: Public Sub New(layer As List(Of LBSModule), fitness As Double = -1)
+  overload: ISILab.AI.Wrappers.OptimizableModules.#ctor*
+  nameWithType.vb: OptimizableModules.New(List(Of LBSModule), Double)
+  fullName.vb: ISILab.AI.Wrappers.OptimizableModules.New(System.Collections.Generic.List(Of ISILab.LBS.Modules.LBSModule), Double)
+  name.vb: New(List(Of LBSModule), Double)
+- uid: ISILab.AI.Wrappers.OptimizableModules.Clone
+  commentId: M:ISILab.AI.Wrappers.OptimizableModules.Clone
+  id: Clone
+  parent: ISILab.AI.Wrappers.OptimizableModules
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: OptimizableModules.Clone()
+  fullName: ISILab.AI.Wrappers.OptimizableModules.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Function Clone() As Object
+  overload: ISILab.AI.Wrappers.OptimizableModules.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: ISILab.AI.Wrappers.OptimizableModules.CreateNew
+  commentId: M:ISILab.AI.Wrappers.OptimizableModules.CreateNew
+  id: CreateNew
+  parent: ISILab.AI.Wrappers.OptimizableModules
+  langs:
+  - csharp
+  - vb
+  name: CreateNew()
+  nameWithType: OptimizableModules.CreateNew()
+  fullName: ISILab.AI.Wrappers.OptimizableModules.CreateNew()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  example: []
+  syntax:
+    content: public IOptimizable CreateNew()
+    return:
+      type: ISILab.AI.Optimization.IOptimizable
+    content.vb: Public Function CreateNew() As IOptimizable
+  overload: ISILab.AI.Wrappers.OptimizableModules.CreateNew*
+  implements:
+  - ISILab.AI.Optimization.IOptimizable.CreateNew
+- uid: ISILab.AI.Wrappers.OptimizableModules.Modules
+  commentId: P:ISILab.AI.Wrappers.OptimizableModules.Modules
+  id: Modules
+  parent: ISILab.AI.Wrappers.OptimizableModules
+  langs:
+  - csharp
+  - vb
+  name: Modules
+  nameWithType: OptimizableModules.Modules
+  fullName: ISILab.AI.Wrappers.OptimizableModules.Modules
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  syntax:
+    content: public List<LBSModule> Modules { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
+    content.vb: Public ReadOnly Property Modules As List(Of LBSModule)
+  overload: ISILab.AI.Wrappers.OptimizableModules.Modules*
+- uid: ISILab.AI.Wrappers.OptimizableModules.Fitness
+  commentId: P:ISILab.AI.Wrappers.OptimizableModules.Fitness
+  id: Fitness
+  parent: ISILab.AI.Wrappers.OptimizableModules
+  langs:
+  - csharp
+  - vb
+  name: Fitness
+  nameWithType: OptimizableModules.Fitness
+  fullName: ISILab.AI.Wrappers.OptimizableModules.Fitness
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  example: []
+  syntax:
+    content: public double Fitness { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Fitness As Double
+  overload: ISILab.AI.Wrappers.OptimizableModules.Fitness*
+  implements:
+  - ISILab.AI.Optimization.IOptimizable.Fitness
+- uid: ISILab.AI.Wrappers.OptimizableModules.xFitness
+  commentId: P:ISILab.AI.Wrappers.OptimizableModules.xFitness
+  id: xFitness
+  parent: ISILab.AI.Wrappers.OptimizableModules
+  langs:
+  - csharp
+  - vb
+  name: xFitness
+  nameWithType: OptimizableModules.xFitness
+  fullName: ISILab.AI.Wrappers.OptimizableModules.xFitness
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  example: []
+  syntax:
+    content: public double xFitness { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property xFitness As Double
+  overload: ISILab.AI.Wrappers.OptimizableModules.xFitness*
+  implements:
+  - ISILab.AI.Optimization.IOptimizable.xFitness
+- uid: ISILab.AI.Wrappers.OptimizableModules.yFitness
+  commentId: P:ISILab.AI.Wrappers.OptimizableModules.yFitness
+  id: yFitness
+  parent: ISILab.AI.Wrappers.OptimizableModules
+  langs:
+  - csharp
+  - vb
+  name: yFitness
+  nameWithType: OptimizableModules.yFitness
+  fullName: ISILab.AI.Wrappers.OptimizableModules.yFitness
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Wrappers
+  example: []
+  syntax:
+    content: public double yFitness { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property yFitness As Double
+  overload: ISILab.AI.Wrappers.OptimizableModules.yFitness*
+  implements:
+  - ISILab.AI.Optimization.IOptimizable.yFitness
+references:
+- uid: ISILab.AI.Wrappers
+  commentId: N:ISILab.AI.Wrappers
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Wrappers
+  nameWithType: ISILab.AI.Wrappers
+  fullName: ISILab.AI.Wrappers
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Wrappers
+    name: Wrappers
+    isExternal: true
+    href: ISILab.AI.Wrappers.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Wrappers
+    name: Wrappers
+    isExternal: true
+    href: ISILab.AI.Wrappers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: ISILab.AI.Wrappers.OptimizableModules.#ctor*
+  commentId: Overload:ISILab.AI.Wrappers.OptimizableModules.#ctor
+  isExternal: true
+  href: ISILab.AI.Wrappers.OptimizableModules.html#ISILab_AI_Wrappers_OptimizableModules__ctor_System_Collections_Generic_List_ISILab_LBS_Modules_LBSModule__System_Double_
+  name: OptimizableModules
+  nameWithType: OptimizableModules.OptimizableModules
+  fullName: ISILab.AI.Wrappers.OptimizableModules.OptimizableModules
+  nameWithType.vb: OptimizableModules.New
+  fullName.vb: ISILab.AI.Wrappers.OptimizableModules.New
+  name.vb: New
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSModule>
+  nameWithType: List<LBSModule>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.LBSModule>
+  nameWithType.vb: List(Of LBSModule)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.LBSModule)
+  name.vb: List(Of LBSModule)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.AI.Wrappers.OptimizableModules.Clone*
+  commentId: Overload:ISILab.AI.Wrappers.OptimizableModules.Clone
+  isExternal: true
+  href: ISILab.AI.Wrappers.OptimizableModules.html#ISILab_AI_Wrappers_OptimizableModules_Clone
+  name: Clone
+  nameWithType: OptimizableModules.Clone
+  fullName: ISILab.AI.Wrappers.OptimizableModules.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: ISILab.AI.Wrappers.OptimizableModules.CreateNew*
+  commentId: Overload:ISILab.AI.Wrappers.OptimizableModules.CreateNew
+  isExternal: true
+  href: ISILab.AI.Wrappers.OptimizableModules.html#ISILab_AI_Wrappers_OptimizableModules_CreateNew
+  name: CreateNew
+  nameWithType: OptimizableModules.CreateNew
+  fullName: ISILab.AI.Wrappers.OptimizableModules.CreateNew
+- uid: ISILab.AI.Optimization.IOptimizable.CreateNew
+  commentId: M:ISILab.AI.Optimization.IOptimizable.CreateNew
+  parent: ISILab.AI.Optimization.IOptimizable
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
+  name: CreateNew()
+  nameWithType: IOptimizable.CreateNew()
+  fullName: ISILab.AI.Optimization.IOptimizable.CreateNew()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.IOptimizable.CreateNew
+    name: CreateNew
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.IOptimizable.CreateNew
+    name: CreateNew
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
+  - name: (
+  - name: )
+- uid: ISILab.AI.Wrappers.OptimizableModules.Modules*
+  commentId: Overload:ISILab.AI.Wrappers.OptimizableModules.Modules
+  isExternal: true
+  href: ISILab.AI.Wrappers.OptimizableModules.html#ISILab_AI_Wrappers_OptimizableModules_Modules
+  name: Modules
+  nameWithType: OptimizableModules.Modules
+  fullName: ISILab.AI.Wrappers.OptimizableModules.Modules
+- uid: ISILab.AI.Wrappers.OptimizableModules.Fitness*
+  commentId: Overload:ISILab.AI.Wrappers.OptimizableModules.Fitness
+  isExternal: true
+  href: ISILab.AI.Wrappers.OptimizableModules.html#ISILab_AI_Wrappers_OptimizableModules_Fitness
+  name: Fitness
+  nameWithType: OptimizableModules.Fitness
+  fullName: ISILab.AI.Wrappers.OptimizableModules.Fitness
+- uid: ISILab.AI.Optimization.IOptimizable.Fitness
+  commentId: P:ISILab.AI.Optimization.IOptimizable.Fitness
+  parent: ISILab.AI.Optimization.IOptimizable
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_Fitness
+  name: Fitness
+  nameWithType: IOptimizable.Fitness
+  fullName: ISILab.AI.Optimization.IOptimizable.Fitness
+- uid: ISILab.AI.Wrappers.OptimizableModules.xFitness*
+  commentId: Overload:ISILab.AI.Wrappers.OptimizableModules.xFitness
+  isExternal: true
+  href: ISILab.AI.Wrappers.OptimizableModules.html#ISILab_AI_Wrappers_OptimizableModules_xFitness
+  name: xFitness
+  nameWithType: OptimizableModules.xFitness
+  fullName: ISILab.AI.Wrappers.OptimizableModules.xFitness
+- uid: ISILab.AI.Optimization.IOptimizable.xFitness
+  commentId: P:ISILab.AI.Optimization.IOptimizable.xFitness
+  parent: ISILab.AI.Optimization.IOptimizable
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_xFitness
+  name: xFitness
+  nameWithType: IOptimizable.xFitness
+  fullName: ISILab.AI.Optimization.IOptimizable.xFitness
+- uid: ISILab.AI.Wrappers.OptimizableModules.yFitness*
+  commentId: Overload:ISILab.AI.Wrappers.OptimizableModules.yFitness
+  isExternal: true
+  href: ISILab.AI.Wrappers.OptimizableModules.html#ISILab_AI_Wrappers_OptimizableModules_yFitness
+  name: yFitness
+  nameWithType: OptimizableModules.yFitness
+  fullName: ISILab.AI.Wrappers.OptimizableModules.yFitness
+- uid: ISILab.AI.Optimization.IOptimizable.yFitness
+  commentId: P:ISILab.AI.Optimization.IOptimizable.yFitness
+  parent: ISILab.AI.Optimization.IOptimizable
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_yFitness
+  name: yFitness
+  nameWithType: IOptimizable.yFitness
+  fullName: ISILab.AI.Optimization.IOptimizable.yFitness

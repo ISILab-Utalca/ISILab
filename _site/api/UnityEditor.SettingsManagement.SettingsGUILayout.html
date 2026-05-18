@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SettingsGUILayout | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SettingsGUILayout | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEditor.SettingsManagement.SettingsGUILayout">
+
+
+
+  <h1 id="UnityEditor_SettingsManagement_SettingsGUILayout" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout" class="text-break">
+Class SettingsGUILayout  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEditor.html">UnityEditor</a>.<a class="xref" href="UnityEditor.SettingsManagement.html">SettingsManagement</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Settings.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class SettingsGUILayout</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SettingsGUILayout</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_DoResetContextMenuForLastRect_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.DoResetContextMenuForLastRect*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_DoResetContextMenuForLastRect_UnityEditor_SettingsManagement_IUserSetting_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.DoResetContextMenuForLastRect(UnityEditor.SettingsManagement.IUserSetting)">
+  DoResetContextMenuForLastRect(IUserSetting)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoResetContextMenuForLastRect(IUserSetting setting)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>setting</code> <a class="xref" href="UnityEditor.SettingsManagement.IUserSetting.html">IUserSetting</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableColorField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableColorField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableColorField_System_String_UnityEngine_Color_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableColorField(System.String,UnityEngine.Color,System.String)">
+  SearchableColorField(string, Color, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color SearchableColorField(string label, Color value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableColorField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableColorField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableColorField_UnityEngine_GUIContent_UnityEngine_Color_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableColorField(UnityEngine.GUIContent,UnityEngine.Color,System.String)">
+  SearchableColorField(GUIContent, Color, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color SearchableColorField(GUIContent label, Color value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableFloatField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableFloatField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableFloatField_System_String_System_Single_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableFloatField(System.String,System.Single,System.String)">
+  SearchableFloatField(string, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SearchableFloatField(string label, float value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableFloatField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableFloatField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableFloatField_UnityEngine_GUIContent_System_Single_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableFloatField(UnityEngine.GUIContent,System.Single,System.String)">
+  SearchableFloatField(GUIContent, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SearchableFloatField(GUIContent label, float value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableIntField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableIntField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableIntField_System_String_System_Int32_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableIntField(System.String,System.Int32,System.String)">
+  SearchableIntField(string, int, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SearchableIntField(string label, int value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableIntField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableIntField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableIntField_UnityEngine_GUIContent_System_Int32_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableIntField(UnityEngine.GUIContent,System.Int32,System.String)">
+  SearchableIntField(GUIContent, int, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SearchableIntField(GUIContent label, int value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableSlider_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableSlider*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableSlider_System_String_System_Single_System_Single_System_Single_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableSlider(System.String,System.Single,System.Single,System.Single,System.String)">
+  SearchableSlider(string, float, float, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SearchableSlider(string label, float value, float min, float max, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableSlider_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableSlider*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableSlider_UnityEngine_GUIContent_System_Single_System_Single_System_Single_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableSlider(UnityEngine.GUIContent,System.Single,System.Single,System.Single,System.String)">
+  SearchableSlider(GUIContent, float, float, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SearchableSlider(GUIContent label, float value, float min, float max, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableTextField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableTextField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableTextField_System_String_System_String_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableTextField(System.String,System.String,System.String)">
+  SearchableTextField(string, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SearchableTextField(string label, string value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableTextField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableTextField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableTextField_UnityEngine_GUIContent_System_String_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableTextField(UnityEngine.GUIContent,System.String,System.String)">
+  SearchableTextField(GUIContent, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SearchableTextField(GUIContent label, string value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableToggle_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableToggle*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableToggle_System_String_System_Boolean_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableToggle(System.String,System.Boolean,System.String)">
+  SearchableToggle(string, bool, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SearchableToggle(string label, bool value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableToggle_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableToggle*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SearchableToggle_UnityEngine_GUIContent_System_Boolean_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SearchableToggle(UnityEngine.GUIContent,System.Boolean,System.String)">
+  SearchableToggle(GUIContent, bool, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SearchableToggle(GUIContent label, bool value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsColorField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsColorField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsColorField_System_String_UnityEditor_SettingsManagement_UserSetting_UnityEngine_Color__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsColorField(System.String,UnityEditor.SettingsManagement.UserSetting{UnityEngine.Color},System.String)">
+  SettingsColorField(string, UserSetting&lt;Color&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color SettingsColorField(string label, UserSetting&lt;Color&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<span class="xref">Color</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsColorField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsColorField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsColorField_UnityEngine_GUIContent_UnityEditor_SettingsManagement_UserSetting_UnityEngine_Color__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsColorField(UnityEngine.GUIContent,UnityEditor.SettingsManagement.UserSetting{UnityEngine.Color},System.String)">
+  SettingsColorField(GUIContent, UserSetting&lt;Color&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color SettingsColorField(GUIContent label, UserSetting&lt;Color&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<span class="xref">Color</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsFloatField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsFloatField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsFloatField_System_String_UnityEditor_SettingsManagement_UserSetting_System_Single__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsFloatField(System.String,UnityEditor.SettingsManagement.UserSetting{System.Single},System.String)">
+  SettingsFloatField(string, UserSetting&lt;float&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SettingsFloatField(string label, UserSetting&lt;float&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsFloatField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsFloatField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsFloatField_UnityEngine_GUIContent_UnityEditor_SettingsManagement_UserSetting_System_Single__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsFloatField(UnityEngine.GUIContent,UnityEditor.SettingsManagement.UserSetting{System.Single},System.String)">
+  SettingsFloatField(GUIContent, UserSetting&lt;float&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SettingsFloatField(GUIContent label, UserSetting&lt;float&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsIntField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsIntField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsIntField_System_String_UnityEditor_SettingsManagement_UserSetting_System_Int32__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsIntField(System.String,UnityEditor.SettingsManagement.UserSetting{System.Int32},System.String)">
+  SettingsIntField(string, UserSetting&lt;int&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SettingsIntField(string label, UserSetting&lt;int&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsIntField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsIntField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsIntField_UnityEngine_GUIContent_UnityEditor_SettingsManagement_UserSetting_System_Int32__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsIntField(UnityEngine.GUIContent,UnityEditor.SettingsManagement.UserSetting{System.Int32},System.String)">
+  SettingsIntField(GUIContent, UserSetting&lt;int&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SettingsIntField(GUIContent label, UserSetting&lt;int&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_System_String_UnityEditor_SettingsManagement_UserSetting_System_Int32__System_Int32_System_Int32_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider(System.String,UnityEditor.SettingsManagement.UserSetting{System.Int32},System.Int32,System.Int32,System.String)">
+  SettingsSlider(string, UserSetting&lt;int&gt;, int, int, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SettingsSlider(string label, UserSetting&lt;int&gt; value, int min, int max, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_System_String_UnityEditor_SettingsManagement_UserSetting_System_Single__System_Single_System_Single_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider(System.String,UnityEditor.SettingsManagement.UserSetting{System.Single},System.Single,System.Single,System.String)">
+  SettingsSlider(string, UserSetting&lt;float&gt;, float, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SettingsSlider(string label, UserSetting&lt;float&gt; value, float min, float max, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_UnityEngine_GUIContent_UnityEditor_SettingsManagement_UserSetting_System_Int32__System_Int32_System_Int32_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider(UnityEngine.GUIContent,UnityEditor.SettingsManagement.UserSetting{System.Int32},System.Int32,System.Int32,System.String)">
+  SettingsSlider(GUIContent, UserSetting&lt;int&gt;, int, int, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SettingsSlider(GUIContent label, UserSetting&lt;int&gt; value, int min, int max, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsSlider_UnityEngine_GUIContent_UnityEditor_SettingsManagement_UserSetting_System_Single__System_Single_System_Single_System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsSlider(UnityEngine.GUIContent,UnityEditor.SettingsManagement.UserSetting{System.Single},System.Single,System.Single,System.String)">
+  SettingsSlider(GUIContent, UserSetting&lt;float&gt;, float, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SettingsSlider(GUIContent label, UserSetting&lt;float&gt; value, float min, float max, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsTextField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsTextField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsTextField_System_String_UnityEditor_SettingsManagement_UserSetting_System_String__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsTextField(System.String,UnityEditor.SettingsManagement.UserSetting{System.String},System.String)">
+  SettingsTextField(string, UserSetting&lt;string&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SettingsTextField(string label, UserSetting&lt;string&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsTextField_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsTextField*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsTextField_UnityEngine_GUIContent_UnityEditor_SettingsManagement_UserSetting_System_String__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsTextField(UnityEngine.GUIContent,UnityEditor.SettingsManagement.UserSetting{System.String},System.String)">
+  SettingsTextField(GUIContent, UserSetting&lt;string&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SettingsTextField(GUIContent label, UserSetting&lt;string&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsToggle_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsToggle*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsToggle_System_String_UnityEditor_SettingsManagement_UserSetting_System_Boolean__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsToggle(System.String,UnityEditor.SettingsManagement.UserSetting{System.Boolean},System.String)">
+  SettingsToggle(string, UserSetting&lt;bool&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SettingsToggle(string label, UserSetting&lt;bool&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsToggle_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsToggle*"></a>
+
+  <h3 id="UnityEditor_SettingsManagement_SettingsGUILayout_SettingsToggle_UnityEngine_GUIContent_UnityEditor_SettingsManagement_UserSetting_System_Boolean__System_String_" data-uid="UnityEditor.SettingsManagement.SettingsGUILayout.SettingsToggle(UnityEngine.GUIContent,UnityEditor.SettingsManagement.UserSetting{System.Boolean},System.String)">
+  SettingsToggle(GUIContent, UserSetting&lt;bool&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SettingsToggle(GUIContent label, UserSetting&lt;bool&gt; value, string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEditor.SettingsManagement.UserSetting-1.html">UserSetting</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>searchContext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

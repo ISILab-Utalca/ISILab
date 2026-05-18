@@ -1,0 +1,2486 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IBaseCommandBuffer | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IBaseCommandBuffer | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.IBaseCommandBuffer">
+
+
+
+  <h1 id="UnityEngine_Rendering_IBaseCommandBuffer" data-uid="UnityEngine.Rendering.IBaseCommandBuffer" class="text-break">
+Interface IBaseCommandBuffer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IBaseCommandBuffer</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.BeginSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_System_String_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.BeginSample(System.String)">
+  BeginSample(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BeginSample(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.BeginSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_Unity_Profiling_ProfilerMarker_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.BeginSample(Unity.Profiling.ProfilerMarker)">
+  BeginSample(ProfilerMarker)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BeginSample(ProfilerMarker marker)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>marker</code> <span class="xref">ProfilerMarker</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.BeginSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_BeginSample_UnityEngine_Profiling_CustomSampler_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.BeginSample(UnityEngine.Profiling.CustomSampler)">
+  BeginSample(CustomSampler)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BeginSample(CustomSampler sampler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampler</code> <span class="xref">CustomSampler</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableKeyword(UnityEngine.ComputeShader,UnityEngine.Rendering.LocalKeyword@)">
+  DisableKeyword(ComputeShader, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableKeyword(ComputeShader computeShader, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableKeyword(UnityEngine.Material,UnityEngine.Rendering.LocalKeyword@)">
+  DisableKeyword(Material, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableKeyword(Material material, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_DisableKeyword_UnityEngine_Rendering_GlobalKeyword__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableKeyword(UnityEngine.Rendering.GlobalKeyword@)">
+  DisableKeyword(in GlobalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableKeyword(in GlobalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <span class="xref">GlobalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_DisableScissorRect_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableScissorRect*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_DisableScissorRect" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableScissorRect">
+  DisableScissorRect()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableScissorRect()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_DisableShaderKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableShaderKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_DisableShaderKeyword_System_String_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.DisableShaderKeyword(System.String)">
+  DisableShaderKeyword(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableShaderKeyword(string keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableKeyword(UnityEngine.ComputeShader,UnityEngine.Rendering.LocalKeyword@)">
+  EnableKeyword(ComputeShader, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableKeyword(ComputeShader computeShader, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableKeyword(UnityEngine.Material,UnityEngine.Rendering.LocalKeyword@)">
+  EnableKeyword(Material, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableKeyword(Material material, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EnableKeyword_UnityEngine_Rendering_GlobalKeyword__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableKeyword(UnityEngine.Rendering.GlobalKeyword@)">
+  EnableKeyword(in GlobalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableKeyword(in GlobalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <span class="xref">GlobalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EnableScissorRect_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableScissorRect*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EnableScissorRect_UnityEngine_Rect_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableScissorRect(UnityEngine.Rect)">
+  EnableScissorRect(Rect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableScissorRect(Rect scissor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scissor</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EnableShaderKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableShaderKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EnableShaderKeyword_System_String_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EnableShaderKeyword(System.String)">
+  EnableShaderKeyword(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableShaderKeyword(string keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EndSample_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EndSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EndSample_System_String_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EndSample(System.String)">
+  EndSample(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EndSample(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EndSample_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EndSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EndSample_Unity_Profiling_ProfilerMarker_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EndSample(Unity.Profiling.ProfilerMarker)">
+  EndSample(ProfilerMarker)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EndSample(ProfilerMarker marker)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>marker</code> <span class="xref">ProfilerMarker</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_EndSample_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EndSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_EndSample_UnityEngine_Profiling_CustomSampler_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.EndSample(UnityEngine.Profiling.CustomSampler)">
+  EndSample(CustomSampler)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EndSample(CustomSampler sampler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampler</code> <span class="xref">CustomSampler</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_IncrementUpdateCount_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IncrementUpdateCount*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_IncrementUpdateCount_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IncrementUpdateCount(UnityEngine.Rendering.RenderTargetIdentifier)">
+  IncrementUpdateCount(RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IncrementUpdateCount(RenderTargetIdentifier dest)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_InvokeOnRenderObjectCallbacks_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.InvokeOnRenderObjectCallbacks*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_InvokeOnRenderObjectCallbacks" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.InvokeOnRenderObjectCallbacks">
+  InvokeOnRenderObjectCallbacks()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void InvokeOnRenderObjectCallbacks()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginCustomBlit_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginCustomBlit*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginCustomBlit_System_IntPtr_System_UInt32_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_UInt32_System_UInt32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginCustomBlit(System.IntPtr,System.UInt32,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.UInt32,System.UInt32)">
+  IssuePluginCustomBlit(nint, uint, RenderTargetIdentifier, RenderTargetIdentifier, uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IssuePluginCustomBlit(nint callback, uint command, RenderTargetIdentifier source, RenderTargetIdentifier dest, uint commandParam, uint commandFlags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>dest</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>commandParam</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>commandFlags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginCustomTextureUpdateV2_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginCustomTextureUpdateV2*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginCustomTextureUpdateV2_System_IntPtr_UnityEngine_Texture_System_UInt32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginCustomTextureUpdateV2(System.IntPtr,UnityEngine.Texture,System.UInt32)">
+  IssuePluginCustomTextureUpdateV2(nint, Texture, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IssuePluginCustomTextureUpdateV2(nint callback, Texture targetTexture, uint userData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>targetTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginEvent_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginEvent*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginEvent_System_IntPtr_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginEvent(System.IntPtr,System.Int32)">
+  IssuePluginEvent(nint, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IssuePluginEvent(nint callback, int eventID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>eventID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginEventAndData_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginEventAndData*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_IssuePluginEventAndData_System_IntPtr_System_Int32_System_IntPtr_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.IssuePluginEventAndData(System.IntPtr,System.Int32,System.IntPtr)">
+  IssuePluginEventAndData(nint, int, nint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IssuePluginEventAndData(nint callback, int eventID, nint data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>eventID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_MarkLateLatchMatrixShaderPropertyID_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.MarkLateLatchMatrixShaderPropertyID*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_MarkLateLatchMatrixShaderPropertyID_UnityEngine_Rendering_CameraLateLatchMatrixType_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.MarkLateLatchMatrixShaderPropertyID(UnityEngine.Rendering.CameraLateLatchMatrixType,System.Int32)">
+  MarkLateLatchMatrixShaderPropertyID(CameraLateLatchMatrixType, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void MarkLateLatchMatrixShaderPropertyID(CameraLateLatchMatrixType matrixPropertyType, int shaderPropertyID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrixPropertyType</code> <span class="xref">CameraLateLatchMatrixType</span></dt>
+    <dd></dd>
+    <dt><code>shaderPropertyID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_Int32_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer(System.Int32,UnityEngine.ComputeBuffer)">
+  SetGlobalBuffer(int, ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalBuffer(int nameID, ComputeBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_Int32_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer(System.Int32,UnityEngine.GraphicsBuffer)">
+  SetGlobalBuffer(int, GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalBuffer(int nameID, GraphicsBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_String_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer(System.String,UnityEngine.ComputeBuffer)">
+  SetGlobalBuffer(string, ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalBuffer(string name, ComputeBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalBuffer_System_String_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalBuffer(System.String,UnityEngine.GraphicsBuffer)">
+  SetGlobalBuffer(string, GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalBuffer(string name, GraphicsBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalColor_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalColor_System_Int32_UnityEngine_Color_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalColor(System.Int32,UnityEngine.Color)">
+  SetGlobalColor(int, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalColor(int nameID, Color value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalColor_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalColor_System_String_UnityEngine_Color_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalColor(System.String,UnityEngine.Color)">
+  SetGlobalColor(string, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalColor(string name, Color value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_ComputeBuffer_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer(UnityEngine.ComputeBuffer,System.Int32,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(ComputeBuffer, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalConstantBuffer(ComputeBuffer buffer, int nameID, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_ComputeBuffer_System_String_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer(UnityEngine.ComputeBuffer,System.String,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(ComputeBuffer, string, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalConstantBuffer(ComputeBuffer buffer, string name, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_GraphicsBuffer_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer(UnityEngine.GraphicsBuffer,System.Int32,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(GraphicsBuffer, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalConstantBuffer(GraphicsBuffer buffer, int nameID, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalConstantBuffer_UnityEngine_GraphicsBuffer_System_String_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalConstantBuffer(UnityEngine.GraphicsBuffer,System.String,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(GraphicsBuffer, string, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalConstantBuffer(GraphicsBuffer buffer, string name, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalDepthBias_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalDepthBias*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalDepthBias_System_Single_System_Single_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalDepthBias(System.Single,System.Single)">
+  SetGlobalDepthBias(float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalDepthBias(float bias, float slopeBias)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>slopeBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloat_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloat*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloat_System_Int32_System_Single_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloat(System.Int32,System.Single)">
+  SetGlobalFloat(int, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalFloat(int nameID, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloat_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloat*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloat_System_String_System_Single_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloat(System.String,System.Single)">
+  SetGlobalFloat(string, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalFloat(string name, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_Int32_System_Collections_Generic_List_System_Single__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray(System.Int32,System.Collections.Generic.List{System.Single})">
+  SetGlobalFloatArray(int, List&lt;float&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalFloatArray(int nameID, List&lt;float&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_Int32_System_Single___" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray(System.Int32,System.Single[])">
+  SetGlobalFloatArray(int, float[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalFloatArray(int nameID, float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_String_System_Collections_Generic_List_System_Single__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray(System.String,System.Collections.Generic.List{System.Single})">
+  SetGlobalFloatArray(string, List&lt;float&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalFloatArray(string propertyName, List&lt;float&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalFloatArray_System_String_System_Single___" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalFloatArray(System.String,System.Single[])">
+  SetGlobalFloatArray(string, float[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalFloatArray(string propertyName, float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInt_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInt*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInt_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInt(System.Int32,System.Int32)">
+  SetGlobalInt(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalInt(int nameID, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInt_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInt*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInt_System_String_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInt(System.String,System.Int32)">
+  SetGlobalInt(string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalInt(string name, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInteger_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInteger*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInteger_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInteger(System.Int32,System.Int32)">
+  SetGlobalInteger(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalInteger(int nameID, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInteger_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInteger*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalInteger_System_String_System_Int32_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalInteger(System.String,System.Int32)">
+  SetGlobalInteger(string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalInteger(string name, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrix_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrix_System_Int32_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrix(System.Int32,UnityEngine.Matrix4x4)">
+  SetGlobalMatrix(int, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalMatrix(int nameID, Matrix4x4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrix_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrix_System_String_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrix(System.String,UnityEngine.Matrix4x4)">
+  SetGlobalMatrix(string, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalMatrix(string name, Matrix4x4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_Int32_System_Collections_Generic_List_UnityEngine_Matrix4x4__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray(System.Int32,System.Collections.Generic.List{UnityEngine.Matrix4x4})">
+  SetGlobalMatrixArray(int, List&lt;Matrix4x4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalMatrixArray(int nameID, List&lt;Matrix4x4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Matrix4x4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_Int32_UnityEngine_Matrix4x4___" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray(System.Int32,UnityEngine.Matrix4x4[])">
+  SetGlobalMatrixArray(int, Matrix4x4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalMatrixArray(int nameID, Matrix4x4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_String_System_Collections_Generic_List_UnityEngine_Matrix4x4__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray(System.String,System.Collections.Generic.List{UnityEngine.Matrix4x4})">
+  SetGlobalMatrixArray(string, List&lt;Matrix4x4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalMatrixArray(string propertyName, List&lt;Matrix4x4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Matrix4x4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalMatrixArray_System_String_UnityEngine_Matrix4x4___" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalMatrixArray(System.String,UnityEngine.Matrix4x4[])">
+  SetGlobalMatrixArray(string, Matrix4x4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalMatrixArray(string propertyName, Matrix4x4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture(System.Int32,UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  SetGlobalTexture(int, TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalTexture(int nameID, TextureHandle value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderTextureSubElement_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture(System.Int32,UnityEngine.Rendering.RenderGraphModule.TextureHandle,UnityEngine.Rendering.RenderTextureSubElement)">
+  SetGlobalTexture(int, TextureHandle, RenderTextureSubElement)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalTexture(int nameID, TextureHandle value, RenderTextureSubElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+    <dt><code>element</code> <span class="xref">RenderTextureSubElement</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture(System.String,UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  SetGlobalTexture(string, TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalTexture(string name, TextureHandle value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalTexture_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderTextureSubElement_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalTexture(System.String,UnityEngine.Rendering.RenderGraphModule.TextureHandle,UnityEngine.Rendering.RenderTextureSubElement)">
+  SetGlobalTexture(string, TextureHandle, RenderTextureSubElement)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalTexture(string name, TextureHandle value, RenderTextureSubElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+    <dt><code>element</code> <span class="xref">RenderTextureSubElement</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVector_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVector*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVector_System_Int32_UnityEngine_Vector4_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVector(System.Int32,UnityEngine.Vector4)">
+  SetGlobalVector(int, Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalVector(int nameID, Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVector_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVector*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVector_System_String_UnityEngine_Vector4_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVector(System.String,UnityEngine.Vector4)">
+  SetGlobalVector(string, Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalVector(string name, Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_Int32_System_Collections_Generic_List_UnityEngine_Vector4__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray(System.Int32,System.Collections.Generic.List{UnityEngine.Vector4})">
+  SetGlobalVectorArray(int, List&lt;Vector4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalVectorArray(int nameID, List&lt;Vector4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_Int32_UnityEngine_Vector4___" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray(System.Int32,UnityEngine.Vector4[])">
+  SetGlobalVectorArray(int, Vector4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalVectorArray(int nameID, Vector4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Vector4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_String_System_Collections_Generic_List_UnityEngine_Vector4__" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray(System.String,System.Collections.Generic.List{UnityEngine.Vector4})">
+  SetGlobalVectorArray(string, List&lt;Vector4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalVectorArray(string propertyName, List&lt;Vector4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetGlobalVectorArray_System_String_UnityEngine_Vector4___" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetGlobalVectorArray(System.String,UnityEngine.Vector4[])">
+  SetGlobalVectorArray(string, Vector4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetGlobalVectorArray(string propertyName, Vector4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Vector4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetInvertCulling_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetInvertCulling*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetInvertCulling_System_Boolean_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetInvertCulling(System.Boolean)">
+  SetInvertCulling(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetInvertCulling(bool invertCulling)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>invertCulling</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__System_Boolean_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetKeyword(UnityEngine.ComputeShader,UnityEngine.Rendering.LocalKeyword@,System.Boolean)">
+  SetKeyword(ComputeShader, in LocalKeyword, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetKeyword(ComputeShader computeShader, in LocalKeyword keyword, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__System_Boolean_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetKeyword(UnityEngine.Material,UnityEngine.Rendering.LocalKeyword@,System.Boolean)">
+  SetKeyword(Material, in LocalKeyword, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetKeyword(Material material, in LocalKeyword keyword, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetKeyword_UnityEngine_Rendering_GlobalKeyword__System_Boolean_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetKeyword(UnityEngine.Rendering.GlobalKeyword@,System.Boolean)">
+  SetKeyword(in GlobalKeyword, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetKeyword(in GlobalKeyword keyword, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <span class="xref">GlobalKeyword</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetLateLatchProjectionMatrices_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetLateLatchProjectionMatrices*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetLateLatchProjectionMatrices_UnityEngine_Matrix4x4___" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetLateLatchProjectionMatrices(UnityEngine.Matrix4x4[])">
+  SetLateLatchProjectionMatrices(Matrix4x4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetLateLatchProjectionMatrices(Matrix4x4[] projectionMat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectionMat</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetShadowSamplingMode_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetShadowSamplingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetShadowSamplingMode_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ShadowSamplingMode_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetShadowSamplingMode(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ShadowSamplingMode)">
+  SetShadowSamplingMode(RenderTargetIdentifier, ShadowSamplingMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetShadowSamplingMode(RenderTargetIdentifier shadowmap, ShadowSamplingMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowmap</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mode</code> <span class="xref">ShadowSamplingMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetSinglePassStereo_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetSinglePassStereo*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetSinglePassStereo_UnityEngine_Rendering_SinglePassStereoMode_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetSinglePassStereo(UnityEngine.Rendering.SinglePassStereoMode)">
+  SetSinglePassStereo(SinglePassStereoMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetSinglePassStereo(SinglePassStereoMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <span class="xref">SinglePassStereoMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetViewProjectionMatrices_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetViewProjectionMatrices*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetViewProjectionMatrices_UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetViewProjectionMatrices(UnityEngine.Matrix4x4,UnityEngine.Matrix4x4)">
+  SetViewProjectionMatrices(Matrix4x4, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetViewProjectionMatrices(Matrix4x4 view, Matrix4x4 proj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>view</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>proj</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetViewport_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetViewport*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetViewport_UnityEngine_Rect_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetViewport(UnityEngine.Rect)">
+  SetViewport(Rect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetViewport(Rect pixelRect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixelRect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_SetupCameraProperties_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetupCameraProperties*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_SetupCameraProperties_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.SetupCameraProperties(UnityEngine.Camera)">
+  SetupCameraProperties(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetupCameraProperties(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_IBaseCommandBuffer_UnmarkLateLatchMatrix_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.UnmarkLateLatchMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_IBaseCommandBuffer_UnmarkLateLatchMatrix_UnityEngine_Rendering_CameraLateLatchMatrixType_" data-uid="UnityEngine.Rendering.IBaseCommandBuffer.UnmarkLateLatchMatrix(UnityEngine.Rendering.CameraLateLatchMatrixType)">
+  UnmarkLateLatchMatrix(CameraLateLatchMatrixType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UnmarkLateLatchMatrix(CameraLateLatchMatrixType matrixPropertyType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrixPropertyType</code> <span class="xref">CameraLateLatchMatrixType</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

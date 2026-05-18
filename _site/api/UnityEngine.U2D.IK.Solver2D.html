@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Solver2D | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Solver2D | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.U2D.IK.Solver2D">
+
+
+
+  <h1 id="UnityEngine_U2D_IK_Solver2D" data-uid="UnityEngine.U2D.IK.Solver2D" class="text-break">
+Class Solver2D  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.U2D.html">U2D</a>.<a class="xref" href="UnityEngine.U2D.IK.html">IK</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.2D.IK.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Solver2D : MonoBehaviour, IAnimationPreviewable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Solver2D</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">IAnimationPreviewable</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="UnityEngine.U2D.IK.CCDSolver2D.html">CCDSolver2D</a></div>
+      <div><a class="xref" href="UnityEngine.U2D.IK.FabrikSolver2D.html">FabrikSolver2D</a></div>
+      <div><a class="xref" href="UnityEngine.U2D.IK.LimbSolver2D.html">LimbSolver2D</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D__ctor_" data-uid="UnityEngine.U2D.IK.Solver2D.#ctor*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D__ctor" data-uid="UnityEngine.U2D.IK.Solver2D.#ctor">
+  Solver2D()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Solver2D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_allChainsHaveTargets_" data-uid="UnityEngine.U2D.IK.Solver2D.allChainsHaveTargets*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_allChainsHaveTargets" data-uid="UnityEngine.U2D.IK.Solver2D.allChainsHaveTargets">
+  allChainsHaveTargets
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool allChainsHaveTargets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_chainCount_" data-uid="UnityEngine.U2D.IK.Solver2D.chainCount*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_chainCount" data-uid="UnityEngine.U2D.IK.Solver2D.chainCount">
+  chainCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int chainCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_constrainRotation_" data-uid="UnityEngine.U2D.IK.Solver2D.constrainRotation*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_constrainRotation" data-uid="UnityEngine.U2D.IK.Solver2D.constrainRotation">
+  constrainRotation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool constrainRotation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_isValid_" data-uid="UnityEngine.U2D.IK.Solver2D.isValid*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_isValid" data-uid="UnityEngine.U2D.IK.Solver2D.isValid">
+  isValid
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isValid { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_solveFromDefaultPose_" data-uid="UnityEngine.U2D.IK.Solver2D.solveFromDefaultPose*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_solveFromDefaultPose" data-uid="UnityEngine.U2D.IK.Solver2D.solveFromDefaultPose">
+  solveFromDefaultPose
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool solveFromDefaultPose { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_weight_" data-uid="UnityEngine.U2D.IK.Solver2D.weight*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_weight" data-uid="UnityEngine.U2D.IK.Solver2D.weight">
+  weight
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float weight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_DoInitialize_" data-uid="UnityEngine.U2D.IK.Solver2D.DoInitialize*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_DoInitialize" data-uid="UnityEngine.U2D.IK.Solver2D.DoInitialize">
+  DoInitialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void DoInitialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_DoPrepare_" data-uid="UnityEngine.U2D.IK.Solver2D.DoPrepare*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_DoPrepare" data-uid="UnityEngine.U2D.IK.Solver2D.DoPrepare">
+  DoPrepare()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void DoPrepare()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_DoUpdateIK_" data-uid="UnityEngine.U2D.IK.Solver2D.DoUpdateIK*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_DoUpdateIK_System_Collections_Generic_List_UnityEngine_Vector3__" data-uid="UnityEngine.U2D.IK.Solver2D.DoUpdateIK(System.Collections.Generic.List{UnityEngine.Vector3})">
+  DoUpdateIK(List&lt;Vector3&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DoUpdateIK(List&lt;Vector3&gt; targetPositions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>targetPositions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector3</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_DoValidate_" data-uid="UnityEngine.U2D.IK.Solver2D.DoValidate*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_DoValidate" data-uid="UnityEngine.U2D.IK.Solver2D.DoValidate">
+  DoValidate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool DoValidate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_GetChain_" data-uid="UnityEngine.U2D.IK.Solver2D.GetChain*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_GetChain_System_Int32_" data-uid="UnityEngine.U2D.IK.Solver2D.GetChain(System.Int32)">
+  GetChain(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IKChain2D GetChain(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.U2D.IK.IKChain2D.html">IKChain2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_GetChainCount_" data-uid="UnityEngine.U2D.IK.Solver2D.GetChainCount*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_GetChainCount" data-uid="UnityEngine.U2D.IK.Solver2D.GetChainCount">
+  GetChainCount()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract int GetChainCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_GetPlaneRootTransform_" data-uid="UnityEngine.U2D.IK.Solver2D.GetPlaneRootTransform*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_GetPlaneRootTransform" data-uid="UnityEngine.U2D.IK.Solver2D.GetPlaneRootTransform">
+  GetPlaneRootTransform()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Transform GetPlaneRootTransform()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Transform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_GetPointOnSolverPlane_" data-uid="UnityEngine.U2D.IK.Solver2D.GetPointOnSolverPlane*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_GetPointOnSolverPlane_UnityEngine_Vector3_" data-uid="UnityEngine.U2D.IK.Solver2D.GetPointOnSolverPlane(UnityEngine.Vector3)">
+  GetPointOnSolverPlane(Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector3 GetPointOnSolverPlane(Vector3 worldPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>worldPosition</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_GetWorldPositionFromSolverPlanePoint_" data-uid="UnityEngine.U2D.IK.Solver2D.GetWorldPositionFromSolverPlanePoint*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_GetWorldPositionFromSolverPlanePoint_UnityEngine_Vector2_" data-uid="UnityEngine.U2D.IK.Solver2D.GetWorldPositionFromSolverPlanePoint(UnityEngine.Vector2)">
+  GetWorldPositionFromSolverPlanePoint(Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector3 GetWorldPositionFromSolverPlanePoint(Vector2 planePoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>planePoint</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_Initialize_" data-uid="UnityEngine.U2D.IK.Solver2D.Initialize*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_Initialize" data-uid="UnityEngine.U2D.IK.Solver2D.Initialize">
+  Initialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_OnPreviewUpdate_" data-uid="UnityEngine.U2D.IK.Solver2D.OnPreviewUpdate*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_OnPreviewUpdate" data-uid="UnityEngine.U2D.IK.Solver2D.OnPreviewUpdate">
+  OnPreviewUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnPreviewUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_OnValidate_" data-uid="UnityEngine.U2D.IK.Solver2D.OnValidate*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_OnValidate" data-uid="UnityEngine.U2D.IK.Solver2D.OnValidate">
+  OnValidate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnValidate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_UpdateIK_" data-uid="UnityEngine.U2D.IK.Solver2D.UpdateIK*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_UpdateIK_System_Collections_Generic_List_UnityEngine_Vector3__System_Single_" data-uid="UnityEngine.U2D.IK.Solver2D.UpdateIK(System.Collections.Generic.List{UnityEngine.Vector3},System.Single)">
+  UpdateIK(List&lt;Vector3&gt;, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateIK(List&lt;Vector3&gt; targetPositions, float globalWeight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>targetPositions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector3</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>globalWeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_U2D_IK_Solver2D_UpdateIK_" data-uid="UnityEngine.U2D.IK.Solver2D.UpdateIK*"></a>
+
+  <h3 id="UnityEngine_U2D_IK_Solver2D_UpdateIK_System_Single_" data-uid="UnityEngine.U2D.IK.Solver2D.UpdateIK(System.Single)">
+  UpdateIK(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateIK(float globalWeight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>globalWeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

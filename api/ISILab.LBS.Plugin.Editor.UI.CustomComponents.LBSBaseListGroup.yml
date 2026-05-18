@@ -1,0 +1,415 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  id: LBSBaseListGroup
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  children:
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.#ctor
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.OnListRemoved
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.listView
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.removeButton
+  langs:
+  - csharp
+  - vb
+  name: LBSBaseListGroup
+  nameWithType: LBSBaseListGroup
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: 'public class LBSBaseListGroup : LBSComplexVisualElement, ILBSComplexComponent'
+    content.vb: Public Class LBSBaseListGroup Inherits LBSComplexVisualElement Implements ILBSComplexComponent
+  inheritance:
+  - System.Object
+  - ISILab.LBS.CustomComponents.LBSComplexVisualElement
+  derivedClasses:
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListGroup
+  implements:
+  - ISILab.LBS.CustomComponents.ILBSComplexComponent
+  inheritedMembers:
+  - ISILab.LBS.CustomComponents.LBSComplexVisualElement.GetVisualTreeForThis
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.listView
+  commentId: F:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.listView
+  id: listView
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  langs:
+  - csharp
+  - vb
+  name: listView
+  nameWithType: LBSBaseListGroup.listView
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.listView
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: protected LBSCustomListView listView
+    return:
+      type: ISILab.LBS.CustomComponents.LBSCustomListView
+    content.vb: Protected listView As LBSCustomListView
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.removeButton
+  commentId: F:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.removeButton
+  id: removeButton
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  langs:
+  - csharp
+  - vb
+  name: removeButton
+  nameWithType: LBSBaseListGroup.removeButton
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.removeButton
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: protected LBSToolbarButton removeButton
+    return:
+      type: ISILab.LBS.CustomComponents.LBSToolbarButton
+    content.vb: Protected removeButton As LBSToolbarButton
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.OnListRemoved
+  commentId: F:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.OnListRemoved
+  id: OnListRemoved
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  langs:
+  - csharp
+  - vb
+  name: OnListRemoved
+  nameWithType: LBSBaseListGroup.OnListRemoved
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.OnListRemoved
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public Action OnListRemoved
+    return:
+      type: System.Action
+    content.vb: Public OnListRemoved As Action
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.#ctor
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  langs:
+  - csharp
+  - vb
+  name: LBSBaseListGroup()
+  nameWithType: LBSBaseListGroup.LBSBaseListGroup()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.LBSBaseListGroup()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSBaseListGroup()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.#ctor*
+  nameWithType.vb: LBSBaseListGroup.New()
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty
+  id: IsEmpty
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty
+  nameWithType: LBSBaseListGroup.IsEmpty
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public bool IsEmpty { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEmpty As Boolean
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText
+  id: TitleText
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  langs:
+  - csharp
+  - vb
+  name: TitleText
+  nameWithType: LBSBaseListGroup.TitleText
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public string TitleText { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property TitleText As String
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded
+  id: IsFoldoutExpanded
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup
+  langs:
+  - csharp
+  - vb
+  name: IsFoldoutExpanded
+  nameWithType: LBSBaseListGroup.IsFoldoutExpanded
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public bool IsFoldoutExpanded { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsFoldoutExpanded As Boolean
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded*
+references:
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  commentId: N:ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  nameWithType: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.CustomComponents.LBSComplexVisualElement
+  commentId: T:ISILab.LBS.CustomComponents.LBSComplexVisualElement
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSComplexVisualElement.html
+  name: LBSComplexVisualElement
+  nameWithType: LBSComplexVisualElement
+  fullName: ISILab.LBS.CustomComponents.LBSComplexVisualElement
+- uid: ISILab.LBS.CustomComponents.ILBSComplexComponent
+  commentId: T:ISILab.LBS.CustomComponents.ILBSComplexComponent
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.ILBSComplexComponent.html
+  name: ILBSComplexComponent
+  nameWithType: ILBSComplexComponent
+  fullName: ISILab.LBS.CustomComponents.ILBSComplexComponent
+- uid: ISILab.LBS.CustomComponents.LBSComplexVisualElement.GetVisualTreeForThis
+  commentId: M:ISILab.LBS.CustomComponents.LBSComplexVisualElement.GetVisualTreeForThis
+  parent: ISILab.LBS.CustomComponents.LBSComplexVisualElement
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSComplexVisualElement.html#ISILab_LBS_CustomComponents_LBSComplexVisualElement_GetVisualTreeForThis
+  name: GetVisualTreeForThis()
+  nameWithType: LBSComplexVisualElement.GetVisualTreeForThis()
+  fullName: ISILab.LBS.CustomComponents.LBSComplexVisualElement.GetVisualTreeForThis()
+  spec.csharp:
+  - uid: ISILab.LBS.CustomComponents.LBSComplexVisualElement.GetVisualTreeForThis
+    name: GetVisualTreeForThis
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.LBSComplexVisualElement.html#ISILab_LBS_CustomComponents_LBSComplexVisualElement_GetVisualTreeForThis
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.CustomComponents.LBSComplexVisualElement.GetVisualTreeForThis
+    name: GetVisualTreeForThis
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.LBSComplexVisualElement.html#ISILab_LBS_CustomComponents_LBSComplexVisualElement_GetVisualTreeForThis
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: ISILab.LBS.CustomComponents.LBSCustomListView
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomListView
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomListView.html
+  name: LBSCustomListView
+  nameWithType: LBSCustomListView
+  fullName: ISILab.LBS.CustomComponents.LBSCustomListView
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton
+  commentId: T:ISILab.LBS.CustomComponents.LBSToolbarButton
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSToolbarButton.html
+  name: LBSToolbarButton
+  nameWithType: LBSToolbarButton
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSBaseListGroup__ctor
+  name: LBSBaseListGroup
+  nameWithType: LBSBaseListGroup.LBSBaseListGroup
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.LBSBaseListGroup
+  nameWithType.vb: LBSBaseListGroup.New
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSBaseListGroup_IsEmpty
+  name: IsEmpty
+  nameWithType: LBSBaseListGroup.IsEmpty
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsEmpty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSBaseListGroup_TitleText
+  name: TitleText
+  nameWithType: LBSBaseListGroup.TitleText
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.TitleText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSBaseListGroup_IsFoldoutExpanded
+  name: IsFoldoutExpanded
+  nameWithType: LBSBaseListGroup.IsFoldoutExpanded
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup.IsFoldoutExpanded

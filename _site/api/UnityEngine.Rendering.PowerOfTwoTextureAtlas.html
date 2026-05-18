@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PowerOfTwoTextureAtlas | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PowerOfTwoTextureAtlas | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas">
+
+
+
+  <h1 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas" class="text-break">
+Class PowerOfTwoTextureAtlas  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PowerOfTwoTextureAtlas : Texture2DAtlas</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html">Texture2DAtlas</a></div>
+      <div><span class="xref">PowerOfTwoTextureAtlas</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_Release">Texture2DAtlas.Release()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_ResetAllocator">Texture2DAtlas.ResetAllocator()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_ClearTarget_UnityEngine_Rendering_CommandBuffer_">Texture2DAtlas.ClearTarget(CommandBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_BlitCubeTexture2D_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4_UnityEngine_Texture_System_Boolean_System_Int32_">Texture2DAtlas.BlitCubeTexture2D(CommandBuffer, Vector4, Texture, bool, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_AllocateTextureWithoutBlit_UnityEngine_Texture_System_Int32_System_Int32_UnityEngine_Vector4__">Texture2DAtlas.AllocateTextureWithoutBlit(Texture, int, int, ref Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_AllocateTextureWithoutBlit_System_Int32_System_Int32_System_Int32_UnityEngine_Vector4__">Texture2DAtlas.AllocateTextureWithoutBlit(int, int, int, ref Vector4)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_GetTextureID_UnityEngine_Texture_">Texture2DAtlas.GetTextureID(Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_GetTextureID_UnityEngine_Texture_UnityEngine_Texture_">Texture2DAtlas.GetTextureID(Texture, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_IsCached_UnityEngine_Vector4__UnityEngine_Texture_UnityEngine_Texture_">Texture2DAtlas.IsCached(out Vector4, Texture, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_IsCached_UnityEngine_Vector4__UnityEngine_Texture_">Texture2DAtlas.IsCached(out Vector4, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_IsCached_UnityEngine_Vector4__System_Int32_">Texture2DAtlas.IsCached(out Vector4, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_NeedsUpdate_UnityEngine_Texture_System_Boolean_">Texture2DAtlas.NeedsUpdate(Texture, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_NeedsUpdate_System_Int32_System_Int32_System_Boolean_">Texture2DAtlas.NeedsUpdate(int, int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_NeedsUpdate_UnityEngine_Texture_UnityEngine_Texture_System_Boolean_">Texture2DAtlas.NeedsUpdate(Texture, Texture, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_AddTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4__UnityEngine_Texture_">Texture2DAtlas.AddTexture(CommandBuffer, ref Vector4, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_UpdateTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Vector4__UnityEngine_Vector4_System_Boolean_System_Boolean_">Texture2DAtlas.UpdateTexture(CommandBuffer, Texture, Texture, ref Vector4, Vector4, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_UpdateTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector4__System_Boolean_System_Boolean_">Texture2DAtlas.UpdateTexture(CommandBuffer, Texture, ref Vector4, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_maxMipLevelPadding">Texture2DAtlas.maxMipLevelPadding</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Texture2DAtlas.html#UnityEngine_Rendering_Texture2DAtlas_AtlasTexture">Texture2DAtlas.AtlasTexture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas__ctor_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas__ctor_System_Int32_System_Int32_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_FilterMode_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.#ctor(System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.FilterMode,System.String,System.Boolean)">
+  PowerOfTwoTextureAtlas(int, int, GraphicsFormat, FilterMode, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PowerOfTwoTextureAtlas(int size, int mipPadding, GraphicsFormat format, FilterMode filterMode = 0, string name = &quot;&quot;, bool useMipMap = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipPadding</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>useMipMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_mipPadding_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.mipPadding*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_mipPadding" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.mipPadding">
+  mipPadding
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int mipPadding { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_AllocateTexture_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.AllocateTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_AllocateTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4__UnityEngine_Texture_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.AllocateTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Vector4@,UnityEngine.Texture,System.Int32,System.Int32,System.Int32)">
+  AllocateTexture(CommandBuffer, ref Vector4, Texture, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool AllocateTexture(CommandBuffer cmd, ref Vector4 scaleOffset, Texture texture, int width, int height, int overrideInstanceID = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>scaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>overrideInstanceID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitOctahedralTexture_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitOctahedralTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitOctahedralTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4_UnityEngine_Texture_UnityEngine_Vector4_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitOctahedralTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Vector4,UnityEngine.Texture,UnityEngine.Vector4,System.Boolean,System.Int32)">
+  BlitOctahedralTexture(CommandBuffer, Vector4, Texture, Vector4, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void BlitOctahedralTexture(CommandBuffer cmd, Vector4 scaleOffset, Texture texture, Vector4 sourceScaleOffset, bool blitMips = true, int overrideInstanceID = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>scaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sourceScaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>blitMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>overrideInstanceID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitOctahedralTextureMultiply_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitOctahedralTextureMultiply*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitOctahedralTextureMultiply_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4_UnityEngine_Texture_UnityEngine_Vector4_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitOctahedralTextureMultiply(UnityEngine.Rendering.CommandBuffer,UnityEngine.Vector4,UnityEngine.Texture,UnityEngine.Vector4,System.Boolean,System.Int32)">
+  BlitOctahedralTextureMultiply(CommandBuffer, Vector4, Texture, Vector4, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BlitOctahedralTextureMultiply(CommandBuffer cmd, Vector4 scaleOffset, Texture texture, Vector4 sourceScaleOffset, bool blitMips = true, int overrideInstanceID = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>scaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sourceScaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>blitMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>overrideInstanceID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitTexture_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4_UnityEngine_Texture_UnityEngine_Vector4_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Vector4,UnityEngine.Texture,UnityEngine.Vector4,System.Boolean,System.Int32)">
+  BlitTexture(CommandBuffer, Vector4, Texture, Vector4, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void BlitTexture(CommandBuffer cmd, Vector4 scaleOffset, Texture texture, Vector4 sourceScaleOffset, bool blitMips = true, int overrideInstanceID = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>scaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sourceScaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>blitMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>overrideInstanceID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitTextureMultiply_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitTextureMultiply*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_BlitTextureMultiply_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4_UnityEngine_Texture_UnityEngine_Vector4_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.BlitTextureMultiply(UnityEngine.Rendering.CommandBuffer,UnityEngine.Vector4,UnityEngine.Texture,UnityEngine.Vector4,System.Boolean,System.Int32)">
+  BlitTextureMultiply(CommandBuffer, Vector4, Texture, Vector4, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BlitTextureMultiply(CommandBuffer cmd, Vector4 scaleOffset, Texture texture, Vector4 sourceScaleOffset, bool blitMips = true, int overrideInstanceID = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>scaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sourceScaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>blitMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>overrideInstanceID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetApproxCacheSizeInByte_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetApproxCacheSizeInByte*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetApproxCacheSizeInByte_System_Int32_System_Int32_System_Boolean_UnityEngine_Experimental_Rendering_GraphicsFormat_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetApproxCacheSizeInByte(System.Int32,System.Int32,System.Boolean,UnityEngine.Experimental.Rendering.GraphicsFormat)">
+  GetApproxCacheSizeInByte(int, int, bool, GraphicsFormat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long GetApproxCacheSizeInByte(int nbElement, int resolution, bool hasMipmap, GraphicsFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nbElement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>resolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>hasMipmap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetMaxCacheSizeForWeightInByte_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetMaxCacheSizeForWeightInByte*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetMaxCacheSizeForWeightInByte_System_Int32_System_Boolean_UnityEngine_Experimental_Rendering_GraphicsFormat_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetMaxCacheSizeForWeightInByte(System.Int32,System.Boolean,UnityEngine.Experimental.Rendering.GraphicsFormat)">
+  GetMaxCacheSizeForWeightInByte(int, bool, GraphicsFormat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetMaxCacheSizeForWeightInByte(int weight, bool hasMipmap, GraphicsFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>hasMipmap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetPayloadScaleOffset_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetPayloadScaleOffset*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetPayloadScaleOffset_UnityEngine_Texture_UnityEngine_Vector4__" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetPayloadScaleOffset(UnityEngine.Texture,UnityEngine.Vector4@)">
+  GetPayloadScaleOffset(Texture, in Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 GetPayloadScaleOffset(Texture texture, in Vector4 scaleOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>scaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetPayloadScaleOffset_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetPayloadScaleOffset*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_GetPayloadScaleOffset_UnityEngine_Vector2__UnityEngine_Vector2__UnityEngine_Vector4__" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.GetPayloadScaleOffset(UnityEngine.Vector2@,UnityEngine.Vector2@,UnityEngine.Vector4@)">
+  GetPayloadScaleOffset(in Vector2, in Vector2, in Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4 GetPayloadScaleOffset(in Vector2 textureSize, in Vector2 paddingSize, in Vector4 scaleOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textureSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>paddingSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>scaleOffset</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_RelayoutEntries_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.RelayoutEntries*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_RelayoutEntries" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.RelayoutEntries">
+  RelayoutEntries()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RelayoutEntries()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace(System.Int32,System.Int32,System.Int32)">
+  ReserveSpace(int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReserveSpace(int id, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_UnityEngine_Texture_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace(UnityEngine.Texture)">
+  ReserveSpace(Texture)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReserveSpace(Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_UnityEngine_Texture_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace(UnityEngine.Texture,System.Int32,System.Int32)">
+  ReserveSpace(Texture, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReserveSpace(Texture texture, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ReserveSpace_UnityEngine_Texture_UnityEngine_Texture_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ReserveSpace(UnityEngine.Texture,UnityEngine.Texture,System.Int32,System.Int32)">
+  ReserveSpace(Texture, Texture, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReserveSpace(Texture textureA, Texture textureB, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textureA</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>textureB</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ResetRequestedTexture_" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ResetRequestedTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PowerOfTwoTextureAtlas_ResetRequestedTexture" data-uid="UnityEngine.Rendering.PowerOfTwoTextureAtlas.ResetRequestedTexture">
+  ResetRequestedTexture()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetRequestedTexture()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

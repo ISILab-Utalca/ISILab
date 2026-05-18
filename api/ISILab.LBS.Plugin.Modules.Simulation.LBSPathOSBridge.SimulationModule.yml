@@ -1,0 +1,1369 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  id: SimulationModule
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  children:
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.#ctor
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected(UnityEngine.Vector2Int)
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(System.Int32,System.Int32)
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnAddTile
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnApplyEventTile
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnRemoveTile
+  - ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  langs:
+  - csharp
+  - vb
+  name: SimulationModule
+  nameWithType: SimulationModule
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: 'public class SimulationModule : LBSModule, ICloneable, ISelectable'
+    content.vb: Public Class SimulationModule Inherits LBSModule Implements ICloneable, ISelectable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Modules.LBSModule
+  implements:
+  - System.ICloneable
+  - ISILab.LBS.Modules.ISelectable
+  inheritedMembers:
+  - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OnChanged
+  - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.Print
+  - ISILab.LBS.Modules.LBSModule.GetBounds
+  - ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  id: AddTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: AddTile(SimulationTile)
+  nameWithType: SimulationModule.AddTile(SimulationTile)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public void AddTile(SimulationTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    content.vb: Public Sub AddTile(tile As SimulationTile)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  id: ApplyEventTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: ApplyEventTile(SimulationTile)
+  nameWithType: SimulationModule.ApplyEventTile(SimulationTile)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public bool ApplyEventTile(SimulationTile eventTile)
+    parameters:
+    - id: eventTile
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    return:
+      type: System.Boolean
+    content.vb: Public Function ApplyEventTile(eventTile As SimulationTile) As Boolean
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  id: RemoveTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(SimulationTile)
+  nameWithType: SimulationModule.RemoveTile(SimulationTile)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public void RemoveTile(SimulationTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    content.vb: Public Sub RemoveTile(tile As SimulationTile)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(System.Int32,System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(System.Int32,System.Int32)
+  id: GetTile(System.Int32,System.Int32)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: GetTile(int, int)
+  nameWithType: SimulationModule.GetTile(int, int)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(int, int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public SimulationTile GetTile(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    return:
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    content.vb: Public Function GetTile(x As Integer, y As Integer) As SimulationTile
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile*
+  nameWithType.vb: SimulationModule.GetTile(Integer, Integer)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(Integer, Integer)
+  name.vb: GetTile(Integer, Integer)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  id: GetTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: GetTile(SimulationTile)
+  nameWithType: SimulationModule.GetTile(SimulationTile)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public SimulationTile GetTile(SimulationTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    return:
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    content.vb: Public Function GetTile(tile As SimulationTile) As SimulationTile
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles
+  id: GetTiles
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: GetTiles()
+  nameWithType: SimulationModule.GetTiles()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public List<SimulationTile> GetTiles()
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Function GetTiles() As List(Of SimulationTile)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  id: CleanAllObstacleConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: CleanAllObstacleConnectionsTo(SimulationTile)
+  nameWithType: SimulationModule.CleanAllObstacleConnectionsTo(SimulationTile)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public void CleanAllObstacleConnectionsTo(SimulationTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    content.vb: Public Sub CleanAllObstacleConnectionsTo(tile As SimulationTile)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  id: CleanAllDynamicTagConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: CleanAllDynamicTagConnectionsTo(SimulationTile)
+  nameWithType: SimulationModule.CleanAllDynamicTagConnectionsTo(SimulationTile)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public void CleanAllDynamicTagConnectionsTo(SimulationTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    content.vb: Public Sub CleanAllDynamicTagConnectionsTo(tile As SimulationTile)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear
+  id: Clear
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: SimulationModule.Clear()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  example: []
+  syntax:
+    content: public override void Clear()
+    content.vb: Public Overrides Sub Clear()
+  overridden: ISILab.LBS.Modules.LBSModule.Clear
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone
+  id: Clone
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SimulationModule.Clone()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Modules.LBSModule.Clone
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty
+  id: IsEmpty
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty()
+  nameWithType: SimulationModule.IsEmpty()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  example: []
+  syntax:
+    content: public override bool IsEmpty()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsEmpty() As Boolean
+  overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected(UnityEngine.Vector2Int)
+  id: GetSelected(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: GetSelected(Vector2Int)
+  nameWithType: SimulationModule.GetSelected(Vector2Int)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  example: []
+  syntax:
+    content: public List<object> GetSelected(Vector2Int position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{System.Object}
+    content.vb: Public Function GetSelected(position As Vector2Int) As List(Of Object)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected*
+  implements:
+  - ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.#ctor
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: SimulationModule()
+  nameWithType: SimulationModule.SimulationModule()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.SimulationModule()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public SimulationModule()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.#ctor*
+  nameWithType.vb: SimulationModule.New()
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnAddTile
+  commentId: E:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnAddTile
+  id: OnAddTile
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: OnAddTile
+  nameWithType: SimulationModule.OnAddTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnAddTile
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public event Action<SimulationModule, SimulationTile> OnAddTile
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Event OnAddTile As Action(Of SimulationModule, SimulationTile)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnApplyEventTile
+  commentId: E:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnApplyEventTile
+  id: OnApplyEventTile
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: OnApplyEventTile
+  nameWithType: SimulationModule.OnApplyEventTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnApplyEventTile
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public event Action<SimulationModule, SimulationTile> OnApplyEventTile
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Event OnApplyEventTile As Action(Of SimulationModule, SimulationTile)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnRemoveTile
+  commentId: E:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnRemoveTile
+  id: OnRemoveTile
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+  langs:
+  - csharp
+  - vb
+  name: OnRemoveTile
+  nameWithType: SimulationModule.OnRemoveTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.OnRemoveTile
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public event Action<SimulationModule, SimulationTile> OnRemoveTile
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Event OnRemoveTile As Action(Of SimulationModule, SimulationTile)
+references:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  commentId: N:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  nameWithType: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+    name: LBSPathOSBridge
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+    name: LBSPathOSBridge
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Modules.LBSModule
+  commentId: T:ISILab.LBS.Modules.LBSModule
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html
+  name: LBSModule
+  nameWithType: LBSModule
+  fullName: ISILab.LBS.Modules.LBSModule
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Modules.ISelectable
+  commentId: T:ISILab.LBS.Modules.ISelectable
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.ISelectable.html
+  name: ISelectable
+  nameWithType: ISelectable
+  fullName: ISILab.LBS.Modules.ISelectable
+- uid: ISILab.LBS.Modules.LBSModule.id
+  commentId: F:ISILab.LBS.Modules.LBSModule.id
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
+  name: id
+  nameWithType: LBSModule.id
+  fullName: ISILab.LBS.Modules.LBSModule.id
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Print
+  commentId: M:ISILab.LBS.Modules.LBSModule.Print
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  name: Print()
+  nameWithType: LBSModule.Print()
+  fullName: ISILab.LBS.Modules.LBSModule.Print()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  name: GetBounds()
+  nameWithType: LBSModule.GetBounds()
+  fullName: ISILab.LBS.Modules.LBSModule.GetBounds()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite(LBSModule)
+  nameWithType: LBSModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
+  commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSModule.OwnerLayer
+  fullName: ISILab.LBS.Modules.LBSModule.OwnerLayer
+- uid: ISILab.LBS.Modules.LBSModule.ID
+  commentId: P:ISILab.LBS.Modules.LBSModule.ID
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
+  name: ID
+  nameWithType: LBSModule.ID
+  fullName: ISILab.LBS.Modules.LBSModule.ID
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_AddTile_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_
+  name: AddTile
+  nameWithType: SimulationModule.AddTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.AddTile
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  name: SimulationTile
+  nameWithType: SimulationTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_ApplyEventTile_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_
+  name: ApplyEventTile
+  nameWithType: SimulationModule.ApplyEventTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.ApplyEventTile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_RemoveTile_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_
+  name: RemoveTile
+  nameWithType: SimulationModule.RemoveTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.RemoveTile
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_GetTile_System_Int32_System_Int32_
+  name: GetTile
+  nameWithType: SimulationModule.GetTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTile
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_GetTiles
+  name: GetTiles
+  nameWithType: SimulationModule.GetTiles
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetTiles
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<SimulationTile>
+  nameWithType: List<SimulationTile>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile>
+  nameWithType.vb: List(Of SimulationTile)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  name.vb: List(Of SimulationTile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_CleanAllObstacleConnectionsTo_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_
+  name: CleanAllObstacleConnectionsTo
+  nameWithType: SimulationModule.CleanAllObstacleConnectionsTo
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllObstacleConnectionsTo
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_CleanAllDynamicTagConnectionsTo_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_
+  name: CleanAllDynamicTagConnectionsTo
+  nameWithType: SimulationModule.CleanAllDynamicTagConnectionsTo
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.CleanAllDynamicTagConnectionsTo
+- uid: ISILab.LBS.Modules.LBSModule.Clear
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clear
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  name: Clear()
+  nameWithType: LBSModule.Clear()
+  fullName: ISILab.LBS.Modules.LBSModule.Clear()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_Clear
+  name: Clear
+  nameWithType: SimulationModule.Clear
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clear
+- uid: ISILab.LBS.Modules.LBSModule.Clone
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clone
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  name: Clone()
+  nameWithType: LBSModule.Clone()
+  fullName: ISILab.LBS.Modules.LBSModule.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_Clone
+  name: Clone
+  nameWithType: SimulationModule.Clone
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.Clone
+- uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  name: IsEmpty()
+  nameWithType: LBSModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.LBSModule.IsEmpty()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_IsEmpty
+  name: IsEmpty
+  nameWithType: SimulationModule.IsEmpty
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.IsEmpty
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule_GetSelected_UnityEngine_Vector2Int_
+  name: GetSelected
+  nameWithType: SimulationModule.GetSelected
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.GetSelected
+- uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.ISelectable
+  isExternal: true
+  href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  name: GetSelected(Vector2Int)
+  nameWithType: ISelectable.GetSelected(Vector2Int)
+  fullName: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+    name: GetSelected
+    isExternal: true
+    href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+    name: GetSelected
+    isExternal: true
+    href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: System.Collections.Generic.List{System.Object}
+  commentId: T:System.Collections.Generic.List{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<object>
+  nameWithType: List<object>
+  fullName: System.Collections.Generic.List<object>
+  nameWithType.vb: List(Of Object)
+  fullName.vb: System.Collections.Generic.List(Of Object)
+  name.vb: List(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationModule__ctor
+  name: SimulationModule
+  nameWithType: SimulationModule.SimulationModule
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.SimulationModule
+  nameWithType.vb: SimulationModule.New
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.New
+  name.vb: New
+- uid: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  commentId: T:System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<SimulationModule, SimulationTile>
+  nameWithType: Action<SimulationModule, SimulationTile>
+  fullName: System.Action<ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule, ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile>
+  nameWithType.vb: Action(Of SimulationModule, SimulationTile)
+  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule, ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  name.vb: Action(Of SimulationModule, SimulationTile)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+    name: SimulationModule
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+    name: SimulationModule
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )

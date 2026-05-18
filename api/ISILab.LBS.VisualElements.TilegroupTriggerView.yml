@@ -1,0 +1,274 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.TilegroupTriggerView
+  commentId: T:ISILab.LBS.VisualElements.TilegroupTriggerView
+  id: TilegroupTriggerView
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.TilegroupTriggerView.#ctor
+  - ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged
+  - ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger
+  langs:
+  - csharp
+  - vb
+  name: TilegroupTriggerView
+  nameWithType: TilegroupTriggerView
+  fullName: ISILab.LBS.VisualElements.TilegroupTriggerView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class TilegroupTriggerView : VisualElement'
+    content.vb: Public Class TilegroupTriggerView Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.TilegroupTriggerView.#ctor
+  commentId: M:ISILab.LBS.VisualElements.TilegroupTriggerView.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.TilegroupTriggerView
+  langs:
+  - csharp
+  - vb
+  name: TilegroupTriggerView()
+  nameWithType: TilegroupTriggerView.TilegroupTriggerView()
+  fullName: ISILab.LBS.VisualElements.TilegroupTriggerView.TilegroupTriggerView()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public TilegroupTriggerView()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.TilegroupTriggerView.#ctor*
+  nameWithType.vb: TilegroupTriggerView.New()
+  fullName.vb: ISILab.LBS.VisualElements.TilegroupTriggerView.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger
+  commentId: P:ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger
+  id: Trigger
+  parent: ISILab.LBS.VisualElements.TilegroupTriggerView
+  langs:
+  - csharp
+  - vb
+  name: Trigger
+  nameWithType: TilegroupTriggerView.Trigger
+  fullName: ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public TileTrigger Trigger { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.TileTrigger
+    content.vb: Public Property Trigger As TileTrigger
+  overload: ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger*
+- uid: ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged
+  commentId: P:ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged
+  id: OnTriggerTypeChanged
+  parent: ISILab.LBS.VisualElements.TilegroupTriggerView
+  langs:
+  - csharp
+  - vb
+  name: OnTriggerTypeChanged
+  nameWithType: TilegroupTriggerView.OnTriggerTypeChanged
+  fullName: ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Action<TileTriggerType> OnTriggerTypeChanged { get; }
+    parameters: []
+    return:
+      type: System.Action{ISILab.LBS.Components.TileTriggerType}
+    content.vb: Public ReadOnly Property OnTriggerTypeChanged As Action(Of TileTriggerType)
+  overload: ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.VisualElements.TilegroupTriggerView.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.TilegroupTriggerView.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.TilegroupTriggerView.html#ISILab_LBS_VisualElements_TilegroupTriggerView__ctor
+  name: TilegroupTriggerView
+  nameWithType: TilegroupTriggerView.TilegroupTriggerView
+  fullName: ISILab.LBS.VisualElements.TilegroupTriggerView.TilegroupTriggerView
+  nameWithType.vb: TilegroupTriggerView.New
+  fullName.vb: ISILab.LBS.VisualElements.TilegroupTriggerView.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger*
+  commentId: Overload:ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger
+  isExternal: true
+  href: ISILab.LBS.VisualElements.TilegroupTriggerView.html#ISILab_LBS_VisualElements_TilegroupTriggerView_Trigger
+  name: Trigger
+  nameWithType: TilegroupTriggerView.Trigger
+  fullName: ISILab.LBS.VisualElements.TilegroupTriggerView.Trigger
+- uid: ISILab.LBS.Components.TileTrigger
+  commentId: T:ISILab.LBS.Components.TileTrigger
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.TileTrigger.html
+  name: TileTrigger
+  nameWithType: TileTrigger
+  fullName: ISILab.LBS.Components.TileTrigger
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged*
+  commentId: Overload:ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged
+  isExternal: true
+  href: ISILab.LBS.VisualElements.TilegroupTriggerView.html#ISILab_LBS_VisualElements_TilegroupTriggerView_OnTriggerTypeChanged
+  name: OnTriggerTypeChanged
+  nameWithType: TilegroupTriggerView.OnTriggerTypeChanged
+  fullName: ISILab.LBS.VisualElements.TilegroupTriggerView.OnTriggerTypeChanged
+- uid: System.Action{ISILab.LBS.Components.TileTriggerType}
+  commentId: T:System.Action{ISILab.LBS.Components.TileTriggerType}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<TileTriggerType>
+  nameWithType: Action<TileTriggerType>
+  fullName: System.Action<ISILab.LBS.Components.TileTriggerType>
+  nameWithType.vb: Action(Of TileTriggerType)
+  fullName.vb: System.Action(Of ISILab.LBS.Components.TileTriggerType)
+  name.vb: Action(Of TileTriggerType)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.Components.TileTriggerType
+    name: TileTriggerType
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.TileTriggerType
+    name: TileTriggerType
+    isExternal: true
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

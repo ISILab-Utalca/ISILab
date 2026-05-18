@@ -1,0 +1,827 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  id: PopulationRuleGenerator
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  children:
+  - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor
+  - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor(System.String,System.String,UnityEngine.Color)
+  - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability(LBS.Components.LBSLayer)
+  - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone
+  - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals(System.Object)
+  - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode
+  langs:
+  - csharp
+  - vb
+  name: PopulationRuleGenerator
+  nameWithType: PopulationRuleGenerator
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: 'public class PopulationRuleGenerator : LBSGeneratorRule, ICloneable'
+    content.vb: Public Class PopulationRuleGenerator Inherits LBSGeneratorRule Implements ICloneable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  langs:
+  - csharp
+  - vb
+  name: PopulationRuleGenerator()
+  nameWithType: PopulationRuleGenerator.PopulationRuleGenerator()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.PopulationRuleGenerator()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public PopulationRuleGenerator()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor*
+  nameWithType.vb: PopulationRuleGenerator.New()
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor(System.String,System.String,UnityEngine.Color)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor(System.String,System.String,UnityEngine.Color)
+  id: '#ctor(System.String,System.String,UnityEngine.Color)'
+  parent: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  langs:
+  - csharp
+  - vb
+  name: PopulationRuleGenerator(string, string, Color)
+  nameWithType: PopulationRuleGenerator.PopulationRuleGenerator(string, string, Color)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.PopulationRuleGenerator(string, string, UnityEngine.Color)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public PopulationRuleGenerator(string IconGuid, string name, Color colorTint)
+    parameters:
+    - id: IconGuid
+      type: System.String
+    - id: name
+      type: System.String
+    - id: colorTint
+      type: UnityEngine.Color
+    content.vb: Public Sub New(IconGuid As String, name As String, colorTint As Color)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor*
+  nameWithType.vb: PopulationRuleGenerator.New(String, String, Color)
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.New(String, String, UnityEngine.Color)
+  name.vb: New(String, String, Color)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability(LBS.Components.LBSLayer)
+  id: CheckViability(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  langs:
+  - csharp
+  - vb
+  name: CheckViability(LBSLayer)
+  nameWithType: PopulationRuleGenerator.CheckViability(LBSLayer)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  example: []
+  syntax:
+    content: public override bool CheckViability(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function CheckViability(layer As LBSLayer) As Boolean
+  overridden: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.CheckViability(LBS.Components.LBSLayer)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone
+  id: Clone
+  parent: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: PopulationRuleGenerator.Clone()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Clone
+  overload: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals(System.Object)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: PopulationRuleGenerator.Equals(object)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals*
+  nameWithType.vb: PopulationRuleGenerator.Equals(Object)
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PopulationRuleGenerator.GetHashCode()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  id: Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate(LBSLayer, LBSGenerator3DSettings)
+  nameWithType: PopulationRuleGenerator.Generate(LBSLayer, LBSGenerator3DSettings)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate(LBS.Components.LBSLayer, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  example: []
+  syntax:
+    content: public override LBSGeneratorRule.GeneratedGO Generate(LBSLayer layer, LBSGenerator3DSettings settings)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    - id: settings
+      type: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+    return:
+      type: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO
+    content.vb: Public Overrides Function Generate(layer As LBSLayer, settings As LBSGenerator3DSettings) As LBSGeneratorRule.GeneratedGO
+  overridden: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate*
+references:
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html
+  name: LBSGeneratorRule
+  nameWithType: LBSGeneratorRule
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.html#ISILab_LBS_Plugin_MapTools_Generators_PopulationRuleGenerator__ctor
+  name: PopulationRuleGenerator
+  nameWithType: PopulationRuleGenerator.PopulationRuleGenerator
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.PopulationRuleGenerator
+  nameWithType.vb: PopulationRuleGenerator.New
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.CheckViability(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.CheckViability(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_CheckViability_LBS_Components_LBSLayer_
+  name: CheckViability(LBSLayer)
+  nameWithType: LBSGeneratorRule.CheckViability(LBSLayer)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.CheckViability(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.CheckViability(LBS.Components.LBSLayer)
+    name: CheckViability
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_CheckViability_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.CheckViability(LBS.Components.LBSLayer)
+    name: CheckViability
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_CheckViability_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.html#ISILab_LBS_Plugin_MapTools_Generators_PopulationRuleGenerator_CheckViability_LBS_Components_LBSLayer_
+  name: CheckViability
+  nameWithType: PopulationRuleGenerator.CheckViability
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.CheckViability
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Clone
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Clone
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_Clone
+  name: Clone()
+  nameWithType: LBSGeneratorRule.Clone()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.html#ISILab_LBS_Plugin_MapTools_Generators_PopulationRuleGenerator_Clone
+  name: Clone
+  nameWithType: PopulationRuleGenerator.Clone
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Clone
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.html#ISILab_LBS_Plugin_MapTools_Generators_PopulationRuleGenerator_Equals_System_Object_
+  name: Equals
+  nameWithType: PopulationRuleGenerator.Equals
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.html#ISILab_LBS_Plugin_MapTools_Generators_PopulationRuleGenerator_GetHashCode
+  name: GetHashCode
+  nameWithType: PopulationRuleGenerator.GetHashCode
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_Generate_LBS_Components_LBSLayer_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_
+  name: Generate(LBSLayer, LBSGenerator3DSettings)
+  nameWithType: LBSGeneratorRule.Generate(LBSLayer, LBSGenerator3DSettings)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Generate(LBS.Components.LBSLayer, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+    name: Generate
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_Generate_LBS_Components_LBSLayer_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+    name: LBSGenerator3DSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.Generate(LBS.Components.LBSLayer,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings)
+    name: Generate
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSGeneratorRule_Generate_LBS_Components_LBSLayer_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+    name: LBSGenerator3DSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.html#ISILab_LBS_Plugin_MapTools_Generators_PopulationRuleGenerator_Generate_LBS_Components_LBSLayer_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_
+  name: Generate
+  nameWithType: PopulationRuleGenerator.Generate
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator.Generate
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+  parent: ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html
+  name: LBSGenerator3DSettings
+  nameWithType: LBSGenerator3DSettings
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html
+  name: LBSGeneratorRule.GeneratedGO
+  nameWithType: LBSGeneratorRule.GeneratedGO
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+    name: LBSGeneratorRule
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO
+    name: GeneratedGO
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule
+    name: LBSGeneratorRule
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO
+    name: GeneratedGO
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.GeneratedGO.html
+- uid: ISILab.LBS.Plugin.Core.Settings
+  commentId: N:ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.Settings
+  nameWithType: ISILab.LBS.Plugin.Core.Settings
+  fullName: ISILab.LBS.Plugin.Core.Settings
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html

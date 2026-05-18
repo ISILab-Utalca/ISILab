@@ -1,0 +1,1954 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.QuestNodeData
+  commentId: T:ISILab.LBS.Components.QuestNodeData
+  id: QuestNodeData
+  parent: ISILab.LBS.Components
+  children:
+  - ISILab.LBS.Components.QuestNodeData.#ctor(ISILab.LBS.Components.QuestNode,ISILab.AI.Grammar.GrammarTerminal)
+  - ISILab.LBS.Components.QuestNodeData.ApplyTilesToData(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
+  - ISILab.LBS.Components.QuestNodeData.Area
+  - ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
+  - ISILab.LBS.Components.QuestNodeData.Equals(System.Object)
+  - ISILab.LBS.Components.QuestNodeData.EventHooker
+  - ISILab.LBS.Components.QuestNodeData.Fields
+  - ISILab.LBS.Components.QuestNodeData.GetField(System.String)
+  - ISILab.LBS.Components.QuestNodeData.GetField``1
+  - ISILab.LBS.Components.QuestNodeData.GetField``1(System.String)
+  - ISILab.LBS.Components.QuestNodeData.GetFields``1
+  - ISILab.LBS.Components.QuestNodeData.GetHashCode
+  - ISILab.LBS.Components.QuestNodeData.Graph
+  - ISILab.LBS.Components.QuestNodeData.ID
+  - ISILab.LBS.Components.QuestNodeData.IsValid
+  - ISILab.LBS.Components.QuestNodeData.Node
+  - ISILab.LBS.Components.QuestNodeData.OnBeginChange
+  - ISILab.LBS.Components.QuestNodeData.OnDataChanged
+  - ISILab.LBS.Components.QuestNodeData.OnEndChange
+  - ISILab.LBS.Components.QuestNodeData.OwnerLayer
+  - ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames
+  - ISILab.LBS.Components.QuestNodeData.Resize
+  - ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles(System.Collections.Generic.IEnumerable{ISILab.LBS.Components.BundleTargetGraph})
+  - ISILab.LBS.Components.QuestNodeData.SetArea(UnityEngine.Rect)
+  - ISILab.LBS.Components.QuestNodeData.Terminal
+  - ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTargetGraph@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  - ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},System.Collections.Generic.List{ISILab.LBS.Components.BundleTargetGraph}@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  - ISILab.LBS.Components.QuestNodeData.TrySetBundleType(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTarget@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  - ISILab.LBS.Components.QuestNodeData.ownerNode
+  langs:
+  - csharp
+  - vb
+  name: QuestNodeData
+  nameWithType: QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public class QuestNodeData
+    content.vb: Public Class QuestNodeData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Components.QuestNodeData.ownerNode
+  commentId: F:ISILab.LBS.Components.QuestNodeData.ownerNode
+  id: ownerNode
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: ownerNode
+  nameWithType: QuestNodeData.ownerNode
+  fullName: ISILab.LBS.Components.QuestNodeData.ownerNode
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected QuestNode ownerNode
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Protected ownerNode As QuestNode
+- uid: ISILab.LBS.Components.QuestNodeData.OnBeginChange
+  commentId: F:ISILab.LBS.Components.QuestNodeData.OnBeginChange
+  id: OnBeginChange
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: OnBeginChange
+  nameWithType: QuestNodeData.OnBeginChange
+  fullName: ISILab.LBS.Components.QuestNodeData.OnBeginChange
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Action OnBeginChange
+    return:
+      type: System.Action
+    content.vb: Public OnBeginChange As Action
+- uid: ISILab.LBS.Components.QuestNodeData.OnEndChange
+  commentId: F:ISILab.LBS.Components.QuestNodeData.OnEndChange
+  id: OnEndChange
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: OnEndChange
+  nameWithType: QuestNodeData.OnEndChange
+  fullName: ISILab.LBS.Components.QuestNodeData.OnEndChange
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Action OnEndChange
+    return:
+      type: System.Action
+    content.vb: Public OnEndChange As Action
+- uid: ISILab.LBS.Components.QuestNodeData.OnDataChanged
+  commentId: F:ISILab.LBS.Components.QuestNodeData.OnDataChanged
+  id: OnDataChanged
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: OnDataChanged
+  nameWithType: QuestNodeData.OnDataChanged
+  fullName: ISILab.LBS.Components.QuestNodeData.OnDataChanged
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Action<QuestNodeData> OnDataChanged
+    return:
+      type: System.Action{ISILab.LBS.Components.QuestNodeData}
+    content.vb: Public OnDataChanged As Action(Of QuestNodeData)
+- uid: ISILab.LBS.Components.QuestNodeData.#ctor(ISILab.LBS.Components.QuestNode,ISILab.AI.Grammar.GrammarTerminal)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.#ctor(ISILab.LBS.Components.QuestNode,ISILab.AI.Grammar.GrammarTerminal)
+  id: '#ctor(ISILab.LBS.Components.QuestNode,ISILab.AI.Grammar.GrammarTerminal)'
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: QuestNodeData(QuestNode, GrammarTerminal)
+  nameWithType: QuestNodeData.QuestNodeData(QuestNode, GrammarTerminal)
+  fullName: ISILab.LBS.Components.QuestNodeData.QuestNodeData(ISILab.LBS.Components.QuestNode, ISILab.AI.Grammar.GrammarTerminal)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public QuestNodeData(QuestNode ownerNode, GrammarTerminal terminal)
+    parameters:
+    - id: ownerNode
+      type: ISILab.LBS.Components.QuestNode
+    - id: terminal
+      type: ISILab.AI.Grammar.GrammarTerminal
+    content.vb: Public Sub New(ownerNode As QuestNode, terminal As GrammarTerminal)
+  overload: ISILab.LBS.Components.QuestNodeData.#ctor*
+  nameWithType.vb: QuestNodeData.New(QuestNode, GrammarTerminal)
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.New(ISILab.LBS.Components.QuestNode, ISILab.AI.Grammar.GrammarTerminal)
+  name.vb: New(QuestNode, GrammarTerminal)
+- uid: ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
+  id: Clone(ISILab.LBS.Components.QuestNodeData)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Clone(QuestNodeData)
+  nameWithType: QuestNodeData.Clone(QuestNodeData)
+  fullName: ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public virtual void Clone(QuestNodeData data)
+    parameters:
+    - id: data
+      type: ISILab.LBS.Components.QuestNodeData
+    content.vb: Public Overridable Sub Clone(data As QuestNodeData)
+  overload: ISILab.LBS.Components.QuestNodeData.Clone*
+- uid: ISILab.LBS.Components.QuestNodeData.Equals(System.Object)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: QuestNodeData.Equals(object)
+  fullName: ISILab.LBS.Components.QuestNodeData.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Components.QuestNodeData.Equals*
+  nameWithType.vb: QuestNodeData.Equals(Object)
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Components.QuestNodeData.IsValid
+  commentId: M:ISILab.LBS.Components.QuestNodeData.IsValid
+  id: IsValid
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: IsValid()
+  nameWithType: QuestNodeData.IsValid()
+  fullName: ISILab.LBS.Components.QuestNodeData.IsValid()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public bool IsValid()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsValid() As Boolean
+  overload: ISILab.LBS.Components.QuestNodeData.IsValid*
+- uid: ISILab.LBS.Components.QuestNodeData.GetHashCode
+  commentId: M:ISILab.LBS.Components.QuestNodeData.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: QuestNodeData.GetHashCode()
+  fullName: ISILab.LBS.Components.QuestNodeData.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Components.QuestNodeData.GetHashCode*
+- uid: ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames
+  commentId: M:ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames
+  id: ReferencedLayerNames
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: ReferencedLayerNames()
+  nameWithType: QuestNodeData.ReferencedLayerNames()
+  fullName: ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public List<string> ReferencedLayerNames()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function ReferencedLayerNames() As List(Of String)
+  overload: ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames*
+- uid: ISILab.LBS.Components.QuestNodeData.Resize
+  commentId: M:ISILab.LBS.Components.QuestNodeData.Resize
+  id: Resize
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Resize()
+  nameWithType: QuestNodeData.Resize()
+  fullName: ISILab.LBS.Components.QuestNodeData.Resize()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public void Resize()
+    content.vb: Public Sub Resize()
+  overload: ISILab.LBS.Components.QuestNodeData.Resize*
+- uid: ISILab.LBS.Components.QuestNodeData.ApplyTilesToData(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.ApplyTilesToData(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
+  id: ApplyTilesToData(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: ApplyTilesToData(QuestCandidate)
+  nameWithType: QuestNodeData.ApplyTilesToData(QuestCandidate)
+  fullName: ISILab.LBS.Components.QuestNodeData.ApplyTilesToData(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public void ApplyTilesToData(QuestCandidate data)
+    parameters:
+    - id: data
+      type: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
+    content.vb: Public Sub ApplyTilesToData(data As QuestCandidate)
+  overload: ISILab.LBS.Components.QuestNodeData.ApplyTilesToData*
+- uid: ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles(System.Collections.Generic.IEnumerable{ISILab.LBS.Components.BundleTargetGraph})
+  commentId: M:ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles(System.Collections.Generic.IEnumerable{ISILab.LBS.Components.BundleTargetGraph})
+  id: ResizeToFitBundles(System.Collections.Generic.IEnumerable{ISILab.LBS.Components.BundleTargetGraph})
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: ResizeToFitBundles(IEnumerable<BundleTargetGraph>)
+  nameWithType: QuestNodeData.ResizeToFitBundles(IEnumerable<BundleTargetGraph>)
+  fullName: ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles(System.Collections.Generic.IEnumerable<ISILab.LBS.Components.BundleTargetGraph>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected void ResizeToFitBundles(IEnumerable<BundleTargetGraph> bundles)
+    parameters:
+    - id: bundles
+      type: System.Collections.Generic.IEnumerable{ISILab.LBS.Components.BundleTargetGraph}
+    content.vb: Protected Sub ResizeToFitBundles(bundles As IEnumerable(Of BundleTargetGraph))
+  overload: ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles*
+  nameWithType.vb: QuestNodeData.ResizeToFitBundles(IEnumerable(Of BundleTargetGraph))
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles(System.Collections.Generic.IEnumerable(Of ISILab.LBS.Components.BundleTargetGraph))
+  name.vb: ResizeToFitBundles(IEnumerable(Of BundleTargetGraph))
+- uid: ISILab.LBS.Components.QuestNodeData.GetFields``1
+  commentId: M:ISILab.LBS.Components.QuestNodeData.GetFields``1
+  id: GetFields``1
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: GetFields<T>()
+  nameWithType: QuestNodeData.GetFields<T>()
+  fullName: ISILab.LBS.Components.QuestNodeData.GetFields<T>()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: 'public List<T> GetFields<T>() where T : GrammarField'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Function GetFields(Of T As GrammarField)() As List(Of T)
+  overload: ISILab.LBS.Components.QuestNodeData.GetFields*
+  nameWithType.vb: QuestNodeData.GetFields(Of T)()
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.GetFields(Of T)()
+  name.vb: GetFields(Of T)()
+- uid: ISILab.LBS.Components.QuestNodeData.GetField``1
+  commentId: M:ISILab.LBS.Components.QuestNodeData.GetField``1
+  id: GetField``1
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: GetField<T>()
+  nameWithType: QuestNodeData.GetField<T>()
+  fullName: ISILab.LBS.Components.QuestNodeData.GetField<T>()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: 'public T GetField<T>() where T : GrammarField'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetField(Of T As GrammarField)() As T
+  overload: ISILab.LBS.Components.QuestNodeData.GetField*
+  nameWithType.vb: QuestNodeData.GetField(Of T)()
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.GetField(Of T)()
+  name.vb: GetField(Of T)()
+- uid: ISILab.LBS.Components.QuestNodeData.GetField(System.String)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.GetField(System.String)
+  id: GetField(System.String)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: GetField(string)
+  nameWithType: QuestNodeData.GetField(string)
+  fullName: ISILab.LBS.Components.QuestNodeData.GetField(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public GrammarField GetField(string fieldName)
+    parameters:
+    - id: fieldName
+      type: System.String
+    return:
+      type: ISILab.AI.Grammar.GrammarField
+    content.vb: Public Function GetField(fieldName As String) As GrammarField
+  overload: ISILab.LBS.Components.QuestNodeData.GetField*
+  nameWithType.vb: QuestNodeData.GetField(String)
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.GetField(String)
+  name.vb: GetField(String)
+- uid: ISILab.LBS.Components.QuestNodeData.GetField``1(System.String)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.GetField``1(System.String)
+  id: GetField``1(System.String)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: GetField<T>(string)
+  nameWithType: QuestNodeData.GetField<T>(string)
+  fullName: ISILab.LBS.Components.QuestNodeData.GetField<T>(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: 'public T GetField<T>(string fieldName) where T : GrammarField'
+    parameters:
+    - id: fieldName
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetField(Of T As GrammarField)(fieldName As String) As T
+  overload: ISILab.LBS.Components.QuestNodeData.GetField*
+  nameWithType.vb: QuestNodeData.GetField(Of T)(String)
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.GetField(Of T)(String)
+  name.vb: GetField(Of T)(String)
+- uid: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},System.Collections.Generic.List{ISILab.LBS.Components.BundleTargetGraph}@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},System.Collections.Generic.List{ISILab.LBS.Components.BundleTargetGraph}@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  id: TrySetBundleGraphList(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},System.Collections.Generic.List{ISILab.LBS.Components.BundleTargetGraph}@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: TrySetBundleGraphList(List<LBSLayer>, List<TileBundleGroup>, ref List<BundleTargetGraph>, EElementFlag[], bool)
+  nameWithType: QuestNodeData.TrySetBundleGraphList(List<LBSLayer>, List<TileBundleGroup>, ref List<BundleTargetGraph>, Bundle.EElementFlag[], bool)
+  fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList(System.Collections.Generic.List<LBS.Components.LBSLayer>, System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>, ref System.Collections.Generic.List<ISILab.LBS.Components.BundleTargetGraph>, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[], bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected bool TrySetBundleGraphList(List<LBSLayer> layers, List<TileBundleGroup> suggestions, ref List<BundleTargetGraph> listVar, Bundle.EElementFlag[] flags, bool bRequireAllTags = false)
+    parameters:
+    - id: layers
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    - id: suggestions
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+    - id: listVar
+      type: System.Collections.Generic.List{ISILab.LBS.Components.BundleTargetGraph}
+    - id: flags
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[]
+    - id: bRequireAllTags
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Protected Function TrySetBundleGraphList(layers As List(Of LBSLayer), suggestions As List(Of TileBundleGroup), listVar As List(Of BundleTargetGraph), flags As Bundle.EElementFlag(), bRequireAllTags As Boolean = False) As Boolean
+  overload: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList*
+  nameWithType.vb: QuestNodeData.TrySetBundleGraphList(List(Of LBSLayer), List(Of TileBundleGroup), List(Of BundleTargetGraph), Bundle.EElementFlag(), Boolean)
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList(System.Collections.Generic.List(Of LBS.Components.LBSLayer), System.Collections.Generic.List(Of ISILab.LBS.Modules.TileBundleGroup), System.Collections.Generic.List(Of ISILab.LBS.Components.BundleTargetGraph), ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag(), Boolean)
+  name.vb: TrySetBundleGraphList(List(Of LBSLayer), List(Of TileBundleGroup), List(Of BundleTargetGraph), EElementFlag(), Boolean)
+- uid: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTargetGraph@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTargetGraph@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  id: TrySetBundleGraph(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTargetGraph@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: TrySetBundleGraph(List<LBSLayer>, List<TileBundleGroup>, ref BundleTargetGraph, EElementFlag[], bool)
+  nameWithType: QuestNodeData.TrySetBundleGraph(List<LBSLayer>, List<TileBundleGroup>, ref BundleTargetGraph, Bundle.EElementFlag[], bool)
+  fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph(System.Collections.Generic.List<LBS.Components.LBSLayer>, System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>, ref ISILab.LBS.Components.BundleTargetGraph, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[], bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected bool TrySetBundleGraph(List<LBSLayer> layers, List<TileBundleGroup> suggestions, ref BundleTargetGraph graphVar, Bundle.EElementFlag[] flags, bool bRequireAllTags = false)
+    parameters:
+    - id: layers
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    - id: suggestions
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+    - id: graphVar
+      type: ISILab.LBS.Components.BundleTargetGraph
+    - id: flags
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[]
+    - id: bRequireAllTags
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Protected Function TrySetBundleGraph(layers As List(Of LBSLayer), suggestions As List(Of TileBundleGroup), graphVar As BundleTargetGraph, flags As Bundle.EElementFlag(), bRequireAllTags As Boolean = False) As Boolean
+  overload: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph*
+  nameWithType.vb: QuestNodeData.TrySetBundleGraph(List(Of LBSLayer), List(Of TileBundleGroup), BundleTargetGraph, Bundle.EElementFlag(), Boolean)
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph(System.Collections.Generic.List(Of LBS.Components.LBSLayer), System.Collections.Generic.List(Of ISILab.LBS.Modules.TileBundleGroup), ISILab.LBS.Components.BundleTargetGraph, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag(), Boolean)
+  name.vb: TrySetBundleGraph(List(Of LBSLayer), List(Of TileBundleGroup), BundleTargetGraph, EElementFlag(), Boolean)
+- uid: ISILab.LBS.Components.QuestNodeData.TrySetBundleType(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTarget@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.TrySetBundleType(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTarget@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  id: TrySetBundleType(System.Collections.Generic.List{LBS.Components.LBSLayer},System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup},ISILab.LBS.Components.BundleTarget@,ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[],System.Boolean)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: TrySetBundleType(List<LBSLayer>, List<TileBundleGroup>, ref BundleTarget, EElementFlag[], bool)
+  nameWithType: QuestNodeData.TrySetBundleType(List<LBSLayer>, List<TileBundleGroup>, ref BundleTarget, Bundle.EElementFlag[], bool)
+  fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleType(System.Collections.Generic.List<LBS.Components.LBSLayer>, System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>, ref ISILab.LBS.Components.BundleTarget, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[], bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected bool TrySetBundleType(List<LBSLayer> layers, List<TileBundleGroup> suggestions, ref BundleTarget typeVar, Bundle.EElementFlag[] flags, bool bRequireAllTags = false)
+    parameters:
+    - id: layers
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    - id: suggestions
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+    - id: typeVar
+      type: ISILab.LBS.Components.BundleTarget
+    - id: flags
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[]
+    - id: bRequireAllTags
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Protected Function TrySetBundleType(layers As List(Of LBSLayer), suggestions As List(Of TileBundleGroup), typeVar As BundleTarget, flags As Bundle.EElementFlag(), bRequireAllTags As Boolean = False) As Boolean
+  overload: ISILab.LBS.Components.QuestNodeData.TrySetBundleType*
+  nameWithType.vb: QuestNodeData.TrySetBundleType(List(Of LBSLayer), List(Of TileBundleGroup), BundleTarget, Bundle.EElementFlag(), Boolean)
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.TrySetBundleType(System.Collections.Generic.List(Of LBS.Components.LBSLayer), System.Collections.Generic.List(Of ISILab.LBS.Modules.TileBundleGroup), ISILab.LBS.Components.BundleTarget, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag(), Boolean)
+  name.vb: TrySetBundleType(List(Of LBSLayer), List(Of TileBundleGroup), BundleTarget, EElementFlag(), Boolean)
+- uid: ISILab.LBS.Components.QuestNodeData.SetArea(UnityEngine.Rect)
+  commentId: M:ISILab.LBS.Components.QuestNodeData.SetArea(UnityEngine.Rect)
+  id: SetArea(UnityEngine.Rect)
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: SetArea(Rect)
+  nameWithType: QuestNodeData.SetArea(Rect)
+  fullName: ISILab.LBS.Components.QuestNodeData.SetArea(UnityEngine.Rect)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public void SetArea(Rect newValue)
+    parameters:
+    - id: newValue
+      type: UnityEngine.Rect
+    content.vb: Public Sub SetArea(newValue As Rect)
+  overload: ISILab.LBS.Components.QuestNodeData.SetArea*
+- uid: ISILab.LBS.Components.QuestNodeData.Fields
+  commentId: P:ISILab.LBS.Components.QuestNodeData.Fields
+  id: Fields
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Fields
+  nameWithType: QuestNodeData.Fields
+  fullName: ISILab.LBS.Components.QuestNodeData.Fields
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public List<GrammarField> Fields { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarField}
+    content.vb: Public ReadOnly Property Fields As List(Of GrammarField)
+  overload: ISILab.LBS.Components.QuestNodeData.Fields*
+- uid: ISILab.LBS.Components.QuestNodeData.Terminal
+  commentId: P:ISILab.LBS.Components.QuestNodeData.Terminal
+  id: Terminal
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Terminal
+  nameWithType: QuestNodeData.Terminal
+  fullName: ISILab.LBS.Components.QuestNodeData.Terminal
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public GrammarTerminal Terminal { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Grammar.GrammarTerminal
+    content.vb: Public Property Terminal As GrammarTerminal
+  overload: ISILab.LBS.Components.QuestNodeData.Terminal*
+- uid: ISILab.LBS.Components.QuestNodeData.ID
+  commentId: P:ISILab.LBS.Components.QuestNodeData.ID
+  id: ID
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: QuestNodeData.ID
+  fullName: ISILab.LBS.Components.QuestNodeData.ID
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public string ID { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ID As String
+  overload: ISILab.LBS.Components.QuestNodeData.ID*
+- uid: ISILab.LBS.Components.QuestNodeData.Node
+  commentId: P:ISILab.LBS.Components.QuestNodeData.Node
+  id: Node
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Node
+  nameWithType: QuestNodeData.Node
+  fullName: ISILab.LBS.Components.QuestNodeData.Node
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public QuestNode Node { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public ReadOnly Property Node As QuestNode
+  overload: ISILab.LBS.Components.QuestNodeData.Node*
+- uid: ISILab.LBS.Components.QuestNodeData.Graph
+  commentId: P:ISILab.LBS.Components.QuestNodeData.Graph
+  id: Graph
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Graph
+  nameWithType: QuestNodeData.Graph
+  fullName: ISILab.LBS.Components.QuestNodeData.Graph
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public QuestGraph Graph { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.QuestGraph
+    content.vb: Public ReadOnly Property Graph As QuestGraph
+  overload: ISILab.LBS.Components.QuestNodeData.Graph*
+- uid: ISILab.LBS.Components.QuestNodeData.OwnerLayer
+  commentId: P:ISILab.LBS.Components.QuestNodeData.OwnerLayer
+  id: OwnerLayer
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: OwnerLayer
+  nameWithType: QuestNodeData.OwnerLayer
+  fullName: ISILab.LBS.Components.QuestNodeData.OwnerLayer
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSLayer OwnerLayer { get; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public ReadOnly Property OwnerLayer As LBSLayer
+  overload: ISILab.LBS.Components.QuestNodeData.OwnerLayer*
+- uid: ISILab.LBS.Components.QuestNodeData.EventHooker
+  commentId: P:ISILab.LBS.Components.QuestNodeData.EventHooker
+  id: EventHooker
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: EventHooker
+  nameWithType: QuestNodeData.EventHooker
+  fullName: ISILab.LBS.Components.QuestNodeData.EventHooker
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSEventHooker EventHooker { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+    content.vb: Public ReadOnly Property EventHooker As LBSEventHooker
+  overload: ISILab.LBS.Components.QuestNodeData.EventHooker*
+- uid: ISILab.LBS.Components.QuestNodeData.Area
+  commentId: P:ISILab.LBS.Components.QuestNodeData.Area
+  id: Area
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Area
+  nameWithType: QuestNodeData.Area
+  fullName: ISILab.LBS.Components.QuestNodeData.Area
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public GrammarArea Area { get; }
+    parameters: []
+    return:
+      type: ISILab.AI.Grammar.GrammarArea
+    content.vb: Public ReadOnly Property Area As GrammarArea
+  overload: ISILab.LBS.Components.QuestNodeData.Area*
+references:
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Components.QuestNode
+  commentId: T:ISILab.LBS.Components.QuestNode
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNode.html
+  name: QuestNode
+  nameWithType: QuestNode
+  fullName: ISILab.LBS.Components.QuestNode
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Action{ISILab.LBS.Components.QuestNodeData}
+  commentId: T:System.Action{ISILab.LBS.Components.QuestNodeData}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<QuestNodeData>
+  nameWithType: Action<QuestNodeData>
+  fullName: System.Action<ISILab.LBS.Components.QuestNodeData>
+  nameWithType.vb: Action(Of QuestNodeData)
+  fullName.vb: System.Action(Of ISILab.LBS.Components.QuestNodeData)
+  name.vb: Action(Of QuestNodeData)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.Components.QuestNodeData
+    name: QuestNodeData
+    isExternal: true
+    href: ISILab.LBS.Components.QuestNodeData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.QuestNodeData
+    name: QuestNodeData
+    isExternal: true
+    href: ISILab.LBS.Components.QuestNodeData.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Components.QuestNodeData.#ctor*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.#ctor
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData__ctor_ISILab_LBS_Components_QuestNode_ISILab_AI_Grammar_GrammarTerminal_
+  name: QuestNodeData
+  nameWithType: QuestNodeData.QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData.QuestNodeData
+  nameWithType.vb: QuestNodeData.New
+  fullName.vb: ISILab.LBS.Components.QuestNodeData.New
+  name.vb: New
+- uid: ISILab.AI.Grammar.GrammarTerminal
+  commentId: T:ISILab.AI.Grammar.GrammarTerminal
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarTerminal.html
+  name: GrammarTerminal
+  nameWithType: GrammarTerminal
+  fullName: ISILab.AI.Grammar.GrammarTerminal
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+- uid: ISILab.LBS.Components.QuestNodeData.Clone*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Clone
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Clone_ISILab_LBS_Components_QuestNodeData_
+  name: Clone
+  nameWithType: QuestNodeData.Clone
+  fullName: ISILab.LBS.Components.QuestNodeData.Clone
+- uid: ISILab.LBS.Components.QuestNodeData
+  commentId: T:ISILab.LBS.Components.QuestNodeData
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html
+  name: QuestNodeData
+  nameWithType: QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Components.QuestNodeData.Equals*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Equals
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Equals_System_Object_
+  name: Equals
+  nameWithType: QuestNodeData.Equals
+  fullName: ISILab.LBS.Components.QuestNodeData.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Components.QuestNodeData.IsValid*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.IsValid
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_IsValid
+  name: IsValid
+  nameWithType: QuestNodeData.IsValid
+  fullName: ISILab.LBS.Components.QuestNodeData.IsValid
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Components.QuestNodeData.GetHashCode*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_GetHashCode
+  name: GetHashCode
+  nameWithType: QuestNodeData.GetHashCode
+  fullName: ISILab.LBS.Components.QuestNodeData.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_ReferencedLayerNames
+  name: ReferencedLayerNames
+  nameWithType: QuestNodeData.ReferencedLayerNames
+  fullName: ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Components.QuestNodeData.Resize*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Resize
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Resize
+  name: Resize
+  nameWithType: QuestNodeData.Resize
+  fullName: ISILab.LBS.Components.QuestNodeData.Resize
+- uid: ISILab.LBS.Components.QuestNodeData.ApplyTilesToData*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.ApplyTilesToData
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_ApplyTilesToData_ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_
+  name: ApplyTilesToData
+  nameWithType: QuestNodeData.ApplyTilesToData
+  fullName: ISILab.LBS.Components.QuestNodeData.ApplyTilesToData
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html
+  name: QuestCandidate
+  nameWithType: QuestCandidate
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Assistant
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+- uid: ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_ResizeToFitBundles_System_Collections_Generic_IEnumerable_ISILab_LBS_Components_BundleTargetGraph__
+  name: ResizeToFitBundles
+  nameWithType: QuestNodeData.ResizeToFitBundles
+  fullName: ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles
+- uid: System.Collections.Generic.IEnumerable{ISILab.LBS.Components.BundleTargetGraph}
+  commentId: T:System.Collections.Generic.IEnumerable{ISILab.LBS.Components.BundleTargetGraph}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<BundleTargetGraph>
+  nameWithType: IEnumerable<BundleTargetGraph>
+  fullName: System.Collections.Generic.IEnumerable<ISILab.LBS.Components.BundleTargetGraph>
+  nameWithType.vb: IEnumerable(Of BundleTargetGraph)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ISILab.LBS.Components.BundleTargetGraph)
+  name.vb: IEnumerable(Of BundleTargetGraph)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Components.QuestNodeData.GetFields*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.GetFields
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_GetFields__1
+  name: GetFields
+  nameWithType: QuestNodeData.GetFields
+  fullName: ISILab.LBS.Components.QuestNodeData.GetFields
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Components.QuestNodeData.GetField*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.GetField
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_GetField__1
+  name: GetField
+  nameWithType: QuestNodeData.GetField
+  fullName: ISILab.LBS.Components.QuestNodeData.GetField
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.AI.Grammar.GrammarField
+  commentId: T:ISILab.AI.Grammar.GrammarField
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html
+  name: GrammarField
+  nameWithType: GrammarField
+  fullName: ISILab.AI.Grammar.GrammarField
+- uid: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_TrySetBundleGraphList_System_Collections_Generic_List_LBS_Components_LBSLayer__System_Collections_Generic_List_ISILab_LBS_Modules_TileBundleGroup__System_Collections_Generic_List_ISILab_LBS_Components_BundleTargetGraph___ISILab_LBS_Plugin_Components_Bundles_Bundle_EElementFlag___System_Boolean_
+  name: TrySetBundleGraphList
+  nameWithType: QuestNodeData.TrySetBundleGraphList
+  fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList
+- uid: System.Collections.Generic.List{LBS.Components.LBSLayer}
+  commentId: T:System.Collections.Generic.List{LBS.Components.LBSLayer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSLayer>
+  nameWithType: List<LBSLayer>
+  fullName: System.Collections.Generic.List<LBS.Components.LBSLayer>
+  nameWithType.vb: List(Of LBSLayer)
+  fullName.vb: System.Collections.Generic.List(Of LBS.Components.LBSLayer)
+  name.vb: List(Of LBSLayer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TileBundleGroup>
+  nameWithType: List<TileBundleGroup>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>
+  nameWithType.vb: List(Of TileBundleGroup)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.TileBundleGroup)
+  name.vb: List(Of TileBundleGroup)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.TileBundleGroup
+    name: TileBundleGroup
+    isExternal: true
+    href: ISILab.LBS.Modules.TileBundleGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.TileBundleGroup
+    name: TileBundleGroup
+    isExternal: true
+    href: ISILab.LBS.Modules.TileBundleGroup.html
+  - name: )
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.BundleTargetGraph}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.BundleTargetGraph}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<BundleTargetGraph>
+  nameWithType: List<BundleTargetGraph>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.BundleTargetGraph>
+  nameWithType.vb: List(Of BundleTargetGraph)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.BundleTargetGraph)
+  name.vb: List(Of BundleTargetGraph)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.BundleTargetGraph
+    name: BundleTargetGraph
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTargetGraph.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[]
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag.html
+  name: EElementFlag[]
+  nameWithType: Bundle.EElementFlag[]
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[]
+  nameWithType.vb: Bundle.EElementFlag()
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag()
+  name.vb: EElementFlag()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+    name: EElementFlag
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+    name: EElementFlag
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag.html
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_TrySetBundleGraph_System_Collections_Generic_List_LBS_Components_LBSLayer__System_Collections_Generic_List_ISILab_LBS_Modules_TileBundleGroup__ISILab_LBS_Components_BundleTargetGraph__ISILab_LBS_Plugin_Components_Bundles_Bundle_EElementFlag___System_Boolean_
+  name: TrySetBundleGraph
+  nameWithType: QuestNodeData.TrySetBundleGraph
+  fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph
+- uid: ISILab.LBS.Components.BundleTargetGraph
+  commentId: T:ISILab.LBS.Components.BundleTargetGraph
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.BundleTargetGraph.html
+  name: BundleTargetGraph
+  nameWithType: BundleTargetGraph
+  fullName: ISILab.LBS.Components.BundleTargetGraph
+- uid: ISILab.LBS.Components.QuestNodeData.TrySetBundleType*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.TrySetBundleType
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_TrySetBundleType_System_Collections_Generic_List_LBS_Components_LBSLayer__System_Collections_Generic_List_ISILab_LBS_Modules_TileBundleGroup__ISILab_LBS_Components_BundleTarget__ISILab_LBS_Plugin_Components_Bundles_Bundle_EElementFlag___System_Boolean_
+  name: TrySetBundleType
+  nameWithType: QuestNodeData.TrySetBundleType
+  fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleType
+- uid: ISILab.LBS.Components.BundleTarget
+  commentId: T:ISILab.LBS.Components.BundleTarget
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.BundleTarget.html
+  name: BundleTarget
+  nameWithType: BundleTarget
+  fullName: ISILab.LBS.Components.BundleTarget
+- uid: ISILab.LBS.Components.QuestNodeData.SetArea*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.SetArea
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_SetArea_UnityEngine_Rect_
+  name: SetArea
+  nameWithType: QuestNodeData.SetArea
+  fullName: ISILab.LBS.Components.QuestNodeData.SetArea
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: ISILab.LBS.Components.QuestNodeData.Fields*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Fields
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Fields
+  name: Fields
+  nameWithType: QuestNodeData.Fields
+  fullName: ISILab.LBS.Components.QuestNodeData.Fields
+- uid: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarField}
+  commentId: T:System.Collections.Generic.List{ISILab.AI.Grammar.GrammarField}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GrammarField>
+  nameWithType: List<GrammarField>
+  fullName: System.Collections.Generic.List<ISILab.AI.Grammar.GrammarField>
+  nameWithType.vb: List(Of GrammarField)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.AI.Grammar.GrammarField)
+  name.vb: List(Of GrammarField)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.AI.Grammar.GrammarField
+    name: GrammarField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Grammar.GrammarField
+    name: GrammarField
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarField.html
+  - name: )
+- uid: ISILab.LBS.Components.QuestNodeData.Terminal*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Terminal
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Terminal
+  name: Terminal
+  nameWithType: QuestNodeData.Terminal
+  fullName: ISILab.LBS.Components.QuestNodeData.Terminal
+- uid: ISILab.LBS.Components.QuestNodeData.ID*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.ID
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_ID
+  name: ID
+  nameWithType: QuestNodeData.ID
+  fullName: ISILab.LBS.Components.QuestNodeData.ID
+- uid: ISILab.LBS.Components.QuestNodeData.Node*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Node
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Node
+  name: Node
+  nameWithType: QuestNodeData.Node
+  fullName: ISILab.LBS.Components.QuestNodeData.Node
+- uid: ISILab.LBS.Components.QuestNodeData.Graph*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Graph
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Graph
+  name: Graph
+  nameWithType: QuestNodeData.Graph
+  fullName: ISILab.LBS.Components.QuestNodeData.Graph
+- uid: ISILab.LBS.Modules.QuestGraph
+  commentId: T:ISILab.LBS.Modules.QuestGraph
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestGraph.html
+  name: QuestGraph
+  nameWithType: QuestGraph
+  fullName: ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Components.QuestNodeData.OwnerLayer*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.OwnerLayer
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_OwnerLayer
+  name: OwnerLayer
+  nameWithType: QuestNodeData.OwnerLayer
+  fullName: ISILab.LBS.Components.QuestNodeData.OwnerLayer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: ISILab.LBS.Components.QuestNodeData.EventHooker*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.EventHooker
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_EventHooker
+  name: EventHooker
+  nameWithType: QuestNodeData.EventHooker
+  fullName: ISILab.LBS.Components.QuestNodeData.EventHooker
+- uid: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+  commentId: T:ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.LBSEventHooker.html
+  name: LBSEventHooker
+  nameWithType: LBSEventHooker
+  fullName: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+- uid: ISILab.LBS.Plugin.Components.Data
+  commentId: N:ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data
+  nameWithType: ISILab.LBS.Plugin.Components.Data
+  fullName: ISILab.LBS.Plugin.Components.Data
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+- uid: ISILab.LBS.Components.QuestNodeData.Area*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Area
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Area
+  name: Area
+  nameWithType: QuestNodeData.Area
+  fullName: ISILab.LBS.Components.QuestNodeData.Area
+- uid: ISILab.AI.Grammar.GrammarArea
+  commentId: T:ISILab.AI.Grammar.GrammarArea
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarArea.html
+  name: GrammarArea
+  nameWithType: GrammarArea
+  fullName: ISILab.AI.Grammar.GrammarArea

@@ -1,0 +1,774 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  id: BundleManagerWindow.BundleContainer
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  children:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.#ctor(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer})
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning(System.String)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString
+  langs:
+  - csharp
+  - vb
+  name: BundleManagerWindow.BundleContainer
+  nameWithType: BundleManagerWindow.BundleContainer
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public class BundleManagerWindow.BundleContainer
+    content.vb: Public Class BundleManagerWindow.BundleContainer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.#ctor(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer})
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.#ctor(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer})
+  id: '#ctor(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer})'
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  langs:
+  - csharp
+  - vb
+  name: BundleContainer(Bundle, List<BundleContainer>)
+  nameWithType: BundleManagerWindow.BundleContainer.BundleContainer(Bundle, List<BundleManagerWindow.BundleContainer>)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.BundleContainer(ISILab.LBS.Plugin.Components.Bundles.Bundle, System.Collections.Generic.List<ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer>)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public BundleContainer(Bundle main, List<BundleManagerWindow.BundleContainer> subBundles = null)
+    parameters:
+    - id: main
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    - id: subBundles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer}
+    content.vb: Public Sub New(main As Bundle, subBundles As List(Of BundleManagerWindow.BundleContainer) = Nothing)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.#ctor*
+  nameWithType.vb: BundleManagerWindow.BundleContainer.New(Bundle, List(Of BundleManagerWindow.BundleContainer))
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.New(ISILab.LBS.Plugin.Components.Bundles.Bundle, System.Collections.Generic.List(Of ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer))
+  name.vb: New(Bundle, List(Of BundleContainer))
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle
+  id: GetMainBundle
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  langs:
+  - csharp
+  - vb
+  name: GetMainBundle()
+  nameWithType: BundleManagerWindow.BundleContainer.GetMainBundle()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public Bundle GetMainBundle()
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    content.vb: Public Function GetMainBundle() As Bundle
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles
+  id: GetSubBundles
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  langs:
+  - csharp
+  - vb
+  name: GetSubBundles()
+  nameWithType: BundleManagerWindow.BundleContainer.GetSubBundles()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public List<BundleManagerWindow.BundleContainer> GetSubBundles()
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer}
+    content.vb: Public Function GetSubBundles() As List(Of BundleManagerWindow.BundleContainer)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings
+  id: GetWarnings
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  langs:
+  - csharp
+  - vb
+  name: GetWarnings()
+  nameWithType: BundleManagerWindow.BundleContainer.GetWarnings()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public List<string> GetWarnings()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetWarnings() As List(Of String)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning(System.String)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning(System.String)
+  id: AddWarning(System.String)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  langs:
+  - csharp
+  - vb
+  name: AddWarning(string)
+  nameWithType: BundleManagerWindow.BundleContainer.AddWarning(string)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public void AddWarning(string warning)
+    parameters:
+    - id: warning
+      type: System.String
+    content.vb: Public Sub AddWarning(warning As String)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning*
+  nameWithType.vb: BundleManagerWindow.BundleContainer.AddWarning(String)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning(String)
+  name.vb: AddWarning(String)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings
+  id: ClearWarnings
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  langs:
+  - csharp
+  - vb
+  name: ClearWarnings()
+  nameWithType: BundleManagerWindow.BundleContainer.ClearWarnings()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public void ClearWarnings()
+    content.vb: Public Sub ClearWarnings()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString
+  id: ToString
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: BundleManagerWindow.BundleContainer.ToString()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString*
+references:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+    name: BundleManager
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+    name: BundleManager
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer__ctor_ISILab_LBS_Plugin_Components_Bundles_Bundle_System_Collections_Generic_List_ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer__
+  name: BundleContainer
+  nameWithType: BundleManagerWindow.BundleContainer.BundleContainer
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.BundleContainer
+  nameWithType.vb: BundleManagerWindow.BundleContainer.New
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle
+  nameWithType: Bundle
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<BundleManagerWindow.BundleContainer>
+  nameWithType: List<BundleManagerWindow.BundleContainer>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer>
+  nameWithType.vb: List(Of BundleManagerWindow.BundleContainer)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer)
+  name.vb: List(Of BundleManagerWindow.BundleContainer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
+    name: BundleManagerWindow
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+    name: BundleContainer
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
+    name: BundleManagerWindow
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
+    name: BundleContainer
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer_GetMainBundle
+  name: GetMainBundle
+  nameWithType: BundleManagerWindow.BundleContainer.GetMainBundle
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetMainBundle
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer_GetSubBundles
+  name: GetSubBundles
+  nameWithType: BundleManagerWindow.BundleContainer.GetSubBundles
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetSubBundles
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer_GetWarnings
+  name: GetWarnings
+  nameWithType: BundleManagerWindow.BundleContainer.GetWarnings
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.GetWarnings
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer_AddWarning_System_String_
+  name: AddWarning
+  nameWithType: BundleManagerWindow.BundleContainer.AddWarning
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.AddWarning
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer_ClearWarnings
+  name: ClearWarnings
+  nameWithType: BundleManagerWindow.BundleContainer.ClearWarnings
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ClearWarnings
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleContainer_ToString
+  name: ToString
+  nameWithType: BundleManagerWindow.BundleContainer.ToString
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.ToString

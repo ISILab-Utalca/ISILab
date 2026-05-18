@@ -1,0 +1,530 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Optimization.Selections.ISelection
+  commentId: T:ISILab.AI.Optimization.Selections.ISelection
+  id: ISelection
+  parent: ISILab.AI.Optimization.Selections
+  children:
+  - ISILab.AI.Optimization.Selections.ISelection.GetBetters(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Nullable{System.Double})
+  - ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables(System.Int32,ISILab.AI.Optimization.Populations.Generation)
+  langs:
+  - csharp
+  - vb
+  name: ISelection
+  nameWithType: ISelection
+  fullName: ISILab.AI.Optimization.Selections.ISelection
+  type: Interface
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Selections
+  syntax:
+    content: public interface ISelection
+    content.vb: Public Interface ISelection
+  derivedClasses:
+  - ISILab.AI.Optimization.Selections.EliteSelection
+  - ISILab.AI.Optimization.Selections.RankSelection
+  - ISILab.AI.Optimization.Selections.RouletteWheelSelection
+  - ISILab.AI.Optimization.Selections.SelectionBase
+  - ISILab.AI.Optimization.Selections.StochasticElitistSelection
+  - ISILab.AI.Optimization.Selections.StochasticUniversalSamplingSelection
+  - ISILab.AI.Optimization.Selections.TournamentSelection
+- uid: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables(System.Int32,ISILab.AI.Optimization.Populations.Generation)
+  commentId: M:ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables(System.Int32,ISILab.AI.Optimization.Populations.Generation)
+  id: SelectEvaluables(System.Int32,ISILab.AI.Optimization.Populations.Generation)
+  parent: ISILab.AI.Optimization.Selections.ISelection
+  langs:
+  - csharp
+  - vb
+  name: SelectEvaluables(int, Generation)
+  nameWithType: ISelection.SelectEvaluables(int, Generation)
+  fullName: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables(int, ISILab.AI.Optimization.Populations.Generation)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Selections
+  syntax:
+    content: IList<IOptimizable> SelectEvaluables(int number, Generation generation)
+    parameters:
+    - id: number
+      type: System.Int32
+    - id: generation
+      type: ISILab.AI.Optimization.Populations.Generation
+    return:
+      type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+    content.vb: Function SelectEvaluables(number As Integer, generation As Generation) As IList(Of IOptimizable)
+  overload: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables*
+  nameWithType.vb: ISelection.SelectEvaluables(Integer, Generation)
+  fullName.vb: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables(Integer, ISILab.AI.Optimization.Populations.Generation)
+  name.vb: SelectEvaluables(Integer, Generation)
+- uid: ISILab.AI.Optimization.Selections.ISelection.GetBetters(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Nullable{System.Double})
+  commentId: M:ISILab.AI.Optimization.Selections.ISelection.GetBetters(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Nullable{System.Double})
+  id: GetBetters(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,System.Nullable{System.Double})
+  parent: ISILab.AI.Optimization.Selections.ISelection
+  langs:
+  - csharp
+  - vb
+  name: GetBetters(IEvaluator, double?)
+  nameWithType: ISelection.GetBetters(IEvaluator, double?)
+  fullName: ISILab.AI.Optimization.Selections.ISelection.GetBetters(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator, double?)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Selections
+  syntax:
+    content: List<IOptimizable> GetBetters(IEvaluator evaluator, double? score)
+    parameters:
+    - id: evaluator
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+    - id: score
+      type: System.Nullable{System.Double}
+    return:
+      type: System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}
+    content.vb: Function GetBetters(evaluator As IEvaluator, score As Double?) As List(Of IOptimizable)
+  overload: ISILab.AI.Optimization.Selections.ISelection.GetBetters*
+  nameWithType.vb: ISelection.GetBetters(IEvaluator, Double?)
+  fullName.vb: ISILab.AI.Optimization.Selections.ISelection.GetBetters(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator, Double?)
+  name.vb: GetBetters(IEvaluator, Double?)
+references:
+- uid: ISILab.AI.Optimization.Selections
+  commentId: N:ISILab.AI.Optimization.Selections
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Selections
+  nameWithType: ISILab.AI.Optimization.Selections
+  fullName: ISILab.AI.Optimization.Selections
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Selections
+    name: Selections
+    isExternal: true
+    href: ISILab.AI.Optimization.Selections.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Selections
+    name: Selections
+    isExternal: true
+    href: ISILab.AI.Optimization.Selections.html
+- uid: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables*
+  commentId: Overload:ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables
+  isExternal: true
+  href: ISILab.AI.Optimization.Selections.ISelection.html#ISILab_AI_Optimization_Selections_ISelection_SelectEvaluables_System_Int32_ISILab_AI_Optimization_Populations_Generation_
+  name: SelectEvaluables
+  nameWithType: ISelection.SelectEvaluables
+  fullName: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.AI.Optimization.Populations.Generation
+  commentId: T:ISILab.AI.Optimization.Populations.Generation
+  parent: ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.Generation.html
+  name: Generation
+  nameWithType: Generation
+  fullName: ISILab.AI.Optimization.Populations.Generation
+- uid: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  commentId: T:System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<IOptimizable>
+  nameWithType: IList<IOptimizable>
+  fullName: System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>
+  nameWithType.vb: IList(Of IOptimizable)
+  fullName.vb: System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable)
+  name.vb: IList(Of IOptimizable)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.AI.Optimization.Populations
+  commentId: N:ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Populations
+  nameWithType: ISILab.AI.Optimization.Populations
+  fullName: ISILab.AI.Optimization.Populations
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.AI.Optimization.Selections.ISelection.GetBetters*
+  commentId: Overload:ISILab.AI.Optimization.Selections.ISelection.GetBetters
+  isExternal: true
+  href: ISILab.AI.Optimization.Selections.ISelection.html#ISILab_AI_Optimization_Selections_ISelection_GetBetters_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_System_Nullable_System_Double__
+  name: GetBetters
+  nameWithType: ISelection.GetBetters
+  fullName: ISILab.AI.Optimization.Selections.ISelection.GetBetters
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html
+  name: IEvaluator
+  nameWithType: IEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}
+  commentId: T:System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IOptimizable>
+  nameWithType: List<IOptimizable>
+  fullName: System.Collections.Generic.List<ISILab.AI.Optimization.IOptimizable>
+  nameWithType.vb: List(Of IOptimizable)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.AI.Optimization.IOptimizable)
+  name.vb: List(Of IOptimizable)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

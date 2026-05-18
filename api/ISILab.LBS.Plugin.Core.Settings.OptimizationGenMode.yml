@@ -1,0 +1,162 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  id: OptimizationGenMode
+  parent: ISILab.LBS.Plugin.Core.Settings
+  children:
+  - ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.Batch
+  - ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.GpuInstancing
+  - ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.JoinGeometry
+  - ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.None
+  langs:
+  - csharp
+  - vb
+  name: OptimizationGenMode
+  nameWithType: OptimizationGenMode
+  fullName: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  type: Enum
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public enum OptimizationGenMode
+    content.vb: Public Enum OptimizationGenMode
+- uid: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.None
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.None
+  id: None
+  parent: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: OptimizationGenMode.None
+  fullName: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.None
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: None = 0
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+- uid: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.Batch
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.Batch
+  id: Batch
+  parent: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  langs:
+  - csharp
+  - vb
+  name: Batch
+  nameWithType: OptimizationGenMode.Batch
+  fullName: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.Batch
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: Batch = 1
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+- uid: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.JoinGeometry
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.JoinGeometry
+  id: JoinGeometry
+  parent: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  langs:
+  - csharp
+  - vb
+  name: JoinGeometry
+  nameWithType: OptimizationGenMode.JoinGeometry
+  fullName: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.JoinGeometry
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: JoinGeometry = 2
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+- uid: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.GpuInstancing
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.GpuInstancing
+  id: GpuInstancing
+  parent: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  langs:
+  - csharp
+  - vb
+  name: GpuInstancing
+  nameWithType: OptimizationGenMode.GpuInstancing
+  fullName: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.GpuInstancing
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: GpuInstancing = 3
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+references:
+- uid: ISILab.LBS.Plugin.Core.Settings
+  commentId: N:ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.Settings
+  nameWithType: ISILab.LBS.Plugin.Core.Settings
+  fullName: ISILab.LBS.Plugin.Core.Settings
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html
+- uid: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
+  parent: ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.html
+  name: OptimizationGenMode
+  nameWithType: OptimizationGenMode
+  fullName: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode

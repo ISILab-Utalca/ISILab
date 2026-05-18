@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TimelineClip | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TimelineClip | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Timeline.TimelineClip">
+
+
+
+  <h1 id="UnityEngine_Timeline_TimelineClip" data-uid="UnityEngine.Timeline.TimelineClip" class="text-break">
+Class TimelineClip  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Timeline.html">Timeline</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Timeline.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TimelineClip : ISerializationCallbackReceiver</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TimelineClip</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ISerializationCallbackReceiver</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEngine.Timeline.TimelineClipExtensions.html#UnityEngine_Timeline_TimelineClipExtensions_MoveToTrack_UnityEngine_Timeline_TimelineClip_UnityEngine_Timeline_TrackAsset_">TimelineClipExtensions.MoveToTrack(TimelineClip, TrackAsset)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEngine.Timeline.TimelineClipExtensions.html#UnityEngine_Timeline_TimelineClipExtensions_TryMoveToTrack_UnityEngine_Timeline_TimelineClip_UnityEngine_Timeline_TrackAsset_">TimelineClipExtensions.TryMoveToTrack(TimelineClip, TrackAsset)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_kDefaultClipCaps" data-uid="UnityEngine.Timeline.TimelineClip.kDefaultClipCaps">
+  kDefaultClipCaps
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly ClipCaps kDefaultClipCaps</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.ClipCaps.html">ClipCaps</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_kDefaultClipDurationInSeconds" data-uid="UnityEngine.Timeline.TimelineClip.kDefaultClipDurationInSeconds">
+  kDefaultClipDurationInSeconds
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly float kDefaultClipDurationInSeconds</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_kTimeScaleMax" data-uid="UnityEngine.Timeline.TimelineClip.kTimeScaleMax">
+  kTimeScaleMax
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly double kTimeScaleMax</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_kTimeScaleMin" data-uid="UnityEngine.Timeline.TimelineClip.kTimeScaleMin">
+  kTimeScaleMin
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly double kTimeScaleMin</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_animationClip_" data-uid="UnityEngine.Timeline.TimelineClip.animationClip*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_animationClip" data-uid="UnityEngine.Timeline.TimelineClip.animationClip">
+  animationClip
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationClip animationClip { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">AnimationClip</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_asset_" data-uid="UnityEngine.Timeline.TimelineClip.asset*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_asset" data-uid="UnityEngine.Timeline.TimelineClip.asset">
+  asset
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Object asset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_blendInCurveMode_" data-uid="UnityEngine.Timeline.TimelineClip.blendInCurveMode*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_blendInCurveMode" data-uid="UnityEngine.Timeline.TimelineClip.blendInCurveMode">
+  blendInCurveMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimelineClip.BlendCurveMode blendInCurveMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.TimelineClip.html">TimelineClip</a>.<a class="xref" href="UnityEngine.Timeline.TimelineClip.BlendCurveMode.html">BlendCurveMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_blendInDuration_" data-uid="UnityEngine.Timeline.TimelineClip.blendInDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_blendInDuration" data-uid="UnityEngine.Timeline.TimelineClip.blendInDuration">
+  blendInDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double blendInDuration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_blendOutCurveMode_" data-uid="UnityEngine.Timeline.TimelineClip.blendOutCurveMode*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_blendOutCurveMode" data-uid="UnityEngine.Timeline.TimelineClip.blendOutCurveMode">
+  blendOutCurveMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimelineClip.BlendCurveMode blendOutCurveMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.TimelineClip.html">TimelineClip</a>.<a class="xref" href="UnityEngine.Timeline.TimelineClip.BlendCurveMode.html">BlendCurveMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_blendOutDuration_" data-uid="UnityEngine.Timeline.TimelineClip.blendOutDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_blendOutDuration" data-uid="UnityEngine.Timeline.TimelineClip.blendOutDuration">
+  blendOutDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double blendOutDuration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_clipAssetDuration_" data-uid="UnityEngine.Timeline.TimelineClip.clipAssetDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_clipAssetDuration" data-uid="UnityEngine.Timeline.TimelineClip.clipAssetDuration">
+  clipAssetDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double clipAssetDuration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_clipCaps_" data-uid="UnityEngine.Timeline.TimelineClip.clipCaps*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_clipCaps" data-uid="UnityEngine.Timeline.TimelineClip.clipCaps">
+  clipCaps
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClipCaps clipCaps { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.ClipCaps.html">ClipCaps</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_clipIn_" data-uid="UnityEngine.Timeline.TimelineClip.clipIn*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_clipIn" data-uid="UnityEngine.Timeline.TimelineClip.clipIn">
+  clipIn
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double clipIn { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_curves_" data-uid="UnityEngine.Timeline.TimelineClip.curves*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_curves" data-uid="UnityEngine.Timeline.TimelineClip.curves">
+  curves
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationClip curves { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">AnimationClip</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_displayName_" data-uid="UnityEngine.Timeline.TimelineClip.displayName*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_displayName" data-uid="UnityEngine.Timeline.TimelineClip.displayName">
+  displayName
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string displayName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_duration_" data-uid="UnityEngine.Timeline.TimelineClip.duration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_duration" data-uid="UnityEngine.Timeline.TimelineClip.duration">
+  duration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double duration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_easeInDuration_" data-uid="UnityEngine.Timeline.TimelineClip.easeInDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_easeInDuration" data-uid="UnityEngine.Timeline.TimelineClip.easeInDuration">
+  easeInDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double easeInDuration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_easeOutDuration_" data-uid="UnityEngine.Timeline.TimelineClip.easeOutDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_easeOutDuration" data-uid="UnityEngine.Timeline.TimelineClip.easeOutDuration">
+  easeOutDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double easeOutDuration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_easeOutTime_" data-uid="UnityEngine.Timeline.TimelineClip.easeOutTime*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_easeOutTime" data-uid="UnityEngine.Timeline.TimelineClip.easeOutTime">
+  easeOutTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double easeOutTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_eastOutTime_" data-uid="UnityEngine.Timeline.TimelineClip.eastOutTime*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_eastOutTime" data-uid="UnityEngine.Timeline.TimelineClip.eastOutTime">
+  eastOutTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use easeOutTime instead (UnityUpgradable) -&gt; easeOutTime&quot;, true)]
+public double eastOutTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_end_" data-uid="UnityEngine.Timeline.TimelineClip.end*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_end" data-uid="UnityEngine.Timeline.TimelineClip.end">
+  end
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double end { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_exposedParameters_" data-uid="UnityEngine.Timeline.TimelineClip.exposedParameters*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_exposedParameters" data-uid="UnityEngine.Timeline.TimelineClip.exposedParameters">
+  exposedParameters
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;exposedParameter is deprecated and will be removed in a future release&quot;, true)]
+public List&lt;string&gt; exposedParameters { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_extrapolatedDuration_" data-uid="UnityEngine.Timeline.TimelineClip.extrapolatedDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_extrapolatedDuration" data-uid="UnityEngine.Timeline.TimelineClip.extrapolatedDuration">
+  extrapolatedDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double extrapolatedDuration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_extrapolatedStart_" data-uid="UnityEngine.Timeline.TimelineClip.extrapolatedStart*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_extrapolatedStart" data-uid="UnityEngine.Timeline.TimelineClip.extrapolatedStart">
+  extrapolatedStart
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double extrapolatedStart { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_hasBlendIn_" data-uid="UnityEngine.Timeline.TimelineClip.hasBlendIn*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_hasBlendIn" data-uid="UnityEngine.Timeline.TimelineClip.hasBlendIn">
+  hasBlendIn
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasBlendIn { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_hasBlendOut_" data-uid="UnityEngine.Timeline.TimelineClip.hasBlendOut*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_hasBlendOut" data-uid="UnityEngine.Timeline.TimelineClip.hasBlendOut">
+  hasBlendOut
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasBlendOut { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_hasCurves_" data-uid="UnityEngine.Timeline.TimelineClip.hasCurves*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_hasCurves" data-uid="UnityEngine.Timeline.TimelineClip.hasCurves">
+  hasCurves
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasCurves { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_hasPostExtrapolation_" data-uid="UnityEngine.Timeline.TimelineClip.hasPostExtrapolation*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_hasPostExtrapolation" data-uid="UnityEngine.Timeline.TimelineClip.hasPostExtrapolation">
+  hasPostExtrapolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasPostExtrapolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_hasPreExtrapolation_" data-uid="UnityEngine.Timeline.TimelineClip.hasPreExtrapolation*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_hasPreExtrapolation" data-uid="UnityEngine.Timeline.TimelineClip.hasPreExtrapolation">
+  hasPreExtrapolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasPreExtrapolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_mixInCurve_" data-uid="UnityEngine.Timeline.TimelineClip.mixInCurve*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_mixInCurve" data-uid="UnityEngine.Timeline.TimelineClip.mixInCurve">
+  mixInCurve
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationCurve mixInCurve { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">AnimationCurve</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_mixInDuration_" data-uid="UnityEngine.Timeline.TimelineClip.mixInDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_mixInDuration" data-uid="UnityEngine.Timeline.TimelineClip.mixInDuration">
+  mixInDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double mixInDuration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_mixInPercentage_" data-uid="UnityEngine.Timeline.TimelineClip.mixInPercentage*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_mixInPercentage" data-uid="UnityEngine.Timeline.TimelineClip.mixInPercentage">
+  mixInPercentage
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float mixInPercentage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_mixOutCurve_" data-uid="UnityEngine.Timeline.TimelineClip.mixOutCurve*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_mixOutCurve" data-uid="UnityEngine.Timeline.TimelineClip.mixOutCurve">
+  mixOutCurve
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationCurve mixOutCurve { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">AnimationCurve</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_mixOutDuration_" data-uid="UnityEngine.Timeline.TimelineClip.mixOutDuration*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_mixOutDuration" data-uid="UnityEngine.Timeline.TimelineClip.mixOutDuration">
+  mixOutDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double mixOutDuration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_mixOutPercentage_" data-uid="UnityEngine.Timeline.TimelineClip.mixOutPercentage*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_mixOutPercentage" data-uid="UnityEngine.Timeline.TimelineClip.mixOutPercentage">
+  mixOutPercentage
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float mixOutPercentage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_mixOutTime_" data-uid="UnityEngine.Timeline.TimelineClip.mixOutTime*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_mixOutTime" data-uid="UnityEngine.Timeline.TimelineClip.mixOutTime">
+  mixOutTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double mixOutTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_parentTrack_" data-uid="UnityEngine.Timeline.TimelineClip.parentTrack*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_parentTrack" data-uid="UnityEngine.Timeline.TimelineClip.parentTrack">
+  parentTrack
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;parentTrack is deprecated and will be removed in a future release. Use GetParentTrack() and TimelineClipExtensions::MoveToTrack() or TimelineClipExtensions::TryMoveToTrack() instead.&quot;, false)]
+public TrackAsset parentTrack { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.TrackAsset.html">TrackAsset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_postExtrapolationMode_" data-uid="UnityEngine.Timeline.TimelineClip.postExtrapolationMode*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_postExtrapolationMode" data-uid="UnityEngine.Timeline.TimelineClip.postExtrapolationMode">
+  postExtrapolationMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimelineClip.ClipExtrapolation postExtrapolationMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.TimelineClip.html">TimelineClip</a>.<a class="xref" href="UnityEngine.Timeline.TimelineClip.ClipExtrapolation.html">ClipExtrapolation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_preExtrapolationMode_" data-uid="UnityEngine.Timeline.TimelineClip.preExtrapolationMode*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_preExtrapolationMode" data-uid="UnityEngine.Timeline.TimelineClip.preExtrapolationMode">
+  preExtrapolationMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimelineClip.ClipExtrapolation preExtrapolationMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.TimelineClip.html">TimelineClip</a>.<a class="xref" href="UnityEngine.Timeline.TimelineClip.ClipExtrapolation.html">ClipExtrapolation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_recordable_" data-uid="UnityEngine.Timeline.TimelineClip.recordable*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_recordable" data-uid="UnityEngine.Timeline.TimelineClip.recordable">
+  recordable
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool recordable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_start_" data-uid="UnityEngine.Timeline.TimelineClip.start*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_start" data-uid="UnityEngine.Timeline.TimelineClip.start">
+  start
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double start { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_timeScale_" data-uid="UnityEngine.Timeline.TimelineClip.timeScale*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_timeScale" data-uid="UnityEngine.Timeline.TimelineClip.timeScale">
+  timeScale
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double timeScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_underlyingAsset_" data-uid="UnityEngine.Timeline.TimelineClip.underlyingAsset*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_underlyingAsset" data-uid="UnityEngine.Timeline.TimelineClip.underlyingAsset">
+  underlyingAsset
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;underlyingAsset property is obsolete. Use asset property instead&quot;, true)]
+public Object underlyingAsset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_ConformEaseValues_" data-uid="UnityEngine.Timeline.TimelineClip.ConformEaseValues*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_ConformEaseValues" data-uid="UnityEngine.Timeline.TimelineClip.ConformEaseValues">
+  ConformEaseValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConformEaseValues()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_CreateCurves_" data-uid="UnityEngine.Timeline.TimelineClip.CreateCurves*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_CreateCurves_System_String_" data-uid="UnityEngine.Timeline.TimelineClip.CreateCurves(System.String)">
+  CreateCurves(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateCurves(string curvesClipName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curvesClipName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_EvaluateMixIn_" data-uid="UnityEngine.Timeline.TimelineClip.EvaluateMixIn*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_EvaluateMixIn_System_Double_" data-uid="UnityEngine.Timeline.TimelineClip.EvaluateMixIn(System.Double)">
+  EvaluateMixIn(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float EvaluateMixIn(double time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_EvaluateMixOut_" data-uid="UnityEngine.Timeline.TimelineClip.EvaluateMixOut*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_EvaluateMixOut_System_Double_" data-uid="UnityEngine.Timeline.TimelineClip.EvaluateMixOut(System.Double)">
+  EvaluateMixOut(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float EvaluateMixOut(double time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_GetParentTrack_" data-uid="UnityEngine.Timeline.TimelineClip.GetParentTrack*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_GetParentTrack" data-uid="UnityEngine.Timeline.TimelineClip.GetParentTrack">
+  GetParentTrack()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrackAsset GetParentTrack()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Timeline.TrackAsset.html">TrackAsset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_IsExtrapolatedTime_" data-uid="UnityEngine.Timeline.TimelineClip.IsExtrapolatedTime*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_IsExtrapolatedTime_System_Double_" data-uid="UnityEngine.Timeline.TimelineClip.IsExtrapolatedTime(System.Double)">
+  IsExtrapolatedTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsExtrapolatedTime(double sequenceTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sequenceTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_IsPostExtrapolatedTime_" data-uid="UnityEngine.Timeline.TimelineClip.IsPostExtrapolatedTime*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_IsPostExtrapolatedTime_System_Double_" data-uid="UnityEngine.Timeline.TimelineClip.IsPostExtrapolatedTime(System.Double)">
+  IsPostExtrapolatedTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPostExtrapolatedTime(double sequenceTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sequenceTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_IsPreExtrapolatedTime_" data-uid="UnityEngine.Timeline.TimelineClip.IsPreExtrapolatedTime*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_IsPreExtrapolatedTime_System_Double_" data-uid="UnityEngine.Timeline.TimelineClip.IsPreExtrapolatedTime(System.Double)">
+  IsPreExtrapolatedTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPreExtrapolatedTime(double sequenceTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sequenceTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_ToLocalTime_" data-uid="UnityEngine.Timeline.TimelineClip.ToLocalTime*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_ToLocalTime_System_Double_" data-uid="UnityEngine.Timeline.TimelineClip.ToLocalTime(System.Double)">
+  ToLocalTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ToLocalTime(double time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_ToLocalTimeUnbound_" data-uid="UnityEngine.Timeline.TimelineClip.ToLocalTimeUnbound*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_ToLocalTimeUnbound_System_Double_" data-uid="UnityEngine.Timeline.TimelineClip.ToLocalTimeUnbound(System.Double)">
+  ToLocalTimeUnbound(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ToLocalTimeUnbound(double time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Timeline_TimelineClip_ToString_" data-uid="UnityEngine.Timeline.TimelineClip.ToString*"></a>
+
+  <h3 id="UnityEngine_Timeline_TimelineClip_ToString" data-uid="UnityEngine.Timeline.TimelineClip.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RuntimeUtilities | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RuntimeUtilities | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities">
+
+
+
+  <h1 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities" class="text-break">
+Class RuntimeUtilities  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.PostProcessing.html">PostProcessing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Postprocessing.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class RuntimeUtilities</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RuntimeUtilities</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_blackTexture_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.blackTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_blackTexture" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.blackTexture">
+  blackTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D blackTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_blackTexture3D_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.blackTexture3D*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_blackTexture3D" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.blackTexture3D">
+  blackTexture3D
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture3D blackTexture3D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture3D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyFromTexArrayMaterial_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyFromTexArrayMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyFromTexArrayMaterial" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyFromTexArrayMaterial">
+  copyFromTexArrayMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Material copyFromTexArrayMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyFromTexArraySheet_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyFromTexArraySheet*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyFromTexArraySheet" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyFromTexArraySheet">
+  copyFromTexArraySheet
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PropertySheet copyFromTexArraySheet { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyMaterial_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyMaterial" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyMaterial">
+  copyMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Material copyMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copySheet_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copySheet*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copySheet" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copySheet">
+  copySheet
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PropertySheet copySheet { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyStdFromDoubleWideMaterial_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyStdFromDoubleWideMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyStdFromDoubleWideMaterial" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyStdFromDoubleWideMaterial">
+  copyStdFromDoubleWideMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Material copyStdFromDoubleWideMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyStdMaterial_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyStdMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_copyStdMaterial" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.copyStdMaterial">
+  copyStdMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Material copyStdMaterial { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_defaultHDRRenderTextureFormat_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.defaultHDRRenderTextureFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_defaultHDRRenderTextureFormat" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.defaultHDRRenderTextureFormat">
+  defaultHDRRenderTextureFormat
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RenderTextureFormat defaultHDRRenderTextureFormat { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderTextureFormat</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_fullscreenTriangle_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.fullscreenTriangle*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_fullscreenTriangle" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.fullscreenTriangle">
+  fullscreenTriangle
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Mesh fullscreenTriangle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isAndroidOpenGL_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isAndroidOpenGL*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isAndroidOpenGL" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isAndroidOpenGL">
+  isAndroidOpenGL
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isAndroidOpenGL { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isLinearColorSpace_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isLinearColorSpace*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isLinearColorSpace" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isLinearColorSpace">
+  isLinearColorSpace
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isLinearColorSpace { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isOpenGLES_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isOpenGLES*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isOpenGLES" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isOpenGLES">
+  isOpenGLES
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isOpenGLES { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isSinglePassStereoEnabled_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isSinglePassStereoEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isSinglePassStereoEnabled" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isSinglePassStereoEnabled">
+  isSinglePassStereoEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isSinglePassStereoEnabled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isSinglePassStereoSelected_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isSinglePassStereoSelected*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isSinglePassStereoSelected" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isSinglePassStereoSelected">
+  isSinglePassStereoSelected
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isSinglePassStereoSelected { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isVREnabled_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isVREnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isVREnabled" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isVREnabled">
+  isVREnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isVREnabled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isWebNonWebGPU_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isWebNonWebGPU*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isWebNonWebGPU" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isWebNonWebGPU">
+  isWebNonWebGPU
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isWebNonWebGPU { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_scriptableRenderPipelineActive_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.scriptableRenderPipelineActive*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_scriptableRenderPipelineActive" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.scriptableRenderPipelineActive">
+  scriptableRenderPipelineActive
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool scriptableRenderPipelineActive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_supportsDeferredShading_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.supportsDeferredShading*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_supportsDeferredShading" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.supportsDeferredShading">
+  supportsDeferredShading
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool supportsDeferredShading { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_supportsDepthNormals_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.supportsDepthNormals*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_supportsDepthNormals" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.supportsDepthNormals">
+  supportsDepthNormals
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool supportsDepthNormals { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_transparentTexture_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.transparentTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_transparentTexture" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.transparentTexture">
+  transparentTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D transparentTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_transparentTexture3D_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.transparentTexture3D*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_transparentTexture3D" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.transparentTexture3D">
+  transparentTexture3D
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture3D transparentTexture3D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture3D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_whiteTexture_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.whiteTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_whiteTexture" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.whiteTexture">
+  whiteTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D whiteTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_whiteTexture3D_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.whiteTexture3D*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_whiteTexture3D" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.whiteTexture3D">
+  whiteTexture3D
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture3D whiteTexture3D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture3D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_Boolean_System_Nullable_UnityEngine_Rect__System_Boolean_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.Boolean,System.Nullable{UnityEngine.Rect},System.Boolean)">
+  BlitFullscreenTriangle(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, bool, Rect?, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangle(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, bool clear = false, Rect? viewport = null, bool preserveDepth = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span>?</dt>
+    <dd></dd>
+    <dt><code>preserveDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_PostProcessing_PropertySheet_System_Int32_System_Boolean_System_Nullable_UnityEngine_Rect__System_Boolean_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.PostProcessing.PropertySheet,System.Int32,System.Boolean,System.Nullable{UnityEngine.Rect},System.Boolean)">
+  BlitFullscreenTriangle(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, PropertySheet, int, bool, Rect?, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangle(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, PropertySheet propertySheet, int pass, bool clear = false, Rect? viewport = null, bool preserveDepth = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>propertySheet</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span>?</dt>
+    <dd></dd>
+    <dt><code>preserveDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_PostProcessing_PropertySheet_System_Int32_UnityEngine_Rendering_RenderBufferLoadAction_System_Nullable_UnityEngine_Rect__System_Boolean_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.PostProcessing.PropertySheet,System.Int32,UnityEngine.Rendering.RenderBufferLoadAction,System.Nullable{UnityEngine.Rect},System.Boolean)">
+  BlitFullscreenTriangle(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, PropertySheet, int, RenderBufferLoadAction, Rect?, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangle(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, PropertySheet propertySheet, int pass, RenderBufferLoadAction loadAction, Rect? viewport = null, bool preserveDepth = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>propertySheet</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span>?</dt>
+    <dd></dd>
+    <dt><code>preserveDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_PostProcessing_PropertySheet_System_Int32_System_Boolean_System_Nullable_UnityEngine_Rect__" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.PostProcessing.PropertySheet,System.Int32,System.Boolean,System.Nullable{UnityEngine.Rect})">
+  BlitFullscreenTriangle(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, RenderTargetIdentifier, PropertySheet, int, bool, Rect?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangle(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, RenderTargetIdentifier depth, PropertySheet propertySheet, int pass, bool clear = false, Rect? viewport = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>propertySheet</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangle_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_PostProcessing_PropertySheet_System_Int32_System_Boolean_System_Nullable_UnityEngine_Rect__" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangle(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.PostProcessing.PropertySheet,System.Int32,System.Boolean,System.Nullable{UnityEngine.Rect})">
+  BlitFullscreenTriangle(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier[], RenderTargetIdentifier, PropertySheet, int, bool, Rect?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangle(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier[] destinations, RenderTargetIdentifier depth, PropertySheet propertySheet, int pass, bool clear = false, Rect? viewport = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destinations</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>propertySheet</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleFromDoubleWide_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleFromDoubleWide*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleFromDoubleWide_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Material_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleFromDoubleWide(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Material,System.Int32,System.Int32)">
+  BlitFullscreenTriangleFromDoubleWide(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, Material, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangleFromDoubleWide(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, Material material, int pass, int eye)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>eye</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleFromTexArray_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleFromTexArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleFromTexArray_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_PostProcessing_PropertySheet_System_Int32_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleFromTexArray(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.PostProcessing.PropertySheet,System.Int32,System.Boolean,System.Int32)">
+  BlitFullscreenTriangleFromTexArray(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, PropertySheet, int, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangleFromTexArray(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, PropertySheet propertySheet, int pass, bool clear = false, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>propertySheet</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleToDoubleWide_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleToDoubleWide*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleToDoubleWide_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_PostProcessing_PropertySheet_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleToDoubleWide(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.PostProcessing.PropertySheet,System.Int32,System.Int32)">
+  BlitFullscreenTriangleToDoubleWide(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, PropertySheet, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangleToDoubleWide(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, PropertySheet propertySheet, int pass, int eye)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>propertySheet</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>eye</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleToTexArray_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleToTexArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BlitFullscreenTriangleToTexArray_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_PostProcessing_PropertySheet_System_Int32_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BlitFullscreenTriangleToTexArray(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.PostProcessing.PropertySheet,System.Int32,System.Boolean,System.Int32)">
+  BlitFullscreenTriangleToTexArray(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, PropertySheet, int, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitFullscreenTriangleToTexArray(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, PropertySheet propertySheet, int pass, bool clear = false, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>propertySheet</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PropertySheet.html">PropertySheet</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BuiltinBlit_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BuiltinBlit*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BuiltinBlit_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BuiltinBlit(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier)">
+  BuiltinBlit(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BuiltinBlit(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BuiltinBlit_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BuiltinBlit*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_BuiltinBlit_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.BuiltinBlit(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Material,System.Int32)">
+  BuiltinBlit(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BuiltinBlit(this CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, Material mat, int pass = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mat</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_CopyTexture_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.CopyTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_CopyTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.CopyTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier)">
+  CopyTexture(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyTexture(CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_CreateIfNull_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.CreateIfNull*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_CreateIfNull__1___0__" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.CreateIfNull``1(``0@)">
+  CreateIfNull&lt;T&gt;(ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CreateIfNull&lt;T&gt;(ref T obj) where T : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_Destroy_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.Destroy*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_Destroy_UnityEngine_Object_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.Destroy(UnityEngine.Object)">
+  Destroy(Object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Destroy(Object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">Object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_DestroyProfile_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.DestroyProfile*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_DestroyProfile_UnityEngine_Rendering_PostProcessing_PostProcessProfile_System_Boolean_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.DestroyProfile(UnityEngine.Rendering.PostProcessing.PostProcessProfile,System.Boolean)">
+  DestroyProfile(PostProcessProfile, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DestroyProfile(PostProcessProfile profile, bool destroyEffects)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>profile</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PostProcessProfile.html">PostProcessProfile</a></dt>
+    <dd></dd>
+    <dt><code>destroyEffects</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_DestroyVolume_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.DestroyVolume*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_DestroyVolume_UnityEngine_Rendering_PostProcessing_PostProcessVolume_System_Boolean_System_Boolean_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.DestroyVolume(UnityEngine.Rendering.PostProcessing.PostProcessVolume,System.Boolean,System.Boolean)">
+  DestroyVolume(PostProcessVolume, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DestroyVolume(PostProcessVolume volume, bool destroyProfile, bool destroyGameObject = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>volume</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PostProcessVolume.html">PostProcessVolume</a></dt>
+    <dd></dd>
+    <dt><code>destroyProfile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>destroyGameObject</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_Exp2_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.Exp2*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_Exp2_System_Single_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.Exp2(System.Single)">
+  Exp2(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Exp2(float x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GenerateJitteredProjectionMatrixFromOriginal_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GenerateJitteredProjectionMatrixFromOriginal*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GenerateJitteredProjectionMatrixFromOriginal_UnityEngine_Rendering_PostProcessing_PostProcessRenderContext_UnityEngine_Matrix4x4_UnityEngine_Vector2_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GenerateJitteredProjectionMatrixFromOriginal(UnityEngine.Rendering.PostProcessing.PostProcessRenderContext,UnityEngine.Matrix4x4,UnityEngine.Vector2)">
+  GenerateJitteredProjectionMatrixFromOriginal(PostProcessRenderContext, Matrix4x4, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix4x4 GenerateJitteredProjectionMatrixFromOriginal(PostProcessRenderContext context, Matrix4x4 origProj, Vector2 jitter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PostProcessRenderContext.html">PostProcessRenderContext</a></dt>
+    <dd></dd>
+    <dt><code>origProj</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>jitter</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAllAssemblyTypes_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAllAssemblyTypes*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAllAssemblyTypes" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAllAssemblyTypes">
+  GetAllAssemblyTypes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Type&gt; GetAllAssemblyTypes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAllSceneObjects_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAllSceneObjects*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAllSceneObjects__1" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAllSceneObjects``1">
+  GetAllSceneObjects&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; GetAllSceneObjects&lt;T&gt;() where T : Component</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAllTypesDerivedFrom_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAllTypesDerivedFrom*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAllTypesDerivedFrom__1" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAllTypesDerivedFrom``1">
+  GetAllTypesDerivedFrom&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Type&gt; GetAllTypesDerivedFrom&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAttribute_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAttribute*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetAttribute__1_System_Type_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetAttribute``1(System.Type)">
+  GetAttribute&lt;T&gt;(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T GetAttribute&lt;T&gt;(this Type type) where T : Attribute</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetFieldPath_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetFieldPath*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetFieldPath__2_System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetFieldPath``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+  GetFieldPath&lt;TType, TValue&gt;(Expression&lt;Func&lt;TType, TValue&gt;&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetFieldPath&lt;TType, TValue&gt;(Expression&lt;Func&lt;TType, TValue&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TType, TValue&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TType</code></dt>
+    <dd></dd>
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetJitteredOrthographicProjectionMatrix_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetJitteredOrthographicProjectionMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetJitteredOrthographicProjectionMatrix_UnityEngine_Camera_UnityEngine_Vector2_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetJitteredOrthographicProjectionMatrix(UnityEngine.Camera,UnityEngine.Vector2)">
+  GetJitteredOrthographicProjectionMatrix(Camera, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix4x4 GetJitteredOrthographicProjectionMatrix(Camera camera, Vector2 offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>offset</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetJitteredPerspectiveProjectionMatrix_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetJitteredPerspectiveProjectionMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetJitteredPerspectiveProjectionMatrix_UnityEngine_Camera_UnityEngine_Vector2_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetJitteredPerspectiveProjectionMatrix(UnityEngine.Camera,UnityEngine.Vector2)">
+  GetJitteredPerspectiveProjectionMatrix(Camera, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix4x4 GetJitteredPerspectiveProjectionMatrix(Camera camera, Vector2 offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>offset</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetLutStrip_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetLutStrip*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetLutStrip_System_Int32_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetLutStrip(System.Int32)">
+  GetLutStrip(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D GetLutStrip(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetMemberAttributes_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetMemberAttributes*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_GetMemberAttributes__2_System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.GetMemberAttributes``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+  GetMemberAttributes&lt;TType, TValue&gt;(Expression&lt;Func&lt;TType, TValue&gt;&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Attribute[] GetMemberAttributes&lt;TType, TValue&gt;(Expression&lt;Func&lt;TType, TValue&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TType, TValue&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TType</code></dt>
+    <dd></dd>
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsDynamicResolutionEnabled_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsDynamicResolutionEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsDynamicResolutionEnabled_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsDynamicResolutionEnabled(UnityEngine.Camera)">
+  IsDynamicResolutionEnabled(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDynamicResolutionEnabled(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsPostProcessingActive_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsPostProcessingActive*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsPostProcessingActive_UnityEngine_Rendering_PostProcessing_PostProcessLayer_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsPostProcessingActive(UnityEngine.Rendering.PostProcessing.PostProcessLayer)">
+  IsPostProcessingActive(PostProcessLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPostProcessingActive(PostProcessLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PostProcessLayer.html">PostProcessLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsResolvedDepthAvailable_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsResolvedDepthAvailable*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsResolvedDepthAvailable_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsResolvedDepthAvailable(UnityEngine.Camera)">
+  IsResolvedDepthAvailable(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsResolvedDepthAvailable(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsTemporalAntialiasingActive_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsTemporalAntialiasingActive*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_IsTemporalAntialiasingActive_UnityEngine_Rendering_PostProcessing_PostProcessLayer_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.IsTemporalAntialiasingActive(UnityEngine.Rendering.PostProcessing.PostProcessLayer)">
+  IsTemporalAntialiasingActive(PostProcessLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsTemporalAntialiasingActive(PostProcessLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="UnityEngine.Rendering.PostProcessing.PostProcessLayer.html">PostProcessLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_SetRenderTargetWithLoadStoreAction_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.SetRenderTargetWithLoadStoreAction*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_SetRenderTargetWithLoadStoreAction_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.SetRenderTargetWithLoadStoreAction(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction)">
+  SetRenderTargetWithLoadStoreAction(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTargetWithLoadStoreAction(this CommandBuffer cmd, RenderTargetIdentifier rt, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_SetRenderTargetWithLoadStoreAction_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.SetRenderTargetWithLoadStoreAction*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_SetRenderTargetWithLoadStoreAction_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.SetRenderTargetWithLoadStoreAction(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction)">
+  SetRenderTargetWithLoadStoreAction(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderBufferLoadAction, RenderBufferStoreAction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTargetWithLoadStoreAction(this CommandBuffer cmd, RenderTargetIdentifier rt, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>rt</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_SetRenderTargetWithLoadStoreAction_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.SetRenderTargetWithLoadStoreAction*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_SetRenderTargetWithLoadStoreAction_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.SetRenderTargetWithLoadStoreAction(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction)">
+  SetRenderTargetWithLoadStoreAction(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTargetWithLoadStoreAction(this CommandBuffer cmd, RenderTargetIdentifier color, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderTargetIdentifier depth, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>color</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isFloatingPointFormat_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isFloatingPointFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_PostProcessing_RuntimeUtilities_isFloatingPointFormat_UnityEngine_RenderTextureFormat_" data-uid="UnityEngine.Rendering.PostProcessing.RuntimeUtilities.isFloatingPointFormat(UnityEngine.RenderTextureFormat)">
+  isFloatingPointFormat(RenderTextureFormat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isFloatingPointFormat(RenderTextureFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <span class="xref">RenderTextureFormat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

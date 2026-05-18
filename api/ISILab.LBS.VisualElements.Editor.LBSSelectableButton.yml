@@ -1,0 +1,438 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  commentId: T:ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  id: LBSSelectableButton
+  parent: ISILab.LBS.VisualElements.Editor
+  children:
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor(UnityEngine.Color32,System.Boolean)
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonDeselected
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonSelected
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnExecute
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnRemove
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected(System.Boolean)
+  - ISILab.LBS.VisualElements.Editor.LBSSelectableButton.selectableButton
+  langs:
+  - csharp
+  - vb
+  name: LBSSelectableButton
+  nameWithType: LBSSelectableButton
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: 'public class LBSSelectableButton : VisualElement'
+    content.vb: Public Class LBSSelectableButton Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.selectableButton
+  commentId: F:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.selectableButton
+  id: selectableButton
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: selectableButton
+  nameWithType: LBSSelectableButton.selectableButton
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.selectableButton
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Button selectableButton
+    return:
+      type: UnityEngine.UIElements.Button
+    content.vb: Public selectableButton As Button
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnExecute
+  commentId: F:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnExecute
+  id: OnExecute
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: OnExecute
+  nameWithType: LBSSelectableButton.OnExecute
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnExecute
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnExecute
+    return:
+      type: System.Action
+    content.vb: Public OnExecute As Action
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnRemove
+  commentId: F:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnRemove
+  id: OnRemove
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: OnRemove
+  nameWithType: LBSSelectableButton.OnRemove
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnRemove
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnRemove
+    return:
+      type: System.Action
+    content.vb: Public OnRemove As Action
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonDeselected
+  commentId: F:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonDeselected
+  id: OnButtonDeselected
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: OnButtonDeselected
+  nameWithType: LBSSelectableButton.OnButtonDeselected
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonDeselected
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnButtonDeselected
+    return:
+      type: System.Action
+    content.vb: Public OnButtonDeselected As Action
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonSelected
+  commentId: F:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonSelected
+  id: OnButtonSelected
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: OnButtonSelected
+  nameWithType: LBSSelectableButton.OnButtonSelected
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.OnButtonSelected
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnButtonSelected
+    return:
+      type: System.Action
+    content.vb: Public OnButtonSelected As Action
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor
+  commentId: M:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: LBSSelectableButton()
+  nameWithType: LBSSelectableButton.LBSSelectableButton()
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.LBSSelectableButton()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public LBSSelectableButton()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor*
+  nameWithType.vb: LBSSelectableButton.New()
+  fullName.vb: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor(UnityEngine.Color32,System.Boolean)
+  commentId: M:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor(UnityEngine.Color32,System.Boolean)
+  id: '#ctor(UnityEngine.Color32,System.Boolean)'
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: LBSSelectableButton(Color32, bool)
+  nameWithType: LBSSelectableButton.LBSSelectableButton(Color32, bool)
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.LBSSelectableButton(UnityEngine.Color32, bool)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public LBSSelectableButton(Color32 _backgroundColor, bool removable)
+    parameters:
+    - id: _backgroundColor
+      type: UnityEngine.Color32
+    - id: removable
+      type: System.Boolean
+    content.vb: Public Sub New(_backgroundColor As Color32, removable As Boolean)
+  overload: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor*
+  nameWithType.vb: LBSSelectableButton.New(Color32, Boolean)
+  fullName.vb: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.New(UnityEngine.Color32, Boolean)
+  name.vb: New(Color32, Boolean)
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked
+  commentId: M:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked
+  id: ButtonClicked
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: ButtonClicked()
+  nameWithType: LBSSelectableButton.ButtonClicked()
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void ButtonClicked()
+    content.vb: Public Sub ButtonClicked()
+  overload: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked*
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected(System.Boolean)
+  commentId: M:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected(System.Boolean)
+  id: ToggleButtonSelected(System.Boolean)
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: ToggleButtonSelected(bool)
+  nameWithType: LBSSelectableButton.ToggleButtonSelected(bool)
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected(bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void ToggleButtonSelected(bool check)
+    parameters:
+    - id: check
+      type: System.Boolean
+    content.vb: Public Sub ToggleButtonSelected(check As Boolean)
+  overload: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected*
+  nameWithType.vb: LBSSelectableButton.ToggleButtonSelected(Boolean)
+  fullName.vb: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected(Boolean)
+  name.vb: ToggleButtonSelected(Boolean)
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data
+  commentId: P:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data
+  id: Data
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: LBSSelectableButton.Data
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public int Data { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Data As Integer
+  overload: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data*
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor
+  commentId: P:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor
+  id: ButtonColor
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: ButtonColor
+  nameWithType: LBSSelectableButton.ButtonColor
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Color ButtonColor { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property ButtonColor As Color
+  overload: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor*
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected
+  commentId: P:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected
+  id: Selected
+  parent: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  langs:
+  - csharp
+  - vb
+  name: Selected
+  nameWithType: LBSSelectableButton.Selected
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public bool Selected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Selected As Boolean
+  overload: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected*
+references:
+- uid: ISILab.LBS.VisualElements.Editor
+  commentId: N:ISILab.LBS.VisualElements.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements.Editor
+  nameWithType: ISILab.LBS.VisualElements.Editor
+  fullName: ISILab.LBS.VisualElements.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.UIElements.Button
+  isExternal: true
+  name: Button
+  nameWithType: Button
+  fullName: UnityEngine.UIElements.Button
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html#ISILab_LBS_VisualElements_Editor_LBSSelectableButton__ctor
+  name: LBSSelectableButton
+  nameWithType: LBSSelectableButton.LBSSelectableButton
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.LBSSelectableButton
+  nameWithType.vb: LBSSelectableButton.New
+  fullName.vb: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.New
+  name.vb: New
+- uid: UnityEngine.Color32
+  commentId: '!:UnityEngine.Color32'
+  isExternal: true
+  name: Color32
+  nameWithType: Color32
+  fullName: UnityEngine.Color32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html#ISILab_LBS_VisualElements_Editor_LBSSelectableButton_ButtonClicked
+  name: ButtonClicked
+  nameWithType: LBSSelectableButton.ButtonClicked
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonClicked
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html#ISILab_LBS_VisualElements_Editor_LBSSelectableButton_ToggleButtonSelected_System_Boolean_
+  name: ToggleButtonSelected
+  nameWithType: LBSSelectableButton.ToggleButtonSelected
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ToggleButtonSelected
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html#ISILab_LBS_VisualElements_Editor_LBSSelectableButton_Data
+  name: Data
+  nameWithType: LBSSelectableButton.Data
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Data
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html#ISILab_LBS_VisualElements_Editor_LBSSelectableButton_ButtonColor
+  name: ButtonColor
+  nameWithType: LBSSelectableButton.ButtonColor
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.ButtonColor
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html#ISILab_LBS_VisualElements_Editor_LBSSelectableButton_Selected
+  name: Selected
+  nameWithType: LBSSelectableButton.Selected
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.Selected

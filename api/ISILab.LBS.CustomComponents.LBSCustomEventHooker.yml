@@ -1,0 +1,318 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  id: LBSCustomEventHooker
+  parent: ISILab.LBS.CustomComponents
+  children:
+  - ISILab.LBS.CustomComponents.LBSCustomEventHooker.#ctor
+  - ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable
+  - ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType
+  - ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker
+  - ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomEventHooker
+  nameWithType: LBSCustomEventHooker
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: 'public class LBSCustomEventHooker : VisualElement'
+    content.vb: Public Class LBSCustomEventHooker Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.#ctor
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomEventHooker.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomEventHooker()
+  nameWithType: LBSCustomEventHooker.LBSCustomEventHooker()
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.LBSCustomEventHooker()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public LBSCustomEventHooker()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.CustomComponents.LBSCustomEventHooker.#ctor*
+  nameWithType.vb: LBSCustomEventHooker.New()
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomEventHooker.New()
+  name.vb: New()
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector
+  id: Selector
+  parent: ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  langs:
+  - csharp
+  - vb
+  name: Selector
+  nameWithType: LBSCustomEventHooker.Selector
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public LBSCustomObjectField Selector { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.CustomComponents.LBSCustomObjectField
+    content.vb: Public Property Selector As LBSCustomObjectField
+  overload: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector*
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker
+  id: Hooker
+  parent: ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  langs:
+  - csharp
+  - vb
+  name: Hooker
+  nameWithType: LBSCustomEventHooker.Hooker
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public LBSEventHooker Hooker { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+    content.vb: Public Property Hooker As LBSEventHooker
+  overload: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker*
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable
+  id: AllowChangeTriggerEnable
+  parent: ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  langs:
+  - csharp
+  - vb
+  name: AllowChangeTriggerEnable
+  nameWithType: LBSCustomEventHooker.AllowChangeTriggerEnable
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public bool AllowChangeTriggerEnable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowChangeTriggerEnable As Boolean
+  overload: ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable*
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType
+  id: EventType
+  parent: ISILab.LBS.CustomComponents.LBSCustomEventHooker
+  langs:
+  - csharp
+  - vb
+  name: EventType
+  nameWithType: LBSCustomEventHooker.EventType
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public LBSEventType EventType { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.LBSEventType
+    content.vb: Public Property EventType As LBSEventType
+  overload: ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType*
+references:
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.#ctor*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomEventHooker.#ctor
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomEventHooker.html#ISILab_LBS_CustomComponents_LBSCustomEventHooker__ctor
+  name: LBSCustomEventHooker
+  nameWithType: LBSCustomEventHooker.LBSCustomEventHooker
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.LBSCustomEventHooker
+  nameWithType.vb: LBSCustomEventHooker.New
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomEventHooker.New
+  name.vb: New
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomEventHooker.html#ISILab_LBS_CustomComponents_LBSCustomEventHooker_Selector
+  name: Selector
+  nameWithType: LBSCustomEventHooker.Selector
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Selector
+- uid: ISILab.LBS.CustomComponents.LBSCustomObjectField
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomObjectField
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomObjectField.html
+  name: LBSCustomObjectField
+  nameWithType: LBSCustomObjectField
+  fullName: ISILab.LBS.CustomComponents.LBSCustomObjectField
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomEventHooker.html#ISILab_LBS_CustomComponents_LBSCustomEventHooker_Hooker
+  name: Hooker
+  nameWithType: LBSCustomEventHooker.Hooker
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.Hooker
+- uid: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+  commentId: T:ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.LBSEventHooker.html
+  name: LBSEventHooker
+  nameWithType: LBSEventHooker
+  fullName: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+- uid: ISILab.LBS.Plugin.Components.Data
+  commentId: N:ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data
+  nameWithType: ISILab.LBS.Plugin.Components.Data
+  fullName: ISILab.LBS.Plugin.Components.Data
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomEventHooker.html#ISILab_LBS_CustomComponents_LBSCustomEventHooker_AllowChangeTriggerEnable
+  name: AllowChangeTriggerEnable
+  nameWithType: LBSCustomEventHooker.AllowChangeTriggerEnable
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.AllowChangeTriggerEnable
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomEventHooker.html#ISILab_LBS_CustomComponents_LBSCustomEventHooker_EventType
+  name: EventType
+  nameWithType: LBSCustomEventHooker.EventType
+  fullName: ISILab.LBS.CustomComponents.LBSCustomEventHooker.EventType
+- uid: ISILab.LBS.Plugin.Components.Data.LBSEventType
+  commentId: T:ISILab.LBS.Plugin.Components.Data.LBSEventType
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.LBSEventType.html
+  name: LBSEventType
+  nameWithType: LBSEventType
+  fullName: ISILab.LBS.Plugin.Components.Data.LBSEventType

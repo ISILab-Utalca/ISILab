@@ -1,0 +1,626 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Optimization.Populations.PopulationService
+  commentId: T:ISILab.AI.Optimization.Populations.PopulationService
+  id: PopulationService
+  parent: ISILab.AI.Optimization.Populations
+  children:
+  - ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName(System.String,System.Object[])
+  - ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames
+  - ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName(System.String)
+  - ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes
+  langs:
+  - csharp
+  - vb
+  name: PopulationService
+  nameWithType: PopulationService
+  fullName: ISILab.AI.Optimization.Populations.PopulationService
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: public static class PopulationService
+    content.vb: Public Module PopulationService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes
+  commentId: M:ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes
+  id: GetGenerationStrategyTypes
+  parent: ISILab.AI.Optimization.Populations.PopulationService
+  langs:
+  - csharp
+  - vb
+  name: GetGenerationStrategyTypes()
+  nameWithType: PopulationService.GetGenerationStrategyTypes()
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: public static IList<Type> GetGenerationStrategyTypes()
+    return:
+      type: System.Collections.Generic.IList{System.Type}
+    content.vb: Public Shared Function GetGenerationStrategyTypes() As IList(Of Type)
+  overload: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes*
+- uid: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames
+  commentId: M:ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames
+  id: GetGenerationStrategyNames
+  parent: ISILab.AI.Optimization.Populations.PopulationService
+  langs:
+  - csharp
+  - vb
+  name: GetGenerationStrategyNames()
+  nameWithType: PopulationService.GetGenerationStrategyNames()
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: public static IList<string> GetGenerationStrategyNames()
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Shared Function GetGenerationStrategyNames() As IList(Of String)
+  overload: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames*
+- uid: ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName(System.String,System.Object[])
+  commentId: M:ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName(System.String,System.Object[])
+  id: CreateGenerationStrategyByName(System.String,System.Object[])
+  parent: ISILab.AI.Optimization.Populations.PopulationService
+  langs:
+  - csharp
+  - vb
+  name: CreateGenerationStrategyByName(string, params object[])
+  nameWithType: PopulationService.CreateGenerationStrategyByName(string, params object[])
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName(string, params object[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: public static IGenerationStrategy CreateGenerationStrategyByName(string name, params object[] constructorArgs)
+    parameters:
+    - id: name
+      type: System.String
+    - id: constructorArgs
+      type: System.Object[]
+    return:
+      type: ISILab.AI.Optimization.Populations.IGenerationStrategy
+    content.vb: Public Shared Function CreateGenerationStrategyByName(name As String, ParamArray constructorArgs As Object()) As IGenerationStrategy
+  overload: ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName*
+  nameWithType.vb: PopulationService.CreateGenerationStrategyByName(String, ParamArray Object())
+  fullName.vb: ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName(String, ParamArray Object())
+  name.vb: CreateGenerationStrategyByName(String, ParamArray Object())
+- uid: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName(System.String)
+  commentId: M:ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName(System.String)
+  id: GetGenerationStrategyTypeByName(System.String)
+  parent: ISILab.AI.Optimization.Populations.PopulationService
+  langs:
+  - csharp
+  - vb
+  name: GetGenerationStrategyTypeByName(string)
+  nameWithType: PopulationService.GetGenerationStrategyTypeByName(string)
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  syntax:
+    content: public static Type GetGenerationStrategyTypeByName(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: System.Type
+    content.vb: Public Shared Function GetGenerationStrategyTypeByName(name As String) As Type
+  overload: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName*
+  nameWithType.vb: PopulationService.GetGenerationStrategyTypeByName(String)
+  fullName.vb: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName(String)
+  name.vb: GetGenerationStrategyTypeByName(String)
+references:
+- uid: ISILab.AI.Optimization.Populations
+  commentId: N:ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Populations
+  nameWithType: ISILab.AI.Optimization.Populations
+  fullName: ISILab.AI.Optimization.Populations
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes*
+  commentId: Overload:ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.PopulationService.html#ISILab_AI_Optimization_Populations_PopulationService_GetGenerationStrategyTypes
+  name: GetGenerationStrategyTypes
+  nameWithType: PopulationService.GetGenerationStrategyTypes
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypes
+- uid: System.Collections.Generic.IList{System.Type}
+  commentId: T:System.Collections.Generic.IList{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<Type>
+  nameWithType: IList<Type>
+  fullName: System.Collections.Generic.IList<System.Type>
+  nameWithType.vb: IList(Of Type)
+  fullName.vb: System.Collections.Generic.IList(Of System.Type)
+  name.vb: IList(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames*
+  commentId: Overload:ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.PopulationService.html#ISILab_AI_Optimization_Populations_PopulationService_GetGenerationStrategyNames
+  name: GetGenerationStrategyNames
+  nameWithType: PopulationService.GetGenerationStrategyNames
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyNames
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<string>
+  nameWithType: IList<string>
+  fullName: System.Collections.Generic.IList<string>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName*
+  commentId: Overload:ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.PopulationService.html#ISILab_AI_Optimization_Populations_PopulationService_CreateGenerationStrategyByName_System_String_System_Object___
+  name: CreateGenerationStrategyByName
+  nameWithType: PopulationService.CreateGenerationStrategyByName
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.CreateGenerationStrategyByName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.Populations.IGenerationStrategy
+  commentId: T:ISILab.AI.Optimization.Populations.IGenerationStrategy
+  parent: ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IGenerationStrategy.html
+  name: IGenerationStrategy
+  nameWithType: IGenerationStrategy
+  fullName: ISILab.AI.Optimization.Populations.IGenerationStrategy
+- uid: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName*
+  commentId: Overload:ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.PopulationService.html#ISILab_AI_Optimization_Populations_PopulationService_GetGenerationStrategyTypeByName_System_String_
+  name: GetGenerationStrategyTypeByName
+  nameWithType: PopulationService.GetGenerationStrategyTypeByName
+  fullName: ISILab.AI.Optimization.Populations.PopulationService.GetGenerationStrategyTypeByName
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type

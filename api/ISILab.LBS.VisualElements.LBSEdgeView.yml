@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.LBSEdgeView
+  commentId: T:ISILab.LBS.VisualElements.LBSEdgeView
+  id: LBSEdgeView
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.LBSEdgeView.#ctor(ISILab.LBS.Components.ZoneEdge,ISILab.LBS.VisualElements.LBSNodeView,ISILab.LBS.VisualElements.LBSNodeView,System.Int32,System.Int32)
+  - ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  langs:
+  - csharp
+  - vb
+  name: LBSEdgeView
+  nameWithType: LBSEdgeView
+  fullName: ISILab.LBS.VisualElements.LBSEdgeView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class LBSEdgeView : GraphElement'
+    content.vb: Public Class LBSEdgeView Inherits GraphElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.LBSEdgeView.#ctor(ISILab.LBS.Components.ZoneEdge,ISILab.LBS.VisualElements.LBSNodeView,ISILab.LBS.VisualElements.LBSNodeView,System.Int32,System.Int32)
+  commentId: M:ISILab.LBS.VisualElements.LBSEdgeView.#ctor(ISILab.LBS.Components.ZoneEdge,ISILab.LBS.VisualElements.LBSNodeView,ISILab.LBS.VisualElements.LBSNodeView,System.Int32,System.Int32)
+  id: '#ctor(ISILab.LBS.Components.ZoneEdge,ISILab.LBS.VisualElements.LBSNodeView,ISILab.LBS.VisualElements.LBSNodeView,System.Int32,System.Int32)'
+  parent: ISILab.LBS.VisualElements.LBSEdgeView
+  langs:
+  - csharp
+  - vb
+  name: LBSEdgeView(ZoneEdge, LBSNodeView, LBSNodeView, int, int)
+  nameWithType: LBSEdgeView.LBSEdgeView(ZoneEdge, LBSNodeView, LBSNodeView, int, int)
+  fullName: ISILab.LBS.VisualElements.LBSEdgeView.LBSEdgeView(ISILab.LBS.Components.ZoneEdge, ISILab.LBS.VisualElements.LBSNodeView, ISILab.LBS.VisualElements.LBSNodeView, int, int)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public LBSEdgeView(ZoneEdge data, LBSNodeView node1, LBSNodeView node2, int l, int stroke)
+    parameters:
+    - id: data
+      type: ISILab.LBS.Components.ZoneEdge
+    - id: node1
+      type: ISILab.LBS.VisualElements.LBSNodeView
+    - id: node2
+      type: ISILab.LBS.VisualElements.LBSNodeView
+    - id: l
+      type: System.Int32
+    - id: stroke
+      type: System.Int32
+    content.vb: Public Sub New(data As ZoneEdge, node1 As LBSNodeView, node2 As LBSNodeView, l As Integer, stroke As Integer)
+  overload: ISILab.LBS.VisualElements.LBSEdgeView.#ctor*
+  nameWithType.vb: LBSEdgeView.New(ZoneEdge, LBSNodeView, LBSNodeView, Integer, Integer)
+  fullName.vb: ISILab.LBS.VisualElements.LBSEdgeView.New(ISILab.LBS.Components.ZoneEdge, ISILab.LBS.VisualElements.LBSNodeView, ISILab.LBS.VisualElements.LBSNodeView, Integer, Integer)
+  name.vb: New(ZoneEdge, LBSNodeView, LBSNodeView, Integer, Integer)
+- uid: ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: ActualizePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.LBSEdgeView
+  langs:
+  - csharp
+  - vb
+  name: ActualizePositions(Vector2Int, Vector2Int)
+  nameWithType: LBSEdgeView.ActualizePositions(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void ActualizePositions(Vector2Int pos1, Vector2Int pos2)
+    parameters:
+    - id: pos1
+      type: UnityEngine.Vector2Int
+    - id: pos2
+      type: UnityEngine.Vector2Int
+    content.vb: Public Sub ActualizePositions(pos1 As Vector2Int, pos2 As Vector2Int)
+  overload: ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.VisualElements.LBSEdgeView.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.LBSEdgeView.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSEdgeView.html#ISILab_LBS_VisualElements_LBSEdgeView__ctor_ISILab_LBS_Components_ZoneEdge_ISILab_LBS_VisualElements_LBSNodeView_ISILab_LBS_VisualElements_LBSNodeView_System_Int32_System_Int32_
+  name: LBSEdgeView
+  nameWithType: LBSEdgeView.LBSEdgeView
+  fullName: ISILab.LBS.VisualElements.LBSEdgeView.LBSEdgeView
+  nameWithType.vb: LBSEdgeView.New
+  fullName.vb: ISILab.LBS.VisualElements.LBSEdgeView.New
+  name.vb: New
+- uid: ISILab.LBS.Components.ZoneEdge
+  commentId: T:ISILab.LBS.Components.ZoneEdge
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.ZoneEdge.html
+  name: ZoneEdge
+  nameWithType: ZoneEdge
+  fullName: ISILab.LBS.Components.ZoneEdge
+- uid: ISILab.LBS.VisualElements.LBSNodeView
+  commentId: T:ISILab.LBS.VisualElements.LBSNodeView
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSNodeView.html
+  name: LBSNodeView
+  nameWithType: LBSNodeView
+  fullName: ISILab.LBS.VisualElements.LBSNodeView
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions*
+  commentId: Overload:ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSEdgeView.html#ISILab_LBS_VisualElements_LBSEdgeView_ActualizePositions_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: ActualizePositions
+  nameWithType: LBSEdgeView.ActualizePositions
+  fullName: ISILab.LBS.VisualElements.LBSEdgeView.ActualizePositions
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int

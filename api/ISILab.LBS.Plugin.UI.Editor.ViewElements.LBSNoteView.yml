@@ -1,0 +1,230 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView
+  id: LBSNoteView
+  parent: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  children:
+  - ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor
+  - ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor(ISILab.LBS.Modules.LBSNote)
+  - ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.Note
+  langs:
+  - csharp
+  - vb
+  name: LBSNoteView
+  nameWithType: LBSNoteView
+  fullName: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  syntax:
+    content: 'public class LBSNoteView : GraphElement'
+    content.vb: Public Class LBSNoteView Inherits GraphElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.Note
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.Note
+  id: Note
+  parent: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView
+  langs:
+  - csharp
+  - vb
+  name: Note
+  nameWithType: LBSNoteView.Note
+  fullName: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.Note
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  syntax:
+    content: public LBSNote Note
+    return:
+      type: ISILab.LBS.Modules.LBSNote
+    content.vb: Public Note As LBSNote
+- uid: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView
+  langs:
+  - csharp
+  - vb
+  name: LBSNoteView()
+  nameWithType: LBSNoteView.LBSNoteView()
+  fullName: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.LBSNoteView()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  syntax:
+    content: public LBSNoteView()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor*
+  nameWithType.vb: LBSNoteView.New()
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor(ISILab.LBS.Modules.LBSNote)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor(ISILab.LBS.Modules.LBSNote)
+  id: '#ctor(ISILab.LBS.Modules.LBSNote)'
+  parent: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView
+  langs:
+  - csharp
+  - vb
+  name: LBSNoteView(LBSNote)
+  nameWithType: LBSNoteView.LBSNoteView(LBSNote)
+  fullName: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.LBSNoteView(ISILab.LBS.Modules.LBSNote)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  syntax:
+    content: public LBSNoteView(LBSNote note)
+    parameters:
+    - id: note
+      type: ISILab.LBS.Modules.LBSNote
+    content.vb: Public Sub New(note As LBSNote)
+  overload: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor*
+  nameWithType.vb: LBSNoteView.New(LBSNote)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.New(ISILab.LBS.Modules.LBSNote)
+  name.vb: New(LBSNote)
+references:
+- uid: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  commentId: N:ISILab.LBS.Plugin.UI.Editor.ViewElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  nameWithType: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  fullName: ISILab.LBS.Plugin.UI.Editor.ViewElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.ViewElements
+    name: ViewElements
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.ViewElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.ViewElements
+    name: ViewElements
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.ViewElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules.LBSNote
+  commentId: T:ISILab.LBS.Modules.LBSNote
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSNote.html
+  name: LBSNote
+  nameWithType: LBSNote
+  fullName: ISILab.LBS.Modules.LBSNote
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.html#ISILab_LBS_Plugin_UI_Editor_ViewElements_LBSNoteView__ctor
+  name: LBSNoteView
+  nameWithType: LBSNoteView.LBSNoteView
+  fullName: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.LBSNoteView
+  nameWithType.vb: LBSNoteView.New
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.ViewElements.LBSNoteView.New
+  name.vb: New

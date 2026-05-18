@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Manipulators.IToolProvider
+  commentId: T:ISILab.LBS.Manipulators.IToolProvider
+  id: IToolProvider
+  parent: ISILab.LBS.Manipulators
+  children:
+  - ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  langs:
+  - csharp
+  - vb
+  name: IToolProvider
+  nameWithType: IToolProvider
+  fullName: ISILab.LBS.Manipulators.IToolProvider
+  type: Interface
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public interface IToolProvider
+    content.vb: Public Interface IToolProvider
+  derivedClasses:
+  - ISILab.LBS.AI.Assistants.Editor.TestingAssistantEditor
+  - ISILab.LBS.Behaviours.Editor.SchemaBehaviourEditor
+  - ISILab.LBS.Editor.AssistantMapEliteEditor
+  - ISILab.LBS.Editor.GrammarAssistantEditor
+  - ISILab.LBS.Plugin.Core.AI.Assistant.Editor.AssistantWFCEditor
+  - ISILab.LBS.VisualElements.ExteriorBehaviourEditor
+  - ISILab.LBS.VisualElements.HillClimbingAssistantEditor
+  - ISILab.LBS.VisualElements.NodeDataBehaviourEditor
+  - ISILab.LBS.VisualElements.PopulationBehaviourEditor
+  - ISILab.LBS.VisualElements.QuestBehaviourEditor
+  - ISILab.LBS.VisualElements.QuestFlowBehaviourEditor
+  - ISILab.LBS.VisualElements.SimulationBehaviourEditor
+  - ISILab.LBS.VisualElements.TileGroupBehaviorEditor
+- uid: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  commentId: M:ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  id: SetTools(LBS.VisualElements.ToolKit)
+  parent: ISILab.LBS.Manipulators.IToolProvider
+  langs:
+  - csharp
+  - vb
+  name: SetTools(ToolKit)
+  nameWithType: IToolProvider.SetTools(ToolKit)
+  fullName: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: void SetTools(ToolKit toolkit)
+    parameters:
+    - id: toolkit
+      type: LBS.VisualElements.ToolKit
+    content.vb: Sub SetTools(toolkit As ToolKit)
+  overload: ISILab.LBS.Manipulators.IToolProvider.SetTools*
+references:
+- uid: ISILab.LBS.Manipulators
+  commentId: N:ISILab.LBS.Manipulators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Manipulators
+  nameWithType: ISILab.LBS.Manipulators
+  fullName: ISILab.LBS.Manipulators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+- uid: ISILab.LBS.Manipulators.IToolProvider.SetTools*
+  commentId: Overload:ISILab.LBS.Manipulators.IToolProvider.SetTools
+  isExternal: true
+  href: ISILab.LBS.Manipulators.IToolProvider.html#ISILab_LBS_Manipulators_IToolProvider_SetTools_LBS_VisualElements_ToolKit_
+  name: SetTools
+  nameWithType: IToolProvider.SetTools
+  fullName: ISILab.LBS.Manipulators.IToolProvider.SetTools
+- uid: LBS.VisualElements.ToolKit
+  commentId: T:LBS.VisualElements.ToolKit
+  parent: LBS.VisualElements
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html
+  name: ToolKit
+  nameWithType: ToolKit
+  fullName: LBS.VisualElements.ToolKit
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html

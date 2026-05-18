@@ -1,0 +1,1732 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  id: ChromosomeBase
+  parent: GeneticSharp.Domain.Chromosomes
+  children:
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Int32[],System.Int32[])
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  langs:
+  - csharp
+  - vb
+  name: ChromosomeBase
+  nameWithType: ChromosomeBase
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  type: Class
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: 'public abstract class ChromosomeBase : IOptimizable, ICloneable'
+    content.vb: Public MustInherit Class ChromosomeBase Implements IOptimizable, ICloneable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.AI.Categorization.ChromosomeBase2D
+  implements:
+  - ISILab.AI.Optimization.IOptimizable
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+  commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+  id: genes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: genes
+  nameWithType: ChromosomeBase.genes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+  type: Field
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: protected object[] genes
+    return:
+      type: System.Object[]
+    content.vb: Protected genes As Object()
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+  commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+  id: immutableIndexes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: immutableIndexes
+  nameWithType: ChromosomeBase.immutableIndexes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+  type: Field
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: protected int[] immutableIndexes
+    return:
+      type: System.Int32[]
+    content.vb: Protected immutableIndexes As Integer()
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  id: invalidIndexes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: invalidIndexes
+  nameWithType: ChromosomeBase.invalidIndexes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  type: Field
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: protected int[] invalidIndexes
+    return:
+      type: System.Int32[]
+    content.vb: Protected invalidIndexes As Integer()
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Int32[],System.Int32[])
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Int32[],System.Int32[])
+  id: '#ctor(System.Int32,System.Int32[],System.Int32[])'
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: ChromosomeBase(int, int[], int[])
+  nameWithType: ChromosomeBase.ChromosomeBase(int, int[], int[])
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ChromosomeBase(int, int[], int[])
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: protected ChromosomeBase(int length, int[] immutables = null, int[] invalids = null)
+    parameters:
+    - id: length
+      type: System.Int32
+    - id: immutables
+      type: System.Int32[]
+    - id: invalids
+      type: System.Int32[]
+    content.vb: Protected Sub New(length As Integer, immutables As Integer() = Nothing, invalids As Integer() = Nothing)
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*
+  nameWithType.vb: ChromosomeBase.New(Integer, Integer(), Integer())
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.New(Integer, Integer(), Integer())
+  name.vb: New(Integer, Integer(), Integer())
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
+  id: '#ctor'
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: ChromosomeBase()
+  nameWithType: ChromosomeBase.ChromosomeBase()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ChromosomeBase()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: protected ChromosomeBase()
+    content.vb: Protected Sub New()
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*
+  nameWithType.vb: ChromosomeBase.New()
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.New()
+  name.vb: New()
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  id: op_Equality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: operator ==(ChromosomeBase, ChromosomeBase)
+  nameWithType: ChromosomeBase.operator ==(ChromosomeBase, ChromosomeBase)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator ==(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  type: Operator
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public static bool operator ==(ChromosomeBase first, ChromosomeBase second)
+    parameters:
+    - id: first
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    - id: second
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(first As ChromosomeBase, second As ChromosomeBase) As Boolean
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality*
+  nameWithType.vb: ChromosomeBase.=(ChromosomeBase, ChromosomeBase)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.=(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  name.vb: =(ChromosomeBase, ChromosomeBase)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  id: op_Inequality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: operator !=(ChromosomeBase, ChromosomeBase)
+  nameWithType: ChromosomeBase.operator !=(ChromosomeBase, ChromosomeBase)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator !=(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  type: Operator
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public static bool operator !=(ChromosomeBase first, ChromosomeBase second)
+    parameters:
+    - id: first
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    - id: second
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(first As ChromosomeBase, second As ChromosomeBase) As Boolean
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality*
+  nameWithType.vb: ChromosomeBase.<>(ChromosomeBase, ChromosomeBase)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.<>(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  name.vb: <>(ChromosomeBase, ChromosomeBase)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  id: op_LessThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: operator <(ChromosomeBase, ChromosomeBase)
+  nameWithType: ChromosomeBase.operator <(ChromosomeBase, ChromosomeBase)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator <(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  type: Operator
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public static bool operator <(ChromosomeBase first, ChromosomeBase second)
+    parameters:
+    - id: first
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    - id: second
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <(first As ChromosomeBase, second As ChromosomeBase) As Boolean
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan*
+  nameWithType.vb: ChromosomeBase.<(ChromosomeBase, ChromosomeBase)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.<(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  name.vb: <(ChromosomeBase, ChromosomeBase)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  id: op_GreaterThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: operator >(ChromosomeBase, ChromosomeBase)
+  nameWithType: ChromosomeBase.operator >(ChromosomeBase, ChromosomeBase)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator >(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  type: Operator
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public static bool operator >(ChromosomeBase first, ChromosomeBase second)
+    parameters:
+    - id: first
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    - id: second
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator >(first As ChromosomeBase, second As ChromosomeBase) As Boolean
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan*
+  nameWithType.vb: ChromosomeBase.>(ChromosomeBase, ChromosomeBase)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.>(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  name.vb: '>(ChromosomeBase, ChromosomeBase)'
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+  id: CreateNewChromosome
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: CreateNewChromosome()
+  nameWithType: ChromosomeBase.CreateNewChromosome()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public abstract ChromosomeBase CreateNewChromosome()
+    return:
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    content.vb: Public MustOverride Function CreateNewChromosome() As ChromosomeBase
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+  id: CloneChromosome
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: CloneChromosome()
+  nameWithType: ChromosomeBase.CloneChromosome()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public abstract ChromosomeBase CloneChromosome()
+    return:
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    content.vb: Public MustOverride Function CloneChromosome() As ChromosomeBase
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+  id: ReplaceGene``1(System.Int32,``0)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: ReplaceGene<T>(int, T)
+  nameWithType: ChromosomeBase.ReplaceGene<T>(int, T)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene<T>(int, T)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public virtual void ReplaceGene<T>(int index, T gene)
+    parameters:
+    - id: index
+      type: System.Int32
+    - id: gene
+      type: '{T}'
+    typeParameters:
+    - id: T
+    content.vb: Public Overridable Sub ReplaceGene(Of T)(index As Integer, gene As T)
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene*
+  nameWithType.vb: ChromosomeBase.ReplaceGene(Of T)(Integer, T)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene(Of T)(Integer, T)
+  name.vb: ReplaceGene(Of T)(Integer, T)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+  id: ReplaceGenes``1(System.Int32,``0[])
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: ReplaceGenes<T>(int, T[])
+  nameWithType: ChromosomeBase.ReplaceGenes<T>(int, T[])
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes<T>(int, T[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public virtual void ReplaceGenes<T>(int startIndex, T[] genes)
+    parameters:
+    - id: startIndex
+      type: System.Int32
+    - id: genes
+      type: '{T}[]'
+    typeParameters:
+    - id: T
+    content.vb: Public Overridable Sub ReplaceGenes(Of T)(startIndex As Integer, genes As T())
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes*
+  nameWithType.vb: ChromosomeBase.ReplaceGenes(Of T)(Integer, T())
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes(Of T)(Integer, T())
+  name.vb: ReplaceGenes(Of T)(Integer, T())
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+  id: Resize(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: Resize(int)
+  nameWithType: ChromosomeBase.Resize(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public void Resize(int newLength)
+    parameters:
+    - id: newLength
+      type: System.Int32
+    content.vb: Public Sub Resize(newLength As Integer)
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize*
+  nameWithType.vb: ChromosomeBase.Resize(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(Integer)
+  name.vb: Resize(Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+  id: GetGene``1(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GetGene<T>(int)
+  nameWithType: ChromosomeBase.GetGene<T>(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene<T>(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public virtual T GetGene<T>(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Overridable Function GetGene(Of T)(index As Integer) As T
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene*
+  nameWithType.vb: ChromosomeBase.GetGene(Of T)(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(Of T)(Integer)
+  name.vb: GetGene(Of T)(Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+  id: GetGenes``1
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GetGenes<T>()
+  nameWithType: ChromosomeBase.GetGenes<T>()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes<T>()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public virtual T[] GetGenes<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}[]'
+    content.vb: Public Overridable Function GetGenes(Of T)() As T()
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes*
+  nameWithType.vb: ChromosomeBase.GetGenes(Of T)()
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes(Of T)()
+  name.vb: GetGenes(Of T)()
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  id: CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(ChromosomeBase)
+  nameWithType: ChromosomeBase.CompareTo(ChromosomeBase)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public int CompareTo(ChromosomeBase other)
+    parameters:
+    - id: other
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    return:
+      type: System.Int32
+    content.vb: Public Function CompareTo(other As ChromosomeBase) As Integer
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ChromosomeBase.Equals(object)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals*
+  nameWithType.vb: ChromosomeBase.Equals(Object)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(Object)
+  name.vb: Equals(Object)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+  id: GetHashCode
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ChromosomeBase.GetHashCode()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+  id: CreateGene(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: CreateGene(int)
+  nameWithType: ChromosomeBase.CreateGene(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: protected void CreateGene(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Protected Sub CreateGene(index As Integer)
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene*
+  nameWithType.vb: ChromosomeBase.CreateGene(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(Integer)
+  name.vb: CreateGene(Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+  id: CreateGenes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: CreateGenes()
+  nameWithType: ChromosomeBase.CreateGenes()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: protected virtual void CreateGenes()
+    content.vb: Protected Overridable Sub CreateGenes()
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+  id: GetGene(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GetGene(int)
+  nameWithType: ChromosomeBase.GetGene(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public object GetGene(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: System.Object
+    content.vb: Public Function GetGene(index As Integer) As Object
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene*
+  nameWithType.vb: ChromosomeBase.GetGene(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(Integer)
+  name.vb: GetGene(Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+  id: GetGenes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GetGenes()
+  nameWithType: ChromosomeBase.GetGenes()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public object[] GetGenes()
+    return:
+      type: System.Object[]
+    content.vb: Public Function GetGenes() As Object()
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+  id: GenerateGene
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GenerateGene()
+  nameWithType: ChromosomeBase.GenerateGene()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public abstract object GenerateGene()
+    return:
+      type: System.Object
+    content.vb: Public MustOverride Function GenerateGene() As Object
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+  id: Clone
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ChromosomeBase.Clone()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Function Clone() As Object
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+  id: IsValid
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: IsValid()
+  nameWithType: ChromosomeBase.IsValid()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public abstract bool IsValid()
+    return:
+      type: System.Boolean
+    content.vb: Public MustOverride Function IsValid() As Boolean
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+  id: SetDataSequence``1(``0[])
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: SetDataSequence<T>(T[])
+  nameWithType: ChromosomeBase.SetDataSequence<T>(T[])
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence<T>(T[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public void SetDataSequence<T>(T[] data)
+    parameters:
+    - id: data
+      type: '{T}[]'
+    typeParameters:
+    - id: T
+    content.vb: Public Sub SetDataSequence(Of T)(data As T())
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence*
+  nameWithType.vb: ChromosomeBase.SetDataSequence(Of T)(T())
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence(Of T)(T())
+  name.vb: SetDataSequence(Of T)(T())
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+  id: GetData``1
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GetData<T>()
+  nameWithType: ChromosomeBase.GetData<T>()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData<T>()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public T GetData<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetData(Of T)() As T
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData*
+  nameWithType.vb: ChromosomeBase.GetData(Of T)()
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData(Of T)()
+  name.vb: GetData(Of T)()
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+  id: GetDataSquence``1
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: GetDataSquence<T>()
+  nameWithType: ChromosomeBase.GetDataSquence<T>()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence<T>()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public T[] GetDataSquence<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}[]'
+    content.vb: Public Function GetDataSquence(Of T)() As T()
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence*
+  nameWithType.vb: ChromosomeBase.GetDataSquence(Of T)()
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence(Of T)()
+  name.vb: GetDataSquence(Of T)()
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+  id: SetData``1(``0)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: SetData<T>(T)
+  nameWithType: ChromosomeBase.SetData<T>(T)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData<T>(T)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public void SetData<T>(T data)
+    parameters:
+    - id: data
+      type: '{T}'
+    typeParameters:
+    - id: T
+    content.vb: Public Sub SetData(Of T)(data As T)
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData*
+  nameWithType.vb: ChromosomeBase.SetData(Of T)(T)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData(Of T)(T)
+  name.vb: SetData(Of T)(T)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+  id: IsImmutable(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: IsImmutable(int)
+  nameWithType: ChromosomeBase.IsImmutable(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public bool IsImmutable(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsImmutable(index As Integer) As Boolean
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable*
+  nameWithType.vb: ChromosomeBase.IsImmutable(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(Integer)
+  name.vb: IsImmutable(Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+  id: IsInvalid(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: IsInvalid(int)
+  nameWithType: ChromosomeBase.IsInvalid(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public bool IsInvalid(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsInvalid(index As Integer) As Boolean
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid*
+  nameWithType.vb: ChromosomeBase.IsInvalid(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(Integer)
+  name.vb: IsInvalid(Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+  id: SetDeafult(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: SetDeafult(int)
+  nameWithType: ChromosomeBase.SetDeafult(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public abstract void SetDeafult(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public MustOverride Sub SetDeafult(index As Integer)
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult*
+  nameWithType.vb: ChromosomeBase.SetDeafult(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(Integer)
+  name.vb: SetDeafult(Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  id: Fitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: Fitness
+  nameWithType: ChromosomeBase.Fitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  type: Property
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  example: []
+  syntax:
+    content: public double Fitness { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Fitness As Double
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness*
+  implements:
+  - ISILab.AI.Optimization.IOptimizable.Fitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  id: xFitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: xFitness
+  nameWithType: ChromosomeBase.xFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  type: Property
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  example: []
+  syntax:
+    content: public double xFitness { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property xFitness As Double
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness*
+  implements:
+  - ISILab.AI.Optimization.IOptimizable.xFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  id: yFitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: yFitness
+  nameWithType: ChromosomeBase.yFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  type: Property
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  example: []
+  syntax:
+    content: public double yFitness { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property yFitness As Double
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness*
+  implements:
+  - ISILab.AI.Optimization.IOptimizable.yFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  id: Length
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: ChromosomeBase.Length
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  type: Property
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length*
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  id: ImmutablesCount
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  langs:
+  - csharp
+  - vb
+  name: ImmutablesCount
+  nameWithType: ChromosomeBase.ImmutablesCount
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  type: Property
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  syntax:
+    content: public int ImmutablesCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ImmutablesCount As Integer
+  overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount*
+references:
+- uid: GeneticSharp.Domain.Chromosomes
+  commentId: N:GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Chromosomes
+  nameWithType: GeneticSharp.Domain.Chromosomes
+  fullName: GeneticSharp.Domain.Chromosomes
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_System_Int32_System_Int32___System_Int32___
+  name: ChromosomeBase
+  nameWithType: ChromosomeBase.ChromosomeBase
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ChromosomeBase
+  nameWithType.vb: ChromosomeBase.New
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Equality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  name: operator ==
+  nameWithType: ChromosomeBase.operator ==
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator ==
+  nameWithType.vb: ChromosomeBase.=
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality*
+    name: ==
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Equality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  parent: GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  name: ChromosomeBase
+  nameWithType: ChromosomeBase
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Inequality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  name: operator !=
+  nameWithType: ChromosomeBase.operator !=
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator !=
+  nameWithType.vb: ChromosomeBase.<>
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality*
+    name: '!='
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Inequality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_LessThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  name: operator <
+  nameWithType: ChromosomeBase.operator <
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator <
+  nameWithType.vb: ChromosomeBase.<
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.<
+  name.vb: <
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan*
+    name: <
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_LessThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_GreaterThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  name: operator >
+  nameWithType: ChromosomeBase.operator >
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator >
+  nameWithType.vb: ChromosomeBase.>
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.>
+  name.vb: '>'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan*
+    name: '>'
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_GreaterThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome
+  name: CreateNewChromosome
+  nameWithType: ChromosomeBase.CreateNewChromosome
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome
+  name: CloneChromosome
+  nameWithType: ChromosomeBase.CloneChromosome
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
+  name: ReplaceGene
+  nameWithType: ChromosomeBase.ReplaceGene
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
+  name: ReplaceGenes
+  nameWithType: ChromosomeBase.ReplaceGenes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_
+  name: Resize
+  nameWithType: ChromosomeBase.Resize
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_
+  name: GetGene
+  nameWithType: ChromosomeBase.GetGene
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1
+  name: GetGenes
+  nameWithType: ChromosomeBase.GetGenes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  name: CompareTo
+  nameWithType: ChromosomeBase.CompareTo
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_
+  name: Equals
+  nameWithType: ChromosomeBase.Equals
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode
+  name: GetHashCode
+  nameWithType: ChromosomeBase.GetHashCode
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_
+  name: CreateGene
+  nameWithType: ChromosomeBase.CreateGene
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes
+  name: CreateGenes
+  nameWithType: ChromosomeBase.CreateGenes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene
+  name: GenerateGene
+  nameWithType: ChromosomeBase.GenerateGene
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone
+  name: Clone
+  nameWithType: ChromosomeBase.Clone
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid
+  name: IsValid
+  nameWithType: ChromosomeBase.IsValid
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
+  name: SetDataSequence
+  nameWithType: ChromosomeBase.SetDataSequence
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1
+  name: GetData
+  nameWithType: ChromosomeBase.GetData
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1
+  name: GetDataSquence
+  nameWithType: ChromosomeBase.GetDataSquence
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
+  name: SetData
+  nameWithType: ChromosomeBase.SetData
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_
+  name: IsImmutable
+  nameWithType: ChromosomeBase.IsImmutable
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_
+  name: IsInvalid
+  nameWithType: ChromosomeBase.IsInvalid
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_
+  name: SetDeafult
+  nameWithType: ChromosomeBase.SetDeafult
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Fitness
+  name: Fitness
+  nameWithType: ChromosomeBase.Fitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+- uid: ISILab.AI.Optimization.IOptimizable.Fitness
+  commentId: P:ISILab.AI.Optimization.IOptimizable.Fitness
+  parent: ISILab.AI.Optimization.IOptimizable
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_Fitness
+  name: Fitness
+  nameWithType: IOptimizable.Fitness
+  fullName: ISILab.AI.Optimization.IOptimizable.Fitness
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_xFitness
+  name: xFitness
+  nameWithType: ChromosomeBase.xFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+- uid: ISILab.AI.Optimization.IOptimizable.xFitness
+  commentId: P:ISILab.AI.Optimization.IOptimizable.xFitness
+  parent: ISILab.AI.Optimization.IOptimizable
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_xFitness
+  name: xFitness
+  nameWithType: IOptimizable.xFitness
+  fullName: ISILab.AI.Optimization.IOptimizable.xFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_yFitness
+  name: yFitness
+  nameWithType: ChromosomeBase.yFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+- uid: ISILab.AI.Optimization.IOptimizable.yFitness
+  commentId: P:ISILab.AI.Optimization.IOptimizable.yFitness
+  parent: ISILab.AI.Optimization.IOptimizable
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_yFitness
+  name: yFitness
+  nameWithType: IOptimizable.yFitness
+  fullName: ISILab.AI.Optimization.IOptimizable.yFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Length
+  name: Length
+  nameWithType: ChromosomeBase.Length
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ImmutablesCount
+  name: ImmutablesCount
+  nameWithType: ChromosomeBase.ImmutablesCount
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount

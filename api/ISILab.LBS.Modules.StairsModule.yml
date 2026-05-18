@@ -1,0 +1,1127 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Modules.StairsModule
+  commentId: T:ISILab.LBS.Modules.StairsModule
+  id: StairsModule
+  parent: ISILab.LBS.Modules
+  children:
+  - ISILab.LBS.Modules.StairsModule.#ctor
+  - ISILab.LBS.Modules.StairsModule.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair})
+  - ISILab.LBS.Modules.StairsModule.AddStair(ISILab.LBS.Modules.LBSStair)
+  - ISILab.LBS.Modules.StairsModule.Clear
+  - ISILab.LBS.Modules.StairsModule.Clone
+  - ISILab.LBS.Modules.StairsModule.GetSelected(UnityEngine.Vector2Int)
+  - ISILab.LBS.Modules.StairsModule.GetStairByPoint(UnityEngine.Vector2Int,System.Boolean)
+  - ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint(UnityEngine.Vector2Int)
+  - ISILab.LBS.Modules.StairsModule.IsEmpty
+  - ISILab.LBS.Modules.StairsModule.IsPositionOccupied(UnityEngine.Vector2Int)
+  - ISILab.LBS.Modules.StairsModule.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  - ISILab.LBS.Modules.StairsModule.Stairs
+  langs:
+  - csharp
+  - vb
+  name: StairsModule
+  nameWithType: StairsModule
+  fullName: ISILab.LBS.Modules.StairsModule
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: 'public class StairsModule : LBSModule, ICloneable, ISelectable'
+    content.vb: Public Class StairsModule Inherits LBSModule Implements ICloneable, ISelectable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Modules.LBSModule
+  implements:
+  - System.ICloneable
+  - ISILab.LBS.Modules.ISelectable
+  inheritedMembers:
+  - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OnChanged
+  - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.Print
+  - ISILab.LBS.Modules.LBSModule.GetBounds
+  - ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.LBS.Modules.StairsModule.#ctor
+  commentId: M:ISILab.LBS.Modules.StairsModule.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: StairsModule()
+  nameWithType: StairsModule.StairsModule()
+  fullName: ISILab.LBS.Modules.StairsModule.StairsModule()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public StairsModule()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Modules.StairsModule.#ctor*
+  nameWithType.vb: StairsModule.New()
+  fullName.vb: ISILab.LBS.Modules.StairsModule.New()
+  name.vb: New()
+- uid: ISILab.LBS.Modules.StairsModule.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair})
+  commentId: M:ISILab.LBS.Modules.StairsModule.#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair})
+  id: '#ctor(System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair})'
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: StairsModule(List<LBSStair>)
+  nameWithType: StairsModule.StairsModule(List<LBSStair>)
+  fullName: ISILab.LBS.Modules.StairsModule.StairsModule(System.Collections.Generic.List<ISILab.LBS.Modules.LBSStair>)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public StairsModule(List<LBSStair> stairs = null)
+    parameters:
+    - id: stairs
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
+    content.vb: Public Sub New(stairs As List(Of LBSStair) = Nothing)
+  overload: ISILab.LBS.Modules.StairsModule.#ctor*
+  nameWithType.vb: StairsModule.New(List(Of LBSStair))
+  fullName.vb: ISILab.LBS.Modules.StairsModule.New(System.Collections.Generic.List(Of ISILab.LBS.Modules.LBSStair))
+  name.vb: New(List(Of LBSStair))
+- uid: ISILab.LBS.Modules.StairsModule.AddStair(ISILab.LBS.Modules.LBSStair)
+  commentId: M:ISILab.LBS.Modules.StairsModule.AddStair(ISILab.LBS.Modules.LBSStair)
+  id: AddStair(ISILab.LBS.Modules.LBSStair)
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: AddStair(LBSStair)
+  nameWithType: StairsModule.AddStair(LBSStair)
+  fullName: ISILab.LBS.Modules.StairsModule.AddStair(ISILab.LBS.Modules.LBSStair)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void AddStair(LBSStair stair)
+    parameters:
+    - id: stair
+      type: ISILab.LBS.Modules.LBSStair
+    content.vb: Public Sub AddStair(stair As LBSStair)
+  overload: ISILab.LBS.Modules.StairsModule.AddStair*
+- uid: ISILab.LBS.Modules.StairsModule.IsPositionOccupied(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.StairsModule.IsPositionOccupied(UnityEngine.Vector2Int)
+  id: IsPositionOccupied(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: IsPositionOccupied(Vector2Int)
+  nameWithType: StairsModule.IsPositionOccupied(Vector2Int)
+  fullName: ISILab.LBS.Modules.StairsModule.IsPositionOccupied(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public bool IsPositionOccupied(Vector2Int position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsPositionOccupied(position As Vector2Int) As Boolean
+  overload: ISILab.LBS.Modules.StairsModule.IsPositionOccupied*
+- uid: ISILab.LBS.Modules.StairsModule.GetStairByPoint(UnityEngine.Vector2Int,System.Boolean)
+  commentId: M:ISILab.LBS.Modules.StairsModule.GetStairByPoint(UnityEngine.Vector2Int,System.Boolean)
+  id: GetStairByPoint(UnityEngine.Vector2Int,System.Boolean)
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: GetStairByPoint(Vector2Int, bool)
+  nameWithType: StairsModule.GetStairByPoint(Vector2Int, bool)
+  fullName: ISILab.LBS.Modules.StairsModule.GetStairByPoint(UnityEngine.Vector2Int, bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public LBSStair GetStairByPoint(Vector2Int position, bool checkForHeight = false)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    - id: checkForHeight
+      type: System.Boolean
+    return:
+      type: ISILab.LBS.Modules.LBSStair
+    content.vb: Public Function GetStairByPoint(position As Vector2Int, checkForHeight As Boolean = False) As LBSStair
+  overload: ISILab.LBS.Modules.StairsModule.GetStairByPoint*
+  nameWithType.vb: StairsModule.GetStairByPoint(Vector2Int, Boolean)
+  fullName.vb: ISILab.LBS.Modules.StairsModule.GetStairByPoint(UnityEngine.Vector2Int, Boolean)
+  name.vb: GetStairByPoint(Vector2Int, Boolean)
+- uid: ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint(UnityEngine.Vector2Int)
+  id: GetStairByStartingPoint(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: GetStairByStartingPoint(Vector2Int)
+  nameWithType: StairsModule.GetStairByStartingPoint(Vector2Int)
+  fullName: ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public LBSStair GetStairByStartingPoint(Vector2Int startingPoint)
+    parameters:
+    - id: startingPoint
+      type: UnityEngine.Vector2Int
+    return:
+      type: ISILab.LBS.Modules.LBSStair
+    content.vb: Public Function GetStairByStartingPoint(startingPoint As Vector2Int) As LBSStair
+  overload: ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint*
+- uid: ISILab.LBS.Modules.StairsModule.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  commentId: M:ISILab.LBS.Modules.StairsModule.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  id: RemoveStair(ISILab.LBS.Modules.LBSStair)
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveStair(LBSStair)
+  nameWithType: StairsModule.RemoveStair(LBSStair)
+  fullName: ISILab.LBS.Modules.StairsModule.RemoveStair(ISILab.LBS.Modules.LBSStair)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public bool RemoveStair(LBSStair stair)
+    parameters:
+    - id: stair
+      type: ISILab.LBS.Modules.LBSStair
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemoveStair(stair As LBSStair) As Boolean
+  overload: ISILab.LBS.Modules.StairsModule.RemoveStair*
+- uid: ISILab.LBS.Modules.StairsModule.GetSelected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.StairsModule.GetSelected(UnityEngine.Vector2Int)
+  id: GetSelected(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: GetSelected(Vector2Int)
+  nameWithType: StairsModule.GetSelected(Vector2Int)
+  fullName: ISILab.LBS.Modules.StairsModule.GetSelected(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public List<object> GetSelected(Vector2Int position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{System.Object}
+    content.vb: Public Function GetSelected(position As Vector2Int) As List(Of Object)
+  overload: ISILab.LBS.Modules.StairsModule.GetSelected*
+  implements:
+  - ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+- uid: ISILab.LBS.Modules.StairsModule.Clear
+  commentId: M:ISILab.LBS.Modules.StairsModule.Clear
+  id: Clear
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: StairsModule.Clear()
+  fullName: ISILab.LBS.Modules.StairsModule.Clear()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Clear()
+    content.vb: Public Overrides Sub Clear()
+  overridden: ISILab.LBS.Modules.LBSModule.Clear
+  overload: ISILab.LBS.Modules.StairsModule.Clear*
+- uid: ISILab.LBS.Modules.StairsModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.StairsModule.IsEmpty
+  id: IsEmpty
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty()
+  nameWithType: StairsModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.StairsModule.IsEmpty()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool IsEmpty()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsEmpty() As Boolean
+  overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
+  overload: ISILab.LBS.Modules.StairsModule.IsEmpty*
+- uid: ISILab.LBS.Modules.StairsModule.Clone
+  commentId: M:ISILab.LBS.Modules.StairsModule.Clone
+  id: Clone
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: StairsModule.Clone()
+  fullName: ISILab.LBS.Modules.StairsModule.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Modules.LBSModule.Clone
+  overload: ISILab.LBS.Modules.StairsModule.Clone*
+- uid: ISILab.LBS.Modules.StairsModule.Stairs
+  commentId: P:ISILab.LBS.Modules.StairsModule.Stairs
+  id: Stairs
+  parent: ISILab.LBS.Modules.StairsModule
+  langs:
+  - csharp
+  - vb
+  name: Stairs
+  nameWithType: StairsModule.Stairs
+  fullName: ISILab.LBS.Modules.StairsModule.Stairs
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<LBSStair> Stairs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
+    content.vb: Public ReadOnly Property Stairs As List(Of LBSStair)
+  overload: ISILab.LBS.Modules.StairsModule.Stairs*
+references:
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Modules.LBSModule
+  commentId: T:ISILab.LBS.Modules.LBSModule
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html
+  name: LBSModule
+  nameWithType: LBSModule
+  fullName: ISILab.LBS.Modules.LBSModule
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Modules.ISelectable
+  commentId: T:ISILab.LBS.Modules.ISelectable
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.ISelectable.html
+  name: ISelectable
+  nameWithType: ISelectable
+  fullName: ISILab.LBS.Modules.ISelectable
+- uid: ISILab.LBS.Modules.LBSModule.id
+  commentId: F:ISILab.LBS.Modules.LBSModule.id
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
+  name: id
+  nameWithType: LBSModule.id
+  fullName: ISILab.LBS.Modules.LBSModule.id
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Print
+  commentId: M:ISILab.LBS.Modules.LBSModule.Print
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  name: Print()
+  nameWithType: LBSModule.Print()
+  fullName: ISILab.LBS.Modules.LBSModule.Print()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  name: GetBounds()
+  nameWithType: LBSModule.GetBounds()
+  fullName: ISILab.LBS.Modules.LBSModule.GetBounds()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite(LBSModule)
+  nameWithType: LBSModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
+  commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSModule.OwnerLayer
+  fullName: ISILab.LBS.Modules.LBSModule.OwnerLayer
+- uid: ISILab.LBS.Modules.LBSModule.ID
+  commentId: P:ISILab.LBS.Modules.LBSModule.ID
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
+  name: ID
+  nameWithType: LBSModule.ID
+  fullName: ISILab.LBS.Modules.LBSModule.ID
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules.StairsModule.#ctor*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.#ctor
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule__ctor
+  name: StairsModule
+  nameWithType: StairsModule.StairsModule
+  fullName: ISILab.LBS.Modules.StairsModule.StairsModule
+  nameWithType.vb: StairsModule.New
+  fullName.vb: ISILab.LBS.Modules.StairsModule.New
+  name.vb: New
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSStair>
+  nameWithType: List<LBSStair>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.LBSStair>
+  nameWithType.vb: List(Of LBSStair)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.LBSStair)
+  name.vb: List(Of LBSStair)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.LBSStair
+    name: LBSStair
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSStair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.LBSStair
+    name: LBSStair
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSStair.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Modules.StairsModule.AddStair*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.AddStair
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_AddStair_ISILab_LBS_Modules_LBSStair_
+  name: AddStair
+  nameWithType: StairsModule.AddStair
+  fullName: ISILab.LBS.Modules.StairsModule.AddStair
+- uid: ISILab.LBS.Modules.LBSStair
+  commentId: T:ISILab.LBS.Modules.LBSStair
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSStair.html
+  name: LBSStair
+  nameWithType: LBSStair
+  fullName: ISILab.LBS.Modules.LBSStair
+- uid: ISILab.LBS.Modules.StairsModule.IsPositionOccupied*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.IsPositionOccupied
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_IsPositionOccupied_UnityEngine_Vector2Int_
+  name: IsPositionOccupied
+  nameWithType: StairsModule.IsPositionOccupied
+  fullName: ISILab.LBS.Modules.StairsModule.IsPositionOccupied
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Modules.StairsModule.GetStairByPoint*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.GetStairByPoint
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_GetStairByPoint_UnityEngine_Vector2Int_System_Boolean_
+  name: GetStairByPoint
+  nameWithType: StairsModule.GetStairByPoint
+  fullName: ISILab.LBS.Modules.StairsModule.GetStairByPoint
+- uid: ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_GetStairByStartingPoint_UnityEngine_Vector2Int_
+  name: GetStairByStartingPoint
+  nameWithType: StairsModule.GetStairByStartingPoint
+  fullName: ISILab.LBS.Modules.StairsModule.GetStairByStartingPoint
+- uid: ISILab.LBS.Modules.StairsModule.RemoveStair*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.RemoveStair
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_RemoveStair_ISILab_LBS_Modules_LBSStair_
+  name: RemoveStair
+  nameWithType: StairsModule.RemoveStair
+  fullName: ISILab.LBS.Modules.StairsModule.RemoveStair
+- uid: ISILab.LBS.Modules.StairsModule.GetSelected*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.GetSelected
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_GetSelected_UnityEngine_Vector2Int_
+  name: GetSelected
+  nameWithType: StairsModule.GetSelected
+  fullName: ISILab.LBS.Modules.StairsModule.GetSelected
+- uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.ISelectable
+  isExternal: true
+  href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  name: GetSelected(Vector2Int)
+  nameWithType: ISelectable.GetSelected(Vector2Int)
+  fullName: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+    name: GetSelected
+    isExternal: true
+    href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
+    name: GetSelected
+    isExternal: true
+    href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
+  - name: (
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List{System.Object}
+  commentId: T:System.Collections.Generic.List{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<object>
+  nameWithType: List<object>
+  fullName: System.Collections.Generic.List<object>
+  nameWithType.vb: List(Of Object)
+  fullName.vb: System.Collections.Generic.List(Of Object)
+  name.vb: List(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Clear
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clear
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  name: Clear()
+  nameWithType: LBSModule.Clear()
+  fullName: ISILab.LBS.Modules.LBSModule.Clear()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.StairsModule.Clear*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.Clear
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_Clear
+  name: Clear
+  nameWithType: StairsModule.Clear
+  fullName: ISILab.LBS.Modules.StairsModule.Clear
+- uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  name: IsEmpty()
+  nameWithType: LBSModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.LBSModule.IsEmpty()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.StairsModule.IsEmpty*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.IsEmpty
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_IsEmpty
+  name: IsEmpty
+  nameWithType: StairsModule.IsEmpty
+  fullName: ISILab.LBS.Modules.StairsModule.IsEmpty
+- uid: ISILab.LBS.Modules.LBSModule.Clone
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clone
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  name: Clone()
+  nameWithType: LBSModule.Clone()
+  fullName: ISILab.LBS.Modules.LBSModule.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.StairsModule.Clone*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.Clone
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_Clone
+  name: Clone
+  nameWithType: StairsModule.Clone
+  fullName: ISILab.LBS.Modules.StairsModule.Clone
+- uid: ISILab.LBS.Modules.StairsModule.Stairs*
+  commentId: Overload:ISILab.LBS.Modules.StairsModule.Stairs
+  isExternal: true
+  href: ISILab.LBS.Modules.StairsModule.html#ISILab_LBS_Modules_StairsModule_Stairs
+  name: Stairs
+  nameWithType: StairsModule.Stairs
+  fullName: ISILab.LBS.Modules.StairsModule.Stairs

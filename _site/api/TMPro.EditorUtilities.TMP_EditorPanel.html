@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TMP_EditorPanel | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TMP_EditorPanel | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="TMPro.EditorUtilities.TMP_EditorPanel">
+
+
+
+  <h1 id="TMPro_EditorUtilities_TMP_EditorPanel" data-uid="TMPro.EditorUtilities.TMP_EditorPanel" class="text-break">
+Class TMP_EditorPanel  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="TMPro.html">TMPro</a>.<a class="xref" href="TMPro.EditorUtilities.html">EditorUtilities</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.TextMeshPro.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TMP_EditorPanel : TMP_BaseEditorPanel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html">TMP_BaseEditorPanel</a></div>
+      <div><span class="xref">TMP_EditorPanel</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_k_ExtraSettingsLabel">TMP_BaseEditorPanel.k_ExtraSettingsLabel</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_k_UiStateLabel">TMP_BaseEditorPanel.k_UiStateLabel</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextStyleIndexLookup">TMP_BaseEditorPanel.m_TextStyleIndexLookup</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_s_EventId">TMP_BaseEditorPanel.s_EventId</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_selAlignGridA">TMP_BaseEditorPanel.selAlignGridA</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_selAlignGridB">TMP_BaseEditorPanel.selAlignGridB</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextProp">TMP_BaseEditorPanel.m_TextProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsRightToLeftProp">TMP_BaseEditorPanel.m_IsRightToLeftProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_RtlText">TMP_BaseEditorPanel.m_RtlText</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontAssetProp">TMP_BaseEditorPanel.m_FontAssetProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSharedMaterialProp">TMP_BaseEditorPanel.m_FontSharedMaterialProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresets">TMP_BaseEditorPanel.m_MaterialPresets</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresetNames">TMP_BaseEditorPanel.m_MaterialPresetNames</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresetIndexLookup">TMP_BaseEditorPanel.m_MaterialPresetIndexLookup</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MaterialPresetSelectionIndex">TMP_BaseEditorPanel.m_MaterialPresetSelectionIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsPresetListDirty">TMP_BaseEditorPanel.m_IsPresetListDirty</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_Styles">TMP_BaseEditorPanel.m_Styles</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_StyleNames">TMP_BaseEditorPanel.m_StyleNames</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_StyleSelectionIndex">TMP_BaseEditorPanel.m_StyleSelectionIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontStyleProp">TMP_BaseEditorPanel.m_FontStyleProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontColorProp">TMP_BaseEditorPanel.m_FontColorProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EnableVertexGradientProp">TMP_BaseEditorPanel.m_EnableVertexGradientProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontColorGradientProp">TMP_BaseEditorPanel.m_FontColorGradientProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontColorGradientPresetProp">TMP_BaseEditorPanel.m_FontColorGradientPresetProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_OverrideHtmlColorProp">TMP_BaseEditorPanel.m_OverrideHtmlColorProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeProp">TMP_BaseEditorPanel.m_FontSizeProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeBaseProp">TMP_BaseEditorPanel.m_FontSizeBaseProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_AutoSizingProp">TMP_BaseEditorPanel.m_AutoSizingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeMinProp">TMP_BaseEditorPanel.m_FontSizeMinProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontSizeMaxProp">TMP_BaseEditorPanel.m_FontSizeMaxProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_LineSpacingMaxProp">TMP_BaseEditorPanel.m_LineSpacingMaxProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_CharWidthMaxAdjProp">TMP_BaseEditorPanel.m_CharWidthMaxAdjProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_CharacterSpacingProp">TMP_BaseEditorPanel.m_CharacterSpacingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_WordSpacingProp">TMP_BaseEditorPanel.m_WordSpacingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_LineSpacingProp">TMP_BaseEditorPanel.m_LineSpacingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_ParagraphSpacingProp">TMP_BaseEditorPanel.m_ParagraphSpacingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextAlignmentProp">TMP_BaseEditorPanel.m_TextAlignmentProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HorizontalAlignmentProp">TMP_BaseEditorPanel.m_HorizontalAlignmentProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_VerticalAlignmentProp">TMP_BaseEditorPanel.m_VerticalAlignmentProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HorizontalMappingProp">TMP_BaseEditorPanel.m_HorizontalMappingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_VerticalMappingProp">TMP_BaseEditorPanel.m_VerticalMappingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_UvLineOffsetProp">TMP_BaseEditorPanel.m_UvLineOffsetProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextWrappingModeProp">TMP_BaseEditorPanel.m_TextWrappingModeProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_WordWrappingRatiosProp">TMP_BaseEditorPanel.m_WordWrappingRatiosProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextOverflowModeProp">TMP_BaseEditorPanel.m_TextOverflowModeProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_PageToDisplayProp">TMP_BaseEditorPanel.m_PageToDisplayProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_LinkedTextComponentProp">TMP_BaseEditorPanel.m_LinkedTextComponentProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_ParentLinkedTextComponentProp">TMP_BaseEditorPanel.m_ParentLinkedTextComponentProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_FontFeaturesActiveProp">TMP_BaseEditorPanel.m_FontFeaturesActiveProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsRichTextProp">TMP_BaseEditorPanel.m_IsRichTextProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HasFontAssetChangedProp">TMP_BaseEditorPanel.m_HasFontAssetChangedProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EnableExtraPaddingProp">TMP_BaseEditorPanel.m_EnableExtraPaddingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_CheckPaddingRequiredProp">TMP_BaseEditorPanel.m_CheckPaddingRequiredProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EnableEscapeCharacterParsingProp">TMP_BaseEditorPanel.m_EnableEscapeCharacterParsingProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_UseMaxVisibleDescenderProp">TMP_BaseEditorPanel.m_UseMaxVisibleDescenderProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_GeometrySortingOrderProp">TMP_BaseEditorPanel.m_GeometrySortingOrderProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_IsTextObjectScaleStaticProp">TMP_BaseEditorPanel.m_IsTextObjectScaleStaticProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_EmojiFallbackSupportProp">TMP_BaseEditorPanel.m_EmojiFallbackSupportProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_SpriteAssetProp">TMP_BaseEditorPanel.m_SpriteAssetProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_StyleSheetAssetProp">TMP_BaseEditorPanel.m_StyleSheetAssetProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextStyleHashCodeProp">TMP_BaseEditorPanel.m_TextStyleHashCodeProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_MarginProp">TMP_BaseEditorPanel.m_MarginProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_ColorModeProp">TMP_BaseEditorPanel.m_ColorModeProp</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HavePropertiesChanged">TMP_BaseEditorPanel.m_HavePropertiesChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TextComponent">TMP_BaseEditorPanel.m_TextComponent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_PreviousLinkedTextComponent">TMP_BaseEditorPanel.m_PreviousLinkedTextComponent</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_RectTransform">TMP_BaseEditorPanel.m_RectTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_TargetMaterial">TMP_BaseEditorPanel.m_TargetMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_RectCorners">TMP_BaseEditorPanel.m_RectCorners</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_m_HandlePoints">TMP_BaseEditorPanel.m_HandlePoints</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_OnDisable">TMP_BaseEditorPanel.OnDisable()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_OnInspectorGUI">TMP_BaseEditorPanel.OnInspectorGUI()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_OnSceneGUI">TMP_BaseEditorPanel.OnSceneGUI()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawTextInput">TMP_BaseEditorPanel.DrawTextInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMainSettings">TMP_BaseEditorPanel.DrawMainSettings()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMargins">TMP_BaseEditorPanel.DrawMargins()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawGeometrySorting">TMP_BaseEditorPanel.DrawGeometrySorting()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawIsTextObjectScaleStatic">TMP_BaseEditorPanel.DrawIsTextObjectScaleStatic()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawRichText">TMP_BaseEditorPanel.DrawRichText()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawParsing">TMP_BaseEditorPanel.DrawParsing()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawEmojiFallbackSupport">TMP_BaseEditorPanel.DrawEmojiFallbackSupport()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawSpriteAsset">TMP_BaseEditorPanel.DrawSpriteAsset()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawStyleSheet">TMP_BaseEditorPanel.DrawStyleSheet()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawTextureMapping">TMP_BaseEditorPanel.DrawTextureMapping()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawFontFeatures">TMP_BaseEditorPanel.DrawFontFeatures()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawPadding">TMP_BaseEditorPanel.DrawPadding()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_GetMaterialPresets">TMP_BaseEditorPanel.GetMaterialPresets()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_GetStyleNames">TMP_BaseEditorPanel.GetStyleNames()</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawMarginProperty_UnityEditor_SerializedProperty_UnityEngine_GUIContent_">TMP_BaseEditorPanel.DrawMarginProperty(SerializedProperty, GUIContent)</a>
+    </div>
+    <div>
+      <a class="xref" href="TMPro.EditorUtilities.TMP_BaseEditorPanel.html#TMPro_EditorUtilities_TMP_BaseEditorPanel_DrawPropertySlider_UnityEngine_GUIContent_UnityEditor_SerializedProperty_">TMP_BaseEditorPanel.DrawPropertySlider(GUIContent, SerializedProperty)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="TMPro_EditorUtilities_TMP_EditorPanel__ctor_" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.#ctor*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_EditorPanel__ctor" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.#ctor">
+  TMP_EditorPanel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TMP_EditorPanel()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="TMPro_EditorUtilities_TMP_EditorPanel_DrawExtraSettings_" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.DrawExtraSettings*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_EditorPanel_DrawExtraSettings" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.DrawExtraSettings">
+  DrawExtraSettings()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DrawExtraSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_EditorPanel_DrawVolumetricSetup_" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.DrawVolumetricSetup*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_EditorPanel_DrawVolumetricSetup" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.DrawVolumetricSetup">
+  DrawVolumetricSetup()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DrawVolumetricSetup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_EditorPanel_IsMixSelectionTypes_" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.IsMixSelectionTypes*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_EditorPanel_IsMixSelectionTypes" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.IsMixSelectionTypes">
+  IsMixSelectionTypes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool IsMixSelectionTypes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_EditorPanel_OnEnable_" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.OnEnable*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_EditorPanel_OnEnable" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.OnEnable">
+  OnEnable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="TMPro_EditorUtilities_TMP_EditorPanel_OnUndoRedo_" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.OnUndoRedo*"></a>
+
+  <h3 id="TMPro_EditorUtilities_TMP_EditorPanel_OnUndoRedo" data-uid="TMPro.EditorUtilities.TMP_EditorPanel.OnUndoRedo">
+  OnUndoRedo()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnUndoRedo()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,693 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeneticSharp.Domain.Mutations.DisplacementMutation
+  commentId: T:GeneticSharp.Domain.Mutations.DisplacementMutation
+  id: DisplacementMutation
+  parent: GeneticSharp.Domain.Mutations
+  children:
+  - GeneticSharp.Domain.Mutations.DisplacementMutation.#ctor
+  - GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift(System.Int32)
+  - GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence(System.Object[])
+  langs:
+  - csharp
+  - vb
+  name: DisplacementMutation
+  nameWithType: DisplacementMutation
+  fullName: GeneticSharp.Domain.Mutations.DisplacementMutation
+  type: Class
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  syntax:
+    content: 'public class DisplacementMutation : SequenceMutationBase, IMutation, IChromosomeOperator'
+    content.vb: Public Class DisplacementMutation Inherits SequenceMutationBase Implements IMutation, IChromosomeOperator
+  inheritance:
+  - System.Object
+  - GeneticSharp.Domain.Mutations.MutationBase
+  - GeneticSharp.Domain.Mutations.SequenceMutationBase
+  derivedClasses:
+  - GeneticSharp.Domain.Mutations.InsertionMutation
+  implements:
+  - GeneticSharp.Domain.Mutations.IMutation
+  - GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  inheritedMembers:
+  - GeneticSharp.Domain.Mutations.SequenceMutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  - GeneticSharp.Domain.Mutations.SequenceMutationBase.ValidateLength(System.Object[])
+  - GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  - GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: GeneticSharp.Domain.Mutations.DisplacementMutation.#ctor
+  commentId: M:GeneticSharp.Domain.Mutations.DisplacementMutation.#ctor
+  id: '#ctor'
+  parent: GeneticSharp.Domain.Mutations.DisplacementMutation
+  langs:
+  - csharp
+  - vb
+  name: DisplacementMutation()
+  nameWithType: DisplacementMutation.DisplacementMutation()
+  fullName: GeneticSharp.Domain.Mutations.DisplacementMutation.DisplacementMutation()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  syntax:
+    content: public DisplacementMutation()
+    content.vb: Public Sub New()
+  overload: GeneticSharp.Domain.Mutations.DisplacementMutation.#ctor*
+  nameWithType.vb: DisplacementMutation.New()
+  fullName.vb: GeneticSharp.Domain.Mutations.DisplacementMutation.New()
+  name.vb: New()
+- uid: GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence(System.Object[])
+  commentId: M:GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence(System.Object[])
+  id: MutateOnSequence(System.Object[])
+  parent: GeneticSharp.Domain.Mutations.DisplacementMutation
+  langs:
+  - csharp
+  - vb
+  name: MutateOnSequence(object[])
+  nameWithType: DisplacementMutation.MutateOnSequence(object[])
+  fullName: GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence(object[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  example: []
+  syntax:
+    content: protected override object[] MutateOnSequence(object[] sequence)
+    parameters:
+    - id: sequence
+      type: System.Object[]
+    return:
+      type: System.Object[]
+    content.vb: Protected Overrides Function MutateOnSequence(sequence As Object()) As Object()
+  overridden: GeneticSharp.Domain.Mutations.SequenceMutationBase.MutateOnSequence(System.Object[])
+  overload: GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence*
+  nameWithType.vb: DisplacementMutation.MutateOnSequence(Object())
+  fullName.vb: GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence(Object())
+  name.vb: MutateOnSequence(Object())
+- uid: GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift(System.Int32)
+  commentId: M:GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift(System.Int32)
+  id: DetermineGeneToShift(System.Int32)
+  parent: GeneticSharp.Domain.Mutations.DisplacementMutation
+  langs:
+  - csharp
+  - vb
+  name: DetermineGeneToShift(int)
+  nameWithType: DisplacementMutation.DetermineGeneToShift(int)
+  fullName: GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  syntax:
+    content: protected virtual int DetermineGeneToShift(int maxCount)
+    parameters:
+    - id: maxCount
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Protected Overridable Function DetermineGeneToShift(maxCount As Integer) As Integer
+  overload: GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift*
+  nameWithType.vb: DisplacementMutation.DetermineGeneToShift(Integer)
+  fullName.vb: GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift(Integer)
+  name.vb: DetermineGeneToShift(Integer)
+references:
+- uid: GeneticSharp.Domain.Mutations
+  commentId: N:GeneticSharp.Domain.Mutations
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Mutations
+  nameWithType: GeneticSharp.Domain.Mutations
+  fullName: GeneticSharp.Domain.Mutations
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: GeneticSharp.Domain.Mutations.MutationBase
+  commentId: T:GeneticSharp.Domain.Mutations.MutationBase
+  parent: GeneticSharp.Domain.Mutations
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.MutationBase.html
+  name: MutationBase
+  nameWithType: MutationBase
+  fullName: GeneticSharp.Domain.Mutations.MutationBase
+- uid: GeneticSharp.Domain.Mutations.SequenceMutationBase
+  commentId: T:GeneticSharp.Domain.Mutations.SequenceMutationBase
+  parent: GeneticSharp.Domain.Mutations
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html
+  name: SequenceMutationBase
+  nameWithType: SequenceMutationBase
+  fullName: GeneticSharp.Domain.Mutations.SequenceMutationBase
+- uid: GeneticSharp.Domain.Mutations.IMutation
+  commentId: T:GeneticSharp.Domain.Mutations.IMutation
+  parent: GeneticSharp.Domain.Mutations
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.IMutation.html
+  name: IMutation
+  nameWithType: IMutation
+  fullName: GeneticSharp.Domain.Mutations.IMutation
+- uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  commentId: T:GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  parent: GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html
+  name: IChromosomeOperator
+  nameWithType: IChromosomeOperator
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+- uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  commentId: M:GeneticSharp.Domain.Mutations.SequenceMutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  parent: GeneticSharp.Domain.Mutations.SequenceMutationBase
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_PerformMutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  name: PerformMutate(ChromosomeBase, float)
+  nameWithType: SequenceMutationBase.PerformMutate(ChromosomeBase, float)
+  fullName: GeneticSharp.Domain.Mutations.SequenceMutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, float)
+  nameWithType.vb: SequenceMutationBase.PerformMutate(ChromosomeBase, Single)
+  fullName.vb: GeneticSharp.Domain.Mutations.SequenceMutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, Single)
+  name.vb: PerformMutate(ChromosomeBase, Single)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+    name: PerformMutate
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_PerformMutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+    name: PerformMutate
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_PerformMutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.ValidateLength(System.Object[])
+  commentId: M:GeneticSharp.Domain.Mutations.SequenceMutationBase.ValidateLength(System.Object[])
+  parent: GeneticSharp.Domain.Mutations.SequenceMutationBase
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_ValidateLength_System_Object___
+  name: ValidateLength(object[])
+  nameWithType: SequenceMutationBase.ValidateLength(object[])
+  fullName: GeneticSharp.Domain.Mutations.SequenceMutationBase.ValidateLength(object[])
+  nameWithType.vb: SequenceMutationBase.ValidateLength(Object())
+  fullName.vb: GeneticSharp.Domain.Mutations.SequenceMutationBase.ValidateLength(Object())
+  name.vb: ValidateLength(Object())
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.ValidateLength(System.Object[])
+    name: ValidateLength
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_ValidateLength_System_Object___
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.ValidateLength(System.Object[])
+    name: ValidateLength
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_ValidateLength_System_Object___
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  commentId: M:GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  parent: GeneticSharp.Domain.Mutations.MutationBase
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  name: Mutate(ChromosomeBase, float)
+  nameWithType: MutationBase.Mutate(ChromosomeBase, float)
+  fullName: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, float)
+  nameWithType.vb: MutationBase.Mutate(ChromosomeBase, Single)
+  fullName.vb: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, Single)
+  name.vb: Mutate(ChromosomeBase, Single)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+    name: Mutate
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+    name: Mutate
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
+  commentId: P:GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
+  parent: GeneticSharp.Domain.Mutations.MutationBase
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_IsOrdered
+  name: IsOrdered
+  nameWithType: MutationBase.IsOrdered
+  fullName: GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeneticSharp.Domain.Chromosomes
+  commentId: N:GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Chromosomes
+  nameWithType: GeneticSharp.Domain.Chromosomes
+  fullName: GeneticSharp.Domain.Chromosomes
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+- uid: GeneticSharp.Domain.Mutations.DisplacementMutation.#ctor*
+  commentId: Overload:GeneticSharp.Domain.Mutations.DisplacementMutation.#ctor
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.DisplacementMutation.html#GeneticSharp_Domain_Mutations_DisplacementMutation__ctor
+  name: DisplacementMutation
+  nameWithType: DisplacementMutation.DisplacementMutation
+  fullName: GeneticSharp.Domain.Mutations.DisplacementMutation.DisplacementMutation
+  nameWithType.vb: DisplacementMutation.New
+  fullName.vb: GeneticSharp.Domain.Mutations.DisplacementMutation.New
+  name.vb: New
+- uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.MutateOnSequence(System.Object[])
+  commentId: M:GeneticSharp.Domain.Mutations.SequenceMutationBase.MutateOnSequence(System.Object[])
+  parent: GeneticSharp.Domain.Mutations.SequenceMutationBase
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_MutateOnSequence_System_Object___
+  name: MutateOnSequence(object[])
+  nameWithType: SequenceMutationBase.MutateOnSequence(object[])
+  fullName: GeneticSharp.Domain.Mutations.SequenceMutationBase.MutateOnSequence(object[])
+  nameWithType.vb: SequenceMutationBase.MutateOnSequence(Object())
+  fullName.vb: GeneticSharp.Domain.Mutations.SequenceMutationBase.MutateOnSequence(Object())
+  name.vb: MutateOnSequence(Object())
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.MutateOnSequence(System.Object[])
+    name: MutateOnSequence
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_MutateOnSequence_System_Object___
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Mutations.SequenceMutationBase.MutateOnSequence(System.Object[])
+    name: MutateOnSequence
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_MutateOnSequence_System_Object___
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence*
+  commentId: Overload:GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.DisplacementMutation.html#GeneticSharp_Domain_Mutations_DisplacementMutation_MutateOnSequence_System_Object___
+  name: MutateOnSequence
+  nameWithType: DisplacementMutation.MutateOnSequence
+  fullName: GeneticSharp.Domain.Mutations.DisplacementMutation.MutateOnSequence
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift*
+  commentId: Overload:GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.DisplacementMutation.html#GeneticSharp_Domain_Mutations_DisplacementMutation_DetermineGeneToShift_System_Int32_
+  name: DetermineGeneToShift
+  nameWithType: DisplacementMutation.DetermineGeneToShift
+  fullName: GeneticSharp.Domain.Mutations.DisplacementMutation.DetermineGeneToShift
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

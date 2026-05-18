@@ -1,0 +1,1252 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags
+  commentId: T:ISILab.LBS.Characteristics.LBSNavigableTags
+  id: LBSNavigableTags
+  parent: ISILab.LBS.Characteristics
+  children:
+  - ISILab.LBS.Characteristics.LBSNavigableTags.#ctor
+  - ISILab.LBS.Characteristics.LBSNavigableTags.Clone
+  - ISILab.LBS.Characteristics.LBSNavigableTags.Equals(System.Object)
+  - ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode
+  - ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags
+  - ISILab.LBS.Characteristics.LBSNavigableTags.Navigable
+  - ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef
+  - ISILab.LBS.Characteristics.LBSNavigableTags.SetTags
+  - ISILab.LBS.Characteristics.LBSNavigableTags.Tags
+  - ISILab.LBS.Characteristics.LBSNavigableTags.Validate
+  langs:
+  - csharp
+  - vb
+  name: LBSNavigableTags
+  nameWithType: LBSNavigableTags
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: 'public class LBSNavigableTags : LBSCharacteristic, ICloneable'
+    content.vb: Public Class LBSNavigableTags Inherits LBSCharacteristic Implements ICloneable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Characteristics.LBSCharacteristic
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - ISILab.LBS.Characteristics.LBSCharacteristic.unique
+  - ISILab.LBS.Characteristics.LBSCharacteristic.exclusives
+  - ISILab.LBS.Characteristics.LBSCharacteristic.initialized
+  - ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  - ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
+  - ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
+  - ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
+  - ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
+  - ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - ISILab.LBS.Characteristics.LBSCharacteristic.ISILab.Extensions.LBSCharacteristicExtensions.FirstTag
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.SetTags
+  commentId: M:ISILab.LBS.Characteristics.LBSNavigableTags.SetTags
+  id: SetTags
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: SetTags()
+  nameWithType: LBSNavigableTags.SetTags()
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.SetTags()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: public void SetTags()
+    content.vb: Public Sub SetTags()
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.SetTags*
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags
+  commentId: M:ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags
+  id: GetNavigableTags
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: GetNavigableTags()
+  nameWithType: LBSNavigableTags.GetNavigableTags()
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: public List<string> GetNavigableTags()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetNavigableTags() As List(Of String)
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags*
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Clone
+  commentId: M:ISILab.LBS.Characteristics.LBSNavigableTags.Clone
+  id: Clone
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: LBSNavigableTags.Clone()
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Characteristics.LBSCharacteristic.Clone
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.Clone*
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Equals(System.Object)
+  commentId: M:ISILab.LBS.Characteristics.LBSNavigableTags.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: LBSNavigableTags.Equals(object)
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.Equals*
+  nameWithType.vb: LBSNavigableTags.Equals(Object)
+  fullName.vb: ISILab.LBS.Characteristics.LBSNavigableTags.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode
+  commentId: M:ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LBSNavigableTags.GetHashCode()
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode*
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Validate
+  commentId: M:ISILab.LBS.Characteristics.LBSNavigableTags.Validate
+  id: Validate
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: Validate()
+  nameWithType: LBSNavigableTags.Validate()
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Validate()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  example: []
+  syntax:
+    content: public override List<string> Validate()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Overrides Function Validate() As List(Of String)
+  overridden: ISILab.LBS.Characteristics.LBSCharacteristic.Validate
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.Validate*
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.#ctor
+  commentId: M:ISILab.LBS.Characteristics.LBSNavigableTags.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: LBSNavigableTags()
+  nameWithType: LBSNavigableTags.LBSNavigableTags()
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.LBSNavigableTags()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: public LBSNavigableTags()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.#ctor*
+  nameWithType.vb: LBSNavigableTags.New()
+  fullName.vb: ISILab.LBS.Characteristics.LBSNavigableTags.New()
+  name.vb: New()
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Tags
+  commentId: P:ISILab.LBS.Characteristics.LBSNavigableTags.Tags
+  id: Tags
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: LBSNavigableTags.Tags
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Tags
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: public List<LBSTag> Tags { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+    content.vb: Public ReadOnly Property Tags As List(Of LBSTag)
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.Tags*
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Navigable
+  commentId: P:ISILab.LBS.Characteristics.LBSNavigableTags.Navigable
+  id: Navigable
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: Navigable
+  nameWithType: LBSNavigableTags.Navigable
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Navigable
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: public List<bool> Navigable { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Boolean}
+    content.vb: Public ReadOnly Property Navigable As List(Of Boolean)
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.Navigable*
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef
+  commentId: P:ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef
+  id: NavigableTagsRef
+  parent: ISILab.LBS.Characteristics.LBSNavigableTags
+  langs:
+  - csharp
+  - vb
+  name: NavigableTagsRef
+  nameWithType: LBSNavigableTags.NavigableTagsRef
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: public Dictionary<LBSTag, bool> NavigableTagsRef { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{ISILab.LBS.Components.LBSTag,System.Boolean}
+    content.vb: Public ReadOnly Property NavigableTagsRef As Dictionary(Of LBSTag, Boolean)
+  overload: ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef*
+references:
+- uid: ISILab.LBS.Characteristics
+  commentId: N:ISILab.LBS.Characteristics
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Characteristics
+  nameWithType: ISILab.LBS.Characteristics
+  fullName: ISILab.LBS.Characteristics
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    isExternal: true
+    href: ISILab.LBS.Characteristics.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    isExternal: true
+    href: ISILab.LBS.Characteristics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic
+  commentId: T:ISILab.LBS.Characteristics.LBSCharacteristic
+  parent: ISILab.LBS.Characteristics
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  name: LBSCharacteristic
+  nameWithType: LBSCharacteristic
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.unique
+  commentId: F:ISILab.LBS.Characteristics.LBSCharacteristic.unique
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_unique
+  name: unique
+  nameWithType: LBSCharacteristic.unique
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.unique
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.exclusives
+  commentId: F:ISILab.LBS.Characteristics.LBSCharacteristic.exclusives
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_exclusives
+  name: exclusives
+  nameWithType: LBSCharacteristic.exclusives
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.exclusives
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.initialized
+  commentId: F:ISILab.LBS.Characteristics.LBSCharacteristic.initialized
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_initialized
+  name: initialized
+  nameWithType: LBSCharacteristic.initialized
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.initialized
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  name: Init(Bundle)
+  nameWithType: LBSCharacteristic.Init(Bundle)
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+    name: Init
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+    name: Init
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsUnique_System_Type_
+  name: IsUnique(Type)
+  nameWithType: LBSCharacteristic.IsUnique(Type)
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
+    name: IsUnique
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsUnique_System_Type_
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
+    name: IsUnique
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsUnique_System_Type_
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsExclusive_System_Type_System_Collections_Generic_List_System_Collections_Generic_List_System_Type____
+  name: IsExclusive(Type, out List<List<Type>>)
+  nameWithType: LBSCharacteristic.IsExclusive(Type, out List<List<Type>>)
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type, out System.Collections.Generic.List<System.Collections.Generic.List<System.Type>>)
+  nameWithType.vb: LBSCharacteristic.IsExclusive(Type, List(Of List(Of Type)))
+  fullName.vb: ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type, System.Collections.Generic.List(Of System.Collections.Generic.List(Of System.Type)))
+  name.vb: IsExclusive(Type, List(Of List(Of Type)))
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
+    name: IsExclusive
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsExclusive_System_Type_System_Collections_Generic_List_System_Collections_Generic_List_System_Type____
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
+    name: IsExclusive
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsExclusive_System_Type_System_Collections_Generic_List_System_Collections_Generic_List_System_Type____
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  - name: )
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnEnable
+  name: OnEnable()
+  nameWithType: LBSCharacteristic.OnEnable()
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable()
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
+    name: OnEnable
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnEnable
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
+    name: OnEnable
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnEnable
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh
+  name: OnRefresh()
+  nameWithType: LBSCharacteristic.OnRefresh()
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh()
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
+    name: OnRefresh
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
+    name: OnRefresh
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+  commentId: P:ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner
+  name: Owner
+  nameWithType: LBSCharacteristic.Owner
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.ISILab.Extensions.LBSCharacteristicExtensions.FirstTag
+  commentId: M:ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+  parent: ISILab.Extensions.LBSCharacteristicExtensions
+  definition: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+  href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
+  name: FirstTag(LBSCharacteristic)
+  nameWithType: LBSCharacteristicExtensions.FirstTag(LBSCharacteristic)
+  fullName: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+  spec.csharp:
+  - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+    name: FirstTag
+    isExternal: true
+    href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
+  - name: (
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic
+    name: LBSCharacteristic
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+    name: FirstTag
+    isExternal: true
+    href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
+  - name: (
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic
+    name: LBSCharacteristic
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+  commentId: M:ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+  isExternal: true
+  href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
+  name: FirstTag(LBSCharacteristic)
+  nameWithType: LBSCharacteristicExtensions.FirstTag(LBSCharacteristic)
+  fullName: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+  spec.csharp:
+  - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+    name: FirstTag
+    isExternal: true
+    href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
+  - name: (
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic
+    name: LBSCharacteristic
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
+    name: FirstTag
+    isExternal: true
+    href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
+  - name: (
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic
+    name: LBSCharacteristic
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  - name: )
+- uid: ISILab.Extensions.LBSCharacteristicExtensions
+  commentId: T:ISILab.Extensions.LBSCharacteristicExtensions
+  parent: ISILab.Extensions
+  isExternal: true
+  href: ISILab.Extensions.LBSCharacteristicExtensions.html
+  name: LBSCharacteristicExtensions
+  nameWithType: LBSCharacteristicExtensions
+  fullName: ISILab.Extensions.LBSCharacteristicExtensions
+- uid: ISILab.Extensions
+  commentId: N:ISILab.Extensions
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Extensions
+  nameWithType: ISILab.Extensions
+  fullName: ISILab.Extensions
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.SetTags*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.SetTags
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_SetTags
+  name: SetTags
+  nameWithType: LBSNavigableTags.SetTags
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.SetTags
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_GetNavigableTags
+  name: GetNavigableTags
+  nameWithType: LBSNavigableTags.GetNavigableTags
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.GetNavigableTags
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.Clone
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.Clone
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Clone
+  name: Clone()
+  nameWithType: LBSCharacteristic.Clone()
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Clone*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.Clone
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_Clone
+  name: Clone
+  nameWithType: LBSNavigableTags.Clone
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Clone
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Equals_System_Object_
+  name: Equals(object)
+  nameWithType: LBSCharacteristic.Equals(object)
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(object)
+  nameWithType.vb: LBSCharacteristic.Equals(Object)
+  fullName.vb: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Equals*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.Equals
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_Equals_System_Object_
+  name: Equals
+  nameWithType: LBSNavigableTags.Equals
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_GetHashCode
+  name: GetHashCode()
+  nameWithType: LBSCharacteristic.GetHashCode()
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode()
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_GetHashCode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_GetHashCode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_GetHashCode
+  name: GetHashCode
+  nameWithType: LBSNavigableTags.GetHashCode
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.Validate
+  commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.Validate
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Validate
+  name: Validate()
+  nameWithType: LBSCharacteristic.Validate()
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.Validate()
+  spec.csharp:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Validate
+    name: Validate
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Validate
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Validate
+    name: Validate
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Validate
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Validate*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.Validate
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_Validate
+  name: Validate
+  nameWithType: LBSNavigableTags.Validate
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Validate
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.#ctor*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.#ctor
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags__ctor
+  name: LBSNavigableTags
+  nameWithType: LBSNavigableTags.LBSNavigableTags
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.LBSNavigableTags
+  nameWithType.vb: LBSNavigableTags.New
+  fullName.vb: ISILab.LBS.Characteristics.LBSNavigableTags.New
+  name.vb: New
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Tags*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.Tags
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_Tags
+  name: Tags
+  nameWithType: LBSNavigableTags.Tags
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Tags
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSTag>
+  nameWithType: List<LBSTag>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.LBSTag>
+  nameWithType.vb: List(Of LBSTag)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.LBSTag)
+  name.vb: List(Of LBSTag)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.Navigable*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.Navigable
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_Navigable
+  name: Navigable
+  nameWithType: LBSNavigableTags.Navigable
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.Navigable
+- uid: System.Collections.Generic.List{System.Boolean}
+  commentId: T:System.Collections.Generic.List{System.Boolean}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<bool>
+  nameWithType: List<bool>
+  fullName: System.Collections.Generic.List<bool>
+  nameWithType.vb: List(Of Boolean)
+  fullName.vb: System.Collections.Generic.List(Of Boolean)
+  name.vb: List(Of Boolean)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef*
+  commentId: Overload:ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSNavigableTags.html#ISILab_LBS_Characteristics_LBSNavigableTags_NavigableTagsRef
+  name: NavigableTagsRef
+  nameWithType: LBSNavigableTags.NavigableTagsRef
+  fullName: ISILab.LBS.Characteristics.LBSNavigableTags.NavigableTagsRef
+- uid: System.Collections.Generic.Dictionary{ISILab.LBS.Components.LBSTag,System.Boolean}
+  commentId: T:System.Collections.Generic.Dictionary{ISILab.LBS.Components.LBSTag,System.Boolean}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<LBSTag, bool>
+  nameWithType: Dictionary<LBSTag, bool>
+  fullName: System.Collections.Generic.Dictionary<ISILab.LBS.Components.LBSTag, bool>
+  nameWithType.vb: Dictionary(Of LBSTag, Boolean)
+  fullName.vb: System.Collections.Generic.Dictionary(Of ISILab.LBS.Components.LBSTag, Boolean)
+  name.vb: Dictionary(Of LBSTag, Boolean)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )

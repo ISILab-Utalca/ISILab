@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: LBS.VisualElements.LayerInfoView
+  commentId: T:LBS.VisualElements.LayerInfoView
+  id: LayerInfoView
+  parent: LBS.VisualElements
+  children:
+  - LBS.VisualElements.LayerInfoView.#ctor
+  - LBS.VisualElements.LayerInfoView.SetInfo(LBS.Components.LBSLayer)
+  langs:
+  - csharp
+  - vb
+  name: LayerInfoView
+  nameWithType: LayerInfoView
+  fullName: LBS.VisualElements.LayerInfoView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: 'public class LayerInfoView : VisualElement'
+    content.vb: Public Class LayerInfoView Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: LBS.VisualElements.LayerInfoView.#ctor
+  commentId: M:LBS.VisualElements.LayerInfoView.#ctor
+  id: '#ctor'
+  parent: LBS.VisualElements.LayerInfoView
+  langs:
+  - csharp
+  - vb
+  name: LayerInfoView()
+  nameWithType: LayerInfoView.LayerInfoView()
+  fullName: LBS.VisualElements.LayerInfoView.LayerInfoView()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public LayerInfoView()
+    content.vb: Public Sub New()
+  overload: LBS.VisualElements.LayerInfoView.#ctor*
+  nameWithType.vb: LayerInfoView.New()
+  fullName.vb: LBS.VisualElements.LayerInfoView.New()
+  name.vb: New()
+- uid: LBS.VisualElements.LayerInfoView.SetInfo(LBS.Components.LBSLayer)
+  commentId: M:LBS.VisualElements.LayerInfoView.SetInfo(LBS.Components.LBSLayer)
+  id: SetInfo(LBS.Components.LBSLayer)
+  parent: LBS.VisualElements.LayerInfoView
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(LBSLayer)
+  nameWithType: LayerInfoView.SetInfo(LBSLayer)
+  fullName: LBS.VisualElements.LayerInfoView.SetInfo(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetInfo(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub SetInfo(layer As LBSLayer)
+  overload: LBS.VisualElements.LayerInfoView.SetInfo*
+references:
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LBS.VisualElements.LayerInfoView.#ctor*
+  commentId: Overload:LBS.VisualElements.LayerInfoView.#ctor
+  isExternal: true
+  href: LBS.VisualElements.LayerInfoView.html#LBS_VisualElements_LayerInfoView__ctor
+  name: LayerInfoView
+  nameWithType: LayerInfoView.LayerInfoView
+  fullName: LBS.VisualElements.LayerInfoView.LayerInfoView
+  nameWithType.vb: LayerInfoView.New
+  fullName.vb: LBS.VisualElements.LayerInfoView.New
+  name.vb: New
+- uid: LBS.VisualElements.LayerInfoView.SetInfo*
+  commentId: Overload:LBS.VisualElements.LayerInfoView.SetInfo
+  isExternal: true
+  href: LBS.VisualElements.LayerInfoView.html#LBS_VisualElements_LayerInfoView_SetInfo_LBS_Components_LBSLayer_
+  name: SetInfo
+  nameWithType: LayerInfoView.SetInfo
+  fullName: LBS.VisualElements.LayerInfoView.SetInfo
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html

@@ -1,0 +1,297 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  commentId: T:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  id: QuestHistoryEntry
+  parent: ISILab.LBS.VisualElements.Editor
+  children:
+  - ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.#ctor
+  - ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.GoToNode
+  - ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest
+  - ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.RemoveNode
+  - ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData(ISILab.LBS.Components.QuestNode)
+  - ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update
+  langs:
+  - csharp
+  - vb
+  name: QuestHistoryEntry
+  nameWithType: QuestHistoryEntry
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: 'public class QuestHistoryEntry : VisualElement'
+    content.vb: Public Class QuestHistoryEntry Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.RemoveNode
+  commentId: F:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.RemoveNode
+  id: RemoveNode
+  parent: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: RemoveNode
+  nameWithType: QuestHistoryEntry.RemoveNode
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.RemoveNode
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action RemoveNode
+    return:
+      type: System.Action
+    content.vb: Public RemoveNode As Action
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.GoToNode
+  commentId: F:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.GoToNode
+  id: GoToNode
+  parent: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: GoToNode
+  nameWithType: QuestHistoryEntry.GoToNode
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.GoToNode
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action GoToNode
+    return:
+      type: System.Action
+    content.vb: Public GoToNode As Action
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.#ctor
+  commentId: M:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: QuestHistoryEntry()
+  nameWithType: QuestHistoryEntry.QuestHistoryEntry()
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.QuestHistoryEntry()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public QuestHistoryEntry()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.#ctor*
+  nameWithType.vb: QuestHistoryEntry.New()
+  fullName.vb: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update
+  commentId: M:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update
+  id: Update
+  parent: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: QuestHistoryEntry.Update()
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void Update()
+    content.vb: Public Sub Update()
+  overload: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update*
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData(ISILab.LBS.Components.QuestNode)
+  commentId: M:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData(ISILab.LBS.Components.QuestNode)
+  id: SetData(ISILab.LBS.Components.QuestNode)
+  parent: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: SetData(QuestNode)
+  nameWithType: QuestHistoryEntry.SetData(QuestNode)
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData(ISILab.LBS.Components.QuestNode)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void SetData(QuestNode node)
+    parameters:
+    - id: node
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public Sub SetData(node As QuestNode)
+  overload: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData*
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest
+  commentId: P:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest
+  id: Quest
+  parent: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry
+  langs:
+  - csharp
+  - vb
+  name: Quest
+  nameWithType: QuestHistoryEntry.Quest
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public QuestNode Quest { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public Property Quest As QuestNode
+  overload: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest*
+references:
+- uid: ISILab.LBS.VisualElements.Editor
+  commentId: N:ISILab.LBS.VisualElements.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements.Editor
+  nameWithType: ISILab.LBS.VisualElements.Editor
+  fullName: ISILab.LBS.VisualElements.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.html#ISILab_LBS_VisualElements_Editor_QuestHistoryEntry__ctor
+  name: QuestHistoryEntry
+  nameWithType: QuestHistoryEntry.QuestHistoryEntry
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.QuestHistoryEntry
+  nameWithType.vb: QuestHistoryEntry.New
+  fullName.vb: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.html#ISILab_LBS_VisualElements_Editor_QuestHistoryEntry_Update
+  name: Update
+  nameWithType: QuestHistoryEntry.Update
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Update
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.html#ISILab_LBS_VisualElements_Editor_QuestHistoryEntry_SetData_ISILab_LBS_Components_QuestNode_
+  name: SetData
+  nameWithType: QuestHistoryEntry.SetData
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.SetData
+- uid: ISILab.LBS.Components.QuestNode
+  commentId: T:ISILab.LBS.Components.QuestNode
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNode.html
+  name: QuestNode
+  nameWithType: QuestNode
+  fullName: ISILab.LBS.Components.QuestNode
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.html#ISILab_LBS_VisualElements_Editor_QuestHistoryEntry_Quest
+  name: Quest
+  nameWithType: QuestHistoryEntry.Quest
+  fullName: ISILab.LBS.VisualElements.Editor.QuestHistoryEntry.Quest

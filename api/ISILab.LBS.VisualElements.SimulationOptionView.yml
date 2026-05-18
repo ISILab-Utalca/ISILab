@@ -1,0 +1,481 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.SimulationOptionView
+  commentId: T:ISILab.LBS.VisualElements.SimulationOptionView
+  id: SimulationOptionView
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.SimulationOptionView.#ctor(System.Object,System.Action{System.Object},System.Action{ISILab.LBS.VisualElements.SimulationOptionView,System.Object})
+  - ISILab.LBS.VisualElements.SimulationOptionView.Color
+  - ISILab.LBS.VisualElements.SimulationOptionView.Icon
+  - ISILab.LBS.VisualElements.SimulationOptionView.Label
+  - ISILab.LBS.VisualElements.SimulationOptionView.OnSelect
+  - ISILab.LBS.VisualElements.SimulationOptionView.SetSelected(System.Boolean)
+  - ISILab.LBS.VisualElements.SimulationOptionView.Target
+  - ISILab.LBS.VisualElements.SimulationOptionView.target
+  langs:
+  - csharp
+  - vb
+  name: SimulationOptionView
+  nameWithType: SimulationOptionView
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class SimulationOptionView : VisualElement'
+    content.vb: Public Class SimulationOptionView Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.target
+  commentId: F:ISILab.LBS.VisualElements.SimulationOptionView.target
+  id: target
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: target
+  nameWithType: SimulationOptionView.target
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.target
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public object target
+    return:
+      type: System.Object
+    content.vb: Public target As Object
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.OnSelect
+  commentId: F:ISILab.LBS.VisualElements.SimulationOptionView.OnSelect
+  id: OnSelect
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: OnSelect
+  nameWithType: SimulationOptionView.OnSelect
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.OnSelect
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Action<object> OnSelect
+    return:
+      type: System.Action{System.Object}
+    content.vb: Public OnSelect As Action(Of Object)
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.#ctor(System.Object,System.Action{System.Object},System.Action{ISILab.LBS.VisualElements.SimulationOptionView,System.Object})
+  commentId: M:ISILab.LBS.VisualElements.SimulationOptionView.#ctor(System.Object,System.Action{System.Object},System.Action{ISILab.LBS.VisualElements.SimulationOptionView,System.Object})
+  id: '#ctor(System.Object,System.Action{System.Object},System.Action{ISILab.LBS.VisualElements.SimulationOptionView,System.Object})'
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: SimulationOptionView(object, Action<object>, Action<SimulationOptionView, object>)
+  nameWithType: SimulationOptionView.SimulationOptionView(object, Action<object>, Action<SimulationOptionView, object>)
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.SimulationOptionView(object, System.Action<object>, System.Action<ISILab.LBS.VisualElements.SimulationOptionView, object>)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public SimulationOptionView(object target, Action<object> onSelect, Action<SimulationOptionView, object> onSetView)
+    parameters:
+    - id: target
+      type: System.Object
+    - id: onSelect
+      type: System.Action{System.Object}
+    - id: onSetView
+      type: System.Action{ISILab.LBS.VisualElements.SimulationOptionView,System.Object}
+    content.vb: Public Sub New(target As Object, onSelect As Action(Of Object), onSetView As Action(Of SimulationOptionView, Object))
+  overload: ISILab.LBS.VisualElements.SimulationOptionView.#ctor*
+  nameWithType.vb: SimulationOptionView.New(Object, Action(Of Object), Action(Of SimulationOptionView, Object))
+  fullName.vb: ISILab.LBS.VisualElements.SimulationOptionView.New(Object, System.Action(Of Object), System.Action(Of ISILab.LBS.VisualElements.SimulationOptionView, Object))
+  name.vb: New(Object, Action(Of Object), Action(Of SimulationOptionView, Object))
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.SetSelected(System.Boolean)
+  commentId: M:ISILab.LBS.VisualElements.SimulationOptionView.SetSelected(System.Boolean)
+  id: SetSelected(System.Boolean)
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: SetSelected(bool)
+  nameWithType: SimulationOptionView.SetSelected(bool)
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.SetSelected(bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void SetSelected(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+    content.vb: Public Sub SetSelected(value As Boolean)
+  overload: ISILab.LBS.VisualElements.SimulationOptionView.SetSelected*
+  nameWithType.vb: SimulationOptionView.SetSelected(Boolean)
+  fullName.vb: ISILab.LBS.VisualElements.SimulationOptionView.SetSelected(Boolean)
+  name.vb: SetSelected(Boolean)
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Target
+  commentId: P:ISILab.LBS.VisualElements.SimulationOptionView.Target
+  id: Target
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: SimulationOptionView.Target
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Target
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public object Target { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Target As Object
+  overload: ISILab.LBS.VisualElements.SimulationOptionView.Target*
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Label
+  commentId: P:ISILab.LBS.VisualElements.SimulationOptionView.Label
+  id: Label
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: SimulationOptionView.Label
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Label
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public string Label { set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public WriteOnly Property Label As String
+  overload: ISILab.LBS.VisualElements.SimulationOptionView.Label*
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Icon
+  commentId: P:ISILab.LBS.VisualElements.SimulationOptionView.Icon
+  id: Icon
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: SimulationOptionView.Icon
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Icon
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public VectorImage Icon { set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public WriteOnly Property Icon As VectorImage
+  overload: ISILab.LBS.VisualElements.SimulationOptionView.Icon*
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Color
+  commentId: P:ISILab.LBS.VisualElements.SimulationOptionView.Color
+  id: Color
+  parent: ISILab.LBS.VisualElements.SimulationOptionView
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: SimulationOptionView.Color
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Color
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Color Color { set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public WriteOnly Property Color As Color
+  overload: ISILab.LBS.VisualElements.SimulationOptionView.Color*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action{System.Object}
+  commentId: T:System.Action{System.Object}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<object>
+  nameWithType: Action<object>
+  fullName: System.Action<object>
+  nameWithType.vb: Action(Of Object)
+  fullName.vb: System.Action(Of Object)
+  name.vb: Action(Of Object)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.SimulationOptionView.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.SimulationOptionView.html#ISILab_LBS_VisualElements_SimulationOptionView__ctor_System_Object_System_Action_System_Object__System_Action_ISILab_LBS_VisualElements_SimulationOptionView_System_Object__
+  name: SimulationOptionView
+  nameWithType: SimulationOptionView.SimulationOptionView
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.SimulationOptionView
+  nameWithType.vb: SimulationOptionView.New
+  fullName.vb: ISILab.LBS.VisualElements.SimulationOptionView.New
+  name.vb: New
+- uid: System.Action{ISILab.LBS.VisualElements.SimulationOptionView,System.Object}
+  commentId: T:System.Action{ISILab.LBS.VisualElements.SimulationOptionView,System.Object}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<SimulationOptionView, object>
+  nameWithType: Action<SimulationOptionView, object>
+  fullName: System.Action<ISILab.LBS.VisualElements.SimulationOptionView, object>
+  nameWithType.vb: Action(Of SimulationOptionView, Object)
+  fullName.vb: System.Action(Of ISILab.LBS.VisualElements.SimulationOptionView, Object)
+  name.vb: Action(Of SimulationOptionView, Object)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.VisualElements.SimulationOptionView
+    name: SimulationOptionView
+    isExternal: true
+    href: ISILab.LBS.VisualElements.SimulationOptionView.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.VisualElements.SimulationOptionView
+    name: SimulationOptionView
+    isExternal: true
+    href: ISILab.LBS.VisualElements.SimulationOptionView.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.SetSelected*
+  commentId: Overload:ISILab.LBS.VisualElements.SimulationOptionView.SetSelected
+  isExternal: true
+  href: ISILab.LBS.VisualElements.SimulationOptionView.html#ISILab_LBS_VisualElements_SimulationOptionView_SetSelected_System_Boolean_
+  name: SetSelected
+  nameWithType: SimulationOptionView.SetSelected
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.SetSelected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Target*
+  commentId: Overload:ISILab.LBS.VisualElements.SimulationOptionView.Target
+  isExternal: true
+  href: ISILab.LBS.VisualElements.SimulationOptionView.html#ISILab_LBS_VisualElements_SimulationOptionView_Target
+  name: Target
+  nameWithType: SimulationOptionView.Target
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Target
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Label*
+  commentId: Overload:ISILab.LBS.VisualElements.SimulationOptionView.Label
+  isExternal: true
+  href: ISILab.LBS.VisualElements.SimulationOptionView.html#ISILab_LBS_VisualElements_SimulationOptionView_Label
+  name: Label
+  nameWithType: SimulationOptionView.Label
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Icon*
+  commentId: Overload:ISILab.LBS.VisualElements.SimulationOptionView.Icon
+  isExternal: true
+  href: ISILab.LBS.VisualElements.SimulationOptionView.html#ISILab_LBS_VisualElements_SimulationOptionView_Icon
+  name: Icon
+  nameWithType: SimulationOptionView.Icon
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Icon
+- uid: UnityEngine.UIElements.VectorImage
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: ISILab.LBS.VisualElements.SimulationOptionView.Color*
+  commentId: Overload:ISILab.LBS.VisualElements.SimulationOptionView.Color
+  isExternal: true
+  href: ISILab.LBS.VisualElements.SimulationOptionView.html#ISILab_LBS_VisualElements_SimulationOptionView_Color
+  name: Color
+  nameWithType: SimulationOptionView.Color
+  fullName: ISILab.LBS.VisualElements.SimulationOptionView.Color
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color

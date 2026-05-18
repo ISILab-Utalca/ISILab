@@ -1,0 +1,210 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData
+  commentId: T:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData
+  id: LBSToolbarButton.UxmlSerializedData
+  parent: ISILab.LBS.CustomComponents
+  children:
+  - ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.#ctor
+  - ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance
+  - ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize(System.Object)
+  - ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register
+  langs:
+  - csharp
+  - vb
+  name: LBSToolbarButton.UxmlSerializedData
+  nameWithType: LBSToolbarButton.UxmlSerializedData
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: 'public class LBSToolbarButton.UxmlSerializedData : ToolbarButton.UxmlSerializedData'
+    content.vb: Public Class LBSToolbarButton.UxmlSerializedData Inherits ToolbarButton.UxmlSerializedData
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register
+  commentId: M:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register
+  id: Register
+  parent: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: Register()
+  nameWithType: LBSToolbarButton.UxmlSerializedData.Register()
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: >-
+      [Conditional("UNITY_EDITOR")]
+
+      public static void Register()
+    content.vb: >-
+      <Conditional("UNITY_EDITOR")>
+
+      Public Shared Sub Register()
+  overload: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register*
+  attributes:
+  - type: System.Diagnostics.ConditionalAttribute
+    ctor: System.Diagnostics.ConditionalAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UNITY_EDITOR
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance
+  commentId: M:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance
+  id: CreateInstance
+  parent: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance()
+  nameWithType: LBSToolbarButton.UxmlSerializedData.CreateInstance()
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  example: []
+  syntax:
+    content: public override object CreateInstance()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function CreateInstance() As Object
+  overload: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance*
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize(System.Object)
+  commentId: M:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize(System.Object)
+  id: Deserialize(System.Object)
+  parent: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(object)
+  nameWithType: LBSToolbarButton.UxmlSerializedData.Deserialize(object)
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  example: []
+  syntax:
+    content: public override void Deserialize(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    content.vb: Public Overrides Sub Deserialize(obj As Object)
+  overload: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize*
+  nameWithType.vb: LBSToolbarButton.UxmlSerializedData.Deserialize(Object)
+  fullName.vb: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize(Object)
+  name.vb: Deserialize(Object)
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.#ctor
+  commentId: M:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: UxmlSerializedData()
+  nameWithType: LBSToolbarButton.UxmlSerializedData.UxmlSerializedData()
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.UxmlSerializedData()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public UxmlSerializedData()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.#ctor*
+  nameWithType.vb: LBSToolbarButton.UxmlSerializedData.New()
+  fullName.vb: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSToolbarButton_UxmlSerializedData_Register
+  name: Register
+  nameWithType: LBSToolbarButton.UxmlSerializedData.Register
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Register
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSToolbarButton_UxmlSerializedData_CreateInstance
+  name: CreateInstance
+  nameWithType: LBSToolbarButton.UxmlSerializedData.CreateInstance
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.CreateInstance
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSToolbarButton_UxmlSerializedData_Deserialize_System_Object_
+  name: Deserialize
+  nameWithType: LBSToolbarButton.UxmlSerializedData.Deserialize
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.Deserialize
+- uid: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.#ctor*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.#ctor
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSToolbarButton_UxmlSerializedData__ctor
+  name: UxmlSerializedData
+  nameWithType: LBSToolbarButton.UxmlSerializedData.UxmlSerializedData
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.UxmlSerializedData
+  nameWithType.vb: LBSToolbarButton.UxmlSerializedData.New
+  fullName.vb: ISILab.LBS.CustomComponents.LBSToolbarButton.UxmlSerializedData.New
+  name.vb: New

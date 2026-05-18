@@ -1,0 +1,614 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  id: EvaluatorConfiguration
+  parent: ISILab.LBS.AI.Categorization
+  children:
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.#ctor
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration(ISILab.LBS.AI.Categorization.EvaluatorConfiguration@,System.Type,System.Func{System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}})
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue``1(System.String)
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues``1(System.String)
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.fields
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.target
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.windowRefresh
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorConfiguration
+  nameWithType: EvaluatorConfiguration
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: 'public class EvaluatorConfiguration : ScriptableObject'
+    content.vb: Public Class EvaluatorConfiguration Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.target
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.target
+  id: target
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  langs:
+  - csharp
+  - vb
+  name: target
+  nameWithType: EvaluatorConfiguration.target
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.target
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public object target
+    return:
+      type: System.Object
+    content.vb: Public target As Object
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.fields
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.fields
+  id: fields
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  langs:
+  - csharp
+  - vb
+  name: fields
+  nameWithType: EvaluatorConfiguration.fields
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.fields
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public List<EvaluatorConfiguration.EvaluatorConfigurationField> fields
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}
+    content.vb: Public fields As List(Of EvaluatorConfiguration.EvaluatorConfigurationField)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.windowRefresh
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.windowRefresh
+  id: windowRefresh
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  langs:
+  - csharp
+  - vb
+  name: windowRefresh
+  nameWithType: EvaluatorConfiguration.windowRefresh
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.windowRefresh
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public Func<bool> windowRefresh
+    return:
+      type: System.Func{System.Boolean}
+    content.vb: Public windowRefresh As Func(Of Boolean)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration(ISILab.LBS.AI.Categorization.EvaluatorConfiguration@,System.Type,System.Func{System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}})
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration(ISILab.LBS.AI.Categorization.EvaluatorConfiguration@,System.Type,System.Func{System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}})
+  id: CreateOrUpdateConfiguration(ISILab.LBS.AI.Categorization.EvaluatorConfiguration@,System.Type,System.Func{System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}})
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  langs:
+  - csharp
+  - vb
+  name: CreateOrUpdateConfiguration(ref EvaluatorConfiguration, Type, Func<List<EvaluatorConfigurationField>>)
+  nameWithType: EvaluatorConfiguration.CreateOrUpdateConfiguration(ref EvaluatorConfiguration, Type, Func<List<EvaluatorConfiguration.EvaluatorConfigurationField>>)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration(ref ISILab.LBS.AI.Categorization.EvaluatorConfiguration, System.Type, System.Func<System.Collections.Generic.List<ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField>>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public static void CreateOrUpdateConfiguration(ref EvaluatorConfiguration config, Type type, Func<List<EvaluatorConfiguration.EvaluatorConfigurationField>> getFields = null)
+    parameters:
+    - id: config
+      type: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    - id: type
+      type: System.Type
+    - id: getFields
+      type: System.Func{System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}}
+    content.vb: Public Shared Sub CreateOrUpdateConfiguration(config As EvaluatorConfiguration, type As Type, getFields As Func(Of List(Of EvaluatorConfiguration.EvaluatorConfigurationField)) = Nothing)
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration*
+  nameWithType.vb: EvaluatorConfiguration.CreateOrUpdateConfiguration(EvaluatorConfiguration, Type, Func(Of List(Of EvaluatorConfiguration.EvaluatorConfigurationField)))
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration(ISILab.LBS.AI.Categorization.EvaluatorConfiguration, System.Type, System.Func(Of System.Collections.Generic.List(Of ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField)))
+  name.vb: CreateOrUpdateConfiguration(EvaluatorConfiguration, Type, Func(Of List(Of EvaluatorConfigurationField)))
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue``1(System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue``1(System.String)
+  id: GetValue``1(System.String)
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  langs:
+  - csharp
+  - vb
+  name: GetValue<T>(string)
+  nameWithType: EvaluatorConfiguration.GetValue<T>(string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue<T>(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public T GetValue<T>(string name)
+    parameters:
+    - id: name
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetValue(Of T)(name As String) As T
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue*
+  nameWithType.vb: EvaluatorConfiguration.GetValue(Of T)(String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue(Of T)(String)
+  name.vb: GetValue(Of T)(String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues``1(System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues``1(System.String)
+  id: GetValues``1(System.String)
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  langs:
+  - csharp
+  - vb
+  name: GetValues<T>(string)
+  nameWithType: EvaluatorConfiguration.GetValues<T>(string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues<T>(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public IEnumerable<T> GetValues<T>(string name)
+    parameters:
+    - id: name
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.IEnumerable{{T}}
+    content.vb: Public Function GetValues(Of T)(name As String) As IEnumerable(Of T)
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues*
+  nameWithType.vb: EvaluatorConfiguration.GetValues(Of T)(String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues(Of T)(String)
+  name.vb: GetValues(Of T)(String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.#ctor
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorConfiguration()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfiguration()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfiguration()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public EvaluatorConfiguration()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.#ctor*
+  nameWithType.vb: EvaluatorConfiguration.New()
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<EvaluatorConfiguration.EvaluatorConfigurationField>
+  nameWithType: List<EvaluatorConfiguration.EvaluatorConfigurationField>
+  fullName: System.Collections.Generic.List<ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField>
+  nameWithType.vb: List(Of EvaluatorConfiguration.EvaluatorConfigurationField)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField)
+  name.vb: List(Of EvaluatorConfiguration.EvaluatorConfigurationField)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Func{System.Boolean}
+  commentId: T:System.Func{System.Boolean}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<bool>
+  nameWithType: Func<bool>
+  fullName: System.Func<bool>
+  nameWithType.vb: Func(Of Boolean)
+  fullName.vb: System.Func(Of Boolean)
+  name.vb: Func(Of Boolean)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_CreateOrUpdateConfiguration_ISILab_LBS_AI_Categorization_EvaluatorConfiguration__System_Type_System_Func_System_Collections_Generic_List_ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField___
+  name: CreateOrUpdateConfiguration
+  nameWithType: EvaluatorConfiguration.CreateOrUpdateConfiguration
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.CreateOrUpdateConfiguration
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  parent: ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  name: EvaluatorConfiguration
+  nameWithType: EvaluatorConfiguration
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.Func{System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}}
+  commentId: T:System.Func{System.Collections.Generic.List{ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField}}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<List<EvaluatorConfiguration.EvaluatorConfigurationField>>
+  nameWithType: Func<List<EvaluatorConfiguration.EvaluatorConfigurationField>>
+  fullName: System.Func<System.Collections.Generic.List<ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField>>
+  nameWithType.vb: Func(Of List(Of EvaluatorConfiguration.EvaluatorConfigurationField))
+  fullName.vb: System.Func(Of System.Collections.Generic.List(Of ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField))
+  name.vb: Func(Of List(Of EvaluatorConfiguration.EvaluatorConfigurationField))
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+  - name: )
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GetValue__1_System_String_
+  name: GetValue
+  nameWithType: EvaluatorConfiguration.GetValue
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValue
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GetValues__1_System_String_
+  name: GetValues
+  nameWithType: EvaluatorConfiguration.GetValues
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GetValues
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.#ctor*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.#ctor
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration__ctor
+  name: EvaluatorConfiguration
+  nameWithType: EvaluatorConfiguration.EvaluatorConfiguration
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfiguration
+  nameWithType.vb: EvaluatorConfiguration.New
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.New
+  name.vb: New

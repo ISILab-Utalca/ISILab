@@ -1,0 +1,847 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  commentId: T:ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  id: UnityActionStored
+  parent: ISILab.LBS.Plugin.Components.Data
+  children:
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor(System.ValueTuple{UnityEngine.GameObject,UnityEngine.Component,System.Reflection.MethodInfo,ISILab.LBS.Plugin.Components.Data.LBSEventType,System.Boolean})
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(System.Object)
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction(UnityEngine.GameObject)
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.TriggerOnce
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.componentName
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.eventType
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.methodName
+  - ISILab.LBS.Plugin.Components.Data.UnityActionStored.objectName
+  langs:
+  - csharp
+  - vb
+  name: UnityActionStored
+  nameWithType: UnityActionStored
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  type: Struct
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: 'public struct UnityActionStored : IEquatable<UnityActionStored>'
+    content.vb: Public Structure UnityActionStored Implements IEquatable(Of UnityActionStored)
+  implements:
+  - System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.objectName
+  commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.objectName
+  id: objectName
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: objectName
+  nameWithType: UnityActionStored.objectName
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.objectName
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: public string objectName
+    return:
+      type: System.String
+    content.vb: Public objectName As String
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.componentName
+  commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.componentName
+  id: componentName
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: componentName
+  nameWithType: UnityActionStored.componentName
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.componentName
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: public string componentName
+    return:
+      type: System.String
+    content.vb: Public componentName As String
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.methodName
+  commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.methodName
+  id: methodName
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: methodName
+  nameWithType: UnityActionStored.methodName
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.methodName
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: public string methodName
+    return:
+      type: System.String
+    content.vb: Public methodName As String
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.eventType
+  commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.eventType
+  id: eventType
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: eventType
+  nameWithType: UnityActionStored.eventType
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.eventType
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: public LBSEventType eventType
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.LBSEventType
+    content.vb: Public eventType As LBSEventType
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.TriggerOnce
+  commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.TriggerOnce
+  id: TriggerOnce
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: TriggerOnce
+  nameWithType: UnityActionStored.TriggerOnce
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.TriggerOnce
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: public bool TriggerOnce
+    return:
+      type: System.Boolean
+    content.vb: Public TriggerOnce As Boolean
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction(UnityEngine.GameObject)
+  commentId: M:ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction(UnityEngine.GameObject)
+  id: MakeAction(UnityEngine.GameObject)
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: MakeAction(GameObject)
+  nameWithType: UnityActionStored.MakeAction(GameObject)
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction(UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: public UnityAction MakeAction(GameObject go)
+    parameters:
+    - id: go
+      type: UnityEngine.GameObject
+    return:
+      type: UnityEngine.Events.UnityAction
+    content.vb: Public Function MakeAction(go As GameObject) As UnityAction
+  overload: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction*
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor(System.ValueTuple{UnityEngine.GameObject,UnityEngine.Component,System.Reflection.MethodInfo,ISILab.LBS.Plugin.Components.Data.LBSEventType,System.Boolean})
+  commentId: M:ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor(System.ValueTuple{UnityEngine.GameObject,UnityEngine.Component,System.Reflection.MethodInfo,ISILab.LBS.Plugin.Components.Data.LBSEventType,System.Boolean})
+  id: '#ctor(System.ValueTuple{UnityEngine.GameObject,UnityEngine.Component,System.Reflection.MethodInfo,ISILab.LBS.Plugin.Components.Data.LBSEventType,System.Boolean})'
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: UnityActionStored((GameObject, Component, MethodInfo, LBSEventType, bool))
+  nameWithType: UnityActionStored.UnityActionStored((GameObject, Component, MethodInfo, LBSEventType, bool))
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.UnityActionStored((UnityEngine.GameObject, UnityEngine.Component, System.Reflection.MethodInfo, ISILab.LBS.Plugin.Components.Data.LBSEventType, bool))
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  syntax:
+    content: public UnityActionStored((GameObject, Component, MethodInfo, LBSEventType, bool) actionInfo)
+    parameters:
+    - id: actionInfo
+      type: System.ValueTuple{UnityEngine.GameObject,UnityEngine.Component,System.Reflection.MethodInfo,ISILab.LBS.Plugin.Components.Data.LBSEventType,System.Boolean}
+    content.vb: Public Sub New(actionInfo As (GameObject, Component, MethodInfo, LBSEventType, Boolean))
+  overload: ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor*
+  nameWithType.vb: UnityActionStored.New((GameObject, Component, MethodInfo, LBSEventType, Boolean))
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.UnityActionStored.New((UnityEngine.GameObject, UnityEngine.Component, System.Reflection.MethodInfo, ISILab.LBS.Plugin.Components.Data.LBSEventType, Boolean))
+  name.vb: New((GameObject, Component, MethodInfo, LBSEventType, Boolean))
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  commentId: M:ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  id: Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: Equals(UnityActionStored)
+  nameWithType: UnityActionStored.Equals(UnityActionStored)
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  example: []
+  syntax:
+    content: public bool Equals(UnityActionStored other)
+    parameters:
+    - id: other
+      type: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As UnityActionStored) As Boolean
+  overload: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals*
+  implements:
+  - System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(System.Object)
+  commentId: M:ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: UnityActionStored.Equals(object)
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals*
+  nameWithType.vb: UnityActionStored.Equals(Object)
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode
+  commentId: M:ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: UnityActionStored.GetHashCode()
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode*
+references:
+- uid: ISILab.LBS.Plugin.Components.Data
+  commentId: N:ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data
+  nameWithType: ISILab.LBS.Plugin.Components.Data
+  fullName: ISILab.LBS.Plugin.Components.Data
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+- uid: System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}
+  commentId: T:System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<UnityActionStored>
+  nameWithType: IEquatable<UnityActionStored>
+  fullName: System.IEquatable<ISILab.LBS.Plugin.Components.Data.UnityActionStored>
+  nameWithType.vb: IEquatable(Of UnityActionStored)
+  fullName.vb: System.IEquatable(Of ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  name.vb: IEquatable(Of UnityActionStored)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+    name: UnityActionStored
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+    name: UnityActionStored
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Plugin.Components.Data.LBSEventType
+  commentId: T:ISILab.LBS.Plugin.Components.Data.LBSEventType
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.LBSEventType.html
+  name: LBSEventType
+  nameWithType: LBSEventType
+  fullName: ISILab.LBS.Plugin.Components.Data.LBSEventType
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored_MakeAction_UnityEngine_GameObject_
+  name: MakeAction
+  nameWithType: UnityActionStored.MakeAction
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: UnityEngine.Events.UnityAction
+  commentId: '!:UnityEngine.Events.UnityAction'
+  isExternal: true
+  name: UnityAction
+  nameWithType: UnityAction
+  fullName: UnityEngine.Events.UnityAction
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored__ctor_System_ValueTuple_UnityEngine_GameObject_UnityEngine_Component_System_Reflection_MethodInfo_ISILab_LBS_Plugin_Components_Data_LBSEventType_System_Boolean__
+  name: UnityActionStored
+  nameWithType: UnityActionStored.UnityActionStored
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.UnityActionStored
+  nameWithType.vb: UnityActionStored.New
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.UnityActionStored.New
+  name.vb: New
+- uid: System.ValueTuple{UnityEngine.GameObject,UnityEngine.Component,System.Reflection.MethodInfo,ISILab.LBS.Plugin.Components.Data.LBSEventType,System.Boolean}
+  commentId: T:System.ValueTuple{UnityEngine.GameObject,UnityEngine.Component,System.Reflection.MethodInfo,ISILab.LBS.Plugin.Components.Data.LBSEventType,System.Boolean}
+  parent: System
+  definition: System.ValueTuple`5
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo
+  name: (GameObject, Component, MethodInfo, LBSEventType, bool)
+  nameWithType: (GameObject, Component, MethodInfo, LBSEventType, bool)
+  fullName: (UnityEngine.GameObject, UnityEngine.Component, System.Reflection.MethodInfo, ISILab.LBS.Plugin.Components.Data.LBSEventType, bool)
+  nameWithType.vb: (GameObject, Component, MethodInfo, LBSEventType, Boolean)
+  fullName.vb: (UnityEngine.GameObject, UnityEngine.Component, System.Reflection.MethodInfo, ISILab.LBS.Plugin.Components.Data.LBSEventType, Boolean)
+  name.vb: (GameObject, Component, MethodInfo, LBSEventType, Boolean)
+  spec.csharp:
+  - name: (
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Component
+    name: Component
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Reflection.MethodInfo
+    name: MethodInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.LBSEventType
+    name: LBSEventType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.LBSEventType.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Component
+    name: Component
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Reflection.MethodInfo
+    name: MethodInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.LBSEventType
+    name: LBSEventType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.LBSEventType.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.ValueTuple`5
+  commentId: T:System.ValueTuple`5
+  name: (T1, T2, T3, T4, T5)
+  nameWithType: (T1, T2, T3, T4, T5)
+  fullName: (T1, T2, T3, T4, T5)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: ','
+  - name: " "
+  - name: T5
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: ','
+  - name: " "
+  - name: T5
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored_Equals_ISILab_LBS_Plugin_Components_Data_UnityActionStored_
+  name: Equals
+  nameWithType: UnityActionStored.Equals
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals
+- uid: System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  commentId: M:System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  parent: System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(UnityActionStored)
+  nameWithType: IEquatable<UnityActionStored>.Equals(UnityActionStored)
+  fullName: System.IEquatable<ISILab.LBS.Plugin.Components.Data.UnityActionStored>.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  nameWithType.vb: IEquatable(Of UnityActionStored).Equals(UnityActionStored)
+  fullName.vb: System.IEquatable(Of ISILab.LBS.Plugin.Components.Data.UnityActionStored).Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+  spec.csharp:
+  - uid: System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+    name: UnityActionStored
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+    name: UnityActionStored
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  commentId: T:ISILab.LBS.Plugin.Components.Data.UnityActionStored
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
+  name: UnityActionStored
+  nameWithType: UnityActionStored
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored_GetHashCode
+  name: GetHashCode
+  nameWithType: UnityActionStored.GetHashCode
+  fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

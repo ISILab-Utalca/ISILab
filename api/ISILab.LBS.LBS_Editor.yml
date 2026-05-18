@@ -1,0 +1,711 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.LBS_Editor
+  commentId: T:ISILab.LBS.LBS_Editor
+  id: LBS_Editor
+  parent: ISILab.LBS
+  children:
+  - ISILab.LBS.LBS_Editor.GetDrawer(System.Type)
+  - ISILab.LBS.LBS_Editor.GetDrawer``1
+  - ISILab.LBS.LBS_Editor.GetEditor(System.Type)
+  - ISILab.LBS.LBS_Editor.GetEditor``1
+  - ISILab.LBS.LBS_Editor.LoadEditor(UnityEngine.UIElements.VisualElement,System.Object)
+  - ISILab.LBS.LBS_Editor.pairDrawers
+  - ISILab.LBS.LBS_Editor.pairsEditors
+  langs:
+  - csharp
+  - vb
+  name: LBS_Editor
+  nameWithType: LBS_Editor
+  fullName: ISILab.LBS.LBS_Editor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static class LBS_Editor
+    content.vb: Public Module LBS_Editor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: ISILab.LBS.LBS_Editor.pairsEditors
+  commentId: F:ISILab.LBS.LBS_Editor.pairsEditors
+  id: pairsEditors
+  parent: ISILab.LBS.LBS_Editor
+  langs:
+  - csharp
+  - vb
+  name: pairsEditors
+  nameWithType: LBS_Editor.pairsEditors
+  fullName: ISILab.LBS.LBS_Editor.pairsEditors
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> pairsEditors
+    return:
+      type: System.Collections.Generic.List{System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.LBSCustomEditorAttribute}}}
+    content.vb: Public Shared pairsEditors As List(Of Tuple(Of Type, IEnumerable(Of LBSCustomEditorAttribute)))
+- uid: ISILab.LBS.LBS_Editor.pairDrawers
+  commentId: F:ISILab.LBS.LBS_Editor.pairDrawers
+  id: pairDrawers
+  parent: ISILab.LBS.LBS_Editor
+  langs:
+  - csharp
+  - vb
+  name: pairDrawers
+  nameWithType: LBS_Editor.pairDrawers
+  fullName: ISILab.LBS.LBS_Editor.pairDrawers
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static List<Tuple<Type, IEnumerable<DrawerAttribute>>> pairDrawers
+    return:
+      type: System.Collections.Generic.List{System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.DrawerAttribute}}}
+    content.vb: Public Shared pairDrawers As List(Of Tuple(Of Type, IEnumerable(Of DrawerAttribute)))
+- uid: ISILab.LBS.LBS_Editor.GetEditor``1
+  commentId: M:ISILab.LBS.LBS_Editor.GetEditor``1
+  id: GetEditor``1
+  parent: ISILab.LBS.LBS_Editor
+  langs:
+  - csharp
+  - vb
+  name: GetEditor<T>()
+  nameWithType: LBS_Editor.GetEditor<T>()
+  fullName: ISILab.LBS.LBS_Editor.GetEditor<T>()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static Type GetEditor<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: System.Type
+    content.vb: Public Shared Function GetEditor(Of T)() As Type
+  overload: ISILab.LBS.LBS_Editor.GetEditor*
+  nameWithType.vb: LBS_Editor.GetEditor(Of T)()
+  fullName.vb: ISILab.LBS.LBS_Editor.GetEditor(Of T)()
+  name.vb: GetEditor(Of T)()
+- uid: ISILab.LBS.LBS_Editor.GetEditor(System.Type)
+  commentId: M:ISILab.LBS.LBS_Editor.GetEditor(System.Type)
+  id: GetEditor(System.Type)
+  parent: ISILab.LBS.LBS_Editor
+  langs:
+  - csharp
+  - vb
+  name: GetEditor(Type)
+  nameWithType: LBS_Editor.GetEditor(Type)
+  fullName: ISILab.LBS.LBS_Editor.GetEditor(System.Type)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static Type GetEditor(Type targetType)
+    parameters:
+    - id: targetType
+      type: System.Type
+    return:
+      type: System.Type
+    content.vb: Public Shared Function GetEditor(targetType As Type) As Type
+  overload: ISILab.LBS.LBS_Editor.GetEditor*
+- uid: ISILab.LBS.LBS_Editor.LoadEditor(UnityEngine.UIElements.VisualElement,System.Object)
+  commentId: M:ISILab.LBS.LBS_Editor.LoadEditor(UnityEngine.UIElements.VisualElement,System.Object)
+  id: LoadEditor(UnityEngine.UIElements.VisualElement,System.Object)
+  parent: ISILab.LBS.LBS_Editor
+  langs:
+  - csharp
+  - vb
+  name: LoadEditor(VisualElement, object)
+  nameWithType: LBS_Editor.LoadEditor(VisualElement, object)
+  fullName: ISILab.LBS.LBS_Editor.LoadEditor(UnityEngine.UIElements.VisualElement, object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static void LoadEditor(VisualElement container, object target)
+    parameters:
+    - id: container
+      type: UnityEngine.UIElements.VisualElement
+    - id: target
+      type: System.Object
+    content.vb: Public Shared Sub LoadEditor(container As VisualElement, target As Object)
+  overload: ISILab.LBS.LBS_Editor.LoadEditor*
+  nameWithType.vb: LBS_Editor.LoadEditor(VisualElement, Object)
+  fullName.vb: ISILab.LBS.LBS_Editor.LoadEditor(UnityEngine.UIElements.VisualElement, Object)
+  name.vb: LoadEditor(VisualElement, Object)
+- uid: ISILab.LBS.LBS_Editor.GetDrawer``1
+  commentId: M:ISILab.LBS.LBS_Editor.GetDrawer``1
+  id: GetDrawer``1
+  parent: ISILab.LBS.LBS_Editor
+  langs:
+  - csharp
+  - vb
+  name: GetDrawer<T>()
+  nameWithType: LBS_Editor.GetDrawer<T>()
+  fullName: ISILab.LBS.LBS_Editor.GetDrawer<T>()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static Type GetDrawer<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: System.Type
+    content.vb: Public Shared Function GetDrawer(Of T)() As Type
+  overload: ISILab.LBS.LBS_Editor.GetDrawer*
+  nameWithType.vb: LBS_Editor.GetDrawer(Of T)()
+  fullName.vb: ISILab.LBS.LBS_Editor.GetDrawer(Of T)()
+  name.vb: GetDrawer(Of T)()
+- uid: ISILab.LBS.LBS_Editor.GetDrawer(System.Type)
+  commentId: M:ISILab.LBS.LBS_Editor.GetDrawer(System.Type)
+  id: GetDrawer(System.Type)
+  parent: ISILab.LBS.LBS_Editor
+  langs:
+  - csharp
+  - vb
+  name: GetDrawer(Type)
+  nameWithType: LBS_Editor.GetDrawer(Type)
+  fullName: ISILab.LBS.LBS_Editor.GetDrawer(System.Type)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static Type GetDrawer(Type targetType)
+    parameters:
+    - id: targetType
+      type: System.Type
+    return:
+      type: System.Type
+    content.vb: Public Shared Function GetDrawer(targetType As Type) As Type
+  overload: ISILab.LBS.LBS_Editor.GetDrawer*
+references:
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.LBSCustomEditorAttribute}}}
+  commentId: T:System.Collections.Generic.List{System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.LBSCustomEditorAttribute}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>>
+  nameWithType: List<Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>>
+  fullName: System.Collections.Generic.List<System.Tuple<System.Type, System.Collections.Generic.IEnumerable<ISILab.LBS.LBSCustomEditorAttribute>>>
+  nameWithType.vb: List(Of Tuple(Of Type, IEnumerable(Of LBSCustomEditorAttribute)))
+  fullName.vb: System.Collections.Generic.List(Of System.Tuple(Of System.Type, System.Collections.Generic.IEnumerable(Of ISILab.LBS.LBSCustomEditorAttribute)))
+  name.vb: List(Of Tuple(Of Type, IEnumerable(Of LBSCustomEditorAttribute)))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ISILab.LBS.LBSCustomEditorAttribute
+    name: LBSCustomEditorAttribute
+    isExternal: true
+    href: ISILab.LBS.LBSCustomEditorAttribute.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.LBSCustomEditorAttribute
+    name: LBSCustomEditorAttribute
+    isExternal: true
+    href: ISILab.LBS.LBSCustomEditorAttribute.html
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.DrawerAttribute}}}
+  commentId: T:System.Collections.Generic.List{System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.DrawerAttribute}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Tuple<Type, IEnumerable<DrawerAttribute>>>
+  nameWithType: List<Tuple<Type, IEnumerable<DrawerAttribute>>>
+  fullName: System.Collections.Generic.List<System.Tuple<System.Type, System.Collections.Generic.IEnumerable<ISILab.LBS.DrawerAttribute>>>
+  nameWithType.vb: List(Of Tuple(Of Type, IEnumerable(Of DrawerAttribute)))
+  fullName.vb: System.Collections.Generic.List(Of System.Tuple(Of System.Type, System.Collections.Generic.IEnumerable(Of ISILab.LBS.DrawerAttribute)))
+  name.vb: List(Of Tuple(Of Type, IEnumerable(Of DrawerAttribute)))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ISILab.LBS.DrawerAttribute
+    name: DrawerAttribute
+    isExternal: true
+    href: ISILab.LBS.DrawerAttribute.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.DrawerAttribute
+    name: DrawerAttribute
+    isExternal: true
+    href: ISILab.LBS.DrawerAttribute.html
+  - name: )
+  - name: )
+  - name: )
+- uid: ISILab.LBS.LBS_Editor.GetEditor*
+  commentId: Overload:ISILab.LBS.LBS_Editor.GetEditor
+  isExternal: true
+  href: ISILab.LBS.LBS_Editor.html#ISILab_LBS_LBS_Editor_GetEditor__1
+  name: GetEditor
+  nameWithType: LBS_Editor.GetEditor
+  fullName: ISILab.LBS.LBS_Editor.GetEditor
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ISILab.LBS.LBS_Editor.LoadEditor*
+  commentId: Overload:ISILab.LBS.LBS_Editor.LoadEditor
+  isExternal: true
+  href: ISILab.LBS.LBS_Editor.html#ISILab_LBS_LBS_Editor_LoadEditor_UnityEngine_UIElements_VisualElement_System_Object_
+  name: LoadEditor
+  nameWithType: LBS_Editor.LoadEditor
+  fullName: ISILab.LBS.LBS_Editor.LoadEditor
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.LBS_Editor.GetDrawer*
+  commentId: Overload:ISILab.LBS.LBS_Editor.GetDrawer
+  isExternal: true
+  href: ISILab.LBS.LBS_Editor.html#ISILab_LBS_LBS_Editor_GetDrawer__1
+  name: GetDrawer
+  nameWithType: LBS_Editor.GetDrawer
+  fullName: ISILab.LBS.LBS_Editor.GetDrawer

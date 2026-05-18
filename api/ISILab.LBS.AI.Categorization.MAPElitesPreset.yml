@@ -1,0 +1,884 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  commentId: T:ISILab.LBS.AI.Categorization.MAPElitesPreset
+  id: MAPElitesPreset
+  parent: ISILab.LBS.AI.Categorization
+  children:
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.#ctor
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold
+  - ISILab.LBS.AI.Categorization.MAPElitesPreset.blackList
+  langs:
+  - csharp
+  - vb
+  name: MAPElitesPreset
+  nameWithType: MAPElitesPreset
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: 'public class MAPElitesPreset : ScriptableObject, ICloneable'
+    content.vb: Public Class MAPElitesPreset Inherits ScriptableObject Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.blackList
+  commentId: F:ISILab.LBS.AI.Categorization.MAPElitesPreset.blackList
+  id: blackList
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: blackList
+  nameWithType: MAPElitesPreset.blackList
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.blackList
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public List<LBSTag> blackList
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+    content.vb: Public blackList As List(Of LBSTag)
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone
+  commentId: M:ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone
+  id: Clone
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: MAPElitesPreset.Clone()
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Function Clone() As Object
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues
+  commentId: M:ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues
+  id: ResetValues
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: ResetValues()
+  nameWithType: MAPElitesPreset.ResetValues()
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public MAPElitesPreset ResetValues()
+    return:
+      type: ISILab.LBS.AI.Categorization.MAPElitesPreset
+    content.vb: Public Function ResetValues() As MAPElitesPreset
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.#ctor
+  commentId: M:ISILab.LBS.AI.Categorization.MAPElitesPreset.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: MAPElitesPreset()
+  nameWithType: MAPElitesPreset.MAPElitesPreset()
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.MAPElitesPreset()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public MAPElitesPreset()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.#ctor*
+  nameWithType.vb: MAPElitesPreset.New()
+  fullName.vb: ISILab.LBS.AI.Categorization.MAPElitesPreset.New()
+  name.vb: New()
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites
+  id: MapElites
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: MapElites
+  nameWithType: MAPElitesPreset.MapElites
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public MapElites MapElites { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+    content.vb: Public ReadOnly Property MapElites As MapElites
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType
+  id: MaskType
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: MaskType
+  nameWithType: MAPElitesPreset.MaskType
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public Type MaskType { get; set; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public Property MaskType As Type
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName
+  id: PresetName
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: PresetName
+  nameWithType: MAPElitesPreset.PresetName
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public string PresetName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PresetName As String
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount
+  id: SampleCount
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: SampleCount
+  nameWithType: MAPElitesPreset.SampleCount
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public Vector2Int SampleCount { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Property SampleCount As Vector2Int
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest
+  id: Devest
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: Devest
+  nameWithType: MAPElitesPreset.Devest
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public double Devest { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Devest As Double
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator
+  id: XEvaluator
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: XEvaluator
+  nameWithType: MAPElitesPreset.XEvaluator
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public IRangedEvaluator XEvaluator { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    content.vb: Public Property XEvaluator As IRangedEvaluator
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold
+  id: XThreshold
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: XThreshold
+  nameWithType: MAPElitesPreset.XThreshold
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public Vector2 XThreshold { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Property XThreshold As Vector2
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator
+  id: YEvaluator
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: YEvaluator
+  nameWithType: MAPElitesPreset.YEvaluator
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public IRangedEvaluator YEvaluator { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    content.vb: Public Property YEvaluator As IRangedEvaluator
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold
+  id: YThreshold
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: YThreshold
+  nameWithType: MAPElitesPreset.YThreshold
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public Vector2 YThreshold { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Property YThreshold As Vector2
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold*
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer
+  commentId: P:ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer
+  id: Optimizer
+  parent: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  langs:
+  - csharp
+  - vb
+  name: Optimizer
+  nameWithType: MAPElitesPreset.Optimizer
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public BaseOptimizer Optimizer { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Optimization.BaseOptimizer
+    content.vb: Public Property Optimizer As BaseOptimizer
+  overload: ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer*
+references:
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.LBSTag}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSTag>
+  nameWithType: List<LBSTag>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.LBSTag>
+  nameWithType.vb: List(Of LBSTag)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.LBSTag)
+  name.vb: List(Of LBSTag)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_Clone
+  name: Clone
+  nameWithType: MAPElitesPreset.Clone
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_ResetValues
+  name: ResetValues
+  nameWithType: MAPElitesPreset.ResetValues
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.ResetValues
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  commentId: T:ISILab.LBS.AI.Categorization.MAPElitesPreset
+  parent: ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html
+  name: MAPElitesPreset
+  nameWithType: MAPElitesPreset
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.#ctor*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.#ctor
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset__ctor
+  name: MAPElitesPreset
+  nameWithType: MAPElitesPreset.MAPElitesPreset
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.MAPElitesPreset
+  nameWithType.vb: MAPElitesPreset.New
+  fullName.vb: ISILab.LBS.AI.Categorization.MAPElitesPreset.New
+  name.vb: New
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_MapElites
+  name: MapElites
+  nameWithType: MAPElitesPreset.MapElites
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.MapElites
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites.html
+  name: MapElites
+  nameWithType: MapElites
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MapElites
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Categorization
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Categorization
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.html
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_MaskType
+  name: MaskType
+  nameWithType: MAPElitesPreset.MaskType
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.MaskType
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_PresetName
+  name: PresetName
+  nameWithType: MAPElitesPreset.PresetName
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.PresetName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_SampleCount
+  name: SampleCount
+  nameWithType: MAPElitesPreset.SampleCount
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.SampleCount
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_Devest
+  name: Devest
+  nameWithType: MAPElitesPreset.Devest
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.Devest
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_XEvaluator
+  name: XEvaluator
+  nameWithType: MAPElitesPreset.XEvaluator
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.XEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html
+  name: IRangedEvaluator
+  nameWithType: IRangedEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_XThreshold
+  name: XThreshold
+  nameWithType: MAPElitesPreset.XThreshold
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.XThreshold
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_YEvaluator
+  name: YEvaluator
+  nameWithType: MAPElitesPreset.YEvaluator
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.YEvaluator
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_YThreshold
+  name: YThreshold
+  nameWithType: MAPElitesPreset.YThreshold
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.YThreshold
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer*
+  commentId: Overload:ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html#ISILab_LBS_AI_Categorization_MAPElitesPreset_Optimizer
+  name: Optimizer
+  nameWithType: MAPElitesPreset.Optimizer
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset.Optimizer
+- uid: ISILab.AI.Optimization.BaseOptimizer
+  commentId: T:ISILab.AI.Optimization.BaseOptimizer
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html
+  name: BaseOptimizer
+  nameWithType: BaseOptimizer
+  fullName: ISILab.AI.Optimization.BaseOptimizer
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html

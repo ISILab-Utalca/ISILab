@@ -1,0 +1,722 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  id: EvaluatorConfiguration.FloatConfigurationField
+  parent: ISILab.LBS.AI.Categorization
+  children:
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor(System.String,System.Single,System.Single,System.Single,System.String)
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor(System.String,System.Single,System.String)
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorConfiguration.FloatConfigurationField
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: 'public class EvaluatorConfiguration.FloatConfigurationField : EvaluatorConfiguration.EvaluatorConfigurationField'
+    content.vb: Public Class EvaluatorConfiguration.FloatConfigurationField Inherits EvaluatorConfiguration.EvaluatorConfigurationField
+  inheritance:
+  - System.Object
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  inheritedMembers:
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor(System.String,System.Single,System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor(System.String,System.Single,System.String)
+  id: '#ctor(System.String,System.Single,System.String)'
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: FloatConfigurationField(string, float, string)
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.FloatConfigurationField(string, float, string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.FloatConfigurationField(string, float, string)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public FloatConfigurationField(string fieldName, float value, string tooltip = "")
+    parameters:
+    - id: fieldName
+      type: System.String
+    - id: value
+      type: System.Single
+    - id: tooltip
+      type: System.String
+    content.vb: Public Sub New(fieldName As String, value As Single, tooltip As String = "")
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor*
+  nameWithType.vb: EvaluatorConfiguration.FloatConfigurationField.New(String, Single, String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.New(String, Single, String)
+  name.vb: New(String, Single, String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor(System.String,System.Single,System.Single,System.Single,System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor(System.String,System.Single,System.Single,System.Single,System.String)
+  id: '#ctor(System.String,System.Single,System.Single,System.Single,System.String)'
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: FloatConfigurationField(string, float, float, float, string)
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.FloatConfigurationField(string, float, float, float, string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.FloatConfigurationField(string, float, float, float, string)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public FloatConfigurationField(string fieldName, float value, float minValue, float maxValue, string tooltip = "")
+    parameters:
+    - id: fieldName
+      type: System.String
+    - id: value
+      type: System.Single
+    - id: minValue
+      type: System.Single
+    - id: maxValue
+      type: System.Single
+    - id: tooltip
+      type: System.String
+    content.vb: Public Sub New(fieldName As String, value As Single, minValue As Single, maxValue As Single, tooltip As String = "")
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor*
+  nameWithType.vb: EvaluatorConfiguration.FloatConfigurationField.New(String, Single, Single, Single, String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.New(String, Single, Single, Single, String)
+  name.vb: New(String, Single, Single, Single, String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField
+  id: GetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: GetField()
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.GetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: public override VisualElement GetField()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Overrides Function GetField() As VisualElement
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField
+  id: SetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: SetField()
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.SetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: protected override void SetField()
+    content.vb: Protected Overrides Sub SetField()
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue
+  id: GetValue
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: GetValue()
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.GetValue()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: public override object GetValue()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function GetValue() As Object
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+  id: DisplayTypeName
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: public override string DisplayTypeName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overrides ReadOnly Property DisplayTypeName As String
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field
+  id: Field
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: Field
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.Field
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public FloatField Field { get; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.FloatField
+    content.vb: Public ReadOnly Property Field As FloatField
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider
+  id: Slider
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField
+  langs:
+  - csharp
+  - vb
+  name: Slider
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.Slider
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public Slider Slider { get; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.Slider
+    content.vb: Public ReadOnly Property Slider As Slider
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider*
+references:
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  parent: ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  name: EvaluatorConfiguration.EvaluatorConfigurationField
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_fieldName
+  name: fieldName
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_tooltip
+  name: tooltip
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
+  name: Equals(object)
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.Equals(object)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(object)
+  nameWithType.vb: EvaluatorConfiguration.EvaluatorConfigurationField.Equals(Object)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
+  name: GetHashCode()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.#ctor
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_FloatConfigurationField__ctor_System_String_System_Single_System_String_
+  name: FloatConfigurationField
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.FloatConfigurationField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.FloatConfigurationField
+  nameWithType.vb: EvaluatorConfiguration.FloatConfigurationField.New
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
+  name: GetField()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+    name: GetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+    name: GetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_FloatConfigurationField_GetField
+  name: GetField
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.GetField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetField
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
+  name: SetField()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.SetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+    name: SetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+    name: SetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_FloatConfigurationField_SetField
+  name: SetField
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.SetField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.SetField
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
+  name: GetValue()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetValue()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_FloatConfigurationField_GetValue
+  name: GetValue
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.GetValue
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.GetValue
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_DisplayTypeName
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_FloatConfigurationField_DisplayTypeName
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.DisplayTypeName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_FloatConfigurationField_Field
+  name: Field
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.Field
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Field
+- uid: UnityEngine.UIElements.FloatField
+  commentId: '!:UnityEngine.UIElements.FloatField'
+  isExternal: true
+  name: FloatField
+  nameWithType: FloatField
+  fullName: UnityEngine.UIElements.FloatField
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_FloatConfigurationField_Slider
+  name: Slider
+  nameWithType: EvaluatorConfiguration.FloatConfigurationField.Slider
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField.Slider
+- uid: UnityEngine.UIElements.Slider
+  commentId: '!:UnityEngine.UIElements.Slider'
+  isExternal: true
+  name: Slider
+  nameWithType: Slider
+  fullName: UnityEngine.UIElements.Slider

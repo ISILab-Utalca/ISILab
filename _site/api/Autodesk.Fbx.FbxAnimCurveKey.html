@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FbxAnimCurveKey | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FbxAnimCurveKey | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Autodesk.Fbx.FbxAnimCurveKey">
+
+
+
+  <h1 id="Autodesk_Fbx_FbxAnimCurveKey" data-uid="Autodesk.Fbx.FbxAnimCurveKey" class="text-break">
+Class FbxAnimCurveKey  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Autodesk.html">Autodesk</a>.<a class="xref" href="Autodesk.Fbx.html">Fbx</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Autodesk.Fbx.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FbxAnimCurveKey : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FbxAnimCurveKey</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_swigCMemOwn" data-uid="Autodesk.Fbx.FbxAnimCurveKey.swigCMemOwn">
+  swigCMemOwn
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool swigCMemOwn</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_Dispose_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.Dispose*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_Dispose" data-uid="Autodesk.Fbx.FbxAnimCurveKey.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_GetBreak_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetBreak*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_GetBreak" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetBreak">
+  GetBreak()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetBreak()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_GetDataFloat_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetDataFloat*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_GetDataFloat_Autodesk_Fbx_FbxAnimCurveDef_EDataIndex_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetDataFloat(Autodesk.Fbx.FbxAnimCurveDef.EDataIndex)">
+  GetDataFloat(EDataIndex)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetDataFloat(FbxAnimCurveDef.EDataIndex pIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pIndex</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EDataIndex.html">EDataIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentMode" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentMode">
+  GetTangentMode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveDef.ETangentMode GetTangentMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.ETangentMode.html">ETangentMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentMode_System_Boolean_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentMode(System.Boolean)">
+  GetTangentMode(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveDef.ETangentMode GetTangentMode(bool pIncludeOverrides)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pIncludeOverrides</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.ETangentMode.html">ETangentMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentVelocityMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentVelocityMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentVelocityMode" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentVelocityMode">
+  GetTangentVelocityMode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveDef.EVelocityMode GetTangentVelocityMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EVelocityMode.html">EVelocityMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentVisibility_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentVisibility*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentVisibility" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentVisibility">
+  GetTangentVisibility()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveDef.ETangentVisibility GetTangentVisibility()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.ETangentVisibility.html">ETangentVisibility</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentWeightMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentWeightMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_GetTangentWeightMode" data-uid="Autodesk.Fbx.FbxAnimCurveKey.GetTangentWeightMode">
+  GetTangentWeightMode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveDef.EWeightedMode GetTangentWeightMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EWeightedMode.html">EWeightedMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetBreak_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetBreak*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetBreak_System_Boolean_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetBreak(System.Boolean)">
+  SetBreak(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetBreak(bool pVal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pVal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetDataFloat_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetDataFloat*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetDataFloat_Autodesk_Fbx_FbxAnimCurveDef_EDataIndex_System_Single_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetDataFloat(Autodesk.Fbx.FbxAnimCurveDef.EDataIndex,System.Single)">
+  SetDataFloat(EDataIndex, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDataFloat(FbxAnimCurveDef.EDataIndex pIndex, float pValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pIndex</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EDataIndex.html">EDataIndex</a></dt>
+    <dd></dd>
+    <dt><code>pValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentMode_Autodesk_Fbx_FbxAnimCurveDef_ETangentMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentMode(Autodesk.Fbx.FbxAnimCurveDef.ETangentMode)">
+  SetTangentMode(ETangentMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTangentMode(FbxAnimCurveDef.ETangentMode pTangentMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pTangentMode</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.ETangentMode.html">ETangentMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentVelocityMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentVelocityMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentVelocityMode_Autodesk_Fbx_FbxAnimCurveDef_EVelocityMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentVelocityMode(Autodesk.Fbx.FbxAnimCurveDef.EVelocityMode)">
+  SetTangentVelocityMode(EVelocityMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTangentVelocityMode(FbxAnimCurveDef.EVelocityMode pTangentVelocityMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pTangentVelocityMode</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EVelocityMode.html">EVelocityMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentVelocityMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentVelocityMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentVelocityMode_Autodesk_Fbx_FbxAnimCurveDef_EVelocityMode_Autodesk_Fbx_FbxAnimCurveDef_EVelocityMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentVelocityMode(Autodesk.Fbx.FbxAnimCurveDef.EVelocityMode,Autodesk.Fbx.FbxAnimCurveDef.EVelocityMode)">
+  SetTangentVelocityMode(EVelocityMode, EVelocityMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTangentVelocityMode(FbxAnimCurveDef.EVelocityMode pTangentVelocityMode, FbxAnimCurveDef.EVelocityMode pMask)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pTangentVelocityMode</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EVelocityMode.html">EVelocityMode</a></dt>
+    <dd></dd>
+    <dt><code>pMask</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EVelocityMode.html">EVelocityMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentVisibility_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentVisibility*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentVisibility_Autodesk_Fbx_FbxAnimCurveDef_ETangentVisibility_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentVisibility(Autodesk.Fbx.FbxAnimCurveDef.ETangentVisibility)">
+  SetTangentVisibility(ETangentVisibility)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTangentVisibility(FbxAnimCurveDef.ETangentVisibility pVisibility)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pVisibility</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.ETangentVisibility.html">ETangentVisibility</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentWeightAndAdjustTangent_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentWeightAndAdjustTangent*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentWeightAndAdjustTangent_Autodesk_Fbx_FbxAnimCurveDef_EDataIndex_System_Double_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentWeightAndAdjustTangent(Autodesk.Fbx.FbxAnimCurveDef.EDataIndex,System.Double)">
+  SetTangentWeightAndAdjustTangent(EDataIndex, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTangentWeightAndAdjustTangent(FbxAnimCurveDef.EDataIndex pIndex, double pWeight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pIndex</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EDataIndex.html">EDataIndex</a></dt>
+    <dd></dd>
+    <dt><code>pWeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentWeightMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentWeightMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentWeightMode_Autodesk_Fbx_FbxAnimCurveDef_EWeightedMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentWeightMode(Autodesk.Fbx.FbxAnimCurveDef.EWeightedMode)">
+  SetTangentWeightMode(EWeightedMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTangentWeightMode(FbxAnimCurveDef.EWeightedMode pTangentWeightMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pTangentWeightMode</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EWeightedMode.html">EWeightedMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentWeightMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentWeightMode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxAnimCurveKey_SetTangentWeightMode_Autodesk_Fbx_FbxAnimCurveDef_EWeightedMode_Autodesk_Fbx_FbxAnimCurveDef_EWeightedMode_" data-uid="Autodesk.Fbx.FbxAnimCurveKey.SetTangentWeightMode(Autodesk.Fbx.FbxAnimCurveDef.EWeightedMode,Autodesk.Fbx.FbxAnimCurveDef.EWeightedMode)">
+  SetTangentWeightMode(EWeightedMode, EWeightedMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTangentWeightMode(FbxAnimCurveDef.EWeightedMode pTangentWeightMode, FbxAnimCurveDef.EWeightedMode pMask)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pTangentWeightMode</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EWeightedMode.html">EWeightedMode</a></dt>
+    <dd></dd>
+    <dt><code>pMask</code> <a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.html">FbxAnimCurveDef</a>.<a class="xref" href="Autodesk.Fbx.FbxAnimCurveDef.EWeightedMode.html">EWeightedMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

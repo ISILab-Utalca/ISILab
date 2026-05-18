@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HexagonalRuleTileEditor | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HexagonalRuleTileEditor | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEditor.HexagonalRuleTileEditor">
+
+
+
+  <h1 id="UnityEditor_HexagonalRuleTileEditor" data-uid="UnityEditor.HexagonalRuleTileEditor" class="text-break">
+Class HexagonalRuleTileEditor  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEditor.html">UnityEditor</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.2D.Tilemap.Extras.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class HexagonalRuleTileEditor : RuleTileEditor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEditor.RuleTileEditor.html">RuleTileEditor</a></div>
+      <div><span class="xref">HexagonalRuleTileEditor</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_k_DefaultElementHeight">RuleTileEditor.k_DefaultElementHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_k_PaddingBetweenRules">RuleTileEditor.k_PaddingBetweenRules</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_k_SingleLineHeight">RuleTileEditor.k_SingleLineHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_k_LabelWidth">RuleTileEditor.k_LabelWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_extendNeighbor">RuleTileEditor.extendNeighbor</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_m_PreviewGrid">RuleTileEditor.m_PreviewGrid</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_m_PreviewTilemaps">RuleTileEditor.m_PreviewTilemaps</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_m_PreviewTilemapRenderers">RuleTileEditor.m_PreviewTilemapRenderers</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_m_PreviewUtility">RuleTileEditor.m_PreviewUtility</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_OnEnable">RuleTileEditor.OnEnable()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_OnDisable">RuleTileEditor.OnDisable()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_ListUpdated_UnityEditorInternal_ReorderableList_">RuleTileEditor.ListUpdated(ReorderableList)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_GetElementHeight_UnityEngine_RuleTile_TilingRule_">RuleTileEditor.GetElementHeight(RuleTile.TilingRule)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_GetElementHeight_UnityEngine_RuleTile_TilingRuleOutput_">RuleTileEditor.GetElementHeight(RuleTile.TilingRuleOutput)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_OnDrawElement_UnityEngine_Rect_System_Int32_System_Boolean_System_Boolean_">RuleTileEditor.OnDrawElement(Rect, int, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_SaveTile">RuleTileEditor.SaveTile()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_UpdateAffectedOverrideTiles_UnityEngine_RuleTile_">RuleTileEditor.UpdateAffectedOverrideTiles(RuleTile)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_FindAffectedOverrideTiles_UnityEngine_RuleTile_">RuleTileEditor.FindAffectedOverrideTiles(RuleTile)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_OnDrawHeader_UnityEngine_Rect_">RuleTileEditor.OnDrawHeader(Rect)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_OnInspectorGUI">RuleTileEditor.OnInspectorGUI()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_DrawCustomFields_System_Boolean_">RuleTileEditor.DrawCustomFields(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RuleOnGUI_UnityEngine_Rect_UnityEngine_Vector3Int_System_Int32_">RuleTileEditor.RuleOnGUI(Rect, Vector3Int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RuleTooltipOnGUI_UnityEngine_Rect_System_Int32_">RuleTileEditor.RuleTooltipOnGUI(Rect, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RuleTransformOnGUI_UnityEngine_Rect_UnityEngine_RuleTile_TilingRuleOutput_Transform_">RuleTileEditor.RuleTransformOnGUI(Rect, RuleTile.TilingRuleOutput.Transform)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RuleNeighborUpdate_UnityEngine_Rect_UnityEngine_RuleTile_TilingRule_System_Collections_Generic_Dictionary_UnityEngine_Vector3Int_System_Int32__UnityEngine_Vector3Int_">RuleTileEditor.RuleNeighborUpdate(Rect, RuleTile.TilingRule, Dictionary&lt;Vector3Int, int&gt;, Vector3Int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RuleTransformUpdate_UnityEngine_Rect_UnityEngine_RuleTile_TilingRule_">RuleTileEditor.RuleTransformUpdate(Rect, RuleTile.TilingRule)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_ContainsMousePosition_UnityEngine_Rect_">RuleTileEditor.ContainsMousePosition(Rect)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_GetMouseChange">RuleTileEditor.GetMouseChange()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RuleMatrixIconOnGUI_UnityEngine_RuleTile_TilingRule_System_Collections_Generic_Dictionary_UnityEngine_Vector3Int_System_Int32__UnityEngine_Vector3Int_UnityEngine_Rect_">RuleTileEditor.RuleMatrixIconOnGUI(RuleTile.TilingRule, Dictionary&lt;Vector3Int, int&gt;, Vector3Int, Rect)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_SpriteOnGUI_UnityEngine_Rect_UnityEngine_RuleTile_TilingRuleOutput_">RuleTileEditor.SpriteOnGUI(Rect, RuleTile.TilingRuleOutput)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RuleInspectorOnGUI_UnityEngine_Rect_UnityEngine_RuleTile_TilingRuleOutput_">RuleTileEditor.RuleInspectorOnGUI(Rect, RuleTile.TilingRuleOutput)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_HasPreviewGUI">RuleTileEditor.HasPreviewGUI()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_OnPreviewGUI_UnityEngine_Rect_UnityEngine_GUIStyle_">RuleTileEditor.OnPreviewGUI(Rect, GUIStyle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_DestroyPreview">RuleTileEditor.DestroyPreview()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_RenderStaticPreview_System_String_UnityEngine_Object___System_Int32_System_Int32_">RuleTileEditor.RenderStaticPreview(string, Object[], int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_Base64ToTexture_System_String_">RuleTileEditor.Base64ToTexture(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_CopyAllRules_UnityEditor_MenuCommand_">RuleTileEditor.CopyAllRules(MenuCommand)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_PasteRules_UnityEditor_MenuCommand_">RuleTileEditor.PasteRules(MenuCommand)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_arrows">RuleTileEditor.arrows</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_autoTransforms">RuleTileEditor.autoTransforms</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.RuleTileEditor.html#UnityEditor_RuleTileEditor_tile">RuleTileEditor.tile</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEditor_HexagonalRuleTileEditor__ctor_" data-uid="UnityEditor.HexagonalRuleTileEditor.#ctor*"></a>
+
+  <h3 id="UnityEditor_HexagonalRuleTileEditor__ctor" data-uid="UnityEditor.HexagonalRuleTileEditor.#ctor">
+  HexagonalRuleTileEditor()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HexagonalRuleTileEditor()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEditor_HexagonalRuleTileEditor_hexTile_" data-uid="UnityEditor.HexagonalRuleTileEditor.hexTile*"></a>
+
+  <h3 id="UnityEditor_HexagonalRuleTileEditor_hexTile" data-uid="UnityEditor.HexagonalRuleTileEditor.hexTile">
+  hexTile
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HexagonalRuleTile hexTile { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.HexagonalRuleTile.html">HexagonalRuleTile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEditor_HexagonalRuleTileEditor_CreatePreview_" data-uid="UnityEditor.HexagonalRuleTileEditor.CreatePreview*"></a>
+
+  <h3 id="UnityEditor_HexagonalRuleTileEditor_CreatePreview" data-uid="UnityEditor.HexagonalRuleTileEditor.CreatePreview">
+  CreatePreview()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void CreatePreview()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_HexagonalRuleTileEditor_GetArrowIndex_" data-uid="UnityEditor.HexagonalRuleTileEditor.GetArrowIndex*"></a>
+
+  <h3 id="UnityEditor_HexagonalRuleTileEditor_GetArrowIndex_UnityEngine_Vector3Int_" data-uid="UnityEditor.HexagonalRuleTileEditor.GetArrowIndex(UnityEngine.Vector3Int)">
+  GetArrowIndex(Vector3Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetArrowIndex(Vector3Int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector3Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_HexagonalRuleTileEditor_GetMatrixSize_" data-uid="UnityEditor.HexagonalRuleTileEditor.GetMatrixSize*"></a>
+
+  <h3 id="UnityEditor_HexagonalRuleTileEditor_GetMatrixSize_UnityEngine_BoundsInt_" data-uid="UnityEditor.HexagonalRuleTileEditor.GetMatrixSize(UnityEngine.BoundsInt)">
+  GetMatrixSize(BoundsInt)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector2 GetMatrixSize(BoundsInt bounds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bounds</code> <span class="xref">BoundsInt</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_HexagonalRuleTileEditor_GetRuleGUIBounds_" data-uid="UnityEditor.HexagonalRuleTileEditor.GetRuleGUIBounds*"></a>
+
+  <h3 id="UnityEditor_HexagonalRuleTileEditor_GetRuleGUIBounds_UnityEngine_BoundsInt_UnityEngine_RuleTile_TilingRule_" data-uid="UnityEditor.HexagonalRuleTileEditor.GetRuleGUIBounds(UnityEngine.BoundsInt,UnityEngine.RuleTile.TilingRule)">
+  GetRuleGUIBounds(BoundsInt, TilingRule)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override BoundsInt GetRuleGUIBounds(BoundsInt bounds, RuleTile.TilingRule rule)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bounds</code> <span class="xref">BoundsInt</span></dt>
+    <dd></dd>
+    <dt><code>rule</code> <a class="xref" href="UnityEngine.RuleTile.html">RuleTile</a>.<a class="xref" href="UnityEngine.RuleTile.TilingRule.html">TilingRule</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BoundsInt</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_HexagonalRuleTileEditor_RuleMatrixOnGUI_" data-uid="UnityEditor.HexagonalRuleTileEditor.RuleMatrixOnGUI*"></a>
+
+  <h3 id="UnityEditor_HexagonalRuleTileEditor_RuleMatrixOnGUI_UnityEngine_RuleTile_UnityEngine_Rect_UnityEngine_BoundsInt_UnityEngine_RuleTile_TilingRule_" data-uid="UnityEditor.HexagonalRuleTileEditor.RuleMatrixOnGUI(UnityEngine.RuleTile,UnityEngine.Rect,UnityEngine.BoundsInt,UnityEngine.RuleTile.TilingRule)">
+  RuleMatrixOnGUI(RuleTile, Rect, BoundsInt, TilingRule)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RuleMatrixOnGUI(RuleTile tile, Rect rect, BoundsInt bounds, RuleTile.TilingRule tilingRule)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="UnityEngine.RuleTile.html">RuleTile</a></dt>
+    <dd></dd>
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>bounds</code> <span class="xref">BoundsInt</span></dt>
+    <dd></dd>
+    <dt><code>tilingRule</code> <a class="xref" href="UnityEngine.RuleTile.html">RuleTile</a>.<a class="xref" href="UnityEngine.RuleTile.TilingRule.html">TilingRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

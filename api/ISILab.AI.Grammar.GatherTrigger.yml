@@ -1,0 +1,672 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Grammar.GatherTrigger
+  commentId: T:ISILab.AI.Grammar.GatherTrigger
+  id: GatherTrigger
+  parent: ISILab.AI.Grammar
+  children:
+  - ISILab.AI.Grammar.GatherTrigger.#ctor
+  - ISILab.AI.Grammar.GatherTrigger.CanComplete
+  - ISILab.AI.Grammar.GatherTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  langs:
+  - csharp
+  - vb
+  name: GatherTrigger
+  nameWithType: GatherTrigger
+  fullName: ISILab.AI.Grammar.GatherTrigger
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: 'public class GatherTrigger : QuestTrigger'
+    content.vb: Public Class GatherTrigger Inherits QuestTrigger
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  inheritedMembers:
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
+- uid: ISILab.AI.Grammar.GatherTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  commentId: M:ISILab.AI.Grammar.GatherTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  id: SetData(ISILab.LBS.Components.QuestNodeData)
+  parent: ISILab.AI.Grammar.GatherTrigger
+  langs:
+  - csharp
+  - vb
+  name: SetData(QuestNodeData)
+  nameWithType: GatherTrigger.SetData(QuestNodeData)
+  fullName: ISILab.AI.Grammar.GatherTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: protected override void SetData(QuestNodeData data)
+    parameters:
+    - id: data
+      type: ISILab.LBS.Components.QuestNodeData
+    content.vb: Protected Overrides Sub SetData(data As QuestNodeData)
+  overridden: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  overload: ISILab.AI.Grammar.GatherTrigger.SetData*
+- uid: ISILab.AI.Grammar.GatherTrigger.CanComplete
+  commentId: M:ISILab.AI.Grammar.GatherTrigger.CanComplete
+  id: CanComplete
+  parent: ISILab.AI.Grammar.GatherTrigger
+  langs:
+  - csharp
+  - vb
+  name: CanComplete()
+  nameWithType: GatherTrigger.CanComplete()
+  fullName: ISILab.AI.Grammar.GatherTrigger.CanComplete()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: protected override bool CanComplete()
+    return:
+      type: System.Boolean
+    content.vb: Protected Overrides Function CanComplete() As Boolean
+  overridden: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
+  overload: ISILab.AI.Grammar.GatherTrigger.CanComplete*
+- uid: ISILab.AI.Grammar.GatherTrigger.#ctor
+  commentId: M:ISILab.AI.Grammar.GatherTrigger.#ctor
+  id: '#ctor'
+  parent: ISILab.AI.Grammar.GatherTrigger
+  langs:
+  - csharp
+  - vb
+  name: GatherTrigger()
+  nameWithType: GatherTrigger.GatherTrigger()
+  fullName: ISILab.AI.Grammar.GatherTrigger.GatherTrigger()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public GatherTrigger()
+    content.vb: Public Sub New()
+  overload: ISILab.AI.Grammar.GatherTrigger.#ctor*
+  nameWithType.vb: GatherTrigger.New()
+  fullName.vb: ISILab.AI.Grammar.GatherTrigger.New()
+  name.vb: New()
+references:
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  name: QuestTrigger
+  nameWithType: QuestTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
+  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_node
+  name: node
+  nameWithType: QuestTrigger.node
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
+  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_BoxCollider
+  name: BoxCollider
+  nameWithType: QuestTrigger.BoxCollider
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
+  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_state
+  name: state
+  nameWithType: QuestTrigger.state
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_AddGo_UnityEngine_GameObject_
+  name: AddGo(GameObject)
+  nameWithType: QuestTrigger.AddGo(GameObject)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
+    name: AddGo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_AddGo_UnityEngine_GameObject_
+  - name: (
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
+    name: AddGo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_AddGo_UnityEngine_GameObject_
+  - name: (
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_RemoveGo_UnityEngine_GameObject_
+  name: RemoveGo(GameObject)
+  nameWithType: QuestTrigger.RemoveGo(GameObject)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
+    name: RemoveGo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_RemoveGo_UnityEngine_GameObject_
+  - name: (
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
+    name: RemoveGo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_RemoveGo_UnityEngine_GameObject_
+  - name: (
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_EnsureCollider
+  name: EnsureCollider()
+  nameWithType: QuestTrigger.EnsureCollider()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
+    name: EnsureCollider
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_EnsureCollider
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
+    name: EnsureCollider
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_EnsureCollider
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Init
+  name: Init()
+  nameWithType: QuestTrigger.Init()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
+    name: Init
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Init
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
+    name: Init
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Init
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetNode_ISILab_LBS_Components_QuestNode_
+  name: SetNode(QuestNode)
+  nameWithType: QuestTrigger.SetNode(QuestNode)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
+    name: SetNode
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetNode_ISILab_LBS_Components_QuestNode_
+  - name: (
+  - uid: ISILab.LBS.Components.QuestNode
+    name: QuestNode
+    isExternal: true
+    href: ISILab.LBS.Components.QuestNode.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
+    name: SetNode
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetNode_ISILab_LBS_Components_QuestNode_
+  - name: (
+  - uid: ISILab.LBS.Components.QuestNode
+    name: QuestNode
+    isExternal: true
+    href: ISILab.LBS.Components.QuestNode.html
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetSize_UnityEngine_Vector3_
+  name: SetSize(Vector3)
+  nameWithType: QuestTrigger.SetSize(Vector3)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
+    name: SetSize
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetSize_UnityEngine_Vector3_
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
+    name: SetSize
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetSize_UnityEngine_Vector3_
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_OnTriggerEnter_UnityEngine_Collider_
+  name: OnTriggerEnter(Collider)
+  nameWithType: QuestTrigger.OnTriggerEnter(Collider)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
+    name: OnTriggerEnter
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_OnTriggerEnter_UnityEngine_Collider_
+  - name: (
+  - uid: UnityEngine.Collider
+    name: Collider
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
+    name: OnTriggerEnter
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_OnTriggerEnter_UnityEngine_Collider_
+  - name: (
+  - uid: UnityEngine.Collider
+    name: Collider
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_IsPlayer_UnityEngine_Collider_
+  name: IsPlayer(Collider)
+  nameWithType: QuestTrigger.IsPlayer(Collider)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
+    name: IsPlayer
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_IsPlayer_UnityEngine_Collider_
+  - name: (
+  - uid: UnityEngine.Collider
+    name: Collider
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
+    name: IsPlayer
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_IsPlayer_UnityEngine_Collider_
+  - name: (
+  - uid: UnityEngine.Collider
+    name: Collider
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_TryComplete
+  name: TryComplete()
+  nameWithType: QuestTrigger.TryComplete()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
+    name: TryComplete
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_TryComplete
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
+    name: TryComplete
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_TryComplete
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_NodeID
+  name: NodeID
+  nameWithType: QuestTrigger.NodeID
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_State
+  name: State
+  nameWithType: QuestTrigger.State
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Node
+  name: Node
+  nameWithType: QuestTrigger.Node
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_OwnerBranchNode
+  name: OwnerBranchNode
+  nameWithType: QuestTrigger.OwnerBranchNode
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Destinations
+  name: Destinations
+  nameWithType: QuestTrigger.Destinations
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
+  commentId: E:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_OnTriggerCompleted
+  name: OnTriggerCompleted
+  nameWithType: QuestTrigger.OnTriggerCompleted
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetData_ISILab_LBS_Components_QuestNodeData_
+  name: SetData(QuestNodeData)
+  nameWithType: QuestTrigger.SetData(QuestNodeData)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+    name: SetData
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetData_ISILab_LBS_Components_QuestNodeData_
+  - name: (
+  - uid: ISILab.LBS.Components.QuestNodeData
+    name: QuestNodeData
+    isExternal: true
+    href: ISILab.LBS.Components.QuestNodeData.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
+    name: SetData
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetData_ISILab_LBS_Components_QuestNodeData_
+  - name: (
+  - uid: ISILab.LBS.Components.QuestNodeData
+    name: QuestNodeData
+    isExternal: true
+    href: ISILab.LBS.Components.QuestNodeData.html
+  - name: )
+- uid: ISILab.AI.Grammar.GatherTrigger.SetData*
+  commentId: Overload:ISILab.AI.Grammar.GatherTrigger.SetData
+  isExternal: true
+  href: ISILab.AI.Grammar.GatherTrigger.html#ISILab_AI_Grammar_GatherTrigger_SetData_ISILab_LBS_Components_QuestNodeData_
+  name: SetData
+  nameWithType: GatherTrigger.SetData
+  fullName: ISILab.AI.Grammar.GatherTrigger.SetData
+- uid: ISILab.LBS.Components.QuestNodeData
+  commentId: T:ISILab.LBS.Components.QuestNodeData
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html
+  name: QuestNodeData
+  nameWithType: QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_CanComplete
+  name: CanComplete()
+  nameWithType: QuestTrigger.CanComplete()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
+    name: CanComplete
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_CanComplete
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
+    name: CanComplete
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_CanComplete
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GatherTrigger.CanComplete*
+  commentId: Overload:ISILab.AI.Grammar.GatherTrigger.CanComplete
+  isExternal: true
+  href: ISILab.AI.Grammar.GatherTrigger.html#ISILab_AI_Grammar_GatherTrigger_CanComplete
+  name: CanComplete
+  nameWithType: GatherTrigger.CanComplete
+  fullName: ISILab.AI.Grammar.GatherTrigger.CanComplete
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.AI.Grammar.GatherTrigger.#ctor*
+  commentId: Overload:ISILab.AI.Grammar.GatherTrigger.#ctor
+  isExternal: true
+  href: ISILab.AI.Grammar.GatherTrigger.html#ISILab_AI_Grammar_GatherTrigger__ctor
+  name: GatherTrigger
+  nameWithType: GatherTrigger.GatherTrigger
+  fullName: ISILab.AI.Grammar.GatherTrigger.GatherTrigger
+  nameWithType.vb: GatherTrigger.New
+  fullName.vb: ISILab.AI.Grammar.GatherTrigger.New
+  name.vb: New

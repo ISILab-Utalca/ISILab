@@ -1,0 +1,267 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  commentId: T:ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  id: EvaluatorConfigurationWindow
+  parent: ISILab.LBS.Editor
+  children:
+  - ISILab.LBS.Editor.EvaluatorConfigurationWindow.#ctor
+  - ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset
+  - ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create(ISILab.LBS.AI.Categorization.EvaluatorConfiguration)
+  - ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorConfigurationWindow
+  nameWithType: EvaluatorConfigurationWindow
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: 'public class EvaluatorConfigurationWindow : EditorWindow'
+    content.vb: Public Class EvaluatorConfigurationWindow Inherits EditorWindow
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create(ISILab.LBS.AI.Categorization.EvaluatorConfiguration)
+  commentId: M:ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create(ISILab.LBS.AI.Categorization.EvaluatorConfiguration)
+  id: Create(ISILab.LBS.AI.Categorization.EvaluatorConfiguration)
+  parent: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  langs:
+  - csharp
+  - vb
+  name: Create(EvaluatorConfiguration)
+  nameWithType: EvaluatorConfigurationWindow.Create(EvaluatorConfiguration)
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create(ISILab.LBS.AI.Categorization.EvaluatorConfiguration)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public static EvaluatorConfigurationWindow Create(EvaluatorConfiguration config)
+    parameters:
+    - id: config
+      type: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    return:
+      type: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+    content.vb: Public Shared Function Create(config As EvaluatorConfiguration) As EvaluatorConfigurationWindow
+  overload: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create*
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.#ctor
+  commentId: M:ISILab.LBS.Editor.EvaluatorConfigurationWindow.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorConfigurationWindow()
+  nameWithType: EvaluatorConfigurationWindow.EvaluatorConfigurationWindow()
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.EvaluatorConfigurationWindow()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public EvaluatorConfigurationWindow()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Editor.EvaluatorConfigurationWindow.#ctor*
+  nameWithType.vb: EvaluatorConfigurationWindow.New()
+  fullName.vb: ISILab.LBS.Editor.EvaluatorConfigurationWindow.New()
+  name.vb: New()
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance
+  commentId: P:ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance
+  id: Instance
+  parent: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: EvaluatorConfigurationWindow.Instance
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public static EvaluatorConfigurationWindow Instance { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+    content.vb: Public Shared ReadOnly Property Instance As EvaluatorConfigurationWindow
+  overload: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance*
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset
+  commentId: P:ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset
+  id: Asset
+  parent: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  langs:
+  - csharp
+  - vb
+  name: Asset
+  nameWithType: EvaluatorConfigurationWindow.Asset
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public Object Asset { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Object
+    content.vb: Public ReadOnly Property Asset As [Object]
+  overload: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset*
+references:
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create*
+  commentId: Overload:ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create
+  isExternal: true
+  href: ISILab.LBS.Editor.EvaluatorConfigurationWindow.html#ISILab_LBS_Editor_EvaluatorConfigurationWindow_Create_ISILab_LBS_AI_Categorization_EvaluatorConfiguration_
+  name: Create
+  nameWithType: EvaluatorConfigurationWindow.Create
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Create
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  parent: ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  name: EvaluatorConfiguration
+  nameWithType: EvaluatorConfiguration
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  commentId: T:ISILab.LBS.Editor.EvaluatorConfigurationWindow
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.EvaluatorConfigurationWindow.html
+  name: EvaluatorConfigurationWindow
+  nameWithType: EvaluatorConfigurationWindow
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.#ctor*
+  commentId: Overload:ISILab.LBS.Editor.EvaluatorConfigurationWindow.#ctor
+  isExternal: true
+  href: ISILab.LBS.Editor.EvaluatorConfigurationWindow.html#ISILab_LBS_Editor_EvaluatorConfigurationWindow__ctor
+  name: EvaluatorConfigurationWindow
+  nameWithType: EvaluatorConfigurationWindow.EvaluatorConfigurationWindow
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.EvaluatorConfigurationWindow
+  nameWithType.vb: EvaluatorConfigurationWindow.New
+  fullName.vb: ISILab.LBS.Editor.EvaluatorConfigurationWindow.New
+  name.vb: New
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance*
+  commentId: Overload:ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance
+  isExternal: true
+  href: ISILab.LBS.Editor.EvaluatorConfigurationWindow.html#ISILab_LBS_Editor_EvaluatorConfigurationWindow_Instance
+  name: Instance
+  nameWithType: EvaluatorConfigurationWindow.Instance
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Instance
+- uid: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset*
+  commentId: Overload:ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset
+  isExternal: true
+  href: ISILab.LBS.Editor.EvaluatorConfigurationWindow.html#ISILab_LBS_Editor_EvaluatorConfigurationWindow_Asset
+  name: Asset
+  nameWithType: EvaluatorConfigurationWindow.Asset
+  fullName: ISILab.LBS.Editor.EvaluatorConfigurationWindow.Asset
+- uid: UnityEngine.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object

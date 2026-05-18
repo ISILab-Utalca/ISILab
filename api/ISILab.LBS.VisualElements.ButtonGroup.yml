@@ -1,0 +1,808 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.ButtonGroup
+  commentId: T:ISILab.LBS.VisualElements.ButtonGroup
+  id: ButtonGroup
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.ButtonGroup.#ctor
+  - ISILab.LBS.VisualElements.ButtonGroup.Add(UnityEngine.UIElements.VisualElement)
+  - ISILab.LBS.VisualElements.ButtonGroup.BaseColor
+  - ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(ISILab.LBS.IGrupable)
+  - ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(System.String)
+  - ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount
+  - ISILab.LBS.VisualElements.ButtonGroup.Choices
+  - ISILab.LBS.VisualElements.ButtonGroup.Clear
+  - ISILab.LBS.VisualElements.ButtonGroup.Index
+  - ISILab.LBS.VisualElements.ButtonGroup.Init(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.IUxmlAttributes,UnityEngine.UIElements.CreationContext)
+  - ISILab.LBS.VisualElements.ButtonGroup.OnChangeTab
+  - ISILab.LBS.VisualElements.ButtonGroup.Remove(UnityEngine.UIElements.VisualElement)
+  - ISILab.LBS.VisualElements.ButtonGroup.RemoveAt(System.Int32)
+  - ISILab.LBS.VisualElements.ButtonGroup.SelectedColor
+  - ISILab.LBS.VisualElements.ButtonGroup.SetChoices(System.String)
+  - ISILab.LBS.VisualElements.ButtonGroup.allowSwitchOff
+  - ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription
+  langs:
+  - csharp
+  - vb
+  name: ButtonGroup
+  nameWithType: ButtonGroup
+  fullName: ISILab.LBS.VisualElements.ButtonGroup
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class ButtonGroup : GroupBox'
+    content.vb: Public Class ButtonGroup Inherits GroupBox
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.ButtonGroup.allowSwitchOff
+  commentId: F:ISILab.LBS.VisualElements.ButtonGroup.allowSwitchOff
+  id: allowSwitchOff
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: allowSwitchOff
+  nameWithType: ButtonGroup.allowSwitchOff
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.allowSwitchOff
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool allowSwitchOff
+    return:
+      type: System.Boolean
+    content.vb: Public allowSwitchOff As Boolean
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Init(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.IUxmlAttributes,UnityEngine.UIElements.CreationContext)
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.Init(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.IUxmlAttributes,UnityEngine.UIElements.CreationContext)
+  id: Init(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.IUxmlAttributes,UnityEngine.UIElements.CreationContext)
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: Init(VisualElement, IUxmlAttributes, CreationContext)
+  nameWithType: ButtonGroup.Init(VisualElement, IUxmlAttributes, CreationContext)
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Init(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.IUxmlAttributes, UnityEngine.UIElements.CreationContext)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc)
+    parameters:
+    - id: ve
+      type: UnityEngine.UIElements.VisualElement
+    - id: bag
+      type: UnityEngine.UIElements.IUxmlAttributes
+    - id: cc
+      type: UnityEngine.UIElements.CreationContext
+    content.vb: Public Sub Init(ve As VisualElement, bag As IUxmlAttributes, cc As CreationContext)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.Init*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.#ctor
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: ButtonGroup()
+  nameWithType: ButtonGroup.ButtonGroup()
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.ButtonGroup()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ButtonGroup()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.ButtonGroup.#ctor*
+  nameWithType.vb: ButtonGroup.New()
+  fullName.vb: ISILab.LBS.VisualElements.ButtonGroup.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.ButtonGroup.SetChoices(System.String)
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.SetChoices(System.String)
+  id: SetChoices(System.String)
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: SetChoices(string)
+  nameWithType: ButtonGroup.SetChoices(string)
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.SetChoices(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void SetChoices(string choices)
+    parameters:
+    - id: choices
+      type: System.String
+    content.vb: Public Sub SetChoices(choices As String)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.SetChoices*
+  nameWithType.vb: ButtonGroup.SetChoices(String)
+  fullName.vb: ISILab.LBS.VisualElements.ButtonGroup.SetChoices(String)
+  name.vb: SetChoices(String)
+- uid: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(ISILab.LBS.IGrupable)
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(ISILab.LBS.IGrupable)
+  id: ChangeActive(ISILab.LBS.IGrupable)
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: ChangeActive(IGrupable)
+  nameWithType: ButtonGroup.ChangeActive(IGrupable)
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(ISILab.LBS.IGrupable)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void ChangeActive(IGrupable active)
+    parameters:
+    - id: active
+      type: ISILab.LBS.IGrupable
+    content.vb: Public Sub ChangeActive(active As IGrupable)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(System.String)
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(System.String)
+  id: ChangeActive(System.String)
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: ChangeActive(string)
+  nameWithType: ButtonGroup.ChangeActive(string)
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void ChangeActive(string label)
+    parameters:
+    - id: label
+      type: System.String
+    content.vb: Public Sub ChangeActive(label As String)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive*
+  nameWithType.vb: ButtonGroup.ChangeActive(String)
+  fullName.vb: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive(String)
+  name.vb: ChangeActive(String)
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Remove(UnityEngine.UIElements.VisualElement)
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.Remove(UnityEngine.UIElements.VisualElement)
+  id: Remove(UnityEngine.UIElements.VisualElement)
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: Remove(VisualElement)
+  nameWithType: ButtonGroup.Remove(VisualElement)
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Remove(UnityEngine.UIElements.VisualElement)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void Remove(VisualElement element)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Sub Remove(element As VisualElement)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.Remove*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.RemoveAt(System.Int32)
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.RemoveAt(System.Int32)
+  id: RemoveAt(System.Int32)
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: RemoveAt(int)
+  nameWithType: ButtonGroup.RemoveAt(int)
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.RemoveAt(int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void RemoveAt(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub RemoveAt(index As Integer)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.RemoveAt*
+  nameWithType.vb: ButtonGroup.RemoveAt(Integer)
+  fullName.vb: ISILab.LBS.VisualElements.ButtonGroup.RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Add(UnityEngine.UIElements.VisualElement)
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.Add(UnityEngine.UIElements.VisualElement)
+  id: Add(UnityEngine.UIElements.VisualElement)
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: Add(VisualElement)
+  nameWithType: ButtonGroup.Add(VisualElement)
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Add(UnityEngine.UIElements.VisualElement)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void Add(VisualElement element)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Sub Add(element As VisualElement)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.Add*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Clear
+  commentId: M:ISILab.LBS.VisualElements.ButtonGroup.Clear
+  id: Clear
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ButtonGroup.Clear()
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Clear()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: ISILab.LBS.VisualElements.ButtonGroup.Clear*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription
+  commentId: P:ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription
+  id: uxmlChildElementsDescription
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: uxmlChildElementsDescription
+  nameWithType: ButtonGroup.uxmlChildElementsDescription
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public IEnumerable<UxmlChildElementDescription> uxmlChildElementsDescription { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{UnityEngine.UIElements.UxmlChildElementDescription}
+    content.vb: Public ReadOnly Property uxmlChildElementsDescription As IEnumerable(Of UxmlChildElementDescription)
+  overload: ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.BaseColor
+  commentId: P:ISILab.LBS.VisualElements.ButtonGroup.BaseColor
+  id: BaseColor
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: BaseColor
+  nameWithType: ButtonGroup.BaseColor
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.BaseColor
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Color BaseColor { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property BaseColor As Color
+  overload: ISILab.LBS.VisualElements.ButtonGroup.BaseColor*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.SelectedColor
+  commentId: P:ISILab.LBS.VisualElements.ButtonGroup.SelectedColor
+  id: SelectedColor
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: SelectedColor
+  nameWithType: ButtonGroup.SelectedColor
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.SelectedColor
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Color SelectedColor { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property SelectedColor As Color
+  overload: ISILab.LBS.VisualElements.ButtonGroup.SelectedColor*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Index
+  commentId: P:ISILab.LBS.VisualElements.ButtonGroup.Index
+  id: Index
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: ButtonGroup.Index
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Index
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public int Index { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Index As Integer
+  overload: ISILab.LBS.VisualElements.ButtonGroup.Index*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Choices
+  commentId: P:ISILab.LBS.VisualElements.ButtonGroup.Choices
+  id: Choices
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: Choices
+  nameWithType: ButtonGroup.Choices
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Choices
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public string Choices { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Choices As String
+  overload: ISILab.LBS.VisualElements.ButtonGroup.Choices*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount
+  commentId: P:ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount
+  id: ChoiceCount
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: ChoiceCount
+  nameWithType: ButtonGroup.ChoiceCount
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public int ChoiceCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ChoiceCount As Integer
+  overload: ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount*
+- uid: ISILab.LBS.VisualElements.ButtonGroup.OnChangeTab
+  commentId: E:ISILab.LBS.VisualElements.ButtonGroup.OnChangeTab
+  id: OnChangeTab
+  parent: ISILab.LBS.VisualElements.ButtonGroup
+  langs:
+  - csharp
+  - vb
+  name: OnChangeTab
+  nameWithType: ButtonGroup.OnChangeTab
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.OnChangeTab
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public event Action<string> OnChangeTab
+    return:
+      type: System.Action{System.String}
+    content.vb: Public Event OnChangeTab As Action(Of String)
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Init*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.Init
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_Init_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_IUxmlAttributes_UnityEngine_UIElements_CreationContext_
+  name: Init
+  nameWithType: ButtonGroup.Init
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Init
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: UnityEngine.UIElements.IUxmlAttributes
+  isExternal: true
+  name: IUxmlAttributes
+  nameWithType: IUxmlAttributes
+  fullName: UnityEngine.UIElements.IUxmlAttributes
+- uid: UnityEngine.UIElements.CreationContext
+  isExternal: true
+  name: CreationContext
+  nameWithType: CreationContext
+  fullName: UnityEngine.UIElements.CreationContext
+- uid: ISILab.LBS.VisualElements.ButtonGroup.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup__ctor
+  name: ButtonGroup
+  nameWithType: ButtonGroup.ButtonGroup
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.ButtonGroup
+  nameWithType.vb: ButtonGroup.New
+  fullName.vb: ISILab.LBS.VisualElements.ButtonGroup.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.ButtonGroup.SetChoices*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.SetChoices
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_SetChoices_System_String_
+  name: SetChoices
+  nameWithType: ButtonGroup.SetChoices
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.SetChoices
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.ChangeActive
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_ChangeActive_ISILab_LBS_IGrupable_
+  name: ChangeActive
+  nameWithType: ButtonGroup.ChangeActive
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.ChangeActive
+- uid: ISILab.LBS.IGrupable
+  commentId: T:ISILab.LBS.IGrupable
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html
+  name: IGrupable
+  nameWithType: IGrupable
+  fullName: ISILab.LBS.IGrupable
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Remove*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.Remove
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_Remove_UnityEngine_UIElements_VisualElement_
+  name: Remove
+  nameWithType: ButtonGroup.Remove
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Remove
+- uid: ISILab.LBS.VisualElements.ButtonGroup.RemoveAt*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.RemoveAt
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_RemoveAt_System_Int32_
+  name: RemoveAt
+  nameWithType: ButtonGroup.RemoveAt
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.RemoveAt
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Add*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.Add
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_Add_UnityEngine_UIElements_VisualElement_
+  name: Add
+  nameWithType: ButtonGroup.Add
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Add
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Clear*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.Clear
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_Clear
+  name: Clear
+  nameWithType: ButtonGroup.Clear
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Clear
+- uid: ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_uxmlChildElementsDescription
+  name: uxmlChildElementsDescription
+  nameWithType: ButtonGroup.uxmlChildElementsDescription
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.uxmlChildElementsDescription
+- uid: System.Collections.Generic.IEnumerable{UnityEngine.UIElements.UxmlChildElementDescription}
+  commentId: T:System.Collections.Generic.IEnumerable{UnityEngine.UIElements.UxmlChildElementDescription}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<UxmlChildElementDescription>
+  nameWithType: IEnumerable<UxmlChildElementDescription>
+  fullName: System.Collections.Generic.IEnumerable<UnityEngine.UIElements.UxmlChildElementDescription>
+  nameWithType.vb: IEnumerable(Of UxmlChildElementDescription)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of UnityEngine.UIElements.UxmlChildElementDescription)
+  name.vb: IEnumerable(Of UxmlChildElementDescription)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: UnityEngine.UIElements.UxmlChildElementDescription
+    name: UxmlChildElementDescription
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.UIElements.UxmlChildElementDescription
+    name: UxmlChildElementDescription
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.VisualElements.ButtonGroup.BaseColor*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.BaseColor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_BaseColor
+  name: BaseColor
+  nameWithType: ButtonGroup.BaseColor
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.BaseColor
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.VisualElements.ButtonGroup.SelectedColor*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.SelectedColor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_SelectedColor
+  name: SelectedColor
+  nameWithType: ButtonGroup.SelectedColor
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.SelectedColor
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Index*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.Index
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_Index
+  name: Index
+  nameWithType: ButtonGroup.Index
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Index
+- uid: ISILab.LBS.VisualElements.ButtonGroup.Choices*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.Choices
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_Choices
+  name: Choices
+  nameWithType: ButtonGroup.Choices
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.Choices
+- uid: ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonGroup.html#ISILab_LBS_VisualElements_ButtonGroup_ChoiceCount
+  name: ChoiceCount
+  nameWithType: ButtonGroup.ChoiceCount
+  fullName: ISILab.LBS.VisualElements.ButtonGroup.ChoiceCount
+- uid: System.Action{System.String}
+  commentId: T:System.Action{System.String}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<string>
+  nameWithType: Action<string>
+  fullName: System.Action<string>
+  nameWithType.vb: Action(Of String)
+  fullName.vb: System.Action(Of String)
+  name.vb: Action(Of String)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

@@ -1,0 +1,768 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  id: EvaluatorConfiguration.GroupedTagsField
+  parent: ISILab.LBS.AI.Categorization
+  children:
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.#ctor(System.String,System.Collections.Generic.List{System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}},System.String)
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorConfiguration.GroupedTagsField
+  nameWithType: EvaluatorConfiguration.GroupedTagsField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: 'public class EvaluatorConfiguration.GroupedTagsField : EvaluatorConfiguration.EvaluatorConfigurationField'
+    content.vb: Public Class EvaluatorConfiguration.GroupedTagsField Inherits EvaluatorConfiguration.EvaluatorConfigurationField
+  inheritance:
+  - System.Object
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  inheritedMembers:
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+  - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.#ctor(System.String,System.Collections.Generic.List{System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}},System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.#ctor(System.String,System.Collections.Generic.List{System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}},System.String)
+  id: '#ctor(System.String,System.Collections.Generic.List{System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}},System.String)'
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  langs:
+  - csharp
+  - vb
+  name: GroupedTagsField(string, List<Tuple<string, LBSCharacteristic>>, string)
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.GroupedTagsField(string, List<Tuple<string, LBSCharacteristic>>, string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GroupedTagsField(string, System.Collections.Generic.List<System.Tuple<string, ISILab.LBS.Characteristics.LBSCharacteristic>>, string)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public GroupedTagsField(string groupName, List<Tuple<string, LBSCharacteristic>> tagsNamesAndChars, string tooltip = "")
+    parameters:
+    - id: groupName
+      type: System.String
+    - id: tagsNamesAndChars
+      type: System.Collections.Generic.List{System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}}
+    - id: tooltip
+      type: System.String
+    content.vb: Public Sub New(groupName As String, tagsNamesAndChars As List(Of Tuple(Of String, LBSCharacteristic)), tooltip As String = "")
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.#ctor*
+  nameWithType.vb: EvaluatorConfiguration.GroupedTagsField.New(String, List(Of Tuple(Of String, LBSCharacteristic)), String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.New(String, System.Collections.Generic.List(Of System.Tuple(Of String, ISILab.LBS.Characteristics.LBSCharacteristic)), String)
+  name.vb: New(String, List(Of Tuple(Of String, LBSCharacteristic)), String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField
+  id: GetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  langs:
+  - csharp
+  - vb
+  name: GetField()
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.GetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: public override VisualElement GetField()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Overrides Function GetField() As VisualElement
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField
+  id: SetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  langs:
+  - csharp
+  - vb
+  name: SetField()
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.SetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: protected override void SetField()
+    content.vb: Protected Overrides Sub SetField()
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue
+  id: GetValue
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  langs:
+  - csharp
+  - vb
+  name: GetValue()
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.GetValue()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: public override object GetValue()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function GetValue() As Object
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+  id: DisplayTypeName
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  langs:
+  - csharp
+  - vb
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  example: []
+  syntax:
+    content: public override string DisplayTypeName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overrides ReadOnly Property DisplayTypeName As String
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List
+  id: List
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField
+  langs:
+  - csharp
+  - vb
+  name: List
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.List
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  syntax:
+    content: public ListView List { get; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.ListView
+    content.vb: Public ReadOnly Property List As ListView
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List*
+references:
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  parent: ISILab.LBS.AI.Categorization
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  name: EvaluatorConfiguration.EvaluatorConfigurationField
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+    name: EvaluatorConfiguration
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+    name: EvaluatorConfigurationField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_fieldName
+  name: fieldName
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_tooltip
+  name: tooltip
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
+  name: Equals(object)
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.Equals(object)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(object)
+  nameWithType.vb: EvaluatorConfiguration.EvaluatorConfigurationField.Equals(Object)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
+  name: GetHashCode()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.#ctor*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.#ctor
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GroupedTagsField__ctor_System_String_System_Collections_Generic_List_System_Tuple_System_String_ISILab_LBS_Characteristics_LBSCharacteristic___System_String_
+  name: GroupedTagsField
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.GroupedTagsField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GroupedTagsField
+  nameWithType.vb: EvaluatorConfiguration.GroupedTagsField.New
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}}
+  commentId: T:System.Collections.Generic.List{System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Tuple<string, LBSCharacteristic>>
+  nameWithType: List<Tuple<string, LBSCharacteristic>>
+  fullName: System.Collections.Generic.List<System.Tuple<string, ISILab.LBS.Characteristics.LBSCharacteristic>>
+  nameWithType.vb: List(Of Tuple(Of String, LBSCharacteristic))
+  fullName.vb: System.Collections.Generic.List(Of System.Tuple(Of String, ISILab.LBS.Characteristics.LBSCharacteristic))
+  name.vb: List(Of Tuple(Of String, LBSCharacteristic))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic
+    name: LBSCharacteristic
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Characteristics.LBSCharacteristic
+    name: LBSCharacteristic
+    isExternal: true
+    href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
+  name: GetField()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+    name: GetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+    name: GetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GroupedTagsField_GetField
+  name: GetField
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.GetField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetField
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
+  name: SetField()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.SetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+    name: SetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+    name: SetField
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GroupedTagsField_SetField
+  name: SetField
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.SetField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.SetField
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
+  name: GetValue()
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetValue()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue()
+  spec.csharp:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+    name: GetValue
+    isExternal: true
+    href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
+  - name: (
+  - name: )
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GroupedTagsField_GetValue
+  name: GetValue
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.GetValue
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.GetValue
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_DisplayTypeName
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GroupedTagsField_DisplayTypeName
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.DisplayTypeName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List
+  isExternal: true
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_GroupedTagsField_List
+  name: List
+  nameWithType: EvaluatorConfiguration.GroupedTagsField.List
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField.List
+- uid: UnityEngine.UIElements.ListView
+  isExternal: true
+  name: ListView
+  nameWithType: ListView
+  fullName: UnityEngine.UIElements.ListView
