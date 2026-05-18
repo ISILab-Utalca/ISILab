@@ -251,7 +251,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 foreach (var field in terminal.fields)
                 {
-                    if (field is not IBundleFlags filter) continue;
+                    if (field is not IBundleStored filter) continue;
 
                     var matches = population.TileBundleGroup
                         .Where(tbg => filter.HasAnyFlag(tbg.BundleData.Bundle))

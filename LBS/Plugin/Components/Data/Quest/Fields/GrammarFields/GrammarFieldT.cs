@@ -7,7 +7,6 @@ namespace ISILab.AI.Grammar
     [Serializable]
     public abstract class GrammarField<T> : GrammarField
     {
-
         public T value;
 
         public override object Clone()

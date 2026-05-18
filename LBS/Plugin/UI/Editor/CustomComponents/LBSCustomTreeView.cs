@@ -7,18 +7,18 @@ using TreeView = UnityEngine.UIElements.TreeView;
 namespace ISILab.LBS.CustomComponents
 {
     [UxmlElement]
-    public partial class LBSCustomTreeView : TreeView, INotifyValueChanged<List<LBSTreeData>>
+    public partial class LBSCustomTreeView : TreeView, INotifyValueChanged<List<Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData>>
     {
         
         internal static readonly BindingId valueProperty = (BindingId) nameof (value);
         
         // Store the current TreeView data as strings
         private List<TreeViewItemData<string>> treeDataString = new();
-        private List<TreeViewItemData<LBSTreeData>> treeDataRaw = new();
-        private List<LBSTreeData> treeData;
+        private List<TreeViewItemData<Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData>> treeDataRaw = new();
+        private List<Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData> treeData;
 
         [UxmlObjectReference("TreeViewItems")]
-        public List<LBSTreeData> value
+        public List<Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData> value
         {
             get => treeData;
             set
@@ -31,7 +31,7 @@ namespace ISILab.LBS.CustomComponents
                     treeDataRaw.Clear();
                     treeDataString.Clear();
                     
-                    foreach (LBSTreeData treeData in value)
+                    foreach (Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData treeData in value)
                     {
                         
                         treeDataString.Add(treeData.AsTreeDataString());
@@ -154,7 +154,7 @@ namespace ISILab.LBS.CustomComponents
 
         #endregion
 
-        public void SetValueWithoutNotify(List<LBSTreeData> newValue)
+        public void SetValueWithoutNotify(List<Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData> newValue)
         {
             treeData = newValue;
         }
